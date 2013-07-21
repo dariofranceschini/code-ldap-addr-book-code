@@ -23,14 +23,15 @@ define("NEW_ROW",true);
 function show_site_header()
 {
 	global $site_name;
+	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">\n";
 	echo "<html>\n";
 	echo "<head>\n";
 	echo "<title>" . $site_name . "</title>\n";
-	echo "<link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
-	echo "<link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
+	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
+	echo "  <link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
 		. $site_name . "\" href=\"search-plugin.php\">\n";
-	echo "</head>\n";
-	echo "<body>\n";
+	echo "</head>\n\n";
+	echo "<body>\n\n";
 }
 
 // Output the HTML to display the search box
@@ -39,16 +40,16 @@ function show_search_box($initial_value)
 {
 	echo "<form action=\"/\" method=\"get\">\n";
 
-	echo "<p>\n";
-	echo "Search for:\n";
+	echo "  <p>\n";
+	echo "    Search for:\n";
 
-	echo "<input type=\"text\" name=\"filter\" size=50";
+	echo "    <input type=\"text\" name=\"filter\" size=50";
 	if(!empty($initial_value))
 		echo " value=\"" . $initial_value . "\"";
 
-	echo ">\n<input type=\"submit\" value=\"Search\">\n";
-	echo "</p>\n";
-	echo "</form>\n";
+	echo ">\n    <input type=\"submit\" value=\"Search\">\n";
+	echo "  </p>\n";
+	echo "</form>\n\n";
 }
 
 // Show "breadcrumb navigation" version of specified LDAP path
@@ -56,31 +57,35 @@ function show_search_box($initial_value)
 // is displayed with $leaf_icon next to it
 
 // TODO: doesn't work where part of the DN contains an accented
-// character (see user: "James Francois Turner", "Sharon Barnes")
+// character (see user: "James Francois Turner")
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
-        echo "<table>\n  <tr>\n    <td><a href=\"/\"><img border=0 alt=\"\" src=\"addressbook.png\"></td>\n    <td style=\"font-weight:bold;font-size:12pt\"><a href=\"/\">Address Book</a></td>\n";
-        $folder_list = substr($base,0,-strlen($default_base)-1);
-        if($folder_list != "")
-        {
-                $folder_list = ldap_explode_dn2($folder_list,1);
+	echo "<table>\n  <tr>\n    <td><a href=\"/\">"
+		. "<img border=0 alt=\"Address Book\" src=\"addressbook.png\">"
+		. "</a></td>"
+		. "\n    <td style=\"font-weight:bold;font-size:12pt\">"
+		. "<a href=\"/\">Address Book</a></td>\n";
+	$folder_list = substr($base,0,-strlen($default_base)-1);
+	if($folder_list != "")
+	{
+		$folder_list = ldap_explode_dn2($folder_list,1);
 
-//                for($i=count($folder_list)-1;$i>0;$i--)
-                for($i=count($folder_list);$i>0;$i--)
+		for($i=count($folder_list);$i>0;$i--)
 		{
-			echo "    <td>&nbsp;&nbsp;<img alt=\"&gt;\" src=\"right-arrow.png\">&nbsp;&nbsp;</td>\n    <td>";
+			echo "\n    <td>&nbsp;&nbsp;"
+				. "<img alt=\"&gt;\" src=\"right-arrow.png\">"
+				. "&nbsp;&nbsp;</td>\n\n    <td>";
 			if($i==1)
-				echo "<img alt=\"\" src=\"schema/" . $leaf_icon . "\">";
+				echo "<img alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\">";
 			else
-				echo "<img alt=\"\" src=\"schema/folder.png\">";
+				echo "<img alt=\"Folder\" src=\"schema/folder.png\">";
 
-			echo "</td>\n    <td>" . $folder_list[$i-1] . "</td>\n";
-//			echo "    <td>" . mb_convert_encoding($folder_list[$i-1],"HTML-ENTITIES","UTF-8") . "</td>\n";
-
+			echo "</td>\n    <td>" . $folder_list[$i-1]
+				. "</td>\n";
 		}
-        }
-        echo "  </tr>\n</table>\n\n";
+	}
+	echo "  </tr>\n</table>\n\n";
 }
 
 // (Partial) re-implementation standard PHP function ldap_explode_dn,
@@ -102,7 +107,6 @@ function ldap_explode_dn2($dn,$with_attrib)
 
 	return $dn;
 }
-
 
 function current_page_url()
 {
@@ -126,43 +130,43 @@ function current_page_folder_url()
 
 function get_object_class_schema($ldap_server_type = "ad")
 {
-        switch($ldap_server_type)
-        {
-                case "edir";
-                        // Object class data - these items specific to Novell eDirectory
-                        return array(
-                                array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"groupOfNames",           "icon"=>"group24.png",  "is_folder"=>false),
-                                array("name"=>"ncpServer",              "icon"=>"novell-edirectory/server24.png","is_folder"=>false),
-                                array("name"=>"ldapServer",             "icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
-                                array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false),
-                                array("name"=>"nDSPKIKeyMaterial",      "icon"=>"novell-edirectory/key-material.png","is_folder"=>false),
-                                array("name"=>"Volume",                 "icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
-                                array("name"=>"sASService",             "icon"=>"novell-edirectory/security.png", "is_folder"=>false),
-                                array("name"=>"ndsPredicateStats",      "icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-                                array("name"=>"Queue",                  "icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-                                array("name"=>"nLSLicenseServer",       "icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
-                                array("name"=>"ldapGroup",              "icon"=>"novell-edirectory/ldapgroup.png","is_folder"=>false),
-                                array("name"=>"nssfsPool",              "icon"=>"novell-edirectory/raid.png",     "is_folder"=>false)
-                                );
-                        break;
-                case "ad":
-                default:
-                        // Object class data - these items specific to Active Directory
-                        return array(
-                                array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"container",              "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"builtinDomain",          "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"lostAndFound",           "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"msDS-QuotaContainer",    "icon"=>"folder.png",   "is_folder"=>true),
-                                array("name"=>"group",                  "icon"=>"group24.png",  "is_folder"=>false),
-                                array("name"=>"contact",                "icon"=>"contact24.png","is_folder"=>false),
-                                array("name"=>"computer",               "icon"=>"microsoft-active-directory/computer.png", "is_folder"=>false),
-                                array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias.png",     "is_folder"=>false),
-                                array("name"=>"user",                   "icon"=>"user.png",     "is_folder"=>false),
-                                array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false)
-                                );
-        }
+	switch($ldap_server_type)
+	{
+		case "edir";
+			// Object class data - these items specific to Novell eDirectory
+			return array(
+				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"groupOfNames",           "icon"=>"group24.png",  "is_folder"=>false),
+				array("name"=>"ncpServer",              "icon"=>"novell-edirectory/server24.png","is_folder"=>false),
+				array("name"=>"ldapServer",             "icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
+				array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false),
+				array("name"=>"nDSPKIKeyMaterial",      "icon"=>"novell-edirectory/key-material.png","is_folder"=>false),
+				array("name"=>"Volume",                 "icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
+				array("name"=>"sASService",             "icon"=>"novell-edirectory/security.png", "is_folder"=>false),
+				array("name"=>"ndsPredicateStats",      "icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
+				array("name"=>"Queue",                  "icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
+				array("name"=>"nLSLicenseServer",       "icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
+				array("name"=>"ldapGroup",              "icon"=>"novell-edirectory/ldapgroup.png","is_folder"=>false),
+				array("name"=>"nssfsPool",              "icon"=>"novell-edirectory/raid.png",     "is_folder"=>false)
+				);
+			break;
+		case "ad":
+		default:
+			// Object class data - these items specific to Active Directory
+			return array(
+				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"container",              "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"builtinDomain",          "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"lostAndFound",           "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"msDS-QuotaContainer",    "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"group",                  "icon"=>"group24.png",  "is_folder"=>false),
+				array("name"=>"contact",                "icon"=>"contact24.png","is_folder"=>false),
+				array("name"=>"computer",               "icon"=>"microsoft-active-directory/computer.png", "is_folder"=>false),
+				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias.png",     "is_folder"=>false),
+				array("name"=>"user",                   "icon"=>"user.png",     "is_folder"=>false),
+				array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false)
+				);
+	}
 }
 
 // based on code snippet from:
@@ -453,19 +457,22 @@ class ldap_entry_viewer
 
 	function add_to_section($attribute,$caption="",$icon="")
 	{
-		$this->section[$this->last_section_added]->add_data($attribute,$caption,$icon);
+		$this->section[$this->last_section_added]->add_data(
+			$attribute,$caption,$icon);
 	}
 
 	function show()
 	{
 		global $ldap_base_dn;
 
-		// todo: replace with "user" icon/correct icon for class and/or photo image if available?
-		show_ldap_path(get_ldap_attribute($this->ldap_entry,"distinguishedName"),$ldap_base_dn,"contact24.png");
+		// TODO: replace with "user" icon/correct icon for class
+		// and/or photo image if available?
+		show_ldap_path(get_ldap_attribute($this->ldap_entry,
+			"distinguishedName"),$ldap_base_dn,"contact24.png");
 
 		show_search_box("");
 
-		echo "<table width=\"100%\" cellpadding=0>";
+		echo "<table width=\"100%\" cellpadding=0>\n";
 
 		foreach($this->section as $section)
 			$section->show();
@@ -485,31 +492,32 @@ class ldap_entry_viewer_section
 
 	function add_data($attribute,$caption="",$icon="")
 	{
-		$this->attrib[] = new ldap_entry_viewer_attrib($attribute,$caption,$icon);
+		$this->attrib[] = new ldap_entry_viewer_attrib($attribute,
+			$caption,$icon);
 	}
 
 	function show()
 	{
-		if($this->newrow == true) echo "<tr>";
+		echo "\n<!-- Section: " . $this->text . " -->\n\n";
+
+		if($this->newrow == true) echo "  <tr>\n";
 
 		$cell_attrib = "";
-		if($this->colspan != "") $cell_attrib.=" colspan=" . $this->colspan;
+		if($this->colspan != "")
+			$cell_attrib.=" colspan=" . $this->colspan;
 
-		if($this->width != "") $cell_attrib.=" width=\"" . $this->width . "\"";
+		if($this->width != "")
+			$cell_attrib.=" width=\"" . $this->width . "\"";
 
-		echo "<td valign=\"top\" " . $cell_attrib
-			. "><table collspan=3 cellpadding=0 width=\"100%\">";
-
-		echo "<tr><th colspan=3 bgcolor=\"#e0e0e0\" style=\"font-size:12pt;font-weight:bold\">";
-
-		echo $this->text;
-
-		echo "</th></tr>";
+		echo "    <td valign=\"top\" " . $cell_attrib
+			. ">\n      <table collspan=3 cellpadding=0 width=\"100%\">"
+			. "\n        <tr>\n          <th colspan=3 bgcolor=\"#e0e0e0\" style=\"font-size:12pt;font-weight:bold\">"
+			. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
 			$attrib->show($this->ldap_entry);
 
-		echo "</table></td>\n";
+		echo "      </table></td>\n";
 	}
 }
 
@@ -528,21 +536,24 @@ class ldap_entry_viewer_attrib
 
 	function show($ldap_entry)
 	{
-		echo "<tr>";
+		echo "        <tr>\n";
 
 		// Use full width if attribute has no icon or caption text
 		if($this->icon == "" && $this->caption == "")
-			echo "<td colspan=3 bgcolor=\"#f0f0f0\">";
+			echo "          <td colspan=3 bgcolor=\"#f0f0f0\">";
 		else
 		{
-			echo "<td width=\"1px\">";
+			echo "          <td width=\"1px\">";
 			if($this->icon != "")
-				echo "<img alt=\"\" src=\"schema/" . $this->icon . "\">";
-			echo "</td><td width=\"1px\" style=\"white-space:nowrap\">"
-				. $this->caption . "&nbsp;</td>";
-			echo "<td bgcolor=\"#f0f0f0\">";
+				echo "<img alt=\"" . $this->ldap_attribute
+					. "\" src=\"schema/"
+					. $this->icon . "\">";
+			echo "</td>\n          "
+				. "<td width=\"1px\" style=\"white-space:nowrap\">"
+				. $this->caption . "&nbsp;</td>\n";
+			echo "          <td bgcolor=\"#f0f0f0\">"
+				. "\n            ";
 		}
-
 
 		$first_line = true;
 		// look up values of attributes listed
@@ -554,9 +565,10 @@ class ldap_entry_viewer_attrib
 
 			foreach(explode("+",$attribute_line) as $attribute)
 			{
-				$attrib_value = get_ldap_attribute($ldap_entry,$attribute);
+				$attrib_value = get_ldap_attribute(
+					$ldap_entry,$attribute);
 
-				// Special handling of specific LDAP attributes
+				// Handle specific LDAP attributes specially
 				if($attrib_value != "")
 					switch($attribute)
 					{
@@ -574,7 +586,7 @@ class ldap_entry_viewer_attrib
 			}
 
 		}
-		echo "</td></tr>\n";
+		echo "\n          </td>\n        </tr>\n";
 	}
 }
 
@@ -583,20 +595,24 @@ function get_ldap_attribute($ldap_entry,$attribute)
 	$attribute = strtolower($attribute);
 
 	if(!empty($ldap_entry[0][$attribute][0]))
-		// TODO: iterate over multi-valued attributes (currently only returns the first value)
+		// TODO: iterate over multi-valued attributes
+		// (currently only returns the first value)
 		$attrib_value = $ldap_entry[0][$attribute][0];
 	else
 		$attrib_value = "";
 
 	// Convert UTF-8 characters into HTML entities
-	$attrib_value = mb_convert_encoding($attrib_value,"HTML-ENTITIES","UTF-8");
+	$attrib_value = mb_convert_encoding($attrib_value,
+		"HTML-ENTITIES","UTF-8");
 
 	// convert URLs to links
-	$attrib_value = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
-		"<a href=\"\\0\" rel=\"nofollow\">\\0</a>", $attrib_value);
+	$attrib_value = ereg_replace(
+		"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
+		"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$attrib_value);
 
 	// convert e-mail addresses to links
-	$attrib_value = preg_replace('/\b(\S+@\S+)\b/','<a href="mailto:\1";>\1</a>',$attrib_value);
+	$attrib_value = preg_replace("/\b(\S+@\S+)\b/",
+		'<a href="mailto:\1">\1</a>',$attrib_value);
 
 	// convert line breaks to <br> tags
 	$attrib_value = str_replace("\n","<br>\n",$attrib_value);

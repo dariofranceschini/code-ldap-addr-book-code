@@ -27,9 +27,9 @@ if(!empty($_GET["filter"]))
 {
 	$filter = $_GET["filter"];
 
-        $filter_query = "(&(objectClass=person)(|";
-        foreach($ldap_search_attrib as $attrib)
-                $filter_query .= "(" . $attrib . "=" . $filter . "*)";
+	$filter_query = "(&(objectClass=person)(|";
+	foreach($ldap_search_attrib as $attrib)
+		$filter_query .= "(" . $attrib . "=" . $filter . "*)";
 	$filter = $filter_query . "))";
 
 	$search_type= "subtree";
@@ -57,18 +57,18 @@ if(!empty($_GET["filter"]))
 else
 	show_search_box("");
 
-if(empty($ldap_server_type))		// Use Active Directory as server type by default
+if(empty($ldap_server_type))	// Default server type: Active Directory
 	$ldap_server_type = "ad";
 
 $object_class_schema = get_object_class_schema($ldap_server_type);
 
 if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 {
-        if($search_type == "subtree")
+	if($search_type == "subtree")
 		$search_resource = ldap_search($ldap_link,$dn,$filter)
 			or die("<br>Unable to retrieve records from "
 			. htmlentities($dn));
-        else
+	else
 		$search_resource = ldap_list($ldap_link,$dn,$filter)
 			or die("<br>Unable to retrieve records from "
 			. htmlentities($dn));
@@ -90,22 +90,25 @@ if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 	ldap_sort($ldap_link,$search_resource,$sort_order);
 	$ldap_data = ldap_get_entries($ldap_link,$search_resource);
 
-	echo "<table cellpadding=0 width=\"100%\">";
+	echo "<table cellpadding=0 width=\"100%\">\n  <tr>\n";
 
-	echo "<tr><th colspan=2 bgcolor=\"#e0e0e0\" style=\"font-size:12pt\"><a href=\"/?sort=sn";
+	echo "    <th colspan=2 bgcolor=\"#e0e0e0\" style=\"font-size:12pt\">";
+	echo "<a href=\"/?sort=sn";
 	if(!empty($_GET["filter"])) echo "&filter=" . $_GET["filter"];
-	echo "\">Name</a></th><th bgcolor=\"#e0e0e0\" style=\"font-size:12pt\"><a href=\"/?sort=mail";
+	echo "\">Name</a>"
+		. "</th>\n    <th bgcolor=\"#e0e0e0\" style=\"font-size:12pt\">"
+		. "<a href=\"/?sort=mail";
 	if(!empty($_GET["filter"])) echo "&filter=" . $_GET["filter"];
-	echo "\">E-mail</a></th><th bgcolor=\"#e0e0e0\" style=\"font-size:12pt\"><a href=\"/?sort=company";
+	echo "\">E-mail</a>"
+		. "</th>\n    <th bgcolor=\"#e0e0e0\" style=\"font-size:12pt\">"
+		. "<a href=\"/?sort=company";
 	if(!empty($_GET["filter"])) echo "&filter=" . $_GET["filter"];
-	echo"\">Organisation</a></th></tr>";
+	echo"\">Organisation</a></th>\n  </tr>\n";
 
 	for($i=0;$i < $ldap_data["count"]; $i++)
 	{
-		echo "<tr>";
-		echo "<td width=1>";
-
-
+		echo "  <tr>\n";
+		echo "    <td width=1>";
 
 		$object_data_found = $item_is_folder = false;
 		$icon = "generic24.png";
@@ -113,7 +116,9 @@ if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 		$item_object_class = "(object)";
 		foreach($object_class_schema as $object_class)
 		{
-			if(in_array($object_class["name"],$ldap_data[$i]['objectclass']) && $object_data_found == false)
+			if(in_array($object_class["name"],
+				$ldap_data[$i]['objectclass'])
+				&& $object_data_found == false)
 			{
 				$item_is_folder=$object_class["is_folder"];
 				$icon=$object_class["icon"];
@@ -121,66 +126,99 @@ if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 				$item_object_class = $object_class["name"];
 			}
 		}
-		echo "<img alt=\"" . $item_object_class . "\" src=\"schema/" . $icon . "\">";
+		echo "<img alt=\"" . $item_object_class . "\" src=\"schema/"
+			. $icon . "\">";
 
-		echo "</td>";
+		echo "</td>\n";
 
 		if($item_is_folder)
 		{
-			// TODO: correct behaviour should be to check the object class to decide what
-			// attribute to use in the DN (get from schema array)
+			// TODO: correct behaviour should be to check the
+			// object class to decide what attribute to use in
+			// the DN (get from schema array)
 			if(!empty($ldap_data[$i]["ou"][0]))
 			{
-				$object_rdn_value = mb_convert_encoding($ldap_data[$i]["ou"][0],"HTML-ENTITIES","UTF-8");
-				$object_dn="OU=" . $object_rdn_value . "," . $dn;
+				$object_rdn_value = mb_convert_encoding(
+					$ldap_data[$i]["ou"][0],
+					"HTML-ENTITIES","UTF-8");
+				$object_dn="OU=" . $object_rdn_value
+					. "," . $dn;
 			}
 			else
 			{
-				$object_rdn_value = mb_convert_encoding($ldap_data[$i]["cn"][0],"HTML-ENTITIES","UTF-8");
-				$object_dn="CN=" . $object_rdn_value . "," . $dn;
+				$object_rdn_value = mb_convert_encoding(
+					$ldap_data[$i]["cn"][0],
+					"HTML-ENTITIES","UTF-8");
+				$object_dn="CN=" . $object_rdn_value . ","
+					. $dn;
 			}
-			echo "<td bgcolor=\"#f0f0f0\" colspan=3><a href=\"?base=" . str_replace("=","|",$object_dn) . "\">" . $object_rdn_value . "</a>";
+			echo "    <td bgcolor=\"#f0f0f0\" colspan=3>\n"
+				. "      <a href=\"?base="
+				. htmlentities(str_replace("=","|",$object_dn))
+				. "\">\n        " . $object_rdn_value
+				. "\n      </a>\n    ";
 		}
 		else
 		{
 			switch($ldap_server_type)
 			{
 				case "edir";
-					echo "<td bgcolor=\"#f0f0f0\"><a href=\"info.php?dn="
-						. str_replace("=","|",$ldap_data[$i]['dn']) . "\">";
+					echo "    <td bgcolor=\"#f0f0f0\">\n"
+						. "      <a href=\"info.php?dn="
+						. str_replace("=","|",
+						$ldap_data[$i]['dn'])
+						. "\">\n        ";
 					break;
 				case "ad":
 				default:
-					echo "<td bgcolor=\"#f0f0f0\"><a href=\"info.php?dn="
-						. str_replace("=","|",$ldap_data[$i]['distinguishedname'][0]) . "\">";
+					echo "    <td bgcolor=\"#f0f0f0\">\n"
+						. "      <a href=\"info.php?dn="
+						. str_replace("=","|",
+						$ldap_data[$i][
+						'distinguishedname'][0])
+						. "\">\n        ";
 			}
 
-			// TODO: correct behaviour should be to check the object class to decide what
-			// attribute to use in the DN (get from schema array)
+			// TODO: correct behaviour should be to check the
+			// object class to decide what attribute to use in
+			// the DN (get from schema array)
 			if(!empty($ldap_data[$i]['sn'][0]))
-				echo mb_convert_encoding($ldap_data[$i]['sn'][0],"HTML-ENTITIES","UTF-8");
+				echo mb_convert_encoding(
+					$ldap_data[$i]['sn'][0],
+					"HTML-ENTITIES","UTF-8");
 			else if(!empty($ldap_data[$i]['displayname'][0]))
-				echo mb_convert_encoding($ldap_data[$i]['displayname'][0],"HTML-ENTITIES","UTF-8");
+				echo mb_convert_encoding(
+					$ldap_data[$i]['displayname'][0],
+					"HTML-ENTITIES","UTF-8");
 			else
-				echo mb_convert_encoding($ldap_data[$i]['cn'][0],"HTML-ENTITIES","UTF-8");
+				echo mb_convert_encoding(
+					$ldap_data[$i]['cn'][0],
+					"HTML-ENTITIES","UTF-8");
 
-			if(!empty($ldap_data[$i]['givenname'][0])) echo ", " . mb_convert_encoding($ldap_data[$i]['givenname'][0],"HTML-ENTITIES","UTF-8");
-			echo "</a>";
+			if(!empty($ldap_data[$i]['givenname'][0]))
+				echo ", " . mb_convert_encoding(
+					$ldap_data[$i]['givenname'][0],
+					"HTML-ENTITIES","UTF-8");
+			echo "\n      </a>\n";
 
-			echo "</td>";
-			echo "<td bgcolor=\"#f0f0f0\">";
-			if(!empty($ldap_data[$i]['mail'][0])) echo "<a href=\"mailto:" . $ldap_data[$i]['mail'][0] . "\">" . $ldap_data[$i]['mail'][0] . "</a>";
-			echo "</td>";
-			echo "<td bgcolor=\"#f0f0f0\">";
-			if(!empty($ldap_data[$i]['company'][0])) echo $ldap_data[$i]['company'][0];
+			echo "    </td>\n";
+			echo "    <td bgcolor=\"#f0f0f0\">";
+			if(!empty($ldap_data[$i]['mail'][0]))
+				echo "<a href=\"mailto:"
+					. $ldap_data[$i]['mail'][0] . "\">"
+					. $ldap_data[$i]['mail'][0] . "</a>";
+			echo "</td>\n";
+			echo "    <td bgcolor=\"#f0f0f0\">";
+			if(!empty($ldap_data[$i]['company'][0]))
+				echo $ldap_data[$i]['company'][0];
 		}
-		echo "</td>";
-		echo "</tr>\n";
+		echo "</td>\n";
+		echo "  </tr>\n";
 	}
-	echo "</table>";
+	echo "</table>\n";
 }
 else
 	show_ldap_bind_error();
 
+echo "\n</body>\n</html>\n";
 ?>
-</body></html>

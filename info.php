@@ -25,7 +25,8 @@ show_site_header();
 //      stop "nasties" being passed through to the LDAP server
 //      prevent access to directory outside of address book base DN
 
-if(!empty($_GET["dn"])) $dn = str_replace("|","=",$_GET["dn"]); else $dn = $ldap_base_dn;
+if(!empty($_GET["dn"])) $dn = str_replace("|","=",$_GET["dn"]);
+else $dn = $ldap_base_dn;
 
 if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 {
@@ -61,8 +62,7 @@ if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 
 	// ---------------------------------------------
 
-	$entry_viewer->add_section("Additional Notes",NEW_ROW);
-	$entry_viewer->section["Additional Notes"]->colspan = 2;
+	$entry_viewer->add_section("Additional Notes",NEW_ROW,2);
 
 	$entry_viewer->add_to_section("info");
 
@@ -73,5 +73,5 @@ if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 else
 	show_ldap_bind_error();
 
+echo "\n\n</body>\n</html>\n";
 ?>
-</body></html>
