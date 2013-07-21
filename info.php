@@ -71,9 +71,7 @@ if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 	$entry_viewer->show();
 }
 else
-{
-        echo "LDAP bind failed...\n";
-}
+	show_ldap_bind_error();
 
 ?>
 </body></html>

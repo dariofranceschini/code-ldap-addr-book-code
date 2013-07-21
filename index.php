@@ -64,10 +64,14 @@ $object_class_schema = get_object_class_schema($ldap_server_type);
 
 if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 {
-	if($search_type == "subtree")
-		$search_resource = ldap_search($ldap_link,$dn,$filter);
-	else
-		$search_resource = ldap_list($ldap_link,$dn,$filter);
+        if($search_type == "subtree")
+		$search_resource = ldap_search($ldap_link,$dn,$filter)
+			or die("<br>Unable to retrieve records from "
+			. htmlentities($dn));
+        else
+		$search_resource = ldap_list($ldap_link,$dn,$filter)
+			or die("<br>Unable to retrieve records from "
+			. htmlentities($dn));
 
 	switch($sort_type)
 	{
@@ -176,9 +180,7 @@ if (ldap_bind($ldap_link,$ldap_user,$ldap_password))
 	echo "</table>";
 }
 else
-{
-	echo "<p>Unable to connect to address book directory (LDAP bind failed).</p>\n";
-}
+	show_ldap_bind_error();
 
 ?>
 </body></html>

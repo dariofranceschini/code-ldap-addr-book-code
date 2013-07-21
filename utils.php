@@ -604,4 +604,10 @@ function get_ldap_attribute($ldap_entry,$attribute)
 	return $attrib_value;
 }
 
+function show_ldap_bind_error()
+{
+	echo "<p>Unable to connect to address book directory."
+		. " (LDAP bind failed)</p>\n";
+}
+
 ?>
