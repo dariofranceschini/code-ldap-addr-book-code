@@ -1,0 +1,326 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<title>LDAP Address Book - Getting Started</title>
+<body>
+
+<h1>
+<img border=0 alt="" src="addressbook.png">
+LDAP Address Book
+</h1>
+
+<h2>Contents</h2>
+
+<ol>
+<li>Getting Started Using the Address Book
+  <ol>
+  <li>Using OpenSearch
+  </ol>
+<li>Initial Installation and Setup
+  <ol>
+  <li>Installation on Linux: Apache HTTP Server on Debian/Ubuntu
+  <li>Installation on Windows: Apache HTTP Server or Microsoft IIS
+  <li>Set up a user for accessing the directory service
+  <li>Set up address book configuration
+  <li>Changing how directory entries are displayed
+  </ol>
+</ol>
+
+<h2>Getting Started Using the Address Book</h2>
+<p>
+LDAP Address Book is a web application for browsing and searching
+contact details within an LDAP directory such as Microsoft/Samba Active
+Directory or Novell eDirectory.
+</p>
+<h3>Using OpenSearch</h3>
+<img alt="Address book OpenSearch integration" src="opensearch.png">
+<p>
+The LDAP Address Book can appear in the drop-down list of search engines
+in Firefox and other OpenSearch-compliant browsers. To add as a Firefox
+search engine:
+</p>
+<ol>
+<li>Open web browser and navigate to the address book.
+<li>Click the icon to the left of the search engine name in the search
+box.
+<li>Select <b>Add "LDAP Address Book"</b> (or the current value of
+$site_name in the config, if changed from the default) from the menu.
+</ol>
+<h2>Initial Installation and Setup</h2>
+<h3>Installation on Linux: Apache HTTP Server on Debian/Ubuntu</h3>
+<p>
+Install Apache HTTP Server, together with PHP and PHP/LDAP integration:
+</p>
+<pre>
+apt-get install apache2 php5 libapache2-mod-php5 php5-ldap
+</pre>
+<p>
+Decide where you want to store the address book web site's files
+and unpack the address book tar.gz file to the web site directory.
+For the purposes of this guide, this location is assumed to be
+<code>/srv/www/addressbook.example.org</code> and the URL of the
+address book <code>http://addressbook.example.org/</code>, in
+which case you might type:
+</p>
+<pre>
+mkdir -p /srv/www/addressbook.example.org
+cd /srv/www/addressbook.example.org
+tar xvzf ~/ldap-addr-book-0.02.tar.gz
+</pre>
+<p>
+Create the file /etc/apache2/sites-available/addressbook.example.org, contents as follows
+</p>
+<pre>
+&lt;VirtualHost *:80&gt;
+        DocumentRoot /srv/www/addressbook.example.org
+        ServerAdmin webmaster@example.org
+        ServerName addressbook.example.org
+
+        ServerSignature email
+        DirectoryIndex index.html index.php
+
+        LogFormat "combined"
+        TransferLog /var/log/apache2/addressbook.example.org-access_log
+        ErrorLog /var/log/apache2/addressbook.example.org-error_log
+&lt;/VirtualHost&gt;
+</pre>
+<p>
+Enable the site by running the command:
+</p>
+<p>
+<code>a2ensite addressbook.example.org</code>
+</p>
+<p>
+Perform a graceful restart of Apache in order to re-read the
+configuration and make the new web site live:
+</p>
+<p>
+<code>apache2ctl graceful</code>
+</p>
+
+<p>
+Finally create a DNS record for the address book web site, e.g.:
+</p>
+<pre>addressbook.example.org.	IN	CNAME	myserver
+</pre>
+
+<h3>Installation on Windows: Apache HTTP Server or Microsoft IIS</h3>
+
+<p>
+In outline, the procedure to set up the LDAP Address Book to run
+under Windows is as follows:
+</p>
+
+<ul>
+<li>Install prefered web server (e.g. Apache HTTP Server or Microsoft IIS).
+
+<li>Download and install PHP 5, e.g. from 
+    <a href="http://windows.php.net/download/">http://windows.php.net/download/</a>
+    or a trusted mirror.
+
+<li>If necessary, enable LDAP support within PHP.
+
+<li>Set up a new virtual host for the Address Book and
+    extract the install media to it.
+
+<li>Create a DNS record for the address book web site.
+
+
+</ul>
+
+<h3>Set up a user for accessing the directory service</h3>
+
+<p>
+Create a user account which the Address Book software will use
+to access the directory. The user account will need permission
+to read and search the directory, but does not need write
+access at this time.
+</p>
+
+<h3>Set up address book configuration</h3>
+<p>
+Edit the file config.php, which holds details of how the
+address book links to the back-end LDAP directory.
+</p>
+<table border=1>
+<tr><th>Setting</th><th>Description</th></tr>
+<tr><td>$site_name</td><td>Site name, which appears in the browser title bar. You may want to
+		customise this, e.g. with your company name.<p>Example: BigCorp Address Book</p></td></tr>
+
+<tr><td>$ldap_server_type</td><td>Indicate the LDAP server (directory) type, currently either <code>ad</code> for
+    Microsoft Active Directory (or Samba 4 Active Directory) or <code>edir</code> for Novell eDirectory. This
+    setting changes how the directory's objects and their attributes are displayed in the address book.</td></tr>
+
+
+<tr><td>$ldap_link</td><td>Creates a connection to the LDAP server holding the address
+    book data.
+
+    <p>Example: ldap_connect("dc1.example.org")</>
+
+<p>Active Directory-specific Options:</p><p>
+    (1) As an alternative to giving the name of a specific server (domain controller) you can
+    specify just the domain name. This will load balance the connections across the
+    available domain controllers. (See Microsoft KB 842197 for further information
+    on how to use DNS netmask ordering for more fine-grained control of the servers
+    used for load balancing.)</p>
+    <p>
+    (2) For multi-domain forests, specify the LDAP port number as 3268 in order to
+    use the AD Global Catalogue. (By comparison, using the default LDAP port (389)
+    will return incomplete information other than for the local AD domain.)
+    </p>
+    <p>
+    Examples:<br>
+    ldap_connect("example.org") - load balances across the DCs as listed in DNS)<br>
+    ldap_connect("dc1.example.org",3268) - use AD global catalogue port
+    </p>
+<p>
+Further information see:<a href="http://www.php.net/manual/en/function.ldap-connect.php">
+http://www.php.net/manual/en/function.ldap-connect.php</a>
+</p>
+</td></tr>
+
+<tr><td>$ldap_base_dn</td><td>Specifies the search base within the directory which
+    will be used for displaying the address book. Rather than searching the whole
+    directory, you can use this option to restrict search results to only a
+    specific OU hierarchy which contains the user accounts.
+    <p>
+    Examples: dc=example,dc=org<br>
+    ou=Users,dc=example,dc=org
+    </p>
+    <p>
+    Example config file syntax where one of the OU names contains a space:<br>
+    $ldap_base_dn = "ou=User Accounts,dc=example,dc=org";<br>
+    </p>
+</td></tr>
+
+
+
+<tr><td>$ldap_user<br>$ldap_password</td>
+    <td>These specify the user name and password which are used by the
+    address book software to log on to the LDAP directory service (also
+    known as "binding" to the directory).
+    <p>
+    Example user names:<br>
+    cn=LDAPUser,cn=Users,dc=example,dc=org<br>
+    cn=LDAPUser,dc=MyDirectory<br>
+    LDAPUser@example.org (Active Directory specific syntax)
+    
+    </p>
+    <p>If the directory is set up to allow read access without having
+    to log on then just leave the user name and password blank
+    (which will perform an "anonymous bind").</p>
+
+<tr><th colspan=2>Advanced/low level settings</th></tr>
+
+<tr><td>$ldap_search_attrib</td>
+    <td>This specifies which attributes (fields) get searched when a
+     user searches the address book. Add to the list if you have
+     specific requirements, e.g. if you want users to be able to
+     search on a department name (department) or building
+     (physicalDeliveryOfficeName).</td></tr>
+
+
+</table>
+
+<h3>Changing how directory entries are displayed</h3>
+<p>
+You may want to customise the way in which address book
+entries are displayed - which fields/attributes are
+used and how they are laid out. The layout is set up
+by editing the file <code>info.php</code>.
+</p>
+<p>
+As shipped, address book entries are displayed in three
+sections:
+</p>
+
+<img alt="Default address book layout, with personal, business/work and additinoal notes sections" src="layout.png">
+
+
+<p>
+The sections are created by calling $entry_viewer->add_section().
+Sections are displayed side-to-side from left to right, unless
+the NEW_ROW attribute is specified in order to create a new row. The layout above is created by
+the following code:
+</p>
+<pre>
+        $entry_viewer->add_section("Personal",NEW_ROW);
+
+        $entry_viewer->add_section("Business/Work",NULL,NULL,"50%");
+
+        $entry_viewer->add_section("Additional Notes",NEW_ROW,2);
+</pre>
+<p>
+(In practice each call to $entry_viewer->add_section() is followed by
+the fields to be added to that section)
+</p>
+<table border=1>
+<tr><th colspan=2>General syntax for add_section()</th></tr>
+<tr><td colspan=2>add_section($text,$newrow=false,$colspan="",$width="")</td></tr>
+<tr><th>Attribute</th><th>Description</th></tr>
+<tr><td>$text</td><td>Title to appear above the section</td></tr>
+<tr><td>$newrow</td><td>Whether or not this section should start on a new row</td></tr>
+<tr><td>$colspan</td><td>Number of HTML table columns that this section should span</td></tr>
+<tr><td>$width</td><td>Width of the section</td></tr>
+</table>
+
+<p>
+Entries are added to each section by making calls to $entry_viewer->add_to_section().
+The following line will add the "Prefered Name" field to the section last created
+using $entry_viewer->add_section():
+</p>
+<pre>
+$entry_viewer->add_to_section("displayName","Preferred Name","contact24.png");
+</pre>
+<table border=1>
+<tr><th colspan=2>General syntax for add_to_section()</th></tr>
+<tr><td colspan=2>add_to_section($attribute,$caption="",$icon="")</td></tr>
+<tr><th>Attribute</th><th>Description</th></tr>
+<tr><td>$attribute</td><td>LDAP attribute (or list of attibutes) to be displayed</td></tr>
+<tr><td>$caption</td><td>Caption text to appear next to the attribute (leave blank for none)</td></tr>
+<tr><td>$icon</td><td>Icon image to appear next to the attribute (leave blank for none)</td></tr>
+</table>
+<p>
+To create display fields that are built from multiple LDAP attributes,
+list the attributes in $attribute, seperating them with:
+</p>
+<table border=1>
+<tr><td>:</td><td>Separate attributes with a line break</td></tr>
+<tr><td>+</td><td>Separate attributes with a space</td></tr>
+</table>
+<p>
+The following example will display a display field from the
+LDAP attributes <code>streetAddress</code>, <code>l</code>,
+<code>st</code> and <code>postalCode</code>, laying them out
+as a UK postal address.
+</p>
+<pre>
+$entry_viewer->add_to_section("streetAddress:l:st:postalCode","Postal Address","address.gif");
+</pre>
+<p>
+If the address attibutes in your LDAP directory are used to store
+business addresses rather than personal addresses you may want
+to move the "Address" field from the "Personal" to the "Business/Work"
+section.
+</p>
+
+<ul>
+<li><p>Any web page URLs and e-mail addresses will appear as
+    clickable HTML links.</p>
+<li><p>The <code>postalCode</code> attribute is followed by a
+    "View Map" link that displays the corresponding location
+    in Google Maps (where the postal code is valid and recognised).</p>
+</ul>
+
+<!--
+
+<h2>Appendix: LDAP Distinguished Names (DNs)</h2>
+<p>
+(TODO)
+</p>
+
+-->
+
+</body>
+</html>
