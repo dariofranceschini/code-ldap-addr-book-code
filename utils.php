@@ -139,14 +139,14 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"groupOfNames",           "icon"=>"group24.png",  "is_folder"=>false),
 				array("name"=>"ncpServer",              "icon"=>"novell-edirectory/server24.png","is_folder"=>false),
 				array("name"=>"ldapServer",             "icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
-				array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false),
+				array("name"=>"inetOrgPerson",          "icon"=>"user24.png",     "is_folder"=>false),
 				array("name"=>"nDSPKIKeyMaterial",      "icon"=>"novell-edirectory/key-material.png","is_folder"=>false),
 				array("name"=>"Volume",                 "icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
 				array("name"=>"sASService",             "icon"=>"novell-edirectory/security.png", "is_folder"=>false),
 				array("name"=>"ndsPredicateStats",      "icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
 				array("name"=>"Queue",                  "icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
 				array("name"=>"nLSLicenseServer",       "icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
-				array("name"=>"ldapGroup",              "icon"=>"novell-edirectory/ldapgroup.png","is_folder"=>false),
+				array("name"=>"ldapGroup",              "icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false),
 				array("name"=>"nssfsPool",              "icon"=>"novell-edirectory/raid.png",     "is_folder"=>false)
 				);
 			break;
@@ -161,10 +161,10 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"msDS-QuotaContainer",    "icon"=>"folder.png",   "is_folder"=>true),
 				array("name"=>"group",                  "icon"=>"group24.png",  "is_folder"=>false),
 				array("name"=>"contact",                "icon"=>"contact24.png","is_folder"=>false),
-				array("name"=>"computer",               "icon"=>"microsoft-active-directory/computer.png", "is_folder"=>false),
-				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias.png",     "is_folder"=>false),
-				array("name"=>"user",                   "icon"=>"user.png",     "is_folder"=>false),
-				array("name"=>"inetOrgPerson",          "icon"=>"user.png",     "is_folder"=>false)
+				array("name"=>"computer",               "icon"=>"microsoft-active-directory/computer24.png", "is_folder"=>false),
+				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png",     "is_folder"=>false),
+				array("name"=>"user",                   "icon"=>"user24.png",     "is_folder"=>false),
+				array("name"=>"inetOrgPerson",          "icon"=>"user24.png",     "is_folder"=>false)
 				);
 	}
 }
