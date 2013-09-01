@@ -179,10 +179,6 @@ if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 
 		// Display the object's name and attributes in columns
 
-		// TODO: check to see if the attribute names in the
-		//       DN work capitalised/non-capitalised with
-		//       Novell eDirectory. (works OK with Samba AD)
-
 		$object_dn=$object_rdn_attrib . "="
 			. $ldap_data[$i][$object_rdn_attrib][0] . "," . $dn;
 

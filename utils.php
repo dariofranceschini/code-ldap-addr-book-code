@@ -56,9 +56,6 @@ function show_search_box($initial_value)
 // Each level in the DIT appears with a folder icon; final item
 // is displayed with $leaf_icon next to it
 
-// TODO: doesn't work where part of the DN contains an accented
-// character (see user: "James Francois Turner")
-
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
 	echo "<table>\n  <tr>\n    <td><a href=\"/\">"
