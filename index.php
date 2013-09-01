@@ -177,10 +177,17 @@ if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
 			. "\" title=\"" . $item_object_class
 			. "\" src=\"schema/" . $icon . "\"></td>\n";
 
-		// Display the object's name and attributes in columns
+		// Display the record's name and attributes in columns
 
-		$object_dn=$object_rdn_attrib . "="
-			. $ldap_data[$i][$object_rdn_attrib][0] . "," . $dn;
+		switch($ldap_server_type)
+ 		{
+			case "edir":
+				$object_dn = $ldap_data[$i]["dn"][0];
+				break;
+			case "ad":
+			default:
+				$object_dn = $ldap_data[$i]["distinguishedname"][0];
+		}
 
 		if($item_is_folder)
 		{
