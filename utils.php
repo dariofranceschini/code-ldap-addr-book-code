@@ -124,9 +124,12 @@ function current_page_folder_url()
 		: "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER['REQUEST_URI']);
 }
 
-// Return an array associating LDAP object classes with attributes used by the
-// addressbook (currently icon graphic and whether it should be presented as
-// a folder or a "leaf" object)
+// Return an array associating LDAP object classes with attributes used by
+// the addressbook (currently icon graphic, whether it should be presented
+// as a folder or a "leaf" object and which attribute holds the RDN). Where
+// objects can potentially match more than one class those classes should
+// be listed with most "specific" first (e.g. Person/inetOrgPerson in edir
+// schema).
 
 function get_object_class_schema($ldap_server_type = "ad")
 {
@@ -135,36 +138,38 @@ function get_object_class_schema($ldap_server_type = "ad")
 		case "edir";
 			// Object class data - these items specific to Novell eDirectory
 			return array(
-				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true,"rdn_attrib"=>"ou"),
-				array("name"=>"groupOfNames",           "icon"=>"group24.png",  "is_folder"=>false),
-				array("name"=>"ncpServer",              "icon"=>"novell-edirectory/server24.png","is_folder"=>false),
-				array("name"=>"ldapServer",             "icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
-				array("name"=>"inetOrgPerson",          "icon"=>"user24.png",     "is_folder"=>false),
-				array("name"=>"nDSPKIKeyMaterial",      "icon"=>"novell-edirectory/key-material.png","is_folder"=>false),
-				array("name"=>"Volume",                 "icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
-				array("name"=>"sASService",             "icon"=>"novell-edirectory/security.png", "is_folder"=>false),
-				array("name"=>"ndsPredicateStats",      "icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-				array("name"=>"Queue",                  "icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-				array("name"=>"nLSLicenseServer",       "icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
-				array("name"=>"ldapGroup",              "icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false),
-				array("name"=>"nssfsPool",              "icon"=>"novell-edirectory/raid.png",     "is_folder"=>false)
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou"),
+				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false),
+				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false),
+				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false),
+				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false),
+				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false),
+				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false),
+				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
+				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false),
+				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
+				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
+				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
+				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false),
+				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
 				);
 			break;
 		case "ad":
 		default:
 			// Object class data - these items specific to Active Directory
 			return array(
-				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true,"rdn_attrib"=>"ou"),
-				array("name"=>"container",              "icon"=>"folder.png",   "is_folder"=>true),
-				array("name"=>"builtinDomain",          "icon"=>"folder.png",   "is_folder"=>true),
-				array("name"=>"lostAndFound",           "icon"=>"folder.png",   "is_folder"=>true),
-				array("name"=>"msDS-QuotaContainer",    "icon"=>"folder.png",   "is_folder"=>true),
-				array("name"=>"group",                  "icon"=>"group24.png",  "is_folder"=>false),
-				array("name"=>"contact",                "icon"=>"contact24.png","is_folder"=>false),
-				array("name"=>"computer",               "icon"=>"microsoft-active-directory/computer24.png", "is_folder"=>false),
-				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png",     "is_folder"=>false),
-				array("name"=>"user",                   "icon"=>"user24.png",     "is_folder"=>false),
-				array("name"=>"inetOrgPerson",          "icon"=>"user24.png",     "is_folder"=>false)
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou"),
+				array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false),
+				array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false),
+				array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false),
+				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png",	"is_folder"=>false),
+				array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false),
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false)
 				);
 	}
 }
