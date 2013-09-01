@@ -135,7 +135,7 @@ function get_object_class_schema($ldap_server_type = "ad")
 		case "edir";
 			// Object class data - these items specific to Novell eDirectory
 			return array(
-				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true,"rdn_attrib"=>"ou"),
 				array("name"=>"groupOfNames",           "icon"=>"group24.png",  "is_folder"=>false),
 				array("name"=>"ncpServer",              "icon"=>"novell-edirectory/server24.png","is_folder"=>false),
 				array("name"=>"ldapServer",             "icon"=>"novell-edirectory/directory-server.png","is_folder"=>false),
@@ -154,7 +154,7 @@ function get_object_class_schema($ldap_server_type = "ad")
 		default:
 			// Object class data - these items specific to Active Directory
 			return array(
-				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true),
+				array("name"=>"organizationalUnit",     "icon"=>"folder.png",   "is_folder"=>true,"rdn_attrib"=>"ou"),
 				array("name"=>"container",              "icon"=>"folder.png",   "is_folder"=>true),
 				array("name"=>"builtinDomain",          "icon"=>"folder.png",   "is_folder"=>true),
 				array("name"=>"lostAndFound",           "icon"=>"folder.png",   "is_folder"=>true),
