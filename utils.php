@@ -30,7 +30,7 @@ function show_site_header()
 	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
 	echo "  <link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
 		. $site_name . "\" href=\"search-plugin.php\">\n";
-	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook.png\">\n";
+	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook24.png\">\n";
 	echo "</head>\n\n";
 	echo "<body>\n\n";
 }
