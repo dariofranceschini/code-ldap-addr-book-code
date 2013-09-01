@@ -108,20 +108,24 @@ function ldap_explode_dn2($dn,$with_attrib)
 	return $dn;
 }
 
+// Return URL of the currently running script
+
 function current_page_url()
 {
 	return (!empty($_SERVER['HTTPS']))
-		? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']
-		: "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+		? "https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]
+		: "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 }
+
+// Return URL of folder containing the currently running script
 
 // TODO: add trailing slash (missing from non-root folders)
 
 function current_page_folder_url()
 {
 	return (!empty($_SERVER['HTTPS']))
-		? "https://".$_SERVER['SERVER_NAME'].dirname($_SERVER['REQUEST_URI'])
-		: "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER['REQUEST_URI']);
+		? "https://" . $_SERVER["SERVER_NAME"] . dirname($_SERVER["REQUEST_URI"])
+		: "http://" . $_SERVER["SERVER_NAME"] . dirname($_SERVER["REQUEST_URI"]);
 }
 
 // Return an array associating LDAP object classes with attributes used by
