@@ -60,7 +60,7 @@ function show_search_box($initial_value)
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
 	echo "<table>\n  <tr>\n    <td><a href=\"/\">"
-		. "<img border=0 alt=\"Address Book\" src=\"addressbook.png\">"
+		. "<img border=0 alt=\"Address Book\" src=\"addressbook24.png\">"
 		. "</a></td>"
 		. "\n    <td style=\"font-weight:bold;font-size:12pt\">"
 		. "<a href=\"/\">Address Book</a></td>\n";
@@ -72,7 +72,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		for($i=count($folder_list);$i>0;$i--)
 		{
 			echo "\n    <td>&nbsp;&nbsp;"
-				. "<img alt=\"&gt;\" src=\"right-arrow.png\">"
+				. "&#x25B6;"	// Right-facing arrow head
 				. "&nbsp;&nbsp;</td>\n\n    <td>";
 			if($i==1)
 				echo "<img alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\">";
