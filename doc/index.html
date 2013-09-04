@@ -10,7 +10,7 @@
 <img alt="LDAP Address Book Icon" src="addressbook48.png">
 LDAP Address Book
 </h1>
-
+<hr>
 <h2>Contents</h2>
 
 <ol>
@@ -27,19 +27,31 @@ LDAP Address Book
   <li>Changing how directory entries are displayed
   </ol>
 </ol>
-
+<hr>
 <h2>Getting Started Using the Address Book</h2>
 <p>
 LDAP Address Book is a web application for browsing and searching
-contact details within an LDAP directory such as Microsoft/Samba Active
-Directory or Novell eDirectory.
+for contact details within an LDAP directory service. It has been
+tested on the following LDAP directories:
+</p>
+<ul>
+<li>Active Directory (Microsoft and Samba implementations)
+<li>Novell eDirectory
+</ul>
+<p>
+Searching your LDAP address book is pretty easy. Just type in
+the name, job title or company of who you're trying to find into
+search box and click "Search" (or press Return). Alternatively
+if the directory has been classified into "organisational units"
+you can click on the folders underneath the search box to browse
+records by department, building, etc.
 </p>
 <h3>Using OpenSearch</h3>
 <img alt="Address book OpenSearch integration" src="opensearch.png">
 <p>
-The LDAP Address Book can appear in the drop-down list of search engines
-in Firefox and other OpenSearch-compliant browsers. To add as a Firefox
-search engine:
+You can add the LDAP Address Book to the drop-down list of search engines
+in Firefox and other OpenSearch-compliant browsers. To the Address Book
+add as a Firefox search engine:
 </p>
 <ol>
 <li>Open web browser and navigate to the address book.
@@ -48,7 +60,12 @@ box.
 <li>Select <b>Add "LDAP Address Book"</b> (or the current value of
 $site_name in the config, if changed from the default) from the menu.
 </ol>
+<hr>
 <h2>Initial Installation and Setup</h2>
+<p>
+The remainder of this document is aimed towards system administrators
+setting up and configuring LDAP address book on your network.
+</p>
 <h3>Installation on Linux: Apache HTTP Server on Debian/Ubuntu</h3>
 <p>
 Install Apache HTTP Server, together with PHP and PHP/LDAP integration:
@@ -133,21 +150,28 @@ under Windows is as follows:
 <h3>Set up a user for accessing the directory service</h3>
 
 <p>
-Create a user account which the Address Book software will use
-to access the directory. The user account will need permission
-to read and search the directory, but does not need write
-access at this time.
+The LDAP Address Book will need a user account on
+the directory service in order to read and search its contents.
+You will need to enter this user's login name and password
+into the address book configuration (described below).
 </p>
-
+<p>
+Note: Some LDAP directory servers may be configured to allow
+read only access with a blank user name/password ("anonymous
+bind").
+</p>
 <h3>Set up address book configuration</h3>
 <p>
 Edit the file config.php, which holds details of how the
-address book links to the back-end LDAP directory.
+address book links to the back-end LDAP directory and
+how records are searched for and displayed.
 </p>
 <table border=1>
 <tr><th>Setting</th><th>Description</th></tr>
 <tr><td>$site_name</td><td>Site name, which appears in the browser title bar. You may want to
 		customise this, e.g. with your company name.<p>Example: BigCorp Address Book</p></td></tr>
+
+<tr><th colspan=2>Connection to LDAP Directory</th></tr>
 
 <tr><td>$ldap_server_type</td><td>Indicate the LDAP server (directory) type, currently either <code>ad</code> for
     Microsoft Active Directory (or Samba 4 Active Directory) or <code>edir</code> for Novell eDirectory. This
@@ -212,9 +236,9 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
     to log on then just leave the user name and password blank
     (which will perform an "anonymous bind").</p>
 
-<tr><th colspan=2>Advanced/low level settings</th></tr>
+<tr><th colspan=2>Search/Browse Directory Settings</th></tr>
 
-<tr><td>$ldap_search_attrib</td>
+<tr><td>$search_ldap_attrib</td>
     <td>This specifies which attributes (fields) get searched when a
      user searches the address book. Add to the list if you have
      specific requirements, e.g. if you want users to be able to
@@ -222,6 +246,39 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
      (physicalDeliveryOfficeName).</td></tr>
 
 
+<tr><td>$search_result_columns</td>
+    <td>Specifies the column layout to be used for displaying
+    search results. Each column has three fields associated with it:
+    <ul>
+    <li>caption - Caption to appear in column heading
+    <li>attrib - LDAP attribute to display
+    <li>link_type - Whether to display the attribute as a hyperlink
+    </ul>
+    The special attribute "sortableName" will display constructed
+    "sort-friendly" version of a personal name (Surname, Firstname)
+    based on which LDAP attributes are populated. (Ideally
+    sn and givenName if populated, otherwise falling back to
+    displayName or cn.) The following link types are supported:
+    <ul>
+    <li>object - Link to the object record. Recommended to use this
+    link type for the object name, displayed in the left-most column.
+    <li>mailto - Display as mailto: link, e.g. for attributes containing
+    e-mail addresses.
+    <li>none - Do not display as a link.
+    </ul>
+    Example:
+    <pre>
+$search_result_columns = array(
+        array("caption"=>"Name",                "attrib"=>"sortableName",       "link_type"=>"object"),
+        array("caption"=>"E-Mail",              "attrib"=>"mail",               "link_type"=>"mailto"),
+        array("caption"=>"Organisation",        "attrib"=>"company",            "link_type"=>"none")
+        );</pre>
+</td></tr>
+
+<tr><td>$search_result_default_sort_order</td>
+    <td>Specifies the default sort order for displaying search
+     results. User can change the sort order by clicking a column
+     header.</td></tr>
 </table>
 
 <h3>Changing how directory entries are displayed</h3>
