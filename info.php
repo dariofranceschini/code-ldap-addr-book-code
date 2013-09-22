@@ -28,7 +28,7 @@ show_site_header();
 if(!empty($_GET["dn"])) $dn = str_replace("|","=",$_GET["dn"]);
 else $dn = $ldap_base_dn;
 
-if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
+if(log_on_to_directory($ldap_link))
 {
 	$search_resource = ldap_read($ldap_link,$dn,"(objectclass=*)");
 	$entry = ldap_get_entries($ldap_link,$search_resource);

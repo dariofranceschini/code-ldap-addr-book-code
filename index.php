@@ -61,7 +61,7 @@ if(empty($ldap_server_type))	// Default server type: Active Directory
 
 $object_class_schema = get_object_class_schema($ldap_server_type);
 
-if(ldap_bind($ldap_link,$ldap_user,$ldap_password))
+if(log_on_to_directory($ldap_link))
 {
 	if($search_type == "subtree")
 		$search_resource = ldap_search($ldap_link,$dn,$filter)

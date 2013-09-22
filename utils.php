@@ -22,7 +22,12 @@ define("NEW_ROW",true);
 
 function show_site_header()
 {
-	global $site_name;
+	global $site_name,$ldap_login_enabled;
+
+	// Resume existing session (if any exists) in order to get
+	// currently logged in user
+	if(!isset($_SESSION)) session_start();
+
 	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">\n";
 	echo "<html>\n";
 	echo "<head>\n";
@@ -57,12 +62,16 @@ function show_search_box($initial_value)
 // Each level in the DIT appears with a folder icon; final item
 // is displayed with $leaf_icon next to it
 
+// Also shows "login" button to right (if editing enabled)
+
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
-	echo "<table>\n  <tr>\n    <td><a href=\"/\">"
-		. "<img border=0 alt=\"Address Book\" src=\"addressbook24.png\">"
+	global $ldap_login_enabled;
+
+	echo "<table width=\"100%\">\n  <tr>\n    <td><a href=\"/\">"
+		. "<img border=0 align=\"top\" alt=\"Address Book\" src=\"addressbook24.png\">"
 		. "</a></td>"
-		. "\n    <td style=\"font-weight:bold;font-size:12pt\">"
+		. "\n    <td style=\"font-weight:bold;font-size:12pt;white-space:nowrap\">"
 		. "<a href=\"/\">Address Book</a></td>\n";
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
@@ -71,18 +80,31 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 
 		for($i=count($folder_list);$i>0;$i--)
 		{
-			echo "\n    <td>&nbsp;&nbsp;"
+			echo "\n    <td style=\"white-space:nowrap\">&nbsp;&nbsp;"
 				. "&#x25B6;"	// Right-facing arrow head
-				. "&nbsp;&nbsp;</td>\n\n    <td>";
+				. "&nbsp;&nbsp;</td>\n\n    <td valign=\"middle\">";
 			if($i==1)
-				echo "<img alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\">";
+				echo "<img align=\"top\" alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\">";
 			else
-				echo "<img alt=\"Folder\" src=\"schema/folder.png\">";
+				echo "<img align=\"top\" alt=\"Folder\" src=\"schema/folder.png\">";
 
-			echo "</td>\n    <td>" . $folder_list[$i-1]
+			echo "</td>\n    <td style=\"white-space:nowrap\">" . $folder_list[$i-1]
 				. "</td>\n";
 		}
 	}
+	echo "    <td width=\"100%\" style=\"text-align:right\">";
+	if($ldap_login_enabled)
+	{
+		// display user name if set, etc, etc
+		echo "<a href=\"user.php\">";
+
+		if(isset($_SESSION["LOGIN_USER"]))
+			echo "Log out " . ucwords(strtolower($_SESSION["LOGIN_USER"]));
+		else
+			echo "Log In";
+		echo "</a>";
+	}
+	echo "</td>\n";
 	echo "  </tr>\n</table>\n\n";
 }
 
@@ -633,4 +655,44 @@ function show_ldap_bind_error()
 		. " (LDAP bind failed)</p>\n";
 }
 
+function log_on_to_directory($ldap_link)
+{
+	global $ldap_default_user,$ldap_default_password;
+
+	if(isset($_SESSION["LOGIN_USER"]))
+	{
+		$user = get_ldap_bind_user($_SESSION["LOGIN_USER"]);
+		$pw = $_SESSION["LOGIN_PASSWORD"];
+	}
+	else
+	{
+		$user = $ldap_default_user;
+		$pw = $ldap_default_password;
+	}
+
+	$old_error_reporting=error_reporting();
+	error_reporting(0);
+	$result=false;
+	if($user != "__DENY__")
+		$result=ldap_bind($ldap_link,$user,$pw);
+	error_reporting($old_error_reporting);
+
+	return $result;
+}
+
+function get_ldap_bind_user($user_name)
+{
+	global $ldap_user_map;
+
+	$user_mapping = "__USERNAME__"; // default if no match at all
+
+	$found=false;
+	foreach($ldap_user_map as $map_user)
+		if(!$found && ($map_user["login_name"] == $user_name || $map_user["login_name"] == "__DEFAULT__"))
+		{
+			$user_mapping = $map_user["ldap_name"];
+			$found = true;
+		}
+        return str_replace("__USERNAME__",$user_name,$user_mapping);
+}
 ?>

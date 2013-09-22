@@ -29,11 +29,24 @@ $ldap_link = ldap_connect("dc1.turnersoft.co.uk");
 $ldap_base_dn = "ou=Home,dc=turnersoft,dc=co,dc=uk";
 
 // --------------------------------------------------------------------
-// User name and password for logging on to the LDAP server
+// User names and passwords for logging on to the LDAP server
 // --------------------------------------------------------------------
 
-$ldap_user = "";
-$ldap_password = "";
+// default credentials used to browse the directory when no user has
+// explicitly logged in ("anonymous" access)
+$ldap_default_user = "";
+$ldap_default_password = "";
+
+// whether to enable different users to log into the directory
+$ldap_login_enabled = false;
+
+// Defines how address book logins tranlate to LDAP logins and
+// permissions on the back-end directory. (See "configuring users and
+// permissions" in the manual for more info.)
+
+$ldap_user_map = array(
+	array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@turnersoft.co.uk")
+	);
 
 // --------------------------------------------------------------------
 // Search/Browse Directory Settings
