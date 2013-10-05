@@ -682,8 +682,6 @@ function show_ldap_bind_error()
 
 function log_on_to_directory($ldap_link)
 {
-	global $ldap_default_user,$ldap_default_password;
-
 	if(isset($_SESSION["LOGIN_USER"]))
 	{
 		$user = get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name");
@@ -721,7 +719,7 @@ function get_user_info($user_name="")
 		else
 			$user_name = "__ANONYMOUS__";
 
-	$user_info = array();   // default if no match at all
+	$user_info = array();	// default if no match at all
 	$found=false;
 	foreach($ldap_user_map as $map_user)
 		if(!$found && ($map_user["login_name"] == $user_name
