@@ -686,13 +686,13 @@ function log_on_to_directory($ldap_link)
 
 	if(isset($_SESSION["LOGIN_USER"]))
 	{
-		$user = get_ldap_bind_user($_SESSION["LOGIN_USER"]);
+		$user = get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name");
 		$pw = $_SESSION["LOGIN_PASSWORD"];
 	}
 	else
 	{
-		$user = $ldap_default_user;
-		$pw = $ldap_default_password;
+		$user = get_user_attrib("__ANONYMOUS__","ldap_name");
+		$pw = get_user_attrib("__ANONYMOUS__","ldap_password");
 	}
 
 	$old_error_reporting=error_reporting();
@@ -705,19 +705,33 @@ function log_on_to_directory($ldap_link)
 	return $result;
 }
 
-function get_ldap_bind_user($user_name)
+function get_user_attrib($user_name,$attrib)
+{
+	$user_info = get_user_info($user_name);
+	return $user_info[$attrib];
+}
+
+function get_user_info($user_name="")
 {
 	global $ldap_user_map;
 
-	$user_mapping = "__USERNAME__"; // default if no match at all
+	if(empty($user_name))
+		if(isset($_SESSION["LOGIN_USER"]))
+			$user_name = $_SESSION["LOGIN_USER"];
+		else
+			$user_name = "__ANONYMOUS__";
 
+	$user_info = array();   // default if no match at all
 	$found=false;
 	foreach($ldap_user_map as $map_user)
-		if(!$found && ($map_user["login_name"] == $user_name || $map_user["login_name"] == "__DEFAULT__"))
+		if(!$found && ($map_user["login_name"] == $user_name
+			|| $map_user["login_name"] == "__DEFAULT__"))
 		{
-			$user_mapping = $map_user["ldap_name"];
+			$user_info = $map_user;
 			$found = true;
 		}
-        return str_replace("__USERNAME__",$user_name,$user_mapping);
+	$user_info["ldap_name"]=str_replace("__USERNAME__",
+		$user_name,$user_info["ldap_name"]);
+	return $user_info;
 }
 ?>
