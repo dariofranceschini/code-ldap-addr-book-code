@@ -45,7 +45,17 @@ $ldap_login_enabled = false;
 // permissions" in the manual for more info.)
 
 $ldap_user_map = array(
-	array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@turnersoft.co.uk")
+	array("login_name"=>"__ANONYMOUS__","ldap_name"=>$ldap_default_user,
+		"ldap_password"=>$ldap_default_password,
+		"allow_browse"=>true,
+		"allow_search"=>true,
+		"allow_view"=>true
+		),
+	array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@turnersoft.co.uk",
+		"allow_browse"=>true,
+		"allow_search"=>true,
+		"allow_view"=>true
+		)
 	);
 
 // --------------------------------------------------------------------

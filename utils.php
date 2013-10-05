@@ -464,10 +464,12 @@ class ldap_entry_viewer
 	var $section = array();
 	var $ldap_entry;
 	var $last_section_added = "";
+	var $user_info = "";
 
 	function ldap_entry_viewer($ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
+		$this->user_info = get_user_info();
 	}
 
 	function add_section($text,$newrow=false,$colspan="",$width="")
@@ -499,14 +501,22 @@ class ldap_entry_viewer
 		show_ldap_path(get_ldap_attribute($this->ldap_entry,
 			"distinguishedName"),$ldap_base_dn,"contact24.png");
 
-		show_search_box("");
+		if($this->user_info["allow_search"])
+			show_search_box("");
+		else
+			echo "<br>";
 
-		echo "<table width=\"100%\" cellpadding=0>\n";
+		if($this->user_info["allow_view"])
+		{
+			echo "<table width=\"100%\" cellpadding=0>\n";
 
-		foreach($this->section as $section)
-			$section->show();
+			foreach($this->section as $section)
+				$section->show();
 
-		echo "</table>";
+			echo "</table>";
+		}
+		else
+			echo "<p>You do not have permission to view this record</p>\n";
 	}
 }
 

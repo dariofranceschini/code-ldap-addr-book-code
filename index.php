@@ -51,26 +51,50 @@ else
 
 show_ldap_path($dn,$ldap_base_dn,"folder.png");
 
-if(!empty($_GET["filter"]))
-	show_search_box($_GET["filter"]);
-else
-	show_search_box("");
-
 if(empty($ldap_server_type))	// Default server type: Active Directory
 	$ldap_server_type = "ad";
 
-$object_class_schema = get_object_class_schema($ldap_server_type);
+$user_info = get_user_info();
+
+if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
+	if(!empty($_GET["filter"]))
+		show_search_box($_GET["filter"]);
+	else
+		show_search_box("");
+else
+	echo "<br>";
+
+$search_resource = false;
 
 if(log_on_to_directory($ldap_link))
 {
+	$old_error_reporting=error_reporting();
+	error_reporting(0);
+
 	if($search_type == "subtree")
-		$search_resource = ldap_search($ldap_link,$dn,$filter)
-			or die("<br>Unable to retrieve records from "
-			. htmlentities($dn));
+		// get search results
+		if($user_info["allow_search"])
+			$search_resource = ldap_search($ldap_link,$dn,$filter);
+        	else
+        	        echo "<p>You do not have permission to search the directory</p>\n";
 	else
-		$search_resource = ldap_list($ldap_link,$dn,$filter)
-			or die("<br>Unable to retrieve records from "
-			. htmlentities($dn));
+		// browse OU contents
+		if($user_info["allow_browse"])
+			$search_resource = ldap_list($ldap_link,$dn,$filter);
+		else
+			// only show error if explicit base DN browse attempt
+			if (!empty($_GET["base"]))
+	        	        echo "<p>You do not have permission to browse the directory</p>\n";
+
+	error_reporting($old_error_reporting);
+}
+else
+	show_ldap_bind_error();
+
+// Display search resource info if successfully fetched
+if($search_resource)
+{
+	$object_class_schema = get_object_class_schema($ldap_server_type);
 
 	if(!empty($_GET["sort"]))
 		$sort_type = $_GET["sort"];
@@ -83,10 +107,6 @@ if(log_on_to_directory($ldap_link))
 		if($column["attrib"] == $sort_type);
 			$sort_order = $sort_type;
 
-	// Special handling of "sortableName" - sort on surname, then on
-	// given name within records with same surname (or if neither
-	// defined then sort on cn)
-
 	if($sort_order == "sortableName")
 	{
 		ldap_sort($ldap_link,$search_resource,"cn");
@@ -96,8 +116,6 @@ if(log_on_to_directory($ldap_link))
 	}
 	else
 		ldap_sort($ldap_link,$search_resource,$sort_order);
-
-	$ldap_data = ldap_get_entries($ldap_link,$search_resource);
 
 	echo "<table cellpadding=0 width=\"100%\">\n  <tr>\n";
 
@@ -127,6 +145,8 @@ if(log_on_to_directory($ldap_link))
 	}
 
 	// Display records
+
+	$ldap_data = ldap_get_entries($ldap_link,$search_resource);
 
 	for($i=0;$i < $ldap_data["count"]; $i++)
 	{
@@ -163,7 +183,7 @@ if(log_on_to_directory($ldap_link))
 		if($item_object_class == "(unrecognised)")
 		{
 			$item_object_class="";
-			// Subtract 1 to take into account "count" (number of class entries)
+			// Subtract 1 is to take into account "count" (number of class entries)
 			for($j=0;$j<count($ldap_data[$i]["objectclass"])-1;$j++)
 			{
 				if($j>0) $item_object_class .= ",";
@@ -241,6 +261,11 @@ if(log_on_to_directory($ldap_link))
 
 				$object_name = mb_convert_encoding($object_name,"HTML-ENTITIES","UTF-8");
 
+				// Don't make the cell a link to the object if the
+				// user doesn't have view permissions
+				if($column["link_type"] == "object" && !$user_info["allow_view"])
+					$column["link_type"] = "none";
+
 				// Display the object
 				echo "    <td bgcolor=\"#f0f0f0\">\n      ";
 				switch($column["link_type"])
@@ -277,8 +302,6 @@ if(log_on_to_directory($ldap_link))
 	}
 	echo "</table>\n";
 }
-else
-	show_ldap_bind_error();
 
 echo "\n</body>\n</html>\n";
 ?>
