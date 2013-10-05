@@ -71,7 +71,10 @@ if(log_on_to_directory($ldap_link))
 	$entry_viewer->show();
 }
 else
+{
+	show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
 	show_ldap_bind_error();
+}
 
 echo "\n\n</body>\n</html>\n";
 ?>

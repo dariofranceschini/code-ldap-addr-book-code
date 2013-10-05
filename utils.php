@@ -651,8 +651,33 @@ function get_ldap_attribute($ldap_entry,$attribute)
 
 function show_ldap_bind_error()
 {
-	echo "<p>Unable to connect to address book directory."
-		. " (LDAP bind failed)</p>\n";
+	global $ldap_login_enabled;
+
+	if($ldap_login_enabled)
+	{
+		if(isset($_SESSION["LOGIN_USER"]))
+			echo "<p>You do not have permission to log in to"
+				. " the address book directory.</p>\n"
+				. "<p><a href=\"user.php\">Log in as a"
+				. " different user</a></p>";
+		else
+			echo "<p><a href=\"user.php\">Please log in to"
+				. " access the address book"
+				. " directory</a></p>";
+	}
+	else
+	{
+		echo "<p>Unable to connect to address book directory."
+			. " (LDAP bind failed)</p>\n";
+
+		// don't show this line if the user has already configured
+		// a non-blank default user
+		if(get_user_attrib("__ANONYMOUS__","ldap_name")=="")
+			echo "<p>If you have not already done so, please
+				<a href=\"doc/\">read the manual</a> for how
+				instructions on to configure directory
+				access.</p>";
+	}
 }
 
 function log_on_to_directory($ldap_link)
