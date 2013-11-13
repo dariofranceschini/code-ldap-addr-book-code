@@ -202,7 +202,7 @@ if($search_resource)
 		switch($ldap_server_type)
  		{
 			case "edir":
-				$object_dn = $ldap_data[$i]["dn"][0];
+				$object_dn = $ldap_data[$i]["dn"];
 				break;
 			case "ad":
 			default:
