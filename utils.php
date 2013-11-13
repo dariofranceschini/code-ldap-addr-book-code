@@ -707,7 +707,10 @@ function log_on_to_directory($ldap_link)
 	error_reporting(0);
 	$result=false;
 	if($user != "__DENY__")
+	{
+		ldap_set_option($ldap_link,LDAP_OPT_PROTOCOL_VERSION,3);
 		$result=ldap_bind($ldap_link,$user,$pw);
+	}
 	error_reporting($old_error_reporting);
 
 	return $result;
