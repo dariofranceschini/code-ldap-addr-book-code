@@ -217,7 +217,7 @@ if($search_resource)
 			echo "    <td bgcolor=\"#f0f0f0\" colspan="
 				. count($search_result_columns)
 				. ">\n      <a href=\"?base="
-				. htmlentities(str_replace("=","|",$object_dn))
+				. urlencode(str_replace("=","|",$object_dn))
 				. "\">\n        "
 				. mb_convert_encoding(
 				$ldap_data[$i][$object_rdn_attrib][0],
@@ -274,8 +274,8 @@ if($search_resource)
 					// object
 					case "object":
 						echo "<a href=\"info.php?dn="
-							. str_replace("=","|",
-							$object_dn) . "\">"
+							. urlencode(str_replace("=","|",
+							$object_dn)) . "\">"
 							. $object_name
 							. "</a>";
 						break;
