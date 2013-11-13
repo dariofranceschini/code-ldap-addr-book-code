@@ -66,13 +66,13 @@ function show_search_box($initial_value)
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
-	global $ldap_login_enabled;
+	global $site_name,$ldap_login_enabled;
 
 	echo "<table width=\"100%\">\n  <tr>\n    <td><a href=\"/\">"
 		. "<img border=0 align=\"top\" alt=\"Address Book\" src=\"addressbook24.png\">"
 		. "</a></td>"
 		. "\n    <td style=\"font-weight:bold;font-size:12pt;white-space:nowrap\">"
-		. "<a href=\"/\">Address Book</a></td>\n";
+		. "<a href=\"/\">" . $site_name . "</a></td>\n";
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{

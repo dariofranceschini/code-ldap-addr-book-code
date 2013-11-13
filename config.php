@@ -3,7 +3,7 @@
 // Address book name (for page title and browser search plugin)
 // --------------------------------------------------------------------
 
-$site_name = "LDAP Address Book";
+$site_name = "Address Book";
 
 // --------------------------------------------------------------------
 // Type of LDAP server, chosen from:
