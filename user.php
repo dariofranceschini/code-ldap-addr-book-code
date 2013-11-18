@@ -70,14 +70,13 @@ function reset_login_session()
 function return_to_previous_url()
 {
 	// TODO: look out for nasties being passed in HTTP_REFERER
-	// TODO: figure out how to find the main page URL more nicely
 
 	// if current page is user.php then redirect to main page instead
 	// to avoid a redirect loop on user login retry
 
 	if(basename($_SERVER["PHP_SELF"]="user.php") || empty($_SERVER["HTTP_REFERER"]))
 		// go back to main page
-		$redirect_uri = "/";
+		$redirect_uri = current_page_folder_url();
 	else
 		$redirect_uri = $_SERVER["HTTP_REFERER"];
 

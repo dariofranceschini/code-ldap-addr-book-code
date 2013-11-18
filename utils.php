@@ -44,7 +44,7 @@ function show_site_header()
 
 function show_search_box($initial_value)
 {
-	echo "<form action=\"/\" method=\"get\">\n";
+	echo "<form action=\"" . current_page_folder_url() . "\" method=\"get\">\n";
 
 	echo "  <p>\n";
 	echo "    Search for:\n";
@@ -68,11 +68,13 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 {
 	global $site_name,$ldap_login_enabled;
 
-	echo "<table width=\"100%\">\n  <tr>\n    <td><a href=\"/\">"
+	echo "<table width=\"100%\">\n  <tr>\n"
+		. "    <td><a href=\"" . current_page_folder_url() . "\">"
 		. "<img border=0 align=\"top\" alt=\"Address Book\" src=\"addressbook24.png\">"
-		. "</a></td>"
-		. "\n    <td style=\"font-weight:bold;font-size:12pt;white-space:nowrap\">"
-		. "<a href=\"/\">" . $site_name . "</a></td>\n";
+		. "</a></td>\n"
+		. "    <td style=\"font-weight:bold;font-size:12pt;white-space:nowrap\">"
+		. "<a href=\"" . current_page_folder_url() . "\">" . $site_name . "</a></td>\n";
+
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
@@ -139,13 +141,18 @@ function current_page_url()
 
 // Return URL of folder containing the currently running script
 
-// TODO: add trailing slash (missing from non-root folders)
-
 function current_page_folder_url()
 {
-	return (!empty($_SERVER['HTTPS']))
-		? "https://" . $_SERVER["SERVER_NAME"] . dirname($_SERVER["REQUEST_URI"])
-		: "http://" . $_SERVER["SERVER_NAME"] . dirname($_SERVER["REQUEST_URI"]);
+	$scheme = empty($_SERVER['HTTPS']) ? "http" : "https";
+
+	$path = substr($_SERVER["REQUEST_URI"],-1) == "/"
+		? $_SERVER["REQUEST_URI"]
+		: dirname($_SERVER["REQUEST_URI"]);
+
+	// add trailing slash (missing from non-root folders)
+	if(substr($path,-1) != "/") $path .= "/";
+
+	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $path;
 }
 
 // Return an array associating LDAP object classes with attributes used by
