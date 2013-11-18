@@ -141,8 +141,9 @@ if($search_resource)
 
 		echo "\">";
 		echo $column["caption"];
-		echo "\n</a></th>";
+		echo "</a></th>\n";
 	}
+	echo "  </tr>\n";
 
 	// Display records
 
