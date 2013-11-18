@@ -37,7 +37,8 @@ if(!isset($_SESSION["LOGIN_USER"]))
 			else
 			{
 				reset_login_session();
-				show_try_again_message("The user name/password you entered is not valid - access denied");
+				show_try_again_message("The user name/password you entered "
+					. "is not valid");
 			}
 		}
 		else
