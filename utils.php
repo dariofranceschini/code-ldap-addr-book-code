@@ -130,15 +130,6 @@ function ldap_explode_dn2($dn,$with_attrib)
 	return $dn;
 }
 
-// Return URL of the currently running script
-
-function current_page_url()
-{
-	return (!empty($_SERVER['HTTPS']))
-		? "https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]
-		: "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-}
-
 // Return URL of folder containing the currently running script
 
 function current_page_folder_url()
