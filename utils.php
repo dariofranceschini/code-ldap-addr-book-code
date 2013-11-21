@@ -41,6 +41,9 @@ function show_site_header()
 }
 
 // Output the HTML to display the search box
+//
+// $initial_value - text to display in search box when page first loaded; typically
+// the previous text the user searched on.
 
 function show_search_box($initial_value)
 {
@@ -61,8 +64,13 @@ function show_search_box($initial_value)
 // Show "breadcrumb navigation" version of specified LDAP path
 // Each level in the DIT appears with a folder icon; final item
 // is displayed with $leaf_icon next to it
-
+//
 // Also shows "login" button to right (if editing enabled)
+//
+// $base - The DN for whicht the breadcrumb navigation is to be
+//           displayed
+// $default_base - The address book's base DN. Elements of this DN
+//           are not to be displayed as breadcrumb elements.
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
@@ -110,14 +118,22 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "  </tr>\n</table>\n\n";
 }
 
-// (Partial) re-implementation standard PHP function ldap_explode_dn,
+// Returns the elemens of the specified DN as an array.
+//
+// (Partial) re-implementation standard PHP function ldap_explode_dn(),
 // but correctly handling accented characters.
-
+//
 // Limitations compared to the "original":
 // No support for multi-valued RDNs, no "count" attribute to
 // indicate number of RDNs, no support for handling
 // DNs which have commas within any of their values.
-// (TODO: no commas could be an unacceptable limitation!)
+// (TODO: no commas could prove to be an unacceptable limitation!)
+//
+// $dn - DN which is to be converted into an array
+// $with_attrib - Return associative array of attributes and values
+//      if set to 1
+//
+// (TODO: why not use boolean "true" rather than sentinel value 1)
 
 function ldap_explode_dn2($dn,$with_attrib)
 {
@@ -196,6 +212,9 @@ function get_object_class_schema($ldap_server_type = "ad")
 	}
 }
 
+
+// ISO 3166-1 alpha-2 country codes
+//
 // based on code snippet from:
 // http://coding-talk.com/f46/iso-country-codes-to-country-names-country-form-select-options-16364/
 
@@ -448,6 +467,10 @@ $country_name=array(
 	"BL" => "Saint Barthelemy",
 	"MF" => "Saint Martin");
 
+// Return full country name given ISO 3166-1 alpha-2 country code
+//
+// $code - country code which is to be converted to country name
+
 function get_country_name_from_code($code)
 {
 	global $country_name;
@@ -457,6 +480,8 @@ function get_country_name_from_code($code)
 		return "unknown";
 }
 
+// View LDAP entry as HTML
+
 class ldap_entry_viewer
 {
 	var $section = array();
@@ -464,11 +489,21 @@ class ldap_entry_viewer
 	var $last_section_added = "";
 	var $user_info = "";
 
+	// Constructor.
+	// $ldap_entry - Arary containing LDAP object entry which is to be displayed
+
 	function ldap_entry_viewer($ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
 		$this->user_info = get_user_info();
 	}
+
+	// Add a section to the display
+	//
+	// $text - title text/section name
+	// $newrow - should the section start on a new row?
+	// $colspan - number of table columns to span (default to 1 if missing)
+	// $width - HTML/CSS column width (default to evenly spaced if missing)
 
 	function add_section($text,$newrow=false,$colspan="",$width="")
 	{
@@ -484,11 +519,20 @@ class ldap_entry_viewer
 		$this->last_section_added = $text;
 	}
 
+	// Add an attribute and its value to the display
+	//
+	// $attribute - LDAP attribute
+	// $caption - "friendly" caption to be used for LDAP attribute
+	// $icon - icon image to display next to attribute
+
 	function add_to_section($attribute,$caption="",$icon="")
 	{
 		$this->section[$this->last_section_added]->add_data(
 			$attribute,$caption,$icon);
 	}
+
+	// Output the object entry as HTML, utilising chosen attributes
+	// and layout
 
 	function show()
 	{
@@ -518,6 +562,8 @@ class ldap_entry_viewer
 	}
 }
 
+// Section of information (displayed list of attributes) within ldap_entry_viewer
+
 class ldap_entry_viewer_section
 {
 	var $text;
@@ -527,11 +573,19 @@ class ldap_entry_viewer_section
 	var $width="";
 	var $ldap_entry;
 
+	// Add an attribute and its value to the display
+	//
+	// $attribute - LDAP attribute
+	// $caption - "friendly" caption to be used for LDAP attribute
+	// $icon - icon image to display next to attribute
+
 	function add_data($attribute,$caption="",$icon="")
 	{
 		$this->attrib[] = new ldap_entry_viewer_attrib($attribute,
 			$caption,$icon);
 	}
+
+	// Output this section of the object entry as HTML, utilising chosen attributes
 
 	function show()
 	{
@@ -558,11 +612,19 @@ class ldap_entry_viewer_section
 	}
 }
 
+// Individual LDAP object attribute displayed in ldap_entry_viewer_section
+
 class ldap_entry_viewer_attrib
 {
 	var $caption;
 	var $ldap_attribute;
 	var $icon;
+
+	// Add an attribute and its value to the display
+	//
+	// $attribute - LDAP attribute
+	// $caption - "friendly" caption to be used for LDAP attribute
+	// $icon - icon image to display next to attribute
 
 	function ldap_entry_viewer_attrib($attribute,$caption="",$icon="")
 	{
@@ -570,6 +632,8 @@ class ldap_entry_viewer_attrib
 		$this->ldap_attribute = $attribute;
 		$this->icon = $icon;
 	}
+
+	// Output this object attribute as HTML
 
 	function show($ldap_entry)
 	{
@@ -627,6 +691,13 @@ class ldap_entry_viewer_attrib
 	}
 }
 
+// Return specified attribute from an LDAP object entry specified
+// as an array, processing it for display as HTML (e.g. turn URLs
+// and e-mail addresses, special characters into entities, etc)
+//
+// $ldap_entry - LDAP entry as an array
+// $attribute - Attribute to be returned
+
 function get_ldap_attribute($ldap_entry,$attribute)
 {
 	$attribute = strtolower($attribute);
@@ -656,6 +727,9 @@ function get_ldap_attribute($ldap_entry,$attribute)
 
 	return $attrib_value;
 }
+
+// Report an LDAP bind error (login failure), using wording appropriate
+// to the specific situation
 
 function show_ldap_bind_error()
 {
@@ -688,6 +762,11 @@ function show_ldap_bind_error()
 	}
 }
 
+// Attempt LDAP bind (login) with user (or config file) specified
+// credentials
+//
+// $ldap_link - LDAP connection handle to bind/authenticate against
+
 function log_on_to_directory($ldap_link)
 {
 	if(isset($_SESSION["LOGIN_USER"]))
@@ -714,11 +793,21 @@ function log_on_to_directory($ldap_link)
 	return $result;
 }
 
+// Return value of named attribute for specified address book user name
+//
+// $user_name - Name of user whose information is required
+// $attrib - Attribute to be returned
+
 function get_user_attrib($user_name,$attrib)
 {
 	$user_info = get_user_info($user_name);
 	return $user_info[$attrib];
 }
+
+// Return array of attributes for specified address book user name
+//
+// $user_name - Name of user whose information is required (default to
+// currently logged in user if omitted)
 
 function get_user_info($user_name="")
 {

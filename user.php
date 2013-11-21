@@ -51,6 +51,11 @@ else
 	return_to_previous_url();
 }
 
+// Display a page explaining why the login wasn't accepted, with
+// a link to try again.
+//
+// $message - Text of message to be displayed.
+
 function show_try_again_message($message)
 {
 	global $ldap_base_dn;
@@ -60,12 +65,18 @@ function show_try_again_message($message)
 	echo "<a href=\"user.php\">Try again</a>\n</body>\n</html>";
 }
 
+// Log user out/remove details of any in-progress login
+
 function reset_login_session()
 {
 	unset($_SESSION["LOGIN_SENT"]);
 	unset($_SESSION["LOGIN_USER"]);
 	unset($_SESSION["LOGIN_PASSWORD"]);
 }
+
+// Return user to their previous URL once login has been completed
+// (using contents of HTTP "Referer" header field if available,
+// otherwise to the address book's main page)
 
 function return_to_previous_url()
 {
