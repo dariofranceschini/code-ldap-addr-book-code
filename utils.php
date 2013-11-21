@@ -787,6 +787,13 @@ function log_on_to_directory($ldap_link)
 	{
 		ldap_set_option($ldap_link,LDAP_OPT_PROTOCOL_VERSION,3);
 		$result=ldap_bind($ldap_link,$user,$pw);
+
+		// Timezone is not known to be used for anything in this
+		// application, however various LDAP functions produce
+		// warning messages in newer PHP versions (>=5.1.0) if it
+		// is not set.
+		if(!ini_get("date.timezone"))
+			date_default_timezone_set("UTC");
 	}
 	error_reporting($old_error_reporting);
 
