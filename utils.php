@@ -86,7 +86,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
-		$folder_list = ldap_explode_dn2($folder_list,1);
+		$folder_list = ldap_explode_dn2($folder_list,true);
 
 		for($i=count($folder_list);$i>0;$i--)
 		{
@@ -131,15 +131,13 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 //
 // $dn - DN which is to be converted into an array
 // $with_attrib - Return associative array of attributes and values
-//      if set to 1
-//
-// (TODO: why not use boolean "true" rather than sentinel value 1)
+//      if set to true
 
 function ldap_explode_dn2($dn,$with_attrib)
 {
 	$dn = explode(",",$dn);
 
-	if($with_attrib == 1)
+	if($with_attrib)
 		for($i=0;$i<count($dn);$i++)
 			$dn[$i] = substr($dn[$i],strpos($dn[$i],"=")+1);
 
