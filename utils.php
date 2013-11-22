@@ -672,9 +672,8 @@ class ldap_entry_viewer_attrib
 					switch($attribute)
 					{
 						case "postalCode":
-							// TODO: postal code needs URL encoding in link
 							echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-								. $attrib_value . "\" target=\"_blank\">View map</a>)";
+								. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 							break;
 						case "c":
 							echo get_country_name_from_code($attrib_value) . "&nbsp;";
