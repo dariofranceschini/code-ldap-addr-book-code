@@ -114,6 +114,8 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 			echo "Log In";
 		echo "</a>";
 	}
+	else
+		echo "<!-- per-user logins not enabled -->";
 	echo "</td>\n";
 	echo "  </tr>\n</table>\n\n";
 }
