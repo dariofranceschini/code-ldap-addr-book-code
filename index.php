@@ -117,14 +117,14 @@ if($search_resource)
 	else
 		ldap_sort($ldap_link,$search_resource,$sort_order);
 
-	echo "<table cellpadding=0 width=\"100%\">\n  <tr>\n";
+	echo "<table class=\"search_results_viewer\">\n  <tr>\n";
 
 	// Display column headings
 	$colspan="colspan=2 ";
 	foreach($search_result_columns as $column)
 	{
 		echo "    <th " . $colspan
-			. "bgcolor=\"#e0e0e0\" style=\"font-size:12pt\">"
+			. "class=\"column_header\">"
 			. "<a href=\"?sort=";
 
 		echo $column["attrib"];
@@ -194,7 +194,7 @@ if($search_resource)
 
 		// Display the record's icon
 
-		echo "    <td width=1><img alt=\"" . $item_object_class
+		echo "    <td class=\"object_class_icon\"><img alt=\"" . $item_object_class
 			. "\" title=\"" . $item_object_class
 			. "\" src=\"schema/" . $icon . "\"></td>\n";
 
@@ -215,8 +215,7 @@ if($search_resource)
 			// Display the folder name, and make it a link to
 			// display the folder's contents.
 
-			echo "    <td bgcolor=\"#f0f0f0\" colspan="
-				. count($search_result_columns)
+			echo "    <td colspan=" . count($search_result_columns)
 				. ">\n      <a href=\"?base="
 				. urlencode(str_replace("=","|",$object_dn))
 				. "\">\n        "
@@ -268,7 +267,7 @@ if($search_resource)
 					$column["link_type"] = "none";
 
 				// Display the object
-				echo "    <td bgcolor=\"#f0f0f0\">\n      ";
+				echo "    <td>\n      ";
 				switch($column["link_type"])
 				{
 					// Cell should contain a link to the

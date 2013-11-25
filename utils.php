@@ -76,33 +76,31 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 {
 	global $site_name,$ldap_login_enabled;
 
-	echo "<table width=\"100%\">\n  <tr>\n"
-		. "    <td><a href=\"" . current_page_folder_url() . "\">"
-		. "<img border=0 align=\"top\" alt=\"Address Book\" src=\"addressbook24.png\">"
-		. "</a></td>\n"
-		. "    <td style=\"font-weight:bold;font-size:12pt;white-space:nowrap\">"
-		. "<a href=\"" . current_page_folder_url() . "\">" . $site_name . "</a></td>\n";
+	echo "<table class=\"ldap_navigation_path\">\n  <tr>\n"
+		. "    <th>\n      <a href=\"" . current_page_folder_url() . "\">"
+		. "<img style=\"vertical-align:top\" alt=\"Address Book\" src=\"addressbook24.png\"> "
+		. $site_name . "</a>\n    </th>\n";
 
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
 		$folder_list = ldap_explode_dn2($folder_list,true);
-
+		echo "    <td>\n";
 		for($i=count($folder_list);$i>0;$i--)
 		{
-			echo "\n    <td style=\"white-space:nowrap\">&nbsp;&nbsp;"
+			echo "      &nbsp;&nbsp;"
 				. "&#x25B6;"	// Right-facing arrow head
-				. "&nbsp;&nbsp;</td>\n\n    <td valign=\"middle\">";
+				. "&nbsp;&nbsp;";
 			if($i==1)
-				echo "<img align=\"top\" alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\">";
+				echo "<img style=\"vertical-align:top\" alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\"> ";
 			else
-				echo "<img align=\"top\" alt=\"Folder\" src=\"schema/folder.png\">";
+				echo "<img style=\"vertical-align:top\" alt=\"Folder\" src=\"schema/folder.png\"> ";
 
-			echo "</td>\n    <td style=\"white-space:nowrap\">" . $folder_list[$i-1]
-				. "</td>\n";
+			echo $folder_list[$i-1] . "\n";
 		}
+		echo "    </td>\n";
 	}
-	echo "    <td width=\"100%\" style=\"text-align:right\">";
+	echo "    <td class=\"login_info\">";
 	if($ldap_login_enabled)
 	{
 		// display user name if set, etc, etc
@@ -503,7 +501,7 @@ class ldap_entry_viewer
 	// $text - title text/section name
 	// $newrow - should the section start on a new row?
 	// $colspan - number of table columns to span (default to 1 if missing)
-	// $width - HTML/CSS column width (default to evenly spaced if missing)
+	// $width - section width (defaults to evenly spaced/auto expand if missing)
 
 	function add_section($text,$newrow=false,$colspan="",$width="")
 	{
@@ -550,7 +548,7 @@ class ldap_entry_viewer
 
 		if($this->user_info["allow_view"])
 		{
-			echo "<table width=\"100%\" cellpadding=0>\n";
+			echo "<table class=\"ldap_entry_viewer\">\n";
 
 			foreach($this->section as $section)
 				$section->show();
@@ -598,17 +596,18 @@ class ldap_entry_viewer_section
 			$cell_attrib.=" colspan=" . $this->colspan;
 
 		if($this->width != "")
-			$cell_attrib.=" width=\"" . $this->width . "\"";
+			$cell_attrib.=" style=\"width:" . $this->width . "\"";
 
 		echo "    <td valign=\"top\" " . $cell_attrib
-			. ">\n      <table collspan=3 cellpadding=0 width=\"100%\">"
-			. "\n        <tr>\n          <th colspan=3 bgcolor=\"#e0e0e0\" style=\"font-size:12pt;font-weight:bold\">"
+			. ">\n      <table class=\"ldap_entry_viewer_section\">"
+			. "\n        <tr>\n          <th colspan=3 class=\"column_header\">"
 			. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
 			$attrib->show($this->ldap_entry);
 
-		echo "      </table></td>\n";
+		echo "      </table>\n";
+		echo "    </td>\n";
 	}
 }
 
@@ -641,18 +640,18 @@ class ldap_entry_viewer_attrib
 
 		// Use full width if attribute has no icon or caption text
 		if($this->icon == "" && $this->caption == "")
-			echo "          <td colspan=3 bgcolor=\"#f0f0f0\">";
+			echo "          <td colspan=3>";
 		else
 		{
-			echo "          <td width=\"1px\">";
+			echo "          <th>";
 			if($this->icon != "")
 				echo "<img alt=\"" . $this->ldap_attribute
 					. "\" src=\"schema/"
 					. $this->icon . "\">";
-			echo "</td>\n          "
-				. "<td width=\"1px\" style=\"white-space:nowrap\">"
-				. $this->caption . "&nbsp;</td>\n";
-			echo "          <td bgcolor=\"#f0f0f0\">"
+			echo "</th>\n          "
+				. "<th>"
+				. $this->caption . "&nbsp;</th>\n";
+			echo "          <td>"
 				. "\n            ";
 		}
 
