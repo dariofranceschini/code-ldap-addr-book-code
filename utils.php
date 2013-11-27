@@ -191,6 +191,16 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
 				);
 			break;
+		case "openldap":
+			// Object class data - these items specific to OpenLDAP
+			return array(
+				// core.schema (partial)
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou"),
+				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false),
+				// inetorgperson.schema
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false)
+				);
+			break;
 		case "ad":
 		default:
 			// Object class data - these items specific to Active Directory

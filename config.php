@@ -7,8 +7,9 @@ $site_name = "Address Book";
 
 // --------------------------------------------------------------------
 // Type of LDAP server, chosen from:
-//	ad	Microsoft Active Directory
-//	edir	Novell eDirectory
+//	ad		Microsoft Active Directory
+//	edir		Novell eDirectory
+//	openldap	OpenLDAP
 // --------------------------------------------------------------------
 
 $ldap_server_type = "ad";

@@ -42,6 +42,7 @@ tested on the following LDAP directories:
 <ul>
 <li>Active Directory (Microsoft and Samba implementations)
 <li>Novell eDirectory
+<li>OpenLDAP (provisional support)
 </ul>
 <p>
 Searching your LDAP address book is pretty easy. Just type in
@@ -138,16 +139,16 @@ under Windows is as follows:
 <ul>
 <li>Install prefered web server (e.g. Apache HTTP Server or Microsoft IIS).
 
-<li>Download and install PHP 5, e.g. from 
+<li>Download PHP 5, e.g. from 
     <a href="http://windows.php.net/download/">http://windows.php.net/download/</a>
     or a trusted mirror.
 
-<li>If necessary, enable LDAP support within PHP.
+<li>Install PHP 5, ensuring that LDAP support is enabled.
 
-<li>Set up a new virtual host for the Address Book and
+<li>Set up a new virtual host or folder for the Address Book and
     extract the install media to it.
 
-<li>Create a DNS record for the address book web site.
+<li>If necessary, create a DNS record for the address book web site.
 </ul>
 
 <h3>Set up access to the directory service</h3>
@@ -176,7 +177,7 @@ You will also need to fill in the following settings:
 </p>
 <ul>
 <li><code>$ldap_server_type</code> - Either <code>"ad"</code> (for either Microsoft or
-Samba Active Directory) or <code>"edir"</code> (Novell eDirectory) as
+Samba Active Directory), <code>"edir"</code> (Novell eDirectory) or "openldap" (OpenLDAP) as
 appropriate.
 
 <li><code>$ldap_link</code> - Enter the host name of the directory server
@@ -451,9 +452,13 @@ how records are searched for and displayed.
 
 <tr><th colspan=2>Connection to LDAP Directory</th></tr>
 
-<tr><td><code>$ldap_server_type</code></td><td>Indicate the LDAP server (directory) type, currently either <code>ad</code> for
-    Microsoft Active Directory (or Samba 4 Active Directory) or <code>edir</code> for Novell eDirectory. This
-    setting changes how the directory's objects and their attributes are displayed in the address book.</td></tr>
+<tr><td><code>$ldap_server_type</code></td><td>Indicate the LDAP server (directory) type, which affects
+	how the directory's objects and their attributes are displayed in the address book. The following
+	values are accepted:<br>&nbsp;<br>
+<code>ad</code> - Microsoft Active Directory (or Samba 4 Active Directory)<br>
+<code>edir</code> - Novell eDirectory<br>
+<code>openldap</code> - OpenLDAP (core/inetorgperson schema)
+</td></tr>
 
 <tr><td><code>$ldap_link</code></td><td>Creates a connection to the LDAP server holding the address
     book data.
