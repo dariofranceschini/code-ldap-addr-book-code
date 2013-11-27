@@ -31,11 +31,17 @@ function show_site_header()
 	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">\n";
 	echo "<html>\n";
 	echo "<head>\n";
-	echo "<title>" . $site_name . "</title>\n";
+	echo "  <title>" . $site_name . "</title>\n";
+	// HTML 5.0 syntax:
+	// echo "<meta charset=\"UTF-8\">";
+
+	// equivalent syntax, backwardly compatible with HTML 4.01
+	echo "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n";
 	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
 	echo "  <link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
 		. $site_name . "\" href=\"search-plugin.php\">\n";
 	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook24.png\">\n";
+
 	echo "</head>\n\n";
 	echo "<body>\n\n";
 }

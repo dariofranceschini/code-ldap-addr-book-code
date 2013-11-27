@@ -25,7 +25,7 @@ $dn = $ldap_base_dn;
 
 if(!empty($_GET["filter"]))
 {
-	$filter = mb_convert_encoding($_GET["filter"],"UTF-8");
+	$filter = $_GET["filter"];
 
 	$filter_query = "(&(objectClass=person)(|";
 	foreach($search_ldap_attrib as $attrib)
