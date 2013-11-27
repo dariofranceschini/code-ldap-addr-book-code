@@ -127,7 +127,7 @@ if($search_resource)
 			. "class=\"column_header\">"
 			. "<a href=\"?sort=";
 
-		echo $column["attrib"];
+		echo urlencode($column["attrib"]);
 
 		// Only the first item should have colspan=2 (so that it
 		// spans both the icon and first attribute column)
