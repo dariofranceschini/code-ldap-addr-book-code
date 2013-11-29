@@ -45,7 +45,7 @@ if(log_on_to_directory($ldap_link))
 	// $entry_viewer->add_to_section("pager",			"Pager");
 	$entry_viewer->add_to_section("mobile",				"Mobile Phone",		"cell-phone.png");
 	$entry_viewer->add_to_section("wWWHomePage",			"Web Page",	"internet.png"); // business and personal web swapped round
-	$entry_viewer->add_to_section("streetAddress:l:st:postalCode",	"Postal Address",	"address.gif");
+	$entry_viewer->add_to_section("streetAddress:l:st:postalCode",	"Postal Address",	"address.png");
 	$entry_viewer->add_to_section("c",				"Country",		"country.png");
 
 	// ---------------------------------------------

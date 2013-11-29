@@ -192,7 +192,7 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false),
 				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
 				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.gif",  "is_folder"=>false),
+				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
 				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false),
 				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
 				);
