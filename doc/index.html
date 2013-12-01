@@ -27,8 +27,9 @@ LDAP Address Book
 <li>Customising the Address Book
   <ol>
   <li>Configuring users and permissions
-  <li>Changing how search results are displayed
-  <li>Changing how directory entries are displayed
+  <li>Changing the attributes shown for search results
+  <li>Changing the layout and attributes shown for directory entries
+  <li>Changing the look and formatting of the address book
   </ol>
 <li>Configuration reference
 </ol>
@@ -323,7 +324,7 @@ array("login_name"=>"__ANONYMOUS__","ldap_name"=>"__DENY__",
         "allow_view"=>true
 	)
 </pre>
-<h3>Changing how search results are displayed</h3>
+<h3>Changing the attributes shown for search results</h3>
 <p>
 The fields/attributes that are used when searching can
 be customised by editing the contents of $search_ldap_attrib
@@ -348,7 +349,7 @@ The columns that appear in search results can be changed
 by editing the contents of <code>$search_result_columns</code> in the
 config file.
 </p>
-<h3>Changing how directory entries are displayed</h3>
+<h3>Changing the layout and attributes shown for directory entries</h3>
 <p>
 You may want to customise the way in which address book
 entries are displayed - which fields/attributes are
@@ -438,6 +439,87 @@ section.
     "View Map" link that displays the corresponding location
     in Google Maps (where the postal code is valid and recognised).</p>
 </ul>
+
+<h3>Changing the look and formatting of the address book</h3>
+<p>
+The appearance of the address book (font, text size, colours, etc) can
+be changed by modifying the CSS stylesheet file.
+</p>
+<p>
+<a href="../styles.css">Take a look at the Address Book's stylesheet file
+(<code>styles.css</code>)</a>
+</p>
+<p>
+The following table summarises the CSS selectors used within
+<code>styles.css</code> and how they might be used to change the
+appearance:
+</p>
+<table border=1>
+<tr><th>CSS Selector</th><th>Typically used to change the font, size,
+        colour, etc, of...</th></tr>
+<tr><td><code>body,table</code></td>
+    <td>The address book as a whole.</td></tr>
+<tr><td><code>.ldap_navigation_path th</code></td>
+    <td>The address book title, which is shown as the left-most item in the
+        "Navigation Path" shown at the top of each page.</td></tr>
+
+<tr><td><code>.ldap_navigation_path td</code></td>
+    <td>Organisational units, folders, etc, shown in the
+        "Navigation Path" at the top of each page. The left-most
+        element of the navigation path (typically used to show
+        the address book title) is styled separately, described
+        above.</td></tr>
+
+<tr><td style="white-space:nowrap"><code>.ldap_entry_viewer_section .column_header,<br>
+        .search_results_viewer .column_header</code></td>
+    <td>Column headers/titles used in search results and
+        directory entries.(*)</td></tr>
+
+<tr><td><code>.ldap_entry_viewer_section td,<br>
+        .search_results_viewer td</code></td>
+    <td>Data displayed in search results and directory entries.(*)
+        Note: The appearance of LDAP attributes can be customised
+        individually, as described below.</td></tr>
+
+<tr><td><code>.ldap_entry_viewer_section th</code></td>
+    <td>Name/label text that appears to the left of each
+        attribute shown in a directory entry.</td></tr>
+
+</table>
+<p>
+(* These may be split into two separate style directives if
+you want to customise the search results and directory entry
+detail pages separately.)
+</p>
+<p>
+The way in which directory information is presented can also
+be changed for each individual LDAP attribute by applying style
+directives to the class <code>.ldap_attribute_&lt;attrib&gt;</code>,
+where <code>&lt;attrib&gt;</code> is the attribute to be
+customised.
+</p>
+<p>Example: Adding the following to the end of <code>styles.css</code> will
+cause home telephone numbers (stored in the <code>homePhone</code>
+attribute) to be displayed in italic:
+</p>
+<pre>
+.ldap_attribute_homePhone
+{
+        font-style:italic;
+}
+</pre>
+<p>
+Example: Adding the following to the end of <code>styles.css</code> will
+display SSH public keys (stored in the <code>sshPublicKey</code> attribute)
+to be displayed in a fixed-width font and word-wrapped more appropriately:
+</p>
+<pre>
+.ldap_attribute_sshPublicKey
+{
+        font-family:monospace;
+        word-break:break-all;
+}
+</pre>
 
 <h2>Configuration Reference</h2>
 <p>

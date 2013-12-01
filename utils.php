@@ -656,7 +656,9 @@ class ldap_entry_viewer_attrib
 
 		// Use full width if attribute has no icon or caption text
 		if($this->icon == "" && $this->caption == "")
-			echo "          <td colspan=3>";
+			echo "          <td colspan=3 class=\""
+					. ldap_attribute_to_css_class($this->ldap_attribute)
+					. "\">";
 		else
 		{
 			echo "          <th>";
@@ -667,8 +669,10 @@ class ldap_entry_viewer_attrib
 			echo "</th>\n          "
 				. "<th>"
 				. $this->caption . "&nbsp;</th>\n";
-			echo "          <td>"
-				. "\n            ";
+
+			echo "          <td class=\""
+				. ldap_attribute_to_css_class($this->ldap_attribute)
+				. "\">\n            ";
 		}
 
 		$first_line = true;
@@ -703,6 +707,19 @@ class ldap_entry_viewer_attrib
 		}
 		echo "\n          </td>\n        </tr>\n";
 	}
+}
+
+// Return attribute-specific CSS class name for given LDAP attribute
+//
+// $attrib - attribute for which CSS class name is to be returned.
+
+function ldap_attribute_to_css_class($attrib)
+{
+		// Remove characters not supported in CSS class names
+		$attrib = str_replace(":","",$attrib);
+		$attrib = str_replace("+","",$attrib);
+
+		return "ldap_attribute_" . $attrib;
 }
 
 // Return specified attribute from an LDAP object entry specified

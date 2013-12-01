@@ -269,7 +269,9 @@ if($search_resource)
 					$column["link_type"] = "none";
 
 				// Display the object
-				echo "    <td>\n      ";
+				echo "    <td class=\""
+					. ldap_attribute_to_css_class($column["attrib"])
+					. "\">\n      ";
 				switch($column["link_type"])
 				{
 					// Cell should contain a link to the
