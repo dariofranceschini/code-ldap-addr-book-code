@@ -615,9 +615,11 @@ class ldap_entry_viewer_section
 			$cell_attrib.=" style=\"width:" . $this->width . "\"";
 
 		echo "    <td valign=\"top\" " . $cell_attrib
-			. ">\n      <table class=\"ldap_entry_viewer_section\">"
-			. "\n        <tr>\n          <th colspan=3 class=\"column_header\">"
-			. $this->text . "</th>\n        </tr>\n";
+			. ">\n      <table class=\"ldap_entry_viewer_section\">\n";
+
+		if(!empty($this->text))
+			echo "        <tr>\n          <th colspan=3 class=\"column_header\">"
+				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
 			$attrib->show($this->ldap_entry);
