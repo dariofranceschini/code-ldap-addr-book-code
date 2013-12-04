@@ -89,6 +89,13 @@ a
 	width:100%;
 }
 
+.ldap_entry_viewer,
+.search_results_viewer
+{
+	/* some older browsers default to hide */
+	empty-cells:show;
+}
+
 .ldap_navigation_path td,
 .ldap_navigation_path th,
 .ldap_entry_viewer td,

@@ -670,7 +670,7 @@ class ldap_entry_viewer_attrib
 					. $this->icon . "\">";
 			echo "</th>\n          "
 				. "<th>"
-				. $this->caption . "&nbsp;</th>\n";
+				. $this->caption . "</th>\n";
 
 			echo "          <td class=\""
 				. ldap_attribute_to_css_class($this->ldap_attribute)
@@ -699,10 +699,10 @@ class ldap_entry_viewer_attrib
 								. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 							break;
 						case "c":
-							echo get_country_name_from_code($attrib_value) . "&nbsp;";
+							echo get_country_name_from_code($attrib_value);
 							break;
 						default:
-							echo $attrib_value . "&nbsp;";
+							echo $attrib_value;
 					}
 			}
 
