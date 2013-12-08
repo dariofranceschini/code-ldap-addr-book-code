@@ -354,63 +354,108 @@ config file.
 <p>
 You may want to customise the way in which address book
 entries are displayed - which fields/attributes are
-used and how they are laid out. The layout is set up
-by editing the file <code>info.php</code>.
+used and how they are laid out. The columns that appear
+in search results can be changed by editing the contents of
+<code>$entry_layout</code> in the config file.
 </p>
 <p>
 As shipped, address book entries are displayed in three
-sections:
+"sections":
 </p>
-
-<img alt="Default address book layout, with personal, business/work and additinoal notes sections" src="layout.png">
-
-
+<img alt="Default address book layout, with personal, business/work and additional notes sections" src="layout.png">
 <p>
-The sections are created by calling $entry_viewer->add_section().
-Sections are displayed side-to-side from left to right, unless
-the NEW_ROW attribute is specified in order to create a new row. The layout above is created by
-the following code:
+The sections appear in <code>$entry_layout</code> as
+a comma-separated list of arrays. The first section in
+the screenshot above ("Personal") is represented like
+this:
 </p>
 <pre>
-        $entry_viewer->add_section("Personal",NEW_ROW);
+$entry_layout = array(
+        array("section_name"=>"Personal",
+                "attributes"=>array(
+                        array("displayName",                    "Preferred Name",       "contact24.png"),
+                        array("mail",                           "E-mail",               "mail.png"),
+                        array("homePhone",                      "Home Phone",           "landline-phone.png"),
+                        array("mobile",                         "Mobile Phone",         "cell-phone.png"),
+                        array("wWWHomePage",                    "Web Page",             "internet.png"),
+                        array("streetAddress:l:st:postalCode",  "Postal Address",       "address.png"),
+                        array("c",                              "Country",              "country.png")
+                        )
+                ),
 
-        $entry_viewer->add_section("Business/Work",NULL,NULL,"50%");
+		// ... data for the other sections continues here (not shown) ...
+		// ... sections are separated from each other by commas ...
 
-        $entry_viewer->add_section("Additional Notes",NEW_ROW,2);
+	);
 </pre>
 <p>
-(In practice each call to $entry_viewer->add_section() is followed by
-the fields to be added to that section)
+You can define the following settings for each section:
 </p>
 <table border=1>
-<tr><th colspan=2>General syntax for add_section()</th></tr>
-<tr><td colspan=2><code>add_section($text,$newrow=false,$colspan="",$width="")</code></td></tr>
-<tr><th>Attribute</th><th>Description</th></tr>
-<tr><td><code>$text</code></td><td>Title to appear above the section</td></tr>
-<tr><td><code>$newrow</code></td><td>Whether or not this section should start on a new row</td></tr>
-<tr><td><code>$colspan</code></td><td>Number of HTML table columns that this section should span</td></tr>
-<tr><td><code>$width</code></td><td>Width of the section</td></tr>
-</table>
+<tr><th>Setting</th><th>Description</th><th>Default if not set</th></tr>
+<tr><td><code>section_name</code></td>
+    <td>Title to appear above the section.</td>
+    <td>Title is not shown.</td></tr>
 
-<p>
-Entries are added to each section by making calls to <code>$entry_viewer->add_to_section()</code>.
-The following line will add the "Prefered Name" field to the section last created
-using <code>$entry_viewer->add_section()</code>:
-</p>
-<pre>
-$entry_viewer->add_to_section("displayName","Preferred Name","contact24.png");
-</pre>
-<table border=1>
-<tr><th colspan=2>General syntax for add_to_section()</th></tr>
-<tr><td colspan=2><code>add_to_section($attribute,$caption="",$icon="")</code></td></tr>
-<tr><th>Attribute</th><th>Description</th></tr>
-<tr><td><code>$attribute</code></td><td>LDAP attribute (or list of attributes) to be displayed</td></tr>
-<tr><td><code>$caption</code></td><td>Caption text to appear next to the attribute (leave blank for none)</td></tr>
-<tr><td><code>$icon</code></td><td>Icon image to appear next to the attribute (leave blank for none)</td></tr>
+<tr><td><code>new_row</code></td>
+    <td>Whether or not this section should start on a new row.<br>
+        In the default setup the "Business/Work" section has
+        <code>"new_row"=>false</code> set, so it is displayed to
+        the right of "Personal" on the same row. "Additional Notes"
+        has <code>"new_row"=>false</code> set, so appears on its
+        own row below the previous sections.</td>
+        <td>Assumed to be <code>false</code></td></tr>
+
+<tr><td><code>width</code></td>
+    <td>Width of the section, specified as a number followed by
+        any of the following measurement units (which are those
+        supported by the CSS standard):
+        <ul>
+        <li>% - percentage of the available width
+        <li>px - pixels
+        <li>em - current font size (traditionally the width of the letter
+                 "m" in the font)
+        <li>ex - half current font size (traditionally the height of the
+                 letter "x" in the font; or the distance between the font
+                 baseline and median)
+        <li>cm - centimeters
+        <li>mm - millimeters
+        <li>in - inches
+        <li>pt - points (1/72 of an inch)
+        <li>pc - picas (1/6 of an inch, or 12 points)
+        </ul>
+        In the default setup the width of "Business/Work" is set
+        to "50%". Any sections on the same row that don't have a
+        specified width will automatically use up the remaining
+        space.</td>
+    <td>User's browser divides up the available width based on
+        amount of data to be shown in each section</td></tr>
+
+<tr><td><code>colspan</code></td>
+    <td>Number of HTML table columns that this section should span.<br>
+        In the default setup the "Additional Notes" section has
+        <code>"colspan"=>2</code> set, so spans the width of both
+        the "Personal" and "Business/Work" columns.</td>
+    <td>Assumed to be <code>1</code></td></tr>
+
+<tr><td><code>attributes</code></td>
+    <td>List of attributes to appear in the section.</td>
+    <td>(always required)</td></tr>
+</td></tr>
 </table>
 <p>
-To create display fields that are built from multiple LDAP attributes,
-list the attributes in $attribute, seperating them with:
+Each attribute is described by three items:
+</p>
+<ol>
+<li>The name of the LDAP attribute (or list of attributes) to be displayed
+<li>The caption text to appear next to the attribute (or leave
+    empty - "" - for no caption)
+<li>Icon image to appear next to the attribute (or leave empty for none)
+</ol>
+<p>
+A display field can be contructed from several LDAP attributes. To
+construct a field from multiple attributes, list the attributes in
+turn, separating them with one of the following symbols:
 </p>
 <table border=1>
 <tr><th>Symbol</th><th>Meaning</th></tr>
@@ -418,27 +463,22 @@ list the attributes in $attribute, seperating them with:
 <tr><td><code>+</code></td><td>Separate attributes with a space</td></tr>
 </table>
 <p>
-The following example will display a display field from the
-LDAP attributes <code>streetAddress</code>, <code>l</code>,
-<code>st</code> and <code>postalCode</code>, laying them out
-as a UK postal address.
-</p>
-<pre>
-$entry_viewer->add_to_section("streetAddress:l:st:postalCode","Postal Address","address.gif");
-</pre>
-<p>
-If the address attributes in your LDAP directory are used to store
+This facility is often used to display the lines of an address.
+(If the address attributes in your LDAP directory are used to store
 business addresses rather than personal addresses you may want
-to move the "Address" field from the "Personal" to the "Business/Work"
-section.
+to relocate the "Address" field from the "Personal" to the
+"Business/Work" section of the display.)
 </p>
-
+<p>
+The following changes will be applied automatically:
+</p>
 <ul>
-<li><p>Any web page URLs and e-mail addresses will appear as
+<li><p>Any web page URLs and e-mail addresses will be presented as
     clickable HTML links.</p>
 <li><p>The <code>postalCode</code> attribute is followed by a
     "View Map" link that displays the corresponding location
-    in Google Maps (where the postal code is valid and recognised).</p>
+    in Google Maps (provided that the postal code is valid and
+    recognised).</p>
 </ul>
 
 <h3>Changing the links shown in the page footer</h3>
@@ -471,7 +511,6 @@ that would prevent them from accessing the default location.)
 Please see the <a href="license.html">license agreement</a> for
 full information.
 </p>
-
 <h3>Changing the look and formatting of the address book</h3>
 <p>
 The appearance (such as font, text size, colours, etc) of the
@@ -712,6 +751,13 @@ $search_result_columns = array(
     <td>Specifies the default sort order for displaying search
      results. User can change the sort order by clicking a column
      header.</td></tr>
+
+<tr><th colspan=2>Detailed Info View</th></tr>
+
+<tr><td><code>$entry_layout</code></td>
+    <td>Specifies the attributes to be shown in detailed entry view
+    and how they should be layed out.</td></tr>
+
 </table>
 
 </body>

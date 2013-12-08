@@ -533,12 +533,35 @@ class ldap_entry_viewer
 	var $user_info = "";
 
 	// Constructor.
-	// $ldap_entry - Arary containing LDAP object entry which is to be displayed
+	// $ldap_entry - Array containing LDAP object entry which
+	//			is to be displayed
+	// $entry_viewer_layout - LDAP attributes to be displayed
+	//			and their layout
 
-	function ldap_entry_viewer($ldap_entry)
+	function ldap_entry_viewer($ldap_entry,$entry_viewer_layout)
 	{
 		$this->ldap_entry = $ldap_entry;
 		$this->user_info = get_user_info();
+
+		$first_section = true;
+		foreach($entry_viewer_layout as $section)
+		{
+			$this->add_section(
+				isset($section["section_name"]) ? $section["section_name"] : "",
+				isset($section["new_row"]) ? $section["new_row"] : $first_section,
+				isset($section["colspan"]) ? $section["colspan"] : 1,
+				isset($section["width"]) ? $section["width"] : null
+				);
+
+			foreach($section["attributes"] as $attribute)
+				$this->add_to_section(
+					$attribute[0],			// LDAP attribute name
+					isset($attribute[1]) ? $attribute[1] : null,	// caption
+					isset($attribute[2]) ? $attribute[2] : null	// icon
+					);
+
+			$first_section = false;
+		}
 	}
 
 	// Add a section to the display

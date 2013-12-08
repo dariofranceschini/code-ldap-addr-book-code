@@ -102,4 +102,50 @@ $search_result_columns = array(
 
 // Default sort order until user selects another by clicking a column header
 $search_result_default_sort_order = "sortableName";
+
+// --------------------------------------------------------------------
+// Directory Entry Detail/Info Settings
+// --------------------------------------------------------------------
+
+// Layout of the detail/info view
+//
+// Configurable attributes of a section - all optional:
+//
+//	section_name - Name/title of section (default blank/not shown)
+//	width - Width of section (default unset - let browser decide)
+//	new_row - Start section on a new row (default false)
+//	colspan - Number of table columns to span (default 1)
+
+$entry_layout = array(
+	array("section_name"=>"Personal",
+		"attributes"=>array(
+			array("displayName",			"Preferred Name",	"contact24.png"),
+			array("mail",				"E-mail",		"mail.png"),
+			array("homePhone",			"Home Phone",		"landline-phone.png"),
+	//		array("pager",				"Pager",		""),
+			array("mobile",				"Mobile Phone",		"cell-phone.png"),
+			array("wWWHomePage",			"Web Page",		"internet.png"),
+			array("streetAddress:l:st:postalCode",	"Postal Address",	"address.png"),
+			array("c",				"Country",		"country.png")
+			)
+		),
+
+	array("section_name"=>"Business/Work","width"=>"50%",
+		"attributes"=>array(
+			array("company",			"Company",		"company.png"),
+			array("url",				"Web Page",		"internet.png"),
+			array("telephoneNumber",		"Office Phone",		"landline-phone.png"),
+			array("facsimileTelephoneNumber",	"Office Fax",		"fax.png"),
+			array("title",				"Job Title",		"id.png"),
+			array("department",			"Department",		"org.png"),
+			array("physicalDeliveryOfficeName",	"Office",		"office.png")
+			)
+		),
+
+	array("section_name"=>"Additional Notes","new_row"=>true,"colspan"=>2,
+		"attributes"=>array(
+			array("info")
+			)
+		)
+	);
 ?>
