@@ -442,17 +442,45 @@ section.
 
 <h3>Changing the look and formatting of the address book</h3>
 <p>
-The appearance of the address book (font, text size, colours, etc) can
-be changed by modifying the CSS stylesheet file.
+The appearance (such as font, text size, colours, etc) of the
+address book is defined in the file <code>styles.css</code>.
 </p>
 <p>
-<a href="../styles.css">Take a look at the Address Book's stylesheet file
+<a href="../styles.css">Take a look at the stylesheet file
 (<code>styles.css</code>)</a>
 </p>
 <p>
+You can change any of these settings (or add your own) by creating
+your own stylesheet file, called <code>styles_local.css</code> and
+adding your changes to it. (Although you could modify
+<code>styles.css</code> directly it will be easier to upgrade to
+future versions of the address book if you keep your changes
+separate by using <code>styles_local.css</code> instead.)
+</p>
+<p>
+The stylesheet file is made up of
+<span style="font-style:italic">selectors</span> which specify which
+part of the user interface is to be changed, followed by
+<span style="font-style:italic">style directives</span> surrounded
+by {...} to define how it should appear. For example, if you wanted to
+dispay the address book in a different font you might add
+the following to your own <code>styles_local.css</code> file and
+change the <code>font-family</code> setting to your own choice of font:
+</p>
+<pre>
+body,table {
+        font-family:serif;
+}
+</pre>
+<p>
+Where you don't redefine a setting in <code>styles_local.css</code>
+(such as <code>font-size:10pt</code> in this example) the value
+from <code>styles.css</code> will continue to be used.
+</p>
+<p>
 The following table summarises the CSS selectors used within
-<code>styles.css</code> and how they might be used to change the
-appearance:
+<code>styles.css</code> and which part of the address book's
+appearance they affect:
 </p>
 <table border=1>
 <tr><th>CSS Selector</th><th>Typically used to change the font, size,
@@ -487,20 +515,19 @@ appearance:
 
 </table>
 <p>
-(* These may be split into two separate style directives if
+(* These may be split into two separate style declarations if
 you want to customise the search results and directory entry
 detail pages separately.)
 </p>
 <p>
-The way in which directory information is presented can also
-be changed for each individual LDAP attribute by applying style
-directives to the class <code>.ldap_attribute_&lt;attrib&gt;</code>,
+You can also change the way in which an individual LDAP attribute
+is displayed by applying style directives to
+ <code>.ldap_attribute_&lt;attrib&gt;</code>,
 where <code>&lt;attrib&gt;</code> is the attribute to be
-customised.
-</p>
-<p>Example: Adding the following to the end of <code>styles.css</code> will
-cause home telephone numbers (stored in the <code>homePhone</code>
-attribute) to be displayed in italic:
+customised. <p>For example, adding the following to
+<code>styles_local.css</code> will cause home telephone numbers
+(stored in the <code>homePhone</code> attribute) to be displayed
+in italic:
 </p>
 <pre>
 .ldap_attribute_homePhone
@@ -509,9 +536,10 @@ attribute) to be displayed in italic:
 }
 </pre>
 <p>
-Example: Adding the following to the end of <code>styles.css</code> will
-display SSH public keys (stored in the <code>sshPublicKey</code> attribute)
-to be displayed in a fixed-width font and word-wrapped more appropriately:
+As a further example, adding the following to <code>styles_local.css</code>
+will display SSH public keys (stored in the <code>sshPublicKey</code>
+attribute) to be displayed in a fixed-width font and word-wrapped more
+appropriately:
 </p>
 <pre>
 .ldap_attribute_sshPublicKey

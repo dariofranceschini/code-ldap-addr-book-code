@@ -38,6 +38,8 @@ function show_site_header()
 	// equivalent syntax, backwardly compatible with HTML 4.01
 	echo "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n";
 	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
+	if(file_exists("styles_local.css"))
+		echo "  <link rel=\"stylesheet\" href=\"styles_local.css\" type=\"text/css\">\n";
 	echo "  <link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
 		. $site_name . "\" href=\"search-plugin.php\">\n";
 	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook24.png\">\n";
