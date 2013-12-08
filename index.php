@@ -307,5 +307,8 @@ if($search_resource)
 	echo "</table>\n";
 }
 
-echo "\n</body>\n</html>\n";
+echo "\n";
+
+show_site_footer();
+
 ?>

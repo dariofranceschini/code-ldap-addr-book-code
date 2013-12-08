@@ -76,5 +76,7 @@ else
 	show_ldap_bind_error();
 }
 
-echo "\n\n</body>\n</html>\n";
+echo "\n\n";
+
+show_site_footer();
 ?>

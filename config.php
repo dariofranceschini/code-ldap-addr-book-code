@@ -6,6 +6,25 @@
 $site_name = "Address Book";
 
 // --------------------------------------------------------------------
+// Links displayed in page footer
+//
+// This application's software license requires you to provide users
+// with a means of obtaining the source code (i.e. the link below).
+// You may however choose to provide the source from a different
+// location, e.g. to a copy containing your own local changes, or if
+// users have only limited connectivity to the external Internet that
+// would prevent them from accessing the default location. Please see
+// the license agreement (file "license.html" in "doc" folder) for
+// full information.
+// --------------------------------------------------------------------
+
+$site_footer_links = array(
+	array("url"=>"doc/","text"=>"User Guide"),
+	array("url"=>"https://sourceforge.net/projects/ldap-addr-book/",
+		"text"=>"Get Source Code")
+	);
+
+// --------------------------------------------------------------------
 // Type of LDAP server, chosen from:
 //	ad		Microsoft Active Directory
 //	edir		Novell eDirectory

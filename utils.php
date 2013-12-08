@@ -48,6 +48,33 @@ function show_site_header()
 	echo "<body>\n\n";
 }
 
+// Output the site's HTML footer elements
+
+function show_site_footer()
+{
+	global $site_footer_links;
+
+	echo "<hr>\n"
+		. "<p class=\"page_footer\">\n  This Address Book uses Free and "
+		. "Open Source Software, licensed under the\n  terms of the "
+		. "<a href=\"doc/license.html\">GNU Affero GPL version 3</a>\n"
+		. "  <br>\n";
+
+	$first_link = true;
+	foreach($site_footer_links as $link)
+	{
+		echo "  ";
+		if(!$first_link) echo "&nbsp;&nbsp;|&nbsp;&nbsp;";
+
+		echo "<a href=\"" . $link["url"] . "\">"
+			. $link["text"] . "</a>\n";
+
+		$first_link = false;
+	}
+
+	echo "</p>\n\n</body>\n</html>\n";
+}
+
 // Output the HTML to display the search box
 //
 // $initial_value - text to display in search box when page first loaded; typically

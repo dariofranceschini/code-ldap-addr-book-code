@@ -29,6 +29,7 @@ LDAP Address Book
   <li>Configuring users and permissions
   <li>Changing the attributes shown for search results
   <li>Changing the layout and attributes shown for directory entries
+  <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
   </ol>
 <li>Configuration reference
@@ -440,6 +441,37 @@ section.
     in Google Maps (where the postal code is valid and recognised).</p>
 </ul>
 
+<h3>Changing the links shown in the page footer</h3>
+<p>
+The links shown in the page footer can be changed using the
+<code>$site_footer_links</code> option in <code>config.php</code>.
+The default set of links are defined as follows:
+</p>
+<pre>
+$site_footer_links = array(
+        array("url"=>"doc/","text"=>"User Guide"),
+        array("url"=>"https://sourceforge.net/projects/ldap-addr-book/",
+                "text"=>"Get Source Code")
+        );
+</pre>
+<p>
+Each link is represented by an array containing its URL and the
+name/label text to be displayed.
+</p>
+<p>
+Note: The application's software license requires that you provide
+users with a means of obtaining a copy of the source code. As such
+you are recommended not to remove the "Get Source Code" link from
+the footer, although you may change it to a more appropriate URL
+where necessary (e.g. to a copy containing your own local changes,
+or if users have only limited connectivity to the external Internet
+that would prevent them from accessing the default location.)
+</p>
+<p>
+Please see the <a href="license.html">license agreement</a> for
+full information.
+</p>
+
 <h3>Changing the look and formatting of the address book</h3>
 <p>
 The appearance (such as font, text size, colours, etc) of the
@@ -497,6 +529,9 @@ appearance they affect:
         element of the navigation path (typically used to show
         the address book title) is styled separately, described
         above.</td></tr>
+
+<tr><td><code>.page_footer</code></td>
+    <td>Page footer.</td></tr>
 
 <tr><td style="white-space:nowrap"><code>.ldap_entry_viewer_section .column_header,<br>
         .search_results_viewer .column_header</code></td>
@@ -559,6 +594,8 @@ how records are searched for and displayed.
 <tr><th>Setting</th><th>Description</th></tr>
 <tr><td><code>$site_name</code></td><td>Site name, which appears in the browser title bar. You may want to
 		customise this, e.g. with your company name.<p>Example: BigCorp Address Book</p></td></tr>
+
+<tr><td><code>$site_footer_links</code></td><td>List of links that appear in the footer of each page.</td></tr>
 
 <tr><th colspan=2>Connection to LDAP Directory</th></tr>
 
