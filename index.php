@@ -27,19 +27,27 @@ if(!empty($_GET["filter"]))
 {
 	$filter = $_GET["filter"];
 
-	$filter_query = "(&(objectClass=person)(|";
+	$search_criteria = "";
 	foreach($search_ldap_attrib as $attrib)
-		$filter_query .= "(" . $attrib . "=" . $filter . "*)";
-	$filter = $filter_query . "))";
+		$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
+
+	// Default filter expression to use if none specified in config
+	// file: return only people in search results
+	if(empty($search_ldap_filter))
+		$search_ldap_filter
+			= "(&(objectClass=person)___search_criteria___)";
+
+	$filter = str_replace("___search_criteria___",
+		"(|" . $search_criteria . ")",$search_ldap_filter);
 
 	$search_type= "subtree";
 }
 else
 {
-	$filter = "(cn=*)";
-	$search_type= "subtree";
-
-	$filter = "(|(cn=*)(ou=*))";
+	// Default filter expression to use if none specified in config
+	// file: display objects of all classes when browsing the directory
+	$filter = empty($browse_ldap_filter)
+		?"objectClass=*":$browse_ldap_filter;
 	$search_type= "base";
 
 	// TODO: sanitise base DN from URL:

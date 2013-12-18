@@ -86,6 +86,17 @@ $ldap_user_map = array(
 $search_ldap_attrib = array(
 	"cn","mail","sn","displayName","company","title");
 
+// LDAP filter used for retrieving search results
+//
+// The token "___search_criteria___" will be replaced with an
+// expression to search the attributes listed in $search_ldap_attrib
+// for the string entered by the user, e.g.:
+// (|(cn=whatever)(mail=whatever)(sn=whatever)...)
+$search_ldap_filter = "(&(objectClass=person)___search_criteria___)";
+
+// LDAP filter used when retrieve browsing the directory
+$browse_ldap_filter = "objectClass=*";
+
 // Column layout used for search results
 // Note special attribute "sortableName" - uses syntax "surname,
 // firstname" where both of these are defined

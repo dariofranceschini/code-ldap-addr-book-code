@@ -28,6 +28,11 @@ LDAP Address Book
   <ol>
   <li>Configuring users and permissions
   <li>Changing the attributes shown for search results
+  <li>Applying custom LDAP filters to directory browsing and searching
+  <ol>
+    <li>Directory browsing
+    <li>Search results
+  </ol>
   <li>Changing the layout and attributes shown for directory entries
   <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
@@ -350,6 +355,63 @@ The columns that appear in search results can be changed
 by editing the contents of <code>$search_result_columns</code> in the
 config file.
 </p>
+
+<h3>Applying custom LDAP filters to directory browsing and searching</h3>
+<p>
+If is possible to customise the LDAP queries which are used to fetch
+data from the directory, for example to display only records which
+have specific object classes or meet some other criteria.
+</p>
+<p>
+Sites with Microsoft Active Directory/Exchange may wish to set up
+custom filters that test the <code>msExchHideFromAddressLists</code>
+and/or <code>showInAddressBook</code> attributes in order to exclude
+those entries which are hidden from the Exchange Global Address Book
+(GAL).
+</p>
+<h4>Directory browsing</h4>
+<p>
+When the user browses through the directory tree directory, the
+address book retrieves all records at the user's location
+(LDAP base search) that match the criteria specified
+by <code>$browse_ldap_filter</code> in <code>config.php</code>.
+The default LDAP filter is as follows, which allows all
+objects to be displayed:
+</p>
+<p>
+<code>$browse_ldap_filter = "objectClass=*";</code>
+</p>
+<h4>Search results</h4>
+<p>
+Searches results are retrieved by carrying out an LDAP
+subtree search from the root of the address book (as
+specified in $ldap_base_dn). The expression to be searched
+for is based on the value of <code>$search_ldap_filter</code>
+in <code>config.php</code>. The default LDAP filter is as
+follows, which limits search results to objects representing
+people:
+</p>
+<p>
+<code>$search_ldap_filter = "(&(objectClass=person)___search_criteria___)";</code>
+</p>
+<p>
+The token <code>___search_criteria___</code> will be replaced with an
+expression to search the attributes listed in <code>$search_ldap_attrib</code>
+for the string entered by the user. For example if the user searched
+for "smith", the token would be replaced by:
+</p>
+<p>
+<code>(|(cn=smith)(mail=smith)(sn=smith)(displayName=smith)(company=smith)(title=smith))</code>
+</p>
+<p>
+To allow all object types to appear in search results, including
+organisational units (which typically do not have a <code>cn</code>
+attribute set), make the following changes to <code.config.php</code>:
+</p>
+<ul>
+<li>Set <code>$search_ldap_filter = "___search_criteria___";</code>
+<li>Add <code>ou</code> to the list of attributes to be searched in <code>$search_ldap_attrib</code>.
+</ul>
 <h3>Changing the layout and attributes shown for directory entries</h3>
 <p>
 You may want to customise the way in which address book
