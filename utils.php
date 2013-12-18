@@ -16,8 +16,6 @@
 
    ************************************************************************ */
 
-define("NEW_ROW",true);
-
 // Output the site's HTML header elements
 
 function show_site_header()
