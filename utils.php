@@ -602,10 +602,11 @@ class ldap_entry_viewer
 	{
 		global $ldap_base_dn;
 
+		$dn = $this->ldap_entry[0]["dn"];
+
 		// TODO: replace with "user" icon/correct icon for class
 		// and/or photo image if available?
-		show_ldap_path(get_ldap_attribute($this->ldap_entry,
-			"distinguishedName"),$ldap_base_dn,"contact24.png");
+		show_ldap_path($dn,$ldap_base_dn,"contact24.png");
 
 		if($this->user_info["allow_search"])
 			show_search_box("");

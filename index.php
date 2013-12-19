@@ -193,17 +193,7 @@ if($search_resource)
 
 		// Display the record's name and attributes in columns
 
-		switch($ldap_server_type)
- 		{
-			case "ad":
-				$object_dn = $ldap_data[$i]["distinguishedname"][0];
-
-			case "edir":
-			case "openldap":
-			default:
-				$object_dn = $ldap_data[$i]["dn"];
-				break;
-		}
+		$object_dn = $ldap_data[$i]["dn"];
 
 		if($item_is_folder)
 		{
