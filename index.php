@@ -163,30 +163,15 @@ if($search_resource)
 
 		// Fetch object schema details for this record
 
-		$object_data_found = $item_is_folder = false;
-		$icon = "generic24.png";
-		$item_object_class = "(unrecognised)";
-		$object_rdn_attrib = "cn";
+		$item_object_class = get_object_class(
+			$object_class_schema,$ldap_data[$i]);
 
-		foreach($object_class_schema as $object_class)
-		{
-			if(in_array($object_class["name"],
-				$ldap_data[$i]["objectclass"])
-				&& $object_data_found == false)
-			{
-				// Relative distinguished name (RDN)
-				// attribute for the class
-				// (assume "cn" if not explicitly defined)
-				if(!empty($object_class["rdn_attrib"]))
-					$object_rdn_attrib
-						= $object_class["rdn_attrib"];
-
-				$item_is_folder=$object_class["is_folder"];
-				$icon=$object_class["icon"];
-				$object_data_found = true;
-				$item_object_class = $object_class["name"];
-			}
-		}
+		$icon = get_object_class_setting(
+			$object_class_schema,$item_object_class,"icon");
+		$item_is_folder = get_object_class_setting(
+			$object_class_schema,$item_object_class,"is_folder");
+		$object_rdn_attrib = get_object_class_setting(
+			$object_class_schema,$item_object_class,"rdn_attrib");
 
 		// Tooltip should list all classes for unrecognised objects
 		if($item_object_class == "(unrecognised)")

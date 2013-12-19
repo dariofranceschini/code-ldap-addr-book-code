@@ -922,4 +922,57 @@ function get_user_info($user_name="")
 		$user_name,$user_info["ldap_name"]);
 	return $user_info;
 }
+
+// Return matching schema object class for the specified LDAP entry
+//
+// $object_class_schema - Schema object class definitions
+//			  as returned by get_object_class_schema()
+// $entry - Entry for which matching class name is to be returned
+
+function get_object_class($object_class_schema,$entry)
+{
+	$object_data_found = false;
+	$item_object_class = "(unrecognised)";
+
+	foreach($object_class_schema as $object_class)
+	{
+		if(in_array($object_class["name"],
+			$entry["objectclass"])
+			&& $object_data_found == false)
+		{
+			$item_object_class = $object_class["name"];
+			$object_data_found = true;
+		}
+	}
+	return $item_object_class;
+}
+
+// Return the value of a setting for the specified object class
+//
+// $object_class_schema - Schema object class definitions
+//			  as returned by get_object_class_schema()
+// $class - Schema class for which the setting value is required
+// $setting - Schema class setting for which the value is required
+
+function get_object_class_setting($object_class_schema,$class,$setting)
+{
+	$setting_value = "";
+	$object_data_found = false;
+
+	foreach($object_class_schema as $object_class)
+		if($object_class["name"] == $class && isset($object_class[$setting]))
+		{
+			$setting_value = $object_class[$setting];
+			$object_data_found = true;
+		}
+
+	// return useful defaults if setting not found in schema
+	if(!$object_data_found)
+	{
+		if($setting == "icon") $setting_value = "generic24.png";
+		if($setting == "is_folder") $setting_value = false;
+		if($setting == "rdn_attrib") $setting_value = "cn";
+	}
+	return $setting_value;
+}
 ?>
