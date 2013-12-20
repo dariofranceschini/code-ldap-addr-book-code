@@ -53,8 +53,7 @@ else
 	// TODO: sanitise base DN from URL:
 	//	stop "nasties" being passed through to the LDAP server
 	//	prevent access to directory outside of address book base DN
-	if(!empty($_GET["base"]))
-		$dn = str_replace("|","=",$_GET["base"]);
+	if(!empty($_GET["base"])) $dn = $_GET["base"];
 }
 
 show_ldap_path($dn,$ldap_base_dn,"folder.png");
@@ -202,7 +201,7 @@ if($search_resource)
 
 			echo "    <td colspan=" . count($search_result_columns)
 				. ">\n      <a href=\"?base="
-				. urlencode(str_replace("=","|",$object_dn))
+				. urlencode($object_dn)
 				. "\">\n        "
 				. mb_convert_encoding(
 				$ldap_data[$i][$object_rdn_attrib][0],
@@ -261,8 +260,8 @@ if($search_resource)
 					// object
 					case "object":
 						echo "<a href=\"info.php?dn="
-							. urlencode(str_replace("=","|",
-							$object_dn)) . "\">"
+							. urlencode(
+							$object_dn) . "\">"
 							. $object_name
 							. "</a>";
 						break;
