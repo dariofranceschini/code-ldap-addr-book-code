@@ -2,7 +2,8 @@
 /* Styling applied to address book overall (font family, etc)           */
 /* -------------------------------------------------------------------- */
 
-body,table {
+body,table
+{
 	font-family:sans-serif;
 	font-size:10pt;
 }
