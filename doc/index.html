@@ -34,6 +34,7 @@ LDAP Address Book
     <li>Search results
   </ol>
   <li>Changing the layout and attributes shown for directory entries
+  <li>Displaying thumbnail photos when browsing/searching the directory
   <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
   </ol>
@@ -541,8 +542,82 @@ The following changes will be applied automatically:
     "View Map" link that displays the corresponding location
     in Google Maps (provided that the postal code is valid and
     recognised).</p>
+
+<li>Images contained in the <code>jpegPhoto</code> and
+    <code>thumbnailPhoto</code> attributes will be scaled to the
+    size indicated by <code>$photo_image_size</code> in
+    <code>config.php</code> (96x96 pixels by default). If this
+    value is not set then the images will be shown at their native
+    size.
 </ul>
 
+<h3>Displaying thumbnail photos when browsing/searching the directory</h3>
+<p>
+By default, directory entries are displayed next to an
+icon representing their object class. If one is available, 
+an image representing the object - typically a photo - can be
+displayed in place of the icon. These images are retrieved
+from the <code>jpegPhoto</code> and/or <code>thumbnailPhoto</code>:
+</p>
+<table border=1>
+<tr><th>Attribute</th><th>Description</th></tr>
+<tr><td><code>jpegPhoto</code></td><td>Used to store one or
+   more images of a person using the JPEG File Interchange
+   Format. (Standard ref: IETF RFC 2798) In practice the
+   address book will only display the first stored image.
+</td></tr>
+<tr><td><code>thumbnailPhoto</code></td><td>Stores a single
+    thumbnail image, maximum size 100K. (Non-standard/Microsoft
+    specific)</td>
+</table>
+<p>
+The LDAP Address Book can also display PNG, GIF, WBMP, and GD2 images
+stored in these attributes, although JPEG is recommended in all
+cases. (WBMP is not the same thing as Microsoft Windows BMP,
+which is not supported.) Your PHP installation must have
+GD Graphics Library support enabled in order to display image
+attributes.
+</p>
+<p>
+To enable display of these images, set one or both of the following
+options in <code>config.php</code>:
+</p>
+<table border=1>
+<tr><th>Setting</th><th>Description</th></tr>
+<tr><td><code>$enable_search_browse_thumbnail = true;</code></td>
+    <td>Display thumbnail photos when browsing and in search results</td></tr>
+
+<tr><td><code>$enable_ldap_path_thumbnail = true;</code></td>
+    <td>Display thumbnail photo in detail view navigation path</td></tr>
+</table>
+<p>
+Beware that setting <code>$enable_search_browse_thumbnail = true</code>
+can result in slow page loading if there are a large number of
+images to be displayed.
+</p>
+<p>
+A larger version of these images can be shown on the entry's
+detailed view by adding the <code>jpegPhoto</code> and/or
+<code>thumbnailPhoto</code> to the display layout (as described
+in the previous section). The following settings control the image
+size:
+</p>
+<table border=1>
+<tr><th>Setting</th><th>Default value</th><th>Description</th></tr>
+<tr><td><code>$thumbnail_image_size</code></td>
+    <td><code>24x24</code></td>
+    <td>Size of thumbnail images displayed in search results
+         and/or detail view navigation path, measured in pixels. For
+         optimal layout the size should be the same as the icons
+         used to represent object schema classes (24x24 as shipped).
+         </td></tr>
+
+<tr><td><code>$photo_image_size</code></td>
+    <td><code>96x96</code></td>
+    <td>Size of large images displayed in detail view, measured in
+        pixels. Set this value to an empty string (or leave
+        undefined) to disable scaling of these images.</td></tr>
+</table>
 <h3>Changing the links shown in the page footer</h3>
 <p>
 The links shown in the page footer can be changed using the
@@ -819,6 +894,34 @@ $search_result_columns = array(
 <tr><td><code>$entry_layout</code></td>
     <td>Specifies the attributes to be shown in detailed entry view
     and how they should be layed out.</td></tr>
+
+<tr><th colspan=2>Photo/Image Display Settings</th></tr>
+
+<tr><td><code>$enable_search_browse_thumbnail</code></td>
+    <td>Specifies whether thumbnail images should be displayed next
+        to directory entries in browse/search results view
+        (if available) instead of object class icons.</td></tr>
+
+<tr><td><code>$enable_ldap_path_thumbnail</code></td>
+    <td>Specifies whether thumbnail images should be displayed in
+        the detailed info view's "navigation path" (if available)
+        instead of object class icons.</td></tr>
+
+<tr><td><code>$thumbnail_image_size</code></td>
+    <td>Size to which images should be scaled for use as
+        thumbnails/icons.
+        <p>Example:<br>
+        $thumbnail_image_size = "24x24";
+        </p></td></tr>
+
+<tr><td><code>$photo_image_size</code></td>
+    <td>Size to which images should be scaled for display in
+        the detailed info view. Set to an empty string (or
+        leave undefined) to disable scaling of these
+        images.
+        <p>Example:<br>
+        $photo_image_size = "96x96";
+        </p></td></tr>
 
 </table>
 

@@ -138,6 +138,7 @@ $entry_layout = array(
 			array("wWWHomePage",			"Web Page",		"internet.png"),
 			array("streetAddress:l:st:postalCode",	"Postal Address",	"address.png"),
 			array("c",				"Country",		"country.png")
+	//		array("jpegPhoto",			"Photo",		"photo24.png")
 			)
 		),
 
@@ -159,4 +160,26 @@ $entry_layout = array(
 			)
 		)
 	);
+
+// --------------------------------------------------------------------
+// Photo/Image Display Settings
+// --------------------------------------------------------------------
+
+// Display thumbnail photos next to directory entries instead of
+// object class icons when browsing/searching
+$enable_search_browse_thumbnail = false;
+
+// Display thumbnail photo in the "navigation path" instead of
+// object class icon in detailed info view
+$enable_ldap_path_thumbnail = false;
+
+// Size of thumbnail images displayed in search results
+// and/or detail view navigation path, measured in pixels.
+// This should match the size of other object schema icons.
+$thumbnail_image_size = "24x24";
+
+// Size of large images displayed in detail view, measured
+// in pixels. Set to an empty string (or leave undefined) to
+// disable scaling of these images.
+$photo_image_size = "96x96";
 ?>

@@ -165,8 +165,26 @@ if($search_resource)
 		$item_object_class = get_object_class(
 			$object_class_schema,$ldap_data[$i]);
 
-		$icon = get_object_class_setting(
-			$object_class_schema,$item_object_class,"icon");
+                $dn = $ldap_data[$i]["dn"];
+
+                if(!empty($ldap_data[$i]["jpegphoto"][0])
+				&& $enable_search_browse_thumbnail)
+                        $icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=jpegPhoto&size="
+				. $thumbnail_image_size;
+                else if(!empty($ldap_data[$i]["thumbnailphoto"][0])
+				&& $enable_search_browse_thumbnail)
+                        $icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=thumbnailPhoto&size="
+				. $thumbnail_image_size;
+                else
+                {
+                        $object_class = get_object_class(
+				$object_class_schema,$ldap_data[$i]);
+                        $icon = "schema/" . get_object_class_setting(
+				$object_class_schema,$object_class,"icon");
+                }
+
 		$item_is_folder = get_object_class_setting(
 			$object_class_schema,$item_object_class,"is_folder");
 		$object_rdn_attrib = get_object_class_setting(
@@ -188,7 +206,7 @@ if($search_resource)
 
 		echo "    <td class=\"object_class_icon\"><img alt=\"" . $item_object_class
 			. "\" title=\"" . $item_object_class
-			. "\" src=\"schema/" . $icon . "\"></td>\n";
+			. "\" src=\"" . $icon . "\"></td>\n";
 
 		// Display the record's name and attributes in columns
 

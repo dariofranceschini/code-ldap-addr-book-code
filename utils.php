@@ -100,10 +100,13 @@ function show_search_box($initial_value)
 //
 // Also shows "login" button to right (if editing enabled)
 //
-// $base - The DN for whicht the breadcrumb navigation is to be
-//           displayed
+// $base - The DN for which the breadcrumb navigation is to be
+//	     displayed
 // $default_base - The address book's base DN. Elements of this DN
-//           are not to be displayed as breadcrumb elements.
+//	     are not to be displayed as breadcrumb elements.
+// $leaf_icon - Icon image to use for the last item in the path.
+//	     Typically either the icon for the object class or
+//           the object's photo attribute.
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
@@ -113,6 +116,11 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		. "    <th>\n      <a href=\"" . current_page_folder_url() . "\">"
 		. "<img style=\"vertical-align:top\" alt=\"Address Book\" src=\"addressbook24.png\"> "
 		. $site_name . "</a>\n    </th>\n";
+
+	// if leaf icon doesn't include ? character (indicating a query
+	// string) then use a static image from the "schema" subdirectory
+	if(strpos($leaf_icon,"?")===false)
+		$leaf_icon = "schema/" . $leaf_icon;
 
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
@@ -125,7 +133,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 				. "&#x25B6;"	// Right-facing arrow head
 				. "&nbsp;&nbsp;";
 			if($i==1)
-				echo "<img style=\"vertical-align:top\" alt=\"Address Book Entry\" src=\"schema/" . $leaf_icon . "\"> ";
+				echo "<img style=\"vertical-align:top\" alt=\"Address Book Entry\" src=\"" . $leaf_icon . "\"> ";
 			else
 				echo "<img style=\"vertical-align:top\" alt=\"Folder\" src=\"schema/folder.png\"> ";
 
@@ -600,13 +608,33 @@ class ldap_entry_viewer
 
 	function show()
 	{
-		global $ldap_base_dn;
+		global $ldap_base_dn,$ldap_server_type,$thumbnail_image_size,
+			$enable_ldap_path_thumbnail;
+
+		$object_class_schema = get_object_class_schema(
+			$ldap_server_type);
 
 		$dn = $this->ldap_entry[0]["dn"];
 
-		// TODO: replace with "user" icon/correct icon for class
-		// and/or photo image if available?
-		show_ldap_path($dn,$ldap_base_dn,"contact24.png");
+		if(!empty($this->ldap_entry[0]["jpegphoto"][0])
+				&& $enable_ldap_path_thumbnail)
+			$icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=jpegPhoto&size="
+				. $thumbnail_image_size;
+		else if(!empty($this->ldap_entry[0]["thumbnailphoto"][0])
+				&& $enable_ldap_path_thumbnail)
+			$icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=thumbnailPhoto&size="
+				. $thumbnail_image_size;
+		else
+		{
+			$object_class = get_object_class(
+				$object_class_schema,$this->ldap_entry[0]);
+			$icon = get_object_class_setting(
+				$object_class_schema,$object_class,"icon");
+		}
+
+		show_ldap_path($dn,$ldap_base_dn,$icon);
 
 		if($this->user_info["allow_search"])
 			show_search_box("");
@@ -705,6 +733,8 @@ class ldap_entry_viewer_attrib
 
 	function show($ldap_entry)
 	{
+		global $photo_image_size;
+
 		echo "        <tr>\n";
 
 		// Use full width if attribute has no icon or caption text
@@ -752,11 +782,22 @@ class ldap_entry_viewer_attrib
 						case "c":
 							echo get_country_name_from_code($attrib_value);
 							break;
+						case "jpegPhoto":
+						case "thumbnailPhoto":
+							if(!empty($photo_image_size))
+								$size = "&size="
+									. $photo_image_size;
+							else
+								$size="";
+
+							echo "<img src=\"image.php?dn="
+								. urlencode($ldap_entry[0]["dn"])
+								. "&attrib=" . $attribute . $size . "\">";
+							break;
 						default:
 							echo $attrib_value;
 					}
 			}
-
 		}
 		echo "\n          </td>\n        </tr>\n";
 	}
@@ -793,22 +834,25 @@ function get_ldap_attribute($ldap_entry,$attribute)
 	else
 		$attrib_value = "";
 
-	// Convert UTF-8 characters into HTML entities
-	$attrib_value = mb_convert_encoding($attrib_value,
-		"HTML-ENTITIES","UTF-8");
+	// String transformation should not be applied to photo attributes
+	if($attribute != "thumbnailphoto" && $attribute != "jpegphoto")
+	{
+		// Convert UTF-8 characters into HTML entities
+		$attrib_value = mb_convert_encoding($attrib_value,
+			"HTML-ENTITIES","UTF-8");
 
-	// convert URLs to links
-	$attrib_value = ereg_replace(
-		"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
-		"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$attrib_value);
+		// convert URLs to links
+		$attrib_value = ereg_replace(
+			"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
+			"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$attrib_value);
 
-	// convert e-mail addresses to links
-	$attrib_value = preg_replace("/\b(\S+@\S+)\b/",
-		'<a href="mailto:\1">\1</a>',$attrib_value);
+		// convert e-mail addresses to links
+		$attrib_value = preg_replace("/\b(\S+@\S+)\b/",
+			'<a href="mailto:\1">\1</a>',$attrib_value);
 
-	// convert line breaks to <br> tags
-	$attrib_value = str_replace("\n","<br>\n",$attrib_value);
-
+		// convert line breaks to <br> tags
+		$attrib_value = str_replace("\n","<br>\n",$attrib_value);
+	}
 	return $attrib_value;
 }
 
