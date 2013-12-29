@@ -16,6 +16,9 @@
 
    ************************************************************************ */
 
+define("LDAP_SORT_ASCENDING",1);
+define("LDAP_SORT_DESCENDING",2);
+
 // Output the site's HTML header elements
 
 function show_site_header()
@@ -1019,5 +1022,99 @@ function get_object_class_setting($object_class_schema,$class,$setting)
 		if($setting == "rdn_attrib") $setting_value = "cn";
 	}
 	return $setting_value;
+}
+
+// Sort an array of LDAP entries against one or more attributes.
+// Derived from example code derived snippet at:
+// http://www.php.net/manual/en/function.ldap-sort.php
+//
+// $ldap_entries - LDAP entries to be sorted
+// $attrib_list - Array of LDAP attributes to sort by, in order of
+//		  priority
+// $sort_direction - Either LDAP_SORT_ASCENDING or LDAP_SORT_DESCENDING
+
+function ldap_sort_entries($ldap_entries,$attrib_list,$sort_direction)
+{
+	global $lc_collate;
+	$collator = collator_create($lc_collate);
+
+	for ($i=0;$i<$ldap_entries["count"];$i++)
+		for ($j=$i;$j<$ldap_entries["count"];$j++)
+		{
+			$d = ldap_sort_entries_compare($collator,
+				$ldap_entries[$i],$ldap_entries[$j],
+				$attrib_list);
+
+			if($sort_direction == LDAP_SORT_ASCENDING && $d>0)
+				ldap_sort_entries_swap($ldap_entries,$i,$j);
+
+			if($sort_direction == LDAP_SORT_DESCENDING && $d<0)
+				ldap_sort_entries_swap($ldap_entries,$i,$j);
+		}
+
+	return ($ldap_entries);
+}
+
+// Compare two LDAP entries and return a value indicating which
+// occurs first alphabetically.
+//
+// $collator - Collator providing locale-sensitive comparison function
+// $entry1 - First entry to be compared
+// $entry2 - Second entry to be compared
+// $attrib_list - Array of attributes to be used in the comparison, in
+//		  order of priority
+
+function ldap_sort_entries_compare($collator,$entry1,$entry2,$attrib_list)
+{
+	$d = 0;
+	foreach($attrib_list as $fld_test)
+	{
+		$fld_test=strtolower($fld_test);
+		if($d == 0 && ldap_sort_entries_getattrib($entry1,$fld_test)
+				!= ldap_sort_entries_getattrib($entry2,$fld_test))
+
+			$d = collator_compare($collator,
+				ldap_sort_entries_getattrib($entry1,$fld_test),
+				ldap_sort_entries_getattrib($entry2,$fld_test));
+	}
+
+	return $d;
+}
+
+// Swap a pair of LDAP entries in an array. (swap a pair of indexed
+// array elements)
+//
+// $ldap_entries - Array whose elements are to be swapped
+// $entry1 - Index of first element
+// $entry2 - Index of second element
+
+function ldap_sort_entries_swap(&$ldap_entries,$entry1,$entry2)
+{
+	$temp = $ldap_entries[$entry1];
+	$ldap_entries[$entry1] = $ldap_entries[$entry2];
+	$ldap_entries[$entry2] = $temp;
+}
+
+// Return the value of a specified entry and attribute,
+// dealing with the following special cases so that the attribute
+// is ready for use in sorting:
+//   - Returns an empty string if the attribute doesn't exist
+//   - Returns the first value of a multi-value attribute
+//
+// $entry - Entry for which the attribute is to be returned
+// $attrib - Attribute whose value is to be returned (must be a
+//           textual attribute)
+
+function ldap_sort_entries_getattrib($entry,$attrib)
+{
+	if(!isset($entry[$attrib]))
+		return "";
+	else
+	{
+		if(isset($entry[$attrib][0]))
+			return $entry[$attrib][0];
+		else
+			return $entry[$attrib];
+	}
 }
 ?>

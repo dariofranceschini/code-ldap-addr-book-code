@@ -114,6 +114,10 @@ $search_result_columns = array(
 // Default sort order until user selects another by clicking a column header
 $search_result_default_sort_order = "sortableName";
 
+// Specify the collation locale (sorting language/region/script)
+// to be used for browsing and displaying search results.
+$lc_collate = "en_US";
+
 // --------------------------------------------------------------------
 // Directory Entry Detail/Info Settings
 // --------------------------------------------------------------------

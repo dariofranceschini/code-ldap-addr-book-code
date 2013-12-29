@@ -114,16 +114,6 @@ if($search_resource)
 		if($column["attrib"] == $sort_type);
 			$sort_order = $sort_type;
 
-	if($sort_order == "sortableName")
-	{
-		ldap_sort($ldap_link,$search_resource,"cn");
-		ldap_sort($ldap_link,$search_resource,"ou");
-		ldap_sort($ldap_link,$search_resource,"givenName");
-		ldap_sort($ldap_link,$search_resource,"sn");
-	}
-	else
-		ldap_sort($ldap_link,$search_resource,$sort_order);
-
 	echo "<table class=\"search_results_viewer\">\n  <tr>\n";
 
 	// Display column headings
@@ -154,7 +144,12 @@ if($search_resource)
 
 	// Display records
 
-	$ldap_data = ldap_get_entries($ldap_link,$search_resource);
+	$ldap_data = ldap_sort_entries(
+		ldap_get_entries($ldap_link,$search_resource),
+		$sort_order == "sortableName"
+                ? array("sn","givenName","ou","cn")
+                : array($sort_order),
+		LDAP_SORT_ASCENDING);
 
 	for($i=0;$i < $ldap_data["count"]; $i++)
 	{
@@ -310,5 +305,4 @@ if($search_resource)
 echo "\n";
 
 show_site_footer();
-
 ?>
