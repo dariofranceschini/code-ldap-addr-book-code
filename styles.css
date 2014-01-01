@@ -96,6 +96,7 @@ a
 .login_info,
 .ldap_entry_viewer,
 .ldap_entry_viewer_section,
+.ldap_entry_viewer_section td,
 .search_results_viewer
 {
 	width:100%;
