@@ -1,15 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 5.0//EN">
 <html>
 <head>
-<title>LDAP Address Book - Getting Started</title>
+<title>LDAP Address Book - User Guide</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="icon" type="image/png" href="addressbook24.png">
 </head>
 <body>
 
-<h1>
-<img alt="LDAP Address Book Icon" src="addressbook48.png">
-LDAP Address Book
-</h1>
+<table>
+  <tr>
+    <td style="background-color:white">
+      <img alt="LDAP Address Book Icon" src="addressbook48.png">
+    </td>
+    <th style="background-color:white;text-align:left">
+      <h1 style="margin:0">LDAP Address Book</h1>
+      <div style="font-weight:normal">Web-based LDAP address book browser</div>
+    </th>
+  </tr>
+</table>
 <hr>
 <h2>Contents</h2>
 
@@ -18,7 +27,7 @@ LDAP Address Book
   <ol>
   <li>Using OpenSearch
   </ol>
-<li>Initial Installation and Setup
+<li>Installation and Basic Setup
   <ol>
   <li>Installation on Linux: Apache HTTP Server on Debian/Ubuntu
   <li>Installation on Windows: Apache HTTP Server or Microsoft IIS
@@ -45,8 +54,9 @@ LDAP Address Book
 <h2>Getting Started Using the Address Book</h2>
 <p>
 LDAP Address Book is a web application for browsing and searching
-for contact details within an LDAP directory service. It has been
-tested on the following LDAP directories:
+for contact details within an LDAP directory service, allowing it
+to be used as an address book. It has been tested on the following
+LDAP directories:
 </p>
 <ul>
 <li>Active Directory (Microsoft and Samba implementations)
@@ -58,25 +68,25 @@ Searching your LDAP address book is pretty easy. Just type in
 the name, job title or company of who you're trying to find into
 search box and click "Search" (or press Return). Alternatively
 if the directory has been classified into "organisational units"
-you can click on the folders underneath the search box to browse
+(OUs) you can click on the folders underneath the search box to browse
 records by department, building, etc.
 </p>
 <h3>Using OpenSearch</h3>
 <img alt="Address book OpenSearch integration" src="opensearch.png">
 <p>
 You can add the LDAP Address Book to the drop-down list of search engines
-in Firefox and other OpenSearch-compliant browsers. To the Address Book
+in Firefox and other OpenSearch compliant browsers. To the Address Book
 add as a Firefox search engine:
 </p>
 <ol>
 <li>Open web browser and navigate to the address book.
 <li>Click the icon to the left of the search engine name in the search
 box.
-<li>Select <b>Add "LDAP Address Book"</b> (or the current value of
-$site_name in the config, if changed from the default) from the menu.
+<li>Select <b>Add "Address Book"</b> (or the name of your address
+book, if it has been changed from the default) from the menu.
 </ol>
 <hr>
-<h2>Initial Installation and Setup</h2>
+<h2>Installation and Basic Setup</h2>
 <p>
 The remainder of this document is aimed towards system administrators
 setting up and configuring LDAP address book on your network.
@@ -102,7 +112,9 @@ cd /srv/www/addressbook.example.org
 tar xvzf ~/ldap-addr-book-0.02.tar.gz
 </pre>
 <p>
-Create the file /etc/apache2/sites-available/addressbook.example.org, contents as follows
+Create the file
+<code>/etc/apache2/sites-available/addressbook.example.org</code>
+and add the following contents:
 </p>
 <pre>
 &lt;VirtualHost *:80&gt;
@@ -146,7 +158,7 @@ under Windows is as follows:
 </p>
 
 <ul>
-<li>Install prefered web server (e.g. Apache HTTP Server or Microsoft IIS).
+<li>Install preferred web server (e.g. Apache HTTP Server or Microsoft IIS).
 
 <li>Download PHP 5, e.g. from 
     <a href="http://windows.php.net/download/">http://windows.php.net/download/</a>
@@ -176,7 +188,7 @@ contents. This can be either:
 If you just want to get the LDAP Address Book up and running
 quickly, set up a new user account that provides read-only
 access to your directory, open the file <code>config.php</code>
-in your prefered text editor and fill in
+in your preferred text editor and fill in
 <code>$ldap_default_user</code> and
 <code>$ldap_default_password</code> with the account's
 credentials.
@@ -185,15 +197,15 @@ credentials.
 You will also need to fill in the following settings:
 </p>
 <ul>
-<li><code>$ldap_server_type</code> - Either <code>"ad"</code> (for either Microsoft or
-Samba Active Directory), <code>"edir"</code> (Novell eDirectory) or "openldap" (OpenLDAP) as
-appropriate.
+<li><code>$ldap_server_type</code> - Either <code>"ad"</code> (for
+either Microsoft or Samba Active Directory), <code>"edir"</code>
+(Novell eDirectory) or "openldap" (OpenLDAP) as appropriate.
 
 <li><code>$ldap_link</code> - Enter the host name of the directory server
 (domain controller) to connect to.
 
-<li><code>$ldap_base_dn</code> - Set to the location in the directory (e.g. OU)
-that should be used as the "root" of the address bok information.
+<li><code>$ldap_base_dn</code> - Set to the location in the directory
+(e.g. OU) that should be used as the "root" of the address book information.
 </ul>
 <p>
 See the "Configuration Reference" section below for further
@@ -210,9 +222,9 @@ Note: Some LDAP directory servers may allow read only access
 with a blank user name/password ("anonymous
 bind"). If this is the case then you may find that you
 don't need to create a new user account or fill in
-<code>$ldap_default_user</code> or <code>$ldap_default_password</code> at all.
+<code>$ldap_default_user</code> or <code>$ldap_default_password</code>
+at all.
 </p>
-
 
 <h2>Customising the Address Book</h2>
 
@@ -255,24 +267,24 @@ set:
 <table border=1>
 <tr><th>Permission</th><th>Description</th></tr>
 <tr><td><code>allow_browse</code></td><td>Allows the user to browse through
- OUs within the address book.</td></tr>
+ organisational units (folders) within the address book.</td></tr>
 <tr><td><code>allow_search</code></td><td>Allows the user to search the
     address book directory tree.</td></tr>
-<tr><td><code>allow_view</code></th><td>Allows the user to click on a record
+<tr><td><code>allow_view</code></td><td>Allows the user to click on a record
     to see full details</td></tr>
 </table>
 <p>
 When connecting to Active Directory, the <code>ldap_name</code>
 setting should correspond to a user principal name (UPN), e.g. 
 the user name followed by <code>@</code> followed by the DNS domain name.
-The <code>__DEFAULT__</code> user map entry for the <code>example.org</code> AD domain
-might be configured as follows:
+The <code>__DEFAULT__</code> user map entry for the
+<code>example.org</code> AD domain might be configured as follows:
 </p>
 <pre>
-array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@example.org",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
         )
 </pre>
 <p>
@@ -290,61 +302,65 @@ without having to log in. (The LDAP directory will be accessed as
 user <code>ldap-browse@example.org</code>, password
 <code>foobar</code>), or an administrator to log on with user
 name <code>admin</code>. The administrator's directory access
-will utilis the login name <code>Administrator@example.org</code>.
+will utilise the login name <code>Administrator@example.org</code>.
 </p>
 <pre>
-array("login_name"=>"admin","ldap_name"=>"Administrator@example.org",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"admin","ldap_name"=&gt;"Administrator@example.org",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
 	),
-array("login_name"=>"__DEFAULT__","ldap_name"=>"__DENY__",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__DENY__",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
 	),
-array("login_name"=>"__ANONYMOUS__","ldap_name"=>"ldap-browse@example.org",
-	"ldap_password="foobar",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"ldap-browse@example.org",
+	"ldap_password=&gt;"foobar",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
 	)
 </pre>
 <p>
-This allows only <code>admin</code> to log in, which is mapped to the directory's
-<code>Administrator</code> user. (Other staff will be limited to anonymous read-only
-access)
+This allows only <code>admin</code> to log in, which is mapped to the
+directory's <code>Administrator</code> user. (Other staff will be limited
+to anonymous read-only access)
 </p>
 <p>
 The following example will disable anonymous access, requiring users
 to log in before they can browse the directory.
 </p>
 <pre>
-array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@example.org",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
 	),
-array("login_name"=>"__ANONYMOUS__","ldap_name"=>"__DENY__",
-	"ldap_password="foobar",
-        "allow_browse"=>true,
-        "allow_search"=>true,
-        "allow_view"=>true
+array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"__DENY__",
+	"ldap_password=&gt;"foobar",
+        "allow_browse"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
 	)
 </pre>
 <h3>Changing the attributes shown for search results</h3>
 <p>
 The fields/attributes that are used when searching can
 be customised by editing the contents of $search_ldap_attrib
-in the config file. The default set of attributes that get
+in the configuration file. The default set of attributes that get
 searched are:
 </p>
 <table border=1>
 <tr><th>Attribute</th><th>Description (typical usage)</th></tr>
-<tr><td><code>cn</code></td><td>Name of the directory entry itself (usually a person's full name or "common name")</td></tr>
+<tr><td><code>cn</code></td><td>Name of the directory entry itself
+    (usually a person's full name or "common name")</td></tr>
 <tr><td><code>mail</code></td><td>E-mail address</td></tr>
 <tr><td><code>sn</code></td><td>Surname</td></tr>
-<tr><td><code>displayName</code></td><td>Perfered display version of user's name. Some users may prefer informal versions of their name (e.g. "Andy" instead of "Andrew"), which would be represented here.</td></tr>
+<tr><td><code>displayName</code></td><td>Perferred display version of
+    user's name. Some users may prefer informal versions of their
+    name (e.g. "Andy" instead of "Andrew"), which would be represented
+    here.</td></tr>
 <tr><td><code>company</code></td><td>Company name</td></tr>
 <tr><td><code>title</code></td><td>Job title</td></tr>
 </table>
@@ -375,8 +391,8 @@ for example:
 <code>$lc_collate = "en_US";</code>
 </p>
 <p>
-(In practice neither the codeset or modifier are widely used, and a
-codeset of UTF-8 will be assumed automatically.)
+(In practice neither the code set or modifier are widely used, and a
+code set of UTF-8 will be assumed automatically.)
 </p>
 <h3>Applying custom LDAP filters to directory browsing and searching</h3>
 <p>
@@ -388,7 +404,7 @@ have specific object classes or meet some other criteria.
 Sites with Microsoft Active Directory/Exchange may wish to set up
 custom filters that test the <code>msExchHideFromAddressLists</code>
 and/or <code>showInAddressBook</code> attributes in order to exclude
-those entries which are hidden from the Exchange Global Address Book
+those entries which are hidden from Exchange's Global Address Book
 (GAL).
 </p>
 <h4>Directory browsing</h4>
@@ -407,7 +423,7 @@ objects to be displayed:
 <p>
 Searches results are retrieved by carrying out an LDAP
 subtree search from the root of the address book (as
-specified in $ldap_base_dn). The expression to be searched
+specified in <code>$ldap_base_dn</code>). The expression to be searched
 for is based on the value of <code>$search_ldap_filter</code>
 in <code>config.php</code>. The default LDAP filter is as
 follows, which limits search results to objects representing
@@ -432,7 +448,8 @@ attribute set), make the following changes to <code.config.php</code>:
 </p>
 <ul>
 <li>Set <code>$search_ldap_filter = "___search_criteria___";</code>
-<li>Add <code>ou</code> to the list of attributes to be searched in <code>$search_ldap_attrib</code>.
+<li>Add <code>ou</code> to the list of attributes to be searched
+    in <code>$search_ldap_attrib</code>.
 </ul>
 <h3>Changing the layout and attributes shown for directory entries</h3>
 <p>
@@ -440,7 +457,7 @@ You may want to customise the way in which address book
 entries are displayed - which fields/attributes are
 used and how they are laid out. The columns that appear
 in search results can be changed by editing the contents of
-<code>$entry_layout</code> in the config file.
+<code>$entry_layout</code> in the configuration file.
 </p>
 <p>
 As shipped, address book entries are displayed in three
@@ -455,8 +472,8 @@ this:
 </p>
 <pre>
 $entry_layout = array(
-        array("section_name"=>"Personal",
-                "attributes"=>array(
+        array("section_name"=&gt;"Personal",
+                "attributes"=&gt;array(
                         array("displayName",                    "Preferred Name",       "contact24.png"),
                         array("mail",                           "E-mail",               "mail.png"),
                         array("homePhone",                      "Home Phone",           "landline-phone.png"),
@@ -484,9 +501,9 @@ You can define the following settings for each section:
 <tr><td><code>new_row</code></td>
     <td>Whether or not this section should start on a new row.<br>
         In the default setup the "Business/Work" section has
-        <code>"new_row"=>false</code> set, so it is displayed to
+        <code>"new_row"=&gt;false</code> set, so it is displayed to
         the right of "Personal" on the same row. "Additional Notes"
-        has <code>"new_row"=>false</code> set, so appears on its
+        has <code>"new_row"=&gt;false</code> set, so appears on its
         own row below the previous sections.</td>
         <td>Assumed to be <code>false</code></td></tr>
 
@@ -502,8 +519,8 @@ You can define the following settings for each section:
         <li>ex - half current font size (traditionally the height of the
                  letter "x" in the font; or the distance between the font
                  baseline and median)
-        <li>cm - centimeters
-        <li>mm - millimeters
+        <li>cm - centimetres
+        <li>mm - millimetres
         <li>in - inches
         <li>pt - points (1/72 of an inch)
         <li>pc - picas (1/6 of an inch, or 12 points)
@@ -518,7 +535,7 @@ You can define the following settings for each section:
 <tr><td><code>colspan</code></td>
     <td>Number of HTML table columns that this section should span.<br>
         In the default setup the "Additional Notes" section has
-        <code>"colspan"=>2</code> set, so spans the width of both
+        <code>"colspan"=&gt;2</code> set, so spans the width of both
         the "Personal" and "Business/Work" columns.</td>
     <td>Assumed to be <code>1</code></td></tr>
 
@@ -537,7 +554,7 @@ Each attribute is described by three items:
 <li>Icon image to appear next to the attribute (or leave empty for none)
 </ol>
 <p>
-A display field can be contructed from several LDAP attributes. To
+A display field can be constructed from several LDAP attributes. To
 construct a field from multiple attributes, list the attributes in
 turn, separating them with one of the following symbols:
 </p>
@@ -647,9 +664,9 @@ The default set of links are defined as follows:
 </p>
 <pre>
 $site_footer_links = array(
-        array("url"=>"doc/","text"=>"User Guide"),
-        array("url"=>"https://sourceforge.net/projects/ldap-addr-book/",
-                "text"=>"Get Source Code")
+        array("url"=&gt;"doc/","text"=&gt;"User Guide"),
+        array("url"=&gt;"https://sourceforge.net/projects/ldap-addr-book/",
+                "text"=&gt;"Get Source Code")
         );
 </pre>
 <p>
@@ -730,7 +747,8 @@ appearance they affect:
 <tr><td><code>.page_footer</code></td>
     <td>Page footer.</td></tr>
 
-<tr><td style="white-space:nowrap"><code>.ldap_entry_viewer_section .column_header,<br>
+<tr><td style="white-space:nowrap">
+    <code>.ldap_entry_viewer_section .column_header,<br>
         .search_results_viewer .column_header</code></td>
     <td>Column headers/titles used in search results and
         directory entries.(*)</td></tr>
@@ -782,90 +800,137 @@ appropriately:
 </pre>
 
 <h2>Configuration Reference</h2>
-<p>
-Edit the file <code>config.php</code>, which holds details of how the
-address book links to the back-end LDAP directory and
-how records are searched for and displayed.
-</p>
 <table border=1>
 <tr><th>Setting</th><th>Description</th></tr>
-<tr><td><code>$site_name</code></td><td>Site name, which appears in the browser title bar. You may want to
-		customise this, e.g. with your company name.<p>Example: BigCorp Address Book</p></td></tr>
+<tr><td><code>$site_name</code></td><td>Site name, which appears in the
+        browser title bar. You may want to
+		customise this, e.g. with your company name.
+                <p>Example:<br>
+                <code>$site_name = "BigCorp Address Book";</code>
+                </p></td></tr>
 
-<tr><td><code>$site_footer_links</code></td><td>List of links that appear in the footer of each page.</td></tr>
+<tr><td><code>$site_footer_links</code></td><td>List of links that
+     appear in the footer of each page.
+     <p>Example:<br>
+<pre>$site_footer_links = array(
+        array("url"=&gt;"doc/","text"=&gt;"User Guide"),
+        array("url"=&gt;"https://sourceforge.net/projects/ldap-addr-book/",
+                "text"=&gt;"Get Source Code")
+        );</pre>
+     </p>
+</td></tr>
 
 <tr><th colspan=2>Connection to LDAP Directory</th></tr>
 
-<tr><td><code>$ldap_server_type</code></td><td>Indicate the LDAP server (directory) type, which affects
-	how the directory's objects and their attributes are displayed in the address book. The following
+<tr><td><code>$ldap_server_type</code></td><td>Indicate the LDAP server
+        (directory) type, which affects	how the directory's objects and
+        their attributes are displayed in the address book. The following
 	values are accepted:<br>&nbsp;<br>
-<code>ad</code> - Microsoft Active Directory (or Samba 4 Active Directory)<br>
-<code>edir</code> - Novell eDirectory<br>
-<code>openldap</code> - OpenLDAP (core/inetorgperson schema)
-</td></tr>
+        <code>ad</code> - Microsoft Active Directory
+        (or Samba 4 Active Directory)<br>
+        <code>edir</code> - Novell eDirectory<br>
+        <code>openldap</code> - OpenLDAP (core/inetorgperson schema)
+        <p>Example:<br><code>$ldap_server_type = "openldap";</code></p>
+        </td></tr>
 
-<tr><td><code>$ldap_link</code></td><td>Creates a connection to the LDAP server holding the address
-    book data.
+<tr><td><code>$ldap_link</code></td><td>Creates a connection to the
+    LDAP server holding the address book data.
 
-    <p>Example: ldap_connect("dc1.example.org")</>
+    <p>Example:<br><code>$ldap_link = ldap_connect("dc1.example.org");</code></p>
 
 <p>Active Directory-specific Options:</p><p>
-    (1) As an alternative to giving the name of a specific server (domain controller) you can
-    specify just the domain name. This will load balance the connections across the
-    available domain controllers. (See Microsoft KB 842197 for further information
-    on how to use DNS netmask ordering for more fine-grained control of the servers
+    (1) As an alternative to giving the name of a specific server (domain
+    controller) you can specify just the domain name. This will load
+    balance the connections across the available domain controllers.
+    (See Microsoft KB 842197 for further information on how to use DNS
+    netmask ordering for more fine-grained control of the servers
     used for load balancing.)</p>
     <p>
-    (2) For multi-domain forests, specify the LDAP port number as 3268 in order to
-    use the AD Global Catalogue. (By comparison, using the default LDAP port (389)
-    will return incomplete information other than for the local AD domain.)
+    (2) For multi-domain forests, specify the LDAP port number as 3268
+    in order to use the AD Global Catalogue. (By comparison, using the
+    default LDAP port (389) will return incomplete information other
+    than for the local AD domain.)
     </p>
     <p>
     Examples:<br>
-    ldap_connect("example.org") - load balances across the DCs as listed in DNS)<br>
-    ldap_connect("dc1.example.org",3268) - use AD global catalogue port
+    <code>$ldap_link = ldap_connect("example.org");</code>
+     - load balances across the DCs as listed in DNS<br>
+    <code>$ldap_link = ldap_connect("dc1.example.org",3268);</code>
+     - use AD global catalogue port
     </p>
 <p>
-Further information see:<a href="http://www.php.net/manual/en/function.ldap-connect.php">
+Further information
+see:<a href="http://www.php.net/manual/en/function.ldap-connect.php">
 http://www.php.net/manual/en/function.ldap-connect.php</a>
 </p>
 </td></tr>
 
-<tr><td><code>$ldap_base_dn</code></td><td>Specifies the search base within the directory which
-    will be used for displaying the address book. Rather than searching the whole
-    directory, you can use this option to restrict search results to only a
-    specific OU hierarchy which contains the user accounts.
+<tr><td><code>$ldap_base_dn</code></td><td>Specifies the search base
+    within the directory which will be used for displaying the address
+    book. Rather than searching the whole directory, you can use this
+    option to restrict search results to only a specific part of the
+    directory tree which contains the user accounts or contacts.
     <p>
-    Examples: dc=example,dc=org<br>
-    ou=Users,dc=example,dc=org
+    Examples:<br>
+    <code>$ldap_base_dn = "dc=example,dc=org";</code><br>
+    <code>$ldap_base_dn = "ou=Users,dc=example,dc=org";</code>
     </p>
     <p>
-    Example config file syntax where one of the OU names contains a space:<br>
-    $ldap_base_dn = "ou=User Accounts,dc=example,dc=org";<br>
+    Syntax where one of the OU names contains a space:<br>
+    <code>$ldap_base_dn = "ou=User Accounts,dc=example,dc=org";</code>
     </p>
 </td></tr>
 
-<tr><td><code>$ldap_default_user</code><br><code>$ldap_default_password</code></td>
-    <td>These specify the user name and password which are used by the
+<tr><td><code>$ldap_default_user</code></td>
+    <td>User name which will be used by the address book software to
+    access the LDAP directory service (also known as "binding" to the
+    directory). The corresponding password should be provided in
+    <code>$ldap_default_password</code>. If you have enabled
+    authenticated access to the directory then these settings will
+    be used only when nobody is logged in (e.g. to provide read-only
+    access).
+    <p>
+    Examples:<br>
+    <code>$ldap_default_user
+    = "cn=LDAPUser,cn=Users,dc=example,dc=org";</code><br>
+    <code>$ldap_default_user = "cn=LDAPUser,dc=MyDirectory";</code><br>
+    <code>$ldap_default_user  = "LDAPUser@example.org";</code>
+     - Active Directory specific syntax<br>
+    </p>
+    <p>If the directory is set up to allow read access without having
+    to log on then just leave the user name and password blank
+    (which will perform an "anonymous bind").</p></td></tr>
+
+<tr><td><code>$ldap_default_password</code></td>
+    <td>Password corresponding to the account specified in
+    <code>$ldap_default_user</code>, which is used by the
     address book software to access the LDAP directory service (also
     known as "binding" to the directory). If you have enabled
     authenticated access to the directory then these settings will
     be used only when nobody is logged in (e.g. to provide read-only
     access).
-    <p>
-    Example user names:<br>
-    cn=LDAPUser,cn=Users,dc=example,dc=org<br>
-    cn=LDAPUser,dc=MyDirectory<br>
-    LDAPUser@example.org (Active Directory specific syntax)
-    
-    </p>
-    <p>If the directory is set up to allow read access without having
-    to log on then just leave the user name and password blank
-    (which will perform an "anonymous bind").</p>
+    <p>Example:<br>
+    <code>$ldap_default_password  = "password";</code>
+    </p></td></tr>
 
 <tr><td><code>$ldap_user_map</code></td>
     <td>Specifies the mapping between address book logins and the
-    back-end directory (see "Configuring users and permissions" above).
+    back-end directory when per-user authentication is enabled.
+    (see "Configuring users and permissions" above.)
+    <p>Example:<br>
+    <pre>$ldap_user_map = array(
+        array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;$ldap_default_user,
+                "ldap_password"=&gt;$ldap_default_password,
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+                ),
+        array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+                )
+        );</pre></p></td></tr>
 
 <tr><th colspan=2>Search/Browse Directory Settings</th></tr>
 
@@ -874,41 +939,50 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
      user searches the address book. Add to the list if you have
      specific requirements, e.g. if you want users to be able to
      search on a department name (department) or building
-     (physicalDeliveryOfficeName).</td></tr>
+     (physicalDeliveryOfficeName).
+     <p>
+     Example:<br>
+     <code>$search_ldap_attrib = array("cn","mail","sn","displayName","company","title");</code>
+     </p></td></tr>
 
 <tr><td><code>$search_result_columns</code></td>
     <td>Specifies the column layout to be used for displaying
     search results. Each column has three fields associated with it:
     <ul>
-    <li>caption - Caption to appear in column heading
-    <li>attrib - LDAP attribute to display
-    <li>link_type - Whether to display the attribute as a hyperlink
+    <li><code>caption</code> - Caption to appear in column heading
+    <li><code>attrib</code> - LDAP attribute to display
+    <li><code>link_type</code> - Whether to display the attribute as a
+        hyperlink
     </ul>
-    The special attribute "sortableName" will display constructed
+    The special attribute <code>sortableName</code> will display constructed
     "sort-friendly" version of a personal name (Surname, Firstname)
     based on which LDAP attributes are populated. (Ideally
-    sn and givenName if populated, otherwise falling back to
-    displayName or cn.) The following link types are supported:
+    <code>sn</code> and <code>givenName</code> if populated, otherwise
+    falling back to <code>displayName</code> or <code>cn</code>.) The
+    following link types are supported:
     <ul>
-    <li>object - Link to the object record. Recommended to use this
-    link type for the object name, displayed in the left-most column.
-    <li>mailto - Display as mailto: link, e.g. for attributes containing
-    e-mail addresses.
-    <li>none - Do not display as a link.
+    <li><code>object</code> - Link to the object record. Recommended to
+    use this link type for the object name, displayed in the left-most column.
+    <li><code>mailto</code> - Display as <code>mailto:</code> link, e.g.
+    for attributes containing e-mail addresses.
+    <li><code>none</code> - Do not display as a link.
     </ul>
     Example:
-    <pre>
-$search_result_columns = array(
-        array("caption"=>"Name",                "attrib"=>"sortableName",       "link_type"=>"object"),
-        array("caption"=>"E-Mail",              "attrib"=>"mail",               "link_type"=>"mailto"),
-        array("caption"=>"Organisation",        "attrib"=>"company",            "link_type"=>"none")
+    <pre>$search_result_columns = array(
+        array("caption"=&gt;"Name",                "attrib"=&gt;"sortableName",       "link_type"=&gt;"object"),
+        array("caption"=&gt;"E-Mail",              "attrib"=&gt;"mail",               "link_type"=&gt;"mailto"),
+        array("caption"=&gt;"Organisation",        "attrib"=&gt;"company",            "link_type"=&gt;"none")
         );</pre>
 </td></tr>
 
 <tr><td><code>$search_result_default_sort_order</code></td>
     <td>Specifies the default sort order for displaying search
      results. User can change the sort order by clicking a column
-     header.</td></tr>
+     header.
+     <p>
+     Example:<br>
+     <code>$search_result_default_sort_order = "sortableName";</code>
+     </p></td></tr>
 
 <tr><td><code>$lc_collate</code></td>
     <td>Specifies the collation locale (sorting language/region/script)
@@ -922,25 +996,67 @@ $search_result_columns = array(
 
 <tr><td><code>$entry_layout</code></td>
     <td>Specifies the attributes to be shown in detailed entry view
-    and how they should be layed out.</td></tr>
+    and how they should be layed out. See the section "Changing the
+    layout and attributes shown for directory entries" above for
+    further information.
+<p>Example:<br>
+<pre>
+$entry_layout = array(
+        array("section_name"=&gt;"Personal",
+                "attributes"=&gt;array(
+                        array("displayName",                    "Preferred Name",       "contact24.png"),
+                        array("mail",                           "E-mail",               "mail.png"),
+                        array("homePhone",                      "Home Phone",           "landline-phone.png"),
+                        array("mobile",                         "Mobile Phone",         "cell-phone.png"),
+                        array("wWWHomePage",                    "Web Page",             "internet.png"),
+                        array("streetAddress:l:st:postalCode",  "Postal Address",       "address.png"),
+                        array("c",                              "Country",              "country.png"),
+                        array("jpegPhoto",                      "Photo",                "photo24.png")
+                        )
+                ),
+        array("section_name"=&gt;"Business/Work","width"=&gt;"50%",
+                "attributes"=&gt;array(
+                        array("company",                        "Company",              "company.png"),
+                        array("url",                            "Web Page",             "internet.png"),
+                        array("telephoneNumber",                "Office Phone",         "landline-phone.png"),
+                        array("facsimileTelephoneNumber",       "Office Fax",           "fax.png"),
+                        array("title",                          "Job Title",            "id.png"),
+                        array("department",                     "Department",           "org.png"),
+                        array("physicalDeliveryOfficeName",     "Office",               "office.png")
+                        )
+                ),
+
+        array("section_name"=&gt;"Additional Notes","new_row"=&gt;true,"colspan"=&gt;2,
+                "attributes"=&gt;array(
+                        array("info")
+                        )
+                )
+        );
+
+</pre>
+</p></td></tr>
 
 <tr><th colspan=2>Photo/Image Display Settings</th></tr>
 
 <tr><td><code>$enable_search_browse_thumbnail</code></td>
     <td>Specifies whether thumbnail images should be displayed next
         to directory entries in browse/search results view
-        (if available) instead of object class icons.</td></tr>
+        (if available) instead of object class icons.
+        <p>Example:<br>
+        <code>$enable_search_browse_thumbnail = true</code></p></td></tr>
 
 <tr><td><code>$enable_ldap_path_thumbnail</code></td>
     <td>Specifies whether thumbnail images should be displayed in
         the detailed info view's "navigation path" (if available)
-        instead of object class icons.</td></tr>
+        instead of object class icons.
+        <p>Example:<br>
+        <code>$enable_ldap_path_thumbnail = true</code></p></td></tr>
 
 <tr><td><code>$thumbnail_image_size</code></td>
     <td>Size to which images should be scaled for use as
         thumbnails/icons.
         <p>Example:<br>
-        $thumbnail_image_size = "24x24";
+        <code>$thumbnail_image_size = "24x24";</code>
         </p></td></tr>
 
 <tr><td><code>$photo_image_size</code></td>
@@ -949,7 +1065,7 @@ $search_result_columns = array(
         leave undefined) to disable scaling of these
         images.
         <p>Example:<br>
-        $photo_image_size = "96x96";
+        <code>$photo_image_size = "96x96";</code>
         </p></td></tr>
 
 </table>
