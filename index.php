@@ -53,7 +53,7 @@ else
 	// TODO: sanitise base DN from URL:
 	//	stop "nasties" being passed through to the LDAP server
 	//	prevent access to directory outside of address book base DN
-	if(!empty($_GET["base"])) $dn = $_GET["base"];
+	if(!empty($_GET["dn"])) $dn = $_GET["dn"];
 }
 
 show_ldap_path($dn,$ldap_base_dn,"folder.png");
@@ -81,17 +81,18 @@ if(log_on_to_directory($ldap_link))
 	if($search_type == "subtree")
 		// get search results
 		if($user_info["allow_search"])
-			$search_resource = ldap_search($ldap_link,$dn,$filter);
-        	else
-        	        echo "<p>You do not have permission to search the directory</p>\n";
+			$search_resource = ldap_search($ldap_link,
+				$dn,$filter);
+		else
+			echo "<p>You do not have permission to search the directory</p>\n";
 	else
 		// browse OU contents
 		if($user_info["allow_browse"])
 			$search_resource = ldap_list($ldap_link,$dn,$filter);
 		else
 			// only show error if explicit base DN browse attempt
-			if (!empty($_GET["base"]))
-	        	        echo "<p>You do not have permission to browse the directory</p>\n";
+			if (!empty($_GET["dn"]))
+				echo "<p>You do not have permission to browse the directory</p>\n";
 
 	error_reporting($old_error_reporting);
 }
@@ -114,192 +115,9 @@ if($search_resource)
 		if($column["attrib"] == $sort_type);
 			$sort_order = $sort_type;
 
-	echo "<table class=\"search_results_viewer\">\n  <tr>\n";
-
-	// Display column headings
-	$colspan="colspan=2 ";
-	foreach($search_result_columns as $column)
-	{
-		echo "    <th " . $colspan
-			. "class=\"column_header\">"
-			. "<a href=\"?sort=";
-
-		echo urlencode($column["attrib"]);
-
-		// Only the first item should have colspan=2 (so that it
-		// spans both the icon and first attribute column)
-		$colspan="";
-
-		if(!empty($_GET["base"]))
-			echo "&base=" . $_GET["base"];
-
-		if(!empty($_GET["filter"]))
-			echo "&filter=" . $_GET["filter"];
-
-		echo "\">";
-		echo $column["caption"];
-		echo "</a></th>\n";
-	}
-	echo "  </tr>\n";
-
-	// Display records
-
-	$ldap_data = ldap_sort_entries(
-		ldap_get_entries($ldap_link,$search_resource),
-		$sort_order == "sortableName"
-                ? array("sn","givenName","ou","cn")
-                : array($sort_order),
-		LDAP_SORT_ASCENDING);
-
-	for($i=0;$i < $ldap_data["count"]; $i++)
-	{
-		echo "  <tr>\n";
-
-		// Fetch object schema details for this record
-
-		$item_object_class = get_object_class(
-			$object_class_schema,$ldap_data[$i]);
-
-                $dn = $ldap_data[$i]["dn"];
-
-                if(!empty($ldap_data[$i]["jpegphoto"][0])
-				&& $enable_search_browse_thumbnail)
-                        $icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=jpegPhoto&size="
-				. $thumbnail_image_size;
-                else if(!empty($ldap_data[$i]["thumbnailphoto"][0])
-				&& $enable_search_browse_thumbnail)
-                        $icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=thumbnailPhoto&size="
-				. $thumbnail_image_size;
-                else
-                {
-                        $object_class = get_object_class(
-				$object_class_schema,$ldap_data[$i]);
-                        $icon = "schema/" . get_object_class_setting(
-				$object_class_schema,$object_class,"icon");
-                }
-
-		$item_is_folder = get_object_class_setting(
-			$object_class_schema,$item_object_class,"is_folder");
-		$object_rdn_attrib = get_object_class_setting(
-			$object_class_schema,$item_object_class,"rdn_attrib");
-
-		// Tooltip should list all classes for unrecognised objects
-		if($item_object_class == "(unrecognised)")
-		{
-			$item_object_class="";
-			// Subtract 1 is to take into account "count" (number of class entries)
-			for($j=0;$j<count($ldap_data[$i]["objectclass"])-1;$j++)
-			{
-				if($j>0) $item_object_class .= ",";
-				$item_object_class .= $ldap_data[$i]["objectclass"][$j];
-			}
-		}
-
-		// Display the record's icon
-
-		echo "    <td class=\"object_class_icon\"><img alt=\"" . $item_object_class
-			. "\" title=\"" . $item_object_class
-			. "\" src=\"" . $icon . "\"></td>\n";
-
-		// Display the record's name and attributes in columns
-
-		$object_dn = $ldap_data[$i]["dn"];
-
-		if($item_is_folder)
-		{
-			// Display the folder name, and make it a link to
-			// display the folder's contents.
-
-			echo "    <td colspan=" . count($search_result_columns)
-				. ">\n      <a href=\"?base="
-				. urlencode($object_dn)
-				. "\">\n        "
-				. mb_convert_encoding(
-				$ldap_data[$i][$object_rdn_attrib][0],
-				"HTML-ENTITIES","UTF-8")
-				. "\n      </a>\n    </td>\n";
-		}
-		else
-		{
-			// Display user's chosen set of columns (attributes).
-
-			foreach($search_result_columns as $column)
-			{
-				// Get the object name
-
-				// sortableName is an internal "synthesised"
-				// attribute rather than retrieved from
-				// the LDAP server itself.
-				if($column["attrib"] == "sortableName")
-				{
-					if(!empty($ldap_data[$i]["sn"][0]))
-						$object_name
-							= $ldap_data[$i]["sn"][0];
-					else if(!empty($ldap_data[$i]["displayname"][0]))
-						$object_name
-							= $ldap_data[$i]["displayname"][0];
-					else
-						$object_name
-							= $ldap_data[$i]["cn"][0];
-
-					if(!empty($ldap_data[$i]["givenname"][0]))
-						$object_name .= ", "
-							. $ldap_data[$i]['givenname'][0];
-				}
-				else
-					if(!empty($ldap_data[$i][strtolower($column["attrib"])][0]))
-					{
-						$object_name =
-							$ldap_data[$i][strtolower($column["attrib"])][0];
-					}
-					else $object_name = "";
-
-				$object_name = mb_convert_encoding($object_name,"HTML-ENTITIES","UTF-8");
-
-				// Don't make the cell a link to the object if the
-				// user doesn't have view permissions
-				if($column["link_type"] == "object" && !$user_info["allow_view"])
-					$column["link_type"] = "none";
-
-				// Display the object
-				echo "    <td class=\""
-					. ldap_attribute_to_css_class($column["attrib"])
-					. "\">\n      ";
-				switch($column["link_type"])
-				{
-					// Cell should contain a link to the
-					// object
-					case "object":
-						echo "<a href=\"info.php?dn="
-							. urlencode(
-							$object_dn) . "\">"
-							. $object_name
-							. "</a>";
-						break;
-
-					// Cell should contain a link to an
-					// e-mail address
-					case "mailto":
-						echo "<a href=\"mailto:"
-							. $object_name . "\">"
-							. $object_name
-							. "</a>";
-						break;
-
-					// Cell is not a link
-					case "none":
-					default:
-						echo $object_name;
-						break;
-				}
-				echo "\n    </td>\n";
-			}
-		}
-		echo "  </tr>\n";
-	}
-	echo "</table>\n";
+	$entry_list = new ldap_entry_list($search_resource,
+		$search_result_columns,$sort_order);
+	$entry_list->show();
 }
 
 echo "\n";

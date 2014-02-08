@@ -1117,4 +1117,295 @@ function ldap_sort_entries_getattrib($entry,$attrib)
 			return $entry[$attrib];
 	}
 }
+
+// View LDAP entries (e.g. search results) as a HTML list
+
+class ldap_entry_list
+{
+	var $ldap_entries;
+	var $search_result_columns;
+	var $sort_order;
+
+	// Constructor.
+	//
+	// $ldap_entries - LDAP search resource containing the LDAP object entries which
+	//			are to be displayed
+	// $search_result_columns - Array of search result column details display
+	// $sort_order - LDAP attribute that the list should be sorted by
+
+	function ldap_entry_list($ldap_entries,$search_result_columns,$sort_order)
+	{
+		$this->ldap_entries = $ldap_entries;
+		$this->search_result_columns = $search_result_columns;
+		$this->sort_order = $sort_order;
+	}
+
+        // Output the object entry list as HTML, utilising chosen sort order
+
+	function show()
+	{
+		global $ldap_link,$ldap_server_type;
+
+		$object_class_schema
+			= get_object_class_schema($ldap_server_type);
+
+		echo "<table class=\"search_results_viewer\">\n  <tr>\n";
+
+		$this->show_column_headings();
+
+		// Fetch and sort records
+
+		$ldap_data = ldap_sort_entries(
+			ldap_get_entries($ldap_link,$this->ldap_entries),
+			$this->sort_order == "sortableName"
+			? array("sn","givenName","ou","cn")
+			: array($this->sort_order),
+			LDAP_SORT_ASCENDING);
+
+		// Display records
+
+		for($i=0;$i < $ldap_data["count"]; $i++)
+			$this->show_ldap_entry($object_class_schema,
+				$ldap_data[$i]);
+
+		echo "</table>\n";
+	}
+
+	// Display column headings
+
+	function show_column_headings()
+	{
+		$colspan="colspan=2 ";
+		foreach($this->search_result_columns as $column)
+		{
+			echo "    <th " . $colspan
+				. "class=\"column_header\">"
+				. "<a href=\"?sort=";
+
+			echo urlencode($column["attrib"]);
+
+			// Only the first item should have colspan=2 (so
+			// that it spans both the icon and first attribute
+			// column)
+			$colspan="";
+
+			if(!empty($_GET["dn"]))
+				echo "&dn=" . urlencode($_GET["dn"]);
+
+			if(!empty($_GET["filter"]))
+				echo "&filter=" . urlencode($_GET["filter"]);
+
+			echo "\">" . $column["caption"] . "</a></th>\n";
+		}
+		echo "  </tr>\n";
+	}
+
+	// Display a single LDAP entry (row in table of search results)
+	//
+	// $object_class_schema - array of information about LDAP object
+	//	classes, as returned by get_object_class_schema()
+	// $ldap_entry - LDAP entry to display)
+
+	function show_ldap_entry($object_class_schema,$ldap_entry)
+	{
+		global $enable_search_browse_thumbnail;
+		echo "  <tr>\n";
+
+		// Fetch object schema details for this record
+
+		$item_object_class = get_object_class(
+			$object_class_schema,$ldap_entry);
+
+		$dn = $ldap_entry["dn"];
+
+		if(!empty($ldap_entry["jpegphoto"][0])
+				&& $enable_search_browse_thumbnail)
+			$icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=jpegPhoto&size="
+				. $thumbnail_image_size;
+		else if(!empty($ldap_entry["thumbnailphoto"][0])
+				&& $enable_search_browse_thumbnail)
+			$icon = "image.php?dn=" . urlencode($dn)
+				. "&attrib=thumbnailPhoto&size="
+				. $thumbnail_image_size;
+		else
+		{
+			$object_class = get_object_class(
+				$object_class_schema,$ldap_entry);
+			$icon = "schema/" . get_object_class_setting(
+				$object_class_schema,$object_class,"icon");
+		}
+
+		$item_is_folder = get_object_class_setting(
+			$object_class_schema,$item_object_class,"is_folder");
+		$object_rdn_attrib = get_object_class_setting(
+			$object_class_schema,$item_object_class,"rdn_attrib");
+
+		// Item object class is displayed in the tooltip. All
+		// inherited object classes should be listed where no
+		// specific schema entry is recognised.
+		if($item_object_class == "(unrecognised)")
+		{
+			$item_object_class="";
+			// Subtract 1 is to take into account "count"
+			// (which contains the number of class entries)
+			for($j=0;$j<count($ldap_entry["objectclass"])-1;$j++)
+			{
+				if($j>0) $item_object_class .= ",";
+				$item_object_class .=
+					$ldap_entry["objectclass"][$j];
+			}
+		}
+
+		// Display the record's icon (with tooltip/alt text as
+		// described above)
+
+		echo "    <td class=\"object_class_icon\"><img alt=\""
+			. $item_object_class
+			. "\" title=\"" . $item_object_class
+			. "\" src=\"" . $icon . "\"></td>\n";
+
+		$object_dn = $ldap_entry["dn"];
+
+		if($item_is_folder)
+			// Display the folder name, and make it a link to
+			// display the folder's contents.
+
+			$this->show_attrib($object_dn,$object_rdn_attrib,
+				$ldap_entry[$object_rdn_attrib][0],
+				"object",$item_is_folder);
+		else
+		{
+			// Display user's chosen set of columns (attributes)
+
+			$user_info = get_user_info();
+
+			foreach($this->search_result_columns as $column)
+			{
+				// Get the attribute value for this column.
+				$attrib_value = $this->get_attrib_value(
+					$ldap_entry,$column["attrib"]);
+
+				// Don't make the cell a link to the object
+				// if the user doesn't have view permissions
+				if($column["link_type"] == "object"
+						&& !$user_info["allow_view"])
+					$column["link_type"] = "none";
+
+				$this->show_attrib($object_dn,
+					$column["attrib"],
+					$attrib_value,$column["link_type"]);
+			}
+		}
+
+		echo "  </tr>\n";
+	}
+
+	// Return the value of the specified LDAP entry and attribute
+	// For multi-value attributes this function currently
+	// returns only the first value.
+	//
+	// $ldap_entry - LDAP entry for which value is to be returned
+	// $attrib - Attribute of the LDAP entry to return
+
+	function get_attrib_value($ldap_entry,$attrib)
+	{
+		// TODO: support compound fields of multiple
+		// attributes
+
+		// sortableName is an internal "synthesised"
+		// attribute rather than retrieved from
+		// the LDAP server itself.
+		if($attrib == "sortableName")
+		{
+			if(!empty($ldap_entry["sn"][0]))
+				$attrib_value = $ldap_entry["sn"][0];
+			else if(!empty($ldap_entry["displayname"][0]))
+				$attrib_value
+					= $ldap_entry["displayname"][0];
+			else
+				$attrib_value = $ldap_entry["cn"][0];
+
+			if(!empty($ldap_entry["givenname"][0]))
+				$attrib_value .= ", "
+					. $ldap_entry["givenname"][0];
+		}
+		else
+			// TODO: this only supports getting the first
+			// value of a multi-value attribute.
+			if(!empty($ldap_entry[strtolower($attrib)][0]))
+				$attrib_value =
+					$ldap_entry[strtolower($attrib)][0];
+			else
+				$attrib_value = "";
+
+		return $attrib_value;
+	}
+
+	// Display the specified attribute of an LDAP object. This
+	// corresponds to an individual table cell in the search
+	// results or OU being browsed
+	//
+	// $dn = LDAP distinguished name of object
+	// $attrib_name = Name of attribute to be shown
+	// $attrib_value = Value of attribute to be shown
+	// $link_type = Specifies if and how the attribute should be
+	// shown as a HTML link
+	//	object - Link to detailed info about the object
+	//		(typically used with the sortableName attribute
+	//		in the left-hand column, conceptually representing
+	//		the object itself)
+	//	mailto - Link to the attribute's value as an e-mail address
+	//	none - Do not display attribute as a link
+	// $is_folder = Specifies whether the this record should be
+	//	presented as a folder (clicking the link navigates to an
+	//	OU browser for the destination) or a leaf object (clicking
+	//	the link navigates to a page of detailed info about the
+	//	object). Additional attributes (beyond the name) are also
+	//	not shown for folders
+
+	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
+		$is_folder = false)
+	{
+		$attrib_value = mb_convert_encoding($attrib_value,
+			"HTML-ENTITIES","UTF-8");
+
+		if($is_folder)
+			$colspan = " colspan=\""
+				. count($this->search_result_columns)
+				. "\"";
+		else
+			$colspan="";
+
+		echo "    <td class=\""
+			. ldap_attribute_to_css_class($attrib_name)
+			. "\"" . $colspan . ">\n      ";
+
+		switch($link_type)
+		{
+			// Cell should contain a link to the object
+			case "object":
+				$page = $is_folder ? "" : "info.php";
+
+				echo "<a href=\"" . $page
+					. "?dn=" . urlencode($dn) . "\">"
+					. $attrib_value . "</a>";
+				break;
+
+			// Cell should contain a link to an e-mail address
+			case "mailto":
+				echo "<a href=\"mailto:"
+					. $attrib_value . "\">"
+					. $attrib_value . "</a>";
+				break;
+
+			// Cell is not a link
+			case "none":
+			default:
+				echo $attrib_value;
+		}
+
+		echo "\n    </td>\n";
+	}
+}
 ?>
