@@ -90,7 +90,8 @@ function show_search_box($initial_value)
 
 	echo "    <input type=\"text\" name=\"filter\" size=50";
 	if(!empty($initial_value))
-		echo " value=\"" . $initial_value . "\"";
+		echo " value=\"" . htmlentities($initial_value,
+			ENT_COMPAT,"UTF-8") . "\"";
 
 	echo ">\n    <input type=\"submit\" value=\"Search\">\n";
 	echo "  </p>\n";
