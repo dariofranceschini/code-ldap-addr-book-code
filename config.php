@@ -46,7 +46,7 @@ $ldap_link = ldap_connect("dc1.turnersoft.co.uk");
 // Directory location (e.g. OU) of the address book records
 // --------------------------------------------------------------------
 
-$ldap_base_dn = "ou=Home,dc=turnersoft,dc=co,dc=uk";
+$ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
 
 // --------------------------------------------------------------------
 // User names and passwords for logging on to the LDAP server

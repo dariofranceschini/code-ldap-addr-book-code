@@ -19,6 +19,8 @@
 define("LDAP_SORT_ASCENDING",1);
 define("LDAP_SORT_DESCENDING",2);
 
+define("MAX_DN_LENGTH",1000);
+
 // Output the site's HTML header elements
 
 function show_site_header()
@@ -96,6 +98,16 @@ function show_search_box($initial_value)
 	echo ">\n    <input type=\"submit\" value=\"Search\">\n";
 	echo "  </p>\n";
 	echo "</form>\n\n";
+}
+
+function show_error_message($message)
+{
+	global $ldap_base_dn;
+	show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
+	show_search_box("");
+	echo "<p>  \n" . $message . "\n</p>"
+		. "<p>\n  <a href=\"" . current_page_folder_url()
+		. "\">Return to the Address Book</a>\n</p>";
 }
 
 // Show "breadcrumb navigation" version of specified LDAP path

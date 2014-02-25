@@ -21,27 +21,39 @@ include "utils.php";
 
 show_site_header();
 
-// TODO: sanitise base DN from URL:
-//      stop "nasties" being passed through to the LDAP server
-//      prevent access to directory outside of address book base DN
-
-if(!empty($_GET["dn"])) $dn = $_GET["dn"];
+if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
 else $dn = $ldap_base_dn;
 
-if(log_on_to_directory($ldap_link))
+// Check whether the end part of the DN matches $ldap_base_dn
+if(substr($dn,-strlen($ldap_base_dn)) == $ldap_base_dn)
 {
-	$search_resource = ldap_read($ldap_link,$dn,"(objectclass=*)");
-	$entry = ldap_get_entries($ldap_link,$search_resource);
+	if(log_on_to_directory($ldap_link))
+	{
+		$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
 
-	$entry_viewer = new ldap_entry_viewer($entry,$entry_layout);
-
-	$entry_viewer->show();
+		if($search_resource)
+		{
+			$entry = ldap_get_entries($ldap_link,$search_resource);
+			$entry_viewer = new ldap_entry_viewer($entry,$entry_layout);
+			$entry_viewer->show();
+		}
+		else
+			show_error_message("Unable to locate LDAP record.");
+	}
+	else
+	{
+		show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
+		show_ldap_bind_error();
+	}
 }
 else
-{
-	show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
-	show_ldap_bind_error();
-}
+	show_error_message("Record being accessed: <code>" . htmlentities($dn)
+                . "</code>\n</p>\n"
+                . "<p>\n  This record is outside the part of the directory "
+                . "which stores the\n  address book. You do not "
+                . "have permission to display it.\n</p>\n"
+                . "<p>\n  The address book is stored at: <code>"
+                . htmlentities($ldap_base_dn) . "</code>");
 
 echo "\n\n";
 
