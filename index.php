@@ -25,7 +25,7 @@ $dn = $ldap_base_dn;
 
 if(!empty($_GET["filter"]))
 {
-	$filter = $_GET["filter"];
+	$filter = ldap_escape_search_value($_GET["filter"]);
 
 	$search_criteria = "";
 	foreach($search_ldap_attrib as $attrib)

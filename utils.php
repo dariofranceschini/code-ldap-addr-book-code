@@ -1421,4 +1421,71 @@ class ldap_entry_list
 		echo "\n    </td>\n";
 	}
 }
+
+// Prepare a string for use as a value in an LDAP search query by
+// escaping otherwise invalid characters (e.g. guard against "LDAP
+// injection").
+//
+// $ldap_value - string to be escaped for use as an LDAP value
+
+function ldap_escape_search_value($ldap_value)
+{
+	return ldap_escape($ldap_value,false);
+}
+
+// Prepare a string for use as a value in an LDAP DN by escaping
+// otherwise invalid characters (e.g. guard against "LDAP
+// injection").
+//
+// $ldap_dn - string to be escaped for use as an LDAP DN
+
+function ldap_escape_dn_value($ldap_dn)
+{
+	return ldap_escape($ldap_dn,true);
+}
+
+// Prepare a string for use as an LDAP value or DN by escaping otherwise
+// invalid characters (e.g. guard against "LDAP injection").
+//
+// $subject - string to be escaped for use as an LDAP value or DN
+// $dn - whether to treat the string as a DN (assume no if not present)
+// $ignore - optional list of characters to leave untouched
+//
+// based on code snippet from:
+// http://stackoverflow.com/questions/8560874/php-ldap-add-function-to-escape-ldap-special-characters-in-dn-syntax
+// (ldap_escape 2.0 by Chris Wright)
+
+function ldap_escape($subject,$dn=false,$ignore=null)
+{
+	// The base array of characters to escape
+	// Flip to keys for easy use of unset()
+	$search = array_flip($dn ? array('\\',",","=","+","<",">",";","\"",
+		"#") : array('\\',"*","(",")","\x00"));
+
+	// Process characters to ignore
+	if(is_array($ignore))
+		$ignore = array_values($ignore);
+
+	for($char=0;isset($ignore[$char]);$char++)
+		unset($search[$ignore[$char]]);
+
+	// Flip $search back to values and build $replace array
+	$search = array_keys($search);
+	$replace = array();
+	foreach($search as $char)
+		$replace[] = sprintf('\\%02x',ord($char));
+
+	// Do the main replacement
+	$result = str_replace($search,$replace,$subject);
+
+	// Encode leading spaces in DN values
+	if($dn && $result[0] == " ")
+		$result = '\\20' . substr($result, 1);
+
+	// Encode trailing spaces in DN values
+	if($dn && $result[strlen($result)-1] == " ")
+		$result = substr($result,0,-1) . '\\20';
+
+	return $result;
+}
 ?>
