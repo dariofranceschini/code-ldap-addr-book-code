@@ -1221,7 +1221,7 @@ class ldap_entry_list
 
 	function show_ldap_entry($object_class_schema,$ldap_entry)
 	{
-		global $enable_search_browse_thumbnail;
+		global $enable_search_browse_thumbnail,$thumbnail_image_size;
 		echo "  <tr>\n";
 
 		// Fetch object schema details for this record
