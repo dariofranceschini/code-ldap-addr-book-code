@@ -122,11 +122,11 @@ function show_error_message($message)
 //	     are not to be displayed as breadcrumb elements.
 // $leaf_icon - Icon image to use for the last item in the path.
 //	     Typically either the icon for the object class or
-//           the object's photo attribute.
+//	     the object's photo attribute.
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
-	global $site_name,$ldap_login_enabled;
+	global $site_name,$ldap_login_enabled,$ldap_base_dn;
 
 	echo "<table class=\"ldap_navigation_path\">\n  <tr>\n"
 		. "    <th>\n      <a href=\"" . current_page_folder_url() . "\">"
@@ -141,19 +141,42 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
-		$folder_list = ldap_explode_dn2($folder_list,true);
+		$folder_list = ldap_explode_dn2($folder_list);
+
 		echo "    <td>\n";
-		for($i=count($folder_list);$i>0;$i--)
+		for($i=$folder_list["count"];$i>0;$i--)
 		{
 			echo "      &nbsp;&nbsp;"
 				. "&#x25B6;"	// Right-facing arrow head
 				. "&nbsp;&nbsp;";
-			if($i==1)
-				echo "<img style=\"vertical-align:top\" alt=\"Address Book Entry\" src=\"" . $leaf_icon . "\"> ";
-			else
-				echo "<img style=\"vertical-align:top\" alt=\"Folder\" src=\"schema/folder.png\"> ";
 
-			echo $folder_list[$i-1] . "\n";
+			if($i>1)
+			{
+				$folder_alt_text="Folder";
+				$folder_icon="schema/folder.png";
+				if($folder_list[$i-1]["dn"] == $ldap_base_dn)
+					$folder_dn = $ldap_base_dn;
+				else
+					$folder_dn = $folder_list[$i-1]["dn"]
+						. "," . $ldap_base_dn;
+
+				echo "<a href=\"" . current_page_folder_url()
+					. "?dn=" . urlencode($folder_dn) . "\">";
+			}
+			else
+			{
+				$folder_alt_text="Address Book Entry";
+				$folder_icon=$leaf_icon;
+			}
+
+			echo "<img style=\"vertical-align:top\" alt=\""
+				. $folder_alt_text . "\" src=\""
+				. $folder_icon . "\"> "
+				. $folder_list[$i-1]["value"];
+
+			if($i>1) echo "</a>";
+
+			echo "\n";
 		}
 		echo "    </td>\n";
 	}
@@ -175,28 +198,36 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "  </tr>\n</table>\n\n";
 }
 
-// Returns the elemens of the specified DN as an array.
+// Decodes the elements of the specified DN into an associative array.
+// Correctly handles accented characters - in contrast to the
+// built-in PHP function ldap_explode_dn(), however does not currently
+// support:
 //
-// (Partial) re-implementation standard PHP function ldap_explode_dn(),
-// but correctly handling accented characters.
+//  - multi-valued RDNs
+//  - DNs which have commas within any of their values.
 //
-// Limitations compared to the "original":
-// No support for multi-valued RDNs, no "count" attribute to
-// indicate number of RDNs, no support for handling
-// DNs which have commas within any of their values.
 // (TODO: no commas could prove to be an unacceptable limitation!)
 //
 // $dn - DN which is to be converted into an array
-// $with_attrib - Return associative array of attributes and values
-//      if set to true
 
-function ldap_explode_dn2($dn,$with_attrib)
+function ldap_explode_dn2($dn)
 {
 	$dn = explode(",",$dn);
 
-	if($with_attrib)
-		for($i=0;$i<count($dn);$i++)
-			$dn[$i] = substr($dn[$i],strpos($dn[$i],"=")+1);
+	for($i=0;$i<count($dn);$i++)
+		$dn[$i] = array(
+			"attrib"=>substr($dn[$i],0,strpos($dn[$i],"=")),
+			"value"=>substr($dn[$i],strpos($dn[$i],"=")+1)
+			);
+
+	// add the DN of each array element
+	$previous_element_dn="";
+	for($i=count($dn)-1;$i>=0;$i--)
+		$dn[$i]["dn"] = $previous_element_dn = $dn[$i]["attrib"] . "=" . $dn[$i]["value"]
+			. ($previous_element_dn == "" ? "" : ",")
+			. $previous_element_dn;
+
+	$dn = array("count"=>count($dn)) + $dn;
 
 	return $dn;
 }
