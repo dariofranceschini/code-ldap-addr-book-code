@@ -308,6 +308,64 @@ function get_object_class_schema($ldap_server_type = "ad")
 	}
 }
 
+function get_attribute_class_schema($ldap_server_type = "ad")
+{
+	// Generic schema used as basis of LDAP server-specific schemas
+
+	return array(
+		array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
+		array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
+		array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
+		array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
+		array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
+		array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
+		array("name"=>"homePhone",		"data_type"=>"text",		"display_name"=>"Home Telephone Number"),
+		array("name"=>"info",			"data_type"=>"text_area",	"display_name"=>"Information"),
+		array("name"=>"jpegPhoto",		"data_type"=>"image",		"display_name"=>"Photograph"),
+		array("name"=>"l",			"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
+		array("name"=>"mail",			"data_type"=>"text",		"display_name"=>"E-mail Address"),
+		array("name"=>"mobile",			"data_type"=>"text",		"display_name"=>"Mobile/Cell Telephone Number"),
+		array("name"=>"pager",			"data_type"=>"text",		"display_name"=>"Pager Telephone Number"),
+		array("name"=>"physicalDeliveryOfficeName","data_type"=>"text",		"display_name"=>"Office"),
+		array("name"=>"st",			"data_type"=>"text",		"display_name"=>"State (or Province/County)"),
+		array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
+		array("name"=>"telephoneNumber",	"data_type"=>"text",		"display_name"=>"Telephone Number"),
+		array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
+		array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
+		array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
+		array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
+		);
+}
+
+// Return the value of a schema setting for the specificed LDAP attribute
+
+function get_attribute_setting($attribute_name,$attribute_class_schema,
+	$setting_name,$setting_default)
+{
+        $setting_value=$setting_default;
+
+        foreach($attribute_class_schema as $schema_entry)
+                if($schema_entry["name"] == $attribute_name)
+                        $setting_value = $schema_entry[$setting_name];
+
+        return $setting_value;
+}
+
+// Return the data type associated with the specified LDAP attribute
+
+function get_attribute_data_type($attribute_name,$attribute_class_schema)
+{
+	return get_attribute_setting($attribute_name,$attribute_class_schema,
+		"data_type","text");
+}
+
+// Return the display name of the specified LDAP attribute
+
+function get_attribute_display_name($attribute_name,$attribute_class_schema)
+{
+	return get_attribute_setting($attribute_name,$attribute_class_schema,
+		"display_name",$attribute_name);
+}
 
 // ISO 3166-1 alpha-2 country codes
 //
@@ -780,7 +838,7 @@ class ldap_entry_viewer_attrib
 
 	function show($ldap_entry)
 	{
-		global $photo_image_size;
+		global $photo_image_size,$ldap_server_type;
 
 		echo "        <tr>\n";
 
@@ -805,6 +863,8 @@ class ldap_entry_viewer_attrib
 				. "\">\n            ";
 		}
 
+		$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
+
 		$first_line = true;
 		// look up values of attributes listed
 		//   (: = line break, + = space between words)
@@ -818,19 +878,17 @@ class ldap_entry_viewer_attrib
 				$attrib_value = get_ldap_attribute(
 					$ldap_entry,$attribute);
 
-				// Handle specific LDAP attributes specially
 				if($attrib_value != "")
-					switch($attribute)
+					switch(get_attribute_data_type($attribute,$attribute_class_schema))
 					{
-						case "postalCode":
+						case "postcode":
 							echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
 								. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 							break;
-						case "c":
+						case "country_code":
 							echo get_country_name_from_code($attrib_value);
 							break;
-						case "jpegPhoto":
-						case "thumbnailPhoto":
+						case "image":
 							if(!empty($photo_image_size))
 								$size = "&size="
 									. $photo_image_size;
