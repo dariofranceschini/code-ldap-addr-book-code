@@ -25,7 +25,7 @@ include "utils.php";
 if(!empty($_GET["dn"])) $dn = $_GET["dn"]; else $dn = $ldap_base_dn;
 
 if(!empty($_GET["attrib"]))
-	if($_GET["attrib"] = "thumbnailPhoto")
+	if($_GET["attrib"] == "thumbnailPhoto")
 		$attrib = "thumbnailPhoto";
 	else
 		$attrib = "jpegPhoto";
