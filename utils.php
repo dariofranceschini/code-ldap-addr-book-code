@@ -838,7 +838,7 @@ class ldap_entry_viewer_attrib
 
 	function show($ldap_entry)
 	{
-		global $photo_image_size,$ldap_server_type;
+		global $ldap_server_type;
 
 		echo "        <tr>\n";
 
@@ -875,36 +875,72 @@ class ldap_entry_viewer_attrib
 
 			foreach(explode("+",$attribute_line) as $attribute)
 			{
-				$attrib_value = get_ldap_attribute(
-					$ldap_entry,$attribute);
-
-				if($attrib_value != "")
-					switch(get_attribute_data_type($attribute,$attribute_class_schema))
-					{
-						case "postcode":
-							echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-								. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
-							break;
-						case "country_code":
-							echo get_country_name_from_code($attrib_value);
-							break;
-						case "image":
-							if(!empty($photo_image_size))
-								$size = "&size="
-									. $photo_image_size;
-							else
-								$size="";
-
-							echo "<img src=\"image.php?dn="
-								. urlencode($ldap_entry[0]["dn"])
-								. "&attrib=" . $attribute . $size . "\">";
-							break;
-						default:
-							echo $attrib_value;
-					}
+				switch(get_attribute_data_type($attribute,$attribute_class_schema))
+				{
+					case "postcode":
+						$this->show_postcode($ldap_entry,$attribute); break;
+					case "country_code":
+						$this->show_country_code($ldap_entry,$attribute); break;
+					case "image":
+						$this->show_image($ldap_entry,$attribute); break;
+					default:
+						$this->show_text($ldap_entry,$attribute); break;
+				}
 			}
 		}
 		echo "\n          </td>\n        </tr>\n";
+	}
+
+	function show_text($ldap_entry,$attribute)
+	{
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		echo $attrib_value;
+	}
+
+	function show_country_code($ldap_entry,$attribute)
+	{
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		if($attrib_value != "")
+			echo get_country_name_from_code($attrib_value);
+	}
+
+	// TODO: make mapping service configurable (not just Google)
+
+	function show_postcode($ldap_entry,$attribute)
+	{
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
+			. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
+	}
+
+	function show_image($ldap_entry,$attribute)
+	{
+		global $photo_image_size;
+
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		// TODO: this is not a very efficient way to determine
+		// whether image attribute is empty (should avoid
+		// calling get_ldap_attribute above)
+		if($attrib_value != "")
+		{
+			if(!empty($photo_image_size))
+				$size = "&size="
+					. $photo_image_size;
+			else
+				$size="";
+
+			echo "<img src=\"image.php?dn="
+				. urlencode($ldap_entry[0]["dn"])
+				. "&attrib=" . $attribute . $size . "\">";
+		}
 	}
 }
 
