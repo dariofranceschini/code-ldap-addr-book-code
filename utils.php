@@ -927,8 +927,9 @@ class ldap_entry_viewer_attrib
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-			. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
+		if($attrib_value != "")
+			echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
+				. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 	}
 
 	function show_image($ldap_entry,$attribute)
