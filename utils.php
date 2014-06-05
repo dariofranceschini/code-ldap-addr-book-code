@@ -1519,29 +1519,19 @@ class ldap_entry_list
 			. ldap_attribute_to_css_class($attrib_name)
 			. "\"" . $colspan . ">\n      ";
 
-		switch($link_type)
-		{
-			// Cell should contain a link to the object
-			case "object":
-				$page = $is_folder ? "" : "info.php";
+		if($link_type == "object")
+			// Cell contains a link to the object
+			echo "<a href=\"" . ($is_folder ? "" : "info.php")
+				. "?dn=" . urlencode($dn) . "\">";
+		else if($link_type == "mailto")
+			// Cell contains a link to an e-mail address
+			echo "<a href=\"mailto:"
+				. urlencode($attrib_value) . "\">";
 
-				echo "<a href=\"" . $page
-					. "?dn=" . urlencode($dn) . "\">"
-					. $attrib_value . "</a>";
-				break;
+		// Display the attribute's value
+		echo $attrib_value;
 
-			// Cell should contain a link to an e-mail address
-			case "mailto":
-				echo "<a href=\"mailto:"
-					. $attrib_value . "\">"
-					. $attrib_value . "</a>";
-				break;
-
-			// Cell is not a link
-			case "none":
-			default:
-				echo $attrib_value;
-		}
+		if($link_type != "none") echo "</a>";
 
 		echo "\n    </td>\n";
 	}
