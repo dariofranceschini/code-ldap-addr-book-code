@@ -1505,8 +1505,7 @@ class ldap_entry_list
 	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
 		$is_folder = false)
 	{
-		$attrib_value = mb_convert_encoding($attrib_value,
-			"HTML-ENTITIES","UTF-8");
+		global $thumbnail_image_size,$ldap_server_type;
 
 		if($is_folder)
 			$colspan = " colspan=\""
@@ -1529,7 +1528,29 @@ class ldap_entry_list
 				. urlencode($attrib_value) . "\">";
 
 		// Display the attribute's value
-		echo $attrib_value;
+		$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
+		switch(get_attribute_data_type($attrib_name,$attribute_class_schema))
+		{
+			case "image":
+				if(!empty($attrib_value))
+				{
+					if(!empty($thumbnail_image_size))
+						$size = "&size="
+							. $thumbnail_image_size;
+					else
+						$size="";
+
+					echo "<img src=\"image.php?dn="
+						. urlencode($dn)
+						. "&attrib="
+						. $attrib_name
+						. $size . "\">";
+				}
+				break;
+			default:
+				echo htmlentities($attrib_value,
+					ENT_COMPAT,"UTF-8");
+		}
 
 		if($link_type != "none") echo "</a>";
 
