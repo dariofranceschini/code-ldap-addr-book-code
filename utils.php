@@ -883,8 +883,12 @@ class ldap_entry_viewer_attrib
 						$this->show_country_code($ldap_entry,$attribute); break;
 					case "image":
 						$this->show_image($ldap_entry,$attribute); break;
-					default:
+					case "text":
 						$this->show_text($ldap_entry,$attribute); break;
+					case "text_area":
+						$this->show_text_area($ldap_entry,$attribute); break;
+					default:
+						echo "** unsupported data type **";
 				}
 			}
 		}
@@ -896,7 +900,15 @@ class ldap_entry_viewer_attrib
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		echo $attrib_value;
+		echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	function show_text_area($ldap_entry,$attribute)
+	{
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
 	}
 
 	function show_country_code($ldap_entry,$attribute)
@@ -975,26 +987,23 @@ function get_ldap_attribute($ldap_entry,$attribute)
 	else
 		$attrib_value = "";
 
-	// String transformation should not be applied to photo attributes
-	if($attribute != "thumbnailphoto" && $attribute != "jpegphoto")
-	{
-		// Convert UTF-8 characters into HTML entities
-		$attrib_value = mb_convert_encoding($attrib_value,
-			"HTML-ENTITIES","UTF-8");
-
-		// convert URLs to links
-		$attrib_value = ereg_replace(
-			"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
-			"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$attrib_value);
-
-		// convert e-mail addresses to links
-		$attrib_value = preg_replace("/\b(\S+@\S+)\b/",
-			'<a href="mailto:\1">\1</a>',$attrib_value);
-
-		// convert line breaks to <br> tags
-		$attrib_value = str_replace("\n","<br>\n",$attrib_value);
-	}
 	return $attrib_value;
+}
+
+// Turn any URLs and e-mail addresses appearing in the text
+// into HTML links.
+
+function urls_to_links($text)
+{
+			// convert URLs to links
+			$text = ereg_replace(
+				"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
+				"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$text);
+
+			// convert e-mail addresses to links
+			$text = preg_replace("/\b(\S+@\S+)\b/",
+				'<a href="mailto:\1">\1</a>',$text);
+	return $text;
 }
 
 // Report an LDAP bind error (login failure), using wording appropriate
