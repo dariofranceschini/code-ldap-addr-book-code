@@ -997,8 +997,8 @@ function get_ldap_attribute($ldap_entry,$attribute)
 function urls_to_links($text)
 {
 			// convert URLs to links
-			$text = ereg_replace(
-				"[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]",
+			$text = preg_replace(
+				"/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]\/]/",
 				"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$text);
 
 			// convert e-mail addresses to links
