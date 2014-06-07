@@ -21,106 +21,109 @@ include "utils.php";
 
 show_site_header();
 
-$dn = $ldap_base_dn;
-
-if(!empty($_GET["filter"]))
+if(prereq_components_ok())
 {
-	$filter = ldap_escape_search_value($_GET["filter"]);
+	$dn = $ldap_base_dn;
 
-	$search_criteria = "";
-	foreach($search_ldap_attrib as $attrib)
-		$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
-
-	// Default filter expression to use if none specified in config
-	// file: return only people in search results
-	if(empty($search_ldap_filter))
-		$search_ldap_filter
-			= "(&(objectClass=person)___search_criteria___)";
-
-	$filter = str_replace("___search_criteria___",
-		"(|" . $search_criteria . ")",$search_ldap_filter);
-
-	$search_type= "subtree";
-}
-else
-{
-	// Default filter expression to use if none specified in config
-	// file: display objects of all classes when browsing the directory
-	$filter = empty($browse_ldap_filter)
-		?"objectClass=*":$browse_ldap_filter;
-	$search_type= "base";
-
-	// TODO: sanitise base DN from URL:
-	//	stop "nasties" being passed through to the LDAP server
-	//	prevent access to directory outside of address book base DN
-	if(!empty($_GET["dn"])) $dn = $_GET["dn"];
-}
-
-show_ldap_path($dn,$ldap_base_dn,"folder.png");
-
-if(empty($ldap_server_type))	// Default server type: Active Directory
-	$ldap_server_type = "ad";
-
-$user_info = get_user_info();
-
-if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
 	if(!empty($_GET["filter"]))
-		show_search_box($_GET["filter"]);
+	{
+		$filter = ldap_escape_search_value($_GET["filter"]);
+
+		$search_criteria = "";
+		foreach($search_ldap_attrib as $attrib)
+			$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
+
+		// Default filter expression to use if none specified in config
+		// file: return only people in search results
+		if(empty($search_ldap_filter))
+			$search_ldap_filter
+				= "(&(objectClass=person)___search_criteria___)";
+
+		$filter = str_replace("___search_criteria___",
+			"(|" . $search_criteria . ")",$search_ldap_filter);
+
+		$search_type= "subtree";
+	}
 	else
-		show_search_box("");
-else
-	echo "<br>";
+	{
+		// Default filter expression to use if none specified in config
+		// file: display objects of all classes when browsing the directory
+		$filter = empty($browse_ldap_filter)
+			?"objectClass=*":$browse_ldap_filter;
+		$search_type= "base";
 
-$search_resource = false;
+		// TODO: sanitise base DN from URL:
+		//	stop "nasties" being passed through to the LDAP server
+		//	prevent access to directory outside of address book base DN
+		if(!empty($_GET["dn"])) $dn = $_GET["dn"];
+	}
 
-if(log_on_to_directory($ldap_link))
-{
-	$old_error_reporting=error_reporting();
-	error_reporting(0);
+	show_ldap_path($dn,$ldap_base_dn,"folder.png");
 
-	if($search_type == "subtree")
-		// get search results
-		if($user_info["allow_search"])
-			$search_resource = ldap_search($ldap_link,
-				$dn,$filter);
+	if(empty($ldap_server_type))	// Default server type: Active Directory
+		$ldap_server_type = "ad";
+
+	$user_info = get_user_info();
+
+	if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
+		if(!empty($_GET["filter"]))
+			show_search_box($_GET["filter"]);
 		else
-			echo "<p>You do not have permission to search the directory</p>\n";
+			show_search_box("");
 	else
-		// browse OU contents
-		if($user_info["allow_browse"])
-			$search_resource = ldap_list($ldap_link,$dn,$filter);
+		echo "<br>";
+
+	$search_resource = false;
+
+	if(log_on_to_directory($ldap_link))
+	{
+		$old_error_reporting=error_reporting();
+		error_reporting(0);
+
+		if($search_type == "subtree")
+			// get search results
+			if($user_info["allow_search"])
+				$search_resource = ldap_search($ldap_link,
+					$dn,$filter);
+			else
+				echo "<p>You do not have permission to search the directory</p>\n";
 		else
-			// only show error if explicit base DN browse attempt
-			if (!empty($_GET["dn"]))
-				echo "<p>You do not have permission to browse the directory</p>\n";
+			// browse OU contents
+			if($user_info["allow_browse"])
+				$search_resource = ldap_list($ldap_link,$dn,$filter);
+			else
+				// only show error if explicit base DN browse attempt
+				if (!empty($_GET["dn"]))
+					echo "<p>You do not have permission to browse the directory</p>\n";
 
-	error_reporting($old_error_reporting);
-}
-else
-	show_ldap_bind_error();
-
-// Display search resource info if successfully fetched
-if($search_resource)
-{
-	$object_class_schema = get_object_class_schema($ldap_server_type);
-
-	if(!empty($_GET["sort"]))
-		$sort_type = $_GET["sort"];
+		error_reporting($old_error_reporting);
+	}
 	else
-		$sort_type = $search_result_default_sort_order;
+		show_ldap_bind_error();
 
-	// Only allow sorting on attributes which are actualy used in columns
-	$sort_order=$search_result_default_sort_order;
-	foreach($search_result_columns as $column)
-		if($column["attrib"] == $sort_type);
-			$sort_order = $sort_type;
+	// Display search resource info if successfully fetched
+	if($search_resource)
+	{
+		$object_class_schema = get_object_class_schema($ldap_server_type);
 
-	$entry_list = new ldap_entry_list($search_resource,
-		$search_result_columns,$sort_order);
-	$entry_list->show();
+		if(!empty($_GET["sort"]))
+			$sort_type = $_GET["sort"];
+		else
+			$sort_type = $search_result_default_sort_order;
+
+		// Only allow sorting on attributes which are actualy used in columns
+		$sort_order=$search_result_default_sort_order;
+		foreach($search_result_columns as $column)
+			if($column["attrib"] == $sort_type);
+				$sort_order = $sort_type;
+
+		$entry_list = new ldap_entry_list($search_resource,
+			$search_result_columns,$sort_order);
+		$entry_list->show();
+	}
+
+	echo "\n";
 }
-
-echo "\n";
 
 show_site_footer();
 ?>

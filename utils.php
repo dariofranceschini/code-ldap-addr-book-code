@@ -1634,4 +1634,38 @@ function ldap_escape($subject,$dn=false,$ignore=null)
 
 	return $result;
 }
+
+// Returns whether or not all required prerequisite components
+// (PHP modules) are installed and enabled. Displays details
+// of any missing components.
+
+function prereq_components_ok()
+{
+	$php_extn_list = array(
+		array("name"=>"gd","desc"=>"GD Support"),
+		array("name"=>"intl","desc"=>"Internationalization Support"),
+		array("name"=>"ldap","desc"=>"LDAP Support")
+		);
+
+	$missing_php_extn_list="";
+	foreach($php_extn_list as $extn)
+		if(!extension_loaded($extn["name"]))
+			$missing_php_extn_list .= "<li>" . $extn["name"]
+				. " (" . $extn["desc"] . ")";
+
+	if(!empty($missing_php_extn_list))
+	{
+		show_ldap_path("","","folder.png");
+
+		echo "<p>The following PHP extension modules must be "
+			. "installed and enabled in order to use the "
+			. "address book:</p>\n";
+
+		echo "<ul>" . $missing_php_extn_list . "</ul>";
+
+		echo "<p>Please see <em>Installation and Basic Setup</em> "
+			. "in the User Guide for more information.</p>";
+	}
+	return empty($missing_php_extn_list);
+}
 ?>

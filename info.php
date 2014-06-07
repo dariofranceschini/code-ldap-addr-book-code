@@ -21,41 +21,44 @@ include "utils.php";
 
 show_site_header();
 
-if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
-else $dn = $ldap_base_dn;
-
-// Check whether the end part of the DN matches $ldap_base_dn
-if(substr($dn,-strlen($ldap_base_dn)) == $ldap_base_dn)
+if(prereq_components_ok())
 {
-	if(log_on_to_directory($ldap_link))
-	{
-		$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+	if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
+	else $dn = $ldap_base_dn;
 
-		if($search_resource)
+	// Check whether the end part of the DN matches $ldap_base_dn
+	if(substr($dn,-strlen($ldap_base_dn)) == $ldap_base_dn)
+	{
+		if(log_on_to_directory($ldap_link))
 		{
-			$entry = ldap_get_entries($ldap_link,$search_resource);
-			$entry_viewer = new ldap_entry_viewer($entry,$entry_layout);
-			$entry_viewer->show();
+			$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+
+			if($search_resource)
+			{
+				$entry = ldap_get_entries($ldap_link,$search_resource);
+				$entry_viewer = new ldap_entry_viewer($entry,$entry_layout);
+				$entry_viewer->show();
+			}
+			else
+				show_error_message("Unable to locate LDAP record.");
 		}
 		else
-			show_error_message("Unable to locate LDAP record.");
+		{
+			show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
+			show_ldap_bind_error();
+		}
 	}
 	else
-	{
-		show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
-		show_ldap_bind_error();
-	}
-}
-else
-	show_error_message("Record being accessed: <code>" . htmlentities($dn)
-                . "</code>\n</p>\n"
-                . "<p>\n  This record is outside the part of the directory "
-                . "which stores the\n  address book. You do not "
-                . "have permission to display it.\n</p>\n"
-                . "<p>\n  The address book is stored at: <code>"
-                . htmlentities($ldap_base_dn) . "</code>");
+		show_error_message("Record being accessed: <code>" . htmlentities($dn)
+			. "</code>\n</p>\n"
+			. "<p>\n  This record is outside the part of the directory "
+			. "which stores the\n  address book. You do not "
+			. "have permission to display it.\n</p>\n"
+			. "<p>\n  The address book is stored at: <code>"
+			. htmlentities($ldap_base_dn) . "</code>");
 
-echo "\n\n";
+	echo "\n\n";
+}
 
 show_site_footer();
 ?>
