@@ -1059,13 +1059,13 @@ function log_on_to_directory($ldap_link)
 		$pw = get_user_attrib("__ANONYMOUS__","ldap_password");
 	}
 
-	$old_error_reporting=error_reporting();
-	error_reporting(0);
+//	$old_error_reporting=error_reporting();
+//	error_reporting(0);
 	$result=false;
 	if($user != "__DENY__")
 	{
 		ldap_set_option($ldap_link,LDAP_OPT_PROTOCOL_VERSION,3);
-		$result=ldap_bind($ldap_link,$user,$pw);
+		$result=@ldap_bind($ldap_link,$user,$pw);
 
 		// Timezone is not known to be used for anything in this
 		// application, however various LDAP functions produce
@@ -1074,7 +1074,7 @@ function log_on_to_directory($ldap_link)
 		if(!ini_get("date.timezone"))
 			date_default_timezone_set("UTC");
 	}
-	error_reporting($old_error_reporting);
+//	error_reporting($old_error_reporting);
 
 	return $result;
 }
