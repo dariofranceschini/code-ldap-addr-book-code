@@ -77,32 +77,27 @@ if(prereq_components_ok())
 
 	if(log_on_to_directory($ldap_link))
 	{
-		$old_error_reporting=error_reporting();
-		error_reporting(0);
-
 		if($search_type == "subtree")
 			// get search results
 			if($user_info["allow_search"])
-				$search_resource = ldap_search($ldap_link,
+				$search_resource = @ldap_search($ldap_link,
 					$dn,$filter);
 			else
 				echo "<p>You do not have permission to search the directory</p>\n";
 		else
 			// browse OU contents
 			if($user_info["allow_browse"])
-				$search_resource = ldap_list($ldap_link,$dn,$filter);
+				$search_resource = @ldap_list($ldap_link,$dn,$filter);
 			else
 				// only show error if explicit base DN browse attempt
 				if (!empty($_GET["dn"]))
 					echo "<p>You do not have permission to browse the directory</p>\n";
-
-		error_reporting($old_error_reporting);
 	}
 	else
 		show_ldap_bind_error();
 
 	// Display search resource info if successfully fetched
-	if($search_resource)
+	if(is_resource($search_resource))
 	{
 		$object_class_schema = get_object_class_schema($ldap_server_type);
 
