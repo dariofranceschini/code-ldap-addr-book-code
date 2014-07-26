@@ -876,18 +876,23 @@ class ldap_entry_viewer_attrib
 
 			foreach(explode("+",$attribute_line) as $attribute)
 			{
+				$display_name=get_attribute_display_name($attribute,$attribute_class_schema);
+
+				if($display_name!=$attribute)
+					$display_name .= " (" . $attribute . ")";
+
 				switch(get_attribute_data_type($attribute,$attribute_class_schema))
 				{
 					case "postcode":
-						$this->show_postcode($ldap_entry,$attribute); break;
+						$this->show_postcode($ldap_entry,$attribute,$display_name); break;
 					case "country_code":
-						$this->show_country_code($ldap_entry,$attribute); break;
+						$this->show_country_code($ldap_entry,$attribute,$display_name); break;
 					case "image":
-						$this->show_image($ldap_entry,$attribute); break;
+						$this->show_image($ldap_entry,$attribute,$display_name); break;
 					case "text":
-						$this->show_text($ldap_entry,$attribute); break;
+						$this->show_text($ldap_entry,$attribute,$display_name); break;
 					case "text_area":
-						$this->show_text_area($ldap_entry,$attribute); break;
+						$this->show_text_area($ldap_entry,$attribute,$display_name); break;
 					default:
 						echo "** unsupported data type **";
 				}
@@ -899,7 +904,7 @@ class ldap_entry_viewer_attrib
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 
-	function show_text($ldap_entry,$attribute)
+	function show_text($ldap_entry,$attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
@@ -908,7 +913,7 @@ class ldap_entry_viewer_attrib
 			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\">";
+				. "\" title=\"" . $display_name . "\">";
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
@@ -916,14 +921,14 @@ class ldap_entry_viewer_attrib
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 
-	function show_text_area($ldap_entry,$attribute)
+	function show_text_area($ldap_entry,$attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
 		if($this->edit)
 			echo "<textarea style=\"width:98%;\" name=\"ldap_attribute_"
-				. $attribute . "\">"
+				. $attribute . "\" title=\"" . $display_name . "\">"
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "</textarea>";
 		else
@@ -932,7 +937,7 @@ class ldap_entry_viewer_attrib
 
 	// TODO: improve handling of unrecognised country codes
 
-	function show_country_code($ldap_entry,$attribute)
+	function show_country_code($ldap_entry,$attribute,$display_name)
 	{
 		global $country_name;
 		asort($country_name);
@@ -943,7 +948,7 @@ class ldap_entry_viewer_attrib
 		if($this->edit)
 		{
 			echo "<select name=\"ldap_attribute_" . $attribute
-				. "\">";
+				. "\" title=\"" . $display_name . "\">";
 
 			if($attrib_value == "")
 				echo "<option value=\"\" selected>(blank)</option>";
@@ -966,7 +971,7 @@ class ldap_entry_viewer_attrib
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	// TODO: make mapping service configurable (not just Google)
 
-	function show_postcode($ldap_entry,$attribute)
+	function show_postcode($ldap_entry,$attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
@@ -975,7 +980,8 @@ class ldap_entry_viewer_attrib
 		{
 			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8") . "\">";
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "\" title=\"" . $display_name . "\">";
 		}
 		else
 			if($attrib_value != "")
@@ -987,7 +993,7 @@ class ldap_entry_viewer_attrib
 	// TODO: support for delete old image
 	// TODO: use display name as tool tip
 
-	function show_image($ldap_entry,$attribute)
+	function show_image($ldap_entry,$attribute,$display_name)
 	{
 		global $photo_image_size;
 
@@ -1007,7 +1013,8 @@ class ldap_entry_viewer_attrib
 
 			echo "<img src=\"image.php?dn="
 				. urlencode($ldap_entry[0]["dn"])
-				. "&attrib=" . $attribute . $size . "\">";
+				. "&attrib=" . $attribute . $size
+				. "\" title=\"" . $display_name . "\">";
 		}
 	}
 }
