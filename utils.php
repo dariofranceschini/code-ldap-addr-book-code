@@ -820,6 +820,7 @@ class ldap_entry_viewer_attrib
 	var $caption;
 	var $ldap_attribute;
 	var $icon;
+	var $edit = false;
 
 	// Add an attribute and its value to the display
 	//
@@ -895,31 +896,74 @@ class ldap_entry_viewer_attrib
 		echo "\n          </td>\n        </tr>\n";
 	}
 
+	// TODO: escape "nasty values" in $attrib_value, e.g. "
+	// TODO: style this better.. should be 100% less a fixed number of pixels?
+
 	function show_text($ldap_entry,$attribute)
 	{
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+		if($this->edit)
+			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+				. $attribute . "\" value=\""
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "\">";
+		else
+			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
+
+	// TODO: escape "nasty values" in $attrib_value, e.g. "
+	// TODO: style this better.. should be 100% less a fixed number of pixels?
 
 	function show_text_area($ldap_entry,$attribute)
 	{
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
+		if($this->edit)
+			echo "<textarea style=\"width:98%;\" name=\"ldap_attribute_"
+				. $attribute . "\">"
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "</textarea>";
+		else
+			echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
 	}
+
+	// TODO: improve handling of unrecognised country codes
 
 	function show_country_code($ldap_entry,$attribute)
 	{
+		global $country_name;
+		asort($country_name);
+
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		if($attrib_value != "")
-			echo get_country_name_from_code($attrib_value);
+		if($this->edit)
+		{
+			echo "<select name=\"ldap_attribute_" . $attribute
+				. "\">";
+
+			if($attrib_value == "")
+				echo "<option value=\"\" selected>(blank)</option>";
+			else
+				echo "<option value=\"\">(blank)</option>";
+
+			foreach($country_name as $code => $name)
+				echo "<option value=\"" . $code . "\""
+					. ($attrib_value == $code ? " selected" : "")
+					. ">" . $name . " (" . $code . ")</option>";
+
+			echo "</select>";
+		}
+		else
+			if($attrib_value != "")
+				echo get_country_name_from_code($attrib_value);
 	}
 
+	// TODO: escape "nasty values" in $attrib_value, e.g. "
+	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	// TODO: make mapping service configurable (not just Google)
 
 	function show_postcode($ldap_entry,$attribute)
@@ -927,10 +971,21 @@ class ldap_entry_viewer_attrib
 		$attrib_value = get_ldap_attribute(
 			$ldap_entry,$attribute);
 
-		if($attrib_value != "")
-			echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-				. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
+		if($this->edit)
+		{
+			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+				. $attribute . "\" value=\""
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8") . "\">";
+		}
+		else
+			if($attrib_value != "")
+				echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
+					. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 	}
+
+	// TODO: support for image edit (upload new)
+	// TODO: support for delete old image
+	// TODO: use display name as tool tip
 
 	function show_image($ldap_entry,$attribute)
 	{

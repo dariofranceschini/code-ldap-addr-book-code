@@ -2,7 +2,7 @@
 /* Styling applied to address book overall (font family, etc)           */
 /* -------------------------------------------------------------------- */
 
-body,table
+body,table,textarea
 {
 	font-family:sans-serif;
 	font-size:10pt;
@@ -127,4 +127,9 @@ a
 .login_info
 {
 	text-align:right;
+}
+
+textarea
+{
+	height:6em;	/* room for about four lines of text */
 }
