@@ -1556,6 +1556,8 @@ class ldap_entry_list
 	// corresponds to an individual table cell in the search
 	// results or OU being browsed
 	//
+	// (TODO: support for compound attributes, e.g. address)
+	//
 	// $dn = LDAP distinguished name of object
 	// $attrib_name = Name of attribute to be shown
 	// $attrib_value = Value of attribute to be shown
