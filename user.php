@@ -86,7 +86,7 @@ function return_to_previous_url()
 	// if current page is user.php then redirect to main page instead
 	// to avoid a redirect loop on user login retry
 
-	if(basename($_SERVER["PHP_SELF"]="user.php") || empty($_SERVER["HTTP_REFERER"]))
+	if(basename($_SERVER["PHP_SELF"]=="user.php") || empty($_SERVER["HTTP_REFERER"]))
 		// go back to main page
 		$redirect_uri = current_page_folder_url();
 	else
