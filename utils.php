@@ -642,6 +642,7 @@ class ldap_entry_viewer
 	var $ldap_entry;
 	var $last_section_added = "";
 	var $user_info = "";
+	var $edit = false;
 
 	// Constructor.
 	// $ldap_entry - Array containing LDAP object entry which
@@ -748,12 +749,34 @@ class ldap_entry_viewer
 
 		if($this->user_info["allow_view"])
 		{
+			if($this->edit && isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
+				echo "<form method=\"post\" action=\"update.php?dn="
+					. urlencode($dn) . "\" style=\"display:inline\">";
+
 			echo "<table class=\"ldap_entry_viewer\">\n";
 
 			foreach($this->section as $section)
-				$section->show();
+				$section->show($this->edit);
 
-			echo "</table>";
+			echo "</table>\n\n";
+
+			if(isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
+				if($this->edit)
+				{
+					echo "<input type=\"submit\" value=\"Save changes\">"
+						. "\n</form>\n"
+						. "<a href=\"info.php?dn="
+						. htmlentities($dn,ENT_COMPAT,"UTF-8")
+						. "\"><button>Cancel</button></a>\n";
+				}
+				else
+				{
+					echo "<form method=\"get\" action=\"info.php\" style=\"display:inline\">\n"
+						. "  <input type=\"hidden\" name=\"edit\" value=\"1\">\n"
+						. "  <input type=\"hidden\" name=\"dn\" value=\""
+						. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n"
+						. "  <input type=\"submit\" value=\"Edit\">\n</form>\n";
+				}
 		}
 		else
 			echo "<p>You do not have permission to view this record</p>\n";
@@ -785,7 +808,7 @@ class ldap_entry_viewer_section
 
 	// Output this section of the object entry as HTML, utilising chosen attributes
 
-	function show()
+	function show($edit)
 	{
 		echo "\n<!-- Section: " . $this->text . " -->\n\n";
 
@@ -806,7 +829,7 @@ class ldap_entry_viewer_section
 				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
-			$attrib->show($this->ldap_entry);
+			$attrib->show($this->ldap_entry,$edit);
 
 		echo "      </table>\n";
 		echo "    </td>\n";
@@ -837,9 +860,11 @@ class ldap_entry_viewer_attrib
 
 	// Output this object attribute as HTML
 
-	function show($ldap_entry)
+	function show($ldap_entry,$edit)
 	{
 		global $ldap_server_type;
+
+		$this->edit = $edit;
 
 		echo "        <tr>\n";
 
@@ -1731,5 +1756,47 @@ function prereq_components_ok()
 			. "in the User Guide for more information.</p>";
 	}
 	return empty($missing_php_extn_list);
+}
+
+function update_ldap_attribute($entry,$attrib)
+{
+	global $ldap_link;
+
+	$dn = $entry[0]["dn"];
+
+	if(isset($_POST["ldap_attribute_" . $attrib]))
+	{
+		if(isset($entry[0][strtolower($attrib)][0]))
+			$old_val = $entry[0][strtolower($attrib)][0];
+		else
+			$old_val = "";
+
+		$new_val = $_POST["ldap_attribute_" . $attrib];
+
+		if($new_val != $old_val)
+		{
+			// TODO: determine if multi-valued (currently always assume yes)
+			if(1)
+				// syntax for multi-valued attribute
+				$changes[$attrib][0] = ($new_val == "" ? $old_val : $new_val);
+			else
+				// syntax for single-valued attribute
+				$changes[$attrib] = ($new_val == "" ? $old_val : $new_val);
+
+			if($new_val == "")
+				$result = @ldap_mod_del($ldap_link,$dn,$changes);
+			else
+				$result = @ldap_mod_replace($ldap_link,$dn,$changes);
+
+			$result=1;
+
+			if($result)
+				return "Set attribute '" . $attrib
+					. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
+			else
+				return "Error whilst setting attribute '"
+					. $attrib . "': " . ldap_error($ldap_link) . "<br>";
+		}
+	}
 }
 ?>
