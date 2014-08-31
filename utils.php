@@ -788,6 +788,12 @@ class ldap_entry_viewer
 						. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n"
 						. "  <input type=\"submit\" value=\"Edit\">\n</form>\n";
 				}
+
+			if(isset($this->user_info["allow_delete"]) && $this->user_info["allow_delete"] && !$this->edit)
+				echo "<a href=\"delete.php?page=info&dn="
+					. urlencode($dn)
+					. "\"><button>Delete</button></a>\n";
+
 		}
 		else
 			echo "<p>You do not have permission to view this record</p>\n";
@@ -1538,6 +1544,8 @@ class ldap_entry_list
 
 		$object_dn = $ldap_entry["dn"];
 
+		$user_info = get_user_info();
+
 		if($item_is_folder)
 			// Display the folder name, and make it a link to
 			// display the folder's contents.
@@ -1548,8 +1556,6 @@ class ldap_entry_list
 		else
 		{
 			// Display user's chosen set of columns (attributes)
-
-			$user_info = get_user_info();
 
 			foreach($this->search_result_columns as $column)
 			{
@@ -1568,6 +1574,11 @@ class ldap_entry_list
 					$attrib_value,$column["link_type"]);
 			}
 		}
+
+		if(isset($user_info["allow_delete"]) && $user_info["allow_delete"])
+			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
+				. urlencode($dn)
+				. "\"><button>Delete</button></a>\n    </td>\n";
 
 		echo "  </tr>\n";
 	}
