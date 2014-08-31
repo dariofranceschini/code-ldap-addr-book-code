@@ -722,25 +722,8 @@ class ldap_entry_viewer
 
 		$dn = $this->ldap_entry[0]["dn"];
 
-		if(!empty($this->ldap_entry[0]["jpegphoto"][0])
-				&& $enable_ldap_path_thumbnail)
-			$icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=jpegPhoto&size="
-				. $thumbnail_image_size;
-		else if(!empty($this->ldap_entry[0]["thumbnailphoto"][0])
-				&& $enable_ldap_path_thumbnail)
-			$icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=thumbnailPhoto&size="
-				. $thumbnail_image_size;
-		else
-		{
-			$object_class = get_object_class(
-				$object_class_schema,$this->ldap_entry[0]);
-			$icon = get_object_class_setting(
-				$object_class_schema,$object_class,"icon");
-		}
-
-		show_ldap_path($dn,$ldap_base_dn,$icon);
+		show_ldap_path($dn,$ldap_base_dn,
+			get_icon_for_ldap_entry($this->ldap_entry[0]));
 
 		if($this->user_info["allow_search"])
 			show_search_box("");
@@ -1453,23 +1436,7 @@ class ldap_entry_list
 
 		$dn = $ldap_entry["dn"];
 
-		if(!empty($ldap_entry["jpegphoto"][0])
-				&& $enable_search_browse_thumbnail)
-			$icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=jpegPhoto&size="
-				. $thumbnail_image_size;
-		else if(!empty($ldap_entry["thumbnailphoto"][0])
-				&& $enable_search_browse_thumbnail)
-			$icon = "image.php?dn=" . urlencode($dn)
-				. "&attrib=thumbnailPhoto&size="
-				. $thumbnail_image_size;
-		else
-		{
-			$object_class = get_object_class(
-				$object_class_schema,$ldap_entry);
-			$icon = "schema/" . get_object_class_setting(
-				$object_class_schema,$object_class,"icon");
-		}
+		$icon = get_icon_for_ldap_entry($ldap_entry);
 
 		$item_is_folder = get_object_class_setting(
 			$object_class_schema,$item_object_class,"is_folder");
@@ -1797,6 +1764,38 @@ function update_ldap_attribute($entry,$attrib)
 				return "Error whilst setting attribute '"
 					. $attrib . "': " . ldap_error($ldap_link) . "<br>";
 		}
+	}
+}
+
+// Retrieve icon/photo thumbnail URL for the specified LDAP
+// entry.
+//
+// $entry - Entry for which thumbnail URL is to be retrieved
+
+function get_icon_for_ldap_entry($entry)
+{
+	global $ldap_server_type,$enable_ldap_path_thumbnail,
+		$thumbnail_image_size;
+
+	$dn = $entry["dn"];
+
+	if(!empty($entry["jpegphoto"][0])
+			&& $enable_ldap_path_thumbnail)
+		return "image.php?dn=" . urlencode($dn)
+			. "&attrib=jpegPhoto&size="
+			. $thumbnail_image_size;
+	else if(!empty($entry["thumbnailphoto"][0])
+			&& $enable_ldap_path_thumbnail)
+		return "image.php?dn=" . urlencode($dn)
+			. "&attrib=thumbnailPhoto&size="
+			. $thumbnail_image_size;
+	else
+	{
+		$object_class_schema = get_object_class_schema($ldap_server_type);
+
+		return "schema/" . get_object_class_setting($object_class_schema,
+			get_object_class($object_class_schema,$entry),
+			"icon");
 	}
 }
 ?>
