@@ -100,6 +100,10 @@ function show_search_box($initial_value)
 	echo "</form>\n\n";
 }
 
+// Generate a page showing the specified error message
+//
+// $message - message to display
+
 function show_error_message($message)
 {
 	global $ldap_base_dn;
@@ -254,6 +258,9 @@ function current_page_folder_url()
 // objects can potentially match more than one class those classes should
 // be listed with most "specific" first (e.g. Person/inetOrgPerson in edir
 // schema).
+//
+// $ldap_server_type - Indicates LDAP server type/schema to return
+//		(ad, edir or openldap)
 
 function get_object_class_schema($ldap_server_type = "ad")
 {
@@ -308,6 +315,13 @@ function get_object_class_schema($ldap_server_type = "ad")
 	}
 }
 
+// Return an array associating LDAP attribute classes with schema
+// setting used by the addressbook (currently data type for use when
+// editing/displaying and "friendly" display name).
+//
+// $ldap_server_type - Indicates LDAP server type/schema to return
+//		(ad, edir or openldap)
+
 function get_attribute_class_schema($ldap_server_type = "ad")
 {
 	// Generic schema used as basis of LDAP server-specific schemas
@@ -338,6 +352,12 @@ function get_attribute_class_schema($ldap_server_type = "ad")
 }
 
 // Return the value of a schema setting for the specificed LDAP attribute
+//
+// $attribute_name - Attribute for which schema setting is to be returned
+// $attribute_class_schema - Attribute schema, as returned by
+//			get_attribute_class_schema(
+// $setting_name - Schema setting to be returned
+// $setting_default - Value to be returned if schema setting not defined
 
 function get_attribute_setting($attribute_name,$attribute_class_schema,
 	$setting_name,$setting_default)
@@ -352,6 +372,10 @@ function get_attribute_setting($attribute_name,$attribute_class_schema,
 }
 
 // Return the data type associated with the specified LDAP attribute
+//
+// $attribute_name - Attribute for which schema setting is to be returned
+// $attribute_class_schema - Attribute schema, as returned by
+//			get_attribute_class_schema(
 
 function get_attribute_data_type($attribute_name,$attribute_class_schema)
 {
@@ -360,6 +384,10 @@ function get_attribute_data_type($attribute_name,$attribute_class_schema)
 }
 
 // Return the display name of the specified LDAP attribute
+//
+// $attribute_name - Attribute for which schema setting is to be returned
+// $attribute_class_schema - Attribute schema, as returned by
+//			get_attribute_class_schema(
 
 function get_attribute_display_name($attribute_name,$attribute_class_schema)
 {
@@ -790,6 +818,8 @@ class ldap_entry_viewer_section
 	}
 
 	// Output this section of the object entry as HTML, utilising chosen attributes
+	//
+	// $edit - whether the section should be rendered with editing enabled
 
 	function show($edit)
 	{
@@ -842,6 +872,9 @@ class ldap_entry_viewer_attrib
 	}
 
 	// Output this object attribute as HTML
+	//
+	// $ldap_entry - entry to display
+	// $edit - whether the attribute should be rendered with editing enabled
 
 	function show($ldap_entry,$edit)
 	{
@@ -909,8 +942,15 @@ class ldap_entry_viewer_attrib
 		echo "\n          </td>\n        </tr>\n";
 	}
 
+	// Show single-line textual attribute (data type "text")
+	//
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
 
 	function show_text($ldap_entry,$attribute,$display_name)
 	{
@@ -926,8 +966,15 @@ class ldap_entry_viewer_attrib
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
 
+	// Show multi-line textual attribute (data type "text_area")
+	//
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
 
 	function show_text_area($ldap_entry,$attribute,$display_name)
 	{
@@ -943,7 +990,14 @@ class ldap_entry_viewer_attrib
 			echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
 	}
 
+	// Show ISO 3166-1 alpha-2 country code attribute (data type "country_code")
+	//
 	// TODO: improve handling of unrecognised country codes
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
 
 	function show_country_code($ldap_entry,$attribute,$display_name)
 	{
@@ -975,9 +1029,17 @@ class ldap_entry_viewer_attrib
 				echo get_country_name_from_code($attrib_value);
 	}
 
+	// Show postcode attribute (data type "postcode") - single line text, with
+	// adjacent button to display location in mapping service
+	//
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	// TODO: make mapping service configurable (not just Google)
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
 
 	function show_postcode($ldap_entry,$attribute,$display_name)
 	{
@@ -997,9 +1059,15 @@ class ldap_entry_viewer_attrib
 					. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 	}
 
+	// Show image attribute (data type "image")
+	//
 	// TODO: support for image edit (upload new)
 	// TODO: support for delete old image
-	// TODO: use display name as tool tip
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
 
 	function show_image($ldap_entry,$attribute,$display_name)
 	{
@@ -1063,6 +1131,9 @@ function get_ldap_attribute($ldap_entry,$attribute)
 
 // Turn any URLs and e-mail addresses appearing in the text
 // into HTML links.
+//
+// $text - Text which is to have its substrings that resemble
+//		URLs and e-mail addresses converted to links
 
 function urls_to_links($text)
 {
@@ -1130,8 +1201,6 @@ function log_on_to_directory($ldap_link)
 		$pw = get_user_attrib("__ANONYMOUS__","ldap_password");
 	}
 
-//	$old_error_reporting=error_reporting();
-//	error_reporting(0);
 	$result=false;
 	if($user != "__DENY__")
 	{
@@ -1145,7 +1214,6 @@ function log_on_to_directory($ldap_link)
 		if(!ini_get("date.timezone"))
 			date_default_timezone_set("UTC");
 	}
-//	error_reporting($old_error_reporting);
 
 	return $result;
 }
@@ -1725,6 +1793,12 @@ function prereq_components_ok()
 	}
 	return empty($missing_php_extn_list);
 }
+
+// Update an attribute of the specified LDAP entry from posted
+// form data
+//
+// $entry - Entry to be updated
+// $attrib - Attribute to be updated with new value from posted data
 
 function update_ldap_attribute($entry,$attrib)
 {
