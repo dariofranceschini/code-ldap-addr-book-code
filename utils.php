@@ -1066,14 +1066,15 @@ function get_ldap_attribute($ldap_entry,$attribute)
 
 function urls_to_links($text)
 {
-			// convert URLs to links
-			$text = preg_replace(
-				"/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]\/]/",
-				"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$text);
+	// convert URLs to links
+	$text = preg_replace(
+		"/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]\/]/",
+		"<a href=\"\\0\" rel=\"nofollow\">\\0</a>",$text);
 
-			// convert e-mail addresses to links
-			$text = preg_replace("/\b(\S+@\S+)\b/",
-				'<a href="mailto:\1">\1</a>',$text);
+	// convert e-mail addresses to links
+	$text = preg_replace("/\b(\S+@\S+)\b/",
+		'<a href="mailto:\1">\1</a>',$text);
+
 	return $text;
 }
 
