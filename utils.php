@@ -137,11 +137,6 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		. "<img style=\"vertical-align:top\" alt=\"Address Book\" src=\"addressbook24.png\"> "
 		. $site_name . "</a>\n    </th>\n";
 
-	// if leaf icon doesn't include ? character (indicating a query
-	// string) then use a static image from the "schema" subdirectory
-	if(strpos($leaf_icon,"?")===false)
-		$leaf_icon = "schema/" . $leaf_icon;
-
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
