@@ -268,8 +268,8 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group"),
 				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server","can_create"=>false),
 				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server"),
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User"),
-				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false),
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn"),
+				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn"),
 				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity"),
 				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material"),
 				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false,"can_create"=>false),
@@ -288,7 +288,7 @@ function get_object_class_schema($ldap_server_type = "ad")
 				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
 				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false),
 				// inetorgperson.schema
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false)
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn")
 				);
 			break;
 		case "ad":
