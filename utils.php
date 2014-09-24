@@ -918,8 +918,12 @@ class ldap_entry_viewer_attrib
 			if($first_line == false) echo "<br>\n";
 			$first_line = false;
 
+			$space_before_attribute = false;
 			foreach(explode("+",$attribute_line) as $attribute)
 			{
+				if($space_before_attribute) echo " ";
+				$space_before_attribute = true;
+
 				$display_name=get_attribute_display_name($attribute,$attribute_class_schema);
 
 				if($display_name!=$attribute)
