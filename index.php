@@ -58,7 +58,7 @@ if(prereq_components_ok())
 		if(!empty($_GET["dn"])) $dn = $_GET["dn"];
 	}
 
-	show_ldap_path($dn,$ldap_base_dn,"folder.png");
+	show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
 
 	if(empty($ldap_server_type))	// Default server type: Active Directory
 		$ldap_server_type = "ad";

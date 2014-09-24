@@ -107,7 +107,7 @@ function show_search_box($initial_value)
 function show_error_message($message)
 {
 	global $ldap_base_dn;
-	show_ldap_path($ldap_base_dn,$ldap_base_dn,"folder.png");
+	show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
@@ -769,6 +769,7 @@ class ldap_entry_viewer
 			if(isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
 				if($this->edit)
 				{
+ 				{
 					echo "<input type=\"submit\" value=\"Save changes\">"
 						. "\n</form>\n"
 						. "<a href=\"info.php?dn="
