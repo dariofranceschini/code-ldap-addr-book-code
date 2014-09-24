@@ -968,7 +968,8 @@ class ldap_entry_viewer_attrib
 			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\">";
+				. "\" title=\"" . $display_name . "\" placeholder=\""
+				. $display_name . "\">";
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
@@ -990,7 +991,8 @@ class ldap_entry_viewer_attrib
 
 		if($this->edit)
 			echo "<textarea style=\"width:98%;\" name=\"ldap_attribute_"
-				. $attribute . "\" title=\"" . $display_name . "\">"
+				. $attribute . "\" title=\"" . $display_name
+				. "\" placeholder=\"" . $display_name . "\">"
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "</textarea>";
 		else
@@ -1058,7 +1060,7 @@ class ldap_entry_viewer_attrib
 			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\">";
+				. "\" title=\"" . $display_name . "\" placeholder=\"" . $display_name . "\">";
 		}
 		else
 			if($attrib_value != "")
