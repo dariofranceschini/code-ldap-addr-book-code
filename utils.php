@@ -266,19 +266,19 @@ function get_object_class_schema($ldap_server_type = "ad")
 			return array(
 				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
 				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group"),
-				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
+				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server","can_create"=>false),
 				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server"),
 				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User"),
 				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false),
 				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity"),
 				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material"),
-				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
+				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false,"can_create"=>false),
 				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service"),
-				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
+				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false,"can_create"=>false),
+				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false,"can_create"=>false),
+				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false,"can_create"=>false),
 				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group"),
-				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
+				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false,"can_create"=>false)
 				);
 			break;
 		case "openldap":
@@ -297,13 +297,13 @@ function get_object_class_schema($ldap_server_type = "ad")
 			return array(
 				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
 				array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container"),
-				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
-				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
-				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
+				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
+				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
 				array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group"),
 				array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact"),
 				array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer"),
-				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png",	"is_folder"=>false),
+				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false,"can_create"=>false),
 				array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User"),
 				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson")
 				);
@@ -771,7 +771,6 @@ class ldap_entry_viewer
 			if(isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
 				if($this->edit)
 				{
- 				{
 					echo "<input type=\"submit\" value=\"Save changes\">"
 						. "\n</form>\n"
 						. "<a href=\"info.php?dn="
@@ -1311,6 +1310,7 @@ function get_object_class_setting($object_class_schema,$class,$setting)
 		if($setting == "icon") $setting_value = "generic24.png";
 		if($setting == "is_folder") $setting_value = false;
 		if($setting == "rdn_attrib") $setting_value = "cn";
+		if($setting == "can_create") $setting_value = true;
 		if($setting == "display_name") $setting_value = $class;
 	}
 	return $setting_value;
