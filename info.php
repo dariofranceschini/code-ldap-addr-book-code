@@ -36,7 +36,7 @@ if(prereq_components_ok())
 			if($search_resource)
 			{
 				$entry = ldap_get_entries($ldap_link,$search_resource);
-				$entry_viewer = new ldap_entry_viewer($entry,$entry_layout);
+				$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
 
 				if(!empty($_GET["edit"]))
 					$entry_viewer->edit = true;

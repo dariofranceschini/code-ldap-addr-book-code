@@ -675,7 +675,7 @@ class ldap_entry_viewer
 	// $entry_viewer_layout - LDAP attributes to be displayed
 	//			and their layout
 
-	function ldap_entry_viewer($ldap_entry,$entry_viewer_layout)
+	function ldap_entry_viewer($entry_viewer_layout,$ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
 		$this->user_info = get_user_info();
