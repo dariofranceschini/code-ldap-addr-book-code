@@ -283,18 +283,21 @@ at all.
 <h3>Configuring users and permissions</h3>
 <p>
 The LDAP address book supports logging in with named user
-accounts. Typically, this would be used for administrators
-who are permitted to edit the address book contents (in a
-forthcoming future version), or to limit browsing/searching
-access.
+accounts. Typically, this is used by administrators
+who are permitted to edit the address book contents, or
+if you need to limit browsing/searching access to known
+users.
 </p>
 <p>
-Set the following option in <code>config.php</code> to enable
+Set the following option in <code>config.php</code> to allow
 different users to log into the directory:
 </p>
 <pre>
 $ldap_login_enabled = true;
 </pre>
+<p>
+<img alt="Log In link - Visible when per-user login enabled" src="login_enabled.png">
+</p>
 <p>
 Login users, passwords and permissions are taken from the
 LDAP directory rather than the LDAP address book application
