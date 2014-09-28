@@ -52,8 +52,7 @@ if(log_on_to_directory($ldap_link))
 								$change_list .= "  <li>" . $change_description . "</li>\n";
 						}
 
-			// TODO: display correct icon or thumbnail image here (NOT folder)
-			show_ldap_path($dn,$ldap_base_dn,"folder.png");
+			show_ldap_path($dn,$ldap_base_dn,get_icon_for_ldap_entry($entry[0]));
 
 			if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
 				show_search_box("");
