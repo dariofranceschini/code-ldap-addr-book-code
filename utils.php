@@ -264,48 +264,48 @@ function get_object_class_schema($ldap_server_type = "ad")
 		case "edir";
 			// Object class data - these items specific to Novell eDirectory
 			return array(
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
-				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group"),
-				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server","can_create"=>false),
-				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server"),
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn"),
-				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn"),
-				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity"),
-				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material"),
-				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false,"can_create"=>false),
-				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service"),
-				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false,"can_create"=>false),
-				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false,"can_create"=>false),
-				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false,"can_create"=>false),
-				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group"),
-				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false,"can_create"=>false)
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group","can_create"=>true),
+				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
+				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn","can_create"=>true),
+				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true),
+				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
+				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
+				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
+				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
+				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
+				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
+				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
+				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
+				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
 				);
 			break;
 		case "openldap":
 			// Object class data - these items specific to OpenLDAP
 			return array(
 				// core.schema (partial)
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
-				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false),
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"can_create"=>true),
 				// inetorgperson.schema
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn")
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true)
 				);
 			break;
 		case "ad":
 		default:
 			// Object class data - these items specific to Active Directory
 			return array(
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit"),
-				array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container"),
-				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
-				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
-				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true,"can_create"=>false),
-				array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group"),
-				array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact"),
-				array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer"),
-				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false,"can_create"=>false),
-				array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User"),
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson")
+				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+				array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
+				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
+				array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group","can_create"=>true),
+				array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact","can_create"=>true),
+				array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
+				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false),
+				array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
+				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson","can_create"=>true)
 				);
 	}
 }
@@ -1316,7 +1316,7 @@ function get_object_class_setting($object_class_schema,$class,$setting)
 		if($setting == "icon") $setting_value = "generic24.png";
 		if($setting == "is_folder") $setting_value = false;
 		if($setting == "rdn_attrib") $setting_value = "cn";
-		if($setting == "can_create") $setting_value = true;
+		if($setting == "can_create") $setting_value = false;
 		if($setting == "display_name") $setting_value = $class;
 	}
 	return $setting_value;
