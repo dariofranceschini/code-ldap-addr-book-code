@@ -431,10 +431,15 @@ array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"__DENY__",
 </pre>
 <h3>Changing the attributes shown for search results</h3>
 <p>
-The fields/attributes that are used when searching can
-be customised by editing the contents of $search_ldap_attrib
-in the configuration file. The default set of attributes that get
-searched are:
+The fields/attributes that are used when searching can be customised
+by editing the contents of <code>$search_ldap_attrib</code>
+in the configuration file. The default setting is:
+</p>
+<pre>
+$search_ldap_attrib = array(
+        "cn","mail","sn","displayName","company","title");
+</pre>
+...which searches the following set of attributes:
 </p>
 <table border=1>
 <tr><th>Attribute</th><th>Description (typical usage)</th></tr>
