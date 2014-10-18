@@ -20,6 +20,7 @@ define("LDAP_SORT_ASCENDING",1);
 define("LDAP_SORT_DESCENDING",2);
 
 define("MAX_DN_LENGTH",1000);
+define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
 // Output the site's HTML header elements
 
@@ -759,7 +760,7 @@ class ldap_entry_viewer
 		{
 			if($this->edit && isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
 				echo "<form method=\"post\" action=\"update.php?dn="
-					. urlencode($dn) . "\" style=\"display:inline\">";
+					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
 
 			echo "<table class=\"ldap_entry_viewer\">\n";
 
@@ -1070,9 +1071,6 @@ class ldap_entry_viewer_attrib
 
 	// Show image attribute (data type "image")
 	//
-	// TODO: support for image edit (upload new)
-	// TODO: support for delete old image
-	//
 	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
@@ -1099,7 +1097,21 @@ class ldap_entry_viewer_attrib
 			echo "<img src=\"image.php?dn="
 				. urlencode($ldap_entry[0]["dn"])
 				. "&attrib=" . $attribute . $size
-				. "\" title=\"" . $display_name . "\">";
+				. "\" title=\"" . $display_name . "\">\n";
+		}
+
+		if($this->edit)
+		{
+			if($attrib_value == "")
+				echo "            <input type=\"hidden\" name=\"ldap_attribute_"
+					. $attribute . "\" value=\"\">";
+			else
+				echo "            <br>\n            <input type=\"checkbox\" name=\"ldap_attribute_"
+					. $attribute . "\">Clear Image<br>\n";
+
+			echo "            <input type=\"file\" name=\"ldap_attribute_"
+				. $attribute . "_file\" title=\"" . $display_name
+				. "\" accept=\".jpg,.jpeg,.png,.gd2,.wbmp\">";
 		}
 	}
 }
@@ -1818,18 +1830,55 @@ function prereq_components_ok()
 
 function update_ldap_attribute($entry,$attrib)
 {
-	global $ldap_link;
+	global $ldap_link,$ldap_server_type;
 
 	$dn = $entry[0]["dn"];
 
-	if(isset($_POST["ldap_attribute_" . $attrib]))
+	$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
+
+	if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+		$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
+			|| isset($_POST["ldap_attribute_" . $attrib]);
+	else
+		$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
+
+	$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
+
+	// For image attributes, the above is set if the "clear image" box was ticked.
+	// Further checks to see if an image was uploaded:
+	if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+		$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
+			|| $new_val_set;
+
+	if($new_val_set)
 	{
 		if(isset($entry[0][strtolower($attrib)][0]))
 			$old_val = $entry[0][strtolower($attrib)][0];
 		else
 			$old_val = "";
 
-		$new_val = $_POST["ldap_attribute_" . $attrib];
+		if(isset($_POST["ldap_attribute_" . $attrib]))
+			$new_val = $_POST["ldap_attribute_" . $attrib];
+		else
+			$new_val = "";
+
+		if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+		{
+			if(isset($_POST["ldap_attribute_" . $attrib]))
+				$new_val = "";		// clear image
+			else
+			{
+				if(!empty($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"]))
+				{
+					// updated image uploaded
+					$fd = fopen($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"],"r");
+					$new_val =  fread($fd,MAX_IMAGE_UPLOAD);
+					fclose($fd);
+				}
+				else
+					$new_val = $old_val;	// re-use existing image
+			}
+		}
 
 		if($new_val != $old_val)
 		{
@@ -1846,11 +1895,19 @@ function update_ldap_attribute($entry,$attrib)
 			else
 				$result = @ldap_mod_replace($ldap_link,$dn,$changes);
 
-			$result=1;
-
 			if($result)
-				return "Set attribute '" . $attrib
-					. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
+			{
+				if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+					if(isset($_POST["ldap_attribute_" . $attrib]))
+						return "Clear attribute '" . $attrib . "'";
+					else
+						return "Set attribute '" . $attrib
+							. "' to contents of '" . $_FILES["ldap_attribute_"
+							. $attrib . "_file"]["name"] . "'";
+				else
+					return "Set attribute '" . $attrib
+						. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
+			}
 			else
 				return "Error whilst setting attribute '"
 					. $attrib . "': " . ldap_error($ldap_link) . "<br>";
