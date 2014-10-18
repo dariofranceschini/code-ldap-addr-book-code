@@ -31,20 +31,38 @@ if(prereq_components_ok())
 	{
 		if(log_on_to_directory($ldap_link))
 		{
-			$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
-
-			if($search_resource)
+			if(isset($_GET["create"]))
 			{
-				$entry = ldap_get_entries($ldap_link,$search_resource);
-				$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
+				// TODO: guard against nasties in the parent DN and object class
+				// and name
+				$object_class = $_GET["create"];
 
-				if(!empty($_GET["edit"]))
-					$entry_viewer->edit = true;
+				$entry_viewer = new ldap_entry_viewer($entry_layout,null);
 
-				$entry_viewer->show();
+				$rdn_attrib = get_object_class_setting(
+					get_object_class_schema($ldap_server_type),
+					$object_class,"rdn_attrib");
+
+				$entry_viewer->create_record($_GET["create"],
+					$rdn_attrib . "=" . $_GET["name"] . "," . $dn);
 			}
 			else
-				show_error_message("Unable to locate LDAP record.");
+			{
+				$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+
+				if($search_resource)
+				{
+					$entry = ldap_get_entries($ldap_link,$search_resource);
+					$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
+
+					if(!empty($_GET["edit"]))
+						$entry_viewer->edit = true;
+
+					$entry_viewer->show();
+				}
+				else
+					show_error_message("Unable to locate LDAP record.");
+			}
 		}
 		else
 		{

@@ -669,6 +669,7 @@ class ldap_entry_viewer
 	var $last_section_added = "";
 	var $user_info = "";
 	var $edit = false;
+	var $create = false;
 
 	// Constructor.
 	// $ldap_entry - Array containing LDAP object entry which
@@ -700,6 +701,24 @@ class ldap_entry_viewer
 
 			$first_section = false;
 		}
+	}
+
+	// Create a new LDAP record
+	// $objectclass - LDAP object class of record to be created
+	// $dn - LDAP DN of record to be created
+
+	function create_record($objectclass,$dn)
+	{
+		$this->ldap_entry = array(
+			"count"=>1,
+			array(
+				"objectclass"=>array("count"=>1,$objectclass),
+				"dn"=>$dn
+				)
+			);
+
+		$this->edit = $this->create = true;
+		$this->show();
 	}
 
 	// Add a section to the display
@@ -772,9 +791,16 @@ class ldap_entry_viewer
 			if(isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
 				if($this->edit)
 				{
-					echo "<input type=\"submit\" value=\"Save changes\">"
-						. "\n</form>\n"
-						. "<a href=\"info.php?dn="
+					if($this->create)
+						echo "<input type=\"hidden\" name=\"create\" value=\""
+							. $this->ldap_entry[0]["objectclass"][0] . "\">"
+							. "<input type=\"submit\" value=\"Create record\">"
+							. "\n</form>\n";
+					else
+						echo "<input type=\"submit\" value=\"Save changes\">"
+							. "\n</form>\n";
+
+					echo "<a href=\"info.php?dn="
 						. htmlentities($dn,ENT_COMPAT,"UTF-8")
 						. "\"><button>Cancel</button></a>\n";
 				}

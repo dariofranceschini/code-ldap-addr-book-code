@@ -120,5 +120,10 @@ if(prereq_components_ok())
 	echo "\n";
 }
 
+if(isset($user_info["allow_create"]) && $user_info["allow_create"])
+	echo "<hr>\n<a href=\"create.php?dn="
+		. htmlentities($dn,ENT_COMPAT,"UTF-8")
+		. "\"><button>New Record</button></a>\n";
+
 show_site_footer();
 ?>
