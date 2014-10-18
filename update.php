@@ -21,9 +21,6 @@ include "utils.php";
 
 show_site_header();
 
-// TODO - updates to RDN attributes need to be dealt with as a
-// special case (as they effectively rename the object)
-
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
@@ -101,18 +98,51 @@ if(log_on_to_directory($ldap_link))
 					$change_list = "  <li>New '" . $_POST["create"]
 						. "' record created</li>\n";
 
+				$rdn_attrib = get_object_class_setting(
+					$object_class_schema,
+					get_object_class($object_class_schema,$entry[0]),
+					"rdn_attrib");
+
 				foreach($entry_layout as $section)
 					foreach($section["attributes"] as $attrib_spec)
 						foreach(explode(":",$attrib_spec[0]) as $attribute_line)
 							foreach(explode("+",$attribute_line) as $attrib)
 							{
-								$change_description
-									= update_ldap_attribute($entry,$attrib);
-								if(!empty($change_description))
-									$change_list .= "  <li>"
-										. $change_description
-										. "</li>\n";
+								// Omit the RDN attribute - needs to be
+								// changed last as modifying it renames
+								// the object
+								if($attrib != $rdn_attrib)
+								{
+									$change_description
+										= update_ldap_attribute($entry,$attrib);
+									if(!empty($change_description))
+										$change_list .= "  <li>"
+											. $change_description
+											. "</li>\n";
+								}
 							}
+
+				// update the RDN attribute after all others (if present in form data)
+				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
+				{
+					// TODO: guard against nasties in the new RDN value
+					$change_description = update_ldap_attribute($entry,
+						$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
+
+					if(!empty($change_description))
+						$change_list .= "  <li>"
+							. $change_description
+							. "</li>\n";
+
+					// update the value of $dn to reflect object's new
+					// name (used for breadcrumb navigation and
+					// "Back to record" link)
+
+					$rdn_list = ldap_explode_dn2($dn);
+					$dn = $rdn_attrib . "="
+						. $_POST["ldap_attribute_" . $rdn_attrib]
+						. "," . $rdn_list[1]["dn"];
+				}
 
 				show_ldap_path($dn,$ldap_base_dn,get_icon_for_ldap_entry($entry[0]));
 

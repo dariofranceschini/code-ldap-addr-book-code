@@ -18,6 +18,7 @@
 
 define("LDAP_SORT_ASCENDING",1);
 define("LDAP_SORT_DESCENDING",2);
+define("LDAP_ATTRIBUTE_IS_RDN",true);
 
 define("MAX_DN_LENGTH",1000);
 define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
@@ -1852,9 +1853,10 @@ function prereq_components_ok()
 // form data
 //
 // $entry - Entry to be updated
-// $attrib - Attribute to be updated with new value from posted data
+// $attrib - Name of attribute to be updated with new value from posted data
+// $is_rdn - Attribute to be updated is used for the object's RDN
 
-function update_ldap_attribute($entry,$attrib)
+function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 {
 	global $ldap_link,$ldap_server_type;
 
@@ -1919,7 +1921,11 @@ function update_ldap_attribute($entry,$attrib)
 			if($new_val == "")
 				$result = @ldap_mod_del($ldap_link,$dn,$changes);
 			else
-				$result = @ldap_mod_replace($ldap_link,$dn,$changes);
+				if($is_rdn)
+					$result = @ldap_rename($ldap_link,$dn,
+						$attrib . "=" . $new_val,null,true);
+				else
+					$result = @ldap_mod_replace($ldap_link,$dn,$changes);
 
 			if($result)
 			{
