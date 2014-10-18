@@ -473,16 +473,17 @@ Where necessary, these rules can be selected through the
 <p>
 <code>$lc_collate = "&lt;language&gt;[_&lt;territory&gt;][.&lt;codeset&gt;][@&lt;modifier&gt;]";</code>
 </p>
+
 <p>
-In most cases only the language and territory need to be defined,
-for example:
+In practice neither the code set or modifier are widely used, and 
+in most cases only the language and territory need to be defined, for
+example:
 </p>
 <p>
 <code>$lc_collate = "en_US";</code>
 </p>
 <p>
-(In practice neither the code set or modifier are widely used, and a
-code set of UTF-8 will be assumed automatically.)
+(a code set of UTF-8 will be assumed automatically.)
 </p>
 <h3>Applying custom LDAP filters to directory browsing and searching</h3>
 <p>
