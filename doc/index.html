@@ -301,41 +301,58 @@ $ldap_login_enabled = true;
 <img alt="Log In link - Visible when per-user login enabled" src="login_enabled.png">
 </p>
 <p>
-Login users, passwords and permissions are taken from the
-LDAP directory rather than the LDAP address book application
-itself, according to information in the configuration
-setting <code>$ldap_user_map</code>.
+User login names, passwords and permissions are taken from the
+LDAP directory itself rather than the address book application.
+</p>
+The <code>$ldap_user_map</code> configuration setting describes
+the relationship between the address book's login names and
+the corresponding LDAP bind user names and permissions within the
+back-end directory. Each entry in specifies how a login name for
+the address book (<code>login_name</code>) maps onto a back-end LDAP
+directory user (<code>ldap_name</code>).
 </p>
 <ul>
-<li>Each entry in <code>$ldap_user_map</code> specifies how a login name for
-    the address book maps onto a back-end LDAP directory user
-    and permissions.
-<li>The special <code>__ANONYMOUS__</code> entry specifies the
-    login details to use when nobody is logged in. This
-    typically provides read-only access.
-<li>The special <code>__DEFAULT__</code> entry applies to any
-    valid LDAP login that does not have its own individual
-    entry in the user map.
+<li>The special login name <code>__ANONYMOUS__</code> is used to specify the
+    LDAP login details that the address book should use use when nobody
+    is logged in by name. In most cases this should provide read-only access.
+<li>The special login name <code>__DEFAULT__</code> applies to any
+    valid LDAP login that does not have its own individual entry in
+    the user map. The token <code>__USERNAME__</code> can be used
+    within the LDAP name to represent the name the user logged in with.
+<li>Login names can be mapped to the special LDAP name <code>__DENY__</code>
+    in order to deny access to the directory.
 </ul>
 <p>
-Each entry in the user map may have the following permissions
-set:
+The following settings can be applied to each user map entry
+in order to enable or disable various features of the
+address book. To use each feature, the necessary permissions
+will need to be granted within the back-end directory.
 </p>
 <table border=1>
-<tr><th>Permission</th><th>Description</th></tr>
+<tr><th>Setting</th><th>Description</th></tr>
 <tr><td><code>allow_browse</code></td><td>Allows the user to browse through
  organisational units (folders) within the address book.</td></tr>
+
+<tr><td><code>allow_create</code></td><td>Allows the user to create new
+ records within the address book. They will also need to be granted
+ <code>allow_edit</code> in order to populate and save the new record's attributes.</td></tr>
+
+<tr><td><code>allow_delete</code></td><td>Allows the user to delete records
+ within the address book.</td></tr>
+
+<tr><td><code>allow_edit</code></td><td>Allows the user to edit records
+ within the address book.</td></tr>
+
 <tr><td><code>allow_search</code></td><td>Allows the user to search the
     address book directory tree.</td></tr>
 <tr><td><code>allow_view</code></td><td>Allows the user to click on a record
     to see full details</td></tr>
 </table>
+
 <p>
-When connecting to Active Directory, the <code>ldap_name</code>
-setting should correspond to a user principal name (UPN), e.g. 
-the user name followed by <code>@</code> followed by the DNS domain name.
-The <code>__DEFAULT__</code> user map entry for the
-<code>example.org</code> AD domain might be configured as follows:
+The following example shows how to grant all logged in users permission
+to browse, search and view Microsoft Active Directory (domain name
+<code>example.org</code>):
 </p>
 <pre>
 array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
@@ -345,48 +362,62 @@ array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
         )
 </pre>
 <p>
-(Replace <code>example.org</code> with a valid UPN suffix for your own
-directory, e.g. the domain name itself).
+To connect to Active Directory, <code>ldap_name</code> should be a user
+principal name (UPN), i.e. the user name as entered into the login
+box followed by <code>@</code> followed by the domain's DNS name (or
+other allowed UPN suffix, if any have been configured).
 </p>
 <p>
-The token <code>__USERNAME__</code> will be replaced with the name that was
-entered into the login box. An LDAP login name of <code>__DENY__</code> will
-deny access to the directory.
-</p>
-<p>
-The following example will allow users to browse and search
-without having to log in. (The LDAP directory will be accessed as
-user <code>ldap-browse@example.org</code>, password
-<code>foobar</code>), or an administrator to log on with user
-name <code>admin</code>. The administrator's directory access
-will utilise the login name <code>Administrator@example.org</code>.
+The following example shows how to grant browse, search and view
+permission to all users inside the <code>home</code> container at the
+top level of a Novell eDirectory tree:
 </p>
 <pre>
-array("login_name"=&gt;"admin","ldap_name"=&gt;"Administrator@example.org",
+array("login_name"=>"__DEFAULT__","ldap_name"=>"cn=__USERNAME__,dc=home",
         "allow_browse"=&gt;true,
         "allow_search"=&gt;true,
         "allow_view"=&gt;true
-	),
-array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__DENY__",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-	),
+        )
+</pre>
+<p>
+<img src="edir.png">
+</p>
+<p>
+The following set of user map entries:
+</p>
+<ul>
+<li>Allow users to browse and search the directory without having to
+    explicitly log in.
+<li>Define an address book administrator (who logs in as <code>admin</code>).
+<li>Disallow other users from logging in by name.
+</ul>
+<p>
+(The anonymous users access the directory as LDAP user
+<code>ldap-browse@example.org</code>, password <code>foobar</code>. The
+address book login name <code>admin</code> is mapped to
+<code>Administrator@example.org</code>.)
+</p>
+<pre>
 array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"ldap-browse@example.org",
 	"ldap_password=&gt;"foobar",
         "allow_browse"=&gt;true,
         "allow_search"=&gt;true,
         "allow_view"=&gt;true
+	),
+array("login_name"=&gt;"admin","ldap_name"=&gt;"Administrator@example.org",
+        "allow_browse"=&gt;true,
+        "allow_create"=&gt;true,
+        "allow_delete"=&gt;true,
+        "allow_edit"=&gt;true,
+        "allow_search"=&gt;true,
+        "allow_view"=&gt;true
+	),
+array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__DENY__"
 	)
 </pre>
 <p>
-This allows only <code>admin</code> to log in, which is mapped to the
-directory's <code>Administrator</code> user. (Other staff will be limited
-to anonymous read-only access)
-</p>
-<p>
-The following example will disable anonymous access, requiring users
-to log in before they can browse the directory.
+The following example disables anonymous access, requiring all users
+to log in by name in order to browse the directory.
 </p>
 <pre>
 array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
@@ -396,9 +427,6 @@ array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
 	),
 array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"__DENY__",
 	"ldap_password=&gt;"foobar",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
 	)
 </pre>
 <h3>Changing the attributes shown for search results</h3>
@@ -516,6 +544,22 @@ used and how they are laid out. The columns that appear
 in search results can be changed by editing the contents of
 <code>$entry_layout</code> in the configuration file.
 </p>
+
+<p>
+Note: Some attributes must always be filled in with a value, for
+example many LDAP directories require record types that represent
+a person to have the surname (<code>sn</code>) attribute to be
+filled in. If you want to be able to create new records through
+the Address Book then these attributes must be included in your
+directory entry layout so that you can fill them in.
+</p>
+<ul>
+<li><i>Configuring users and permissions</i> (above) describes how
+to allow creating/editing of records.
+
+<li>Your directory service's schema documentation should list which
+attributes must have values.
+</ul>
 <p>
 As shipped, address book entries are displayed in three
 "sections":
