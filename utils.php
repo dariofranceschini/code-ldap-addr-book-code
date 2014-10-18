@@ -991,7 +991,7 @@ class ldap_entry_viewer_attrib
 			$ldap_entry,$attribute);
 
 		if($this->edit)
-			echo "<textarea style=\"width:98%;\" name=\"ldap_attribute_"
+			echo "\n            <textarea style=\"width:98%;\" name=\"ldap_attribute_"
 				. $attribute . "\" title=\"" . $display_name
 				. "\" placeholder=\"" . $display_name . "\">"
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
@@ -1020,19 +1020,19 @@ class ldap_entry_viewer_attrib
 		if($this->edit)
 		{
 			echo "<select name=\"ldap_attribute_" . $attribute
-				. "\" title=\"" . $display_name . "\">";
+				. "\" title=\"" . $display_name . "\">\n";
 
 			if($attrib_value == "")
-				echo "<option value=\"\" selected>(blank)</option>";
+				echo "              <option value=\"\" selected>(blank)</option>\n";
 			else
-				echo "<option value=\"\">(blank)</option>";
+				echo "              <option value=\"\">(blank)</option>\n";
 
 			foreach($country_name as $code => $name)
-				echo "<option value=\"" . $code . "\""
+				echo "              <option value=\"" . $code . "\""
 					. ($attrib_value == $code ? " selected" : "")
-					. ">" . $name . " (" . $code . ")</option>";
+					. ">" . $name . " (" . $code . ")</option>\n";
 
-			echo "</select>";
+			echo "            </select>";
 		}
 		else
 			if($attrib_value != "")
