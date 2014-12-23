@@ -70,7 +70,6 @@ body,table,textarea
 
 .ldap_entry_viewer_section th
 {
-	width:1px;		/* auto-expands as needed */
 	font-weight:normal;
 	text-align:left;
 	white-space:nowrap;
@@ -82,9 +81,15 @@ body,table,textarea
 /* Various other style directives (less useful for user configuration)  */
 /* -------------------------------------------------------------------- */
 
+.ldap_entry_viewer_section th,
+.search_results_viewer td.object_class_icon,
+.login_info
+{
+	width:1px;		/* auto-expand as needed */
+}
+
 .search_results_viewer td.object_class_icon
 {
-	width:1px;		/* auto-expands as needed */
 	background-color:transparent;
 }
 
@@ -142,7 +147,6 @@ a
 
 .login_info
 {
-	width:1px;		/* auto-expands as needed */
 	text-align:right;
 	vertical-align:top;
 }
