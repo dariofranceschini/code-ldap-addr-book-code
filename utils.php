@@ -134,22 +134,20 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 {
 	global $site_name,$ldap_login_enabled,$ldap_base_dn;
 
-	echo "<table class=\"ldap_navigation_path\">\n  <tr>\n"
-		. "    <th>\n      <a href=\"" . current_page_folder_url() . "\">"
-		. "<img style=\"vertical-align:top\" alt=\"Address Book\" src=\"addressbook24.png\"> "
-		. $site_name . "</a>\n    </th>\n";
+	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
+		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
+		. "        <li><a href=\"" . current_page_folder_url() . "\">"
+		. "<img alt=\"Address Book\" src=\"addressbook24.png\"> "
+		. $site_name . "</a></li>\n";
 
 	$folder_list = substr($base,0,-strlen($default_base)-1);
 	if($folder_list != "")
 	{
 		$folder_list = ldap_explode_dn2($folder_list);
 
-		echo "    <td>\n";
 		for($i=$folder_list["count"];$i>0;$i--)
 		{
-			echo "      &nbsp;&nbsp;"
-				. "&#x25B6;"	// Right-facing arrow head
-				. "&nbsp;&nbsp;";
+			echo "        <li>";
 
 			if($i>1)
 			{
@@ -170,17 +168,22 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 				$folder_icon=$leaf_icon;
 			}
 
-			echo "<img style=\"vertical-align:top\" alt=\""
+			echo "<img alt=\""
 				. $folder_alt_text . "\" src=\""
 				. $folder_icon . "\"> "
 				. $folder_list[$i-1]["value"];
 
 			if($i>1) echo "</a>";
 
+			echo "</li>";
+
 			echo "\n";
 		}
-		echo "    </td>\n";
 	}
+
+	echo "      </ul>\n";
+	echo "    </td>\n";
+
 	echo "    <td class=\"login_info\">";
 	if($ldap_login_enabled)
 	{

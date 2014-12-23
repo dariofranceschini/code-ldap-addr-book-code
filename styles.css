@@ -12,19 +12,20 @@ body,table,textarea
 /* Address book title (first element in folder navigation path)         */
 /* -------------------------------------------------------------------- */
 
-.ldap_navigation_path th
+.ldap_navigation_path li:first-child
 {
-	white-space:nowrap;
 	font-size:12pt;
+	font-weight:bold;
 }
 
 /* -------------------------------------------------------------------- */
 /* Folder navigation path element (other than first)                    */
 /* -------------------------------------------------------------------- */
 
-.ldap_navigation_path td
+.ldap_navigation_path li+li:before
 {
-	white-space:nowrap;
+	content:'\25B6';	/* Right-facing arrow head */
+	margin:0 1em;
 }
 
 /* -------------------------------------------------------------------- */
@@ -92,8 +93,7 @@ a
 	text-decoration:none;
 }
 
-.ldap_navigation_path,
-.login_info,
+.ldap_navigation_path_frame td,
 .ldap_entry_viewer,
 .ldap_entry_viewer_section,
 .ldap_entry_viewer_section td,
@@ -109,8 +109,7 @@ a
 	empty-cells:show;
 }
 
-.ldap_navigation_path td,
-.ldap_navigation_path th,
+.ldap_navigation_path_frame td,
 .ldap_entry_viewer td,
 .ldap_entry_viewer th,
 .search_results_viewer td,
@@ -121,12 +120,31 @@ a
 
 .ldap_navigation_path
 {
-	line-height:24px;	/* should match icon height */
+	list-style:none;
+	padding:0px;
+	margin:0px;
+}
+
+.ldap_navigation_path li
+{
+	display:inline;
+}
+
+.ldap_navigation_path li img
+{
+	vertical-align:top;
+}
+
+.ldap_navigation_path_frame td
+{
+	white-space:nowrap;
 }
 
 .login_info
 {
+	width:1px;		/* auto-expands as needed */
 	text-align:right;
+	vertical-align:top;
 }
 
 textarea
