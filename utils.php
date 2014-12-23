@@ -91,16 +91,17 @@ function show_search_box($initial_value)
 {
 	echo "<form action=\"" . current_page_folder_url() . "\" method=\"get\">\n";
 
-	echo "  <p>\n";
-	echo "    Search for:\n";
-
-	echo "    <input type=\"text\" name=\"filter\" size=50";
+	echo "  <table class=\"search\">\n";
+	echo "    <tr>\n";
+	echo "      <th>Search for:</th>\n";
+	echo "      <td><input type=\"text\" name=\"filter\"";
 	if(!empty($initial_value))
 		echo " value=\"" . htmlentities($initial_value,
 			ENT_COMPAT,"UTF-8") . "\"";
-
-	echo ">\n    <input type=\"submit\" value=\"Search\">\n";
-	echo "  </p>\n";
+	echo "></td>\n";
+	echo "      <td><input type=\"submit\" value=\"Search\"></td>\n";
+	echo "    </tr>\n";
+	echo "  </table>\n";
 	echo "</form>\n\n";
 }
 
