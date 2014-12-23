@@ -139,6 +139,15 @@ a
 	display:inline;
 }
 
+/* show folders in vertical list when screen width < 640 px */
+@media screen and (max-width:640px)
+{
+	.ldap_navigation_path li
+	{
+		display:block;
+	}
+}
+
 .ldap_navigation_path li img
 {
 	vertical-align:top;
