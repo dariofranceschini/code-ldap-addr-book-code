@@ -179,3 +179,20 @@ textarea
 {
         padding-right:6pt;
 }
+
+.page_footer ul
+{
+	padding:0px;
+	margin:0px;
+}
+
+.page_footer li
+{
+	display:inline;
+}
+
+.page_footer li+li:before
+{
+	content:'|';
+	margin:0 0.5em;
+}
