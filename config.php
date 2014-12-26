@@ -186,4 +186,11 @@ $thumbnail_image_size = "24x24";
 // in pixels. Set to an empty string (or leave undefined) to
 // disable scaling of these images.
 $photo_image_size = "96x96";
+
+// --------------------------------------------------------------------
+// Phone integration settings
+// --------------------------------------------------------------------
+
+// Phone numbers are clickable links (subject to client h/w support)
+$enable_clickable_phone_numbers = false;
 ?>

@@ -328,24 +328,25 @@ function get_attribute_class_schema($ldap_server_type = "ad")
 
 	return array(
 		array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
+		array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
 		array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
 		array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
 		array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
 		array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
 		array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
 		array("name"=>"givenName",		"data_type"=>"text",		"display_name"=>"Given Name"),
-		array("name"=>"homePhone",		"data_type"=>"text",		"display_name"=>"Home Telephone Number"),
+		array("name"=>"homePhone",		"data_type"=>"phone_number",	"display_name"=>"Home Telephone Number"),
 		array("name"=>"info",			"data_type"=>"text_area",	"display_name"=>"Information"),
 		array("name"=>"jpegPhoto",		"data_type"=>"image",		"display_name"=>"Photograph"),
 		array("name"=>"l",			"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
 		array("name"=>"mail",			"data_type"=>"text",		"display_name"=>"E-mail Address"),
-		array("name"=>"mobile",			"data_type"=>"text",		"display_name"=>"Mobile/Cell Telephone Number"),
+		array("name"=>"mobile",			"data_type"=>"phone_number",	"display_name"=>"Mobile/Cell Telephone Number"),
 		array("name"=>"pager",			"data_type"=>"text",		"display_name"=>"Pager Telephone Number"),
 		array("name"=>"physicalDeliveryOfficeName","data_type"=>"text",		"display_name"=>"Office"),
 		array("name"=>"sn",			"data_type"=>"text",		"display_name"=>"Surname"),
 		array("name"=>"st",			"data_type"=>"text",		"display_name"=>"State (or Province/County)"),
 		array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
-		array("name"=>"telephoneNumber",	"data_type"=>"text",		"display_name"=>"Telephone Number"),
+		array("name"=>"telephoneNumber",	"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
 		array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
 		array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
 		array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
@@ -972,6 +973,8 @@ class ldap_entry_viewer_attrib
 						$this->show_text($ldap_entry,$attribute,$display_name); break;
 					case "text_area":
 						$this->show_text_area($ldap_entry,$attribute,$display_name); break;
+					case "phone_number":
+						$this->show_phone_number($ldap_entry,$attribute,$display_name); break;
 					default:
 						echo "** unsupported data type **";
 				}
@@ -1003,6 +1006,42 @@ class ldap_entry_viewer_attrib
 				. $display_name . "\">";
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	// Show telephone number (data type "phone_number")
+	//
+	// TODO: escape "nasty values" in $attrib_value, e.g. "
+	// TODO: style this better.. should be 100% less a fixed number of pixels?
+	//
+	// $ldap_entry - entry for which attribute is to be displayed
+	// $attribute - attribute to display
+	// $display_name - "friendly" display name of attribute (typically
+	//		rendered as "tooltip")
+
+	function show_phone_number($ldap_entry,$attribute,$display_name)
+	{
+		global $enable_clickable_phone_numbers;
+
+		$attrib_value = get_ldap_attribute(
+			$ldap_entry,$attribute);
+
+		if($this->edit)
+		{
+			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+				. $attribute . "\" value=\""
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "\" title=\"" . $display_name . "\" placeholder=\""
+				. $display_name . "\">";
+		}
+		else
+		{
+			if($enable_clickable_phone_numbers)
+				// TODO: tidy up phone number format within link
+				echo "<a href=\"tel:" . urlencode($attrib_value) . "\">"
+					. htmlentities($attrib_value,ENT_COMPAT,"UTF-8") . "</a>";
+			else
+				echo htmlentities($attrib_value,ENT_COMPAT,"UTF-8");
+		}
 	}
 
 	// Show multi-line textual attribute (data type "text_area")
@@ -1698,7 +1737,7 @@ class ldap_entry_list
 	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
 		$is_folder = false)
 	{
-		global $thumbnail_image_size,$ldap_server_type;
+		global $thumbnail_image_size,$ldap_server_type,$enable_clickable_phone_numbers;
 
 		if($is_folder)
 			$colspan = " colspan=\""
@@ -1718,6 +1757,10 @@ class ldap_entry_list
 		else if($link_type == "mailto")
 			// Cell contains a link to an e-mail address
 			echo "<a href=\"mailto:"
+				. urlencode($attrib_value) . "\">";
+		else if($link_type == "tel" && $enable_clickable_phone_numbers)
+			// Cell contains a link to a telephone number
+			echo "<a href=\"tel:"
 				. urlencode($attrib_value) . "\">";
 
 		// Display the attribute's value
@@ -1745,7 +1788,14 @@ class ldap_entry_list
 					ENT_COMPAT,"UTF-8");
 		}
 
-		if($link_type != "none") echo "</a>";
+		if($link_type != "none")
+		{
+			if($link_type == "tel" && $enable_clickable_phone_numbers)
+				echo "</a>";
+
+			if($link_type != "tel")
+				 echo "</a>";
+		}
 
 		echo "\n    </td>\n";
 	}
