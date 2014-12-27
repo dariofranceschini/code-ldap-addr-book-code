@@ -869,7 +869,7 @@ class ldap_entry_viewer_section
 		if($this->width != "")
 			$cell_attrib.=" style=\"width:" . $this->width . "\"";
 
-		echo "    <td valign=\"top\" " . $cell_attrib
+		echo "    <td class=\"ldap_entry_viewer_section_frame\" " . $cell_attrib
 			. ">\n      <table class=\"ldap_entry_viewer_section\">\n";
 
 		if(!empty($this->text))

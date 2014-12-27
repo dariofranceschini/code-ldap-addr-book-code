@@ -127,6 +127,23 @@ a
 	padding:0px;
 }
 
+.ldap_entry_viewer_section_frame
+{
+	vertical-align:top;
+}
+
+/* always show layout sections in single column
+   when screen width < 640 px */
+@media screen and (max-width:640px)
+{
+	.ldap_entry_viewer_section_frame
+	{
+		display:block;
+		/* override user-specified width */
+		width:100% !important;
+	}
+}
+
 .ldap_navigation_path
 {
 	padding:0px;
