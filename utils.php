@@ -1940,7 +1940,7 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 		if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
 		{
-			if(isset($_POST["ldap_attribute_" . $attrib]))
+			if(isset($_POST["ldap_attribute_" . $attrib]) && $_POST["ldap_attribute_" . $attrib] != "")
 				$new_val = "";		// clear image
 			else
 			{
@@ -1978,7 +1978,8 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 			if($result)
 			{
 				if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
-					if(isset($_POST["ldap_attribute_" . $attrib]))
+					if(isset($_POST["ldap_attribute_" . $attrib])
+							&& $_POST["ldap_attribute_" . $attrib] != "")
 						return "Clear attribute '" . $attrib . "'";
 					else
 						return "Set attribute '" . $attrib
