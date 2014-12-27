@@ -1558,7 +1558,8 @@ class ldap_entry_list
 		foreach($this->search_result_columns as $column)
 		{
 			echo "    <th " . $colspan
-				. "class=\"column_header\">"
+				. "class=\"column_header search_results_attrib_"
+				. $column["attrib"] . "\">"
 				. "<a href=\"?sort=";
 
 			echo urlencode($column["attrib"]);
@@ -1748,7 +1749,7 @@ class ldap_entry_list
 
 		echo "    <td class=\""
 			. ldap_attribute_to_css_class($attrib_name)
-			. "\"" . $colspan . ">\n      ";
+			. " search_results_attrib_" . $attrib_name . "\"" . $colspan . ">\n      ";
 
 		if($link_type == "object")
 			// Cell contains a link to the object

@@ -1,0 +1,22 @@
+/* hide fax number when screen width < 1024 px */
+
+@media screen and (max-width:1024px)
+{
+	.search_results_attrib_facsimileTelephoneNumber
+	{
+		display:none;
+	}
+}
+
+/* also hide e-mail, home and office phone numbers when screen
+   width < 640 px, e.g. phone browsers */
+
+@media screen and (max-width:640px)
+{
+	.search_results_attrib_mail,
+	.search_results_attrib_homePhone,
+	.search_results_attrib_telephoneNumber
+	{
+		display:none;
+	}
+}
