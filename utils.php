@@ -1918,12 +1918,6 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 	$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
 
-	if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
-		$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
-			|| isset($_POST["ldap_attribute_" . $attrib]);
-	else
-		$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
-
 	$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
 
 	// For image attributes, the above is set if the "clear image" box was ticked.
