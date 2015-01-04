@@ -150,6 +150,7 @@ $entry_layout = array(
 		"attributes"=>array(
 			array("company",			"Company",		"company.png"),
 			array("url",				"Web Page",		"internet.png"),
+	//		array("thumbnailLogo",			"Logo",			"logo24.png"),
 			array("telephoneNumber",		"Office Phone",		"landline-phone.png"),
 			array("facsimileTelephoneNumber",	"Office Fax",		"fax.png"),
 			array("title",				"Job Title",		"id.png"),

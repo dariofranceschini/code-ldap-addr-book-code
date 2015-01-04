@@ -24,11 +24,10 @@ include "utils.php";
 //	prevent access to directory outside of address book base DN
 if(!empty($_GET["dn"])) $dn = $_GET["dn"]; else $dn = $ldap_base_dn;
 
+// TODO: sanitise attribute name from URL:
+//	stop "nasties" being passed through to the LDAP server
 if(!empty($_GET["attrib"]))
-	if($_GET["attrib"] == "thumbnailPhoto")
-		$attrib = "thumbnailPhoto";
-	else
-		$attrib = "jpegPhoto";
+	$attrib = $_GET["attrib"];
 else
 	$attrib = "jpegPhoto";
 

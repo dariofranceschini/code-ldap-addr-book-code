@@ -348,6 +348,7 @@ function get_attribute_class_schema($ldap_server_type = "ad")
 		array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
 		array("name"=>"telephoneNumber",	"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
 		array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
+		array("name"=>"thumbnailLogo",		"data_type"=>"image",		"display_name"=>"Thumbnail Logo"),
 		array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
 		array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
 		array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
@@ -2017,6 +2018,11 @@ function get_icon_for_ldap_entry($entry)
 			&& $enable_ldap_path_thumbnail)
 		return "image.php?dn=" . urlencode($dn)
 			. "&attrib=thumbnailPhoto&size="
+			. $thumbnail_image_size;
+	else if(!empty($entry["thumbnaillogo"][0])
+			&& $enable_ldap_path_thumbnail)
+		return "image.php?dn=" . urlencode($dn)
+			. "&attrib=thumbnailLogo&size="
 			. $thumbnail_image_size;
 	else
 	{
