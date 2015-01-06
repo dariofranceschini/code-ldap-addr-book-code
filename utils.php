@@ -823,7 +823,6 @@ class ldap_entry_viewer
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
 					. "\"><button>Delete</button></a>\n";
-
 		}
 		else
 			echo "<p>You do not have permission to view this record</p>\n";
@@ -849,7 +848,7 @@ class ldap_entry_viewer_section
 
 	function add_data($attribute,$caption="",$icon="")
 	{
-		$this->attrib[] = new ldap_entry_viewer_attrib($attribute,
+		$this->attrib[] = new ldap_entry_viewer_attrib($this->ldap_entry,$attribute,
 			$caption,$icon);
 	}
 
@@ -878,7 +877,7 @@ class ldap_entry_viewer_section
 				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
-			$attrib->show($this->ldap_entry,$edit);
+			$attrib->show($edit);
 
 		echo "      </table>\n";
 		echo "    </td>\n";
@@ -893,6 +892,7 @@ class ldap_entry_viewer_attrib
 	var $ldap_attribute;
 	var $icon;
 	var $edit = false;
+	var $ldap_entry;
 
 	// Add an attribute and its value to the display
 	//
@@ -900,19 +900,19 @@ class ldap_entry_viewer_attrib
 	// $caption - "friendly" caption to be used for LDAP attribute
 	// $icon - icon image to display next to attribute
 
-	function ldap_entry_viewer_attrib($attribute,$caption="",$icon="")
+	function ldap_entry_viewer_attrib($ldap_entry,$attribute,$caption="",$icon="")
 	{
 		$this->caption = $caption;
 		$this->ldap_attribute = $attribute;
 		$this->icon = $icon;
+		$this->ldap_entry = $ldap_entry;
 	}
 
 	// Output this object attribute as HTML
 	//
-	// $ldap_entry - entry to display
 	// $edit - whether the attribute should be rendered with editing enabled
 
-	function show($ldap_entry,$edit)
+	function show($edit)
 	{
 		global $ldap_server_type;
 
@@ -965,17 +965,17 @@ class ldap_entry_viewer_attrib
 				switch(get_attribute_data_type($attribute,$attribute_class_schema))
 				{
 					case "postcode":
-						$this->show_postcode($ldap_entry,$attribute,$display_name); break;
+						$this->show_postcode($attribute,$display_name); break;
 					case "country_code":
-						$this->show_country_code($ldap_entry,$attribute,$display_name); break;
+						$this->show_country_code($attribute,$display_name); break;
 					case "image":
-						$this->show_image($ldap_entry,$attribute,$display_name); break;
+						$this->show_image($attribute,$display_name); break;
 					case "text":
-						$this->show_text($ldap_entry,$attribute,$display_name); break;
+						$this->show_text($attribute,$display_name); break;
 					case "text_area":
-						$this->show_text_area($ldap_entry,$attribute,$display_name); break;
+						$this->show_text_area($attribute,$display_name); break;
 					case "phone_number":
-						$this->show_phone_number($ldap_entry,$attribute,$display_name); break;
+						$this->show_phone_number($attribute,$display_name); break;
 					default:
 						echo "** unsupported data type **";
 				}
@@ -989,15 +989,14 @@ class ldap_entry_viewer_attrib
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_text($ldap_entry,$attribute,$display_name)
+	function show_text($attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
@@ -1014,17 +1013,16 @@ class ldap_entry_viewer_attrib
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_phone_number($ldap_entry,$attribute,$display_name)
+	function show_phone_number($attribute,$display_name)
 	{
 		global $enable_clickable_phone_numbers;
 
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 		{
@@ -1050,15 +1048,14 @@ class ldap_entry_viewer_attrib
 	// TODO: escape "nasty values" in $attrib_value, e.g. "
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_text_area($ldap_entry,$attribute,$display_name)
+	function show_text_area($attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 			echo "\n            <textarea style=\"width:98%;\" name=\"ldap_attribute_"
@@ -1074,18 +1071,17 @@ class ldap_entry_viewer_attrib
 	//
 	// TODO: improve handling of unrecognised country codes
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_country_code($ldap_entry,$attribute,$display_name)
+	function show_country_code($attribute,$display_name)
 	{
 		global $country_name;
 		asort($country_name);
 
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 		{
@@ -1116,15 +1112,14 @@ class ldap_entry_viewer_attrib
 	// TODO: style this better.. should be 100% less a fixed number of pixels?
 	// TODO: make mapping service configurable (not just Google)
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_postcode($ldap_entry,$attribute,$display_name)
+	function show_postcode($attribute,$display_name)
 	{
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 		{
@@ -1141,17 +1136,16 @@ class ldap_entry_viewer_attrib
 
 	// Show image attribute (data type "image")
 	//
-	// $ldap_entry - entry for which attribute is to be displayed
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
 
-	function show_image($ldap_entry,$attribute,$display_name)
+	function show_image($attribute,$display_name)
 	{
 		global $photo_image_size;
 
 		$attrib_value = get_ldap_attribute(
-			$ldap_entry,$attribute);
+			$this->ldap_entry,$attribute);
 
 		// TODO: this is not a very efficient way to determine
 		// whether image attribute is empty (should avoid
@@ -1165,7 +1159,7 @@ class ldap_entry_viewer_attrib
 				$size="";
 
 			echo "<img src=\"image.php?dn="
-				. urlencode($ldap_entry[0]["dn"])
+				. urlencode($this->ldap_entry[0]["dn"])
 				. "&attrib=" . $attribute . $size
 				. "\" title=\"" . $display_name . "\">\n";
 		}
