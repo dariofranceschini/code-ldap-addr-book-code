@@ -104,9 +104,9 @@ $browse_ldap_filter = "objectClass=*";
 $search_result_columns = array(
 	array("caption"=>"Name",		"attrib"=>"sortableName",	"link_type"=>"object"),
 	array("caption"=>"E-Mail",		"attrib"=>"mail",		"link_type"=>"mailto"),
-	array("caption"=>"Home Phone",		"attrib"=>"homePhone",		"link_type"=>"none"),
-	array("caption"=>"Office Phone",	"attrib"=>"telephoneNumber",	"link_type"=>"none"),
-	array("caption"=>"Mobile Phone",	"attrib"=>"mobile",		"link_type"=>"none"),
+	array("caption"=>"Home Phone",		"attrib"=>"homePhone",		"link_type"=>"tel"),
+	array("caption"=>"Office Phone",	"attrib"=>"telephoneNumber",	"link_type"=>"tel"),
+	array("caption"=>"Mobile Phone",	"attrib"=>"mobile",		"link_type"=>"tel"),
 	array("caption"=>"Office Fax",	"attrib"=>"facsimileTelephoneNumber",	"link_type"=>"none")
 //	array("caption"=>"Organisation",	"attrib"=>"company",		"link_type"=>"none")
 	);
