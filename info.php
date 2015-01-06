@@ -19,7 +19,8 @@
 include "config.php";
 include "utils.php";
 
-show_site_header();
+if(empty($_GET["vcard"]))
+	show_site_header();
 
 if(prereq_components_ok())
 {
@@ -55,10 +56,20 @@ if(prereq_components_ok())
 					$entry = ldap_get_entries($ldap_link,$search_resource);
 					$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
 
-					if(!empty($_GET["edit"]))
-						$entry_viewer->edit = true;
+					if(!empty($_GET["vcard"]))
+					{
+						header("Content-Type: text/x-vcard");
+						header("Content-Disposition: attachment; filename=\""
+							. $entry[0]["cn"][0] . ".vcf\"");
+						$entry_viewer->save_vcard();
+					}
+					else
+					{
+						if(!empty($_GET["edit"]))
+							$entry_viewer->edit = true;
 
-					$entry_viewer->show();
+						$entry_viewer->show();
+					}
 				}
 				else
 					show_error_message("Unable to locate LDAP record.");
@@ -82,5 +93,6 @@ if(prereq_components_ok())
 	echo "\n\n";
 }
 
-show_site_footer();
+if(empty($_GET["vcard"]))
+	show_site_footer();
 ?>

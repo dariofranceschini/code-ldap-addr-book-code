@@ -19,7 +19,8 @@
 include "config.php";
 include "utils.php";
 
-show_site_header();
+if(empty($_GET["vcard"]))
+	show_site_header();
 
 if(prereq_components_ok())
 {
@@ -46,32 +47,47 @@ if(prereq_components_ok())
 	}
 	else
 	{
-		// Default filter expression to use if none specified in config
-		// file: display objects of all classes when browsing the directory
-		$filter = empty($browse_ldap_filter)
-			?"objectClass=*":$browse_ldap_filter;
-		$search_type= "base";
+		if(empty($_GET["vcard"]))
+		{
+			// Default filter expression to use if none specified in config
+			// file: display objects of all classes when browsing the directory
+			$filter = empty($browse_ldap_filter)
+				?"objectClass=*":$browse_ldap_filter;
+			$search_type= "base";
+		}
+		else
+		{
+			// vCard export settings
+			$filter = empty($search_ldap_filter)
+				?"objectClass=person":$search_ldap_filter;
 
+			$filter = str_replace("___search_criteria___",
+				"",$search_ldap_filter);
+
+			$search_type = "subtree";
+		}
 		// TODO: sanitise base DN from URL:
 		//	stop "nasties" being passed through to the LDAP server
 		//	prevent access to directory outside of address book base DN
 		if(!empty($_GET["dn"])) $dn = $_GET["dn"];
 	}
 
-	show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
+	if(empty($_GET["vcard"]))
+		show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
 
 	if(empty($ldap_server_type))	// Default server type: Active Directory
 		$ldap_server_type = "ad";
 
 	$user_info = get_user_info();
 
-	if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
-		if(!empty($_GET["filter"]))
-			show_search_box($_GET["filter"]);
+	if(empty($_GET["vcard"]))
+		if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
+			if(!empty($_GET["filter"]))
+				show_search_box($_GET["filter"]);
+			else
+				show_search_box("");
 		else
-			show_search_box("");
-	else
-		echo "<br>";
+			echo "<br>";
 
 	$search_resource = false;
 
@@ -114,16 +130,45 @@ if(prereq_components_ok())
 
 		$entry_list = new ldap_entry_list($search_resource,
 			$search_result_columns,$sort_order);
-		$entry_list->show();
+
+		if(empty($_GET["vcard"]))
+			$entry_list->show();
+		else
+		{
+			if($dn == $ldap_base_dn)
+				$filename = $site_name;
+			else
+			{
+				$rdn_list = ldap_explode_dn2($dn);
+				$filename = $rdn_list[0]["value"];
+			}
+
+			header("Content-Type: text/x-vcard");
+			header("Content-Disposition: attachment; filename=\""
+				. $filename . ".vcf\"");
+			$entry_list->save_vcard();
+		}
 	}
 
 	echo "\n";
 }
 
-if(isset($user_info["allow_create"]) && $user_info["allow_create"])
-	echo "<hr>\n<a href=\"create.php?dn="
-		. htmlentities($dn,ENT_COMPAT,"UTF-8")
-		. "\"><button>New Record</button></a>\n";
+if(empty($_GET["vcard"]))
+{
+	$buttons = "";
+	if(isset($user_info["allow_create"]) && $user_info["allow_create"])
+		$buttons .= "<a href=\"create.php?dn="
+			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+			. "\"><button>New Record</button></a>\n";
 
-show_site_footer();
+	if(isset($user_info["allow_export_bulk"]) && $user_info["allow_export_bulk"] && empty($_GET["filter"]))
+		$buttons .= "<a href=\"index.php?vcard=1&dn="
+			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+			. "\"><button>Export Records</button></a>\n";
+
+	if(!empty($buttons))
+		echo "<hr>\n" . $buttons;
+
+	show_site_footer();
+}
 ?>

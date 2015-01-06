@@ -789,6 +789,13 @@ class ldap_entry_viewer
 			$attribute,$caption,$icon);
 	}
 
+	// Output the object entry as vCard
+
+	function save_vcard()
+	{
+		echo vcard($this->ldap_entry[0]);
+	}
+
 	// Output the object entry as HTML, utilising chosen attributes
 	// and layout
 
@@ -853,6 +860,10 @@ class ldap_entry_viewer
 					. urlencode($dn)
 					. "\"><button>Delete</button></a>\n";
 
+			if(isset($this->user_info["allow_export"]) && $this->user_info["allow_export"] && !$this->edit)
+				echo "<a href=\"info.php?vcard=1&dn="
+					. urlencode($dn)
+					. "\"><button>Save as vCard</button></a>\n";
 		}
 		else
 			echo "<p>You do not have permission to view this record</p>\n";
@@ -1594,6 +1605,25 @@ class ldap_entry_list
 		$this->sort_order = $sort_order;
 	}
 
+	// Output the address book contents as vCard
+
+	function save_vcard()
+	{
+		global $ldap_link;
+
+		// Fetch and sort records
+
+		$ldap_data = ldap_sort_entries(
+			ldap_get_entries($ldap_link,$this->ldap_entries),
+			$this->sort_order == "sortableName"
+			? array("sn","givenName","ou","cn")
+			: array($this->sort_order),
+			LDAP_SORT_ASCENDING);
+
+		for($i=0;$i < $ldap_data["count"]; $i++)
+			echo vcard($ldap_data[$i]) . "\n";
+	}
+
         // Output the object entry list as HTML, utilising chosen sort order
 
 	function show()
@@ -2107,4 +2137,119 @@ function get_icon_for_ldap_entry($entry)
 			"icon");
 	}
 }
+
+// Return the specified LDAP entry in vCard format
+
+function vcard($entry)
+{
+	global $exclude_logo_if_photo_present;
+
+	$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
+
+	// Family Name, Given Name, Additional Names, Honorific
+	//   Prefixes, and Honorific Suffixes
+
+	if(isset($entry["sn"][0])) $sn = $entry["sn"][0]; else $sn = "";
+	if(isset($entry["givenname"][0])) $givenname = $entry["givenname"][0]; else $givenname = "";
+
+	$vcard .= "N:"
+		. $sn . ";"	// family name
+		. $givenname . ";"	// given name
+		. "" . ";"	// additional names
+		. "" . ";"	// honorific prefixes
+		. "" . "\n";	// honorific suffixes
+
+	// formatted name
+	$vcard .= "FN:" . $entry["cn"][0] . "\n";
+
+	if(isset($entry["title"][0]))
+		$vcard .= "TITLE:" . $entry["title"][0] . "\n";
+
+	if(isset($entry["company"][0]))
+	{
+		$vcard .=  "ORG:" . $entry["company"][0];
+		if(isset($entry["department"][0]))
+			$vcard .=  ";" . $entry["department"][0];
+		$vcard .= "\n";
+	}
+
+	if(isset($entry["streetaddress"][0])) $streetaddress = $entry["streetaddress"][0]; else $streetaddress = "";
+	if(isset($entry["l"][0])) $l = $entry["l"][0]; else $l = "";
+	if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
+	if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
+
+	$vcard .=  "ADR:;;" . $streetaddress
+		. ";" . $l . ";" . $st . ";" . $postalcode . "\n";
+
+	// Familiar/informal name of person
+	if(isset($entry["displayname"][0]))
+		$vcard .= "NICKNAME:" . $entry["displayname"][0] . "\n";
+	if(isset($entry["homephone"][0]))
+		$vcard .= "TEL;TYPE=HOME:" . str_replace(" ","",$entry["homephone"][0]) . "\n";
+	if(isset($entry["telephonenumber"][0]))
+		$vcard .= "TEL;TYPE=WORK:" . str_replace(" ","",$entry["telephonenumber"][0]) . "\n";
+	if(isset($entry["mobile"][0]))
+		$vcard .= "TEL;TYPE=CELL:" . str_replace(" ","",$entry["mobile"][0]) . "\n";
+	if(isset($entry["facsimiletelephonenumber"][0]))
+		$vcard .= "TEL;WORK;FAX:" . str_replace(" ","",$entry["facsimiletelephonenumber"][0]) . "\n";
+	if(isset($entry["mail"][0]))
+		$vcard .= "EMAIL;TYPE=INTERNET:" . $entry["mail"][0] . "\n";
+	//home
+	if(isset($entry["wwwhomepage"][0]))
+		$vcard .= "URL:" . $entry["wwwhomepage"][0] . "\n";
+	//work
+	if(isset($entry["url"][0]))
+		$vcard .= "URL:" . $entry["url"][0] . "\n";
+
+	if(isset($entry["jpegphoto"][0]))
+		$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
+			. chunk_split(base64_encode($entry["jpegphoto"][0]),76,"\n") . "\n";
+	else if(isset($entry["thumbnailphoto"][0]))
+		$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
+			. chunk_split(base64_encode($entry["thumbnailphoto"][0]),76,"\n") . "\n";
+
+	if(isset($entry["thumbnaillogo"][0]))
+	{
+		if(isset($exclude_logo_if_photo_present) && $exclude_logo_if_photo_present)
+		{
+			if(!isset($entry["jpegphoto"][0]) && !isset($entry["thumbnailphoto"][0]))
+				$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
+					. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
+		}
+		else
+			$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
+				. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
+	}
+
+	if(isset($entry["manager"][0]))
+	{
+		$manager = ldap_explode_dn2($entry["manager"][0]);
+
+		$vcard .= "X-ANDROID-CUSTOM:vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;\n";
+	}
+
+	if(isset($entry["info"][0]))
+	{
+		$info="NOTE;ENCODING=QUOTED-PRINTABLE:";
+
+		$count = strlen($info);
+		foreach(str_split($entry["info"][0]) as $char)
+		{
+			$info .= "=" . (ord($char)<16 ? "0" : "") . dechex(ord($char));
+			$count+=3;
+
+			if($count>70)
+			{
+				$info .= "=\n";
+				$count = 0;
+			}
+		}
+		$vcard .= $info . "\n";
+	}
+
+	$vcard .= "END:VCARD\n";
+
+	return $vcard;
+}
+
 ?>

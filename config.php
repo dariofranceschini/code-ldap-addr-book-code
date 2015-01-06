@@ -194,4 +194,12 @@ $photo_image_size = "96x96";
 
 // Phone numbers are clickable links (subject to client h/w support)
 $enable_clickable_phone_numbers = false;
+
+// --------------------------------------------------------------------
+// Data export settings
+// --------------------------------------------------------------------
+
+// May be prefered if importing into Android contacts - otherwise
+// company logo will be displayed instead of photo
+$exclude_logo_if_photo_present = true;
 ?>
