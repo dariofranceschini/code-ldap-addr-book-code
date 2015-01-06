@@ -852,6 +852,7 @@ class ldap_entry_viewer
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
 					. "\"><button>Delete</button></a>\n";
+
 		}
 		else
 			echo "<p>You do not have permission to view this record</p>\n";
@@ -1239,7 +1240,8 @@ class ldap_entry_viewer_attrib
 
 		if($this->edit)
 		{
-			if($attrib_value == "")
+			// Don't show "Clear Image" button if attribute is mandatory
+			if($attrib_value == "" || $required)
 				echo "            <input type=\"hidden\" name=\"ldap_attribute_"
 					. $attribute . "\" value=\"\">";
 			else
