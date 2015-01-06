@@ -96,7 +96,8 @@ if(log_on_to_directory($ldap_link))
 					$change_list = "";
 				else
 					$change_list = "  <li>New '" . $_POST["create"]
-						. "' record created</li>\n";
+						. "' record created: '" . $_POST["ldap_attribute_"
+						. $rdn_attrib] . "'</li>\n";
 
 				$rdn_attrib = get_object_class_setting(
 					$object_class_schema,
