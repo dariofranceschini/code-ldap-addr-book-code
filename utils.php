@@ -731,7 +731,8 @@ class ldap_entry_viewer
 				$this->add_to_section(
 					$attribute[0],			// LDAP attribute name
 					isset($attribute[1]) ? $attribute[1] : null,	// caption
-					isset($attribute[2]) ? $attribute[2] : null	// icon
+					isset($attribute[2]) ? $attribute[2] : null,	// icon
+					isset($attribute[3]) ? $attribute[3] : null	// hide unless editing
 					);
 
 			$first_section = false;
@@ -764,11 +765,12 @@ class ldap_entry_viewer
 	// $attribute - LDAP attribute
 	// $caption - "friendly" caption to be used for LDAP attribute
 	// $icon - icon image to display next to attribute
+	// $hide_unless_editing - whether the attribute should be hidden except when editing
 
-	function add_to_section($attribute,$caption="",$icon="")
+	function add_to_section($attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
 		$this->section[$this->last_section_added]->add_data(
-			$attribute,$caption,$icon);
+			$attribute,$caption,$icon,$hide_unless_editing);
 	}
 
 	// Output the object entry as vCard
@@ -875,11 +877,12 @@ class ldap_entry_viewer_section
 	// $attribute - LDAP attribute
 	// $caption - "friendly" caption to be used for LDAP attribute
 	// $icon - icon image to display next to attribute
+	// $hide_unless_editing - whether the attribute should be hidden except when editing
 
-	function add_data($attribute,$caption="",$icon="")
+	function add_data($attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
 		$this->attrib[] = new ldap_entry_viewer_attrib($this->ldap_entry,$attribute,
-			$caption,$icon);
+			$caption,$icon,$hide_unless_editing);
 	}
 
 	// Output this section of the object entry as HTML, utilising chosen attributes
@@ -923,19 +926,22 @@ class ldap_entry_viewer_attrib
 	var $icon;
 	var $edit = false;
 	var $ldap_entry;
+	var $hide_unless_editing = false;
 
 	// Add an attribute and its value to the display
 	//
 	// $attribute - LDAP attribute
 	// $caption - "friendly" caption to be used for LDAP attribute
 	// $icon - icon image to display next to attribute
+	// $hide_unless_editing - whether the attribute should be hidden except when editing
 
-	function ldap_entry_viewer_attrib($ldap_entry,$attribute,$caption="",$icon="")
+	function ldap_entry_viewer_attrib($ldap_entry,$attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
 		$this->caption = $caption;
 		$this->ldap_attribute = $attribute;
 		$this->icon = $icon;
 		$this->ldap_entry = $ldap_entry;
+		$this->hide_unless_editing = $hide_unless_editing;
 	}
 
 	// Output this object attribute as HTML
@@ -948,79 +954,81 @@ class ldap_entry_viewer_attrib
 
 		$this->edit = $edit;
 
-		echo "        <tr>\n";
-
-		// Use full width if attribute has no icon or caption text
-		if($this->icon == "" && $this->caption == "")
-			echo "          <td colspan=3 class=\""
-					. ldap_attribute_to_css_class($this->ldap_attribute)
-					. "\">";
-		else
+		if($this->edit || !$this->hide_unless_editing)
 		{
-			echo "          <th>";
-			if($this->icon != "")
-				echo "<img alt=\"" . $this->ldap_attribute
-					. "\" src=\"schema/"
-					. $this->icon . "\">";
-			echo "</th>\n          "
-				. "<th>"
-				. $this->caption . "</th>\n";
+			echo "        <tr>\n";
 
-			echo "          <td class=\""
-				. ldap_attribute_to_css_class($this->ldap_attribute)
-				. "\">\n            ";
-		}
-
-		$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
-
-		$first_line = true;
-		// look up values of attributes listed
-		//   (: = line break, + = space between words)
-		foreach(explode(":",$this->ldap_attribute) as $attribute_line)
-		{
-			if($first_line == false) echo "<br>\n";
-			$first_line = false;
-
-			$space_before_attribute = false;
-			foreach(explode("+",$attribute_line) as $attribute)
+			// Use full width if attribute has no icon or caption text
+			if($this->icon == "" && $this->caption == "")
+				echo "          <td colspan=3 class=\""
+						. ldap_attribute_to_css_class($this->ldap_attribute)
+						. "\">";
+			else
 			{
-				if($space_before_attribute) echo " ";
-				$space_before_attribute = true;
+				echo "          <th>";
+				if($this->icon != "")
+					echo "<img alt=\"" . $this->ldap_attribute
+						. "\" src=\"schema/"
+						. $this->icon . "\">";
+				echo "</th>\n          "
+					. "<th>"
+					. $this->caption . "</th>\n";
 
-				$display_name=get_attribute_display_name($attribute,$attribute_class_schema);
+				echo "          <td class=\""
+					. ldap_attribute_to_css_class($this->ldap_attribute)
+					. "\">\n            ";
+			}
 
-				if($display_name!=$attribute)
-					$display_name .= " (" . $attribute . ")";
+			$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
 
-				// determine whether this is a required attribute
+			$first_line = true;
+			// look up values of attributes listed
+			//   (: = line break, + = space between words)
+			foreach(explode(":",$this->ldap_attribute) as $attribute_line)
+			{
+				if($first_line == false) echo "<br>\n";
+				$first_line = false;
 
-				$object_class_schema = get_object_class_schema($ldap_server_type);
-				$required = object_requires_attribute($object_class_schema,
-					get_object_class($object_class_schema,$this->ldap_entry[0])
-					,$attribute);
-
-				// display the attribute
-
-				switch(get_attribute_data_type($attribute,$attribute_class_schema))
+				$space_before_attribute = false;
+				foreach(explode("+",$attribute_line) as $attribute)
 				{
-					case "postcode":
-						$this->show_postcode($attribute,$display_name,$required); break;
-					case "country_code":
-						$this->show_country_code($attribute,$display_name,$required); break;
-					case "image":
-						$this->show_image($attribute,$display_name,$required); break;
-					case "text":
-						$this->show_text($attribute,$display_name,$required); break;
-					case "text_area":
-						$this->show_text_area($attribute,$display_name,$required); break;
-					case "phone_number":
-						$this->show_phone_number($attribute,$display_name,$required); break;
-					default:
-						echo "** unsupported data type **";
+					if($space_before_attribute) echo " ";
+					$space_before_attribute = true;
+
+					$display_name=get_attribute_display_name($attribute,$attribute_class_schema);
+
+					if($display_name!=$attribute)
+						$display_name .= " (" . $attribute . ")";
+
+					// determine whether this is a required attribute
+
+					$object_class_schema = get_object_class_schema($ldap_server_type);
+					$required = object_requires_attribute($object_class_schema,
+						get_object_class($object_class_schema,$this->ldap_entry[0])
+						,$attribute);
+
+					// display the attribute
+					switch(get_attribute_data_type($attribute,$attribute_class_schema))
+					{
+						case "postcode":
+							$this->show_postcode($attribute,$display_name,$required); break;
+						case "country_code":
+							$this->show_country_code($attribute,$display_name,$required); break;
+						case "image":
+							$this->show_image($attribute,$display_name,$required); break;
+						case "text":
+							$this->show_text($attribute,$display_name,$required); break;
+						case "text_area":
+							$this->show_text_area($attribute,$display_name,$required); break;
+						case "phone_number":
+							$this->show_phone_number($attribute,$display_name,$required); break;
+						default:
+							echo "** unsupported data type **";
+					}
 				}
 			}
+			echo "\n          </td>\n        </tr>\n";
 		}
-		echo "\n          </td>\n        </tr>\n";
 	}
 
 	// Show single-line textual attribute (data type "text")
