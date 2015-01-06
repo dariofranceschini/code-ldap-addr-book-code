@@ -355,6 +355,35 @@ function get_attribute_class_schema($ldap_server_type = "ad")
 		);
 }
 
+// Return whether the specified attribute is mandatory (must have a non-empty
+// value) for the specified object class.
+//
+// $object_class_schema - Object class schema to be queried
+// $object_class - Object class to be queried
+// $attribute_name - Attribute to return whether mandatory or not
+
+function object_requires_attribute($object_class_schema,$object_class,$attribute_name)
+{
+	$required = (get_object_class_setting($object_class_schema,
+		$object_class,"rdn_attrib")==$attribute_name);
+
+	// if not required due to being the class's RDN attribute,
+	// check whether it is listed in required_attribs
+
+	if(!$required)
+	{
+		$required_attribs = explode(",",
+			get_object_class_setting($object_class_schema,
+				$object_class,"required_attribs"));
+
+		foreach($required_attribs as $attrib)
+			if($attrib == $attribute_name)
+				$required = true;
+	}
+
+	return $required;
+}
+
 // Return the value of a schema setting for the specificed LDAP attribute
 //
 // $attribute_name - Attribute for which schema setting is to be returned
@@ -962,20 +991,29 @@ class ldap_entry_viewer_attrib
 				if($display_name!=$attribute)
 					$display_name .= " (" . $attribute . ")";
 
+				// determine whether this is a required attribute
+
+				$object_class_schema = get_object_class_schema($ldap_server_type);
+				$required = object_requires_attribute($object_class_schema,
+					get_object_class($object_class_schema,$this->ldap_entry[0])
+					,$attribute);
+
+				// display the attribute
+
 				switch(get_attribute_data_type($attribute,$attribute_class_schema))
 				{
 					case "postcode":
-						$this->show_postcode($attribute,$display_name); break;
+						$this->show_postcode($attribute,$display_name,$required); break;
 					case "country_code":
-						$this->show_country_code($attribute,$display_name); break;
+						$this->show_country_code($attribute,$display_name,$required); break;
 					case "image":
-						$this->show_image($attribute,$display_name); break;
+						$this->show_image($attribute,$display_name,$required); break;
 					case "text":
-						$this->show_text($attribute,$display_name); break;
+						$this->show_text($attribute,$display_name,$required); break;
 					case "text_area":
-						$this->show_text_area($attribute,$display_name); break;
+						$this->show_text_area($attribute,$display_name,$required); break;
 					case "phone_number":
-						$this->show_phone_number($attribute,$display_name); break;
+						$this->show_phone_number($attribute,$display_name,$required); break;
 					default:
 						echo "** unsupported data type **";
 				}
@@ -992,18 +1030,26 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_text($attribute,$display_name)
+	function show_text($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
 			$this->ldap_entry,$attribute);
 
 		if($this->edit)
-			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+		{
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $display_name . "\" placeholder=\""
 				. $display_name . "\">";
+		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
@@ -1016,8 +1062,9 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_phone_number($attribute,$display_name)
+	function show_phone_number($attribute,$display_name,$required)
 	{
 		global $enable_clickable_phone_numbers;
 
@@ -1026,7 +1073,12 @@ class ldap_entry_viewer_attrib
 
 		if($this->edit)
 		{
-			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $display_name . "\" placeholder=\""
@@ -1051,18 +1103,26 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_text_area($attribute,$display_name)
+	function show_text_area($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
 			$this->ldap_entry,$attribute);
 
 		if($this->edit)
-			echo "\n            <textarea style=\"width:98%;\" name=\"ldap_attribute_"
+		{
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "\n            <textarea style=\"" . $style . "\" name=\"ldap_attribute_"
 				. $attribute . "\" title=\"" . $display_name
 				. "\" placeholder=\"" . $display_name . "\">"
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "</textarea>";
+		}
 		else
 			echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
 	}
@@ -1074,8 +1134,9 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_country_code($attribute,$display_name)
+	function show_country_code($attribute,$display_name,$required)
 	{
 		global $country_name;
 		asort($country_name);
@@ -1085,8 +1146,13 @@ class ldap_entry_viewer_attrib
 
 		if($this->edit)
 		{
+			if($required)
+				$style = "border-color:red;border-style:solid";
+			else
+				$style = "";
+
 			echo "<select name=\"ldap_attribute_" . $attribute
-				. "\" title=\"" . $display_name . "\">\n";
+				. "\" title=\"" . $display_name . "\" style=\"" . $style . "\">\n";
 
 			if($attrib_value == "")
 				echo "              <option value=\"\" selected>(blank)</option>\n";
@@ -1115,15 +1181,21 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_postcode($attribute,$display_name)
+	function show_postcode($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
 			$this->ldap_entry,$attribute);
 
 		if($this->edit)
 		{
-			echo "<input style=\"width:98%;\" type=\"text\" name=\"ldap_attribute_"
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $display_name . "\" placeholder=\"" . $display_name . "\">";
@@ -1139,8 +1211,9 @@ class ldap_entry_viewer_attrib
 	// $attribute - attribute to display
 	// $display_name - "friendly" display name of attribute (typically
 	//		rendered as "tooltip")
+	// $required - whether attribute is mandatory (either marked as such or the RDN)
 
-	function show_image($attribute,$display_name)
+	function show_image($attribute,$display_name,$required)
 	{
 		global $photo_image_size;
 
@@ -1173,7 +1246,12 @@ class ldap_entry_viewer_attrib
 				echo "            <br>\n            <input type=\"checkbox\" name=\"ldap_attribute_"
 					. $attribute . "\">Clear Image<br>\n";
 
-			echo "            <input type=\"file\" name=\"ldap_attribute_"
+			if($required)
+				$style = "border-color:red;border-style:solid";
+			else
+				$style = "";
+
+			echo "            <input style=\"" . $style . "\" type=\"file\" name=\"ldap_attribute_"
 				. $attribute . "_file\" title=\"" . $display_name
 				. "\" accept=\".jpg,.jpeg,.png,.gd2,.wbmp\">";
 		}
