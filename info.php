@@ -35,17 +35,28 @@ if(prereq_components_ok())
 			if(isset($_GET["create"]))
 			{
 				// TODO: guard against nasties in the parent DN and object class
-				// and name
 				$object_class = $_GET["create"];
 
-				$entry_viewer = new ldap_entry_viewer($entry_layout,null);
+				$object_class_schema = get_object_class_schema($ldap_server_type);
 
 				$rdn_attrib = get_object_class_setting(
-					get_object_class_schema($ldap_server_type),
+					$object_class_schema,
 					$object_class,"rdn_attrib");
 
-				$entry_viewer->create_record($_GET["create"],
-					$rdn_attrib . "=" . $_GET["name"] . "," . $dn);
+				// Stub LDAP entry which is to be created
+		                $entry = array(
+                		        "count"=>1,
+		                        array(
+                        		        "objectclass"=>array("count"=>1,$object_class),
+                                		"dn"=>$dn
+         		                       )
+		                        );
+
+				$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
+
+				$entry_viewer->create = $entry_viewer->edit = true;
+
+				$entry_viewer->show();
 			}
 			else
 			{

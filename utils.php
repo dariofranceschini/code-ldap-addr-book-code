@@ -738,24 +738,6 @@ class ldap_entry_viewer
 		}
 	}
 
-	// Create a new LDAP record
-	// $objectclass - LDAP object class of record to be created
-	// $dn - LDAP DN of record to be created
-
-	function create_record($objectclass,$dn)
-	{
-		$this->ldap_entry = array(
-			"count"=>1,
-			array(
-				"objectclass"=>array("count"=>1,$objectclass),
-				"dn"=>$dn
-				)
-			);
-
-		$this->edit = $this->create = true;
-		$this->show();
-	}
-
 	// Add a section to the display
 	//
 	// $text - title text/section name
@@ -809,8 +791,15 @@ class ldap_entry_viewer
 
 		$dn = $this->ldap_entry[0]["dn"];
 
-		show_ldap_path($dn,$ldap_base_dn,
-			get_icon_for_ldap_entry($this->ldap_entry[0]));
+		if($this->create)
+			show_ldap_path("CN=New "
+				. get_object_class_setting($object_class_schema,
+				get_object_class($object_class_schema,$this->ldap_entry[0])
+				,"display_name") .  "," . $dn,$ldap_base_dn,
+				get_icon_for_ldap_entry($this->ldap_entry[0]));
+		else
+			show_ldap_path($dn,$ldap_base_dn,
+				get_icon_for_ldap_entry($this->ldap_entry[0]));
 
 		if($this->user_info["allow_search"])
 			show_search_box("");

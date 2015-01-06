@@ -32,20 +32,14 @@ show_ldap_path("cn=New Record," . $dn,$ldap_base_dn,"schema/generic24.png");
 
 $object_class_schema = get_object_class_schema($ldap_server_type);
 
-echo "&nbsp;<br>";
-
 echo "<form method=\"get\" action=\"info.php\">\n";
-echo "<table>";
+
+echo "  <p>\n    What type of record would you like to create?\n  </p>\n";
+
 echo "  <input type=\"hidden\" name=\"dn\" value=\""
 	. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n";
 
-echo "<tr><th></th><th style=\"text-align:left\">Create New Record</th></tr>";
-
-echo "  <tr><td>Name</td><td><input type=\"text\" name=\"name\" value=\"New Record\" style=\"height:24px;width:300px\"></td></tr>\n";
-
-echo "  <tr><td>Type of Record</td>";
-
-echo "  <td><select name=\"create\" style=\"width:300px\">\n";
+echo "  <select name=\"create\" style=\"width:300px\">\n";
 
 if($ldap_server_type == "ad")
 	$default_create_class = "contact";
@@ -70,13 +64,10 @@ foreach($object_class_schema as $object_class)
 	}
 }
 
-echo "  </select></td></tr>\n";
+echo "  </select>\n";
 
-echo "<tr><td></td><td><input type=\"submit\" value=\"Next&nbsp;&nbsp;&nbsp;&#x25B6;\">\n</td></tr>";
-echo "</table>";
+echo "  <p>\n    <input type=\"submit\" value=\"Next&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
 echo "</form>\n";
-
-echo "&nbsp;<br>";
 
 show_site_footer();
 ?>
