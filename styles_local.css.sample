@@ -20,3 +20,12 @@
 		display:none;
 	}
 }
+
+/* Display SSH public keys in a fixed-width font and
+   word-wrapped more appropriately */
+
+.ldap_attribute_sshPublicKey
+{
+        font-family:monospace;
+        word-break:break-all;
+}
