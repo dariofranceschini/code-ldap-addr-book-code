@@ -1075,8 +1075,6 @@ class ldap_entry_viewer_attrib
 
 	function show_phone_number($attribute,$display_name,$required)
 	{
-		global $enable_clickable_phone_numbers;
-
 		$attrib_value = get_ldap_attribute(
 			$this->ldap_entry,$attribute);
 
@@ -1094,14 +1092,7 @@ class ldap_entry_viewer_attrib
 				. $display_name . "\">";
 		}
 		else
-		{
-			if($enable_clickable_phone_numbers)
-				// TODO: tidy up phone number format within link
-				echo "<a href=\"tel:" . urlencode($attrib_value) . "\">"
-					. htmlentities($attrib_value,ENT_COMPAT,"UTF-8") . "</a>";
-			else
-				echo htmlentities($attrib_value,ENT_COMPAT,"UTF-8");
-		}
+			show_phone_number_formatted($attrib_value);
 	}
 
 	// Show multi-line textual attribute (data type "text_area")
@@ -1840,7 +1831,7 @@ class ldap_entry_list
 	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
 		$is_folder = false)
 	{
-		global $thumbnail_image_size,$ldap_server_type,$enable_clickable_phone_numbers;
+		global $thumbnail_image_size,$ldap_server_type;
 
 		if($is_folder)
 			$colspan = " colspan=\""
@@ -1860,10 +1851,6 @@ class ldap_entry_list
 		else if($link_type == "mailto")
 			// Cell contains a link to an e-mail address
 			echo "<a href=\"mailto:"
-				. urlencode($attrib_value) . "\">";
-		else if($link_type == "tel" && $enable_clickable_phone_numbers)
-			// Cell contains a link to a telephone number
-			echo "<a href=\"tel:"
 				. urlencode($attrib_value) . "\">";
 
 		// Display the attribute's value
@@ -1886,19 +1873,20 @@ class ldap_entry_list
 						. $size . "\">";
 				}
 				break;
+			case "phone_number":
+				if($link_type == "phone_number")
+					show_phone_number_formatted($attrib_value);
+				else
+					echo htmlentities($attrib_value,
+						ENT_COMPAT,"UTF-8");
+				break;
 			default:
 				echo htmlentities($attrib_value,
 					ENT_COMPAT,"UTF-8");
 		}
 
-		if($link_type != "none")
-		{
-			if($link_type == "tel" && $enable_clickable_phone_numbers)
-				echo "</a>";
-
-			if($link_type != "tel")
-				 echo "</a>";
-		}
+		if($link_type != "none" && $link_type != "phone_number")
+			echo "</a>";
 
 		echo "\n    </td>\n";
 	}
@@ -2136,6 +2124,8 @@ function get_icon_for_ldap_entry($entry)
 }
 
 // Return the specified LDAP entry in vCard format
+//
+// $entry - LDAP entry which is to be converted to vCard
 
 function vcard($entry)
 {
@@ -2247,6 +2237,36 @@ function vcard($entry)
 	$vcard .= "END:VCARD\n";
 
 	return $vcard;
+}
+
+// Show phone number - formatted either as plain body text or converted
+// to a HTML link as per the substitution rule specified by
+// $phone_number_link_template (defined in the config file) and with link
+// target as per $phone_number_link_target (if defined)
+//
+// $phone_number - phone number to be formatted
+
+function show_phone_number_formatted($phone_number)
+{
+	global $phone_number_link_template,$phone_number_link_target;
+
+	if(isset($phone_number_link_template) && !empty($phone_number_link_template))
+	{
+		$phone_number_link_url = str_replace("___phone_number___",
+			urlencode($phone_number),$phone_number_link_template);
+
+		if(isset($phone_number_link_target) && !empty($phone_number_link_target))
+			$target = " target=\"" . $phone_number_link_target . "\"";
+		else
+			$target = "";
+
+		echo "<a href=\"" . $phone_number_link_url . "\""
+			. $target . ">"
+			. htmlentities($phone_number,ENT_COMPAT,"UTF-8")
+			. "</a>";
+	}
+	else
+		echo htmlentities($phone_number,ENT_COMPAT,"UTF-8");
 }
 
 ?>

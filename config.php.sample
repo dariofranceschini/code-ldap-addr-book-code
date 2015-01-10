@@ -104,9 +104,9 @@ $browse_ldap_filter = "objectClass=*";
 $search_result_columns = array(
 	array("caption"=>"Name",		"attrib"=>"sortableName",	"link_type"=>"object"),
 	array("caption"=>"E-Mail",		"attrib"=>"mail",		"link_type"=>"mailto"),
-	array("caption"=>"Home Phone",		"attrib"=>"homePhone",		"link_type"=>"tel"),
-	array("caption"=>"Office Phone",	"attrib"=>"telephoneNumber",	"link_type"=>"tel"),
-	array("caption"=>"Mobile Phone",	"attrib"=>"mobile",		"link_type"=>"tel"),
+	array("caption"=>"Home Phone",		"attrib"=>"homePhone",		"link_type"=>"phone_number"),
+	array("caption"=>"Office Phone",	"attrib"=>"telephoneNumber",	"link_type"=>"phone_number"),
+	array("caption"=>"Mobile Phone",	"attrib"=>"mobile",		"link_type"=>"phone_number"),
 	array("caption"=>"Office Fax",	"attrib"=>"facsimileTelephoneNumber",	"link_type"=>"none")
 //	array("caption"=>"Organisation",	"attrib"=>"company",		"link_type"=>"none")
 	);
@@ -195,8 +195,18 @@ $photo_image_size = "96x96";
 // Phone integration settings
 // --------------------------------------------------------------------
 
-// Phone numbers are clickable links (subject to client h/w support)
-$enable_clickable_phone_numbers = false;
+// Optionally specify a URL format to use for showing phone number
+// attributes as HTML links, e.g. to support "click-to-dial".
+// Leaving this option unset (or blank) to display phone numbers as
+// plain text rather than a link.
+
+// $phone_number_link_template = "tel:___phone_number___";
+
+// Optional link target attribute for phone numbers "target" attribute.
+// (May want to set to "_blank" for some click-to-dial software or if
+// the address book has been hosted inside a HTML frame.
+
+// $phone_number_link_target = "_blank";
 
 // --------------------------------------------------------------------
 // Data export settings
