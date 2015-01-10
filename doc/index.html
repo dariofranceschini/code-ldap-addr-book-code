@@ -15,7 +15,7 @@
     </td>
     <th style="background-color:white;text-align:left">
       <h1 style="margin:0">LDAP Address Book</h1>
-      <div style="font-weight:normal">Web-based LDAP address book browser</div>
+      <div style="font-weight:normal">Web-based LDAP address book browser/editor</div>
     </th>
   </tr>
 </table>
@@ -46,7 +46,8 @@
     <li>Search results
   </ol>
   <li>Changing the layout and attributes shown for directory entries
-  <li>Displaying thumbnail photos when browsing/searching the directory
+  <li>Displaying thumbnail photos or logos when browsing/searching the directory
+  <li>Setting up phone numbers to be dialed when clicked on
   <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
   </ol>
@@ -261,8 +262,8 @@ either Microsoft or Samba Active Directory), <code>"edir"</code>
 (e.g. OU) that should be used as the "root" of the address book information.
 </ul>
 <p>
-See the "Configuration Reference" section below for further
-information on these and other settings.
+See the <a href="#config_reference">Configuration Reference</a> section
+below for further information on these and other settings.
 </p>
 <p>
 Note: Windows users may experience problems opening the <code>config.php</code>
@@ -347,6 +348,15 @@ will need to be granted within the back-end directory.
     address book directory tree.</td></tr>
 <tr><td><code>allow_view</code></td><td>Allows the user to click on a record
     to see full details</td></tr>
+
+<tr><td><code>allow_export</code></td><td>Allows the user to save/export
+    (individual) records as vCard electronic business cards.</td></tr>
+
+<tr><td><code>allow_export_bulk</code></td><td>Allows the user to
+    export entire OUs of records (or the complete address book) in vCard
+    format, for example to import into another address book or
+    contact database that doesn't support LDAP directly.</td></tr>
+
 </table>
 
 <p>
@@ -462,6 +472,13 @@ other attributes which are available to be searched.
 The columns that appear in search results can be changed
 by editing the contents of <code>$search_result_columns</code> in the
 config file.
+</p>
+<p>
+The special attribute <code>sortableName</code> can be used to display a
+"sort-friendly" version of a personal name (Surname, Firstname)
+where this information is available. (This is constructed from
+the <code>sn</code> and <code>givenName</code> attributes if populated,
+otherwise falling back to <code>displayName</code> and <code>cn</code>.)
 </p>
 <h3>Applying language-specific sorting rules for search results</h3>
 <p>
@@ -581,6 +598,9 @@ this:
 $entry_layout = array(
         array("section_name"=&gt;"Personal",
                 "attributes"=&gt;array(
+                        array("givenName",			"Given Name",		"contact24.png",true),
+                        array("sn",				"Surname",		"contact24.png",true),
+                        array("cn",				"Full Name",		"contact24.png",true),
                         array("displayName",                    "Preferred Name",       "contact24.png"),
                         array("mail",                           "E-mail",               "mail.png"),
                         array("homePhone",                      "Home Phone",           "landline-phone.png"),
@@ -596,6 +616,12 @@ $entry_layout = array(
 
 	);
 </pre>
+<p>
+The <code>givenName</code>, <code>sn</code> and <code>cn</code>
+fields are only visible while the record is being edited. (This
+behavior is enabled by setting the fouth attribute of each
+layout element to <code>true</code>.)
+</p>
 <p>
 You can define the following settings for each section:
 </p>
@@ -652,13 +678,15 @@ You can define the following settings for each section:
 </td></tr>
 </table>
 <p>
-Each attribute is described by three items:
+Each attribute is described by either three or four items:
 </p>
 <ol>
 <li>The name of the LDAP attribute (or list of attributes) to be displayed
 <li>The caption text to appear next to the attribute (or leave
     empty - "" - for no caption)
 <li>Icon image to appear next to the attribute (or leave empty for none)
+<li>Whether the attribute should be visible only while the record is
+    being edited
 </ol>
 <p>
 A display field can be constructed from several LDAP attributes. To
@@ -688,31 +716,35 @@ The following changes will be applied automatically:
     in Google Maps (provided that the postal code is valid and
     recognised).</p>
 
-<li>Images contained in the <code>jpegPhoto</code> and
-    <code>thumbnailPhoto</code> attributes will be scaled to the
-    size indicated by <code>$photo_image_size</code> in
-    <code>config.php</code> (96x96 pixels by default). If this
+<li>Images contained in the <code>jpegPhoto</code>,
+    <code>thumbnailPhoto</code> or <code>thumbnailLogo</code> attributes
+    will be scaled to the size indicated by <code>$photo_image_size</code>
+    in <code>config.php</code> (96x96 pixels by default). If this
     value is not set then the images will be shown at their native
     size.
 </ul>
 
-<h3>Displaying thumbnail photos when browsing/searching the directory</h3>
+<h3>Displaying thumbnail photos or logos when browsing/searching the directory</h3>
 <p>
 By default, directory entries are displayed next to an
-icon representing their object class. If one is available, 
-an image representing the object - typically a photo - can be
-displayed in place of the icon. These images are retrieved
-from the <code>jpegPhoto</code> and/or <code>thumbnailPhoto</code>:
+icon representing their object class. Alternatively, the address
+book can be set to display an image - typically a photo or logo -
+representing the object instead. These images are retrieved from
+the following LDAP attributes (listed in order of priority):
 </p>
 <table border=1>
 <tr><th>Attribute</th><th>Description</th></tr>
 <tr><td><code>jpegPhoto</code></td><td>Used to store one or
    more images of a person using the JPEG File Interchange
    Format. (Standard ref: IETF RFC 2798) In practice the
-   address book will only display the first stored image.
+   Address Book will only display the first stored image.
 </td></tr>
 <tr><td><code>thumbnailPhoto</code></td><td>Stores a single
     thumbnail image, maximum size 100K. (Non-standard/Microsoft
+    specific)</td>
+
+<tr><td><code>thumbnailLogo</code></td><td>Stores a single
+    thumbnail image, maximum size 32K. (Non-standard/Microsoft
     specific)</td>
 </table>
 <p>
@@ -724,8 +756,8 @@ GD Graphics Library support enabled in order to display image
 attributes.
 </p>
 <p>
-To enable display of these images, set one or both of the following
-options in <code>config.php</code>:
+To display thumbnail photos/logos instead of "generic" icons,
+set one or both of the following options in <code>config.php</code>:
 </p>
 <table border=1>
 <tr><th>Setting</th><th>Description</th></tr>
@@ -763,6 +795,60 @@ size:
         pixels. Set this value to an empty string (or leave
         undefined) to disable scaling of these images.</td></tr>
 </table>
+<p>
+Android devices (at least as of version 4.4) will display the
+logo in preference to the photograph wherever a contact record
+includes both. To omit the logo from any records that have a photo
+(so that the photo will be used) when saving as vCard, set the
+following option in <code>config.php</code>:
+</p>
+<p>
+<code>$exclude_logo_if_photo_present = true;</code>
+</p>
+<h3>Setting up phone numbers to be dialed when clicked on</h3>
+<p>
+Phone numbers appearing in the directory can be set to be displayed
+as HTML links rather than plain text, usually so that the
+number will be dialed when clicked on. The way that phone numbers
+are converted into URLs can be configured via the
+<code>$phone_number_link_template</code> setting in order to
+support different types of "click-to-dial" software.
+</p>
+<p>
+The following setting allows many mobile phone browsers and other
+platforms that have built-in phone support to dial a number when
+clicked on:
+</p>
+<p>
+<code>$phone_number_link_template = "tel:___phone_number___";</code>
+</p>
+<p>
+The following setting will enable phone numbers to be dialed
+using Microsoft Skype or other software that handles the
+(non-standard) <code>callto:</code> URI scheme:
+</p>
+<p>
+<code>$phone_number_link_template = "callto://___phone_number___";</code>
+</p>
+<p>
+The following settings show how to place a call by passing the
+phone number to a separate web application such as Cisco WebDialer:
+</p>
+<p>
+<code>$phone_number_link_template = "https://cucm01/webdialer/Webdialer?destination=___phone_number___";<br>
+$phone_number_link_target = "_blank";</code>
+</p>
+<p>
+If defined, the <code>$phone_number_link_target</code> setting
+can be used to force the dialer application to open in a
+separate window/tab.
+</p>
+<p>
+Columns in browse/search result lists that contain clickable
+phone numbers should have their column link type set to
+<code>phone_number</code> in the
+<code>$search_result_columns</code> configuration.
+</p>
 <h3>Changing the links shown in the page footer</h3>
 <p>
 The links shown in the page footer can be changed using the
@@ -821,7 +907,7 @@ the following to your own <code>styles_local.css</code> file and
 change the <code>font-family</code> setting to your own choice of font:
 </p>
 <pre>
-body,table {
+body,table,textarea {
         font-family:serif;
 }
 </pre>
@@ -838,13 +924,13 @@ appearance they affect:
 <table border=1>
 <tr><th>CSS Selector</th><th>Typically used to change the font, size,
         colour, etc, of...</th></tr>
-<tr><td><code>body,table</code></td>
+<tr><td><code>body,table,textarea</code></td>
     <td>The address book as a whole.</td></tr>
-<tr><td><code>.ldap_navigation_path th</code></td>
+<tr><td><code>.ldap_navigation_path li:first-child</code></td>
     <td>The address book title, which is shown as the left-most item in the
         "Navigation Path" shown at the top of each page.</td></tr>
 
-<tr><td><code>.ldap_navigation_path td</code></td>
+<tr><td><code>.ldap_navigation_path li+li:before</code></td>
     <td>Organisational units, folders, etc, shown in the
         "Navigation Path" at the top of each page. The left-most
         element of the navigation path (typically used to show
@@ -1053,14 +1139,36 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
      <code>$search_ldap_attrib = array("cn","mail","sn","displayName","company","title");</code>
      </p></td></tr>
 
+<tr><td><code>$search_ldap_filter</code></td>
+    <td>Specifies the LDAP filter to be applied when searching
+     through records in the directory. The token
+     <code>___search_criteria___</code> will be replaced with
+     an expression to search the attributes listed in
+     <code>$search_ldap_attrib</code> for the string entered by
+     the user.
+     <p>
+     Example:<br>
+     <code>$browse_ldap_filter = "(&(objectClass=person)___search_criteria___)";</code>
+     </p></td></tr>
+
+<tr><td><code>$browse_ldap_filter</code></td>
+    <td>Specifies the LDAP filter to be applied when browsing
+     through records in the directory. This is normally set to
+     <code>objectClass=*</code>, which allows all records in
+     the directory to be displayed.
+     <p>
+     Example:<br>
+     <code>$browse_ldap_filter = "objectClass=*";</code>
+     </p></td></tr>
+
 <tr><td><code>$search_result_columns</code></td>
     <td>Specifies the column layout to be used for displaying
     search results. Each column has three fields associated with it:
     <ul>
     <li><code>caption</code> - Caption to appear in column heading
     <li><code>attrib</code> - LDAP attribute to display
-    <li><code>link_type</code> - Whether to display the attribute as a
-        hyperlink
+    <li><code>link_type</code> - Whether and how to display the attribute
+        as a hyperlink
     </ul>
     The special attribute <code>sortableName</code> will display constructed
     "sort-friendly" version of a personal name (Surname, Firstname)
@@ -1073,12 +1181,15 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
     use this link type for the object name, displayed in the left-most column.
     <li><code>mailto</code> - Display as <code>mailto:</code> link, e.g.
     for attributes containing e-mail addresses.
+    <li><code>phone_number</code> - Display as a link to dial a phone
+    number. (e.g. as a tel: URL)
     <li><code>none</code> - Do not display as a link.
     </ul>
     Example:
     <pre>$search_result_columns = array(
         array("caption"=&gt;"Name",                "attrib"=&gt;"sortableName",       "link_type"=&gt;"object"),
         array("caption"=&gt;"E-Mail",              "attrib"=&gt;"mail",               "link_type"=&gt;"mailto"),
+        array("caption"=&gt;"Office Phone",        "attrib"=&gt;"telephoneNumber",    "link_type"=&gt;"phone_number"),
         array("caption"=&gt;"Organisation",        "attrib"=&gt;"company",            "link_type"=&gt;"none")
         );</pre>
 </td></tr>
@@ -1176,7 +1287,49 @@ $entry_layout = array(
         <code>$photo_image_size = "96x96";</code>
         </p></td></tr>
 
-</table>
+<tr><th colspan=2>Computer/Telephony Integration Settings</th></tr>
 
+<tr><td><code>$phone_number_link_template</code></td>
+    <td>Specifies if and how phone numbers should be displayed
+        as clickable links (e.g. to support "click-to-dial"
+        functionality). Leaving this setting blank (or not setting
+        it at all) will display phone numbers as plain text rather
+        than a link.
+        <p>
+        The token "___phone_number___" will be replaced with the
+        actual phone number to be dialed.
+        </p>
+        <p>Examples:</p>
+        <p>Enable click-to-dial support on many mobile phone web browsers:</p>
+        <p><code>$phone_number_link_template = "tel:___phone_number___";</code></p>
+        <p>Enable click-to-dial by calling Cisco WebDialer 
+        running on host <code>cucm01</code>:</p>
+        <p><code>$phone_number_link_template = "https://cucm01/webdialer/Webdialer?destination=___phone_number___";<br>
+        $phone_number_link_target = "_blank";</code>
+        </p></td></tr>
+
+<tr><td><code>$phone_number_link_target</code></td>
+    <td>Specifies a value for a phone number link's "target" attribute.
+        It may be useful to set this to "_blank" for certain
+        click-to-dial software or if the address book is set up to run
+        inside a HTML frame.
+        <p>Example:<br>
+        <code>$phone_number_link_target = "_blank";</code>
+        </p></td></tr>
+
+<tr><th colspan=2>Data Export Settings</th></tr>
+
+<tr><td><code>$exclude_logo_if_photo_present</code></td>
+    <td>Specifies whether logo images (from the
+        <code>thumbnailLogo</code> attribute) should be
+        omitted when exporting as vCard if a photograph is
+        also present. This may be useful when transfering
+        records from the Address Book to Android devices.
+        <p>Example:<br>
+        <code>
+        $exclude_logo_if_photo_present = true;</code>
+        </p></td></tr>
+
+</table>
 </body>
 </html>
