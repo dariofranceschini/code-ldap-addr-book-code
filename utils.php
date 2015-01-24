@@ -1860,6 +1860,10 @@ class ldap_entry_list
 			// Cell contains a link to an e-mail address
 			echo "<a href=\"mailto:"
 				. urlencode($attrib_value) . "\">";
+		else if($link_type == "url")
+			// Cell contains a URL which should be shown as a link
+			echo "<a href=\""
+				. $attrib_value . "\">";
 
 		// Display the attribute's value
 		$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
