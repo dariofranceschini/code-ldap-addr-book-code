@@ -144,10 +144,10 @@ $lc_collate = "en_US";
 $entry_layout = array(
 	array("section_name"=>"Personal",
 		"attributes"=>array(
-			array("givenName",                      "Given Name",           "contact24.png",true),
-			array("sn",                             "Surname",              "contact24.png",true),
-			array("cn",                             "Full Name",            "contact24.png",true),
-			array("displayName",                    "Preferred Name",       "contact24.png"),
+			array("givenName",			"Given Name",		"contact24.png",true),
+			array("sn",				"Surname",		"contact24.png",true),
+			array("cn",				"Full Name",		"contact24.png",true),
+			array("displayName",			"Preferred Name",	"contact24.png"),
 			array("mail",				"E-mail",		"mail.png"),
 			array("homePhone",			"Home Phone",		"landline-phone.png"),
 	//		array("pager",				"Pager",		""),
