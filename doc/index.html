@@ -1203,6 +1203,17 @@ http://www.php.net/manual/en/function.ldap-connect.php</a>
      <code>$search_result_default_sort_order = "sortableName";</code>
      </p></td></tr>
 
+<tr><td><code>$enable_search_suggestions</code></td>
+    <td>Specifies whether search results from the directory
+    should be the &quot;suggested&quot; as the user types in
+    search terms. It may be more appropriate to disable this
+    facility in large installations in order to reduce
+    server load.
+    <p>
+    Example:<br>
+    <code>$enable_search_suggestions = true;</code>
+    </p></td></tr>
+
 <tr><td><code>$lc_collate</code></td>
     <td>Specifies the collation locale (sorting language/region/script)
     to be used for browsing and displaying search results.

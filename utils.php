@@ -27,7 +27,7 @@ define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
 function show_site_header()
 {
-	global $site_name,$ldap_login_enabled;
+	global $site_name,$ldap_login_enabled,$enable_search_suggestions;
 
 	// Resume existing session (if any exists) in order to get
 	// currently logged in user
@@ -44,12 +44,20 @@ function show_site_header()
 	echo "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n";
 
 	echo "  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=0\">\n";
-	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
-	if(file_exists("styles_local.css"))
-		echo "  <link rel=\"stylesheet\" href=\"styles_local.css\" type=\"text/css\">\n";
 	echo "  <link rel=\"search\" type=\"application/opensearchdescription+xml\" title=\""
 		. $site_name . "\" href=\"search-plugin.php\">\n";
 	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook24.png\">\n";
+	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
+	if(file_exists("styles_local.css"))
+		echo "  <link rel=\"stylesheet\" href=\"styles_local.css\" type=\"text/css\">\n";
+
+	if(isset($enable_search_suggestions) && $enable_search_suggestions)
+	{
+		echo "  <link rel=\"stylesheet\" href=\"lib/jquery-ui-themes-1.11.2/smoothness.css\" type=\"text/css\">\n";
+		echo "  <script src=\"lib/jquery-1.11.2/jquery-1.11.2.js\"></script>\n";
+		echo "  <script src=\"lib/jquery-ui-1.11.2/jquery-ui-1.11.2.js\"></script>\n";
+		echo "  <script src=\"suggest.js\"></script>\n";
+	}
 
 	echo "</head>\n\n";
 	echo "<body>\n\n";
@@ -91,7 +99,7 @@ function show_search_box($initial_value)
 	echo "  <table class=\"search\">\n";
 	echo "    <tr>\n";
 	echo "      <th>Search for:</th>\n";
-	echo "      <td><input type=\"text\" name=\"filter\"";
+	echo "      <td><input type=\"text\" id=\"filter\" name=\"filter\"";
 	if(!empty($initial_value))
 		echo " value=\"" . htmlentities($initial_value,
 			ENT_COMPAT,"UTF-8") . "\"";
