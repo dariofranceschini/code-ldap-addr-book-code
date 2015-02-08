@@ -439,7 +439,7 @@ function get_attribute_display_name($attribute_name,$attribute_class_schema)
 // ISO 3166-1 alpha-2 country codes
 //
 // based on code snippet from:
-// http://coding-talk.com/f46/iso-country-codes-to-country-names-country-form-select-options-16364/
+// http://coding-talk.com/forum/main-forums/coding-forum/snippets-functions-and-classes/12262-iso-country-codes-to-country-names-country-form-select-options
 
 $country_name=array(
 	"AD" => "Andorra",
