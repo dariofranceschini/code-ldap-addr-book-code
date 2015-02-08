@@ -1273,11 +1273,11 @@ class ldap_entry_viewer_attrib
 
 function ldap_attribute_to_css_class($attrib)
 {
-		// Remove characters not supported in CSS class names
-		$attrib = str_replace(":","",$attrib);
-		$attrib = str_replace("+","",$attrib);
+	// Remove characters not supported in CSS class names
+	$attrib = str_replace(":","",$attrib);
+	$attrib = str_replace("+","",$attrib);
 
-		return "ldap_attribute_" . $attrib;
+	return "ldap_attribute_" . $attrib;
 }
 
 // Return specified attribute from an LDAP object entry specified
@@ -1513,7 +1513,7 @@ function ldap_sort_entries($ldap_entries,$attrib_list,$sort_direction)
 				ldap_sort_entries_swap($ldap_entries,$i,$j);
 		}
 
-	return ($ldap_entries);
+	return $ldap_entries;
 }
 
 // Compare two LDAP entries and return a value indicating which
@@ -1620,7 +1620,7 @@ class ldap_entry_list
 			echo vcard($ldap_data[$i]) . "\n";
 	}
 
-        // Output the object entry list as HTML, utilising chosen sort order
+	// Output the object entry list as HTML, utilising chosen sort order
 
 	function show()
 	{
