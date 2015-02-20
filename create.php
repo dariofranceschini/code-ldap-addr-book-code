@@ -47,7 +47,6 @@ else
 	$default_create_class = "inetOrgPerson";
 
 foreach($object_class_schema as $object_class)
-{
 	if(get_object_class_setting($object_class_schema,
 			$object_class["name"],"can_create"))
 	{
@@ -62,7 +61,6 @@ foreach($object_class_schema as $object_class)
 		if($object_class["name"] == $default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
 	}
-}
 
 echo "  </select>\n";
 
