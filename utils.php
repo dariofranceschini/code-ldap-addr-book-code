@@ -751,10 +751,10 @@ class ldap_entry_viewer
 	//
 	// $text - title text/section name
 	// $newrow - should the section start on a new row?
-	// $colspan - number of table columns to span (default to 1 if missing)
+	// $colspan - number of table columns to span
 	// $width - section width (defaults to evenly spaced/auto expand if missing)
 
-	function add_section($text,$newrow=false,$colspan="",$width="")
+	function add_section($text,$newrow=false,$colspan=1,$width="")
 	{
 		$heading = new ldap_entry_viewer_section();
 		$heading->text = $text;
@@ -874,8 +874,8 @@ class ldap_entry_viewer
 class ldap_entry_viewer_section
 {
 	var $text;
-	var $colspan="";
-	var $newrow=0;
+	var $colspan=1;
+	var $newrow=false;
 	var $attrib=array();
 	var $width="";
 	var $ldap_entry;
@@ -901,10 +901,10 @@ class ldap_entry_viewer_section
 	{
 		echo "\n<!-- Section: " . $this->text . " -->\n\n";
 
-		if($this->newrow == true) echo "  <tr>\n";
+		if($this->newrow) echo "  <tr>\n";
 
 		$cell_attrib = "";
-		if($this->colspan != "")
+		if($this->colspan != 1)
 			$cell_attrib.=" colspan=" . $this->colspan;
 
 		if($this->width != "")
