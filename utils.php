@@ -23,7 +23,7 @@ define("LDAP_ATTRIBUTE_IS_RDN",true);
 define("MAX_DN_LENGTH",1000);
 define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
-// Output the site's HTML header elements
+/** Output the site's HTML header elements */
 
 function show_site_header()
 {
@@ -63,7 +63,7 @@ function show_site_header()
 	echo "<body>\n\n";
 }
 
-// Output the site's HTML footer elements
+/** Output the site's HTML footer elements */
 
 function show_site_footer()
 {
@@ -87,10 +87,12 @@ function show_site_footer()
 	echo "  </ul>\n</div>\n\n</body>\n</html>\n";
 }
 
-// Output the HTML to display the search box
-//
-// $initial_value - text to display in search box when page first loaded; typically
-// the previous text the user searched on.
+/** Output the HTML to display the search box
+
+    @param string $initial_value
+	Text to display in search box when page first loaded;
+	typically the previous text the user searched on.
+*/
 
 function show_search_box($initial_value)
 {
@@ -110,9 +112,11 @@ function show_search_box($initial_value)
 	echo "</form>\n\n";
 }
 
-// Generate a page showing the specified error message
-//
-// $message - message to display
+/** Generate a page showing the specified error message
+
+    @param string $message
+	Message to display
+*/
 
 function show_error_message($message)
 {
@@ -124,19 +128,24 @@ function show_error_message($message)
 		. "\">Return to the Address Book</a>\n</p>";
 }
 
-// Show "breadcrumb navigation" version of specified LDAP path
-// Each level in the DIT appears with a folder icon; final item
-// is displayed with $leaf_icon next to it
-//
-// Also shows "login" button to right (if editing enabled)
-//
-// $base - The DN for which the breadcrumb navigation is to be
-//	     displayed
-// $default_base - The address book's base DN. Elements of this DN
-//	     are not to be displayed as breadcrumb elements.
-// $leaf_icon - Icon image to use for the last item in the path.
-//	     Typically either the icon for the object class or
-//	     the object's photo attribute.
+/** Show "breadcrumb navigation" version of specified LDAP path
+
+    Each level in the DIT appears with a folder icon; final item
+    is displayed with $leaf_icon next to it
+
+    Also shows "login" button to right (if editing enabled)
+
+    @param string $base
+	The DN for which the breadcrumb navigation is to be
+	displayed
+    @param string $default_base
+	The address book's base DN. Elements of this DN
+	are not to be displayed as breadcrumb elements.
+    @param string $leaf_icon
+	Icon image to use for the last item in the path.
+	Typically either the icon for the object class or
+	the object's photo attribute.
+*/
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
@@ -210,17 +219,27 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "  </tr>\n</table>\n\n";
 }
 
-// Decodes the elements of the specified DN into an associative array.
-// Correctly handles accented characters - in contrast to the
-// built-in PHP function ldap_explode_dn(), however does not currently
-// support:
-//
-//  - multi-valued RDNs
-//  - DNs which have commas within any of their values.
-//
-// (TODO: no commas could prove to be an unacceptable limitation!)
-//
-// $dn - DN which is to be converted into an array
+/** Convert an LDAP DN into an associative array of RDNs
+
+    Decodes the elements of the specified DN into an associative array.
+    Correctly handles accented characters - in contrast to the
+    built-in PHP function ldap_explode_dn(), however does not currently
+    support:
+
+	- multi-valued RDNs
+	- DNs which have commas within any of their values.
+
+    @todo
+	Support for commas in RDN values could do with being
+	added; limitation may prove to be unacceptably limiting.
+
+    @param string $dn
+	DN which is to be converted into an array
+    @return
+	An array representing the DN, consisting of integer
+	value "count" indicating the number of RDNs,
+	followed by each RDN as an "attrib"+"value" pair
+*/
 
 function ldap_explode_dn2($dn)
 {
@@ -244,7 +263,11 @@ function ldap_explode_dn2($dn)
 	return $dn;
 }
 
-// Return URL of folder containing the currently running script
+/** Return URL of folder containing the currently running script
+
+    @return
+	Folder part of URL of currently running script
+*/
 
 function current_page_folder_url()
 {
@@ -260,15 +283,21 @@ function current_page_folder_url()
 	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $path;
 }
 
-// Return an array associating LDAP object classes with attributes used by
-// the addressbook (currently icon graphic, whether it should be presented
-// as a folder or a "leaf" object and which attribute holds the RDN). Where
-// objects can potentially match more than one class those classes should
-// be listed with most "specific" first (e.g. Person/inetOrgPerson in edir
-// schema).
-//
-// $ldap_server_type - Indicates LDAP server type/schema to return
-//		(ad, edir or openldap)
+/** Return an array representing the LDAP object class schema
+
+    Return an array associating LDAP object classes with attributes used by
+    the addressbook (currently icon graphic, whether it should be presented
+    as a folder or a "leaf" object and which attribute holds the RDN). Where
+    objects can potentially match more than one class those classes should
+    be listed with most "specific" first (e.g. Person/inetOrgPerson in edir
+    schema).
+
+    @param string $ldap_server_type
+	Indicates LDAP server type/schema to return
+	("ad", "edir" or "openldap")
+    @return
+	Array of information about the LDAP server's object class schema
+*/
 
 function get_object_class_schema($ldap_server_type = "ad")
 {
@@ -323,12 +352,18 @@ function get_object_class_schema($ldap_server_type = "ad")
 	}
 }
 
-// Return an array associating LDAP attribute classes with schema
-// setting used by the addressbook (currently data type for use when
-// editing/displaying and "friendly" display name).
-//
-// $ldap_server_type - Indicates LDAP server type/schema to return
-//		(ad, edir or openldap)
+/** Return an array representing the LDAP attribute class schema
+
+    Return an array associating LDAP attribute classes with schema
+    setting used by the addressbook (currently data type for use when
+    editing/displaying and "friendly" display name).
+
+    @param string $ldap_server_type
+	Indicates LDAP server type/schema to return
+	("ad", "edir" or "openldap")
+    @return
+	Array of information about the LDAP server's attribute class schema
+*/
 
 function get_attribute_class_schema($ldap_server_type = "ad")
 {
@@ -363,12 +398,20 @@ function get_attribute_class_schema($ldap_server_type = "ad")
 		);
 }
 
-// Return whether the specified attribute is mandatory (must have a non-empty
-// value) for the specified object class.
-//
-// $object_class_schema - Object class schema to be queried
-// $object_class - Object class to be queried
-// $attribute_name - Attribute to return whether mandatory or not
+/** Return whether the specified attribute is mandatory
+
+    Return 'true' if the specified attribute must always
+    have a non-empty value in the specified object class.
+
+    @param array $object_class_schema
+	Object class schema to be queried
+    @param string $object_class
+	Object class to be queried
+    @param string $attribute_name
+	Attribute to return whether mandatory or not
+    @return
+	Whether the attribute is mandatory or not (true/false)
+*/
 
 function object_requires_attribute($object_class_schema,$object_class,$attribute_name)
 {
@@ -392,13 +435,19 @@ function object_requires_attribute($object_class_schema,$object_class,$attribute
 	return $required;
 }
 
-// Return the value of a schema setting for the specificed LDAP attribute
-//
-// $attribute_name - Attribute for which schema setting is to be returned
-// $attribute_class_schema - Attribute schema, as returned by
-//			get_attribute_class_schema(
-// $setting_name - Schema setting to be returned
-// $setting_default - Value to be returned if schema setting not defined
+/** Return the value of a schema setting for the specificed LDAP attribute
+
+    @param string $attribute_name
+	Attribute for which schema setting is to be returned
+    @param array $attribute_class_schema
+	Attribute schema, as returned by get_attribute_class_schema()
+    @param string $setting_name
+	Schema setting to be returned
+    @param string $setting_default
+	Value to be returned if schema setting not defined
+    @return
+	Value of the attribute schema setting
+*/
 
 function get_attribute_setting($attribute_name,$attribute_class_schema,
 	$setting_name,$setting_default)
@@ -412,11 +461,15 @@ function get_attribute_setting($attribute_name,$attribute_class_schema,
         return $setting_value;
 }
 
-// Return the data type associated with the specified LDAP attribute
-//
-// $attribute_name - Attribute for which schema setting is to be returned
-// $attribute_class_schema - Attribute schema, as returned by
-//			get_attribute_class_schema(
+/** Return the data type associated with the specified LDAP attribute
+
+    @param string $attribute_name
+	Attribute for which schema setting is to be returned
+    @param array $attribute_class_schema
+	Attribute schema, as returned by get_attribute_class_schema()
+    @return
+	Data type name for the specified LDAP attribute
+*/
 
 function get_attribute_data_type($attribute_name,$attribute_class_schema)
 {
@@ -424,11 +477,15 @@ function get_attribute_data_type($attribute_name,$attribute_class_schema)
 		"data_type","text");
 }
 
-// Return the display name of the specified LDAP attribute
-//
-// $attribute_name - Attribute for which schema setting is to be returned
-// $attribute_class_schema - Attribute schema, as returned by
-//			get_attribute_class_schema(
+/** Return the display name of the specified LDAP attribute
+
+    @param string $attribute_name
+	Attribute for which schema setting is to be returned
+    @param array $attribute_class_schema
+	Attribute schema, as returned by get_attribute_class_schema()
+    @return
+	Display name for the specified LDAP attribute
+*/
 
 function get_attribute_display_name($attribute_name,$attribute_class_schema)
 {
@@ -436,10 +493,12 @@ function get_attribute_display_name($attribute_name,$attribute_class_schema)
 		"display_name",$attribute_name);
 }
 
-// ISO 3166-1 alpha-2 country codes
-//
-// based on code snippet from:
-// http://coding-talk.com/forum/main-forums/coding-forum/snippets-functions-and-classes/12262-iso-country-codes-to-country-names-country-form-select-options
+/** Array of ISO 3166-1 alpha-2 country codes/names
+
+    @see
+	Code snippet from:
+	http://coding-talk.com/forum/main-forums/coding-forum/snippets-functions-and-classes/12262-iso-country-codes-to-country-names-country-form-select-options
+*/
 
 $country_name=array(
 	"AD" => "Andorra",
@@ -690,9 +749,13 @@ $country_name=array(
 	"BL" => "Saint Barthelemy",
 	"MF" => "Saint Martin");
 
-// Return full country name given ISO 3166-1 alpha-2 country code
-//
-// $code - country code which is to be converted to country name
+/** Return full country name given ISO 3166-1 alpha-2 country code
+
+    @param string $code
+	Country code which is to be converted to country name
+    @return
+	Country name represented by the specified country code
+*/
 
 function get_country_name_from_code($code)
 {
@@ -703,22 +766,39 @@ function get_country_name_from_code($code)
 		return "unknown";
 }
 
-// View LDAP entry as HTML
+/** View LDAP entry as HTML */
 
 class ldap_entry_viewer
 {
+	/** Display layout (array of ldap_entry_viewer_section) */
 	var $section = array();
+
+	/** LDAP object entry which is to be displayed */
 	var $ldap_entry;
+
+	/** Name of last section to which an attribute was added
+
+	    Used by add_to_section()
+	*/
 	var $last_section_added = "";
+
+	/** Array of user information (e.g. allowed permissions) */
 	var $user_info = "";
+
+	/** Display a viewer for editing a record (true/false) */
 	var $edit = false;
+
+	/** Display a viewer for creating a new record (true/false) */
 	var $create = false;
 
-	// Constructor.
-	// $ldap_entry - Array containing LDAP object entry which
-	//			is to be displayed
-	// $entry_viewer_layout - LDAP attributes to be displayed
-	//			and their layout
+	/** Constructor
+
+	    @param array $entry_viewer_layout
+		LDAP attributes to be displayed and their layout
+	    @param array $ldap_entry
+		Array containing LDAP object entry which is to
+		be displayed
+	*/
 
 	function ldap_entry_viewer($entry_viewer_layout,$ldap_entry)
 	{
@@ -747,12 +827,17 @@ class ldap_entry_viewer
 		}
 	}
 
-	// Add a section to the display
-	//
-	// $text - title text/section name
-	// $newrow - should the section start on a new row?
-	// $colspan - number of table columns to span
-	// $width - section width (defaults to evenly spaced/auto expand if missing)
+	/** Add a section to the display
+
+	    @param string $text
+		Title text/section name
+	    @param bool $newrow
+		Should the section start on a new row?
+	    @param integer $colspan
+		Number of table columns to span
+	    @param string $width
+		Section width (defaults to evenly spaced/auto expand if missing)
+	*/
 
 	function add_section($text,$newrow=false,$colspan=1,$width="")
 	{
@@ -768,12 +853,17 @@ class ldap_entry_viewer
 		$this->last_section_added = $text;
 	}
 
-	// Add an attribute and its value to the display
-	//
-	// $attribute - LDAP attribute
-	// $caption - "friendly" caption to be used for LDAP attribute
-	// $icon - icon image to display next to attribute
-	// $hide_unless_editing - whether the attribute should be hidden except when editing
+	/** Add an attribute and its value to the display
+
+	    @param string $attribute
+		LDAP attribute to be added to the layout section
+	    @param string $caption
+		"Friendly" caption to be used for the LDAP attribute
+	    @param string $icon
+		Icon image to display next to attribute
+	    @param bool $hide_unless_editing
+		Should the attribute be hidden except when editing
+	*/
 
 	function add_to_section($attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
@@ -781,15 +871,14 @@ class ldap_entry_viewer
 			$attribute,$caption,$icon,$hide_unless_editing);
 	}
 
-	// Output the object entry as vCard
+	/** Output the object entry as vCard */
 
 	function save_vcard()
 	{
 		echo vcard($this->ldap_entry[0]);
 	}
 
-	// Output the object entry as HTML, utilising chosen attributes
-	// and layout
+	/** Output the object entry as HTML */
 
 	function show()
 	{
@@ -869,23 +958,54 @@ class ldap_entry_viewer
 	}
 }
 
-// Section of information (displayed list of attributes) within ldap_entry_viewer
+/** Section of information within ldap_entry_viewer
+
+    Contains a list of attributes to be displayed.
+*/
 
 class ldap_entry_viewer_section
 {
+	/** Title text/section name */
 	var $text;
+
+	/** Number of table columns to span */
 	var $colspan=1;
+
+	/** Should the section start on a new row?
+
+	    - true: Display to the right of previous section (continuing same row)
+	    - false: Display below previous section (starting a new row)
+
+	    The user-defined section layout may be overridden (via CSS) on devices
+	    with narrow screen widths, with all sections placed below each other
+	    in their own rows. (equivalent of forcing 'true' for all sections)
+	*/
 	var $newrow=false;
+
+	/** Attributes to display in section (array of ldap_entry_viewer_attribute) */
 	var $attrib=array();
+
+	/** Width of the section
+
+	    Value to be assigned to CSS "width" style directive for the section.
+	    Typically a percentage
+	*/
 	var $width="";
+
+	/** LDAP object entry which is to be displayed */
 	var $ldap_entry;
 
-	// Add an attribute and its value to the display
-	//
-	// $attribute - LDAP attribute
-	// $caption - "friendly" caption to be used for LDAP attribute
-	// $icon - icon image to display next to attribute
-	// $hide_unless_editing - whether the attribute should be hidden except when editing
+	/** Add an attribute and its value to the display
+
+	    @param string $attribute
+		LDAP attribute
+	    @param string $caption
+		Caption/label to be shown next to the LDAP attribute
+	    @param string $icon
+		Icon image to display next to attribute
+	    @param bool $hide_unless_editing
+		Whether the attribute should be hidden except when editing
+	*/
 
 	function add_data($attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
@@ -893,9 +1013,11 @@ class ldap_entry_viewer_section
 			$caption,$icon,$hide_unless_editing);
 	}
 
-	// Output this section of the object entry as HTML, utilising chosen attributes
-	//
-	// $edit - whether the section should be rendered with editing enabled
+	/** Output this section of the object entry as HTML
+
+	    $param bool $edit
+		Whether the section should be rendered with editing enabled
+	*/
 
 	function show($edit)
 	{
@@ -925,23 +1047,41 @@ class ldap_entry_viewer_section
 	}
 }
 
-// Individual LDAP object attribute displayed in ldap_entry_viewer_section
+/** Individual LDAP object attribute displayed in ldap_entry_viewer_section */
 
 class ldap_entry_viewer_attrib
 {
+	/** Caption/label to be shown next to the LDAP attribute */
 	var $caption;
+
+	/** LDAP attribute to display */
 	var $ldap_attribute;
+
+	/** Icon image to display next to attribute */
 	var $icon;
+
+	/** Whether the attribute should be rendered with editing enabled */
 	var $edit = false;
+
+	/** LDAP entry whose attribute is to be displayed */
 	var $ldap_entry;
+
+	/** Whether this attribute should be hidden except when editing */
 	var $hide_unless_editing = false;
 
-	// Add an attribute and its value to the display
-	//
-	// $attribute - LDAP attribute
-	// $caption - "friendly" caption to be used for LDAP attribute
-	// $icon - icon image to display next to attribute
-	// $hide_unless_editing - whether the attribute should be hidden except when editing
+	/** Add an attribute and its value to the display
+
+	    @param array $ldap_entry
+		LDAP entry whose attribute is to be displayed
+	    @param string $attribute
+		LDAP attribute to display
+	    @param string $caption
+		Caption/label to be shown next to the LDAP attribute
+	    @param string $icon
+		Icon image to display next to attribute
+	    @param bool $hide_unless_editing
+		Whether this attribute should be hidden except when editing
+	*/
 
 	function ldap_entry_viewer_attrib($ldap_entry,$attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
@@ -952,9 +1092,11 @@ class ldap_entry_viewer_attrib
 		$this->hide_unless_editing = $hide_unless_editing;
 	}
 
-	// Output this object attribute as HTML
-	//
-	// $edit - whether the attribute should be rendered with editing enabled
+	/** Output this object attribute as HTML
+
+	    @param bool $edit
+		Whether the attribute should be rendered with editing enabled
+	*/
 
 	function show($edit)
 	{
@@ -1039,15 +1181,21 @@ class ldap_entry_viewer_attrib
 		}
 	}
 
-	// Show single-line textual attribute (data type "text")
-	//
-	// TODO: escape "nasty values" in $attrib_value, e.g. "
-	// TODO: style this better.. should be 100% less a fixed number of pixels?
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show single-line textual attribute (data type "text")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_text($attribute,$display_name,$required)
 	{
@@ -1071,15 +1219,21 @@ class ldap_entry_viewer_attrib
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
 
-	// Show telephone number (data type "phone_number")
-	//
-	// TODO: escape "nasty values" in $attrib_value, e.g. "
-	// TODO: style this better.. should be 100% less a fixed number of pixels?
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show telephone number (data type "phone_number")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_phone_number($attribute,$display_name,$required)
 	{
@@ -1103,15 +1257,21 @@ class ldap_entry_viewer_attrib
 			show_phone_number_formatted($attrib_value);
 	}
 
-	// Show multi-line textual attribute (data type "text_area")
-	//
-	// TODO: escape "nasty values" in $attrib_value, e.g. "
-	// TODO: style this better.. should be 100% less a fixed number of pixels?
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show multi-line textual attribute (data type "text_area")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_text_area($attribute,$display_name,$required)
 	{
@@ -1135,14 +1295,19 @@ class ldap_entry_viewer_attrib
 			echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
 	}
 
-	// Show ISO 3166-1 alpha-2 country code attribute (data type "country_code")
-	//
-	// TODO: improve handling of unrecognised country codes
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show ISO 3166-1 alpha-2 country code attribute (data type "country_code")
+
+	    @todo
+		Improve handling of unrecognised country codes
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_country_code($attribute,$display_name,$required)
 	{
@@ -1179,17 +1344,25 @@ class ldap_entry_viewer_attrib
 				echo get_country_name_from_code($attrib_value);
 	}
 
-	// Show postcode attribute (data type "postcode") - single line text, with
-	// adjacent button to display location in mapping service
-	//
-	// TODO: escape "nasty values" in $attrib_value, e.g. "
-	// TODO: style this better.. should be 100% less a fixed number of pixels?
-	// TODO: make mapping service configurable (not just Google)
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show postcode attribute (data type "postcode")
+
+	    Renders a poscode attribute - single line text, with an
+	    adjacent button to display location in mapping service
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo make mapping service configurable (not just Google)
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_postcode($attribute,$display_name,$required)
 	{
@@ -1214,12 +1387,16 @@ class ldap_entry_viewer_attrib
 					. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 	}
 
-	// Show image attribute (data type "image")
-	//
-	// $attribute - attribute to display
-	// $display_name - "friendly" display name of attribute (typically
-	//		rendered as "tooltip")
-	// $required - whether attribute is mandatory (either marked as such or the RDN)
+	/** Show image attribute (data type "image")
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
 
 	function show_image($attribute,$display_name,$required)
 	{
@@ -1228,9 +1405,11 @@ class ldap_entry_viewer_attrib
 		$attrib_value = get_ldap_attribute(
 			$this->ldap_entry,$attribute);
 
-		// TODO: this is not a very efficient way to determine
-		// whether image attribute is empty (should avoid
-		// calling get_ldap_attribute above)
+		/** @todo
+			The method used here is not a very efficient
+			way to determine  whether image attribute is empty
+			(should avoid calling get_ldap_attribute above)
+		*/
 		if($attrib_value != "")
 		{
 			if(!empty($photo_image_size))
@@ -1267,9 +1446,13 @@ class ldap_entry_viewer_attrib
 	}
 }
 
-// Return attribute-specific CSS class name for given LDAP attribute
-//
-// $attrib - attribute for which CSS class name is to be returned.
+/** Return attribute-specific CSS class name for given LDAP attribute
+
+    @param string $attrib
+	Attribute for which CSS class name is to be returned.
+    @return
+	CSS class to be used when displaying the attribute.
+*/
 
 function ldap_attribute_to_css_class($attrib)
 {
@@ -1280,20 +1463,30 @@ function ldap_attribute_to_css_class($attrib)
 	return "ldap_attribute_" . $attrib;
 }
 
-// Return specified attribute from an LDAP object entry specified
-// as an array, processing it for display as HTML (e.g. turn URLs
-// and e-mail addresses, special characters into entities, etc)
-//
-// $ldap_entry - LDAP entry as an array
-// $attribute - Attribute to be returned
+/** Return specified attribute from an LDAP object entry
+
+    Return specified attribute from an LDAP object entry specified
+    as an array, processing it for display as HTML (e.g. turn URLs
+    and e-mail addresses, special characters into entities, etc)
+
+    @param array $ldap_entry
+	LDAP entry for which an attribute value is to be returned
+    @param string $attribute
+	Attribute for which value to be returned
+    @return
+	Value of the requested attribute
+*/
 
 function get_ldap_attribute($ldap_entry,$attribute)
 {
 	$attribute = strtolower($attribute);
 
 	if(!empty($ldap_entry[0][$attribute][0]))
-		// TODO: iterate over multi-valued attributes
-		// (currently only returns the first value)
+		/** @todo
+			Currently only returns the first value of the
+			attribute. Should iterate over multi-valued
+			attributes.
+		*/
 		$attrib_value = $ldap_entry[0][$attribute][0];
 	else
 		$attrib_value = "";
@@ -1301,11 +1494,15 @@ function get_ldap_attribute($ldap_entry,$attribute)
 	return $attrib_value;
 }
 
-// Turn any URLs and e-mail addresses appearing in the text
-// into HTML links.
-//
-// $text - Text which is to have its substrings that resemble
-//		URLs and e-mail addresses converted to links
+/** Turn any URLs and e-mail addresses appearing in the text into HTML links.
+
+    @param string $text
+	Text which is to have its substrings that resemble
+	URLs and e-mail addresses converted to links
+    @return
+	Processed version of the text, with URLs and e-mail
+	addreses converted to HTML links
+*/
 
 function urls_to_links($text)
 {
@@ -1321,8 +1518,10 @@ function urls_to_links($text)
 	return $text;
 }
 
-// Report an LDAP bind error (login failure), using wording appropriate
-// to the specific situation
+/** Report an LDAP bind error (login failure)
+
+    Uses wording appropriate to the specific situation
+*/
 
 function show_ldap_bind_error()
 {
@@ -1355,10 +1554,16 @@ function show_ldap_bind_error()
 	}
 }
 
-// Attempt LDAP bind (login) with user (or config file) specified
-// credentials
-//
-// $ldap_link - LDAP connection handle to bind/authenticate against
+/** Log on to LDAP directory
+
+    Attempts LDAP bind (login) with user (or config file) specified
+    credentials
+
+    @param resource $ldap_link
+	LDAP connection handle to bind/authenticate against
+    @return
+	Whether log on was successful (true/false)
+*/
 
 function log_on_to_directory($ldap_link)
 {
@@ -1390,10 +1595,15 @@ function log_on_to_directory($ldap_link)
 	return $result;
 }
 
-// Return value of named attribute for specified address book user name
-//
-// $user_name - Name of user whose information is required
-// $attrib - Attribute to be returned
+/** Return value of named attribute for specified address book user name
+
+    @param string $user_name
+	Name of user whose information is required
+    @param string $attrib
+	Attribute to be returned
+    @return
+	Requested user attribute
+*/
 
 function get_user_attrib($user_name,$attrib)
 {
@@ -1401,10 +1611,14 @@ function get_user_attrib($user_name,$attrib)
 	return $user_info[$attrib];
 }
 
-// Return array of attributes for specified address book user name
-//
-// $user_name - Name of user whose information is required (default to
-// currently logged in user if omitted)
+/** Return array of attributes for specified address book user name
+
+    @param string $user_name
+	Name of user whose information is required (default to
+	currently logged in user if omitted)
+    @return
+	Array of user information (e.g. allowed permissions)
+*/
 
 function get_user_info($user_name="")
 {
@@ -1430,11 +1644,18 @@ function get_user_info($user_name="")
 	return $user_info;
 }
 
-// Return matching schema object class for the specified LDAP entry
-//
-// $object_class_schema - Schema object class definitions
-//			  as returned by get_object_class_schema()
-// $entry - Entry for which matching class name is to be returned
+/** Return matching schema object class for the specified LDAP entry
+
+    @param array $object_class_schema
+	Schema object class definitions as returned by
+	get_object_class_schema()
+    @param string $entry
+	Entry for which matching class name is to be returned
+    @return
+	Most specific class name for the object, or the
+	string "(unrecognised)" if none of its object class
+	values appears in the schema
+*/
 
 function get_object_class($object_class_schema,$entry)
 {
@@ -1454,12 +1675,18 @@ function get_object_class($object_class_schema,$entry)
 	return $item_object_class;
 }
 
-// Return the value of a setting for the specified object class
-//
-// $object_class_schema - Schema object class definitions
-//			  as returned by get_object_class_schema()
-// $class - Schema class for which the setting value is required
-// $setting - Schema class setting for which the value is required
+/** Return the value of a setting for the specified object class
+
+    @param array $object_class_schema
+	Schema object class definitions as returned by
+	get_object_class_schema()
+    @param string $class
+	Schema class for which the setting value is required
+    @param string $setting
+	Schema class setting for which the value is required
+    @return
+	Value of the requested setting
+*/
 
 function get_object_class_setting($object_class_schema,$class,$setting)
 {
@@ -1485,14 +1712,19 @@ function get_object_class_setting($object_class_schema,$class,$setting)
 	return $setting_value;
 }
 
-// Sort an array of LDAP entries against one or more attributes.
-// Derived from example code derived snippet at:
-// http://www.php.net/manual/en/function.ldap-sort.php
-//
-// $ldap_entries - LDAP entries to be sorted
-// $attrib_list - Array of LDAP attributes to sort by, in order of
-//		  priority
-// $sort_direction - Either LDAP_SORT_ASCENDING or LDAP_SORT_DESCENDING
+/** Sort an array of LDAP entries against one or more attributes.
+
+    @see
+	Derived from code snippet at:
+	http://www.php.net/manual/en/function.ldap-sort.php
+
+    @param array $ldap_entries
+	LDAP entries to be sorted
+    @param array $attrib_list
+	LDAP attributes to sort by, listed in order of priority
+    @param integer $sort_direction
+	Either LDAP_SORT_ASCENDING or LDAP_SORT_DESCENDING
+*/
 
 function ldap_sort_entries($ldap_entries,$attrib_list,$sort_direction)
 {
@@ -1516,14 +1748,22 @@ function ldap_sort_entries($ldap_entries,$attrib_list,$sort_direction)
 	return $ldap_entries;
 }
 
-// Compare two LDAP entries and return a value indicating which
-// occurs first alphabetically.
-//
-// $collator - Collator providing locale-sensitive comparison function
-// $entry1 - First entry to be compared
-// $entry2 - Second entry to be compared
-// $attrib_list - Array of attributes to be used in the comparison, in
-//		  order of priority
+/** Compare two LDAP entries and return which of them occurs first alphabetically.
+
+    Subfunction used for LDAP record sorting.
+
+    @param object $collator
+	Collator providing locale-sensitive comparison function
+    @param array $entry1
+	First entry to be compared
+    @param array $entry2
+	Second entry to be compared
+    @param array $attrib_list
+	Array of attributes to be used in the comparison, in
+	order of priority
+    @return
+	Value indicating which occurs first alphabetically
+*/
 
 function ldap_sort_entries_compare($collator,$entry1,$entry2,$attrib_list)
 {
@@ -1542,12 +1782,18 @@ function ldap_sort_entries_compare($collator,$entry1,$entry2,$attrib_list)
 	return $d;
 }
 
-// Swap a pair of LDAP entries in an array. (swap a pair of indexed
-// array elements)
-//
-// $ldap_entries - Array whose elements are to be swapped
-// $entry1 - Index of first element
-// $entry2 - Index of second element
+/** Swap a pair of LDAP entries in an array.
+
+    Subfunction used for LDAP record sorting - swaps a pair of
+    indexed array elements
+
+    @param array $ldap_entries
+	Array whose elements are to be swapped
+    @param mixed $entry1
+	Index of first element
+    @param mixed $entry2
+	Index of second element
+*/
 
 function ldap_sort_entries_swap(&$ldap_entries,$entry1,$entry2)
 {
@@ -1556,15 +1802,21 @@ function ldap_sort_entries_swap(&$ldap_entries,$entry1,$entry2)
 	$ldap_entries[$entry2] = $temp;
 }
 
-// Return the value of a specified entry and attribute,
-// dealing with the following special cases so that the attribute
-// is ready for use in sorting:
-//   - Returns an empty string if the attribute doesn't exist
-//   - Returns the first value of a multi-value attribute
-//
-// $entry - Entry for which the attribute is to be returned
-// $attrib - Attribute whose value is to be returned (must be a
-//           textual attribute)
+/** Return the value of a specified entry and attribute.
+
+    Deals with the following special cases so that the attribute
+    is ready for use in sorting:
+	- Returns an empty string if the attribute doesn't exist
+	- Returns the first value of a multi-value attribute
+
+    @param array $entry
+	Entry for which the attribute is to be returned
+    @param string $attrib
+	Attribute whose value is to be returned (which must have
+	a textual data type)
+    @return
+	The value requested
+*/
 
 function ldap_sort_entries_getattrib($entry,$attrib)
 {
@@ -1579,20 +1831,30 @@ function ldap_sort_entries_getattrib($entry,$attrib)
 	}
 }
 
-// View LDAP entries (e.g. search results) as a HTML list
+/** View LDAP entries (e.g. search results) as a HTML list */
 
 class ldap_entry_list
 {
+	/** LDAP search resource containing the LDAP object entries which
+            are to be displayed */
 	var $ldap_entries;
+
+	/** Column layout used for displaying search results */
 	var $search_result_columns;
+
+	/** LDAP attribute that the list should be sorted by */
 	var $sort_order;
 
-	// Constructor.
-	//
-	// $ldap_entries - LDAP search resource containing the LDAP object entries which
-	//			are to be displayed
-	// $search_result_columns - Array of search result column details display
-	// $sort_order - LDAP attribute that the list should be sorted by
+	/** Constructor
+
+	    @param resource $ldap_entries
+		LDAP search resource containing the LDAP object entries which
+		are to be displayed
+	    @param array $search_result_columns
+		Search result column layout to use for display
+	    @param string $sort_order
+		LDAP attribute that the list should be sorted by
+	*/
 
 	function ldap_entry_list($ldap_entries,$search_result_columns,$sort_order)
 	{
@@ -1601,7 +1863,7 @@ class ldap_entry_list
 		$this->sort_order = $sort_order;
 	}
 
-	// Output the address book contents as vCard
+	/** Output address book contents as vCard */
 
 	function save_vcard()
 	{
@@ -1620,7 +1882,8 @@ class ldap_entry_list
 			echo vcard($ldap_data[$i]) . "\n";
 	}
 
-	// Output the object entry list as HTML, utilising chosen sort order
+	/** Output the object entry list as HTML, applying
+	    user's chosen sort order */
 
 	function show()
 	{
@@ -1651,7 +1914,7 @@ class ldap_entry_list
 		echo "</table>\n";
 	}
 
-	// Display column headings
+	/** Display column headings */
 
 	function show_column_headings()
 	{
@@ -1681,11 +1944,14 @@ class ldap_entry_list
 		echo "  </tr>\n";
 	}
 
-	// Display a single LDAP entry (row in table of search results)
-	//
-	// $object_class_schema - array of information about LDAP object
-	//	classes, as returned by get_object_class_schema()
-	// $ldap_entry - LDAP entry to display)
+	/** Display a single LDAP entry (row in table of search results)
+
+	    @param array $object_class_schema
+		Array of information about LDAP object
+		classes, as returned by get_object_class_schema()
+	    @param arary $ldap_entry
+		LDAP entry to display
+	*/
 
 	function show_ldap_entry($object_class_schema,$ldap_entry)
 	{
@@ -1771,17 +2037,25 @@ class ldap_entry_list
 		echo "  </tr>\n";
 	}
 
-	// Return the value of the specified LDAP entry and attribute
-	// For multi-value attributes this function currently
-	// returns only the first value.
-	//
-	// $ldap_entry - LDAP entry for which value is to be returned
-	// $attrib - Attribute of the LDAP entry to return
+	/** Return the value of the specified LDAP entry and attribute
+
+	    For multi-value attributes this function currently
+	    returns only the first value.
+
+	    @param array $ldap_entry
+		LDAP entry for which value is to be returned
+	    @param string $attrib
+		Attribute of the LDAP entry to return
+	    @return
+		The requested attribute value
+	*/
 
 	function get_attrib_value($ldap_entry,$attrib)
 	{
-		// TODO: support compound fields of multiple
-		// attributes
+		/** @todo
+			add support compound fields of multiple
+			attributes
+		*/
 
 		// sortableName is an internal "synthesised"
 		// attribute rather than retrieved from
@@ -1801,8 +2075,10 @@ class ldap_entry_list
 					. $ldap_entry["givenname"][0];
 		}
 		else
-			// TODO: this only supports getting the first
-			// value of a multi-value attribute.
+			/** @todo
+				this only supports getting the first
+				value of a multi-value attribute.
+			*/
 			if(!empty($ldap_entry[strtolower($attrib)][0]))
 				$attrib_value =
 					$ldap_entry[strtolower($attrib)][0];
@@ -1812,29 +2088,39 @@ class ldap_entry_list
 		return $attrib_value;
 	}
 
-	// Display the specified attribute of an LDAP object. This
-	// corresponds to an individual table cell in the search
-	// results or OU being browsed
-	//
-	// (TODO: support for compound attributes, e.g. address)
-	//
-	// $dn = LDAP distinguished name of object
-	// $attrib_name = Name of attribute to be shown
-	// $attrib_value = Value of attribute to be shown
-	// $link_type = Specifies if and how the attribute should be
-	// shown as a HTML link
-	//	object - Link to detailed info about the object
-	//		(typically used with the sortableName attribute
-	//		in the left-hand column, conceptually representing
-	//		the object itself)
-	//	mailto - Link to the attribute's value as an e-mail address
-	//	none - Do not display attribute as a link
-	// $is_folder = Specifies whether the this record should be
-	//	presented as a folder (clicking the link navigates to an
-	//	OU browser for the destination) or a leaf object (clicking
-	//	the link navigates to a page of detailed info about the
-	//	object). Additional attributes (beyond the name) are also
-	//	not shown for folders
+	/** Display the specified attribute of an LDAP object.
+
+	    This corresponds to an individual table cell in the search
+	    results or OU being browsed
+
+	    @todo
+		support for compound attributes, e.g. address
+
+	    @param string $dn
+		LDAP distinguished name of object
+	    @param string $attrib_name
+		Name of attribute to be shown
+	    @param string $attrib_value
+		Value of attribute to be shown
+	    @param string $link_type
+		Specifies if and how the attribute should be
+		shown as a HTML link:
+
+		- object: Link to detailed info about the object
+			(typically used with the sortableName attribute
+			in the left-hand column, conceptually representing
+			the object itself)
+		- mailto: Link to the attribute's value as an e-mail address
+		- url: Cell contains a URL which should be shown as a link
+		- (none): Do not display attribute as a link
+	    @param bool $is_folder
+		Specifies whether the this record should be
+		presented as a folder (clicking the link navigates to an
+		OU browser for the destination) or a leaf object (clicking
+		the link navigates to a page of detailed info about the
+		object). Additional attributes (beyond the name) are also
+		not shown for folders
+	*/
 
 	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
 		$is_folder = false)
@@ -1904,38 +2190,57 @@ class ldap_entry_list
 	}
 }
 
-// Prepare a string for use as a value in an LDAP search query by
-// escaping otherwise invalid characters (e.g. guard against "LDAP
-// injection").
-//
-// $ldap_value - string to be escaped for use as an LDAP value
+/** Prepare a string for use as a value in an LDAP search query
+
+    Escapes otherwise invalid characters, e.g. to guard against
+    "LDAP injection" attacks.
+
+    @param string $ldap_value
+	Text to be escaped for use as an LDAP value
+    @return
+	Sanitised version of string with invalid characters escaped
+*/
 
 function ldap_escape_search_value($ldap_value)
 {
 	return ldap_escape($ldap_value,false);
 }
 
-// Prepare a string for use as a value in an LDAP DN by escaping
-// otherwise invalid characters (e.g. guard against "LDAP
-// injection").
-//
-// $ldap_dn - string to be escaped for use as an LDAP DN
+/** Prepare a string for use as a value in an LDAP DN
+
+    Escapes otherwise invalid characters, e.g. guard against
+    "LDAP injection" attacks.
+
+    @param string $ldap_dn
+	Text to be escaped for use as an LDAP DN
+    @return
+	Sanitised version of string with invalid characters escaped
+*/
 
 function ldap_escape_dn_value($ldap_dn)
 {
 	return ldap_escape($ldap_dn,true);
 }
 
-// Prepare a string for use as an LDAP value or DN by escaping otherwise
-// invalid characters (e.g. guard against "LDAP injection").
-//
-// $subject - string to be escaped for use as an LDAP value or DN
-// $dn - whether to treat the string as a DN (assume no if not present)
-// $ignore - optional list of characters to leave untouched
-//
-// based on code snippet from:
-// http://stackoverflow.com/questions/8560874/php-ldap-add-function-to-escape-ldap-special-characters-in-dn-syntax
-// (ldap_escape 2.0 by Chris Wright)
+/** Prepare a string for use as an LDAP value or DN.
+
+    Escapes otherwise invalid characters, e.g. guard against
+    "LDAP injection" attacks.
+
+    @see
+    http://stackoverflow.com/questions/8560874/php-ldap-add-function-to-escape-ldap-special-characters-in-dn-syntax
+    (ldap_escape 2.0 by Chris Wright)
+
+    @param string $subject
+	Text to be escaped for use as an LDAP value or DN
+    @param bool $dn
+	Whether to treat the string as a DN (assume no if not present)
+    @param mixed $ignore
+	Optional list of characters to leave untouched
+	(set to null if no characters to be left untouched)
+    @return
+	Sanitised version of string with invalid characters escaped
+*/
 
 function ldap_escape($subject,$dn=false,$ignore=null)
 {
@@ -1971,9 +2276,15 @@ function ldap_escape($subject,$dn=false,$ignore=null)
 	return $result;
 }
 
-// Returns whether or not all required prerequisite components
-// (PHP modules) are installed and enabled. Displays details
-// of any missing components.
+/** Checks status of prerequisites to run the address book
+
+    Returns whether or not all required prerequisite components
+    (PHP modules) are installed and enabled. Displays details
+    of any missing components.
+
+    @return
+	Whether all prequisites have been met (true/false)
+*/
 
 function prereq_components_ok()
 {
@@ -2005,12 +2316,17 @@ function prereq_components_ok()
 	return empty($missing_php_extn_list);
 }
 
-// Update an attribute of the specified LDAP entry from posted
-// form data
-//
-// $entry - Entry to be updated
-// $attrib - Name of attribute to be updated with new value from posted data
-// $is_rdn - Attribute to be updated is used for the object's RDN
+/** Update an attribute of the specified LDAP entry from posted form data
+
+    @param array $entry
+	Entry to be updated
+    @param string $attrib
+	Name of attribute to be updated with new value from posted data
+    @param bool $is_rdn
+	Attribute to be updated is used for the object's RDN
+    @return
+	Textual description of the result (e.g. error if it failed)
+*/
 
 function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 {
@@ -2060,7 +2376,9 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 		if($new_val != $old_val)
 		{
-			// TODO: determine if multi-valued (currently always assume yes)
+			/**
+			    @todo Determine if multi-valued (currently always assume yes)
+			*/
 			if(1)
 				// syntax for multi-valued attribute
 				$changes[$attrib][0] = ($new_val == "" ? $old_val : $new_val);
@@ -2098,10 +2416,16 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 	}
 }
 
-// Retrieve icon/photo thumbnail URL for the specified LDAP
-// entry.
-//
-// $entry - Entry for which thumbnail URL is to be retrieved
+/** Retrieve icon/photo thumbnail URL for the specified LDAP entry.
+
+    @param array $entry
+	Entry for which thumbnail URL is to be retrieved
+    @return
+	URL of image. This can be either retrieved from the record
+	itself (if present, and image display is turned on) or an
+	icon representing the record's object class (e.g. user
+	or contact).
+*/
 
 function get_icon_for_ldap_entry($entry)
 {
@@ -2135,9 +2459,13 @@ function get_icon_for_ldap_entry($entry)
 	}
 }
 
-// Return the specified LDAP entry in vCard format
-//
-// $entry - LDAP entry which is to be converted to vCard
+/** Return the specified LDAP entry in vCard format
+
+    @param array $entry
+	LDAP entry which is to be converted to vCard
+    @return
+	String containing a vCard representation of the LDAP entry
+*/
 
 function vcard($entry)
 {
@@ -2193,10 +2521,10 @@ function vcard($entry)
 		$vcard .= "TEL;WORK;FAX:" . str_replace(" ","",$entry["facsimiletelephonenumber"][0]) . "\n";
 	if(isset($entry["mail"][0]))
 		$vcard .= "EMAIL;TYPE=INTERNET:" . $entry["mail"][0] . "\n";
-	//home
+	// Intepretted as "personal" URL in default layout
 	if(isset($entry["wwwhomepage"][0]))
 		$vcard .= "URL:" . $entry["wwwhomepage"][0] . "\n";
-	//work
+	// Intepretted as "business" URL in default layout
 	if(isset($entry["url"][0]))
 		$vcard .= "URL:" . $entry["url"][0] . "\n";
 
@@ -2251,12 +2579,18 @@ function vcard($entry)
 	return $vcard;
 }
 
-// Show phone number - formatted either as plain body text or converted
-// to a HTML link as per the substitution rule specified by
-// $phone_number_link_template (defined in the config file) and with link
-// target as per $phone_number_link_target (if defined)
-//
-// $phone_number - phone number to be formatted
+/** Format and output a phone number of display
+
+    Formatted either as plain body text or converted
+    to a HTML link as per the substitution rule specified by
+    $phone_number_link_template (defined in the config file) and with link
+    target as per $phone_number_link_target (if defined)
+
+    @param string $phone_number
+	Phone number to be formatted
+    @return
+	Version of phone number formatted for display
+*/
 
 function show_phone_number_formatted($phone_number)
 {

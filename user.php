@@ -68,10 +68,14 @@ else
 	return_to_previous_url();
 }
 
-// Display a page explaining why the login wasn't accepted, with
-// a link to try again.
-//
-// $message - Text of message to be displayed.
+/** Display a page explaining why the login wasn't accepted
+
+    Includes link that the user can select in order to
+    try again.
+
+    @param string $message
+	Text of message to be displayed.
+*/
 
 function show_try_again_message($message)
 {
@@ -83,7 +87,7 @@ function show_try_again_message($message)
 	show_site_footer();
 }
 
-// Log user out/remove details of any in-progress login
+/** Log the user out (or discard details of any in-progress login sequence) */
 
 function reset_login_session()
 {
@@ -92,16 +96,23 @@ function reset_login_session()
 	unset($_SESSION["LOGIN_PASSWORD"]);
 }
 
-// Return user to their previous URL once login has been completed
-// (using contents of HTTP "Referer" header field if available,
-// otherwise to the address book's main page)
+/** Redirect user to their previous URL once login has been completed
+
+    Previous URL is based on the HTTP "Referer" header field if
+    available, otherwise returns the user to the address book's main
+    page.
+
+    Special case: If the refering URL was user.php then the user is
+    redirected to the address book's main main page instead,in order
+    to avoid creating a redirect loop on failed/retried login.
+
+    @todo
+	Look out for malicious user agents passing nasties to this
+	function via HTTP_REFERER.
+*/
 
 function return_to_previous_url()
 {
-	// TODO: look out for nasties being passed in HTTP_REFERER
-
-	// if current page is user.php then redirect to main page instead
-	// to avoid a redirect loop on user login retry
 
 	if(basename($_SERVER["PHP_SELF"]=="user.php") || empty($_SERVER["HTTP_REFERER"]))
 		// go back to main page
