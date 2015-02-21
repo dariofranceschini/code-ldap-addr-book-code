@@ -19,7 +19,7 @@ $(function() {
 	$("#filter").autocomplete({
 		source: function(request, response) {
 			$.ajax({
-				url: "/suggest.php",
+				url: "suggest.php",
 				dataType: "json",
 				data: {
 					'filter': request.term
