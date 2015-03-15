@@ -2615,4 +2615,29 @@ function show_phone_number_formatted($phone_number)
 		echo htmlentities($phone_number,ENT_COMPAT,"UTF-8");
 }
 
+/** Return whether a DN is within the specified base of the DIT
+
+    The comparision is done server-side in order to apply
+    the correct matching rule for each attribute (e.g. whether
+    it is case sensitive or not).
+
+    @param resource $ldap_link
+	LDAP connection handle to bind/authenticate against
+    @param string $dn
+	DN to test
+    @param string $base_dn
+	Base DN that $dn is going to be tested against
+    @return
+	Whether $dn falls within $base_dn in the DIT (true/false)
+*/
+
+function ldap_compare_dn_to_base($ldap_link,$dn,$base_dn)
+{
+	$base_rdn_list = ldap_explode_dn($base_dn,0);
+	$base_rdn_count = $base_rdn_list["count"];
+	$dn_base_section=implode(array_slice(ldap_explode_dn($dn,0),
+		-$base_rdn_count),",");
+
+	return ldap_compare($ldap_link,$base_dn,"DN",$dn_base_section);
+}
 ?>

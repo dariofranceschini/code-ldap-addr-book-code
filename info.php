@@ -27,10 +27,10 @@ if(prereq_components_ok())
 	if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
 	else $dn = $ldap_base_dn;
 
-	// Check whether the end part of the DN matches $ldap_base_dn
-	if(substr($dn,-strlen($ldap_base_dn)) == $ldap_base_dn)
+	if(log_on_to_directory($ldap_link))
 	{
-		if(log_on_to_directory($ldap_link))
+		// Check whether the end part of the DN matches $ldap_base_dn
+		if(ldap_compare_dn_to_base($ldap_link,$dn,$ldap_base_dn))
 		{
 			if(isset($_GET["create"]))
 			{
@@ -87,19 +87,19 @@ if(prereq_components_ok())
 			}
 		}
 		else
-		{
-			show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
-			show_ldap_bind_error();
-		}
+			show_error_message("Record being accessed: <code>" . htmlentities($dn)
+				. "</code>\n</p>\n"
+				. "<p>\n  This record is outside the part of the directory "
+				. "which stores the\n  address book. You do not "
+				. "have permission to display it.\n</p>\n"
+				. "<p>\n  The address book is stored at: <code>"
+				. htmlentities($ldap_base_dn) . "</code>");
 	}
 	else
-		show_error_message("Record being accessed: <code>" . htmlentities($dn)
-			. "</code>\n</p>\n"
-			. "<p>\n  This record is outside the part of the directory "
-			. "which stores the\n  address book. You do not "
-			. "have permission to display it.\n</p>\n"
-			. "<p>\n  The address book is stored at: <code>"
-			. htmlentities($ldap_base_dn) . "</code>");
+	{
+		show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
+		show_ldap_bind_error();
+	}
 
 	echo "\n\n";
 }
