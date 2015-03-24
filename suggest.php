@@ -45,9 +45,6 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 
 		$search_type= "subtree";
 
-		if(empty($ldap_server_type))	// Default server type: Active Directory
-			$ldap_server_type = "ad";
-
 		$search_resource = false;
 
 		if(log_on_to_directory($ldap_link))
@@ -59,8 +56,6 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 		// Return search resource info if successfully fetched
 		if(is_resource($search_resource))
 		{
-			$object_class_schema = get_object_class_schema($ldap_server_type);
-
 			$sort_type = $search_result_default_sort_order;
 
 			// Only allow sorting on attributes which are actualy used in columns

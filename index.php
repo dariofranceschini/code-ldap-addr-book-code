@@ -75,9 +75,6 @@ if(prereq_components_ok())
 	if(empty($_GET["vcard"]))
 		show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
 
-	if(empty($ldap_server_type))	// Default server type: Active Directory
-		$ldap_server_type = "ad";
-
 	$user_info = get_user_info();
 
 	if(empty($_GET["vcard"]))
@@ -115,8 +112,6 @@ if(prereq_components_ok())
 	// Display search resource info if successfully fetched
 	if(is_resource($search_resource))
 	{
-		$object_class_schema = get_object_class_schema($ldap_server_type);
-
 		if(!empty($_GET["sort"]))
 			$sort_type = $_GET["sort"];
 		else

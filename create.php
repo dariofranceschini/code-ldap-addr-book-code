@@ -27,7 +27,6 @@ show_site_header();
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
-// show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
 show_ldap_path("cn=New Record," . $dn,$ldap_base_dn,"schema/generic24.png");
 
 $object_class_schema = get_object_class_schema($ldap_server_type);
