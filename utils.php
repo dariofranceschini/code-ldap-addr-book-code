@@ -1567,22 +1567,27 @@ function show_ldap_bind_error()
 
 function log_on_to_directory($ldap_link)
 {
-	if(isset($_SESSION["LOGIN_USER"]))
-	{
-		$user = get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name");
-		$pw = $_SESSION["LOGIN_PASSWORD"];
-	}
-	else
-	{
-		$user = get_user_attrib("__ANONYMOUS__","ldap_name");
-		$pw = get_user_attrib("__ANONYMOUS__","ldap_password");
-	}
+	global $follow_ldap_referrals;
+
+	$user = get_ldap_bind_user();
 
 	$result=false;
 	if($user != "__DENY__")
 	{
 		ldap_set_option($ldap_link,LDAP_OPT_PROTOCOL_VERSION,3);
-		$result=@ldap_bind($ldap_link,$user,$pw);
+
+		if(!isset($follow_ldap_referrals))
+			$follow_ldap_referrals = false;
+
+		ldap_set_option($ldap_link,LDAP_OPT_REFERRALS,
+			$follow_ldap_referrals);
+
+		$result=@ldap_bind($ldap_link,$user,
+			get_ldap_bind_password());
+
+		if($follow_ldap_referrals)
+			ldap_set_rebind_proc($ldap_link,
+				"ldap_referral_rebind");	// callback
 
 		// Timezone is not known to be used for anything in this
 		// application, however various LDAP functions produce
@@ -1593,6 +1598,53 @@ function log_on_to_directory($ldap_link)
 	}
 
 	return $result;
+}
+
+/** Get LDAP bind DN/login name of current user
+
+    @return
+	LDAP bind DN/login name of current user
+*/
+
+function get_ldap_bind_user()
+{
+	return isset($_SESSION["LOGIN_USER"])
+		? get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name")
+		: get_user_attrib("__ANONYMOUS__","ldap_name");
+}
+
+/** Get LDAP bind password of current user
+
+    @return
+	LDAP bind password of current user
+*/
+
+function get_ldap_bind_password()
+{
+	return isset($_SESSION["LOGIN_USER"])
+		? $_SESSION["LOGIN_PASSWORD"]
+		: get_user_attrib("__ANONYMOUS__","ldap_password");
+}
+
+/** Callback function to reauthenticate following LDAP referral
+
+    @param resource $ldap_link
+        LDAP connection handle to bind/authenticate against
+    @param string $referral_uri
+	LDAP URI to be accessed following rebind (unused)
+    @return
+	1 for successful rebind, 0 for failure
+*/
+
+function ldap_referral_rebind($ldap_link,$referral_uri)
+{
+	$user = get_ldap_bind_user();
+
+	if($user == "__DENY__")
+		return 1;
+	else
+		return @ldap_bind($ldap_link,$user,
+			get_ldap_bind_password()) ? 1 : 0;
 }
 
 /** Return value of named attribute for specified address book user name
