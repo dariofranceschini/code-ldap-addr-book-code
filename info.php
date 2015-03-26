@@ -16,8 +16,8 @@
 
    ************************************************************************ */
 
-include "config.php";
 include "utils.php";
+include "config.php";
 
 if(empty($_GET["vcard"]))
 	show_site_header();

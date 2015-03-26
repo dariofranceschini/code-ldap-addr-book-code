@@ -16,8 +16,8 @@
 
    ************************************************************************ */
 
-include "config.php";
 include "utils.php";
+include "config.php";
 
 // Create a new session (if none already exists)
 if(!isset($_SESSION)) session_start();

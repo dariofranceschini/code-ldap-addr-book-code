@@ -16,8 +16,8 @@
 
    ************************************************************************ */
 
-include "config.php";
 include "utils.php";
+include "config.php";
 
 show_site_header();
 

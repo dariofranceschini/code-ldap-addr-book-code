@@ -16,8 +16,8 @@
 
    ************************************************************************ */
 
-include "config.php";
 include "utils.php";
+include "config.php";
 
 // TODO: sanitise base DN from URL:
 //	stop "nasties" being passed through to the LDAP server

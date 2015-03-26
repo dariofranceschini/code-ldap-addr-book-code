@@ -16,8 +16,8 @@
 
    ************************************************************************ */
 
-include "config.php";
 include "utils.php";
+include "config.php";
 
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
