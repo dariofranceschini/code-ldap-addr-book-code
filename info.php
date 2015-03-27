@@ -37,10 +37,8 @@ if(prereq_components_ok())
 				// TODO: guard against nasties in the parent DN and object class
 				$object_class = $_GET["create"];
 
-				$object_class_schema = get_object_class_schema($ldap_server_type);
-
 				$rdn_attrib = get_object_class_setting(
-					$object_class_schema,
+					$ldap_server->object_class_schema,
 					$object_class,"rdn_attrib");
 
 				// Stub LDAP entry which is to be created

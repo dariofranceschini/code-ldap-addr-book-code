@@ -29,8 +29,6 @@ $dn = $_GET["dn"];
 
 show_ldap_path("cn=New Record," . $dn,$ldap_base_dn,"schema/generic24.png");
 
-$object_class_schema = get_object_class_schema($ldap_server_type);
-
 echo "<form method=\"get\" action=\"info.php\">\n";
 
 echo "  <p>\n    What type of record would you like to create?\n  </p>\n";
@@ -40,16 +38,11 @@ echo "  <input type=\"hidden\" name=\"dn\" value=\""
 
 echo "  <select name=\"create\" style=\"width:300px\">\n";
 
-if($ldap_server_type == "ad")
-	$default_create_class = "contact";
-else
-	$default_create_class = "inetOrgPerson";
-
-foreach($object_class_schema as $object_class)
-	if(get_object_class_setting($object_class_schema,
+foreach($ldap_server->object_class_schema as $object_class)
+	if(get_object_class_setting($ldap_server->object_class_schema,
 			$object_class["name"],"can_create"))
 	{
-		$display_name = get_object_class_setting($object_class_schema,
+		$display_name = get_object_class_setting($ldap_server->object_class_schema,
 			$object_class["name"],"display_name");
 
 		echo "    <option value=\"" . $object_class["name"]
@@ -57,7 +50,7 @@ foreach($object_class_schema as $object_class)
 			. $object_class["icon"]
 			. ");background-repeat:no-repeat;height:24px;padding-left:24px\"";
 
-		if($object_class["name"] == $default_create_class) echo " selected";
+		if($object_class["name"] == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
 	}
 

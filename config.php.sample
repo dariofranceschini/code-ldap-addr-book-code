@@ -31,7 +31,7 @@ $site_footer_links = array(
 //	openldap	OpenLDAP
 // --------------------------------------------------------------------
 
-$ldap_server_type = "ad";
+$ldap_server = new ldap_server("ad");
 
 // --------------------------------------------------------------------
 // LDAP server to connect to.

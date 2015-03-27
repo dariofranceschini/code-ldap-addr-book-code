@@ -34,8 +34,6 @@ if(log_on_to_directory($ldap_link))
 	{
 		$create_failed = false;
 
-		$object_class_schema = get_object_class_schema($ldap_server_type);
-
 		// Add the RDN attribute to $dn (which refers to the container)
 		// when creating a new entry.
 		if(!empty($_POST["create"]))
@@ -43,7 +41,7 @@ if(log_on_to_directory($ldap_link))
 			$entry["objectclass"] = $_POST["create"];
 
 			$rdn_attrib = get_object_class_setting(
-				$object_class_schema,
+				$ldap_server->object_class_schema,
 				$entry["objectclass"],
 				"rdn_attrib");
 
@@ -64,12 +62,12 @@ if(log_on_to_directory($ldap_link))
 			{
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
-				if(get_object_class_setting($object_class_schema,
+				if(get_object_class_setting($ldap_server->object_class_schema,
 					$entry["objectclass"],"can_create"))
 				{
 					$required_attribs = explode(",",
 						get_object_class_setting(
-						$object_class_schema,
+						$ldap_server->object_class_schema,
 						$entry["objectclass"],
 						"required_attribs"));
 
@@ -114,8 +112,8 @@ if(log_on_to_directory($ldap_link))
 						. $rdn_attrib] . "'</li>\n";
 
 				$rdn_attrib = get_object_class_setting(
-					$object_class_schema,
-					get_object_class($object_class_schema,$entry[0]),
+					$ldap_server->object_class_schema,
+					get_object_class($ldap_server->object_class_schema,$entry[0]),
 					"rdn_attrib");
 
 				foreach($entry_layout as $section)

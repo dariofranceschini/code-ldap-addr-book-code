@@ -283,121 +283,6 @@ function current_page_folder_url()
 	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $path;
 }
 
-/** Return an array representing the LDAP object class schema
-
-    Return an array associating LDAP object classes with attributes used by
-    the addressbook (currently icon graphic, whether it should be presented
-    as a folder or a "leaf" object and which attribute holds the RDN). Where
-    objects can potentially match more than one class those classes should
-    be listed with most "specific" first (e.g. Person/inetOrgPerson in edir
-    schema).
-
-    @param string $ldap_server_type
-	Indicates LDAP server type/schema to return
-	("ad", "edir" or "openldap")
-    @return
-	Array of information about the LDAP server's object class schema
-*/
-
-function get_object_class_schema($ldap_server_type = "ad")
-{
-	switch($ldap_server_type)
-	{
-		case "edir";
-			// Object class data - these items specific to Novell eDirectory
-			return array(
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group","can_create"=>true),
-				array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
-				array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn","can_create"=>true),
-				array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true),
-				array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
-				array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
-				array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
-				array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
-				array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-				array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-				array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
-				array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
-				array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
-				);
-			break;
-		case "openldap":
-			// Object class data - these items specific to OpenLDAP
-			return array(
-				// core.schema (partial)
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-				array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"can_create"=>true),
-				// inetorgperson.schema
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true)
-				);
-			break;
-		case "ad":
-		default:
-			// Object class data - these items specific to Active Directory
-			return array(
-				array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-				array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
-				array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
-				array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
-				array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
-				array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group","can_create"=>true),
-				array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact","can_create"=>true),
-				array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
-				array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false),
-				array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
-				array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson","can_create"=>true)
-				);
-	}
-}
-
-/** Return an array representing the LDAP attribute class schema
-
-    Return an array associating LDAP attribute classes with schema
-    setting used by the addressbook (currently data type for use when
-    editing/displaying and "friendly" display name).
-
-    @param string $ldap_server_type
-	Indicates LDAP server type/schema to return
-	("ad", "edir" or "openldap")
-    @return
-	Array of information about the LDAP server's attribute class schema
-*/
-
-function get_attribute_class_schema($ldap_server_type = "ad")
-{
-	// Generic schema used as basis of LDAP server-specific schemas
-
-	return array(
-		array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
-		array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
-		array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
-		array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
-		array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
-		array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
-		array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
-		array("name"=>"givenName",		"data_type"=>"text",		"display_name"=>"Given Name"),
-		array("name"=>"homePhone",		"data_type"=>"phone_number",	"display_name"=>"Home Telephone Number"),
-		array("name"=>"info",			"data_type"=>"text_area",	"display_name"=>"Information"),
-		array("name"=>"jpegPhoto",		"data_type"=>"image",		"display_name"=>"Photograph"),
-		array("name"=>"l",			"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
-		array("name"=>"mail",			"data_type"=>"text",		"display_name"=>"E-mail Address"),
-		array("name"=>"mobile",			"data_type"=>"phone_number",	"display_name"=>"Mobile/Cell Telephone Number"),
-		array("name"=>"pager",			"data_type"=>"text",		"display_name"=>"Pager Telephone Number"),
-		array("name"=>"physicalDeliveryOfficeName","data_type"=>"text",		"display_name"=>"Office"),
-		array("name"=>"sn",			"data_type"=>"text",		"display_name"=>"Surname"),
-		array("name"=>"st",			"data_type"=>"text",		"display_name"=>"State (or Province/County)"),
-		array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
-		array("name"=>"telephoneNumber",	"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
-		array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
-		array("name"=>"thumbnailLogo",		"data_type"=>"image",		"display_name"=>"Thumbnail Logo"),
-		array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
-		array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
-		array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
-		);
-}
-
 /** Return whether the specified attribute is mandatory
 
     Return 'true' if the specified attribute must always
@@ -440,7 +325,7 @@ function object_requires_attribute($object_class_schema,$object_class,$attribute
     @param string $attribute_name
 	Attribute for which schema setting is to be returned
     @param array $attribute_class_schema
-	Attribute schema, as returned by get_attribute_class_schema()
+	Attribute schema, as returned by $ldap_server->attribute_class_schema
     @param string $setting_name
 	Schema setting to be returned
     @param string $setting_default
@@ -466,7 +351,7 @@ function get_attribute_setting($attribute_name,$attribute_class_schema,
     @param string $attribute_name
 	Attribute for which schema setting is to be returned
     @param array $attribute_class_schema
-	Attribute schema, as returned by get_attribute_class_schema()
+	Attribute schema, as returned by $ldap_server->attribute_class_schema
     @return
 	Data type name for the specified LDAP attribute
 */
@@ -482,7 +367,7 @@ function get_attribute_data_type($attribute_name,$attribute_class_schema)
     @param string $attribute_name
 	Attribute for which schema setting is to be returned
     @param array $attribute_class_schema
-	Attribute schema, as returned by get_attribute_class_schema()
+	Attribute schema, as returned by $ldap_server->attribute_class_schema
     @return
 	Display name for the specified LDAP attribute
 */
@@ -882,18 +767,15 @@ class ldap_entry_viewer
 
 	function show()
 	{
-		global $ldap_base_dn,$ldap_server_type,$thumbnail_image_size,
+		global $ldap_base_dn,$ldap_server,$thumbnail_image_size,
 			$enable_ldap_path_thumbnail;
-
-		$object_class_schema = get_object_class_schema(
-			$ldap_server_type);
 
 		$dn = $this->ldap_entry[0]["dn"];
 
 		if($this->create)
 			show_ldap_path("CN=New "
-				. get_object_class_setting($object_class_schema,
-				get_object_class($object_class_schema,$this->ldap_entry[0])
+				. get_object_class_setting($ldap_server->object_class_schema,
+				get_object_class($ldap_server->object_class_schema,$this->ldap_entry[0])
 				,"display_name") .  "," . $dn,$ldap_base_dn,
 				get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
@@ -1100,7 +982,7 @@ class ldap_entry_viewer_attrib
 
 	function show($edit)
 	{
-		global $ldap_server_type;
+		global $ldap_server;
 
 		$this->edit = $edit;
 
@@ -1129,8 +1011,6 @@ class ldap_entry_viewer_attrib
 					. "\">\n            ";
 			}
 
-			$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
-
 			$first_line = true;
 			// look up values of attributes listed
 			//   (: = line break, + = space between words)
@@ -1145,20 +1025,19 @@ class ldap_entry_viewer_attrib
 					if($space_before_attribute) echo " ";
 					$space_before_attribute = true;
 
-					$display_name=get_attribute_display_name($attribute,$attribute_class_schema);
+					$display_name=get_attribute_display_name($attribute,$ldap_server->attribute_class_schema);
 
 					if($display_name!=$attribute)
 						$display_name .= " (" . $attribute . ")";
 
 					// determine whether this is a required attribute
 
-					$object_class_schema = get_object_class_schema($ldap_server_type);
-					$required = object_requires_attribute($object_class_schema,
-						get_object_class($object_class_schema,$this->ldap_entry[0])
+					$required = object_requires_attribute($ldap_server->object_class_schema,
+						get_object_class($ldap_server->object_class_schema,$this->ldap_entry[0])
 						,$attribute);
 
 					// display the attribute
-					switch(get_attribute_data_type($attribute,$attribute_class_schema))
+					switch(get_attribute_data_type($attribute,$ldap_server->attribute_class_schema))
 					{
 						case "postcode":
 							$this->show_postcode($attribute,$display_name,$required); break;
@@ -1700,7 +1579,7 @@ function get_user_info($user_name="")
 
     @param array $object_class_schema
 	Schema object class definitions as returned by
-	get_object_class_schema()
+	$ldap_server->object_class_schema
     @param string $entry
 	Entry for which matching class name is to be returned
     @return
@@ -1731,7 +1610,7 @@ function get_object_class($object_class_schema,$entry)
 
     @param array $object_class_schema
 	Schema object class definitions as returned by
-	get_object_class_schema()
+	$ldap_server->object_class_schema
     @param string $class
 	Schema class for which the setting value is required
     @param string $setting
@@ -1939,10 +1818,7 @@ class ldap_entry_list
 
 	function show()
 	{
-		global $ldap_link,$ldap_server_type;
-
-		$object_class_schema
-			= get_object_class_schema($ldap_server_type);
+		global $ldap_link,$ldap_server;
 
 		echo "<table class=\"search_results_viewer\">\n  <tr>\n";
 
@@ -1960,7 +1836,7 @@ class ldap_entry_list
 		// Display records
 
 		for($i=0;$i < $ldap_data["count"]; $i++)
-			$this->show_ldap_entry($object_class_schema,
+			$this->show_ldap_entry($ldap_server->object_class_schema,
 				$ldap_data[$i]);
 
 		echo "</table>\n";
@@ -2000,7 +1876,7 @@ class ldap_entry_list
 
 	    @param array $object_class_schema
 		Array of information about LDAP object
-		classes, as returned by get_object_class_schema()
+		classes, as returned by $ldap_server->object_class_schema
 	    @param arary $ldap_entry
 		LDAP entry to display
 	*/
@@ -2177,7 +2053,7 @@ class ldap_entry_list
 	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
 		$is_folder = false)
 	{
-		global $thumbnail_image_size,$ldap_server_type;
+		global $thumbnail_image_size,$ldap_server;
 
 		if($is_folder)
 			$colspan = " colspan=\""
@@ -2204,8 +2080,7 @@ class ldap_entry_list
 				. $attrib_value . "\">";
 
 		// Display the attribute's value
-		$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
-		switch(get_attribute_data_type($attrib_name,$attribute_class_schema))
+		switch(get_attribute_data_type($attrib_name,$ldap_server->attribute_class_schema))
 		{
 			case "image":
 				if(!empty($attrib_value))
@@ -2382,17 +2257,15 @@ function prereq_components_ok()
 
 function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 {
-	global $ldap_link,$ldap_server_type;
+	global $ldap_link,$ldap_server;
 
 	$dn = $entry[0]["dn"];
-
-	$attribute_class_schema = get_attribute_class_schema($ldap_server_type);
 
 	$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
 
 	// For image attributes, the above is set if the "clear image" box was ticked.
 	// Further checks to see if an image was uploaded:
-	if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+	if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
 		$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
 			|| $new_val_set;
 
@@ -2408,7 +2281,7 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 		else
 			$new_val = "";
 
-		if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+		if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
 		{
 			if(isset($_POST["ldap_attribute_" . $attrib]) && $_POST["ldap_attribute_" . $attrib] != "")
 				$new_val = "";		// clear image
@@ -2449,7 +2322,7 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 			if($result)
 			{
-				if(get_attribute_data_type($attrib,$attribute_class_schema) == "image")
+				if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
 					if(isset($_POST["ldap_attribute_" . $attrib])
 							&& $_POST["ldap_attribute_" . $attrib] != "")
 						return "Clear attribute '" . $attrib . "'";
@@ -2481,7 +2354,7 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 function get_icon_for_ldap_entry($entry)
 {
-	global $ldap_server_type,$enable_ldap_path_thumbnail,
+	global $ldap_server,$enable_ldap_path_thumbnail,
 		$thumbnail_image_size;
 
 	$dn = $entry["dn"];
@@ -2502,13 +2375,9 @@ function get_icon_for_ldap_entry($entry)
 			. "&attrib=thumbnailLogo&size="
 			. $thumbnail_image_size;
 	else
-	{
-		$object_class_schema = get_object_class_schema($ldap_server_type);
-
-		return "schema/" . get_object_class_setting($object_class_schema,
-			get_object_class($object_class_schema,$entry),
+		return "schema/" . get_object_class_setting($ldap_server->object_class_schema,
+			get_object_class($ldap_server->object_class_schema,$entry),
 			"icon");
-	}
 }
 
 /** Return the specified LDAP entry in vCard format
@@ -2692,4 +2561,157 @@ function ldap_compare_dn_to_base($ldap_link,$dn,$base_dn)
 
 	return ldap_compare($ldap_link,$base_dn,"DN",$dn_base_section);
 }
+
+class ldap_server
+{
+	/** Return LDAP server/schema type
+
+	    Supported server/schema types:
+
+		- ad - Microsoft Active Directory
+		- edir - Novell eDirectory
+		- openldap - OpenLDAP
+	*/
+	var $server_type;
+
+	/** Return information about the LDAP server's object class schema
+
+	    Returns an array holding information about the LDAP object classes used by
+	    the addressbook. Where objects can potentially match more than one class,
+	    those classes should be listed with most "specific" first (e.g.
+	    Person/inetOrgPerson in edir schema).
+
+		- name - Name of object class to which settings relate
+		- icon - Icon image representing the object class
+		- is_folder - Present as a folder rather than a "leaf" object
+		- display_name - Display name of the object
+		- required_attribs - Lists any required attributes (in addition to
+			the RDN attrribute, which is implicitly required)
+		- can_create - Allow users to create records of this object class
+
+	*/
+	var $object_class_schema;
+
+	/** Return information about the LDAP server's attribute class schema
+
+	    Returns an array associating LDAP attribute classes with schema
+	    setting used by the addressbook (currently data type for use when
+	    editing/displaying and "friendly" display name).
+
+		- name - Name of attribute class to which settings relate
+		- data_type - Data type of the attribute
+		- display_name - Display name of the attribute
+	*/
+	var $attribute_class_schema;
+
+	/** Return the default LDAP object class to use when creating new records
+
+	    The default class for new objects depends on the LDAP server type.
+	*/
+	var $default_create_class;
+
+	/** Constructor
+
+	    @param string $ldap_server_type
+		Indicates LDAP server type/schema type to create
+		("ad", "edir" or "openldap")
+	*/
+
+        function ldap_server($ldap_server_type)
+        {
+                $this->server_type = $ldap_server_type;
+
+		// Set object class schema
+		switch($this->server_type)
+		{
+			case "edir";
+				// Object class data - these items specific to Novell eDirectory
+				$this->object_class_schema = array(
+					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group","can_create"=>true),
+					array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
+					array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
+					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn","can_create"=>true),
+					array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true),
+					array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
+					array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
+					array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
+					array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
+					array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
+					array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
+					array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
+					array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
+					array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
+					);
+
+				// Default object class when creating new records
+		        	$this->default_create_class = "inetOrgPerson";
+				break;
+			case "openldap":
+				// Object class data - these items specific to OpenLDAP
+				$this->object_class_schema = array(
+					// core.schema (partial)
+					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"can_create"=>true),
+					// inetorgperson.schema
+					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true)
+					);
+
+				// Default object class when creating new records
+		        	$this->default_create_class = "inetOrgPerson";
+				break;
+			case "ad":
+			default:
+				// Object class data - these items specific to Active Directory
+				$this->object_class_schema = array(
+					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
+					array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
+					array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
+					array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
+					array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
+					array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group","can_create"=>true),
+					array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact","can_create"=>true),
+					array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
+					array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false),
+					array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
+					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson","can_create"=>true)
+					);
+
+				// Default object class when creating new records
+		        	$this->default_create_class = "contact";
+		}
+
+		// Set attribute class schema
+		// (same for all supported LDAP servers)
+
+		$this->attribute_class_schema= array(
+			array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
+			array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
+			array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
+			array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
+			array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
+			array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
+			array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
+			array("name"=>"givenName",		"data_type"=>"text",		"display_name"=>"Given Name"),
+			array("name"=>"homePhone",		"data_type"=>"phone_number",	"display_name"=>"Home Telephone Number"),
+			array("name"=>"info",			"data_type"=>"text_area",	"display_name"=>"Information"),
+			array("name"=>"jpegPhoto",		"data_type"=>"image",		"display_name"=>"Photograph"),
+			array("name"=>"l",			"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
+			array("name"=>"mail",			"data_type"=>"text",		"display_name"=>"E-mail Address"),
+			array("name"=>"mobile",			"data_type"=>"phone_number",	"display_name"=>"Mobile/Cell Telephone Number"),
+			array("name"=>"pager",			"data_type"=>"text",		"display_name"=>"Pager Telephone Number"),
+			array("name"=>"physicalDeliveryOfficeName","data_type"=>"text",		"display_name"=>"Office"),
+			array("name"=>"sn",			"data_type"=>"text",		"display_name"=>"Surname"),
+			array("name"=>"st",			"data_type"=>"text",		"display_name"=>"State (or Province/County)"),
+			array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
+			array("name"=>"telephoneNumber",	"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
+			array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
+			array("name"=>"thumbnailLogo",		"data_type"=>"image",		"display_name"=>"Thumbnail Logo"),
+			array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
+			array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
+			array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
+			);
+        }
+}
+
 ?>
