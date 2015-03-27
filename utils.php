@@ -2343,6 +2343,14 @@ function update_ldap_attribute($entry,$attrib,$is_rdn=false)
 
 /** Retrieve icon/photo thumbnail URL for the specified LDAP entry.
 
+    The first available image will be used from the following list
+    (i.e. image is present and thumbnails enabled in the config)
+
+	- jpegPhoto attribute
+	- thumbnailPhoto attribute
+	- thumbnailLogo attribute
+	- icon representing object class
+
     @param array $entry
 	Entry for which thumbnail URL is to be retrieved
     @return
