@@ -49,7 +49,7 @@ if(!isset($_SESSION["LOGIN_USER"]))
 			$_SESSION["LOGIN_USER"] = $_SERVER["PHP_AUTH_USER"];
 			$_SESSION["LOGIN_PASSWORD"] = $_SERVER["PHP_AUTH_PW"];
 
-			if(log_on_to_directory($ldap_link))
+			if($ldap_server->log_on())
 				return_to_previous_url();
 			else
 			{

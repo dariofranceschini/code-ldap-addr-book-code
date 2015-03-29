@@ -27,18 +27,17 @@ if(prereq_components_ok())
 	if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
 	else $dn = $ldap_base_dn;
 
-	if(log_on_to_directory($ldap_link))
+	if($ldap_server->log_on())
 	{
 		// Check whether the end part of the DN matches $ldap_base_dn
-		if(ldap_compare_dn_to_base($ldap_link,$dn,$ldap_base_dn))
+		if($ldap_server->compare_dn_to_base($dn,$ldap_base_dn))
 		{
 			if(isset($_GET["create"]))
 			{
 				// TODO: guard against nasties in the parent DN and object class
 				$object_class = $_GET["create"];
 
-				$rdn_attrib = get_object_class_setting(
-					$ldap_server->object_class_schema,
+				$rdn_attrib = $ldap_server->get_object_schema_setting(
 					$object_class,"rdn_attrib");
 
 				// Stub LDAP entry which is to be created
@@ -58,11 +57,11 @@ if(prereq_components_ok())
 			}
 			else
 			{
-				$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
 				if($search_resource)
 				{
-					$entry = ldap_get_entries($ldap_link,$search_resource);
+					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 					$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
 
 					if(!empty($_GET["vcard"]))

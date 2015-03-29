@@ -47,9 +47,9 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 
 		$search_resource = false;
 
-		if(log_on_to_directory($ldap_link))
+		if($ldap_server->log_on())
 			// get search results
-			$search_resource = @ldap_search($ldap_link,$dn,$filter);
+			$search_resource = @ldap_search($ldap_server->connection,$dn,$filter);
 		else
 			show_ldap_bind_error();
 
@@ -64,7 +64,7 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 				if($column["attrib"] == $sort_type);
 					$sort_order = $sort_type;
 
-			$ldap_data = ldap_sort_entries(ldap_get_entries($ldap_link,$search_resource),
+			$ldap_data = ldap_sort_entries(ldap_get_entries($ldap_server->connection,$search_resource),
 				$sort_order == "sortableName"
 				? array("sn","givenName","ou","cn")
         	                : array($sort_order),

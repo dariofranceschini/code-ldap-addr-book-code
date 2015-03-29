@@ -37,10 +37,10 @@ else
 // currently logged in user
 if(!isset($_SESSION)) session_start();
 
-if(log_on_to_directory($ldap_link))
+if($ldap_server->log_on())
 {
 	// check record exists before offering to delete it
-	$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+	$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
 	if($search_resource)
 	{
@@ -51,8 +51,8 @@ if(log_on_to_directory($ldap_link))
 		// permission.
 		if($user_info["allow_view"])
 		{
-			$entry = ldap_get_entries($ldap_link,$search_resource);
-			$icon = get_icon_for_ldap_entry($entry[0]);
+			$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+			$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
 		}
 		else
 			$icon = "contact24.png";
@@ -74,7 +74,7 @@ if(log_on_to_directory($ldap_link))
 			}
 			else
 			{
-				if(@ldap_delete($ldap_link,$dn))
+				if(@ldap_delete($ldap_server->connection,$dn))
 					header("Location: " . $return_page_if_deleted);
 				else
 				{

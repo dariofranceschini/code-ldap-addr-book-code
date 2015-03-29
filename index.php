@@ -88,19 +88,20 @@ if(prereq_components_ok())
 
 	$search_resource = false;
 
-	if(log_on_to_directory($ldap_link))
+	if($ldap_server->log_on())
 	{
 		if($search_type == "subtree")
 			// get search results
 			if($user_info["allow_search"])
-				$search_resource = @ldap_search($ldap_link,
+				$search_resource = @ldap_search($ldap_server->connection,
 					$dn,$filter);
 			else
 				echo "<p>You do not have permission to search the directory</p>\n";
 		else
 			// browse OU contents
 			if($user_info["allow_browse"])
-				$search_resource = @ldap_list($ldap_link,$dn,$filter);
+				$search_resource = @ldap_list($ldap_server->connection,
+					$dn,$filter);
 			else
 				// only show error if explicit base DN browse attempt
 				if (!empty($_GET["dn"]))
@@ -123,7 +124,7 @@ if(prereq_components_ok())
 			if($column["attrib"] == $sort_type);
 				$sort_order = $sort_type;
 
-		$entry_list = new ldap_entry_list($search_resource,
+		$entry_list = new ldap_entry_list($ldap_server,$search_resource,
 			$search_result_columns,$sort_order);
 
 		if(empty($_GET["vcard"]))

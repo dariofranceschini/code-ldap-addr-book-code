@@ -24,7 +24,7 @@ show_site_header();
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
-if(log_on_to_directory($ldap_link))
+if($ldap_server->log_on())
 {
 	$user_info = get_user_info();
 
@@ -40,8 +40,7 @@ if(log_on_to_directory($ldap_link))
 		{
 			$entry["objectclass"] = $_POST["create"];
 
-			$rdn_attrib = get_object_class_setting(
-				$ldap_server->object_class_schema,
+			$rdn_attrib = $ldap_server->get_object_schema_setting(
 				$entry["objectclass"],
 				"rdn_attrib");
 
@@ -49,7 +48,7 @@ if(log_on_to_directory($ldap_link))
 				. $rdn_attrib] . "," . $dn;
 		}
 
-		$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
                 if(!empty($_POST["create"]))
                 {
@@ -62,12 +61,11 @@ if(log_on_to_directory($ldap_link))
 			{
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
-				if(get_object_class_setting($ldap_server->object_class_schema,
-					$entry["objectclass"],"can_create"))
+				if($ldap_server->get_object_schema_setting($entry["objectclass"],
+					"can_create"))
 				{
 					$required_attribs = explode(",",
-						get_object_class_setting(
-						$ldap_server->object_class_schema,
+						$ldap_server->get_object_schema_setting(
 						$entry["objectclass"],
 						"required_attribs"));
 
@@ -79,13 +77,13 @@ if(log_on_to_directory($ldap_link))
 							$entry[$attrib] = $_POST["ldap_attribute_"
 								. $attrib];
 
-					$result = @ldap_add($ldap_link,$dn,$entry);
+					$result = @ldap_add($ldap_server->connection,$dn,$entry);
 
 					if(!$result)
 					{
 						$create_failed = true;
 						show_error_message("Unable to create LDAP record: "
-							. ldap_error($ldap_link));
+							. ldap_error($ldap_server->connection));
 					}
 				}
 				else
@@ -98,11 +96,11 @@ if(log_on_to_directory($ldap_link))
 
 		if($create_failed == false)
 		{
-			$search_resource = @ldap_read($ldap_link,$dn,"(objectclass=*)");
+			$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
 			if($search_resource)
 			{
-				$entry = ldap_get_entries($ldap_link,$search_resource);
+				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
 		                if(empty($_POST["create"]))
 					$change_list = "";
@@ -111,9 +109,8 @@ if(log_on_to_directory($ldap_link))
 						. "' record created: '" . $_POST["ldap_attribute_"
 						. $rdn_attrib] . "'</li>\n";
 
-				$rdn_attrib = get_object_class_setting(
-					$ldap_server->object_class_schema,
-					get_object_class($ldap_server->object_class_schema,$entry[0]),
+				$rdn_attrib = $ldap_server->get_object_schema_setting(
+					$ldap_server->get_object_class($entry[0]),
 					"rdn_attrib");
 
 				foreach($entry_layout as $section)
@@ -127,7 +124,7 @@ if(log_on_to_directory($ldap_link))
 								if($attrib != $rdn_attrib)
 								{
 									$change_description
-										= update_ldap_attribute($entry,$attrib);
+										= $ldap_server->update_attribute($entry,$attrib);
 									if(!empty($change_description))
 										$change_list .= "  <li>"
 											. $change_description
@@ -139,7 +136,7 @@ if(log_on_to_directory($ldap_link))
 				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
 				{
 					// TODO: guard against nasties in the new RDN value
-					$change_description = update_ldap_attribute($entry,
+					$change_description = $ldap_server->update_attribute($entry,
 						$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
 
 					if(!empty($change_description))
@@ -157,7 +154,7 @@ if(log_on_to_directory($ldap_link))
 						. "," . $rdn_list[1]["dn"];
 				}
 
-				show_ldap_path($dn,$ldap_base_dn,get_icon_for_ldap_entry($entry[0]));
+				show_ldap_path($dn,$ldap_base_dn,$ldap_server->get_icon_for_ldap_entry($entry[0]));
 
 				if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
 					show_search_box("");

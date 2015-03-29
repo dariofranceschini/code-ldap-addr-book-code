@@ -38,12 +38,11 @@ echo "  <input type=\"hidden\" name=\"dn\" value=\""
 
 echo "  <select name=\"create\" style=\"width:300px\">\n";
 
-foreach($ldap_server->object_class_schema as $object_class)
-	if(get_object_class_setting($ldap_server->object_class_schema,
-			$object_class["name"],"can_create"))
+foreach($ldap_server->object_schema as $object_class)
+	if($ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
 	{
-		$display_name = get_object_class_setting($ldap_server->object_class_schema,
-			$object_class["name"],"display_name");
+		$display_name = $ldap_server->get_object_schema_setting($object_class["name"],
+			"display_name");
 
 		echo "    <option value=\"" . $object_class["name"]
 			. "\" style=\"background-image:url(schema/"

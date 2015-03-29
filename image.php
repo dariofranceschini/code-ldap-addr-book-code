@@ -31,10 +31,10 @@ if(!empty($_GET["attrib"]))
 else
 	$attrib = "jpegPhoto";
 
-if(log_on_to_directory($ldap_link))
+if($ldap_server->log_on())
 {
-        $search_resource = ldap_read($ldap_link,$dn,"(objectclass=*)");
-        $entry = ldap_get_entries($ldap_link,$search_resource);
+        $search_resource = ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+        $entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
 	$image = imagecreatefromstring($entry[0][strtolower($attrib)][0]);
 

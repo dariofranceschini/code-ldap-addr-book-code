@@ -283,101 +283,6 @@ function current_page_folder_url()
 	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $path;
 }
 
-/** Return whether the specified attribute is mandatory
-
-    Return 'true' if the specified attribute must always
-    have a non-empty value in the specified object class.
-
-    @param array $object_class_schema
-	Object class schema to be queried
-    @param string $object_class
-	Object class to be queried
-    @param string $attribute_name
-	Attribute to return whether mandatory or not
-    @return
-	Whether the attribute is mandatory or not (true/false)
-*/
-
-function object_requires_attribute($object_class_schema,$object_class,$attribute_name)
-{
-	$required = (get_object_class_setting($object_class_schema,
-		$object_class,"rdn_attrib")==$attribute_name);
-
-	// if not required due to being the class's RDN attribute,
-	// check whether it is listed in required_attribs
-
-	if(!$required)
-	{
-		$required_attribs = explode(",",
-			get_object_class_setting($object_class_schema,
-				$object_class,"required_attribs"));
-
-		foreach($required_attribs as $attrib)
-			if($attrib == $attribute_name)
-				$required = true;
-	}
-
-	return $required;
-}
-
-/** Return the value of a schema setting for the specificed LDAP attribute
-
-    @param string $attribute_name
-	Attribute for which schema setting is to be returned
-    @param array $attribute_class_schema
-	Attribute schema, as returned by $ldap_server->attribute_class_schema
-    @param string $setting_name
-	Schema setting to be returned
-    @param string $setting_default
-	Value to be returned if schema setting not defined
-    @return
-	Value of the attribute schema setting
-*/
-
-function get_attribute_setting($attribute_name,$attribute_class_schema,
-	$setting_name,$setting_default)
-{
-        $setting_value=$setting_default;
-
-        foreach($attribute_class_schema as $schema_entry)
-                if($schema_entry["name"] == $attribute_name)
-                        $setting_value = $schema_entry[$setting_name];
-
-        return $setting_value;
-}
-
-/** Return the data type associated with the specified LDAP attribute
-
-    @param string $attribute_name
-	Attribute for which schema setting is to be returned
-    @param array $attribute_class_schema
-	Attribute schema, as returned by $ldap_server->attribute_class_schema
-    @return
-	Data type name for the specified LDAP attribute
-*/
-
-function get_attribute_data_type($attribute_name,$attribute_class_schema)
-{
-	return get_attribute_setting($attribute_name,$attribute_class_schema,
-		"data_type","text");
-}
-
-/** Return the display name of the specified LDAP attribute
-
-    @param string $attribute_name
-	Attribute for which schema setting is to be returned
-    @param array $attribute_class_schema
-	Attribute schema, as returned by $ldap_server->attribute_class_schema
-    @return
-	Display name for the specified LDAP attribute
-*/
-
-function get_attribute_display_name($attribute_name,$attribute_class_schema)
-{
-	return get_attribute_setting($attribute_name,$attribute_class_schema,
-		"display_name",$attribute_name);
-}
-
 /** Array of ISO 3166-1 alpha-2 country codes/names
 
     @see
@@ -774,13 +679,13 @@ class ldap_entry_viewer
 
 		if($this->create)
 			show_ldap_path("CN=New "
-				. get_object_class_setting($ldap_server->object_class_schema,
-				get_object_class($ldap_server->object_class_schema,$this->ldap_entry[0])
-				,"display_name") .  "," . $dn,$ldap_base_dn,
-				get_icon_for_ldap_entry($this->ldap_entry[0]));
+				. $ldap_server->get_object_schema_setting(
+				$ldap_server->get_object_class($this->ldap_entry[0]),
+				"display_name") .  "," . $dn,$ldap_base_dn,
+				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
 			show_ldap_path($dn,$ldap_base_dn,
-				get_icon_for_ldap_entry($this->ldap_entry[0]));
+				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 
 		if($this->user_info["allow_search"])
 			show_search_box("");
@@ -1025,19 +930,19 @@ class ldap_entry_viewer_attrib
 					if($space_before_attribute) echo " ";
 					$space_before_attribute = true;
 
-					$display_name=get_attribute_display_name($attribute,$ldap_server->attribute_class_schema);
+					$display_name = $ldap_server->get_attribute_schema_setting(
+						$attribute,"display_name",$attribute);
 
 					if($display_name!=$attribute)
 						$display_name .= " (" . $attribute . ")";
 
 					// determine whether this is a required attribute
 
-					$required = object_requires_attribute($ldap_server->object_class_schema,
-						get_object_class($ldap_server->object_class_schema,$this->ldap_entry[0])
-						,$attribute);
+					$required = $ldap_server->check_object_requires_attribute(
+						$ldap_server->get_object_class($this->ldap_entry[0]),$attribute);
 
 					// display the attribute
-					switch(get_attribute_data_type($attribute,$ldap_server->attribute_class_schema))
+					switch($ldap_server->get_attribute_schema_setting($attribute,"data_type","text"))
 					{
 						case "postcode":
 							$this->show_postcode($attribute,$display_name,$required); break;
@@ -1433,52 +1338,6 @@ function show_ldap_bind_error()
 	}
 }
 
-/** Log on to LDAP directory
-
-    Attempts LDAP bind (login) with user (or config file) specified
-    credentials
-
-    @param resource $ldap_link
-	LDAP connection handle to bind/authenticate against
-    @return
-	Whether log on was successful (true/false)
-*/
-
-function log_on_to_directory($ldap_link)
-{
-	global $follow_ldap_referrals;
-
-	$user = get_ldap_bind_user();
-
-	$result=false;
-	if($user != "__DENY__")
-	{
-		ldap_set_option($ldap_link,LDAP_OPT_PROTOCOL_VERSION,3);
-
-		if(!isset($follow_ldap_referrals))
-			$follow_ldap_referrals = false;
-
-		ldap_set_option($ldap_link,LDAP_OPT_REFERRALS,
-			$follow_ldap_referrals);
-
-		$result=@ldap_bind($ldap_link,$user,
-			get_ldap_bind_password());
-
-		if($follow_ldap_referrals)
-			ldap_set_rebind_proc($ldap_link,
-				"ldap_referral_rebind");	// callback
-
-		// Timezone is not known to be used for anything in this
-		// application, however various LDAP functions produce
-		// warning messages in newer PHP versions (>=5.1.0) if it
-		// is not set.
-		if(!ini_get("date.timezone"))
-			date_default_timezone_set("UTC");
-	}
-
-	return $result;
-}
-
 /** Get LDAP bind DN/login name of current user
 
     @return
@@ -1573,74 +1432,6 @@ function get_user_info($user_name="")
 	$user_info["ldap_name"]=str_replace("__USERNAME__",
 		$user_name,$user_info["ldap_name"]);
 	return $user_info;
-}
-
-/** Return matching schema object class for the specified LDAP entry
-
-    @param array $object_class_schema
-	Schema object class definitions as returned by
-	$ldap_server->object_class_schema
-    @param string $entry
-	Entry for which matching class name is to be returned
-    @return
-	Most specific class name for the object, or the
-	string "(unrecognised)" if none of its object class
-	values appears in the schema
-*/
-
-function get_object_class($object_class_schema,$entry)
-{
-	$object_data_found = false;
-	$item_object_class = "(unrecognised)";
-
-	foreach($object_class_schema as $object_class)
-	{
-		if(in_array($object_class["name"],
-			$entry["objectclass"])
-			&& $object_data_found == false)
-		{
-			$item_object_class = $object_class["name"];
-			$object_data_found = true;
-		}
-	}
-	return $item_object_class;
-}
-
-/** Return the value of a setting for the specified object class
-
-    @param array $object_class_schema
-	Schema object class definitions as returned by
-	$ldap_server->object_class_schema
-    @param string $class
-	Schema class for which the setting value is required
-    @param string $setting
-	Schema class setting for which the value is required
-    @return
-	Value of the requested setting
-*/
-
-function get_object_class_setting($object_class_schema,$class,$setting)
-{
-	$setting_value = "";
-	$object_data_found = false;
-
-	foreach($object_class_schema as $object_class)
-		if($object_class["name"] == $class && isset($object_class[$setting]))
-		{
-			$setting_value = $object_class[$setting];
-			$object_data_found = true;
-		}
-
-	// return useful defaults if setting not found in schema
-	if(!$object_data_found)
-	{
-		if($setting == "icon") $setting_value = "generic24.png";
-		if($setting == "is_folder") $setting_value = false;
-		if($setting == "rdn_attrib") $setting_value = "cn";
-		if($setting == "can_create") $setting_value = false;
-		if($setting == "display_name") $setting_value = $class;
-	}
-	return $setting_value;
 }
 
 /** Sort an array of LDAP entries against one or more attributes.
@@ -1776,8 +1567,13 @@ class ldap_entry_list
 	/** LDAP attribute that the list should be sorted by */
 	var $sort_order;
 
+	/** LDAP server containing the entries to be displayed */
+	var $ldap_server;
+
 	/** Constructor
 
+	    @param object $ldap_server
+		LDAP server containing the entries to be displayed
 	    @param resource $ldap_entries
 		LDAP search resource containing the LDAP object entries which
 		are to be displayed
@@ -1787,8 +1583,9 @@ class ldap_entry_list
 		LDAP attribute that the list should be sorted by
 	*/
 
-	function ldap_entry_list($ldap_entries,$search_result_columns,$sort_order)
+	function ldap_entry_list($ldap_server,$ldap_entries,$search_result_columns,$sort_order)
 	{
+		$this->ldap_server = $ldap_server;
 		$this->ldap_entries = $ldap_entries;
 		$this->search_result_columns = $search_result_columns;
 		$this->sort_order = $sort_order;
@@ -1798,12 +1595,10 @@ class ldap_entry_list
 
 	function save_vcard()
 	{
-		global $ldap_link;
-
 		// Fetch and sort records
 
 		$ldap_data = ldap_sort_entries(
-			ldap_get_entries($ldap_link,$this->ldap_entries),
+			ldap_get_entries($this->ldap_server->connection,$this->ldap_entries),
 			$this->sort_order == "sortableName"
 			? array("sn","givenName","ou","cn")
 			: array($this->sort_order),
@@ -1818,8 +1613,6 @@ class ldap_entry_list
 
 	function show()
 	{
-		global $ldap_link,$ldap_server;
-
 		echo "<table class=\"search_results_viewer\">\n  <tr>\n";
 
 		$this->show_column_headings();
@@ -1827,7 +1620,7 @@ class ldap_entry_list
 		// Fetch and sort records
 
 		$ldap_data = ldap_sort_entries(
-			ldap_get_entries($ldap_link,$this->ldap_entries),
+			ldap_get_entries($this->ldap_server->connection,$this->ldap_entries),
 			$this->sort_order == "sortableName"
 			? array("sn","givenName","ou","cn")
 			: array($this->sort_order),
@@ -1836,8 +1629,7 @@ class ldap_entry_list
 		// Display records
 
 		for($i=0;$i < $ldap_data["count"]; $i++)
-			$this->show_ldap_entry($ldap_server->object_class_schema,
-				$ldap_data[$i]);
+			$this->show_ldap_entry($ldap_data[$i]);
 
 		echo "</table>\n";
 	}
@@ -1874,31 +1666,27 @@ class ldap_entry_list
 
 	/** Display a single LDAP entry (row in table of search results)
 
-	    @param array $object_class_schema
-		Array of information about LDAP object
-		classes, as returned by $ldap_server->object_class_schema
 	    @param arary $ldap_entry
 		LDAP entry to display
 	*/
 
-	function show_ldap_entry($object_class_schema,$ldap_entry)
+	function show_ldap_entry($ldap_entry)
 	{
-		global $enable_search_browse_thumbnail,$thumbnail_image_size;
+		global $enable_search_browse_thumbnail,$thumbnail_image_size,$ldap_server;
 		echo "  <tr>\n";
 
 		// Fetch object schema details for this record
 
-		$item_object_class = get_object_class(
-			$object_class_schema,$ldap_entry);
+		$item_object_class = $ldap_server->get_object_class($ldap_entry);
 
 		$dn = $ldap_entry["dn"];
 
-		$icon = get_icon_for_ldap_entry($ldap_entry);
+		$icon = $ldap_server->get_icon_for_ldap_entry($ldap_entry);
 
-		$item_is_folder = get_object_class_setting(
-			$object_class_schema,$item_object_class,"is_folder");
-		$object_rdn_attrib = get_object_class_setting(
-			$object_class_schema,$item_object_class,"rdn_attrib");
+		$item_is_folder = $ldap_server->get_object_schema_setting(
+			$item_object_class,"is_folder");
+		$object_rdn_attrib = $ldap_server->get_object_schema_setting(
+			$item_object_class,"rdn_attrib");
 
 		// Item object class is displayed in the tooltip. All
 		// inherited object classes should be listed where no
@@ -2080,7 +1868,7 @@ class ldap_entry_list
 				. $attrib_value . "\">";
 
 		// Display the attribute's value
-		switch(get_attribute_data_type($attrib_name,$ldap_server->attribute_class_schema))
+		switch($ldap_server->get_attribute_schema_setting($attrib_name,"data_type","text"))
 		{
 			case "image":
 				if(!empty($attrib_value))
@@ -2243,151 +2031,6 @@ function prereq_components_ok()
 	return empty($missing_php_extn_list);
 }
 
-/** Update an attribute of the specified LDAP entry from posted form data
-
-    @param array $entry
-	Entry to be updated
-    @param string $attrib
-	Name of attribute to be updated with new value from posted data
-    @param bool $is_rdn
-	Attribute to be updated is used for the object's RDN
-    @return
-	Textual description of the result (e.g. error if it failed)
-*/
-
-function update_ldap_attribute($entry,$attrib,$is_rdn=false)
-{
-	global $ldap_link,$ldap_server;
-
-	$dn = $entry[0]["dn"];
-
-	$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
-
-	// For image attributes, the above is set if the "clear image" box was ticked.
-	// Further checks to see if an image was uploaded:
-	if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
-		$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
-			|| $new_val_set;
-
-	if($new_val_set)
-	{
-		if(isset($entry[0][strtolower($attrib)][0]))
-			$old_val = $entry[0][strtolower($attrib)][0];
-		else
-			$old_val = "";
-
-		if(isset($_POST["ldap_attribute_" . $attrib]))
-			$new_val = $_POST["ldap_attribute_" . $attrib];
-		else
-			$new_val = "";
-
-		if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
-		{
-			if(isset($_POST["ldap_attribute_" . $attrib]) && $_POST["ldap_attribute_" . $attrib] != "")
-				$new_val = "";		// clear image
-			else
-			{
-				if(!empty($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"]))
-				{
-					// updated image uploaded
-					$fd = fopen($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"],"r");
-					$new_val =  fread($fd,MAX_IMAGE_UPLOAD);
-					fclose($fd);
-				}
-				else
-					$new_val = $old_val;	// re-use existing image
-			}
-		}
-
-		if($new_val != $old_val)
-		{
-			/**
-			    @todo Determine if multi-valued (currently always assume yes)
-			*/
-			if(1)
-				// syntax for multi-valued attribute
-				$changes[$attrib][0] = ($new_val == "" ? $old_val : $new_val);
-			else
-				// syntax for single-valued attribute
-				$changes[$attrib] = ($new_val == "" ? $old_val : $new_val);
-
-			if($new_val == "")
-				$result = @ldap_mod_del($ldap_link,$dn,$changes);
-			else
-				if($is_rdn)
-					$result = @ldap_rename($ldap_link,$dn,
-						$attrib . "=" . $new_val,null,true);
-				else
-					$result = @ldap_mod_replace($ldap_link,$dn,$changes);
-
-			if($result)
-			{
-				if(get_attribute_data_type($attrib,$ldap_server->attribute_class_schema) == "image")
-					if(isset($_POST["ldap_attribute_" . $attrib])
-							&& $_POST["ldap_attribute_" . $attrib] != "")
-						return "Clear attribute '" . $attrib . "'";
-					else
-						return "Set attribute '" . $attrib
-							. "' to contents of '" . $_FILES["ldap_attribute_"
-							. $attrib . "_file"]["name"] . "'";
-				else
-					return "Set attribute '" . $attrib
-						. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
-			}
-			else
-				return "Error whilst setting attribute '"
-					. $attrib . "': " . ldap_error($ldap_link) . "<br>";
-		}
-	}
-}
-
-/** Retrieve icon/photo thumbnail URL for the specified LDAP entry.
-
-    The first available image will be used from the following list
-    (i.e. image is present and thumbnails enabled in the config)
-
-	- jpegPhoto attribute
-	- thumbnailPhoto attribute
-	- thumbnailLogo attribute
-	- icon representing object class
-
-    @param array $entry
-	Entry for which thumbnail URL is to be retrieved
-    @return
-	URL of image. This can be either retrieved from the record
-	itself (if present, and image display is turned on) or an
-	icon representing the record's object class (e.g. user
-	or contact).
-*/
-
-function get_icon_for_ldap_entry($entry)
-{
-	global $ldap_server,$enable_ldap_path_thumbnail,
-		$thumbnail_image_size;
-
-	$dn = $entry["dn"];
-
-	if(!empty($entry["jpegphoto"][0])
-			&& $enable_ldap_path_thumbnail)
-		return "image.php?dn=" . urlencode($dn)
-			. "&attrib=jpegPhoto&size="
-			. $thumbnail_image_size;
-	else if(!empty($entry["thumbnailphoto"][0])
-			&& $enable_ldap_path_thumbnail)
-		return "image.php?dn=" . urlencode($dn)
-			. "&attrib=thumbnailPhoto&size="
-			. $thumbnail_image_size;
-	else if(!empty($entry["thumbnaillogo"][0])
-			&& $enable_ldap_path_thumbnail)
-		return "image.php?dn=" . urlencode($dn)
-			. "&attrib=thumbnailLogo&size="
-			. $thumbnail_image_size;
-	else
-		return "schema/" . get_object_class_setting($ldap_server->object_class_schema,
-			get_object_class($ldap_server->object_class_schema,$entry),
-			"icon");
-}
-
 /** Return the specified LDAP entry in vCard format
 
     @param array $entry
@@ -2544,31 +2187,14 @@ function show_phone_number_formatted($phone_number)
 		echo htmlentities($phone_number,ENT_COMPAT,"UTF-8");
 }
 
-/** Return whether a DN is within the specified base of the DIT
+/** LDAP server
 
-    The comparision is done server-side in order to apply
-    the correct matching rule for each attribute (e.g. whether
-    it is case sensitive or not).
-
-    @param resource $ldap_link
-	LDAP connection handle to bind/authenticate against
-    @param string $dn
-	DN to test
-    @param string $base_dn
-	Base DN that $dn is going to be tested against
-    @return
-	Whether $dn falls within $base_dn in the DIT (true/false)
+    Implements the following features relating to an LDAP server:
+	- Connect and log on (bind) to the server
+	- Return information about the directory schema
+	- Update attributes of directory entries
+	- Check whether a DN is within the directory's address book area
 */
-
-function ldap_compare_dn_to_base($ldap_link,$dn,$base_dn)
-{
-	$base_rdn_list = ldap_explode_dn($base_dn,0);
-	$base_rdn_count = $base_rdn_list["count"];
-	$dn_base_section=implode(array_slice(ldap_explode_dn($dn,0),
-		-$base_rdn_count),",");
-
-	return ldap_compare($ldap_link,$base_dn,"DN",$dn_base_section);
-}
 
 class ldap_server
 {
@@ -2594,11 +2220,11 @@ class ldap_server
 		- is_folder - Present as a folder rather than a "leaf" object
 		- display_name - Display name of the object
 		- required_attribs - Lists any required attributes (in addition to
-			the RDN attrribute, which is implicitly required)
+			the RDN attribute, which is implicitly required)
 		- can_create - Allow users to create records of this object class
 
 	*/
-	var $object_class_schema;
+	var $object_schema;
 
 	/** Return information about the LDAP server's attribute class schema
 
@@ -2610,7 +2236,7 @@ class ldap_server
 		- data_type - Data type of the attribute
 		- display_name - Display name of the attribute
 	*/
-	var $attribute_class_schema;
+	var $attribute_schema;
 
 	/** Return the default LDAP object class to use when creating new records
 
@@ -2618,15 +2244,35 @@ class ldap_server
 	*/
 	var $default_create_class;
 
+	/** Return connection resource for communicating with the LDAP server */
+	var $connection;
+
 	/** Constructor
+
+	    Member variables $object_schema, $attribute_schema and
+	    $default_create_class are populated appropriately to the LDAP
+	    server type. A connection to the server is opened; connection
+	    resource available in $connection.
 
 	    @param string $ldap_server_type
 		Indicates LDAP server type/schema type to create
 		("ad", "edir" or "openldap")
+	    @param string $ldap_server_host_or_url
+		Host name, IP address or URL of the LDAP server to connect
+		to. OpenLDAP 2.0 or later is required to use URL syntax
+		(e.g. "ldap://server/")
+	    @param int  $ldap_server_port
+		Port number on LDAP server to connect to
 	*/
 
-        function ldap_server($ldap_server_type)
+        function ldap_server($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
         {
+		if(is_null($ldap_server_port))
+			$this->connection = ldap_connect($ldap_server_host_or_url);
+		else
+			$this->connection = ldap_connect($ldap_server_host_or_url,
+				$ldap_server_port);
+
                 $this->server_type = $ldap_server_type;
 
 		// Set object class schema
@@ -2634,7 +2280,7 @@ class ldap_server
 		{
 			case "edir";
 				// Object class data - these items specific to Novell eDirectory
-				$this->object_class_schema = array(
+				$this->object_schema = array(
 					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
 					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group","can_create"=>true),
 					array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
@@ -2657,7 +2303,7 @@ class ldap_server
 				break;
 			case "openldap":
 				// Object class data - these items specific to OpenLDAP
-				$this->object_class_schema = array(
+				$this->object_schema = array(
 					// core.schema (partial)
 					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
 					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"can_create"=>true),
@@ -2671,7 +2317,7 @@ class ldap_server
 			case "ad":
 			default:
 				// Object class data - these items specific to Active Directory
-				$this->object_class_schema = array(
+				$this->object_schema = array(
 					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
 					array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
 					array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
@@ -2692,7 +2338,7 @@ class ldap_server
 		// Set attribute class schema
 		// (same for all supported LDAP servers)
 
-		$this->attribute_class_schema= array(
+		$this->attribute_schema= array(
 			array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
 			array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
 			array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
@@ -2720,6 +2366,341 @@ class ldap_server
 			array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
 			);
         }
+
+	/** Return a schema setting for the specified LDAP attribute
+
+	    @param string $class
+		Attribute class for which the setting value is required
+	    @param string $setting_name
+		Setting for which the value is required
+	    @param string $setting_default
+		Value to be returned instead if schema setting not defined
+	    @return
+		Value of the requested setting (otherwise $setting_default)
+	*/
+
+	function get_attribute_schema_setting($class,$setting_name,
+		$setting_default="")
+	{
+		$setting_value = $setting_default;
+
+		foreach($this->attribute_schema as $schema_entry)
+			if($schema_entry["name"] == $class)
+				$setting_value = $schema_entry[$setting_name];
+
+	        return $setting_value;
+	}
+
+	/** Return the value of a setting for the specified object class
+
+	    @param string $class
+		Object class for which the setting value is required
+	    @param string $setting_name
+		Setting for which the value is required
+	    @param string $setting_default
+		Value to be returned instead if schema setting not defined
+	    @return
+		Value of the requested setting (otherwise $setting_default)
+	*/
+
+	function get_object_schema_setting($class,$setting_name,$setting_default="")
+	{
+		$setting_value = $setting_default;
+		$object_data_found = false;
+
+		foreach($this->object_schema as $object_class)
+			if($object_class["name"] == $class && isset($object_class[$setting_name]))
+			{
+				$setting_value = $object_class[$setting_name];
+				$object_data_found = true;
+			}
+
+		// return useful defaults if setting not found in schema
+		if(!$object_data_found)
+		{
+			if($setting_name == "icon") $setting_value = "generic24.png";
+			if($setting_name == "is_folder") $setting_value = false;
+			if($setting_name == "rdn_attrib") $setting_value = "cn";
+			if($setting_name == "can_create") $setting_value = false;
+			if($setting_name == "display_name") $setting_value = $class;
+		}
+		return $setting_value;
+	}
+
+	/** Return matching schema object class for the specified LDAP entry
+
+	    @param string $entry
+		Entry for which matching class name is to be returned
+	    @return
+		Most specific class name for the object, or the
+		string "(unrecognised)" if none of its object class
+		values appears in the schema
+	*/
+
+	function get_object_class($entry)
+	{
+		$object_data_found = false;
+		$item_object_class = "(unrecognised)";
+
+		foreach($this->object_schema as $object_class)
+			if(in_array($object_class["name"],
+				$entry["objectclass"])
+				&& $object_data_found == false)
+			{
+				$item_object_class = $object_class["name"];
+				$object_data_found = true;
+			}
+
+		return $item_object_class;
+	}
+
+	/** Return whether the specified attribute is mandatory
+
+	    Return 'true' if the specified attribute must always
+	    have a non-empty value in the specified object class.
+
+	    @param string $object_class
+		Object class to be queried
+	    @param string $attribute_name
+		Attribute to return whether mandatory or not
+	    @return
+		Whether the attribute is mandatory or not (true/false)
+	*/
+
+	function check_object_requires_attribute($object_class,$attribute_name)
+	{
+		// is it required due to being the class's RDN?
+
+		$required = ($this->get_object_schema_setting($object_class,
+			"rdn_attrib")==$attribute_name);
+
+		// if not required due to being the class's RDN attribute,
+		// check whether it is listed in required_attribs
+
+		if(!$required)
+		{
+			$required_attribs = explode(",",
+				$this->get_object_schema_setting($object_class,
+					"required_attribs"));
+
+			foreach($required_attribs as $attrib)
+				if($attrib == $attribute_name)
+					$required = true;
+		}
+
+		return $required;
+	}
+
+	/** Retrieve icon/photo thumbnail URL for the specified LDAP entry.
+
+	    The first available image will be used from the following list
+	    (i.e. image is present and thumbnails enabled in the config)
+
+		- jpegPhoto attribute
+		- thumbnailPhoto attribute
+		- thumbnailLogo attribute
+		- icon representing object class
+
+	    @param array $entry
+		Entry for which thumbnail URL is to be retrieved
+	    @return
+		URL of image. This can be either retrieved from the record
+		itself (if present, and image display is turned on) or an
+		icon representing the record's object class (e.g. user
+		or contact).
+	*/
+
+	function get_icon_for_ldap_entry($entry)
+	{
+		global $enable_ldap_path_thumbnail,$thumbnail_image_size;
+
+		$dn = $entry["dn"];
+
+		if(!empty($entry["jpegphoto"][0])
+				&& $enable_ldap_path_thumbnail)
+			return "image.php?dn=" . urlencode($dn)
+				. "&attrib=jpegPhoto&size="
+				. $thumbnail_image_size;
+		else if(!empty($entry["thumbnailphoto"][0])
+				&& $enable_ldap_path_thumbnail)
+			return "image.php?dn=" . urlencode($dn)
+				. "&attrib=thumbnailPhoto&size="
+				. $thumbnail_image_size;
+		else if(!empty($entry["thumbnaillogo"][0])
+				&& $enable_ldap_path_thumbnail)
+			return "image.php?dn=" . urlencode($dn)
+				. "&attrib=thumbnailLogo&size="
+				. $thumbnail_image_size;
+		else
+			return "schema/" . $this->get_object_schema_setting(
+				$this->get_object_class($entry),"icon");
+	}
+
+	/** Log on to LDAP directory
+
+	    Attempts LDAP bind (login) with user (or config file) specified
+	    credentials
+
+	    @return
+		Whether log on was successful (true/false)
+	*/
+
+	function log_on()
+	{
+		global $follow_ldap_referrals;
+
+		$user = get_ldap_bind_user();
+
+		$result=false;
+		if($user != "__DENY__")
+		{
+			ldap_set_option($this->connection,
+				LDAP_OPT_PROTOCOL_VERSION,3);
+
+			if(!isset($follow_ldap_referrals))
+				$follow_ldap_referrals = false;
+
+			ldap_set_option($this->connection,
+				LDAP_OPT_REFERRALS,$follow_ldap_referrals);
+
+			$result=@ldap_bind($this->connection,$user,
+				get_ldap_bind_password());
+
+			if($follow_ldap_referrals)
+				ldap_set_rebind_proc($this->connection,
+					"ldap_referral_rebind");	// callback
+
+			// Timezone is not known to be used for anything in this
+			// application, however various LDAP functions produce
+			// warning messages in newer PHP versions (>=5.1.0) if it
+			// is not set.
+			if(!ini_get("date.timezone"))
+				date_default_timezone_set("UTC");
+		}
+
+		return $result;
+	}
+
+	/** Return whether a DN is within the specified base of the DIT
+
+	    The comparision is done server-side in order to apply
+	    the correct matching rule for each attribute (e.g. whether
+	    it is case sensitive or not).
+
+	    @param string $dn
+		DN to test
+	    @param string $base_dn
+		Base DN that $dn is going to be tested against
+	    @return
+		Whether $dn falls within $base_dn in the DIT (true/false)
+	*/
+
+	function compare_dn_to_base($dn,$base_dn)
+	{
+		$base_rdn_list = ldap_explode_dn($base_dn,0);
+		$base_rdn_count = $base_rdn_list["count"];
+		$dn_base_section = implode(array_slice(ldap_explode_dn($dn,0),
+			-$base_rdn_count),",");
+
+		return ldap_compare($this->connection,
+			$base_dn,"DN",$dn_base_section);
+	}
+
+	/** Update an attribute of the specified LDAP entry from posted form data
+
+	    @param array $entry
+		Entry to be updated
+	    @param string $attrib
+		Name of attribute to be updated with new value from posted data
+	    @param bool $is_rdn
+		Attribute to be updated is used for the object's RDN
+	    @return
+		Textual description of the result (e.g. error if it failed)
+	*/
+
+	function update_attribute($entry,$attrib,$is_rdn=false)
+	{
+		$dn = $entry[0]["dn"];
+
+		$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
+
+		// For image attributes, the above is set if the "clear image" box was ticked.
+		// Further checks to see if an image was uploaded:
+		if($this->get_attribute_schema_setting($attrib,"data_type","text") == "image")
+			$new_val_set = isset($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"])
+				|| $new_val_set;
+
+		if($new_val_set)
+		{
+			if(isset($entry[0][strtolower($attrib)][0]))
+				$old_val = $entry[0][strtolower($attrib)][0];
+			else
+				$old_val = "";
+
+			if(isset($_POST["ldap_attribute_" . $attrib]))
+				$new_val = $_POST["ldap_attribute_" . $attrib];
+			else
+				$new_val = "";
+
+			if($this->get_attribute_schema_setting($attrib,"data_type","text") == "image")
+			{
+				if(isset($_POST["ldap_attribute_" . $attrib]) && $_POST["ldap_attribute_" . $attrib] != "")
+					$new_val = "";		// clear image
+				else
+				{
+					if(!empty($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"]))
+					{
+						// updated image uploaded
+						$fd = fopen($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"],"r");
+						$new_val =  fread($fd,MAX_IMAGE_UPLOAD);
+						fclose($fd);
+					}
+					else
+						$new_val = $old_val;	// re-use existing image
+				}
+			}
+
+			if($new_val != $old_val)
+			{
+				/**
+				    @todo Determine if multi-valued (currently always assume yes)
+				*/
+				if(1)
+					// syntax for multi-valued attribute
+					$changes[$attrib][0] = ($new_val == "" ? $old_val : $new_val);
+				else
+					// syntax for single-valued attribute
+					$changes[$attrib] = ($new_val == "" ? $old_val : $new_val);
+
+				if($new_val == "")
+					$result = @ldap_mod_del($this->connection,$dn,$changes);
+				else
+					if($is_rdn)
+						$result = @ldap_rename($this->connection,$dn,
+							$attrib . "=" . $new_val,null,true);
+					else
+						$result = @ldap_mod_replace($this->connection,$dn,$changes);
+
+				if($result)
+				{
+					if($this->get_attribute_schema_setting($attrib,"data_type","text") == "image")
+						if(isset($_POST["ldap_attribute_" . $attrib])
+								&& $_POST["ldap_attribute_" . $attrib] != "")
+							return "Clear attribute '" . $attrib . "'";
+						else
+							return "Set attribute '" . $attrib
+								. "' to contents of '" . $_FILES["ldap_attribute_"
+								. $attrib . "_file"]["name"] . "'";
+					else
+						return "Set attribute '" . $attrib
+							. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
+				}
+				else
+					return "Error whilst setting attribute '"
+						. $attrib . "': " . ldap_error($this->connection) . "<br>";
+			}
+		}
+	}
 }
 
 ?>
