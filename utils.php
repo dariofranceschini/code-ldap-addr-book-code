@@ -2528,26 +2528,38 @@ class ldap_server
 	{
 		global $enable_ldap_path_thumbnail,$thumbnail_image_size;
 
-		$dn = $entry["dn"];
+		// Resume existing session (if any exists) in order to get
+		// currently logged in user
+		if(!isset($_SESSION)) session_start();
 
-		if(!empty($entry["jpegphoto"][0])
-				&& $enable_ldap_path_thumbnail)
-			return "image.php?dn=" . urlencode($dn)
-				. "&attrib=jpegPhoto&size="
-				. $thumbnail_image_size;
-		else if(!empty($entry["thumbnailphoto"][0])
-				&& $enable_ldap_path_thumbnail)
-			return "image.php?dn=" . urlencode($dn)
-				. "&attrib=thumbnailPhoto&size="
-				. $thumbnail_image_size;
-		else if(!empty($entry["thumbnaillogo"][0])
-				&& $enable_ldap_path_thumbnail)
-			return "image.php?dn=" . urlencode($dn)
-				. "&attrib=thumbnailLogo&size="
-				. $thumbnail_image_size;
+		$user_info = get_user_info();
+
+		if($user_info["allow_browse"] || $user_info["allow_search"]
+			|| $user_info["allow_view"])
+		{
+			$dn = $entry["dn"];
+
+			if(!empty($entry["jpegphoto"][0])
+					&& $enable_ldap_path_thumbnail)
+				return "image.php?dn=" . urlencode($dn)
+					. "&attrib=jpegPhoto&size="
+					. $thumbnail_image_size;
+			else if(!empty($entry["thumbnailphoto"][0])
+					&& $enable_ldap_path_thumbnail)
+				return "image.php?dn=" . urlencode($dn)
+					. "&attrib=thumbnailPhoto&size="
+					. $thumbnail_image_size;
+			else if(!empty($entry["thumbnaillogo"][0])
+					&& $enable_ldap_path_thumbnail)
+				return "image.php?dn=" . urlencode($dn)
+					. "&attrib=thumbnailLogo&size="
+					. $thumbnail_image_size;
+			else
+				return "schema/" . $this->get_object_schema_setting(
+					$this->get_object_class($entry),"icon");
+		}
 		else
-			return "schema/" . $this->get_object_schema_setting(
-				$this->get_object_class($entry),"icon");
+			return "schema/generic24.png";
 	}
 
 	/** Log on to LDAP directory
