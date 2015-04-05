@@ -19,9 +19,6 @@
 include "utils.php";
 include "config.php";
 
-define("VIEWER_TYPE_LIST",1);
-define("VIEWER_TYPE_INFO",2);
-
 show_site_header();
 
 // TODO: guard against nasties in the DN
