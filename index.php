@@ -105,7 +105,18 @@ if(prereq_components_ok())
 			else
 			{
 				// only show error if explicit base DN browse attempt
-				if (!empty($_GET["dn"]))
+				if(empty($_GET["dn"]))
+				{
+					if(!$user_info["allow_search"])
+					{
+						if($ldap_login_enabled)
+							echo "<p>Please log in to use the address book</p>\n"
+								. "<a href=\"user.php\"><button>Log in</button></a>\n";
+						else
+							echo "<p>You do not have permission to access the directory</p>\n";
+					}
+				}
+				else
 					echo "<p>You do not have permission to browse the directory</p>\n";
 			}
 	}
