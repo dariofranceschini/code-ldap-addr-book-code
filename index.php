@@ -75,21 +75,21 @@ if(prereq_components_ok())
 	if(empty($_GET["vcard"]))
 		show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
 
-	$user_info = get_user_info();
-
-	if(empty($_GET["vcard"]))
-		if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
-			if(!empty($_GET["filter"]))
-				show_search_box($_GET["filter"]);
-			else
-				show_search_box("");
-		else
-			echo "<br>";
-
 	$search_resource = false;
 
 	if($ldap_server->log_on())
 	{
+		$user_info = get_user_info();
+
+		if(empty($_GET["vcard"]))
+			if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
+				if(!empty($_GET["filter"]))
+					show_search_box($_GET["filter"]);
+				else
+					show_search_box("");
+			else
+				echo "<br>";
+
 		if($search_type == "subtree")
 			// get search results
 			if($user_info["allow_search"])
@@ -103,9 +103,11 @@ if(prereq_components_ok())
 				$search_resource = @ldap_list($ldap_server->connection,
 					$dn,$filter);
 			else
+			{
 				// only show error if explicit base DN browse attempt
 				if (!empty($_GET["dn"]))
 					echo "<p>You do not have permission to browse the directory</p>\n";
+			}
 	}
 	else
 		show_ldap_bind_error();
