@@ -33,10 +33,6 @@ if(isset($_GET["page"]) && $_GET["page"] == "info")
 else
 	$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
 
-// Resume existing session (if any exists) in order to get
-// currently logged in user
-if(!isset($_SESSION)) session_start();
-
 if($ldap_server->log_on())
 {
 	// check record exists before offering to delete it

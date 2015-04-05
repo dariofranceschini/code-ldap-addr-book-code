@@ -29,10 +29,6 @@ function show_site_header()
 {
 	global $site_name,$ldap_login_enabled,$enable_search_suggestions;
 
-	// Resume existing session (if any exists) in order to get
-	// currently logged in user
-	if(!isset($_SESSION)) session_start();
-
 	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">\n";
 	echo "<html>\n";
 	echo "<head>\n";
@@ -204,6 +200,10 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "    <td class=\"login_info\">";
 	if($ldap_login_enabled)
 	{
+		// Resume existing session (if any exists) in order to get
+		// currently logged in user
+		if(!isset($_SESSION)) session_start();
+
 		// display user name if set, etc, etc
 		echo "<a href=\"user.php\">";
 
@@ -1346,6 +1346,10 @@ function show_ldap_bind_error()
 
 function get_ldap_bind_user()
 {
+	// Resume existing session (if any exists) in order to get
+	// currently logged in user
+	if(!isset($_SESSION)) session_start();
+
 	return isset($_SESSION["LOGIN_USER"])
 		? get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name")
 		: get_user_attrib("__ANONYMOUS__","ldap_name");
@@ -1359,6 +1363,10 @@ function get_ldap_bind_user()
 
 function get_ldap_bind_password()
 {
+	// Resume existing session (if any exists) in order to get
+	// currently logged in user
+	if(!isset($_SESSION)) session_start();
+
 	return isset($_SESSION["LOGIN_USER"])
 		? $_SESSION["LOGIN_PASSWORD"]
 		: get_user_attrib("__ANONYMOUS__","ldap_password");
@@ -1415,10 +1423,16 @@ function get_user_info($user_name="")
 	global $ldap_user_map;
 
 	if(empty($user_name))
+	{
+		// Resume existing session (if any exists) in order to get
+		// currently logged in user
+		if(!isset($_SESSION)) session_start();
+
 		if(isset($_SESSION["LOGIN_USER"]))
 			$user_name = $_SESSION["LOGIN_USER"];
 		else
 			$user_name = "__ANONYMOUS__";
+	}
 
 	$user_info = array();	// default if no match at all
 	$found=false;
