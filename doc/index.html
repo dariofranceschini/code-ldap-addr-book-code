@@ -251,15 +251,12 @@ credentials.
 You will also need to fill in the following settings:
 </p>
 <ul>
-<li><code>$ldap_server_type</code> - Either <code>"ad"</code> (for
-either Microsoft or Samba Active Directory), <code>"edir"</code>
-(Novell eDirectory) or "openldap" (OpenLDAP) as appropriate.
+<li><p><code>$ldap_server</code> - Specify the type, host name and
+    (optionally) port number of the directory server (domain controller)
+    to connect to.</p>
 
-<li><code>$ldap_link</code> - Enter the host name of the directory server
-(domain controller) to connect to.
-
-<li><code>$ldap_base_dn</code> - Set to the location in the directory
-(e.g. OU) that should be used as the "root" of the address book information.
+<li><p><code>$ldap_base_dn</code> - Set to the location in the directory
+(e.g. OU) that should be used as the "root" of the address book information.</p>
 </ul>
 <p>
 See the <a href="#config_reference">Configuration Reference</a> section
@@ -1016,23 +1013,28 @@ appropriately:
 
 <tr><th colspan=2>Connection to LDAP Directory</th></tr>
 
-<tr><td><code>$ldap_server_type</code></td><td>Indicate the LDAP server
-        (directory) type, which affects	how the directory's objects and
-        their attributes are displayed in the address book. The following
-	values are accepted:<br>&nbsp;<br>
+<tr><td><code>$ldap_server</code></td>
+    <td>Creates a connection to the LDAP server holding the address book
+    data. The following information needs to be provided about the server:
+    <ul>
+    <li><p>LDAP server type. The following
+        values are accepted:</p>
+        <p>
         <code>ad</code> - Microsoft Active Directory
         (or Samba 4 Active Directory)<br>
         <code>edir</code> - Novell eDirectory<br>
-        <code>openldap</code> - OpenLDAP (core/inetorgperson schema)
-        <p>Example:<br><code>$ldap_server_type = "openldap";</code></p>
-        </td></tr>
+        <code>openldap</code> - OpenLDAP (core/inetorgperson schema)</p>
+    <li><p>Host name, port number or LDAP URL</p>
+    <li><p>Port number (optional)</p>
+    </ul>
+    <p>Examples:<br>
+    <code>$ldap_server = new ldap_server("openldap","ldap.example.org");</code><br>
+    <code>$ldap_server = new ldap_server("openldap","ldapi://",0);</code>
+     - connect to local server via a UNIX domain socket</p>
 
-<tr><td><code>$ldap_link</code></td><td>Creates a connection to the
-    LDAP server holding the address book data.
 
-    <p>Example:<br><code>$ldap_link = ldap_connect("dc1.example.org");</code></p>
 
-<p>Active Directory-specific Options:</p><p>
+    <p>Active Directory-specific Options:</p><p>
     (1) As an alternative to giving the name of a specific server (domain
     controller) you can specify just the domain name. This will load
     balance the connections across the available domain controllers.
@@ -1046,18 +1048,17 @@ appropriately:
     than for the local AD domain.)
     </p>
     <p>
-    Examples:<br>
-    <code>$ldap_link = ldap_connect("example.org");</code>
+    <code>$ldap_server = new ldap_server("ad","example.org");</code>
      - load balances across the DCs as listed in DNS<br>
-    <code>$ldap_link = ldap_connect("dc1.example.org",3268);</code>
-     - use AD global catalogue port
+    <code>$ldap_server = new ldap_server("ad","dc1.example.org",3268);</code>
+     - use AD global catalogue port<br>
     </p>
-<p>
-Further information
-see:<a href="http://www.php.net/manual/en/function.ldap-connect.php">
-http://www.php.net/manual/en/function.ldap-connect.php</a>
-</p>
-</td></tr>
+    <p>
+    For further information,
+    see:<a href="http://www.php.net/manual/en/function.ldap-connect.php">
+    http://www.php.net/manual/en/function.ldap-connect.php</a>
+    </p>
+    </td></tr>
 
 <tr><td><code>$ldap_base_dn</code></td><td>Specifies the search base
     within the directory which will be used for displaying the address
