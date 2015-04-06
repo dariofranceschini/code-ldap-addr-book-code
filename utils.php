@@ -2628,7 +2628,7 @@ class ldap_server
 		$dn_base_section = implode(array_slice(ldap_explode_dn($dn,0),
 			-$base_rdn_count),",");
 
-		return ldap_compare($this->connection,
+		return @ldap_compare($this->connection,
 			$base_dn,"DN",$dn_base_section);
 	}
 
