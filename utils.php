@@ -1389,7 +1389,7 @@ function ldap_referral_rebind($ldap_link,$referral_uri)
 	if($user == "__DENY__")
 		return 1;
 	else
-		return @ldap_bind($ldap_link,$user,
+		return @ldap_bind_log($ldap_link,$user,
 			get_ldap_bind_password()) ? 1 : 0;
 }
 
@@ -2589,7 +2589,7 @@ class ldap_server
 			ldap_set_option($this->connection,
 				LDAP_OPT_REFERRALS,$follow_ldap_referrals);
 
-			$result=@ldap_bind($this->connection,$user,
+			$result=@ldap_bind_log($this->connection,$user,
 				get_ldap_bind_password());
 
 			if($follow_ldap_referrals)
@@ -2729,4 +2729,25 @@ class ldap_server
 	}
 }
 
+/** Bind to LDAP directory, recording failures to server error log
+
+    @param resource $ldap_link
+        LDAP connection handle to bind/authenticate against
+    @param string $user
+	LDAP bind DN/login name of current user
+    @param string $password
+	LDAP bind password of current user
+    @return
+	True on success or false on failure
+*/
+function ldap_bind_log($ldap_link,$user=null,$password=null)
+{
+	$result=@ldap_bind($ldap_link,$user,$password);
+	if(!$result)
+		error_log("[" . $_SERVER["REMOTE_ADDR"]
+			. "] Authentication to LDAP addressbook as '"
+			. preg_replace("/[^[:print:]]/","",$user)
+			. "' failed");
+	return $result;
+}
 ?>
