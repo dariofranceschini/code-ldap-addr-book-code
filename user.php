@@ -113,8 +113,7 @@ function reset_login_session()
 
 function return_to_previous_url()
 {
-
-	if(basename($_SERVER["PHP_SELF"]=="user.php") || empty($_SERVER["HTTP_REFERER"]))
+	if(basename($_SERVER["PHP_SELF"])=="user.php" || empty($_SERVER["HTTP_REFERER"]))
 		// go back to main page
 		$redirect_uri = current_page_folder_url();
 	else
