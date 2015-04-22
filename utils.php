@@ -2260,6 +2260,9 @@ class ldap_server
 	/** Return connection resource for communicating with the LDAP server */
 	var $connection;
 
+	/** Whether to follow LDAP referrals */
+	var $follow_referrals = false;
+
 	/** Constructor
 
 	    Member variables $object_schema, $attribute_schema and
@@ -2572,8 +2575,6 @@ class ldap_server
 
 	function log_on()
 	{
-		global $follow_ldap_referrals;
-
 		$user = get_ldap_bind_user();
 
 		$result=false;
@@ -2582,16 +2583,13 @@ class ldap_server
 			ldap_set_option($this->connection,
 				LDAP_OPT_PROTOCOL_VERSION,3);
 
-			if(!isset($follow_ldap_referrals))
-				$follow_ldap_referrals = false;
-
 			ldap_set_option($this->connection,
-				LDAP_OPT_REFERRALS,$follow_ldap_referrals);
+				LDAP_OPT_REFERRALS,$this->follow_referrals);
 
 			$result=@ldap_bind_log($this->connection,$user,
 				get_ldap_bind_password());
 
-			if($follow_ldap_referrals)
+			if($this->follow_referrals)
 				ldap_set_rebind_proc($this->connection,
 					"ldap_referral_rebind");	// callback
 

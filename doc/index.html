@@ -1127,13 +1127,33 @@ appropriately:
                 )
         );</pre></p></td></tr>
 
-
-<tr><td><code>$follow_ldap_referrals</code></td>
+<tr><td><code>$ldap_server->follow_referrals</code></td>
     <td>Causes the address book to attempt to follow LDAP referrals.
+     <br>&nbsp;<br>
+     Referrals are used where the contents of the LDAP directory
+     are divided between several servers, with a different section
+     of the directory stored on each. This is normally used only
+     in larger organisations. A referral is a message which indicates
+     that the requested information is stored
+     on a different server. If <code>follow_referrals</code>
+     is set to true the Address Book will attempt to connect to
+     the other server to retrieve the information.
+     <br>&nbsp;<br>
      Beware: This feature is currently experimental.
+     <br>&nbsp;<br>
+     In Microsoft Active Directory, referrals are used where
+     several domains have been joined into a "forest". As an
+     alternative to using referrals, the LDAP Address Book can
+     be set up to use the forest's Global Catalog (by connecting
+     to an alternate LDAP service running on port 3268 - see
+     description of <code>$ldap_server</code> above). Not all
+     attributes are stored in the Global Catalogue by
+     default - for example job titles and department information.
+     Missing attributes can be added to the Global Catalog
+     using the "Active Directory Schema" admin tool.
      <p>
      Example:<br>
-     <code>$follow_ldap_referrals = true;</code>
+     <code>$ldap_server->follow_referrals = true;</code>
      </p></td></tr>
 
 <tr><th colspan=2>Search/Browse Directory Settings</th></tr>
