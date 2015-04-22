@@ -87,8 +87,6 @@ if(prereq_components_ok())
 					show_search_box($_GET["filter"]);
 				else
 					show_search_box("");
-			else
-				echo "<br>";
 
 		if($search_type == "subtree")
 			// get search results
@@ -110,8 +108,8 @@ if(prereq_components_ok())
 					if(!$user_info["allow_search"])
 					{
 						if($ldap_login_enabled)
-							echo "<p>Please log in to use the address book</p>\n"
-								. "<a href=\"user.php\"><button>Log in</button></a>\n";
+							echo "<p><a href=\"user.php\">"
+								. "Please log in to use the address book.</a></p>\n";
 						else
 							echo "<p>You do not have permission to access the directory</p>\n";
 					}
@@ -141,7 +139,13 @@ if(prereq_components_ok())
 			$search_result_columns,$sort_order);
 
 		if(empty($_GET["vcard"]))
+		{
+			// extra space between LDAP path and results if no search box
+			if(!get_user_setting("allow_search"))
+				echo "<br>";
+
 			$entry_list->show();
+		}
 		else
 		{
 			if($dn == $ldap_base_dn)

@@ -1320,8 +1320,7 @@ function show_ldap_bind_error()
 				. " different user</a></p>";
 		else
 			echo "<p><a href=\"user.php\">Please log in to"
-				. " access the address book"
-				. " directory</a></p>";
+				. " use the address book.</a></p>";
 	}
 	else
 	{
