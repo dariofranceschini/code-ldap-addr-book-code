@@ -19,10 +19,8 @@
 include "utils.php";
 include "config.php";
 
-$user_info = get_user_info();
-
 if(isset($enable_search_suggestions) && $enable_search_suggestions
-	&& $user_info["allow_search"])
+	&& get_user_setting("allow_search"))
 {
 	$dn = $ldap_base_dn;
 

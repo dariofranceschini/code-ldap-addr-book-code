@@ -26,11 +26,9 @@ $dn = $_GET["dn"];
 
 if($ldap_server->log_on())
 {
-	$user_info = get_user_info();
-
 	// Update record
 
-	if(isset($user_info["allow_edit"]) && $user_info["allow_edit"])
+	if(get_user_setting("allow_edit"))
 	{
 		$create_failed = false;
 
@@ -156,7 +154,7 @@ if($ldap_server->log_on())
 
 				show_ldap_path($dn,$ldap_base_dn,$ldap_server->get_icon_for_ldap_entry($entry[0]));
 
-				if($user_info["allow_search"] && $user_info["ldap_name"]!="__DENY__")
+				if(get_user_setting("allow_search") && get_user_setting("ldap_name")!="__DENY__")
 					show_search_box("");
 
 				if($change_list == "")

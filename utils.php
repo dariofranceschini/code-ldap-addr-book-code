@@ -572,9 +572,6 @@ class ldap_entry_viewer
 	*/
 	var $last_section_added = "";
 
-	/** Array of user information (e.g. allowed permissions) */
-	var $user_info = "";
-
 	/** Display a viewer for editing a record (true/false) */
 	var $edit = false;
 
@@ -593,7 +590,6 @@ class ldap_entry_viewer
 	function ldap_entry_viewer($entry_viewer_layout,$ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
-		$this->user_info = get_user_info();
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
@@ -687,14 +683,14 @@ class ldap_entry_viewer
 			show_ldap_path($dn,$ldap_base_dn,
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 
-		if($this->user_info["allow_search"])
+		if(get_user_setting("allow_search"))
 			show_search_box("");
 		else
 			echo "<br>";
 
-		if($this->user_info["allow_view"])
+		if(get_user_setting("allow_view"))
 		{
-			if($this->edit && isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
+			if($this->edit && get_user_setting("allow_edit"))
 				echo "<form method=\"post\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
 
@@ -705,7 +701,7 @@ class ldap_entry_viewer
 
 			echo "</table>\n\n";
 
-			if(isset($this->user_info["allow_edit"]) && $this->user_info["allow_edit"])
+			if(get_user_setting("allow_edit"))
 				if($this->edit)
 				{
 					if($this->create)
@@ -730,12 +726,12 @@ class ldap_entry_viewer
 						. "  <input type=\"submit\" value=\"Edit\">\n</form>\n";
 				}
 
-			if(isset($this->user_info["allow_delete"]) && $this->user_info["allow_delete"] && !$this->edit)
+			if(get_user_setting("allow_delete") && !$this->edit)
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
 					. "\"><button>Delete</button></a>\n";
 
-			if(isset($this->user_info["allow_export"]) && $this->user_info["allow_export"] && !$this->edit)
+			if(get_user_setting("allow_export") && !$this->edit)
 				echo "<a href=\"info.php?vcard=1&dn="
 					. urlencode($dn)
 					. "\"><button>Save as vCard</button></a>\n";
@@ -1329,7 +1325,7 @@ function show_ldap_bind_error()
 
 		// don't show this line if the user has already configured
 		// a non-blank default user
-		if(get_user_attrib("__ANONYMOUS__","ldap_name")=="")
+		if(get_user_setting("ldap_name","__ANONYMOUS__")=="")
 			echo "<p>If you have not already done so, please
 				<a href=\"doc/\">read the manual</a> for how
 				instructions on to configure directory
@@ -1350,8 +1346,8 @@ function get_ldap_bind_user()
 	if(!isset($_SESSION)) session_start();
 
 	return isset($_SESSION["LOGIN_USER"])
-		? get_user_attrib($_SESSION["LOGIN_USER"],"ldap_name")
-		: get_user_attrib("__ANONYMOUS__","ldap_name");
+		? get_user_setting("ldap_name",$_SESSION["LOGIN_USER"])
+		: get_user_setting("ldap_name","__ANONYMOUS__");
 }
 
 /** Get LDAP bind password of current user
@@ -1368,7 +1364,7 @@ function get_ldap_bind_password()
 
 	return isset($_SESSION["LOGIN_USER"])
 		? $_SESSION["LOGIN_PASSWORD"]
-		: get_user_attrib("__ANONYMOUS__","ldap_password");
+		: get_user_setting("ldap_password","__ANONYMOUS__");
 }
 
 /** Callback function to reauthenticate following LDAP referral
@@ -1392,34 +1388,22 @@ function ldap_referral_rebind($ldap_link,$referral_uri)
 			get_ldap_bind_password()) ? 1 : 0;
 }
 
-/** Return value of named attribute for specified address book user name
+/** Return value of a user setting
 
-    @param string $user_name
-	Name of user whose information is required
     @param string $attrib
 	Attribute to be returned
-    @return
-	Requested user attribute
-*/
-
-function get_user_attrib($user_name,$attrib)
-{
-	$user_info = get_user_info($user_name);
-	return $user_info[$attrib];
-}
-
-/** Return array of attributes for specified address book user name
-
     @param string $user_name
-	Name of user whose information is required (default to
-	currently logged in user if omitted)
+	Name of user whose setting is to be returned. If this is omitted
+	then the current logged in user will be used.
     @return
-	Array of user information (e.g. allowed permissions)
+	Value of requested user setting
 */
 
-function get_user_info($user_name="")
+function get_user_setting($attrib,$user_name = "")
 {
 	global $ldap_server;
+
+	// use current user name if no user name passed as a parameter
 
 	if(empty($user_name))
 	{
@@ -1433,6 +1417,8 @@ function get_user_info($user_name="")
 			$user_name = "__ANONYMOUS__";
 	}
 
+	// retrieve the user's info from user_map array
+
 	$user_info = array();	// default if no match at all
 	$found=false;
 	foreach($ldap_server->user_map as $map_user)
@@ -1445,7 +1431,10 @@ function get_user_info($user_name="")
 
 	$user_info["ldap_name"]=str_replace("__USERNAME__",
 		$user_name,$user_info["ldap_name"]);
-	return $user_info;
+
+	// return the value of the requested attribute
+
+	return $user_info[$attrib];
 }
 
 /** Sort an array of LDAP entries against one or more attributes.
@@ -1728,8 +1717,6 @@ class ldap_entry_list
 
 		$object_dn = $ldap_entry["dn"];
 
-		$user_info = get_user_info();
-
 		if($item_is_folder)
 			// Display the folder name, and make it a link to
 			// display the folder's contents.
@@ -1750,7 +1737,7 @@ class ldap_entry_list
 				// Don't make the cell a link to the object
 				// if the user doesn't have view permissions
 				if($column["link_type"] == "object"
-						&& !$user_info["allow_view"])
+						&& !get_user_setting("allow_view"))
 					$column["link_type"] = "none";
 
 				$this->show_attrib($object_dn,
@@ -1759,7 +1746,7 @@ class ldap_entry_list
 			}
 		}
 
-		if(isset($user_info["allow_delete"]) && $user_info["allow_delete"])
+		if(get_user_setting("allow_delete"))
 			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
 				. urlencode($dn)
 				. "\"><button>Delete</button></a>\n    </td>\n";
@@ -2538,10 +2525,8 @@ class ldap_server
 		// currently logged in user
 		if(!isset($_SESSION)) session_start();
 
-		$user_info = get_user_info();
-
-		if($user_info["allow_browse"] || $user_info["allow_search"]
-			|| $user_info["allow_view"])
+		if(get_user_setting("allow_browse") || get_user_setting("allow_search")
+			|| $get_user_setting("allow_view"))
 		{
 			$dn = $entry["dn"];
 

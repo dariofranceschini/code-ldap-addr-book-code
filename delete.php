@@ -40,12 +40,10 @@ if($ldap_server->log_on())
 
 	if($search_resource)
 	{
-		$user_info = get_user_info();
-
 		// Use generic contact24.png instead of actual
 		// icon/thumbnail if the user isn't granted allow_view
 		// permission.
-		if($user_info["allow_view"])
+		if(get_user_setting("allow_view"))
 		{
 			$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 			$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
@@ -53,7 +51,7 @@ if($ldap_server->log_on())
 		else
 			$icon = "contact24.png";
 
-		if(isset($user_info["allow_delete"]) && $user_info["allow_delete"])
+		if(get_user_setting("allow_delete"))
 		{
 			show_site_header();
 			show_ldap_path($dn,$ldap_base_dn,$icon);
