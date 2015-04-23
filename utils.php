@@ -1416,7 +1416,8 @@ function get_user_setting($attrib,$user_name = "")
 			|| $map_user["login_name"] == "__DEFAULT__"))
 		{
 			$user_info = $map_user;
-			$found = true;
+			if($map_user["login_name"] != "__DEFAULT__")
+				$found = true;
 		}
 
 	$user_info["ldap_name"]=str_replace("__USERNAME__",
