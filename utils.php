@@ -1333,23 +1333,6 @@ function show_ldap_bind_error()
 	}
 }
 
-/** Get LDAP bind DN/login name of current user
-
-    @return
-	LDAP bind DN/login name of current user
-*/
-
-function get_ldap_bind_user()
-{
-	// Resume existing session (if any exists) in order to get
-	// currently logged in user
-	if(!isset($_SESSION)) session_start();
-
-	return isset($_SESSION["LOGIN_USER"])
-		? get_user_setting("ldap_name",$_SESSION["LOGIN_USER"])
-		: get_user_setting("ldap_name","__ANONYMOUS__");
-}
-
 /** Get LDAP bind password of current user
 
     @return
@@ -1379,7 +1362,7 @@ function get_ldap_bind_password()
 
 function ldap_referral_rebind($ldap_link,$referral_uri)
 {
-	$user = get_ldap_bind_user();
+	$user = get_user_setting("ldap_name");
 
 	if($user == "__DENY__")
 		return 1;
@@ -2564,7 +2547,7 @@ class ldap_server
 
 	function log_on()
 	{
-		$user = get_ldap_bind_user();
+		$user = get_user_setting("ldap_name");
 
 		$result=false;
 		if($user != "__DENY__")
