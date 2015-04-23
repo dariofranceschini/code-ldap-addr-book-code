@@ -1419,7 +1419,7 @@ function get_user_attrib($user_name,$attrib)
 
 function get_user_info($user_name="")
 {
-	global $ldap_user_map;
+	global $ldap_server;
 
 	if(empty($user_name))
 	{
@@ -1435,13 +1435,14 @@ function get_user_info($user_name="")
 
 	$user_info = array();	// default if no match at all
 	$found=false;
-	foreach($ldap_user_map as $map_user)
+	foreach($ldap_server->user_map as $map_user)
 		if(!$found && ($map_user["login_name"] == $user_name
 			|| $map_user["login_name"] == "__DEFAULT__"))
 		{
 			$user_info = $map_user;
 			$found = true;
 		}
+
 	$user_info["ldap_name"]=str_replace("__USERNAME__",
 		$user_name,$user_info["ldap_name"]);
 	return $user_info;
@@ -2263,6 +2264,9 @@ class ldap_server
 	/** Whether to follow LDAP referrals */
 	var $follow_referrals = false;
 
+	/** Permissions and user name mappings between address book and LDAP server */
+	var $user_map = array();
+
 	/** Constructor
 
 	    Member variables $object_schema, $attribute_schema and
@@ -2723,6 +2727,29 @@ class ldap_server
 						. $attrib . "': " . ldap_error($this->connection) . "<br>";
 			}
 		}
+	}
+
+	/** Add a mapping between an address book login and the LDAP logins
+
+	    Defines the permissions that should be given to the user
+
+	    @param string $login_name
+		Address book login name
+		* __ANONYMOUS__ - settings used when no user logged in by name
+		* __DEFAULT__ - settings used for log in by name but not explicit config
+	    @param string $ldap_name
+		Corresponding LDAP server name
+	    @param array $settings
+		Array of permissions/settings for the user
+
+	    @see
+		"configuring users and permissions" in the manual
+	*/
+	function add_user_mapping($login_name,$ldap_name,$settings)
+	{
+		$this->user_map[] = array_merge(
+			array("login_name"=>$login_name,"ldap_name"=>$ldap_name),
+			$settings);
 	}
 }
 

@@ -60,23 +60,72 @@ $ldap_default_password = "";
 // whether to enable different users to log into the directory
 $ldap_login_enabled = false;
 
-// Defines how address book logins tranlate to LDAP logins and
-// permissions on the back-end directory. (See "configuring users and
-// permissions" in the manual for more info.)
+// If the LDAP server is set up to allow "anonymous bind" then the
+// the user name and password can be left blank, otherwise replace
+// with a "generic" user that has read permission.
+//
+// Remove or comment out this section if you don't want to people to
+// have any access unless they have logged in by name.
 
-$ldap_user_map = array(
-	array("login_name"=>"__ANONYMOUS__","ldap_name"=>$ldap_default_user,
+$ldap_server->add_user_mapping("__ANONYMOUS__",
+		$ldap_default_user,
+	array(
 		"ldap_password"=>$ldap_default_password,
+
+		// Permissions granted to anonymous users:
+
 		"allow_browse"=>true,
 		"allow_search"=>true,
 		"allow_view"=>true
-		),
-	array("login_name"=>"__DEFAULT__","ldap_name"=>"__USERNAME__@turnersoft.co.uk",
+	));
+
+// --------------------------------------------------------------------
+
+// Adding other user mappings (besides __ANONYMOUS__) will cause a
+// "log in" link to be displayed at the top right of each page.
+//
+// The following shows how to grant extra permissions to a specifc
+// named user (such as a system administrator).
+
+$ldap_server->add_user_mapping("admin",
+		// LDAP login (or bind DN) to connect to the directory
+		"Administrator@turnersoft.co.uk",
+
+		// Permissions granted to this user:
+	array(
 		"allow_browse"=>true,
 		"allow_search"=>true,
-		"allow_view"=>true
-		)
-	);
+		"allow_view"=>true,
+		"allow_create"=>true,
+		"allow_edit"=>true,
+		"allow_delete"=>true,
+		"allow_export"=>true,
+		"allow_export_bulk"=>true
+	));
+
+// --------------------------------------------------------------------
+
+// Other users who log in by name will be granted the permissions
+// associated with __DEFAULT__ (below).
+//
+// The user's LDAP login (or bind DN) will be created by replacing
+// __USERNAME__ with the name the user typed into the login box.
+
+$ldap_server->add_user_mapping("__DEFAULT__",
+		// Specify how to convert the user name typed into the
+		// login box into an LDAP login (or bind DN)
+		"__USERNAME__@turnersoft.co.uk",
+
+		// Permissions granted:
+	array(
+		"allow_browse"=>true,
+		"allow_search"=>true,
+		"allow_view"=>true,
+		"allow_export"=>true,
+		"allow_export_bulk"=>true
+	));
+
+// See "configuring users and permissions" in the manual for more info.
 
 // --------------------------------------------------------------------
 // Search/Browse Directory Settings
