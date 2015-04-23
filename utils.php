@@ -1413,7 +1413,8 @@ function get_user_setting($attrib,$user_name = "")
 	$found=false;
 	foreach($ldap_server->user_map as $map_user)
 		if(!$found && ($map_user["login_name"] == $user_name
-			|| $map_user["login_name"] == "__DEFAULT__"))
+			|| ($map_user["login_name"] == "__DEFAULT__"
+			&& $user_name != "__ANONYMOUS__")))
 		{
 			$user_info = $map_user;
 			if($map_user["login_name"] != "__DEFAULT__")
