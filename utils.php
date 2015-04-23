@@ -1335,19 +1335,26 @@ function show_ldap_bind_error()
 
 /** Get LDAP bind password of current user
 
+    The password for user "__ANONYMOUS__" is stored in its "ldap_password"
+    setting. For all other users the password typed into the login
+    dialogue is retrieved from the "LOGIN_PASSWORD" session variable.
+
     @return
 	LDAP bind password of current user
 */
 
 function get_ldap_bind_password()
 {
-	// Resume existing session (if any exists) in order to get
-	// currently logged in user
-	if(!isset($_SESSION)) session_start();
+	if(get_user_setting("login_name") == "__ANONYMOUS__")
+		return get_user_setting("ldap_password","__ANONYMOUS__");
+	else
+	{
+		// Resume existing session (if any exists) in order to get
+		// currently logged in user
+		if(!isset($_SESSION)) session_start();
 
-	return isset($_SESSION["LOGIN_USER"])
-		? $_SESSION["LOGIN_PASSWORD"]
-		: get_user_setting("ldap_password","__ANONYMOUS__");
+		return $_SESSION["LOGIN_PASSWORD"];
+	}
 }
 
 /** Callback function to reauthenticate following LDAP referral
