@@ -1421,8 +1421,9 @@ function get_user_setting($attrib,$user_name = "")
 				$found = true;
 		}
 
-	$user_info["ldap_name"]=str_replace("__USERNAME__",
-		$user_name,$user_info["ldap_name"]);
+	if(isset($user_info["ldap_name"]))
+		$user_info["ldap_name"]=str_replace("__USERNAME__",
+			$user_name,$user_info["ldap_name"]);
 
 	// return the value of the requested attribute
 
