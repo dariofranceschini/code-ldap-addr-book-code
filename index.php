@@ -105,7 +105,7 @@ if(prereq_components_ok())
 				{
 					if(!get_user_setting("allow_search"))
 					{
-						if($ldap_login_enabled)
+						if($ldap_server->per_user_login_enabled())
 							echo "<p><a href=\"user.php\">"
 								. "Please log in to use the address book.</a></p>\n";
 						else

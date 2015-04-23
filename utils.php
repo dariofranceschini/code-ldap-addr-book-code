@@ -27,7 +27,7 @@ define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
 function show_site_header()
 {
-	global $site_name,$ldap_login_enabled,$enable_search_suggestions;
+	global $site_name,$enable_search_suggestions;
 
 	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">\n";
 	echo "<html>\n";
@@ -145,7 +145,7 @@ function show_error_message($message)
 
 function show_ldap_path($base,$default_base,$leaf_icon)
 {
-	global $site_name,$ldap_login_enabled,$ldap_base_dn;
+	global $site_name,$ldap_server,$ldap_base_dn;
 
 	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
 		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
@@ -198,7 +198,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "    </td>\n";
 
 	echo "    <td class=\"login_info\">";
-	if($ldap_login_enabled)
+	if($ldap_server->per_user_login_enabled())
 	{
 		// Resume existing session (if any exists) in order to get
 		// currently logged in user
@@ -1305,9 +1305,9 @@ function urls_to_links($text)
 
 function show_ldap_bind_error()
 {
-	global $ldap_login_enabled;
+	global $ldap_server;
 
-	if($ldap_login_enabled)
+	if($ldap_server->per_user_login_enabled())
 	{
 		if(isset($_SESSION["LOGIN_USER"]))
 			echo "<p>You do not have permission to log in to"
@@ -2718,6 +2718,24 @@ class ldap_server
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name,"ldap_name"=>$ldap_name),
 			$settings);
+	}
+
+	/** Return whether per-user logins are enabled
+
+	    Indicated by either > 1 entry in user map
+	    or a single entry which is not for __ANONYMOUS__
+
+	    @return
+		Whether per-user logins are enabled
+	*/
+	function per_user_login_enabled()
+	{
+		if(count($this->user_map) == 1
+                        && $this->user_map[0]["login_name"] == "__ANONYMOUS__")
+
+			return false;
+		else
+			return (count($this->user_map)>1);
 	}
 }
 

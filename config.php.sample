@@ -57,9 +57,6 @@ $ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
 $ldap_default_user = "";
 $ldap_default_password = "";
 
-// whether to enable different users to log into the directory
-$ldap_login_enabled = false;
-
 // If the LDAP server is set up to allow "anonymous bind" then the
 // the user name and password can be left blank, otherwise replace
 // with a "generic" user that has read permission.
