@@ -301,24 +301,34 @@ configured.)
 User login names, passwords and permissions are taken from the
 LDAP directory itself rather than the address book application.
 </p>
-The <code>$ldap_user_map</code> configuration setting describes
-the relationship between the address book's login names and
-the corresponding LDAP bind user names and permissions within the
-back-end directory. Each entry in specifies how a login name for
-the address book (<code>login_name</code>) maps onto a back-end LDAP
-directory user (<code>ldap_name</code>).
+<p>
+The <code>$ldap_server-&gt;add_user_map()</code> command
+is used to set up a relationship between the address book's login
+names and the corresponding LDAP bind user names and permissions
+within the back-end directory. Three types of mapping can be
+created:
 </p>
 <ul>
 <li>The special login name <code>__ANONYMOUS__</code> is used to specify the
     LDAP login details that the address book should use use when nobody
     is logged in by name. In most cases this should provide read-only access.
-<li>The special login name <code>__DEFAULT__</code> applies to any
-    valid LDAP login that does not have its own individual entry in
-    the user map. The token <code>__USERNAME__</code> can be used
-    within the LDAP name to represent the name the user logged in with.
-<li>Login names can be mapped to the special LDAP name <code>__DENY__</code>
-    in order to deny access to the directory.
+
+<li>A specific user's login name can be mapped to a corresponding
+    LDAP login (e.g. to a "bind DN") and permissions associated with it.
+    This is typically used when setting up an "admin" user for the
+    address book.
+
+<li>The special login name <code>__DEFAULT__</code> is used to grant
+    permissions for any other valid LDAP logins, and to set how the
+    name typed into the Address Book's login box should be passed
+    to the LDAP server (e.g. how to convert it into a "bind DN").
 </ul>
+<p>
+Setting a specific user's LDAP login to <code>__DENY__</code> prevents
+that user from accessing the address book (whilst still allowing others
+to log in using settings from the <code>__DEFAULT__</code> user map
+entry).
+</p>
 <p>
 The following settings can be applied to each user map entry
 in order to enable or disable various features of the
@@ -327,6 +337,10 @@ will need to be granted within the back-end directory.
 </p>
 <table border=1>
 <tr><th>Setting</th><th>Description</th></tr>
+<tr><td><code>ldap_password</code></td><td>Specifies the password to
+    be used when connecting to the directory. This is only used for
+    the <code>__ANONYMOUS__</code> user.</td></tr>
+
 <tr><td><code>allow_browse</code></td><td>Allows the user to browse through
  organisational units (folders) within the address book.</td></tr>
 
@@ -361,11 +375,12 @@ to browse, search and view Microsoft Active Directory (domain name
 <code>example.org</code>):
 </p>
 <pre>
-array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-        )
+ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+        ));
 </pre>
 <p>
 To connect to Active Directory, <code>ldap_name</code> should be a user
@@ -379,11 +394,12 @@ permission to all users inside the <code>home</code> container at the
 top level of a Novell eDirectory tree:
 </p>
 <pre>
-array("login_name"=>"__DEFAULT__","ldap_name"=>"cn=__USERNAME__,dc=home",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-        )
+ldap_server-&gt;add_user_mapping("__DEFAULT__","cn=__USERNAME__,dc=home",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+        ));
 </pre>
 <p>
 <img src="edir.png">
@@ -404,36 +420,24 @@ address book login name <code>admin</code> is mapped to
 <code>Administrator@example.org</code>.)
 </p>
 <pre>
-array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"ldap-browse@example.org",
-	"ldap_password=&gt;"foobar",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-	),
-array("login_name"=&gt;"admin","ldap_name"=&gt;"Administrator@example.org",
-        "allow_browse"=&gt;true,
-        "allow_create"=&gt;true,
-        "allow_delete"=&gt;true,
-        "allow_edit"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-	),
-array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__DENY__"
-	)
-</pre>
-<p>
-The following example disables anonymous access, requiring all users
-to log in by name in order to browse the directory.
-</p>
-<pre>
-array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
-        "allow_browse"=&gt;true,
-        "allow_search"=&gt;true,
-        "allow_view"=&gt;true
-	),
-array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;"__DENY__",
-	"ldap_password=&gt;"foobar",
-	)
+$ldap_server-&gt;add_user_mapping("__ANONYMOUS__","ldap-browse@example.org",
+        array(
+                "ldap_password"=&gt;"foobar",
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+        ));
+$ldap_server-&gt;add_user_mapping("admin","Administrator@example.org",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true,
+                "allow_create"=&gt;true,
+                "allow_edit"=&gt;true,
+                "allow_delete"=&gt;true,
+                "allow_export"=&gt;true,
+                "allow_export_bulk"=&gt;true
+        ));
 </pre>
 <h3>Changing the attributes shown for search results</h3>
 <p>
@@ -1107,24 +1111,31 @@ appropriately:
     <code>$ldap_default_password  = "password";</code>
     </p></td></tr>
 
-<tr><td><code>$ldap_user_map</code></td>
+<tr><td><code>$ldap_server-&gt;add_user_mapping()</code></td>
     <td>Specifies the mapping between address book logins and the
     back-end directory when per-user authentication is enabled.
     (see "Configuring users and permissions" above.)
-    <p>Example:<br>
-    <pre>$ldap_user_map = array(
-        array("login_name"=&gt;"__ANONYMOUS__","ldap_name"=&gt;$ldap_default_user,
-                "ldap_password"=&gt;$ldap_default_password,
+    <br>&nbsp;<br>
+    This setting can be repeated for however many user mappings
+    need are needed.
+
+    <br>&nbsp;<br>Example:<br>
+    <pre>$ldap_server-&gt;add_user_mapping("__ANONYMOUS__","ldap-browse@example.org",
+        array(
+                "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
-                ),
-        array("login_name"=&gt;"__DEFAULT__","ldap_name"=&gt;"__USERNAME__@example.org",
+        ));
+$ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
+        array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
-                "allow_view"=&gt;true
-                )
-        );</pre></p></td></tr>
+                "allow_view"=&gt;true,
+                "allow_create"=&gt;true,
+                "allow_edit"=&gt;true,
+                "allow_delete"=&gt;true
+        ));</pre>(allows read-only access to anyone, log in by name in order to edit records)</td></tr>
 
 <tr><td><code>$ldap_server->follow_referrals</code></td>
     <td>Causes the address book to attempt to follow LDAP referrals.
