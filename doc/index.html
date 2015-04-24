@@ -277,7 +277,7 @@ don't need to create a new user account or fill in
 at all.
 </p>
 <hr>
-<a name="customising">
+<a name="customising"></a>
 <h2>Customising the Address Book</h2>
 
 <h3>Configuring users and permissions</h3>
@@ -449,6 +449,7 @@ in the configuration file. The default setting is:
 $search_ldap_attrib = array(
         "cn","mail","sn","displayName","company","title");
 </pre>
+<p>
 ...which searches the following set of attributes:
 </p>
 <table border=1>
@@ -538,7 +539,7 @@ follows, which limits search results to objects representing
 people:
 </p>
 <p>
-<code>$search_ldap_filter = "(&(objectClass=person)___search_criteria___)";</code>
+<code>$search_ldap_filter = "(&amp;(objectClass=person)___search_criteria___)";</code>
 </p>
 <p>
 The token <code>___search_criteria___</code> will be replaced with an
@@ -552,7 +553,7 @@ for "smith", the token would be replaced by:
 <p>
 To allow all object types to appear in search results, including
 organisational units (which typically do not have a <code>cn</code>
-attribute set), make the following changes to <code.config.php</code>:
+attribute set), make the following changes to <code>config.php</code>:
 </p>
 <ul>
 <li>Set <code>$search_ldap_filter = "___search_criteria___";</code>
@@ -675,7 +676,6 @@ You can define the following settings for each section:
 <tr><td><code>attributes</code></td>
     <td>List of attributes to appear in the section.</td>
     <td>(always required)</td></tr>
-</td></tr>
 </table>
 <p>
 Each attribute is described by either three or four items:
@@ -1005,13 +1005,12 @@ appropriately:
 
 <tr><td><code>$site_footer_links</code></td><td>List of links that
      appear in the footer of each page.
-     <p>Example:<br>
+     <br>&nbsp;<br>Example:<br>
 <pre>$site_footer_links = array(
         array("url"=&gt;"doc/","text"=&gt;"User Guide"),
         array("url"=&gt;"https://sourceforge.net/projects/ldap-addr-book/",
                 "text"=&gt;"Get Source Code")
         );</pre>
-     </p>
 </td></tr>
 
 <tr><th colspan=2>Connection to LDAP Directory</th></tr>
@@ -1188,7 +1187,7 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
      the user.
      <p>
      Example:<br>
-     <code>$browse_ldap_filter = "(&(objectClass=person)___search_criteria___)";</code>
+     <code>$browse_ldap_filter = "(&amp;(objectClass=person)___search_criteria___)";</code>
      </p></td></tr>
 
 <tr><td><code>$browse_ldap_filter</code></td>
@@ -1271,7 +1270,7 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
     and how they should be layed out. See the section "Changing the
     layout and attributes shown for directory entries" above for
     further information.
-<p>Example:<br>
+<br>&nbsp;<br>Example:<br>
 <pre>
 $entry_layout = array(
         array("section_name"=&gt;"Personal",
@@ -1306,7 +1305,7 @@ $entry_layout = array(
         );
 
 </pre>
-</p></td></tr>
+</td></tr>
 
 <tr><th colspan=2>Photo/Image Display Settings</th></tr>
 
