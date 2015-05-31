@@ -953,7 +953,9 @@ class ldap_entry_viewer_attrib
 						case "phone_number":
 							$this->show_phone_number($attribute,$display_name,$required); break;
 						default:
-							echo "** unsupported data type **";
+							echo "** Unsupported data type: <code>"
+								. $ldap_server->get_attribute_schema_setting($attribute,"data_type","text")
+								. "</code> **";
 					}
 				}
 			}
