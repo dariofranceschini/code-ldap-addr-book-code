@@ -69,7 +69,11 @@ if(prereq_components_ok())
 		// TODO: sanitise base DN from URL:
 		//	stop "nasties" being passed through to the LDAP server
 		//	prevent access to directory outside of address book base DN
-		if(!empty($_GET["dn"])) $dn = $_GET["dn"];
+
+		if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH && $ldap_server->compare_dn_to_base($dn,$ldap_base_dn))
+			$dn = $_GET["dn"];
+		else
+			$dn = $ldap_base_dn;
 	}
 
 	if(empty($_GET["vcard"]))
