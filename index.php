@@ -171,6 +171,12 @@ if(prereq_components_ok())
 if(empty($_GET["vcard"]))
 {
 	$buttons = "";
+
+	if(get_user_setting("allow_folder_info"))
+		$buttons .= "<a href=\"info.php?dn="
+			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+				. "\"><button>Folder Details</button></a>\n";
+
 	if(get_user_setting("allow_create"))
 		$buttons .= "<a href=\"create.php?dn="
 			. htmlentities($dn,ENT_COMPAT,"UTF-8")
