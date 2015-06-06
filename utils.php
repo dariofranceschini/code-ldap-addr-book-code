@@ -2301,7 +2301,7 @@ function prereq_components_ok()
 
 function vcard($entry)
 {
-	global $exclude_logo_if_photo_present;
+	global $exclude_logo_if_photo_present,$ldap_server;
 
 	$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
 
@@ -2319,7 +2319,11 @@ function vcard($entry)
 		. "" . "\n";	// honorific suffixes
 
 	// formatted name
-	$vcard .= "FN:" . $entry["cn"][0] . "\n";
+	$rdn_attrib = $ldap_server->get_object_schema_setting(
+		$ldap_server->get_object_class($entry)
+		,"rdn_attrib");
+
+	$vcard .= "FN:" . $entry[strtolower($rdn_attrib)][0] . "\n";
 
 	if(isset($entry["title"][0]))
 		$vcard .= "TITLE:" . $entry["title"][0] . "\n";
