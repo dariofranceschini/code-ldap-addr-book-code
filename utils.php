@@ -933,6 +933,8 @@ class ldap_entry_viewer_attrib
 							$this->show_country_code($attribute,$display_name,$required); break;
 						case "image":
 							$this->show_image($attribute,$display_name,$required); break;
+						case "yes_no":
+							$this->show_boolean_yes_no($attribute,$display_name,$required); break;
 						case "text":
 							$this->show_text($attribute,$display_name,$required); break;
 						case "text_area":
@@ -986,6 +988,27 @@ class ldap_entry_viewer_attrib
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	/** Show boolean attribute, displayed as yes/no (data type "yes_no")
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_boolean_yes_no($attribute,$display_name,$required)
+	{
+		$this->show_enum($attribute,$display_name,$required,
+			array(
+				array("value"=>"TRUE","display_name"=>"Yes"),
+				array("value"=>"FALSE","display_name"=>"No")
+				)
+			);
 	}
 
 	/** Show a general enumerated data type attribute
