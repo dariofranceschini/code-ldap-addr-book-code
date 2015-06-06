@@ -66,9 +66,13 @@ if(prereq_components_ok())
 
 					if(!empty($_GET["vcard"]))
 					{
+						$rdn_attrib = $ldap_server->get_object_schema_setting(
+							$ldap_server->get_object_class($entry[0])
+							,"rdn_attrib");
+
 						header("Content-Type: text/x-vcard");
 						header("Content-Disposition: attachment; filename=\""
-							. $entry[0]["cn"][0] . ".vcf\"");
+							. $entry[0][strtolower($rdn_attrib)][0] . ".vcf\"");
 						$entry_viewer->save_vcard();
 					}
 					else
