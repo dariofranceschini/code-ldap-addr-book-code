@@ -940,6 +940,8 @@ class ldap_entry_viewer_attrib
 					// display the attribute
 					switch($ldap_server->get_attribute_schema_setting($attribute,"data_type","text"))
 					{
+						case "date":
+							$this->show_date($attribute,$display_name,$required); break;
 						case "date_time":
 							$this->show_date_time($attribute,$display_name,$required); break;
 						case "postcode":
@@ -1001,6 +1003,76 @@ class ldap_entry_viewer_attrib
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	/** Show ISO 8601 short date attribute (data type "date")
+
+	    Dates are encoded as: YYYYMMDD
+		- YYYY - year
+		- MM - month, with leading zero
+		- DD - Day, with leading zero
+
+	    Non-numeric characters are stripped from the date, e.g. so that
+	    "YYYY-MM-DD" will be parsed as "YYYYMMDD".
+	    Any subsequent characters after the year, month and day
+	    (e.g. representing a time and time zone are ignored.
+
+	    This function may be used to display just the date portion of an
+	    ASN.1 "generalised time" value.
+
+	    @todo
+		More user friendly date editing
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+
+	*/
+
+	function show_date($attribute,$display_name,$required)
+	{
+		$attrib_value = get_ldap_attribute(
+			$this->ldap_entry,$attribute);
+
+		// Remove all non-numerics
+		$attrib_value = preg_replace("/\D/","",$attrib_value);
+
+		if($attrib_value == "")
+			$formatted_date = "";
+		else
+		{
+			/** @todo: check string length - support legacy 2-digit years? */
+			$date = mktime(0,0,0,
+				substr($attrib_value,4,2),	// month
+				substr($attrib_value,6,2),	// day
+				substr($attrib_value,0,4)	// year
+				);
+
+			$formatted_date = date("l jS F Y",$date);
+		}
+
+		if($this->edit)
+		{
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "<input style=\"" . $style . "\" type=\"text\" id=\"ldap_attribute_"
+				. $attribute . "\" name=\"ldap_attribute_"
+				. $attribute . "\" value=\""
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "\" title=\"" . $display_name . "\" placeholder=\""
+				. $display_name . "\">";
+		}
+		else
+			echo htmlentities($formatted_date,ENT_COMPAT,"UTF-8");
 	}
 
 	/** Show ISO 8601 date/time attribute (data type "date_time")
