@@ -937,6 +937,8 @@ class ldap_entry_viewer_attrib
 							$this->show_image($attribute,$display_name,$required); break;
 						case "yes_no":
 							$this->show_boolean_yes_no($attribute,$display_name,$required); break;
+						case "use_html_mail":
+							$this->show_use_html_mail($attribute,$display_name,$required); break;
 						case "text":
 							$this->show_text($attribute,$display_name,$required); break;
 						case "text_area":
@@ -990,6 +992,35 @@ class ldap_entry_viewer_attrib
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	/** Show mozillaUseHtmlMail attribute (data type "use_html_mail")
+
+	    This attribute indicates whether or not the user prefers to receive
+	    HTML-formatted e-mails.
+
+		- TRUE - User prefers HTML
+		- FALSE - User prefers plain text (does not prefer HTML)
+
+	    The attribute is defined in the "mozilla" schema.
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_use_html_mail($attribute,$display_name,$required)
+	{
+		$this->show_enum($attribute,$display_name,$required,
+			array(
+				array("value"=>"FALSE","display_name"=>"Plain Text"),
+				array("value"=>"TRUE","display_name"=>"HTML")
+				)
+			);
 	}
 
 	/** Show boolean attribute, displayed as yes/no (data type "yes_no")
