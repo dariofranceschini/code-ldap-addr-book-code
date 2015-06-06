@@ -539,23 +539,6 @@ $country_name=array(
 	"BL" => "Saint Barthelemy",
 	"MF" => "Saint Martin");
 
-/** Return full country name given ISO 3166-1 alpha-2 country code
-
-    @param string $code
-	Country code which is to be converted to country name
-    @return
-	Country name represented by the specified country code
-*/
-
-function get_country_name_from_code($code)
-{
-	global $country_name;
-	if(isset($country_name[$code]))
-		return $country_name[$code];
-	else
-		return "unknown";
-}
-
 /** View LDAP entry as HTML */
 
 class ldap_entry_viewer
@@ -1005,6 +988,67 @@ class ldap_entry_viewer_attrib
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
 	}
 
+	/** Show a general enumerated data type attribute
+
+	    Called from other "show_" functions which implement specific
+	    enumerations (boolean, gender, country code, etc)
+
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param array $enum
+		Array describing the enumerated data type
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_enum($attribute,$display_name,$required,$enum)
+	{
+		$attrib_value = get_ldap_attribute(
+			$this->ldap_entry,$attribute);
+
+		if($this->edit)
+		{
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+                        echo "<select name=\"ldap_attribute_" . $attribute
+                                . "\" title=\"" . $display_name . "\" style=\"" . $style . "\">\n";
+
+			foreach($enum as $enum_entry)
+			{
+				if($enum_entry["display_name"] == "")
+					$enum_entry["display_name"] = "(blank)";
+
+				echo "              <option value=\"" . $enum_entry["value"] . "\""
+					. ($attrib_value == $enum_entry["value"] ? " selected" : "")
+					. ">" . $enum_entry["display_name"] . "</option>\n";
+			}
+
+			echo "</select>";
+		}
+		else
+		{
+			$found = false;
+			foreach($enum as $enum_entry)
+				if($attrib_value == $enum_entry["value"])
+				{
+					$found = true;
+					echo $enum_entry["display_name"];
+				}
+
+			if(!$found)
+				echo "Unrecognised value: " . $attrib_value;
+		}
+	}
+
 	/** Show ISO 8601 short date attribute (data type "date")
 
 	    Dates are encoded as: YYYYMMDD
@@ -1230,34 +1274,14 @@ class ldap_entry_viewer_attrib
 		global $country_name;
 		asort($country_name);
 
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+		$countries = array(
+			array("value"=>"","display_name"=>"")
+			);
 
-		if($this->edit)
-		{
-			if($required)
-				$style = "border-color:red;border-style:solid";
-			else
-				$style = "";
+		foreach($country_name as $code => $name)
+			$countries[] = array("value"=>$code,"display_name"=>$name);
 
-			echo "<select name=\"ldap_attribute_" . $attribute
-				. "\" title=\"" . $display_name . "\" style=\"" . $style . "\">\n";
-
-			if($attrib_value == "")
-				echo "              <option value=\"\" selected>(blank)</option>\n";
-			else
-				echo "              <option value=\"\">(blank)</option>\n";
-
-			foreach($country_name as $code => $name)
-				echo "              <option value=\"" . $code . "\""
-					. ($attrib_value == $code ? " selected" : "")
-					. ">" . $name . " (" . $code . ")</option>\n";
-
-			echo "            </select>";
-		}
-		else
-			if($attrib_value != "")
-				echo get_country_name_from_code($attrib_value);
+		$this->show_enum($attribute,$display_name,$required,$countries);
 	}
 
 	/** Show postcode attribute (data type "postcode")
