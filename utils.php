@@ -940,6 +940,8 @@ class ldap_entry_viewer_attrib
 					// display the attribute
 					switch($ldap_server->get_attribute_schema_setting($attribute,"data_type","text"))
 					{
+						case "date_time":
+							$this->show_date_time($attribute,$display_name,$required); break;
 						case "postcode":
 							$this->show_postcode($attribute,$display_name,$required); break;
 						case "country_code":
@@ -999,6 +1001,66 @@ class ldap_entry_viewer_attrib
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	/** Show ISO 8601 date/time attribute (data type "date_time")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support displaying fractional seconds (where present)
+	    @todo
+		Support displaying the time zone
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_date_time($attribute,$display_name,$required)
+	{
+		$attrib_value = get_ldap_attribute(
+			$this->ldap_entry,$attribute);
+
+		if($this->edit)
+		{
+			if($required)
+				$style = "width:98%;border-color:red;border-style:solid";
+			else
+				$style = "width:98%;";
+
+			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
+				. $attribute . "\" value=\""
+				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. "\" title=\"" . $display_name . "\" placeholder=\""
+				. $display_name . "\">";
+		}
+		else
+		{
+	                if($attrib_value == "")
+				$formatted_date = "";
+			else
+			{
+				$date = mktime(
+					substr($attrib_value,8,2),	// hour
+					substr($attrib_value,10,2),	// minute
+					substr($attrib_value,12,2),	// second
+					substr($attrib_value,4,2),	// month
+					substr($attrib_value,6,2),	// day
+					substr($attrib_value,0,4)	// year
+					);
+
+				$formatted_date = date("l jS F Y H:i:s",$date);
+			}
+
+			echo $formatted_date;
+		}
 	}
 
 	/** Show telephone number (data type "phone_number")
