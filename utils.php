@@ -927,6 +927,8 @@ class ldap_entry_viewer_attrib
 							$this->show_date($attribute,$display_name,$required); break;
 						case "date_time":
 							$this->show_date_time($attribute,$display_name,$required); break;
+						case "gender":
+							$this->show_gender($attribute,$display_name,$required); break;
 						case "postcode":
 							$this->show_postcode($attribute,$display_name,$required); break;
 						case "country_code":
@@ -1007,6 +1009,34 @@ class ldap_entry_viewer_attrib
 			array(
 				array("value"=>"TRUE","display_name"=>"Yes"),
 				array("value"=>"FALSE","display_name"=>"No")
+				)
+			);
+	}
+
+	/** Show ISO 5218 gender code attribute (data type "gender")
+
+		- 0 Not known
+		- 1 Male
+		- 2 Female
+		- 9 Not specified
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_gender($attribute,$display_name,$required)
+	{
+		$this->show_enum($attribute,$display_name,$required,
+			array(
+				array("value"=>"0","display_name"=>"Not known"),
+				array("value"=>"1","display_name"=>"Male"),
+				array("value"=>"2","display_name"=>"Female"),
+				array("value"=>"9","display_name"=>"Not specified")
 				)
 			);
 	}
