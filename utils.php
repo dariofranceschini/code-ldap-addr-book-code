@@ -563,16 +563,19 @@ class ldap_entry_viewer
 
 	/** Constructor
 
-	    @param array $entry_viewer_layout
-		LDAP attributes to be displayed and their layout
+	    @param object $ldap_server
+		LDAP server from which a record is to be displayed
 	    @param array $ldap_entry
 		Array containing LDAP object entry which is to
 		be displayed
 	*/
 
-	function ldap_entry_viewer($entry_viewer_layout,$ldap_entry)
+	function ldap_entry_viewer($ldap_server,$ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
+
+		$entry_viewer_layout = $ldap_server->get_display_layout(
+			$ldap_server->get_object_class($ldap_entry[0]));
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
@@ -2517,6 +2520,9 @@ class ldap_server
 	/** Permissions and user name mappings between address book and LDAP server */
 	var $user_map = array();
 
+	/** Display layouts */
+	var $display_layouts = array();
+
 	/** Constructor
 
 	    Member variables $object_schema, $attribute_schema and
@@ -3017,6 +3023,50 @@ class ldap_server
 			return false;
 		else
 			return (count($this->user_map)>1);
+	}
+
+	/** Add a display layout
+
+	    @param string $object_classes
+		Comma separated list of object classes which should use this layout
+	    @param array $layout
+		Array representing the display layout
+	*/
+
+	function add_display_layout($object_classes,$layout)
+	{
+		$object_class_list = explode(",",$object_classes);
+		$this->display_layouts[] = array("object_classes"=>$object_class_list,"layout"=>$layout);
+	}
+
+	/** Return the display layout to be used for the specified object class
+
+	    @param string $object_class
+		Class name
+	    @return
+		Array representing the display layout
+	*/
+
+	function get_display_layout($object_class)
+	{
+		$found = false;
+		$selected_layout = array();
+
+		foreach($this->display_layouts as $layout)
+		{
+			if(!$found)
+			{
+				if(in_array($object_class,$layout["object_classes"])
+					|| in_array("*",$layout["object_classes"]))
+				{
+					$found = true;
+					$selected_layout = $layout["layout"];
+				}
+				if(in_array("*",$layout["object_classes"]))
+					$selected_layout = $layout["layout"];
+			}
+		}
+		return $selected_layout;
 	}
 }
 

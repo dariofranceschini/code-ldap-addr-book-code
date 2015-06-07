@@ -568,44 +568,32 @@ attribute set), make the following changes to <code>config.php</code>:
 <p>
 You may want to customise the way in which address book
 entries are displayed - which fields/attributes are
-used and how they are laid out. The columns that appear
-in search results can be changed by editing the contents of
-<code>$entry_layout</code> in the configuration file.
+used and how they are laid out. If you wish, you can specify
+a different layout for each type of record.
 </p>
 
 <p>
-Note: Some attributes must always be filled in with a value, for
-example many LDAP directories require record types that represent
-a person to have the surname (<code>sn</code>) attribute to be
-filled in. If you want to be able to create new records through
-the Address Book then these attributes must be included in your
-directory entry layout so that you can fill them in.
-</p>
-<ul>
-<li><i>Configuring users and permissions</i> (above) describes how
-to allow creating/editing of records.
-
-<li>Your directory service's schema documentation should list which
-attributes must have values.
-</ul>
-<p>
-As shipped, address book entries are displayed in three
-"sections":
+As shipped, a default layout is provided which displays
+the address book entries in three "sections":
 </p>
 <img alt="Default address book layout, with personal, business/work and additional notes sections" src="layout.png">
 <p>
-The sections appear in <code>$entry_layout</code> as
-a comma-separated list of arrays. The first section in
-the screenshot above ("Personal") is represented like
-this:
+This layout is created by the configuration shown
+below. The value "*" means that the layout should be
+applied for all types of record (unless overridden
+by another definition applying to a specific record
+type). The layout itself is described as a
+comma-separated list of arrays.
 </p>
 <pre>
-$entry_layout = array(
-        array("section_name"=&gt;"Personal",
-                "attributes"=&gt;array(
-                        array("givenName",			"Given Name",		"contact24.png",true),
-                        array("sn",				"Surname",		"contact24.png",true),
-                        array("cn",				"Full Name",		"contact24.png",true),
+
+
+$ldap_server->add_display_layout("*",array(
+        array("section_name"=>"Personal",
+                "attributes"=>array(
+                        array("givenName",                      "Given Name",           "contact24.png",true),
+                        array("sn",                             "Surname",              "contact24.png",true),
+                        array("cn",                             "Full Name",            "contact24.png",true),
                         array("displayName",                    "Preferred Name",       "contact24.png"),
                         array("mail",                           "E-mail",               "mail.png"),
                         array("homePhone",                      "Home Phone",           "landline-phone.png"),
@@ -616,17 +604,49 @@ $entry_layout = array(
                         )
                 ),
 
-		// ... data for the other sections continues here (not shown) ...
-		// ... sections are separated from each other by commas ...
+        array("section_name"=>"Business/Work","width"=>"50%",
+                "attributes"=>array(
+                        array("company",                        "Company",              "company.png"),
+                        array("url",                            "Web Page",             "internet.png"),
+                        array("telephoneNumber",                "Office Phone",         "landline-phone.png"),
+                        array("facsimileTelephoneNumber",       "Office Fax",           "fax.png"),
+                        array("title",                          "Job Title",            "id.png"),
+                        array("department",                     "Department",           "org.png"),
+                        array("physicalDeliveryOfficeName",     "Office",               "office.png"),
+                        )
+                ),
 
-	);
+        array("section_name"=>"Additional Notes","new_row"=>true,"colspan"=>2,
+                "attributes"=>array(
+                        array("info")
+                        )
+                )
+        ));
 </pre>
+
 <p>
 The <code>givenName</code>, <code>sn</code> and <code>cn</code>
 fields are only visible while the record is being edited. (This
 behavior is enabled by setting the fouth attribute of each
 layout element to <code>true</code>.)
 </p>
+
+<p>
+Note: Some attributes must always be filled in with a value, for
+example many LDAP directories require record types representing
+a person to have the surname (<code>sn</code>) attribute filled
+in. If you want to be able to create new records through
+the Address Book then these attributes must be included in your
+directory entry layout so that users can fill them in.
+</p>
+<ul>
+<li><i>Configuring users and permissions</i> (above) describes how
+to allow creating/editing of records.
+
+<li>Your directory service's schema documentation should list which
+attributes must have values.
+</ul>
+
 <p>
 You can define the following settings for each section:
 </p>
@@ -728,6 +748,10 @@ The following changes will be applied automatically:
     size.
 </ul>
 
+<p>
+More information about displaying images can be found in the following
+section.
+</p>
 <h3>Displaying thumbnail photos or logos when browsing/searching the directory</h3>
 <p>
 By default, directory entries are displayed next to an
@@ -1269,45 +1293,48 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
 
 <tr><th colspan=2>Detailed Info View</th></tr>
 
-<tr><td><code>$entry_layout</code></td>
+<tr><td><code>$ldap_server->add_display_layout()</code></td>
     <td>Specifies the attributes to be shown in detailed entry view
     and how they should be layed out. See the section "Changing the
     layout and attributes shown for directory entries" above for
     further information.
 <br>&nbsp;<br>Example:<br>
 <pre>
-$entry_layout = array(
-        array("section_name"=&gt;"Personal",
-                "attributes"=&gt;array(
-                        array("displayName",                    "Preferred Name",       "contact24.png"),
-                        array("mail",                           "E-mail",               "mail.png"),
-                        array("homePhone",                      "Home Phone",           "landline-phone.png"),
-                        array("mobile",                         "Mobile Phone",         "cell-phone.png"),
-                        array("wWWHomePage",                    "Web Page",             "internet.png"),
-                        array("streetAddress:l:st:postalCode",  "Postal Address",       "address.png"),
-                        array("c",                              "Country",              "country.png"),
-                        array("jpegPhoto",                      "Photo",                "photo24.png")
-                        )
-                ),
-        array("section_name"=&gt;"Business/Work","width"=&gt;"50%",
-                "attributes"=&gt;array(
-                        array("company",                        "Company",              "company.png"),
-                        array("url",                            "Web Page",             "internet.png"),
-                        array("telephoneNumber",                "Office Phone",         "landline-phone.png"),
-                        array("facsimileTelephoneNumber",       "Office Fax",           "fax.png"),
-                        array("title",                          "Job Title",            "id.png"),
-                        array("department",                     "Department",           "org.png"),
-                        array("physicalDeliveryOfficeName",     "Office",               "office.png")
-                        )
-                ),
+// Display information about a printer in Active Directory
 
-        array("section_name"=&gt;"Additional Notes","new_row"=&gt;true,"colspan"=&gt;2,
-                "attributes"=&gt;array(
-                        array("info")
-                        )
-                )
-        );
+$ldap_server->add_display_layout("printQueue",array(
+    array("section_name"=>"Shared Printer",
+        "attributes"=>array(
+            array("printerName",                    "Printer",              "microsoft-active-directory/printer24.png"),
+            array("location",                       "Location",             "address.png"),
+            array("driverName",                     "Driver/Model",         "generic24.png"),
+            array("description",                    "Description",          "microsoft-active-directory/description24.png")
+            )
+        ),
 
+    array("section_name"=>"Capabilities","width"=>"50%",
+        "attributes"=>array(
+            array("printColor",                     "Color Printing",       "generic24.png"),
+            array("printStaplingSupported",         "Stapling",             "generic24.png"),
+            array("printDuplexSupported",           "Double-Sided Printing","generic24.png"),
+            array("printRate",                      "Printing Speed (PPM)", "generic24.png"),
+            array("printMaxResolutionSupported",    "Max. Resolution (DPI)","generic24.png")
+            )
+        ),
+
+    array("section_name"=>"Print Server","new_row"=>true,"colspan"=>2,
+        "attributes"=>array(
+            array("serverName",                     "Host Name",            "microsoft-active-directory/computer24.png"),
+            array("uNCName",                        "Printer UNC Path",     "microsoft-active-directory/domain24.png")
+            )
+        ),
+
+    array("section_name"=>"Paper Available","new_row"=>true,"colspan"=>2,
+        "attributes"=>array(
+            array("printMediaReady")
+            )
+        )
+    ));
 </pre>
 </td></tr>
 

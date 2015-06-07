@@ -49,7 +49,7 @@ if(prereq_components_ok())
          		                       )
 		                        );
 
-				$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
+				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
 				$entry_viewer->create = $entry_viewer->edit = true;
 
@@ -62,7 +62,7 @@ if(prereq_components_ok())
 				if($search_resource)
 				{
 					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
-					$entry_viewer = new ldap_entry_viewer($entry_layout,$entry);
+					$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
 					if(!empty($_GET["vcard"]))
 					{

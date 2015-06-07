@@ -111,6 +111,9 @@ if($ldap_server->log_on())
 					$ldap_server->get_object_class($entry[0]),
 					"rdn_attrib");
 
+				$entry_layout = $ldap_server->get_display_layout(
+					$ldap_server->get_object_class($entry[0]));
+
 				foreach($entry_layout as $section)
 					foreach($section["attributes"] as $attrib_spec)
 						foreach(explode(":",$attrib_spec[0]) as $attribute_line)
