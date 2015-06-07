@@ -2613,6 +2613,7 @@ class ldap_server
 			array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
 			array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
 			array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
+			array("name"=>"description",		"data_type"=>"text",		"display_name"=>"Description"),
 			array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
 			array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
 			array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
