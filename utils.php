@@ -570,7 +570,7 @@ class ldap_entry_viewer
 		be displayed
 	*/
 
-	function ldap_entry_viewer($ldap_server,$ldap_entry)
+	function __construct($ldap_server,$ldap_entry)
 	{
 		$this->ldap_entry = $ldap_entry;
 
@@ -852,7 +852,7 @@ class ldap_entry_viewer_attrib
 		Whether this attribute should be hidden except when editing
 	*/
 
-	function ldap_entry_viewer_attrib($ldap_entry,$attribute,$caption="",$icon="",$hide_unless_editing=false)
+	function __construct($ldap_entry,$attribute,$caption="",$icon="",$hide_unless_editing=false)
 	{
 		$this->caption = $caption;
 		$this->ldap_attribute = $attribute;
@@ -1848,7 +1848,7 @@ class ldap_entry_list
 		LDAP attribute that the list should be sorted by
 	*/
 
-	function ldap_entry_list($ldap_server,$ldap_entries,$search_result_columns,$sort_order)
+	function __construct($ldap_server,$ldap_entries,$search_result_columns,$sort_order)
 	{
 		$this->ldap_server = $ldap_server;
 		$this->ldap_entries = $ldap_entries;
@@ -2541,7 +2541,7 @@ class ldap_server
 		Port number on LDAP server to connect to
 	*/
 
-        function ldap_server($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
+        function __construct($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
         {
 		if(is_null($ldap_server_port))
 			$this->connection = ldap_connect($ldap_server_host_or_url);
