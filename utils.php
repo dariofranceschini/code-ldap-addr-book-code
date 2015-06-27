@@ -2620,7 +2620,7 @@ class ldap_server
 		- can_create - Allow users to create records of this object class
 
 	*/
-	var $object_schema;
+	var $object_schema = array();
 
 	/** Return information about the LDAP server's attribute class schema
 
@@ -2632,13 +2632,13 @@ class ldap_server
 		- data_type - Data type of the attribute
 		- display_name - Display name of the attribute
 	*/
-	var $attribute_schema;
+	var $attribute_schema = array();
 
 	/** Return the default LDAP object class to use when creating new records
 
 	    The default class for new objects depends on the LDAP server type.
 	*/
-	var $default_create_class;
+	var $default_create_class = "person";
 
 	/** Return connection resource for communicating with the LDAP server */
 	var $connection;
@@ -2651,6 +2651,14 @@ class ldap_server
 
 	/** Display layouts */
 	var $display_layouts = array();
+
+	/** Supported server types */
+	var $server_types = array(
+		array("name"=>"ad",		"default_create_class"=>"contact",	"schema_list"=>""),
+		array("name"=>"edir",		"default_create_class"=>"inetOrgPerson","schema_list"=>""),
+		array("name"=>"openldap",	"default_create_class"=>"inetOrgPerson","schema_list"=>""),
+		array("name"=>"custom",		"default_create_class"=>"person",	"schema_list"=>"")
+		);
 
 	/** Constructor
 
@@ -2771,6 +2779,20 @@ class ldap_server
 			array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
 			array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
 			);
+
+		$schema_list  = "";
+		foreach($this->server_types as $server_type)
+		{
+			if($server_type["name"] == $this->server_type)
+			{
+				$this->default_create_class = $server_type["default_create_class"];
+				$schema_list = $server_type["schema_list"];
+			}
+		}
+		$schema_list = explode(",",$schema_list);
+
+		foreach($schema_list as $schema)
+			$this->add_schema($schema);
         }
 
 	/** Return a schema setting for the specified LDAP attribute
@@ -3167,6 +3189,20 @@ class ldap_server
 			return (count($this->user_map)>1);
 	}
 
+	/** Add/enable a schema
+
+	    @param string $name
+		Schema name
+	*/
+
+	function add_schema($name)
+	{
+		include_once("schema/" . $name . ".php");
+		$schema_class_name = $name . "_schema";
+
+		$schema_class = new $schema_class_name($this);
+	}
+
 	/** Add an object class to the schema
 
 	    If the object class is already defined then its previous definition
@@ -3365,5 +3401,33 @@ function ldap_bind_log($ldap_link,$user=null,$password=null)
 			. preg_replace("/[^[:print:]]/","",$user)
 			. "' failed");
 	return $result;
+}
+
+/** LDAP schema */
+
+abstract class ldap_schema
+{
+	var $object_schema = array();
+	var $attribute_schema = array();
+
+	function __construct(&$ldap_server)
+	{
+		// Export object schema settings to LDAP server object
+		foreach($this->object_schema as $settings)
+		{
+			$name = $settings["name"];
+			unset($settings["name"]);
+
+			$ldap_server->add_object_class($name,$settings);
+		}
+		// Export attribute schema settings to LDAP server object
+		foreach($this->attribute_schema as $settings)
+		{
+			$name = $settings["name"];
+			unset($settings["name"]);
+
+			$ldap_server->add_attribute_class($name,$settings);
+		}
+	}
 }
 ?>
