@@ -3167,6 +3167,139 @@ class ldap_server
 			return (count($this->user_map)>1);
 	}
 
+	/** Add an object class to the schema
+
+	    If the object class is already defined then its previous definition
+	    will be replaced. The index position of the object in the schema
+	    (used to indicate inheritance) will be unchanged.
+
+	    Remove and re-add classes in the correct order if you need to change
+	    the inheritance relationship of existing classes.
+
+	    @param string $name
+		Class name
+	    @param array $settings
+		Array of schema settings
+	*/
+
+	function add_object_class($name,$settings = array())
+	{
+		$object_class_index = $this->get_object_class_index($name);
+
+		if(is_null($object_class_index))
+		{
+			$new_object_class = array_merge(array("name"=>$name),$settings);
+			$this->object_schema[] = $new_object_class;
+		}
+		else
+		{
+			$this->object_schema[$object_class_index] = array("name"=>$name);
+			foreach($settings as $setting=>$value)
+				$this->object_schema[$object_class_index][$setting] = $value;
+		}
+	}
+
+	/** Delete the specified object class from the schema
+
+	    This function has no effect if the object class doesn't exist.
+
+	    @param string $name
+		Name of the object class name to be deleted
+	*/
+
+	function delete_object_class($name)
+	{
+		$object_class_index = $this->get_object_class_index($name);
+
+		if(!is_null($object_class_index))
+			unset($this->object_schema[$object_class_index]);
+	}
+
+	/** Return index of an object class schema entry
+
+	    @param string $class_name
+		Class name for which index is to be returned
+	    @return
+		Index of object class schema entry, or null if not found
+	*/
+
+	function get_object_class_index($class_name)
+	{
+		$class_index = null;
+		foreach($this->object_schema as $index=>$object_class)
+			if($object_class["name"] == $class_name)
+				$class_index = $index;
+		return $class_index;
+	}
+
+	/** Add an attribute class to the schema
+
+	    If the attribute class is already defined then its previous definition
+	    will be replaced. The index position of the attribute in the schema
+	    (used to indicate inheritance) will be unchanged.
+
+	    Remove and re-add classes in the correct order if you need to change
+	    the inheritance relationship of existing classes.
+
+	    @param string $name
+		Class name
+	    @param array $settings
+		Array of schema settings
+
+	    @todo
+		behaviour if attribute already present (should update existing)
+	*/
+
+	function add_attribute_class($name,$settings = array())
+	{
+		$attribute_class_index = $this->get_attribute_class_index($name);
+
+		if(is_null($attribute_class_index))
+		{
+			$new_attribute_class = array_merge(array("name"=>$name),$settings);
+			$this->attribute_schema[] = $new_attribute_class;
+		}
+		else
+		{
+			$this->attribute_schema[$attribute_class_index] = array("name"=>$name);
+			foreach($settings as $setting=>$value)
+				$this->attribute_schema[$attribute_class_index][$setting] = $value;
+		}
+	}
+
+	/** Delete the specified attribute class from the schema
+
+	    This function has no effect if the attribute class doesn't exist.
+
+	    @param string $name
+		Name of the attribute class name to be deleted
+	*/
+
+	function delete_attribute_class($name)
+	{
+		$attribute_class_index = $this->get_attribute_class_index($name);
+
+		if(!is_null($attribute_class_index))
+			unset($this->attribute_schema[$attribute_class_index]);
+	}
+
+	/** Return index of an attribute class schema entry
+
+	    @param string $class_name
+		Class name for which index is to be returned
+	    @return
+		Index of attribute class schema entry, or null if not found
+	*/
+
+	function get_attribute_class_index($class_name)
+	{
+		$class_index = null;
+		foreach($this->attribute_schema as $index=>$attribute_class)
+			if($attribute_class["name"] == $class_name)
+				$class_index = $index;
+		return $class_index;
+	}
+
 	/** Add a display layout
 
 	    @param string $object_classes
