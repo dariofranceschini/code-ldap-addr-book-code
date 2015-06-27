@@ -934,6 +934,8 @@ class ldap_entry_viewer_attrib
 							$this->show_date_time($attribute,$display_name,$required); break;
 						case "gender":
 							$this->show_gender($attribute,$display_name,$required); break;
+						case "ad_group_type":
+							$this->show_ad_group_type($attribute,$display_name,$required); break;
 						case "postcode":
 							$this->show_postcode($attribute,$display_name,$required); break;
 						case "country_code":
@@ -999,6 +1001,46 @@ class ldap_entry_viewer_attrib
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+	}
+
+	/** Show Active Directory groupType attribute (data type "ad_group_type")
+
+	    This attribute contains a bit pattern which describes scope/type
+	    characteristics of an Active Directory "group" object.
+
+	    The attribute is defined in the "microsoft" schema.
+
+	    @see
+		https://msdn.microsoft.com/en-us/library/ms675935%28v=vs.85%29.aspx
+
+	    @todo
+		Editing support for this data type
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_ad_group_type($attribute,$display_name,$required)
+	{
+		$attrib_value = get_ldap_attribute(
+			$this->ldap_entry,$attribute);
+
+		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+		if($attrib_value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
+		if($attrib_value & 0x01) echo " (System generated)";
+		echo "</li>";
+
+		if($attrib_value & 0x10) echo "<li>Windows Authorization Manager APP_BASIC group</li>";
+		if($attrib_value & 0x20) echo "<li>Windows Authorization Manager APP_QUERY group</li>";
+		if($attrib_value & 0x02) echo "<li>Global scope</li>";
+		if($attrib_value & 0x04) echo "<li>Domain local scope</li>";
+		if($attrib_value & 0x08) echo "<li>Universal scope</li>";
+		echo "</ul>";
 	}
 
 	/** Show mozillaUseHtmlMail attribute (data type "use_html_mail")
