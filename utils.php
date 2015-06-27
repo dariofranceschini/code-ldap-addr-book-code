@@ -2945,8 +2945,21 @@ class ldap_server
 					. "&attrib=thumbnailLogo&size="
 					. $thumbnail_image_size;
 			else
-				return "schema/" . $this->get_object_schema_setting(
+			{
+				$icon = "schema/" . $this->get_object_schema_setting(
 					$this->get_object_class($entry),"icon");
+				switch($this->server_type)
+				{
+					case "ad":
+						// Microsoft AD - show disabled user icon
+						$object_class = $this->get_object_class($entry);
+						if($object_class == "user" && isset($entry["useraccountcontrol"]) &&
+							($entry["useraccountcontrol"][0] & 2))
+						$icon = "schema/user-disabled24.png";
+						break;
+				}
+				return $icon;
+			}
 		}
 		else
 			return "schema/generic24.png";
