@@ -2520,6 +2520,9 @@ function vcard($entry)
 		$vcard .= "X-ANDROID-CUSTOM:vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;\n";
 	}
 
+	if(isset($entry["mozillaUseHtmlMail"]))
+		$vcard .= "x-mozilla-html:" . $entry["mozillaUseHtmlMail"] . "\n";
+
 	if(isset($entry["info"][0]))
 	{
 		$info="NOTE;ENCODING=QUOTED-PRINTABLE:";
