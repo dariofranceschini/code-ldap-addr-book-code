@@ -944,6 +944,8 @@ class ldap_entry_viewer_attrib
 							$this->show_use_html_mail($attribute,$display_name,$required); break;
 						case "text":
 							$this->show_text($attribute,$display_name,$required); break;
+						case "text_list":
+							$this->show_text_list($attribute,$display_name,$required); break;
 						case "text_area":
 							$this->show_text_area($attribute,$display_name,$required); break;
 						case "phone_number":
@@ -1263,6 +1265,37 @@ class ldap_entry_viewer_attrib
 			}
 
 			echo $formatted_date;
+		}
+	}
+
+	/** Show multi-value textual attribute (data type "text_list")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support editing
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_text_list($attribute,$display_name,$required)
+	{
+		if(!empty($this->ldap_entry[0][strtolower($attribute)]))
+		{
+			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+
+			foreach($this->ldap_entry[0][strtolower($attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
+			echo "</ul>";
 		}
 	}
 
