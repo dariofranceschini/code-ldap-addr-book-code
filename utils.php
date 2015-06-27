@@ -926,6 +926,8 @@ class ldap_entry_viewer_attrib
 					// display the attribute
 					switch($ldap_server->get_attribute_schema_setting($attribute,"data_type","text"))
 					{
+						case "dn_list":
+							$this->show_dn_list($attribute,$display_name,$required); break;
 						case "date":
 							$this->show_date($attribute,$display_name,$required); break;
 						case "date_time":
@@ -1297,6 +1299,55 @@ class ldap_entry_viewer_attrib
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
 			echo "</ul>";
 		}
+	}
+
+	/** Show list of LDAP DN attribute (data type "dn_list")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support editing
+
+	    @param string $attribute
+		Attribute to display
+	    @param string $display_name
+		"Friendly" display name of attribute (typically
+		rendered as "tooltip")
+	    @param bool $required
+		Whether attribute is mandatory (either marked as such or the RDN)
+	*/
+
+	function show_dn_list($attribute,$display_name,$required)
+	{
+		global $ldap_server,$ldap_base_dn;
+
+		if(!empty($this->ldap_entry[0][strtolower($attribute)]))
+		{
+			foreach($this->ldap_entry[0][strtolower($attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					// retrieve object class icon
+					$search_resource = @ldap_read($ldap_server->connection,$value,"(objectclass=*)");
+
+					if($search_resource)
+					{
+						$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+						$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
+					}
+					else
+						$icon = "schema/generic24.png";
+
+					$rdn_list = ldap_explode_dn2($value);
+
+					if($ldap_server->compare_dn_to_base($value,$ldap_base_dn))
+						echo "<img src=\"" . $icon . "\"> <a href=\"info.php?dn=" . $value . "\">" . $rdn_list["0"]["value"] . "</a><br>";
+					else
+						echo "<img src=\"" . $icon . "\">" . $rdn_list["0"]["value"] . "<br>";
+				}
+		}
+			else echo "(none)";
 	}
 
 	/** Show telephone number (data type "phone_number")
