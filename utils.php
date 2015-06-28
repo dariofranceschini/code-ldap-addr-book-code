@@ -2654,9 +2654,9 @@ class ldap_server
 
 	/** Supported server types */
 	var $server_types = array(
-		array("name"=>"ad",		"default_create_class"=>"contact",	"schema_list"=>""),
-		array("name"=>"edir",		"default_create_class"=>"inetOrgPerson","schema_list"=>""),
-		array("name"=>"openldap",	"default_create_class"=>"inetOrgPerson","schema_list"=>""),
+		array("name"=>"ad",		"default_create_class"=>"contact",	"schema_list"=>"microsoft"),
+		array("name"=>"edir",		"default_create_class"=>"inetOrgPerson","schema_list"=>"novell"),
+		array("name"=>"openldap",	"default_create_class"=>"inetOrgPerson","schema_list"=>"core,cosine,inetorgperson"),
 		array("name"=>"custom",		"default_create_class"=>"person",	"schema_list"=>"")
 		);
 
@@ -2687,98 +2687,6 @@ class ldap_server
 				$ldap_server_port);
 
                 $this->server_type = $ldap_server_type;
-
-		// Set object class schema
-		switch($this->server_type)
-		{
-			case "edir";
-				// Object class data - these items specific to Novell eDirectory
-				$this->object_schema = array(
-					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"display_name"=>"Group","can_create"=>true),
-					array("name"=>"ncpServer",		"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
-					array("name"=>"ldapServer",		"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
-					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"display_name"=>"User","required_attribs"=>"sn","can_create"=>true),
-					array("name"=>"Person",			"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true),
-					array("name"=>"externalEntity",		"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
-					array("name"=>"nDSPKIKeyMaterial",	"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
-					array("name"=>"Volume",			"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
-					array("name"=>"sASService",		"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
-					array("name"=>"ndsPredicateStats",	"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-					array("name"=>"Queue",			"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-					array("name"=>"nLSLicenseServer",	"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
-					array("name"=>"ldapGroup",		"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
-					array("name"=>"nssfsPool",		"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
-					);
-
-				// Default object class when creating new records
-		        	$this->default_create_class = "inetOrgPerson";
-				break;
-			case "openldap":
-				// Object class data - these items specific to OpenLDAP
-				$this->object_schema = array(
-					// core.schema (partial)
-					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-					array("name"=>"groupOfNames",		"icon"=>"group24.png",			  "is_folder"=>false,"can_create"=>true),
-					// inetorgperson.schema
-					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",			  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true)
-					);
-
-				// Default object class when creating new records
-		        	$this->default_create_class = "inetOrgPerson";
-				break;
-			case "ad":
-			default:
-				// Object class data - these items specific to Active Directory
-				$this->object_schema = array(
-					array("name"=>"organizationalUnit",	"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-					array("name"=>"container",		"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
-					array("name"=>"builtinDomain",		"icon"=>"folder.png",	"is_folder"=>true),
-					array("name"=>"lostAndFound",		"icon"=>"folder.png",	"is_folder"=>true),
-					array("name"=>"msDS-QuotaContainer",	"icon"=>"folder.png",	"is_folder"=>true),
-					array("name"=>"group",			"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group","can_create"=>true),
-					array("name"=>"contact",		"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact","can_create"=>true),
-					array("name"=>"computer",		"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
-					array("name"=>"foreignSecurityPrincipal","icon"=>"user-alias24.png","is_folder"=>false),
-					array("name"=>"user",			"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
-					array("name"=>"inetOrgPerson",		"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"InetOrgPerson","can_create"=>true)
-					);
-
-				// Default object class when creating new records
-		        	$this->default_create_class = "contact";
-		}
-
-		// Set attribute class schema
-		// (same for all supported LDAP servers)
-
-		$this->attribute_schema= array(
-			array("name"=>"c",			"data_type"=>"country_code",	"display_name"=>"Country Code"),
-			array("name"=>"cn",			"data_type"=>"text",		"display_name"=>"Common Name/Full Name"),
-			array("name"=>"company",		"data_type"=>"text",		"display_name"=>"Company"),
-			array("name"=>"department",		"data_type"=>"text",		"display_name"=>"Department"),
-			array("name"=>"description",		"data_type"=>"text",		"display_name"=>"Description"),
-			array("name"=>"displayName",		"data_type"=>"text",		"display_name"=>"Display/Preferred Name"),
-			array("name"=>"facsimileTelephoneNumber","data_type"=>"text",		"display_name"=>"Fax Number"),
-			array("name"=>"postalCode",		"data_type"=>"postcode",	"display_name"=>"Postal Code"),
-			array("name"=>"givenName",		"data_type"=>"text",		"display_name"=>"Given Name"),
-			array("name"=>"homePhone",		"data_type"=>"phone_number",	"display_name"=>"Home Telephone Number"),
-			array("name"=>"info",			"data_type"=>"text_area",	"display_name"=>"Information"),
-			array("name"=>"jpegPhoto",		"data_type"=>"image",		"display_name"=>"Photograph"),
-			array("name"=>"l",			"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
-			array("name"=>"mail",			"data_type"=>"text",		"display_name"=>"E-mail Address"),
-			array("name"=>"mobile",			"data_type"=>"phone_number",	"display_name"=>"Mobile/Cell Telephone Number"),
-			array("name"=>"pager",			"data_type"=>"text",		"display_name"=>"Pager Telephone Number"),
-			array("name"=>"physicalDeliveryOfficeName","data_type"=>"text",		"display_name"=>"Office"),
-			array("name"=>"sn",			"data_type"=>"text",		"display_name"=>"Surname"),
-			array("name"=>"st",			"data_type"=>"text",		"display_name"=>"State (or Province/County)"),
-			array("name"=>"streetAddress",		"data_type"=>"text_area",	"display_name"=>"Street Address"),
-			array("name"=>"telephoneNumber",	"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
-			array("name"=>"title",			"data_type"=>"text",		"display_name"=>"Job Title"),
-			array("name"=>"thumbnailLogo",		"data_type"=>"image",		"display_name"=>"Thumbnail Logo"),
-			array("name"=>"thumbnailPhoto",		"data_type"=>"image",		"display_name"=>"Thumbnail Photograph"),
-			array("name"=>"url",			"data_type"=>"text",		"display_name"=>"URL (e.g. web page)"),
-			array("name"=>"wWWHomePage",		"data_type"=>"text",		"display_name"=>"WWW Home Page")
-			);
 
 		$schema_list  = "";
 		foreach($this->server_types as $server_type)
