@@ -280,7 +280,13 @@ function current_page_folder_url()
 	// add trailing slash (missing from non-root folders)
 	if(substr($path,-1) != "/") $path .= "/";
 
-	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $path;
+	if(($scheme == "http" && $_SERVER["SERVER_PORT"] != 80)
+			|| ($scheme == "https" && $_SERVER["SERVER_PORT"] != 443))
+		$port = ":" .  $_SERVER["SERVER_PORT"];
+	else
+		$port = "";
+
+	return $scheme . "://" . $_SERVER["SERVER_NAME"] . $port . $path;
 }
 
 /** Array of ISO 3166-1 alpha-2 country codes/names
