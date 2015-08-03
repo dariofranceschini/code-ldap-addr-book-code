@@ -51,18 +51,18 @@ class microsoft_schema extends ldap_schema
 	// Structural object classes
 	var $object_schema = array(
 		array("name"=>"organizationalUnit",		"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>"Organizational Unit","can_create"=>true),
-		array("name"=>"rpcContainer",			"icon"=>"microsoft-active-directory/rpc_services24.png",	"is_folder"=>true),
+		array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true),
 		array("name"=>"container",			"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>"Container","can_create"=>true),
 		array("name"=>"builtinDomain",			"icon"=>"folder.png",	"is_folder"=>true),
 		array("name"=>"lostAndFound",			"icon"=>"folder.png",	"is_folder"=>true),
 		array("name"=>"msDS-QuotaContainer",		"icon"=>"folder.png",	"is_folder"=>true),
-		array("name"=>"domainDNS",			"icon"=>"microsoft-active-directory/domain24.png",	"is_folder"=>true),
+		array("name"=>"domainDNS",			"icon"=>"microsoft/domain24.png",	"is_folder"=>true),
 		array("name"=>"group",				"icon"=>"group24.png",	"is_folder"=>false,"display_name"=>"Group","can_create"=>true),
 		array("name"=>"contact",			"icon"=>"contact24.png","is_folder"=>false,"display_name"=>"Contact","can_create"=>true),
-		array("name"=>"computer",			"icon"=>"microsoft-active-directory/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
+		array("name"=>"computer",			"icon"=>"microsoft/computer24.png","is_folder"=>false,"display_name"=>"Computer","can_create"=>true),
 		array("name"=>"foreignSecurityPrincipal",	"icon"=>"user-alias24.png","is_folder"=>false),
-		array("name"=>"printQueue",			"icon"=>"microsoft-active-directory/printer24.png","is_folder"=>false),
-		array("name"=>"volume",				"icon"=>"microsoft-active-directory/fileshare24.png","is_folder"=>false),
+		array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png","is_folder"=>false),
+		array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png","is_folder"=>false),
 		array("name"=>"user",				"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
 
 		// Proprietary implementation of InetOrgPerson:
@@ -83,8 +83,8 @@ class microsoft_schema extends ldap_schema
 		array("name"=>"nTDSService",			"icon"=>"folder.png","is_folder"=>true),
 
 		// Specialist object classes used in "System" container
-		array("name"=>"domainPolicy",			"icon"=>"microsoft-active-directory/domain_policy24.png",	"is_folder"=>true),
-		array("name"=>"nTFRSSettings",			"icon"=>"microsoft-active-directory/frs_settings24.png",	"is_folder"=>true),
+		array("name"=>"domainPolicy",			"icon"=>"microsoft/domain_policy24.png","is_folder"=>true),
+		array("name"=>"nTFRSSettings",			"icon"=>"microsoft/frs_settings24.png",	"is_folder"=>true),
 		array("name"=>"fileLinkTracking",		"icon"=>"folder.png","is_folder"=>true),
 		array("name"=>"dfsConfiguration",		"icon"=>"folder.png","is_folder"=>true),
 		);
