@@ -2112,12 +2112,22 @@ class ldap_entry_list
 		$object_dn = $ldap_entry["dn"];
 
 		if($item_is_folder)
-			// Display the folder name, and make it a link to
-			// display the folder's contents.
+		{
+			if(isset($ldap_entry[$object_rdn_attrib][0]))
+				// Display the folder name, and make it a link to
+				// display the folder's contents.
 
-			$this->show_attrib($object_dn,$object_rdn_attrib,
-				$ldap_entry[$object_rdn_attrib][0],
-				"object",$item_is_folder);
+				$this->show_attrib($object_dn,$object_rdn_attrib,
+					$ldap_entry[$object_rdn_attrib][0],
+					"object",$item_is_folder);
+			else
+			{
+                                $dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
+                                echo "<td colspan=" . count($this->search_result_columns)
+					. "><a href=\"?dn=" . urlencode($ldap_entry["dn"])
+					. "\">" . htmlentities($dn_elements[0]["value"]) . "</a></td>";
+			}
+		}
 		else
 		{
 			// Display user's chosen set of columns (attributes)
