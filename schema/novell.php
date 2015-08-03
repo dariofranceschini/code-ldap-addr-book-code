@@ -49,18 +49,18 @@ class novell_schema extends ldap_schema
 
 		// Novell proprietary classes
 
-		array("name"=>"ncpServer",			"icon"=>"novell-edirectory/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
-		array("name"=>"ldapServer",			"icon"=>"novell-edirectory/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
+		array("name"=>"ncpServer",			"icon"=>"novell/server24.png", "is_folder"=>false,"display_name"=>"NCP Server"),
+		array("name"=>"ldapServer",			"icon"=>"novell/directory-server.png","is_folder"=>false,"display_name"=>"LDAP Server","can_create"=>true),
 		array("name"=>"Person",				"icon"=>"contact24.png",		  "is_folder"=>false,"required_attribs"=>"sn","can_create"=>true),
-		array("name"=>"externalEntity",			"icon"=>"novell-edirectory/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
-		array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell-edirectory/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
-		array("name"=>"sASService",			"icon"=>"novell-edirectory/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
-		array("name"=>"ldapGroup",			"icon"=>"novell-edirectory/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
-		array("name"=>"Volume",				"icon"=>"novell-edirectory/volume.png",   "is_folder"=>false),
-		array("name"=>"ndsPredicateStats",		"icon"=>"novell-edirectory/stats.png",    "is_folder"=>false),
-		array("name"=>"Queue",				"icon"=>"novell-edirectory/queue.png",    "is_folder"=>false),
-		array("name"=>"nLSLicenseServer",		"icon"=>"novell-edirectory/lic_srv.png",  "is_folder"=>false),
-		array("name"=>"nssfsPool",			"icon"=>"novell-edirectory/raid.png",	  "is_folder"=>false)
+		array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>"External Entity","can_create"=>true),
+		array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png","is_folder"=>false,"display_name"=>"NDSPKI:Key Material","can_create"=>true),
+		array("name"=>"sASService",			"icon"=>"novell/security.png", "is_folder"=>false,"display_name"=>"SAS:Service","can_create"=>true),
+		array("name"=>"ldapGroup",			"icon"=>"novell/ldapgroup24.png","is_folder"=>false,"display_name"=>"LDAP Group","can_create"=>true),
+		array("name"=>"Volume",				"icon"=>"novell/volume.png",   "is_folder"=>false),
+		array("name"=>"ndsPredicateStats",		"icon"=>"novell/stats.png",    "is_folder"=>false),
+		array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false),
+		array("name"=>"nLSLicenseServer",		"icon"=>"novell/lic_srv.png",  "is_folder"=>false),
+		array("name"=>"nssfsPool",			"icon"=>"novell/raid.png",	  "is_folder"=>false)
 		);
 }
 ?>
