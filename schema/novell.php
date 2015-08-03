@@ -12,6 +12,7 @@ class novell_schema extends ldap_schema
 		array("name"=>"givenName",			"data_type"=>"text",		"display_name"=>"Given Name"),
 		array("name"=>"l",				"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
 		array("name"=>"mail",				"data_type"=>"text",		"display_name"=>"E-mail Address"),
+		array("name"=>"member",				"data_type"=>"dn_list",		"display_name"=>"Member"),
 		array("name"=>"physicalDeliveryOfficeName",	"data_type"=>"text",		"display_name"=>"Office"),
 		array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>"Postal Code"),
 		array("name"=>"sn",				"data_type"=>"text",		"display_name"=>"Surname"),
@@ -30,7 +31,8 @@ class novell_schema extends ldap_schema
 		array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>"Photograph"),
 
 		// Novell proprietary classes
-		array("name"=>"company",			"data_type"=>"text",		"display_name"=>"Company")
+		array("name"=>"company",			"data_type"=>"text",		"display_name"=>"Company"),
+		array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>"Group Membership")
 		);
 
 	// Structural object classes

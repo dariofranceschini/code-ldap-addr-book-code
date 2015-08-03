@@ -11,6 +11,7 @@ class core_schema extends ldap_schema
 		array("name"=>"givenName",			"data_type"=>"text",		"display_name"=>"Given Name"),
 		array("name"=>"l",				"data_type"=>"text",		"display_name"=>"Locality (e.g. Town/City)"),
 		array("name"=>"mail",				"data_type"=>"text",		"display_name"=>"E-mail Address"),
+		array("name"=>"member",				"data_type"=>"dn_list",		"display_name"=>"Member"),
 		array("name"=>"physicalDeliveryOfficeName",	"data_type"=>"text",		"display_name"=>"Office"),
 		array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>"Postal Code"),
 		array("name"=>"sn",				"data_type"=>"text",		"display_name"=>"Surname"),
@@ -18,6 +19,9 @@ class core_schema extends ldap_schema
 		array("name"=>"streetAddress",			"data_type"=>"text_area",	"display_name"=>"Street Address"),
 		array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>"Telephone Number"),
 		array("name"=>"title",				"data_type"=>"text",		"display_name"=>"Job Title"),
+
+		// used with memberof overlay
+		array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>"Member Of")
 		);
 
 	// Structural object classes
