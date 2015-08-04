@@ -2188,12 +2188,21 @@ class ldap_entry_list
 			else if(!empty($ldap_entry["displayname"][0]))
 				$attrib_value
 					= $ldap_entry["displayname"][0];
-			else
+			else if(isset($ldap_entry["cn"][0]))
 				$attrib_value = $ldap_entry["cn"][0];
+			else
+				$attrib_value = "";
 
 			if(!empty($ldap_entry["givenname"][0]))
 				$attrib_value .= ", "
 					. $ldap_entry["givenname"][0];
+
+			if(trim($attrib_value) == "")
+			{
+				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
+				$attrib_value = $dn_elements[0]["value"];
+			}
+
 		}
 		else
 			/** @todo
