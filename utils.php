@@ -2671,6 +2671,9 @@ class ldap_server
 	/** Whether to follow LDAP referrals */
 	var $follow_referrals = false;
 
+	/** Whether the server supports ldap_compare() acting on an object's DN */
+	var $compare_dn_supported = true;
+
 	/** Permissions and user name mappings between address book and LDAP server */
 	var $user_map = array();
 
@@ -2679,10 +2682,39 @@ class ldap_server
 
 	/** Supported server types */
 	var $server_types = array(
-		array("name"=>"ad",		"default_create_class"=>"contact",	"schema_list"=>"microsoft"),
-		array("name"=>"edir",		"default_create_class"=>"inetOrgPerson","schema_list"=>"novell"),
-		array("name"=>"openldap",	"default_create_class"=>"inetOrgPerson","schema_list"=>"core,cosine,inetorgperson"),
-		array("name"=>"custom",		"default_create_class"=>"person",	"schema_list"=>"")
+		array("name"=>"ad",
+			"default_create_class"=>"contact",
+			"schema_list"=>"microsoft"),
+
+		array("name"=>"edir",
+			"default_create_class"=>"inetOrgPerson",
+			"schema_list"=>"novell",
+
+			/**
+			    Novell eDirectory does not appear to support
+			    compare operations against an object's DN,
+			    accessed as an attribute. eDirectory also
+			    behaves in a non-standard manner when comparing
+			    attributes that are not set or to which the user
+			    lacks read permission. Supposedly discussed here,
+		            although not fixed:
+
+		            https://bugzilla.novell.com/show_bug.cgi?id=829296
+			    (Not publicly accessible)
+
+			    See also:
+
+			    https://forums.netiq.com/archive/index.php/t-48106.html
+			*/
+			"compare_dn_supported"=>false),
+
+		array("name"=>"openldap",
+			"default_create_class"=>"inetOrgPerson",
+			"schema_list"=>"core,cosine,inetorgperson"),
+
+		array("name"=>"custom",
+			"default_create_class"=>"person",
+			"schema_list"=>"")
 		);
 
 	/** Constructor
@@ -2720,6 +2752,8 @@ class ldap_server
 			{
 				$this->default_create_class = $server_type["default_create_class"];
 				$schema_list = $server_type["schema_list"];
+				if(isset($server_type["compare_dn_supported"]))
+					$this->compare_dn_supported = $server_type["compare_dn_supported"];
 			}
 		}
 		$schema_list = explode(",",$schema_list);
@@ -2962,9 +2996,12 @@ class ldap_server
 
 	/** Return whether a DN is within the specified base of the DIT
 
-	    The comparision is done server-side in order to apply
-	    the correct matching rule for each attribute (e.g. whether
+	    If supported, the comparision is done server-side in order to
+	    apply the correct matching rule for each attribute (e.g. whether
 	    it is case sensitive or not).
+
+	    If server-side comparision is not supported, a client-side
+	    case-insensitive string comparison is done instead.
 
 	    @param string $dn
 		DN to test
@@ -2981,8 +3018,11 @@ class ldap_server
 		$dn_base_section = implode(array_slice(ldap_explode_dn($dn,0),
 			-$base_rdn_count),",");
 
-		return @ldap_compare($this->connection,
-			$base_dn,"DN",$dn_base_section);
+		if($this->compare_dn_supported)
+			return @ldap_compare($this->connection,
+				$base_dn,"DN",$dn_base_section);
+		else
+			return !strcasecmp($dn_base_section,$base_dn);
 	}
 
 	/** Update an attribute of the specified LDAP entry from posted form data
