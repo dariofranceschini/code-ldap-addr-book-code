@@ -3162,7 +3162,7 @@ class ldap_server
 
 			return false;
 		else
-			return (count($this->user_map)>1);
+			return (count($this->user_map)>0);
 	}
 
 	/** Add/enable a schema
