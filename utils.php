@@ -3137,7 +3137,7 @@ class ldap_server
 	    @see
 		"configuring users and permissions" in the manual
 	*/
-	function add_user_mapping($login_name,$ldap_name,$settings)
+	function add_user_mapping($login_name,$ldap_name,$settings=array())
 	{
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name,"ldap_name"=>$ldap_name),

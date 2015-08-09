@@ -327,7 +327,12 @@ created:
 Setting a specific user's LDAP login to <code>__DENY__</code> prevents
 that user from accessing the address book (whilst still allowing others
 to log in using settings from the <code>__DEFAULT__</code> user map
-entry).
+entry). For example, the following might be used to prevent the
+directory's top-level administrative user from being (mis)used to
+browse the address book:
+</p>
+<p>
+<code>$ldap_server->add_user_mapping("admin","__DENY__");</code>
 </p>
 <p>
 The following settings can be applied to each user map entry
