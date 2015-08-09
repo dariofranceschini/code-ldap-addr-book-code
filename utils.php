@@ -3139,6 +3139,9 @@ class ldap_server
 	*/
 	function add_user_mapping($login_name,$ldap_name,$settings=array())
 	{
+		// Assign no settings if third argument is not an array
+		if(!is_array($settings)) $settings=array();
+
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name,"ldap_name"=>$ldap_name),
 			$settings);
