@@ -50,6 +50,7 @@
   <li>Setting up phone numbers to be dialed when clicked on
   <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
+  <li>Extending and modifying the schema
   </ol>
 <li><a href="#config_reference">Configuration reference</a>
 </ol>
@@ -1024,6 +1025,197 @@ appropriately:
         word-break:break-all;
 }
 </pre>
+<h3>Extending and modifying the schema</h3>
+<p>
+The <em>schema</em> is a set of information which the Address Book uses
+to display and edit the different types of records. The schema information
+is stored inside the Address Book's <code>schema</code> subdirectory.
+The set of files that is loaded and used depends on the server type
+and/or on additional entries in the configuration file. The default
+set schema files used for each server type are:
+</p>
+<table border=1>
+<tr><th>Server type</th><th>Schema configuration files used</th></tr>
+
+<tr><td>ad</td><td>microsoft</td></tr>
+<tr><td>edir</td><td>novell</td></tr>
+<tr><td>openldap</td><td>core, cosine, inetorgperson</td></tr>
+<tr><td>custom</td><td>(none)</td></tr>
+</table>
+
+<p>
+You can load an additional schema file using <code>$ldap_server->add_schema()</code>
+from the configuration file. For example, the following commands will connect
+to an OpenLDAP server and allow objects and enable the Mozilla Address Book schema
+to be used (and displayed correctly) in addition to the defaults (<code>core</code>, 
+<code>cosine</code> and <code>inetorgperson</code>):
+</p>
+<pre>
+$ldap_server = new ldap_server("openldap","ldap.example.org");
+$ldap_server->add_schema("mozilla");
+</pre>
+<p>
+The following schema files are supplied with the Address Book. (Future versions
+may include additional files.)
+</p>
+
+<table border=1>
+<tr><th>Schema File</th><th>Description</th></tr>
+<tr><td>core</td>
+
+<td>Basic objects and attributes which make up the directory structure
+(such as definitions of person or surname). Adapted from on X.500 directory
+standards, described in IETF's RFC 2252 and RFC 2256.</td></tr>
+
+<tr><td>cosine</td>
+
+<td>Additional objects/attributes which were identified and adopted as a
+result of the COSINE (Co-operation and Open Systems Interconnetion in Europe)
+initiative's PARADISE directory pilot project in the early 1990s. Described
+in IETF RFC 1124 (and its successors).</td></tr>
+
+<tr><td>inetorgperson</td>
+
+<td>Enhanced object class for recording details of a person in an
+"organizational context" (e.g. a member of staff) on an Internet/Intranet
+directory. Described in IETF RFC 2798.</td></tr>
+
+<tr><td>microsoft</td>
+
+<td>Objects and attributes used in Microsoft Active Directory ("AD"). These
+include redefinitions of Core, COSINE and inetOrgPerson (often with subtle
+differences) together with numerous Microsoft-specific classes.</td></tr>
+
+<tr><td>mozilla</td>
+
+<td>Extends inetOrgPerson for storing additional attributes used by the
+address book feature of Mozilla Thunderbird and related products.</td></tr>
+
+<tr><td>novell</td>
+
+<td>Objects and attributes used in Novell eDirectory (formerly called
+Novell Directory Services, NDS). These include redefinitions of Core, COSINE
+and inetOrgPerson (often with subtle differences) together with numerous
+Novell-specific classes.</td></tr>
+
+<tr><td>schac</td>
+
+<td>Objects and attributes used to represent personal records in educational
+institutions (Schema for Academia).</td></tr>
+
+</table>
+
+<h4>Defining your own objects and attributes</h4>
+<p>
+Unless configured otherwise, the Address Book will display unrecognised
+object and attribute classes as follows:
+</p>
+<ul>
+<li>Object classes will be displayed as a "leaf" object (i.e. not a folder).
+A generic icon will be displayed next to the object (unless thumbnail display
+is turned on and an image is available from the <code>jpegPhoto</code>,
+<code>thumbnailPhoto</code> or <code>thumbnailLogo</code> attribute.)
+Users will not be able to create new objects of this class.
+
+<li>Attributes will be displayed and edited as a single text value.
+(If the attribute is multi-valued, only the first value will be displayed
+or saved after editing.)
+</ul>
+<p>
+This default behaviour can be modifed and extended by defining the object or
+attribute class (or enabling a schema file that defines it).
+</p>
+<p>
+The following example shows how to define a <code>container</code> object class
+(similar to the one defined in the <code>microsoft</code> schema). The class
+which should appear as a folder - similar to an OU - so that users can navigate
+into it and see further objects inside. Users with <code>allow_create</code>
+permission should be able to create <code>container</code> objects from within
+the Address Book's user interface:
+</p>
+<pre>
+$ldap_server->add_object_class("container",array(
+	"icon"=>"folder.png",
+	"is_folder"=>true,
+	"display_name"=>"Container",
+	"can_create"=>true)
+	);
+</pre>
+<p>
+The following example defines <code>sshPublicKey</code> as a
+multi-valued text attribute (data type <code>text_list</code>) intended
+to hold a list of the user's SSH public keys.
+</p>
+<pre>
+$ldap_server->add_attribute_class("sshPublicKey",array(
+	"data_type"=>"text_list",
+	"display_name"=>"SSH Public Key")
+	);
+</pre>
+<p>
+Existing object and attribute classes can be deleted as follows:
+</p>
+<pre>
+delete_object_class($name);
+
+delete_attribute_class($name);
+</pre>
+<p>
+(The main use of this is to delete an existing class so that you
+can redefine it with different settings.)
+</p>
+
+<h4>Object class schema settings</h4>
+<p>
+The following settings can be used in object class definitions:
+</p>
+<table border=1>
+<tr><th>Setting</th><th>Default</th><th>Description</th></tr>
+<tr><td>icon</td><th>generic24.png</th><td>Filename of an icon image to appear next to objects of this class</td></tr>
+<tr><td>is_folder</td><td>false</td><td>Whether the object class should be displayed as a folder</td></tr>
+<tr><td>display_name</td><td>(class name)</td><td>Display name of the object class</td></tr>
+<tr><td>can_create</td><td>false</td><td>Whether objects of this class can be created frmo within the address book</td></tr>
+<tr><td>rdn_attrib</td><td>cn</td><td>Attribute which should be used as the RDN</td></tr>
+<tr><td>required_attribs</td><td>(none)</td><td>Comma-separated list of attributes which are not permitted to be empty</td></tr>
+</table>
+<p>
+The attribute used in the object's name (the RDN attribute) must always have a value
+and does not need to be listed in <code>required_attribs</code>.
+</p>
+<h4>Attribute class schema settings</h4>
+<p>
+The following settings can be used in attribute class definitions:
+</p>
+<table border=1>
+<tr><th>Setting</th><th>Description</th></tr>
+<tr><td>data_type</td><td>text</td><td>Data type of this attribute (as per below)</td></tr>
+<tr><td>display_name</td><td>(class name)</td><td>Display name of the attribute class</td></tr>
+</table>
+
+<h4>Attribute data types</h4>
+
+<p>
+The following values can be used in an attribute class's <code>data_type</code> setting
+in order to indicate the type of data and how it should be displayed/edited:
+</p>
+<table border=1>
+<tr><th>Data Type</th><th>Description</th></tr>
+<tr><td>ad_group_type</td><td>Active Directory group type and scope (<code>microsoft</code> schema)</td></tr>
+<tr><td>country_code</td><td>Country code</td></tr>
+<tr><td>date</td><td>Date.</td></tr>
+<tr><td>date_time</td><td>Date and time</td></tr>
+<tr><td>dn_list</td><td>List of other objects in the directory, e.g. group members</td></tr>
+<tr><td>gender</td><td>Gender</td></tr>
+<tr><td>image</td><td>Image</td></tr>
+<tr><td>phone_number</td><td>Phone number</td></tr>
+<tr><td>postcode</td><td>Post code</td></tr>
+<tr><td>text</td><td>Single line of text</td></tr>
+<tr><td>text_area</td><td>Multi-line text value (e.g. notes)</td></tr>
+<tr><td>text_list</td><td>List of text values</td></tr>
+<tr><td>use_html_mail</td><td>Boolean, presented as a choice whether HTML mail is prefered (<code>mozilla</code> schema)</td></tr>
+<tr><td>yes_no</td><td>Boolean, presented as a yes/no choice</td></tr>
+</table>
+
 <hr>
 <a name="config_reference"></a>
 <h2>Configuration Reference</h2>
@@ -1417,6 +1609,51 @@ $ldap_server->add_display_layout("printQueue",array(
         <code>
         $exclude_logo_if_photo_present = true;</code>
         </p></td></tr>
+
+<tr><th colspan=2>Schema Configuration</th></tr>
+
+<tr><td><code>$search_server->add_schema()</code></td>
+    <td>Adds the contents of a schema file to the Address Book.
+     <p>
+     Example:<br>
+     <code>$search_server->add_schema("mozilla");</code>
+     </p></td></tr>
+
+<tr><td><code>$search_server->add_object_class()</code></td>
+    <td>Adds a new object class to the schema.
+     <p>
+     Example:<br>
+     <pre>$ldap_server->add_object_class("container",array(
+	"icon"=>"folder.png",
+	"is_folder"=>true,
+	"display_name"=>"Container",
+	"can_create"=>true)
+	);</pre>
+     </p></td></tr>
+
+<tr><td><code>$search_server->add_attribute_class()</code></td>
+    <td>Adds a new attribute class to the schema.
+     <p>
+     Example:<br>
+     <pre>$ldap_server->add_attribute_class("sshPublicKey",array(
+	"data_type"=>"text_list",
+	"display_name"=>"SSH Public Key")
+	);</pre>
+     </p></td></tr>
+
+<tr><td><code>$search_server->delete_object_class()</code></td>
+    <td>Deletes an object class from the schema.
+     <p>
+     Example:<br>
+     <code>$ldap_server->delete_object_class("container");</code>
+     </p></td></tr>
+
+<tr><td><code>$search_server->delete_attribute_class()</code></td>
+    <td>Deletes an attribute class from the schema.
+     <p>
+     Example:<br>
+     <code>$ldap_server->delete_attribute_class("container");</code>
+     </p></td></tr>
 
 </table>
 </body>
