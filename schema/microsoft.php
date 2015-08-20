@@ -1,4 +1,4 @@
-<?
+<?php
 /** microsoft.schema (partial) */
 
 class microsoft_schema extends ldap_schema

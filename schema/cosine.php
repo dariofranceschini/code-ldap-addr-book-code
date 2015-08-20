@@ -1,4 +1,4 @@
-<?
+<?php
 /** cosine.schema (partial) */
 
 class cosine_schema extends ldap_schema

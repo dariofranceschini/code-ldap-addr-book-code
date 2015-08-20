@@ -1,4 +1,4 @@
-<?
+<?php
 /** SCHema for ACademia (SCHAC)
 
     @see https://wiki.refeds.org/display/STAN/SCHAC+Releases

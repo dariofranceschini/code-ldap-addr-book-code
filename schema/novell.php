@@ -1,4 +1,4 @@
-<?
+<?php
 /** Novell eDirectory schema (partial) */
 
 class novell_schema extends ldap_schema

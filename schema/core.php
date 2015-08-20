@@ -1,4 +1,4 @@
-<?
+<?php
 /** core.schema (partial) */
 
 class core_schema extends ldap_schema

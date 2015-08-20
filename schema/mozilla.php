@@ -1,4 +1,4 @@
-<?
+<?php
 /** MozillaAbPersonAlpha.schema */
 
 class mozilla_schema extends ldap_schema

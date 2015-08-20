@@ -1,4 +1,4 @@
-<?
+<?php
 /** inetorgperson.schema (partial) */
 
 class inetorgperson_schema extends ldap_schema
