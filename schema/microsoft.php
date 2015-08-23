@@ -64,6 +64,7 @@ class microsoft_schema extends ldap_schema
 		array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png","is_folder"=>false),
 		array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png","is_folder"=>false),
 		array("name"=>"user",				"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>"User","can_create"=>true),
+		array("name"=>"msExchDynamicDistributionList",	"icon"=>"microsoft/dynamic-group24.png","is_folder"=>false,"display_name"=>"Query-based Distribution Group"),
 
 		// Proprietary implementation of InetOrgPerson:
 		//	- Subclass of proprietary "user" (so listed after it in schema definition)
