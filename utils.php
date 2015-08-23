@@ -23,6 +23,9 @@ define("LDAP_ATTRIBUTE_IS_RDN",true);
 define("MAX_DN_LENGTH",1000);
 define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
+// provide ldap_escape function for PHP <5.6
+if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
+
 /** Output the site's HTML header elements */
 
 function show_site_header()
@@ -2332,7 +2335,7 @@ class ldap_entry_list
 
 function ldap_escape_search_value($ldap_value)
 {
-	return ldap_escape($ldap_value,false);
+	return ldap_escape($ldap_value,null,LDAP_ESCAPE_FILTER);
 }
 
 /** Prepare a string for use as a value in an LDAP DN
@@ -2348,61 +2351,7 @@ function ldap_escape_search_value($ldap_value)
 
 function ldap_escape_dn_value($ldap_dn)
 {
-	return ldap_escape($ldap_dn,true);
-}
-
-/** Prepare a string for use as an LDAP value or DN.
-
-    Escapes otherwise invalid characters, e.g. guard against
-    "LDAP injection" attacks.
-
-    @see
-    http://stackoverflow.com/questions/8560874/php-ldap-add-function-to-escape-ldap-special-characters-in-dn-syntax
-    (ldap_escape 2.0 by Chris Wright)
-
-    @param string $subject
-	Text to be escaped for use as an LDAP value or DN
-    @param bool $dn
-	Whether to treat the string as a DN (assume no if not present)
-    @param mixed $ignore
-	Optional list of characters to leave untouched
-	(set to null if no characters to be left untouched)
-    @return
-	Sanitised version of string with invalid characters escaped
-*/
-
-function ldap_escape($subject,$dn=false,$ignore=null)
-{
-	// The base array of characters to escape
-	// Flip to keys for easy use of unset()
-	$search = array_flip($dn ? array('\\',",","=","+","<",">",";","\"",
-		"#") : array('\\',"*","(",")","\x00"));
-
-	// Process characters to ignore
-	if(is_array($ignore))
-		$ignore = array_values($ignore);
-
-	for($char=0;isset($ignore[$char]);$char++)
-		unset($search[$ignore[$char]]);
-
-	// Flip $search back to values and build $replace array
-	$search = array_keys($search);
-	$replace = array();
-	foreach($search as $char)
-		$replace[] = sprintf('\\%02x',ord($char));
-
-	// Do the main replacement
-	$result = str_replace($search,$replace,$subject);
-
-	// Encode leading spaces in DN values
-	if($dn && $result[0] == " ")
-		$result = '\\20' . substr($result, 1);
-
-	// Encode trailing spaces in DN values
-	if($dn && $result[strlen($result)-1] == " ")
-		$result = substr($result,0,-1) . '\\20';
-
-	return $result;
+	return ldap_escape($ldap_dn,null,LDAP_ESCAPE_DN);
 }
 
 /** Checks status of prerequisites to run the address book
