@@ -28,7 +28,7 @@ if(prereq_components_ok())
 
 	if(!empty($_GET["filter"]))
 	{
-		$filter = ldap_escape_search_value($_GET["filter"]);
+		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
 
 		$search_criteria = "";
 		foreach($search_ldap_attrib as $attrib)

@@ -26,7 +26,7 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 
 	if(!empty($_GET["filter"]))
 	{
-		$filter = ldap_escape_search_value($_GET["filter"]);
+		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
 
 		$search_criteria = "";
 		foreach($search_ldap_attrib as $attrib)

@@ -2322,38 +2322,6 @@ class ldap_entry_list
 	}
 }
 
-/** Prepare a string for use as a value in an LDAP search query
-
-    Escapes otherwise invalid characters, e.g. to guard against
-    "LDAP injection" attacks.
-
-    @param string $ldap_value
-	Text to be escaped for use as an LDAP value
-    @return
-	Sanitised version of string with invalid characters escaped
-*/
-
-function ldap_escape_search_value($ldap_value)
-{
-	return ldap_escape($ldap_value,null,LDAP_ESCAPE_FILTER);
-}
-
-/** Prepare a string for use as a value in an LDAP DN
-
-    Escapes otherwise invalid characters, e.g. guard against
-    "LDAP injection" attacks.
-
-    @param string $ldap_dn
-	Text to be escaped for use as an LDAP DN
-    @return
-	Sanitised version of string with invalid characters escaped
-*/
-
-function ldap_escape_dn_value($ldap_dn)
-{
-	return ldap_escape($ldap_dn,null,LDAP_ESCAPE_DN);
-}
-
 /** Checks status of prerequisites to run the address book
 
     Returns whether or not all required prerequisite components
