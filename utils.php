@@ -1240,7 +1240,7 @@ class ldap_entry_viewer_attrib
 				substr($attrib_value,0,4)	// year
 				);
 
-			$formatted_date = date("l jS F Y",$date);
+			$formatted_date = strftime("%A %d %B %Y",$date);
 		}
 
 		if($this->edit)
@@ -1314,7 +1314,7 @@ class ldap_entry_viewer_attrib
 					substr($attrib_value,0,4)	// year
 					);
 
-				$formatted_date = date("l jS F Y H:i:s",$date);
+				$formatted_date = strftime("%A %d %B %Y %H:%M:%S",$date);
 			}
 
 			echo $formatted_date;
