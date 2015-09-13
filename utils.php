@@ -1355,7 +1355,7 @@ class ldap_attribute
 						echo "<img src=\"" . $icon . "\">" . $rdn_list["0"]["value"] . "<br>";
 				}
 		}
-			else echo "(none)";
+		else echo "(none)";
 	}
 
 	/** Show telephone number (data type "phone_number")
