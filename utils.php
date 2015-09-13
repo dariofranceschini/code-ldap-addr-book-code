@@ -1187,7 +1187,7 @@ class ldap_entry_viewer_attrib
 				}
 
 			if(!$found)
-				echo "Unrecognised value: " . $attrib_value;
+				echo "Unrecognised value: " . (empty($attrib_value) ? "(none)" : $attrib_value);
 		}
 	}
 
