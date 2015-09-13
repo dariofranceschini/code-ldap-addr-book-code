@@ -1641,17 +1641,45 @@ function ldap_attribute_to_css_class($attrib)
 
 function get_ldap_attribute($ldap_entry,$attribute)
 {
-	$attribute = strtolower($attribute);
+	if($attribute == "sortableName")
+	{
+		// sortableName is an internal "synthesised"
+		// attribute rather than retrieved from
+		// the LDAP server itself.
 
-	if(!empty($ldap_entry[$attribute][0]))
-		/** @todo
-			Currently only returns the first value of the
-			attribute. Should iterate over multi-valued
-			attributes.
-		*/
-		$attrib_value = $ldap_entry[$attribute][0];
+		if(!empty($ldap_entry["sn"][0]))
+			$attrib_value = $ldap_entry["sn"][0];
+		else if(!empty($ldap_entry["displayname"][0]))
+			$attrib_value = $ldap_entry["displayname"][0];
+		else if(isset($ldap_entry["cn"][0]))
+			$attrib_value = $ldap_entry["cn"][0];
+		else
+			$attrib_value = "";
+
+		if(!empty($ldap_entry["givenname"][0]))
+			$attrib_value .= ", "
+				. $ldap_entry["givenname"][0];
+
+		if(trim($attrib_value) == "")
+		{
+			$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
+			$attrib_value = $dn_elements["value"];
+		}
+	}
 	else
-		$attrib_value = "";
+	{
+		$attribute = strtolower($attribute);
+
+		if(!empty($ldap_entry[$attribute][0]))
+			/** @todo
+				Currently only returns the first value of the
+				attribute. Should iterate over multi-valued
+				attributes.
+			*/
+			$attrib_value = $ldap_entry[$attribute][0];
+		else
+			$attrib_value = "";
+	}
 
 	return $attrib_value;
 }
