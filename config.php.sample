@@ -144,6 +144,11 @@ $search_ldap_filter = "(&(objectClass=person)___search_criteria___)";
 // LDAP filter used when retrieve browsing the directory
 $browse_ldap_filter = "objectClass=*";
 
+// 1 - match anywhere in string (default)
+// 2 - match start of string only (match versions 0.20 and earlier)
+
+// $search_method = 1;
+
 // Column layout used for search results
 // Note special attribute "sortableName" - uses syntax "surname,
 // firstname" where both of these are defined

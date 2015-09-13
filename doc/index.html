@@ -877,12 +877,6 @@ If defined, the <code>$phone_number_link_target</code> setting
 can be used to force the dialer application to open in a
 separate window/tab.
 </p>
-<p>
-Columns in browse/search result lists that contain clickable
-phone numbers should have their column link type set to
-<code>phone_number</code> in the
-<code>$search_result_columns</code> configuration.
-</p>
 <h3>Changing the links shown in the page footer</h3>
 <p>
 The links shown in the page footer can be changed using the
@@ -1486,6 +1480,20 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
     <p>
     Example:<br>
     <code>$lc_collate = "en_US";</code>
+    </p></td></tr>
+
+<tr><td><code>$search_method</code></td>
+    <td>Specifies the search result matching method to be used.
+    This setting is optional, included to allow users to restore
+    legacy search behaviour should they wish. Allowed values
+    are:
+    <dl>
+    <dt>1</dt><dd>match anywhere in string (default search behaviour)</dd>
+    <dt>2</dt><dd>match start of string only (behaviour like versions 0.20 and earlier)</dd>
+    </dl>
+    <p>
+    Example:<br>
+    <code>$search_method = 1;</code>
     </p></td></tr>
 
 <tr><th colspan=2>Detailed Info View</th></tr>

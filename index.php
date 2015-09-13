@@ -30,9 +30,24 @@ if(prereq_components_ok())
 	{
 		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
 
+		if(isset($search_method)) $search_method = 1;
+
+		switch($search_method)
+		{
+			case 2: // match start of string
+				$attribute_search_template = "(___search_attrib___=*___search_value___)";
+				break;
+			case 1:	// match anywhere in string
+			default:
+				$attribute_search_template = "(___search_attrib___=*___search_value___*)";
+				break;
+		}
+
 		$search_criteria = "";
 		foreach($search_ldap_attrib as $attrib)
-			$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
+			$search_criteria .= str_replace("___search_value___",$filter,
+				str_replace("___search_attrib___",$attrib,
+				$attribute_search_template));
 
 		// Default filter expression to use if none specified in config
 		// file: return only people in search results
