@@ -944,6 +944,9 @@ class ldap_attribute
 	/** Attribute which is to be display */
 	var $attribute;
 
+	/** Value of the attribute (or first value for a multi-valued attributes) */
+	var $value;
+
 	/** "Friendly" display name of attribute (typically rendered as a "tooltip") */
 	var $display_name;
 
@@ -969,6 +972,8 @@ class ldap_attribute
 		$this->ldap_entry = $ldap_entry;
 		$this->attribute = $attribute;
 
+		$this->value = $this->get_value();
+
 		// Get display name for attribute
 		$this->display_name = $ldap_server->get_attribute_schema_setting(
 			$attribute,"display_name",$attribute);
@@ -980,6 +985,57 @@ class ldap_attribute
 
 		$this->required = $ldap_server->check_object_requires_attribute(
 			$ldap_server->get_object_class($ldap_entry),$attribute);
+	}
+
+	/** Gets the attribute's value (or first value if multi-valued)
+
+	    @return
+		Value of the requested attribute
+	*/
+
+	function get_value()
+	{
+		if($this->attribute == "sortableName")
+		{
+			// sortableName is an internal "synthesised"
+			// attribute rather than retrieved from
+			// the LDAP server itself.
+
+			if(!empty($this->ldap_entry["sn"][0]))
+				 $attrib_value = $this->ldap_entry["sn"][0];
+			else if(!empty($this->ldap_entry["displayname"][0]))
+				$attrib_value = $this->ldap_entry["displayname"][0];
+			else if(isset($this->ldap_entry["cn"][0]))
+				$attrib_value = $this->ldap_entry["cn"][0];
+			else
+				$attrib_value = "";
+
+			if(!empty($this->ldap_entry["givenname"][0]))
+				$attrib_value .= ", "
+					. $this->ldap_entry["givenname"][0];
+
+			if(trim($attrib_value) == "")
+			{
+				$dn_elements=ldap_explode_dn2($this->ldap_entry["dn"]);
+				$attrib_value = $dn_elements[0]["value"];
+			}
+		}
+		else
+		{
+			$attribute = strtolower($this->attribute);
+
+			if(!empty($this->ldap_entry[$attribute][0]))
+				/** @todo
+					Currently only returns the first value of the
+					attribute. Should iterate over multi-valued
+					attributes.
+				*/
+				$attrib_value = $this->ldap_entry[$attribute][0];
+			else
+				$attrib_value = "";
+		}
+
+		return $attrib_value;
 	}
 
 	/** display the attribute */
@@ -1022,9 +1078,6 @@ class ldap_attribute
 
 	function show_text()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1034,12 +1087,12 @@ class ldap_attribute
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $this->attribute . "\" value=\""
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. htmlentities($this->value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $this->display_name . "\" placeholder=\""
 				. $this->display_name . "\">";
 		}
 		else
-			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
+			echo urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8"));
 	}
 
 	/** Show Active Directory groupType attribute (data type "ad_group_type")
@@ -1058,19 +1111,16 @@ class ldap_attribute
 
 	function show_ad_group_type()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
-		if($attrib_value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
-		if($attrib_value & 0x01) echo " (System generated)";
+		if($this->value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
+		if($this->value & 0x01) echo " (System generated)";
 		echo "</li>";
 
-		if($attrib_value & 0x10) echo "<li>Windows Authorization Manager APP_BASIC group</li>";
-		if($attrib_value & 0x20) echo "<li>Windows Authorization Manager APP_QUERY group</li>";
-		if($attrib_value & 0x02) echo "<li>Global scope</li>";
-		if($attrib_value & 0x04) echo "<li>Domain local scope</li>";
-		if($attrib_value & 0x08) echo "<li>Universal scope</li>";
+		if($this->value & 0x10) echo "<li>Windows Authorization Manager APP_BASIC group</li>";
+		if($this->value & 0x20) echo "<li>Windows Authorization Manager APP_QUERY group</li>";
+		if($this->value & 0x02) echo "<li>Global scope</li>";
+		if($this->value & 0x04) echo "<li>Domain local scope</li>";
+		if($this->value & 0x08) echo "<li>Universal scope</li>";
 		echo "</ul>";
 	}
 
@@ -1141,9 +1191,6 @@ class ldap_attribute
 
 	function show_enum($enum)
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1160,7 +1207,7 @@ class ldap_attribute
 					$enum_entry["display_name"] = "(blank)";
 
 				echo "              <option value=\"" . $enum_entry["value"] . "\""
-					. ($attrib_value == $enum_entry["value"] ? " selected" : "")
+					. ($this->value == $enum_entry["value"] ? " selected" : "")
 					. ">" . $enum_entry["display_name"] . "</option>\n";
 			}
 
@@ -1170,14 +1217,14 @@ class ldap_attribute
 		{
 			$found = false;
 			foreach($enum as $enum_entry)
-				if($attrib_value == $enum_entry["value"])
+				if($this->value == $enum_entry["value"])
 				{
 					$found = true;
 					echo $enum_entry["display_name"];
 				}
 
 			if(!$found)
-				echo "Unrecognised value: " . (empty($attrib_value) ? "(none)" : $attrib_value);
+				echo "Unrecognised value: " . (empty($this->value) ? "(none)" : $this->value);
 		}
 	}
 
@@ -1204,11 +1251,8 @@ class ldap_attribute
 
 	function show_date()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		// Remove all non-numerics
-		$attrib_value = preg_replace("/\D/","",$attrib_value);
+		$attrib_value = preg_replace("/\D/","",$this->value);
 
 		if($attrib_value == "")
 			$formatted_date = "";
@@ -1256,9 +1300,6 @@ class ldap_attribute
 
 	function show_date_time()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1268,23 +1309,23 @@ class ldap_attribute
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $this->attribute . "\" value=\""
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. htmlentities($this->value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $this->display_name . "\" placeholder=\""
 				. $this->display_name . "\">";
 		}
 		else
 		{
-	                if($attrib_value == "")
+	                if($this->value == "")
 				$formatted_date = "";
 			else
 			{
 				$date = mktime(
-					substr($attrib_value,8,2),	// hour
-					substr($attrib_value,10,2),	// minute
-					substr($attrib_value,12,2),	// second
-					substr($attrib_value,4,2),	// month
-					substr($attrib_value,6,2),	// day
-					substr($attrib_value,0,4)	// year
+					substr($this->value,8,2),	// hour
+					substr($this->value,10,2),	// minute
+					substr($this->value,12,2),	// second
+					substr($this->value,4,2),	// month
+					substr($this->value,6,2),	// day
+					substr($this->value,0,4)	// year
 					);
 
 				$formatted_date = strftime("%A %d %B %Y %H:%M:%S",$date);
@@ -1368,9 +1409,6 @@ class ldap_attribute
 
 	function show_phone_number()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1380,12 +1418,12 @@ class ldap_attribute
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $this->attribute . "\" value=\""
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. htmlentities($this->value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $this->display_name . "\" placeholder=\""
 				. $this->display_name . "\">";
 		}
 		else
-			show_phone_number_formatted($attrib_value);
+			show_phone_number_formatted($this->value);
 	}
 
 	/** Show multi-line textual attribute (data type "text_area")
@@ -1398,9 +1436,6 @@ class ldap_attribute
 
 	function show_text_area()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1411,11 +1446,11 @@ class ldap_attribute
 			echo "\n            <textarea style=\"" . $style . "\" name=\"ldap_attribute_"
 				. $this->attribute . "\" title=\"" . $this->display_name
 				. "\" placeholder=\"" . $this->display_name . "\">"
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. htmlentities($this->value,ENT_COMPAT,"UTF-8")
 				. "</textarea>";
 		}
 		else
-			echo nl2br(urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8")),false);
+			echo nl2br(urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8")),false);
 	}
 
 	/** Show ISO 3166-1 alpha-2 country code attribute (data type "country_code")
@@ -1453,9 +1488,6 @@ class ldap_attribute
 
 	function show_postcode()
 	{
-		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$this->attribute);
-
 		if($this->edit)
 		{
 			if($this->required)
@@ -1465,13 +1497,13 @@ class ldap_attribute
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
 				. $this->attribute . "\" value=\""
-				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
+				. htmlentities($this->value,ENT_COMPAT,"UTF-8")
 				. "\" title=\"" . $this->display_name . "\" placeholder=\"" . $this->display_name . "\">";
 		}
 		else
-			if($attrib_value != "")
-				echo $attrib_value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-					. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
+			if($this->value != "")
+				echo $this->value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
+					. urlencode($this->value) . "\" target=\"_blank\">View map</a>)";
 	}
 
 	/** Show image attribute (data type "image") */
@@ -1480,15 +1512,7 @@ class ldap_attribute
 	{
 		global $photo_image_size;
 
-		$attrib_value = get_ldap_attribute(
-                        $this->ldap_entry,$this->attribute);
-
-		/** @todo
-			The method used here is not a very efficient
-			way to determine  whether image attribute is empty
-			(should avoid calling get_ldap_attribute above)
-		*/
-		if($attrib_value != "")
+		if($this->value != "")
 		{
 			if(!empty($photo_image_size))
 				$size = "&size="
@@ -1505,7 +1529,7 @@ class ldap_attribute
 		if($this->edit)
 		{
 			// Don't show "Clear Image" button if attribute is mandatory
-			if($attrib_value == "" || $required)
+			if($this->value == "" || $required)
 				echo "            <input type=\"hidden\" name=\"ldap_attribute_"
 					. $this->attribute . "\" value=\"\">";
 			else
@@ -1541,64 +1565,6 @@ function ldap_attribute_to_css_class($attrib)
 	return "ldap_attribute_" . $attrib;
 }
 
-/** Return specified attribute from an LDAP object entry
-
-    Return specified attribute from an LDAP object entry specified
-    as an array, processing it for display as HTML (e.g. turn URLs
-    and e-mail addresses, special characters into entities, etc)
-
-    @param array $ldap_entry
-	LDAP entry for which an attribute value is to be returned
-    @param string $attribute
-	Attribute for which value to be returned
-    @return
-	Value of the requested attribute
-*/
-
-function get_ldap_attribute($ldap_entry,$attribute)
-{
-	if($attribute == "sortableName")
-	{
-		// sortableName is an internal "synthesised"
-		// attribute rather than retrieved from
-		// the LDAP server itself.
-
-		if(!empty($ldap_entry["sn"][0]))
-			$attrib_value = $ldap_entry["sn"][0];
-		else if(!empty($ldap_entry["displayname"][0]))
-			$attrib_value = $ldap_entry["displayname"][0];
-		else if(isset($ldap_entry["cn"][0]))
-			$attrib_value = $ldap_entry["cn"][0];
-		else
-			$attrib_value = "";
-
-		if(!empty($ldap_entry["givenname"][0]))
-			$attrib_value .= ", "
-				. $ldap_entry["givenname"][0];
-
-		if(trim($attrib_value) == "")
-		{
-			$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
-			$attrib_value = $dn_elements["value"];
-		}
-	}
-	else
-	{
-		$attribute = strtolower($attribute);
-
-		if(!empty($ldap_entry[$attribute][0]))
-			/** @todo
-				Currently only returns the first value of the
-				attribute. Should iterate over multi-valued
-				attributes.
-			*/
-			$attrib_value = $ldap_entry[$attribute][0];
-		else
-			$attrib_value = "";
-	}
-
-	return $attrib_value;
-}
 
 /** Turn any URLs and e-mail addresses appearing in the text into HTML links.
 
