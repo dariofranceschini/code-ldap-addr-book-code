@@ -141,7 +141,7 @@ $search_ldap_attrib = array(
 // (|(cn=whatever)(mail=whatever)(sn=whatever)...)
 $search_ldap_filter = "(&(objectClass=person)___search_criteria___)";
 
-// LDAP filter used when retrieve browsing the directory
+// LDAP filter used when browsing the directory
 $browse_ldap_filter = "objectClass=*";
 
 // 1 - match anywhere in string (default)
