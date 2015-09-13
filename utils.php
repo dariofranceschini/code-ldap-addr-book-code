@@ -921,56 +921,94 @@ class ldap_entry_viewer_attrib
 					if($space_before_attribute) echo " ";
 					$space_before_attribute = true;
 
-					$display_name = $ldap_server->get_attribute_schema_setting(
-						$attribute,"display_name",$attribute);
-
-					if($display_name!=$attribute)
-						$display_name .= " (" . $attribute . ")";
-
-					// determine whether this is a required attribute
-
-					$required = $ldap_server->check_object_requires_attribute(
-						$ldap_server->get_object_class($this->ldap_entry[0]),$attribute);
-
-					// display the attribute
-					switch($ldap_server->get_attribute_schema_setting($attribute,"data_type","text"))
-					{
-						case "dn_list":
-							$this->show_dn_list($attribute,$display_name,$required); break;
-						case "date":
-							$this->show_date($attribute,$display_name,$required); break;
-						case "date_time":
-							$this->show_date_time($attribute,$display_name,$required); break;
-						case "gender":
-							$this->show_gender($attribute,$display_name,$required); break;
-						case "ad_group_type":
-							$this->show_ad_group_type($attribute,$display_name,$required); break;
-						case "postcode":
-							$this->show_postcode($attribute,$display_name,$required); break;
-						case "country_code":
-							$this->show_country_code($attribute,$display_name,$required); break;
-						case "image":
-							$this->show_image($attribute,$display_name,$required); break;
-						case "yes_no":
-							$this->show_boolean_yes_no($attribute,$display_name,$required); break;
-						case "use_html_mail":
-							$this->show_use_html_mail($attribute,$display_name,$required); break;
-						case "text":
-							$this->show_text($attribute,$display_name,$required); break;
-						case "text_list":
-							$this->show_text_list($attribute,$display_name,$required); break;
-						case "text_area":
-							$this->show_text_area($attribute,$display_name,$required); break;
-						case "phone_number":
-							$this->show_phone_number($attribute,$display_name,$required); break;
-						default:
-							echo "** Unsupported data type: <code>"
-								. $ldap_server->get_attribute_schema_setting($attribute,"data_type","text")
-								. "</code> **";
-					}
+					$attrib = new ldap_attribute($this->ldap_entry[0],$attribute);
+					$attrib->edit = $this->edit;
+					$attrib->show();
 				}
 			}
 			echo "\n          </td>\n        </tr>\n";
+		}
+	}
+}
+
+/** LDAP attribute */
+
+class ldap_attribute
+{
+	/** LDAP server containing the entries to be displayed */
+	var $ldap_server;
+
+	/** LDAP object entry which is to be displayed */
+	var $ldap_entry;
+
+	/** Attribute which is to be display */
+	var $attribute;
+
+	/** "Friendly" display name of attribute (typically rendered as a "tooltip") */
+	var $display_name;
+
+	/** Whether attribute is mandatory (either marked as such or the RDN) */
+	var $required;
+
+	/** Whether the attribute should be rendered with editing enabled */
+	var $edit = false;
+
+	/** Constructor
+
+	    @param array $ldap_entry
+		Array containing LDAP object entry containing the
+		attribute be displayed
+	    @param string $attribute
+		Name of attribute to be displayed
+	*/
+
+	function __construct($ldap_entry,$attribute)
+	{
+		global $ldap_server;
+
+		$this->ldap_entry = $ldap_entry;
+		$this->attribute = $attribute;
+
+		// Get display name for attribute
+		$this->display_name = $ldap_server->get_attribute_schema_setting(
+			$attribute,"display_name",$attribute);
+
+		if($this->display_name!=$this->attribute)
+			$this->display_name .= " (" . $this->attribute . ")";
+
+		// determine whether this is a required attribute
+
+		$this->required = $ldap_server->check_object_requires_attribute(
+			$ldap_server->get_object_class($ldap_entry),$attribute);
+	}
+
+	/** display the attribute */
+
+	function show()
+	{
+		global $ldap_server;
+
+		$data_type = $ldap_server->get_attribute_schema_setting(
+			$this->attribute,"data_type","text");
+
+		switch($data_type)
+		{
+			case "dn_list":		$this->show_dn_list();		break;
+			case "date":		$this->show_date();		break;
+			case "date_time":	$this->show_date_time();	break;
+			case "gender":		$this->show_gender();		break;
+			case "ad_group_type":	$this->show_ad_group_type();	break;
+			case "postcode":	$this->show_postcode();		break;
+			case "country_code":	$this->show_country_code();	break;
+			case "image":		$this->show_image();		break;
+			case "yes_no":		$this->show_boolean_yes_no();	break;
+			case "use_html_mail":	$this->show_use_html_mail();	break;
+			case "text":		$this->show_text();		break;
+			case "text_list":	$this->show_text_list();	break;
+			case "text_area":	$this->show_text_area();	break;
+			case "phone_number":	$this->show_phone_number();	break;
+			default:
+				echo "** Unsupported data type: <code>" . $data_type . "</code> **";
 		}
 	}
 
@@ -980,33 +1018,25 @@ class ldap_entry_viewer_attrib
 		Escape "nasty values" in $attrib_value, e.g. "
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_text($attribute,$display_name,$required)
+	function show_text()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
-				. $attribute . "\" value=\""
+				. $this->attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\" placeholder=\""
-				. $display_name . "\">";
+				. "\" title=\"" . $this->display_name . "\" placeholder=\""
+				. $this->display_name . "\">";
 		}
 		else
 			echo urls_to_links(htmlentities($attrib_value,ENT_COMPAT,"UTF-8"));
@@ -1024,20 +1054,12 @@ class ldap_entry_viewer_attrib
 
 	    @todo
 		Editing support for this data type
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_ad_group_type($attribute,$display_name,$required)
+	function show_ad_group_type()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
 		if($attrib_value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
@@ -1061,19 +1083,11 @@ class ldap_entry_viewer_attrib
 		- FALSE - User prefers plain text (does not prefer HTML)
 
 	    The attribute is defined in the "mozilla" schema.
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_use_html_mail($attribute,$display_name,$required)
+	function show_use_html_mail()
 	{
-		$this->show_enum($attribute,$display_name,$required,
+		$this->show_enum(
 			array(
 				array("value"=>"FALSE","display_name"=>"Plain Text"),
 				array("value"=>"TRUE","display_name"=>"HTML")
@@ -1081,20 +1095,11 @@ class ldap_entry_viewer_attrib
 			);
 	}
 
-	/** Show boolean attribute, displayed as yes/no (data type "yes_no")
+	/** Show boolean attribute, displayed as yes/no (data type "yes_no") */
 
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
-	*/
-
-	function show_boolean_yes_no($attribute,$display_name,$required)
+	function show_boolean_yes_no()
 	{
-		$this->show_enum($attribute,$display_name,$required,
+		$this->show_enum(
 			array(
 				array("value"=>"TRUE","display_name"=>"Yes"),
 				array("value"=>"FALSE","display_name"=>"No")
@@ -1108,19 +1113,11 @@ class ldap_entry_viewer_attrib
 		- 1 Male
 		- 2 Female
 		- 9 Not specified
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_gender($attribute,$display_name,$required)
+	function show_gender()
 	{
-		$this->show_enum($attribute,$display_name,$required,
+		$this->show_enum(
 			array(
 				array("value"=>"0","display_name"=>"Not known"),
 				array("value"=>"1","display_name"=>"Male"),
@@ -1138,31 +1135,24 @@ class ldap_entry_viewer_attrib
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
 
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
 	    @param array $enum
 		Array describing the enumerated data type
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_enum($attribute,$display_name,$required,$enum)
+	function show_enum($enum)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
-                        echo "<select name=\"ldap_attribute_" . $attribute
-                                . "\" title=\"" . $display_name . "\" style=\"" . $style . "\">\n";
+                        echo "<select name=\"ldap_attribute_" . $this->attribute
+                                . "\" title=\"" . $this->display_name . "\" style=\"" . $style . "\">\n";
 
 			foreach($enum as $enum_entry)
 			{
@@ -1210,21 +1200,12 @@ class ldap_entry_viewer_attrib
 		More user friendly date editing
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
-
 	*/
 
-	function show_date($attribute,$display_name,$required)
+	function show_date()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		// Remove all non-numerics
 		$attrib_value = preg_replace("/\D/","",$attrib_value);
@@ -1245,17 +1226,17 @@ class ldap_entry_viewer_attrib
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "<input style=\"" . $style . "\" type=\"text\" id=\"ldap_attribute_"
-				. $attribute . "\" name=\"ldap_attribute_"
-				. $attribute . "\" value=\""
+				. $this->attribute . "\" name=\"ldap_attribute_"
+				. $this->attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\" placeholder=\""
-				. $display_name . "\">";
+				. "\" title=\"" . $this->display_name . "\" placeholder=\""
+				. $this->display_name . "\">";
 		}
 		else
 			echo htmlentities($formatted_date,ENT_COMPAT,"UTF-8");
@@ -1271,33 +1252,25 @@ class ldap_entry_viewer_attrib
 		Support displaying fractional seconds (where present)
 	    @todo
 		Support displaying the time zone
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_date_time($attribute,$display_name,$required)
+	function show_date_time()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
-				. $attribute . "\" value=\""
+				. $this->attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\" placeholder=\""
-				. $display_name . "\">";
+				. "\" title=\"" . $this->display_name . "\" placeholder=\""
+				. $this->display_name . "\">";
 		}
 		else
 		{
@@ -1329,23 +1302,15 @@ class ldap_entry_viewer_attrib
 		Style this better.. should be 100% less a fixed number of pixels?
 	    @todo
 		Support editing
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_text_list($attribute,$display_name,$required)
+	function show_text_list()
 	{
-		if(!empty($this->ldap_entry[0][strtolower($attribute)]))
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
 		{
 			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
 
-			foreach($this->ldap_entry[0][strtolower($attribute)] as $key=>$value)
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
 			echo "</ul>";
@@ -1360,23 +1325,15 @@ class ldap_entry_viewer_attrib
 		Style this better.. should be 100% less a fixed number of pixels?
 	    @todo
 		Support editing
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_dn_list($attribute,$display_name,$required)
+	function show_dn_list()
 	{
 		global $ldap_server,$ldap_base_dn;
 
-		if(!empty($this->ldap_entry[0][strtolower($attribute)]))
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
 		{
-			foreach($this->ldap_entry[0][strtolower($attribute)] as $key=>$value)
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 				{
 					// retrieve object class icon
@@ -1407,33 +1364,25 @@ class ldap_entry_viewer_attrib
 		Escape "nasty values" in $attrib_value, e.g. "
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_phone_number($attribute,$display_name,$required)
+	function show_phone_number()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
-				. $attribute . "\" value=\""
+				. $this->attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\" placeholder=\""
-				. $display_name . "\">";
+				. "\" title=\"" . $this->display_name . "\" placeholder=\""
+				. $this->display_name . "\">";
 		}
 		else
 			show_phone_number_formatted($attrib_value);
@@ -1445,31 +1394,23 @@ class ldap_entry_viewer_attrib
 		Escape "nasty values" in $attrib_value, e.g. "
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_text_area($attribute,$display_name,$required)
+	function show_text_area()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "\n            <textarea style=\"" . $style . "\" name=\"ldap_attribute_"
-				. $attribute . "\" title=\"" . $display_name
-				. "\" placeholder=\"" . $display_name . "\">"
+				. $this->attribute . "\" title=\"" . $this->display_name
+				. "\" placeholder=\"" . $this->display_name . "\">"
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
 				. "</textarea>";
 		}
@@ -1481,17 +1422,9 @@ class ldap_entry_viewer_attrib
 
 	    @todo
 		Improve handling of unrecognised country codes
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_country_code($attribute,$display_name,$required)
+	function show_country_code()
 	{
 		global $country_name;
 		asort($country_name);
@@ -1503,7 +1436,7 @@ class ldap_entry_viewer_attrib
 		foreach($country_name as $code => $name)
 			$countries[] = array("value"=>$code,"display_name"=>$name);
 
-		$this->show_enum($attribute,$display_name,$required,$countries);
+		$this->show_enum($countries);
 	}
 
 	/** Show postcode attribute (data type "postcode")
@@ -1516,32 +1449,24 @@ class ldap_entry_viewer_attrib
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
 	    @todo make mapping service configurable (not just Google)
-
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
 	*/
 
-	function show_postcode($attribute,$display_name,$required)
+	function show_postcode()
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+			$this->ldap_entry,$this->attribute);
 
 		if($this->edit)
 		{
-			if($required)
+			if($this->required)
 				$style = "width:98%;border-color:red;border-style:solid";
 			else
 				$style = "width:98%;";
 
 			echo "<input style=\"" . $style . "\" type=\"text\" name=\"ldap_attribute_"
-				. $attribute . "\" value=\""
+				. $this->attribute . "\" value=\""
 				. htmlentities($attrib_value,ENT_COMPAT,"UTF-8")
-				. "\" title=\"" . $display_name . "\" placeholder=\"" . $display_name . "\">";
+				. "\" title=\"" . $this->display_name . "\" placeholder=\"" . $this->display_name . "\">";
 		}
 		else
 			if($attrib_value != "")
@@ -1549,23 +1474,14 @@ class ldap_entry_viewer_attrib
 					. urlencode($attrib_value) . "\" target=\"_blank\">View map</a>)";
 	}
 
-	/** Show image attribute (data type "image")
+	/** Show image attribute (data type "image") */
 
-	    @param string $attribute
-		Attribute to display
-	    @param string $display_name
-		"Friendly" display name of attribute (typically
-		rendered as "tooltip")
-	    @param bool $required
-		Whether attribute is mandatory (either marked as such or the RDN)
-	*/
-
-	function show_image($attribute,$display_name,$required)
+	function show_image()
 	{
 		global $photo_image_size;
 
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry[0],$attribute);
+                        $this->ldap_entry,$this->attribute);
 
 		/** @todo
 			The method used here is not a very efficient
@@ -1581,9 +1497,9 @@ class ldap_entry_viewer_attrib
 				$size="";
 
 			echo "<img src=\"image.php?dn="
-				. urlencode($this->ldap_entry[0]["dn"])
-				. "&attrib=" . $attribute . $size
-				. "\" title=\"" . $display_name . "\">\n";
+				. urlencode($this->ldap_entry["dn"])
+				. "&attrib=" . $this->attribute . $size
+				. "\" title=\"" . $this->display_name . "\">\n";
 		}
 
 		if($this->edit)
@@ -1591,18 +1507,18 @@ class ldap_entry_viewer_attrib
 			// Don't show "Clear Image" button if attribute is mandatory
 			if($attrib_value == "" || $required)
 				echo "            <input type=\"hidden\" name=\"ldap_attribute_"
-					. $attribute . "\" value=\"\">";
+					. $this->attribute . "\" value=\"\">";
 			else
 				echo "            <br>\n            <input type=\"checkbox\" name=\"ldap_attribute_"
-					. $attribute . "\">Clear Image<br>\n";
+					. $this->attribute . "\">Clear Image<br>\n";
 
-			if($required)
+			if($this->required)
 				$style = "border-color:red;border-style:solid";
 			else
 				$style = "";
 
 			echo "            <input style=\"" . $style . "\" type=\"file\" name=\"ldap_attribute_"
-				. $attribute . "_file\" title=\"" . $display_name
+				. $this->attribute . "_file\" title=\"" . $this->display_name
 				. "\" accept=\".jpg,.jpeg,.png,.gd2,.wbmp\">";
 		}
 	}
