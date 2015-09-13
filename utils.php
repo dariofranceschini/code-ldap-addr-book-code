@@ -1317,7 +1317,7 @@ class ldap_entry_viewer_attrib
 				$formatted_date = strftime("%A %d %B %Y %H:%M:%S",$date);
 			}
 
-			echo $formatted_date;
+			echo htmlentities($formatted_date,ENT_COMPAT,"UTF-8");
 		}
 	}
 
