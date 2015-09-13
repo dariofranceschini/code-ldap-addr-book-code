@@ -993,7 +993,7 @@ class ldap_entry_viewer_attrib
 	function show_text($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1037,7 +1037,7 @@ class ldap_entry_viewer_attrib
 	function show_ad_group_type($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
 		if($attrib_value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
@@ -1152,7 +1152,7 @@ class ldap_entry_viewer_attrib
 	function show_enum($attribute,$display_name,$required,$enum)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1224,7 +1224,7 @@ class ldap_entry_viewer_attrib
 	function show_date($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		// Remove all non-numerics
 		$attrib_value = preg_replace("/\D/","",$attrib_value);
@@ -1284,7 +1284,7 @@ class ldap_entry_viewer_attrib
 	function show_date_time($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1420,7 +1420,7 @@ class ldap_entry_viewer_attrib
 	function show_phone_number($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1458,7 +1458,7 @@ class ldap_entry_viewer_attrib
 	function show_text_area($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1529,7 +1529,7 @@ class ldap_entry_viewer_attrib
 	function show_postcode($attribute,$display_name,$required)
 	{
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		if($this->edit)
 		{
@@ -1565,7 +1565,7 @@ class ldap_entry_viewer_attrib
 		global $photo_image_size;
 
 		$attrib_value = get_ldap_attribute(
-			$this->ldap_entry,$attribute);
+			$this->ldap_entry[0],$attribute);
 
 		/** @todo
 			The method used here is not a very efficient
@@ -1643,13 +1643,13 @@ function get_ldap_attribute($ldap_entry,$attribute)
 {
 	$attribute = strtolower($attribute);
 
-	if(!empty($ldap_entry[0][$attribute][0]))
+	if(!empty($ldap_entry[$attribute][0]))
 		/** @todo
 			Currently only returns the first value of the
 			attribute. Should iterate over multi-valued
 			attributes.
 		*/
-		$attrib_value = $ldap_entry[0][$attribute][0];
+		$attrib_value = $ldap_entry[$attribute][0];
 	else
 		$attrib_value = "";
 
