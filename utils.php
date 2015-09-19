@@ -2051,6 +2051,9 @@ class ldap_entry_list
 				$attrib_value = $this->get_attrib_value(
 					$ldap_entry,$column["attrib"]);
 
+				if(!isset($column["link_type"]))
+					$column["link_type"]="none";
+
 				// Don't make the cell a link to the object
 				// if the user doesn't have view permissions
 				if($column["link_type"] == "object"
