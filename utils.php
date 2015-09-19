@@ -2022,16 +2022,13 @@ class ldap_entry_list
 			. "\" title=\"" . $item_object_class
 			. "\" src=\"" . $icon . "\"></td>\n";
 
-		$object_dn = $ldap_entry["dn"];
-
 		if($item_is_folder)
 		{
 			if(isset($ldap_entry[$object_rdn_attrib][0]))
 				// Display the folder name, and make it a link to
 				// display the folder's contents.
 
-				$this->show_attrib($object_dn,$object_rdn_attrib,
-					$ldap_entry[$object_rdn_attrib][0],
+				$this->show_attrib($ldap_entry,$object_rdn_attrib,
 					"object",$item_is_folder);
 			else
 			{
@@ -2047,10 +2044,6 @@ class ldap_entry_list
 
 			foreach($this->search_result_columns as $column)
 			{
-				// Get the attribute value for this column.
-				$attrib_value = $this->get_attrib_value(
-					$ldap_entry,$column["attrib"]);
-
 				if(!isset($column["link_type"]))
 					$column["link_type"]="none";
 
@@ -2060,9 +2053,9 @@ class ldap_entry_list
 						&& !get_user_setting("allow_view"))
 					$column["link_type"] = "none";
 
-				$this->show_attrib($object_dn,
+				$this->show_attrib($ldap_entry,
 					$column["attrib"],
-					$attrib_value,$column["link_type"]);
+					$column["link_type"]);
 			}
 		}
 
@@ -2074,66 +2067,6 @@ class ldap_entry_list
 		echo "  </tr>\n";
 	}
 
-	/** Return the value of the specified LDAP entry and attribute
-
-	    For multi-value attributes this function currently
-	    returns only the first value.
-
-	    @param array $ldap_entry
-		LDAP entry for which value is to be returned
-	    @param string $attrib
-		Attribute of the LDAP entry to return
-	    @return
-		The requested attribute value
-	*/
-
-	function get_attrib_value($ldap_entry,$attrib)
-	{
-		/** @todo
-			add support compound fields of multiple
-			attributes
-		*/
-
-		// sortableName is an internal "synthesised"
-		// attribute rather than retrieved from
-		// the LDAP server itself.
-		if($attrib == "sortableName")
-		{
-			if(!empty($ldap_entry["sn"][0]))
-				$attrib_value = $ldap_entry["sn"][0];
-			else if(!empty($ldap_entry["displayname"][0]))
-				$attrib_value
-					= $ldap_entry["displayname"][0];
-			else if(isset($ldap_entry["cn"][0]))
-				$attrib_value = $ldap_entry["cn"][0];
-			else
-				$attrib_value = "";
-
-			if(!empty($ldap_entry["givenname"][0]))
-				$attrib_value .= ", "
-					. $ldap_entry["givenname"][0];
-
-			if(trim($attrib_value) == "")
-			{
-				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
-				$attrib_value = $dn_elements[0]["value"];
-			}
-
-		}
-		else
-			/** @todo
-				this only supports getting the first
-				value of a multi-value attribute.
-			*/
-			if(!empty($ldap_entry[strtolower($attrib)][0]))
-				$attrib_value =
-					$ldap_entry[strtolower($attrib)][0];
-			else
-				$attrib_value = "";
-
-		return $attrib_value;
-	}
-
 	/** Display the specified attribute of an LDAP object.
 
 	    This corresponds to an individual table cell in the search
@@ -2142,12 +2075,11 @@ class ldap_entry_list
 	    @todo
 		support for compound attributes, e.g. address
 
-	    @param string $dn
-		LDAP distinguished name of object
+            @param array $ldap_entry
+                Array containing LDAP object entry which is to
+                be displayed
 	    @param string $attrib_name
 		Name of attribute to be shown
-	    @param string $attrib_value
-		Value of attribute to be shown
 	    @param string $link_type
 		Specifies if and how the attribute should be
 		shown as a HTML link:
@@ -2168,7 +2100,7 @@ class ldap_entry_list
 		not shown for folders
 	*/
 
-	function show_attrib($dn,$attrib_name,$attrib_value,$link_type,
+	function show_attrib($ldap_entry,$attrib_name,$link_type,
 		$is_folder = false)
 	{
 		global $thumbnail_image_size,$ldap_server;
@@ -2184,52 +2116,22 @@ class ldap_entry_list
 			. ldap_attribute_to_css_class($attrib_name)
 			. " search_results_attrib_" . $attrib_name . "\"" . $colspan . ">\n      ";
 
+		// Display the attribute's value
+
+		$attrib = new ldap_attribute($ldap_entry,$attrib_name);
+
 		if($link_type == "object")
+		{
 			// Cell contains a link to the object
 			echo "<a href=\"" . ($is_folder ? "" : "info.php")
-				. "?dn=" . urlencode($dn) . "\">";
-		else if($link_type == "mailto")
-			// Cell contains a link to an e-mail address
-			echo "<a href=\"mailto:"
-				. urlencode($attrib_value) . "\">";
-		else if($link_type == "url")
-			// Cell contains a URL which should be shown as a link
-			echo "<a href=\""
-				. $attrib_value . "\">";
+				. "?dn=" . urlencode($ldap_entry["dn"]) . "\">";
 
-		// Display the attribute's value
-		switch($ldap_server->get_attribute_schema_setting($attrib_name,"data_type","text"))
-		{
-			case "image":
-				if(!empty($attrib_value))
-				{
-					if(!empty($thumbnail_image_size))
-						$size = "&size="
-							. $thumbnail_image_size;
-					else
-						$size="";
+			$attrib->show();
 
-					echo "<img src=\"image.php?dn="
-						. urlencode($dn)
-						. "&attrib="
-						. $attrib_name
-						. $size . "\">";
-				}
-				break;
-			case "phone_number":
-				if($link_type == "phone_number")
-					show_phone_number_formatted($attrib_value);
-				else
-					echo htmlentities($attrib_value,
-						ENT_COMPAT,"UTF-8");
-				break;
-			default:
-				echo htmlentities($attrib_value,
-					ENT_COMPAT,"UTF-8");
-		}
-
-		if($link_type != "none" && $link_type != "phone_number")
 			echo "</a>";
+		}
+		else
+			$attrib->show();
 
 		echo "\n    </td>\n";
 	}
