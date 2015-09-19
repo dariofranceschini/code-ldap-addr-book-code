@@ -1426,32 +1426,28 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
     <li><code>caption</code> - Caption to appear in column heading
     <li><code>attrib</code> - LDAP attribute to display
     <li><code>link_type</code> - Whether and how to display the attribute
-        as a hyperlink
+        as a hyperlink. This field can be ommitted if not used.
     </ul>
+    <p>
     The special attribute <code>sortableName</code> will display constructed
     "sort-friendly" version of a personal name (Surname, Firstname)
     based on which LDAP attributes are populated. (Ideally
     <code>sn</code> and <code>givenName</code> if populated, otherwise
-    falling back to <code>displayName</code> or <code>cn</code>.) The
-    following link types are supported:
-    <ul>
-    <li><code>object</code> - Link to the object record. Recommended to
-    use this link type for the object name, displayed in the left-most column.
-    <li><code>mailto</code> - Display as <code>mailto:</code> link, e.g.
-    for attributes containing e-mail addresses.
-    <li><code>url</code> - Attribute contains a URL which should be shown as
-    a link.
-    <li><code>phone_number</code> - Display as a link to dial a phone
-    number. (e.g. as a tel: URL)
-    <li><code>none</code> - Do not display as a link.
-    </ul>
+    falling back to <code>displayName</code> or <code>cn</code>.)
+    </p>
     Example:
     <pre>$search_result_columns = array(
         array("caption"=&gt;"Name",                "attrib"=&gt;"sortableName",       "link_type"=&gt;"object"),
-        array("caption"=&gt;"E-Mail",              "attrib"=&gt;"mail",               "link_type"=&gt;"mailto"),
-        array("caption"=&gt;"Office Phone",        "attrib"=&gt;"telephoneNumber",    "link_type"=&gt;"phone_number"),
-        array("caption"=&gt;"Organisation",        "attrib"=&gt;"company",            "link_type"=&gt;"none")
+        array("caption"=&gt;"E-Mail",              "attrib"=&gt;"mail"),
+        array("caption"=&gt;"Office Phone",        "attrib"=&gt;"telephoneNumber"),
+        array("caption"=&gt;"Organisation",        "attrib"=&gt;"company")
         );</pre>
+    <p>
+    The syntax <code>"link_type"=&gt;"object"</code> indicates that values
+    in the the name (<code>sortableName</code>) column should show as links
+    to show more information about each object. It is recommended to place
+    record names in the left-most column, shown as links.
+    </p>
 </td></tr>
 
 <tr><td><code>$search_result_default_sort_order</code></td>
