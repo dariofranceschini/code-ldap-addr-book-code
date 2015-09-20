@@ -922,6 +922,7 @@ class ldap_entry_viewer_attrib
 					$space_before_attribute = true;
 
 					$attrib = new ldap_attribute($this->ldap_entry[0],$attribute);
+
 					$attrib->edit = $this->edit;
 					$attrib->show();
 				}
@@ -958,6 +959,9 @@ class ldap_attribute
 
 	/** Whether to show attributes such as dates in "short" format */
 	var $use_short_format = false;
+
+	/** Whether to show embedded HTML links when the object is displayed */
+	var $show_embedded_links = true;
 
 	/** Constructor
 
@@ -1095,7 +1099,12 @@ class ldap_attribute
 				. $this->display_name . "\">";
 		}
 		else
-			echo urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8"));
+		{
+			if($this->show_embedded_links)
+				echo urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8"));
+			else
+				echo htmlentities($this->value,ENT_COMPAT,"UTF-8");
+		}
 	}
 
 	/** Show Active Directory groupType attribute (data type "ad_group_type")
@@ -1413,7 +1422,7 @@ class ldap_attribute
 
 					$rdn_list = ldap_explode_dn2($value);
 
-					if($ldap_server->compare_dn_to_base($value,$ldap_base_dn))
+					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
 						echo "<img src=\"" . $icon . "\"> <a href=\"info.php?dn=" . $value . "\">" . $rdn_list["0"]["value"] . "</a><br>";
 					else
 						echo "<img src=\"" . $icon . "\">" . $rdn_list["0"]["value"] . "<br>";
@@ -1446,7 +1455,12 @@ class ldap_attribute
 				. $this->display_name . "\">";
 		}
 		else
-			show_phone_number_formatted($this->value);
+		{
+			if($this->show_embedded_links)
+				show_phone_number_formatted($this->value);
+			else
+				echo htmlentities($this->value,ENT_COMPAT,"UTF-8");;
+		}
 	}
 
 	/** Show multi-line textual attribute (data type "text_area")
@@ -1473,7 +1487,10 @@ class ldap_attribute
 				. "</textarea>";
 		}
 		else
-			echo nl2br(urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8")),false);
+			if($this->show_embedded_links)
+				echo nl2br(urls_to_links(htmlentities($this->value,ENT_COMPAT,"UTF-8")),false);
+			else
+				echo nl2br(htmlentities($this->value,ENT_COMPAT,"UTF-8"),false);
 	}
 
 	/** Show ISO 3166-1 alpha-2 country code attribute (data type "country_code")
@@ -1525,8 +1542,13 @@ class ldap_attribute
 		}
 		else
 			if($this->value != "")
-				echo $this->value . "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-					. urlencode($this->value) . "\" target=\"_blank\">View map</a>)";
+			{
+				echo $this->value;
+
+				if($this->show_embedded_links)
+					echo "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
+						. urlencode($this->value) . "\" target=\"_blank\">View map</a>)";
+			}
 	}
 
 	/** Show image attribute (data type "image") */
@@ -2150,6 +2172,7 @@ class ldap_entry_list
 			echo "<a href=\"" . ($is_folder ? "" : "info.php")
 				. "?dn=" . urlencode($ldap_entry["dn"]) . "\">";
 
+			$attrib->show_embedded_links=false;
 			$attrib->show();
 
 			echo "</a>";
