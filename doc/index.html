@@ -1614,6 +1614,111 @@ $ldap_server->add_display_layout("printQueue",array(
         $exclude_logo_if_photo_present = true;</code>
         </p></td></tr>
 
+
+<tr><th colspan=2>Date and Time Display Settings</th></tr>
+
+<tr><td><code>$date_format</code></td>
+    <td>Specifies the format/layout for displaying attributes
+        containing dates on an LDAP entry's "detailed info" page.
+        <p>
+        The following tokens (each consisting of % followed by a
+        letter) used to describe the format/layout:
+        </p>
+        <ul>
+        <li>%a - An abbreviated textual representation of the day
+        <li>%A - A full textual representation of the day
+        <li>%d - Two-digit day of the month (with leading zeros)
+        <li>%e - Day of the month, with a space preceding single digits. (Not implemented on Windows.)
+        <li>%j - Day of the year, 3 digits with leading zeros
+        <li>%u - ISO-8601 numeric representation of the day of the week
+        <li>%w - Numeric representation of the day of the week
+        <li>%U - Week number of the given year, starting with the first Sunday as the first week
+        <li>%V - ISO-8601:1988 week number of the given year, starting with the first week of the year with at least 4 weekdays, with Monday being the start of the week
+        <li>%W - A numeric representation of the week of the year, starting with the first Monday as the first week
+        <li>%b - Abbreviated month name, based on the locale
+        <li>%B - Full month name, based on the locale
+        <li>%h - Abbreviated month name, based on the locale (an alias of %b)
+        <li>%m - Two digit representation of the month
+        <li>%C - Two digit representation of the century (year divided by 100, truncated to an integer)
+        <li>%g - Two digit representation of the year going by ISO-8601:1988 standards (see %V)
+        <li>%G - The full four-digit version of %g
+        <li>%y - Two digit representation of the year
+        <li>%Y - Four digit representation for the year
+        <li>%D - Same as "%m/%d/%y"
+        <li>%F - Same as "%Y-%m-%d" (commonly used in database datestamps)
+        <li>%x - Preferred date representation based on locale (without the time)
+        <li>%n - A newline character ("\n")
+        <li>%t - A Tab character ("\t")
+        <li>%% - A literal percentage character ("%")
+        </ul>
+        <p>(information based on PHP manual)</p>
+        <p>Example:<br>
+        <code>
+        $date_format = "%A %d %B %Y";</code>
+        </p></td></tr>
+
+<tr><td><code>$date_time_format</code></td>
+    <td>Specifies the format/layout for displaying attributes
+        containing dates and times (timestamps) on an address book
+        entry's "detailed info" page.
+        <p>
+        See the description of <code>$date_format</code> (above)
+        for a list of tokens (each consisting of % followed by a
+        letter) used to describe the format/layout. The following
+        additional tokens may be used to describe the time:
+        </p>
+        <ul>
+        <li>%H - Two digit representation of the hour in 24-hour format
+        <li>%k - Two digit representation of the hour in 24-hour format, with a space preceding single digits
+        <li>%I - Two digit representation of the hour in 12-hour format
+        <li>%l - Hour in 12-hour format, with a space preceding single digits
+        <li>%M - Two digit representation of the minute
+        <li>%p - Upper-case 'AM' or 'PM' based on the given time
+        <li>%P - Lower-case 'am' or 'pm' based on the given time
+        <li>%r - Same as "%I:%M:%S %p"
+        <li>%R - Same as "%H:%M"
+        <li>%S - Two digit representation of the second
+        <li>%T - Same as "%H:%M:%S"
+        <li>%X - Preferred time representation based on locale, without the date
+        <li>%z - The time zone offset. Not implemented as described on Windows. See below for more information.
+        <li>%Z - The time zone abbreviation. Not implemented as described on Windows. See below for more information.
+        <li>%c - Preferred date and time stamp based on locale
+        <li>%s - Unix Epoch Time timestamp (same as the time() function)
+        </ul>
+        <p>Example:<br>
+        <code>
+        $date_time_format = "%A %d %B %Y %H:%M:%S";</code>
+        </p></td></tr>
+
+<tr><td><code>$short date_format</code></td>
+    <td>Specifies a more compact format/layout for displaying
+       attributes containing dates shown when browsing or searching
+       the address book.
+        <p>
+        See the description of <code>$date_format</code> (above)
+        for a list of the tokens (each consisting of % followed by a
+        letter) used to describe the format/layout.
+        </p>
+        <p>Example:<br>
+        <code>
+        $short_date_format = "%d %b %Y";</code>
+        </p></td></tr>
+
+<tr><td><code>$short date_time_format</code></td>
+    <td>Specifies a more compact format/layout for displaying
+       attributes containing dates and times (timestamps) shown when
+       browsing or searching the address book.
+        <p>
+        See the descriptions of <code>$date_format</code> and
+        <code>$date_time_format</code> (above)
+        for lists of the tokens (each consisting of % followed by a
+        letter) used to describe the format/layout.
+        </p>
+        <p>Example:<br>
+        <code>
+        $short_date_time_format = "%d %b %Y %H:%M:%S";</code>
+        </p></td></tr>
+
 <tr><th colspan=2>Schema Configuration</th></tr>
 
 <tr><td><code>$search_server->add_schema()</code></td>

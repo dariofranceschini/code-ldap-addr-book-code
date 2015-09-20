@@ -956,6 +956,9 @@ class ldap_attribute
 	/** Whether the attribute should be rendered with editing enabled */
 	var $edit = false;
 
+	/** Whether to show attributes such as dates in "short" format */
+	var $use_short_format = false;
+
 	/** Constructor
 
 	    @param array $ldap_entry
@@ -1251,6 +1254,13 @@ class ldap_attribute
 
 	function show_date()
 	{
+		global $date_format,$short_date_format;
+
+		if(empty($date_format))
+			$date_format="%A %d %B %Y";
+		if(empty($short_date_format))
+			$short_date_format=$date_format;
+
 		// Remove all non-numerics
 		$attrib_value = preg_replace("/\D/","",$this->value);
 
@@ -1265,7 +1275,10 @@ class ldap_attribute
 				substr($attrib_value,0,4)	// year
 				);
 
-			$formatted_date = strftime("%A %d %B %Y",$date);
+			if($this->use_short_format)
+				$formatted_date = strftime($short_date_format,$date);
+			else
+				$formatted_date = strftime($date_format,$date);
 		}
 
 		if($this->edit)
@@ -1300,6 +1313,13 @@ class ldap_attribute
 
 	function show_date_time()
 	{
+		global $date_time_format,$short_date_time_format;
+
+		if(empty($date_time_format))
+			$date_time_format="%A %d %B %Y %H:%M:%S";
+		if(empty($short_date_time_format))
+			$short_date_time_format=$date_time_format;
+
 		if($this->edit)
 		{
 			if($this->required)
@@ -1328,7 +1348,10 @@ class ldap_attribute
 					substr($this->value,0,4)	// year
 					);
 
-				$formatted_date = strftime("%A %d %B %Y %H:%M:%S",$date);
+				if($this->use_short_format)
+					$formatted_date = strftime($short_date_time_format,$date);
+				else
+					$formatted_date = strftime($date_time_format,$date);
 			}
 
 			echo htmlentities($formatted_date,ENT_COMPAT,"UTF-8");
@@ -2119,6 +2142,7 @@ class ldap_entry_list
 		// Display the attribute's value
 
 		$attrib = new ldap_attribute($ldap_entry,$attrib_name);
+		$attrib->use_short_format = true;
 
 		if($link_type == "object")
 		{
