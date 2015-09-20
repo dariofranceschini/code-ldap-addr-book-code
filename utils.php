@@ -1268,7 +1268,7 @@ class ldap_attribute
 		if(empty($date_format))
 			$date_format="%A %d %B %Y";
 		if(empty($short_date_format))
-			$short_date_format=$date_format;
+			$short_date_format="%d %b %Y";
 
 		// Remove all non-numerics
 		$attrib_value = preg_replace("/\D/","",$this->value);
@@ -1327,7 +1327,7 @@ class ldap_attribute
 		if(empty($date_time_format))
 			$date_time_format="%A %d %B %Y %H:%M:%S";
 		if(empty($short_date_time_format))
-			$short_date_time_format=$date_time_format;
+			$short_date_time_format="%d %b %Y %H:%M:%S";
 
 		if($this->edit)
 		{
