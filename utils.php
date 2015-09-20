@@ -1543,7 +1543,7 @@ class ldap_attribute
 		else
 			if($this->value != "")
 			{
-				echo $this->value;
+				echo htmlentities($this->value,ENT_COMPAT,"UTF-8");
 
 				if($this->show_embedded_links)
 					echo "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
