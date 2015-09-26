@@ -30,7 +30,7 @@ if(prereq_components_ok())
 	{
 		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
 
-		if(isset($search_method)) $search_method = 1;
+		if(!isset($search_method)) $search_method = 1;
 
 		switch($search_method)
 		{
