@@ -1574,7 +1574,7 @@ class ldap_attribute
 		if($this->edit)
 		{
 			// Don't show "Clear Image" button if attribute is mandatory
-			if($this->value == "" || $required)
+			if($this->value == "" || $this->required)
 				echo "            <input type=\"hidden\" name=\"ldap_attribute_"
 					. $this->attribute . "\" value=\"\">";
 			else
