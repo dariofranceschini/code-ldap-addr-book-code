@@ -111,7 +111,7 @@ if(prereq_components_ok())
 				$search_resource = @ldap_search($ldap_server->connection,
 					$dn,$filter);
 			else
-				echo "<p>You do not have permission to search the directory</p>\n";
+				echo "<p>" . gettext("You do not have permission to search the directory") . "</p>\n";
 		else
 			// browse OU contents
 			if(get_user_setting("allow_browse"))
@@ -126,13 +126,13 @@ if(prereq_components_ok())
 					{
 						if($ldap_server->per_user_login_enabled())
 							echo "<p><a href=\"user.php\">"
-								. "Please log in to use the address book.</a></p>\n";
+								. gettext("Please log in to use the address book.") . "</a></p>\n";
 						else
-							echo "<p>You do not have permission to access the directory</p>\n";
+							echo "<p>" . gettext("You do not have permission to access the directory") . "</p>\n";
 					}
 				}
 				else
-					echo "<p>You do not have permission to browse the directory</p>\n";
+					echo "<p>" . gettext("You do not have permission to browse the directory") . "</p>\n";
 			}
 	}
 	else
@@ -190,17 +190,17 @@ if(empty($_GET["vcard"]))
 	if(get_user_setting("allow_folder_info"))
 		$buttons .= "<a href=\"info.php?dn="
 			. htmlentities($dn,ENT_COMPAT,"UTF-8")
-				. "\"><button>Folder Details</button></a>\n";
+				. "\"><button>" . gettext("Folder Details") . "</button></a>\n";
 
 	if(get_user_setting("allow_create"))
 		$buttons .= "<a href=\"create.php?dn="
 			. htmlentities($dn,ENT_COMPAT,"UTF-8")
-			. "\"><button>New Record</button></a>\n";
+			. "\"><button>" . gettext("New Record") . "</button></a>\n";
 
 	if(get_user_setting("allow_export_bulk") && empty($_GET["filter"]))
 		$buttons .= "<a href=\"index.php?vcard=1&dn="
 			. htmlentities($dn,ENT_COMPAT,"UTF-8")
-			. "\"><button>Export Records</button></a>\n";
+			. "\"><button>" . gettext("Export Records") . "</button></a>\n";
 
 	if(!empty($buttons))
 		echo "<hr>\n" . $buttons;

@@ -24,11 +24,11 @@ show_site_header();
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
-show_ldap_path("cn=New Record," . $dn,$ldap_base_dn,"schema/generic24.png");
+show_ldap_path("cn=" . gettext("New Record") . "," . $dn,$ldap_base_dn,"schema/generic24.png");
 
 echo "<form method=\"get\" action=\"info.php\">\n";
 
-echo "  <p>\n    What type of record would you like to create?\n  </p>\n";
+echo "  <p>\n    " . gettext("What type of record would you like to create?") . "\n  </p>\n";
 
 echo "  <input type=\"hidden\" name=\"dn\" value=\""
 	. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n";
@@ -52,7 +52,7 @@ foreach($ldap_server->object_schema as $object_class)
 
 echo "  </select>\n";
 
-echo "  <p>\n    <input type=\"submit\" value=\"Next&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
+echo "  <p>\n    <input type=\"submit\" value=\"" . gettext("Next") . "&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
 echo "</form>\n";
 
 show_site_footer();

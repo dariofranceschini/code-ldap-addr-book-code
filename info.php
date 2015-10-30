@@ -84,16 +84,16 @@ if(prereq_components_ok())
 					}
 				}
 				else
-					show_error_message("Unable to locate LDAP record.");
+					show_error_message(gettext("Unable to locate LDAP record."));
 			}
 		}
 		else
-			show_error_message("Record being accessed: <code>" . htmlentities($dn)
+			show_error_message(gettext("Record being accessed:") . " <code>" . htmlentities($dn)
 				. "</code>\n</p>\n"
-				. "<p>\n  This record is outside the part of the directory "
-				. "which stores the\n  address book. You do not "
-				. "have permission to display it.\n</p>\n"
-				. "<p>\n  The address book is stored at: <code>"
+				. "<p>\n  " . gettext("This record is outside the part of the directory "
+				. "which stores the address book. You do not "
+				. "have permission to display it.") . "\n</p>\n"
+				. "<p>\n  " . gettext("The address book is stored at:") . " <code>"
 				. htmlentities($ldap_base_dn) . "</code>");
 	}
 	else

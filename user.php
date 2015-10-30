@@ -32,7 +32,7 @@ if(!isset($_SESSION["LOGIN_USER"]))
 		header("HTTP/1.0 401 Unauthorized");
 
 		// TODO: send back to originating page? message if cancel clicked
-		show_try_again_message("You must enter a valid login and password");
+		show_try_again_message(gettext("You must enter a valid login and password"));
 	}
 	else
 	{
@@ -54,12 +54,12 @@ if(!isset($_SESSION["LOGIN_USER"]))
 			else
 			{
 				reset_login_session();
-				show_try_again_message("The user name/password you entered "
-					. "is not valid");
+				show_try_again_message(gettext("The user name/password you entered "
+					. "is not valid"));
 			}
 		}
 		else
-			show_try_again_message("You must enter a user name/password to log in");
+			show_try_again_message(gettext("You must enter a user name/password to log in"));
 	}
 else
 {
@@ -83,7 +83,7 @@ function show_try_again_message($message)
 	show_site_header();
 	show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
 	echo "<p>" . $message . "</p>\n";
-	echo "<a href=\"user.php\">Try again</a>\n";
+	echo "<a href=\"user.php\">" . gettext("Try again") . "</a>\n";
 	show_site_footer();
 }
 

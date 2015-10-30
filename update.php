@@ -52,7 +52,7 @@ if($ldap_server->log_on())
                 {
 			if($search_resource)
 			{
-				show_error_message("Unable to create - A record already exists with this name.");
+				show_error_message(gettext("Unable to create - A record already exists with this name."));
 				$create_failed = true;
 			}
 			else
@@ -80,14 +80,14 @@ if($ldap_server->log_on())
 					if(!$result)
 					{
 						$create_failed = true;
-						show_error_message("Unable to create LDAP record: "
+						show_error_message(gettext("Unable to create LDAP record: ")
 							. ldap_error($ldap_server->connection));
 					}
 				}
 				else
 				{
 					$create_failed = true;
-					show_error_message("Unable to create this type of object.");
+					show_error_message(gettext("Unable to create this type of object."));
 				}
 			}
                 }
@@ -103,9 +103,11 @@ if($ldap_server->log_on())
 		                if(empty($_POST["create"]))
 					$change_list = "";
 				else
-					$change_list = "  <li>New '" . $_POST["create"]
-						. "' record created: '" . $_POST["ldap_attribute_"
-						. $rdn_attrib] . "'</li>\n";
+					$change_list = "  <li>"
+						. sprintf(gettext("New '%s' record created: '%s'"),
+						$_POST["create"],
+						$_POST["ldap_attribute_". $rdn_attrib])
+						. "</li>\n";
 
 				$rdn_attrib = $ldap_server->get_object_schema_setting(
 					$ldap_server->get_object_class($entry[0]),
@@ -161,19 +163,19 @@ if($ldap_server->log_on())
 					show_search_box("");
 
 				if($change_list == "")
-					echo "No changes were made to this record";
+					echo gettext("No changes were made to this record");
 				else
-					echo "<p>Changes made to this record:</p>\n"
+					echo "<p>" . gettext("Changes made to this record:") . "</p>\n"
 						. "<ul>\n" . $change_list . "</ul>\n\n";
 
-				echo "<p><a href=\"info.php?dn=" . $dn . "\">Back to record</a></p>\n";
+				echo "<p><a href=\"info.php?dn=" . $dn . "\">" . gettext("Back to record") . "</a></p>\n";
 			}
 			else
-				show_error_message("Unable to locate LDAP record.");
+				show_error_message(gettext("Unable to locate LDAP record."));
 		}
 	}
 	else
-		show_error_message("You do not have permission to change this record");
+		show_error_message(gettext("You do not have permission to change this record"));
 }
 else
         show_ldap_bind_error();

@@ -58,13 +58,13 @@ if($ldap_server->log_on())
 
 			if(empty($_GET["confirm"]))
 			{
-				echo "<p>Are you sure you want to delete this record?</p>\n";
+				echo "<p>" . gettext("Are you sure you want to delete this record?") . "</p>\n";
 
 				echo "<a href=\"delete.php?dn=" . urlencode($dn)
-					. "&confirm=yes\"><button>Yes</button></a>\n";
+					. "&confirm=yes\"><button>" . gettext("Yes") . "</button></a>\n";
 
 				echo "<a href=\"" . $return_page_if_not_deleted
-					. "\"><button>No</button></a>\n";
+					. "\"><button>" . gettext("No") . "</button></a>\n";
 			}
 			else
 			{
@@ -74,10 +74,10 @@ if($ldap_server->log_on())
 				{
 					show_site_header();
 					show_ldap_path($dn,$ldap_base_dn,$icon);
-					echo "<p>Unable to delete record</p>";
+					echo "<p>" . gettext("Unable to delete record") . "</p>";
 
 					echo "<a href=\"" . $return_page_if_not_deleted
-						. "\">Return to the Address Book</a>\n";
+						. "\">" . gettext("Return to the Address Book") . "</a>\n";
 				}
 			}
 		}
@@ -85,18 +85,18 @@ if($ldap_server->log_on())
 		{
 			show_site_header();
 			show_ldap_path($dn,$ldap_base_dn,$icon);
-			echo "<p>You do not have permission to delete this record</p>"
+			echo "<p>" . gettext("You do not have permission to delete this record") . "</p>"
 				. "<p><a href=\"" . $return_page_if_not_deleted
-				. "\">Return to the Address Book</a></p>";
+				. "\">" . gettext("Return to the Address Book") . "</a></p>";
 		}
 	}
 	else
 	{
 		show_site_header();
 		show_ldap_path($dn,$ldap_base_dn,"contact24.png");
-		echo "<p>Unable to locate LDAP record</p>"
+		echo "<p>" . gettext("Unable to locate LDAP record") . "</p>"
 			. "<p><a href=\"" . $return_page_if_not_deleted
-			. "\">Return to the Address Book</a></p>";
+			. "\">" . gettext("Return to the Address Book") . "</a></p>";
 	}
 }
 else

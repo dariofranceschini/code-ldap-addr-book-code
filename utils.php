@@ -68,11 +68,11 @@ function show_site_footer()
 {
 	global $site_footer_links;
 
-	echo "<hr>\n"
-		. "<div class=\"page_footer\">\n  This Address Book uses Free and "
-		. "Open Source Software, licensed under the\n  terms of the "
-		. "<a href=\"doc/license.html\">GNU Affero GPL version 3</a>\n"
-		. "  <ul>\n";
+	echo "<hr>\n<div class=\"page_footer\">\n  "
+		. sprintf(gettext("This Address Book uses Free and "
+		. "Open Source Software, licensed under the terms of the "
+		. "%sGNU Affero GPL version 3%s"),
+		"<a href=\"doc/license.html\">","</a>") . "\n  <ul>\n";
 
 	$first_link = true;
 	foreach($site_footer_links as $link)
@@ -99,13 +99,13 @@ function show_search_box($initial_value)
 
 	echo "  <table class=\"search\">\n";
 	echo "    <tr>\n";
-	echo "      <th>Search for:</th>\n";
+	echo "      <th>" . gettext("Search for:") . "</th>\n";
 	echo "      <td><input type=\"text\" id=\"filter\" name=\"filter\"";
 	if(!empty($initial_value))
 		echo " value=\"" . htmlentities($initial_value,
 			ENT_COMPAT,"UTF-8") . "\"";
 	echo "></td>\n";
-	echo "      <td><input type=\"submit\" value=\"Search\"></td>\n";
+	echo "      <td><input type=\"submit\" value=\"" . gettext("Search") . "\"></td>\n";
 	echo "    </tr>\n";
 	echo "  </table>\n";
 	echo "</form>\n\n";
@@ -124,7 +124,7 @@ function show_error_message($message)
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
-		. "\">Return to the Address Book</a>\n</p>";
+		. "\">" . gettext("Return to the Address Book") . "</a>\n</p>";
 }
 
 /** Show "breadcrumb navigation" version of specified LDAP path
@@ -153,7 +153,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
 		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
 		. "        <li><a href=\"" . current_page_folder_url() . "\">"
-		. "<img alt=\"Address Book\" src=\"addressbook24.png\"> "
+		. "<img alt=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
 	$folder_list = substr($base,0,-strlen($default_base)-1);
@@ -167,7 +167,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 
 			if($i>1)
 			{
-				$folder_alt_text="Folder";
+				$folder_alt_text=gettext("Folder");
 				$folder_icon="schema/folder.png";
 				if($folder_list[$i-1]["dn"] == $ldap_base_dn)
 					$folder_dn = $ldap_base_dn;
@@ -180,7 +180,7 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 			}
 			else
 			{
-				$folder_alt_text="Address Book Entry";
+				$folder_alt_text=gettext("Address Book Entry");
 				$folder_icon=$leaf_icon;
 			}
 
@@ -211,9 +211,9 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		echo "<a href=\"user.php\">";
 
 		if(isset($_SESSION["LOGIN_USER"]))
-			echo "Log out " . ucwords(strtolower($_SESSION["LOGIN_USER"]));
+			echo gettext("Log out") . " " . ucwords(strtolower($_SESSION["LOGIN_USER"]));
 		else
-			echo "Log In";
+			echo gettext("Log in");
 		echo "</a>";
 	}
 	else
@@ -669,10 +669,10 @@ class ldap_entry_viewer
 		$dn = $this->ldap_entry[0]["dn"];
 
 		if($this->create)
-			show_ldap_path("CN=New "
-				. $ldap_server->get_object_schema_setting(
-				$ldap_server->get_object_class($this->ldap_entry[0]),
-				"display_name") .  "," . $dn,$ldap_base_dn,
+			show_ldap_path("CN=" . sprintf(gettext("New %s"),
+				$ldap_server->get_object_schema_setting(
+                                $ldap_server->get_object_class($this->ldap_entry[0]),
+                                "display_name")) .  "," . $dn,$ldap_base_dn,
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
 			show_ldap_path($dn,$ldap_base_dn,
@@ -702,15 +702,15 @@ class ldap_entry_viewer
 					if($this->create)
 						echo "<input type=\"hidden\" name=\"create\" value=\""
 							. $this->ldap_entry[0]["objectclass"][0] . "\">"
-							. "<input type=\"submit\" value=\"Create record\">"
+							. "<input type=\"submit\" value=\"" . gettext("Create record") . "\">"
 							. "\n</form>\n";
 					else
-						echo "<input type=\"submit\" value=\"Save changes\">"
+						echo "<input type=\"submit\" value=\"" . gettext("Save changes") . "\">"
 							. "\n</form>\n";
 
 					echo "<a href=\"info.php?dn="
 						. htmlentities($dn,ENT_COMPAT,"UTF-8")
-						. "\"><button>Cancel</button></a>\n";
+						. "\"><button>" . gettext("Cancel") . "</button></a>\n";
 				}
 				else
 				{
@@ -718,21 +718,21 @@ class ldap_entry_viewer
 						. "  <input type=\"hidden\" name=\"edit\" value=\"1\">\n"
 						. "  <input type=\"hidden\" name=\"dn\" value=\""
 						. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n"
-						. "  <input type=\"submit\" value=\"Edit\">\n</form>\n";
+						. "  <input type=\"submit\" value=\"" . gettext("Edit") . "\">\n</form>\n";
 				}
 
 			if(get_user_setting("allow_delete") && !$this->edit)
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
-					. "\"><button>Delete</button></a>\n";
+					. "\"><button>" . gettext("Delete") . "</button></a>\n";
 
 			if(get_user_setting("allow_export") && !$this->edit)
 				echo "<a href=\"info.php?vcard=1&dn="
 					. urlencode($dn)
-					. "\"><button>Save as vCard</button></a>\n";
+					. "\"><button>" . gettext("Save as vCard") . "</button></a>\n";
 		}
 		else
-			echo "<p>You do not have permission to view this record</p>\n";
+			echo "<p>" . gettext("You do not have permission to view this record") . "</p>\n";
 	}
 }
 
@@ -1071,7 +1071,7 @@ class ldap_attribute
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
 			default:
-				echo "** Unsupported data type: <code>" . $data_type . "</code> **";
+				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
 	}
 
@@ -1124,15 +1124,15 @@ class ldap_attribute
 	function show_ad_group_type()
 	{
 		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
-		if($this->value & 0x80000000) echo "<li>Security group"; else echo "<li>Distribution group";
-		if($this->value & 0x01) echo " (System generated)";
+		if($this->value & 0x80000000) echo "<li>" . gettext("Security group"); else echo "<li>" . gettext("Distribution group");
+		if($this->value & 0x01) echo " (" . gettext("System generated") . ")";
 		echo "</li>";
 
-		if($this->value & 0x10) echo "<li>Windows Authorization Manager APP_BASIC group</li>";
-		if($this->value & 0x20) echo "<li>Windows Authorization Manager APP_QUERY group</li>";
-		if($this->value & 0x02) echo "<li>Global scope</li>";
-		if($this->value & 0x04) echo "<li>Domain local scope</li>";
-		if($this->value & 0x08) echo "<li>Universal scope</li>";
+		if($this->value & 0x10) echo "<li>" . gettext("Windows Authorization Manager APP_BASIC group") . "</li>";
+		if($this->value & 0x20) echo "<li>" . gettext("Windows Authorization Manager APP_QUERY group") . "</li>";
+		if($this->value & 0x02) echo "<li>" . gettext("Global scope") . "</li>";
+		if($this->value & 0x04) echo "<li>" . gettext("Domain local scope") . "</li>";
+		if($this->value & 0x08) echo "<li>" . gettext("Universal scope") . "</li>";
 		echo "</ul>";
 	}
 
@@ -1151,8 +1151,8 @@ class ldap_attribute
 	{
 		$this->show_enum(
 			array(
-				array("value"=>"FALSE","display_name"=>"Plain Text"),
-				array("value"=>"TRUE","display_name"=>"HTML")
+				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
+				array("value"=>"TRUE","display_name"=>gettext("HTML"))
 				)
 			);
 	}
@@ -1163,8 +1163,8 @@ class ldap_attribute
 	{
 		$this->show_enum(
 			array(
-				array("value"=>"TRUE","display_name"=>"Yes"),
-				array("value"=>"FALSE","display_name"=>"No")
+				array("value"=>"TRUE","display_name"=>gettext("Yes")),
+				array("value"=>"FALSE","display_name"=>gettext("No"))
 				)
 			);
 	}
@@ -1181,10 +1181,10 @@ class ldap_attribute
 	{
 		$this->show_enum(
 			array(
-				array("value"=>"0","display_name"=>"Not known"),
-				array("value"=>"1","display_name"=>"Male"),
-				array("value"=>"2","display_name"=>"Female"),
-				array("value"=>"9","display_name"=>"Not specified")
+				array("value"=>"0","display_name"=>gettext("Not known")),
+				array("value"=>"1","display_name"=>gettext("Male")),
+				array("value"=>"2","display_name"=>gettext("Female")),
+				array("value"=>"9","display_name"=>gettext("Not specified"))
 				)
 			);
 	}
@@ -1216,7 +1216,7 @@ class ldap_attribute
 			foreach($enum as $enum_entry)
 			{
 				if($enum_entry["display_name"] == "")
-					$enum_entry["display_name"] = "(blank)";
+					$enum_entry["display_name"] = "(" . gettext("blank") . ")";
 
 				echo "              <option value=\"" . $enum_entry["value"] . "\""
 					. ($this->value == $enum_entry["value"] ? " selected" : "")
@@ -1236,7 +1236,8 @@ class ldap_attribute
 				}
 
 			if(!$found)
-				echo "Unrecognised value: " . (empty($this->value) ? "(none)" : $this->value);
+				echo gettext("Unrecognised value:") . " "
+					. (empty($this->value) ? "(" . gettext("none") . ")" : $this->value);
 		}
 	}
 
@@ -1547,7 +1548,7 @@ class ldap_attribute
 
 				if($this->show_embedded_links)
 					echo "&nbsp;(<a href=\"https://maps.google.co.uk/?q="
-						. urlencode($this->value) . "\" target=\"_blank\">View map</a>)";
+						. urlencode($this->value) . "\" target=\"_blank\">" . gettext("View map") . "</a>)";
 			}
 	}
 
@@ -1579,7 +1580,7 @@ class ldap_attribute
 					. $this->attribute . "\" value=\"\">";
 			else
 				echo "            <br>\n            <input type=\"checkbox\" name=\"ldap_attribute_"
-					. $this->attribute . "\">Clear Image<br>\n";
+					. $this->attribute . "\">" . gettext("Clear Image") . "<br>\n";
 
 			if($this->required)
 				$style = "border-color:red;border-style:solid";
@@ -1647,26 +1648,26 @@ function show_ldap_bind_error()
 	if($ldap_server->per_user_login_enabled())
 	{
 		if(isset($_SESSION["LOGIN_USER"]))
-			echo "<p>You do not have permission to log in to"
-				. " the address book directory.</p>\n"
-				. "<p><a href=\"user.php\">Log in as a"
-				. " different user</a></p>";
+			echo "<p>" . gettext("You do not have permission to log in to"
+				. " the address book directory.") . "</p>\n"
+				. "<p><a href=\"user.php\">" . gettext("Log in as a"
+				. " different user") . "</a></p>";
 		else
-			echo "<p><a href=\"user.php\">Please log in to"
-				. " use the address book.</a></p>";
+			echo "<p><a href=\"user.php\">" . gettext("Please log in to"
+				. " use the address book.") . "</a></p>";
 	}
 	else
 	{
-		echo "<p>Unable to connect to address book directory."
-			. " (LDAP bind failed)</p>\n";
+		echo "<p>" . gettext("Unable to connect to address book directory."
+			. " (LDAP bind failed)") . "</p>\n";
 
 		// don't show this line if the user has already configured
 		// a non-blank default user
 		if(get_user_setting("ldap_name","__ANONYMOUS__")=="")
-			echo "<p>If you have not already done so, please
-				<a href=\"doc/\">read the manual</a> for how
-				instructions on to configure directory
-				access.</p>";
+			echo "<p>" . sprintf(gettext("If you have not already done so, please
+				%sread the manual%s for
+				instructions on how to configure directory
+				access."),"<a href=\"doc/\">","</a>") . "</p>";
 	}
 }
 
@@ -2046,7 +2047,8 @@ class ldap_entry_list
 		// Item object class is displayed in the tooltip. All
 		// inherited object classes should be listed where no
 		// specific schema entry is recognised.
-		if($item_object_class == "(unrecognised)")
+
+		if($item_object_class == "(" . gettext("unrecognised") . ")")
 		{
 			$item_object_class="";
 			// Subtract 1 is to take into account "count"
@@ -2107,7 +2109,7 @@ class ldap_entry_list
 		if(get_user_setting("allow_delete"))
 			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
 				. urlencode($dn)
-				. "\"><button>Delete</button></a>\n    </td>\n";
+				. "\"><button>" . gettext("Delete") . "</button></a>\n    </td>\n";
 
 		echo "  </tr>\n";
 	}
@@ -2197,9 +2199,9 @@ class ldap_entry_list
 function prereq_components_ok()
 {
 	$php_extn_list = array(
-		array("name"=>"gd","desc"=>"GD Support"),
-		array("name"=>"intl","desc"=>"Internationalization Support"),
-		array("name"=>"ldap","desc"=>"LDAP Support")
+		array("name"=>"gd","desc"=>gettext("GD Support")),
+		array("name"=>"intl","desc"=>gettext("Internationalization Support")),
+		array("name"=>"ldap","desc"=>gettext("LDAP Support"))
 		);
 
 	$missing_php_extn_list="";
@@ -2212,14 +2214,14 @@ function prereq_components_ok()
 	{
 		show_ldap_path("","","folder.png");
 
-		echo "<p>The following PHP extension modules must be "
+		echo "<p>" . gettext("The following PHP extension modules must be "
 			. "installed and enabled in order to use the "
-			. "address book:</p>\n";
+			. "address book:") . "</p>\n";
 
 		echo "<ul>" . $missing_php_extn_list . "</ul>";
 
-		echo "<p>Please see <em>Installation and Basic Setup</em> "
-			. "in the User Guide for more information.</p>";
+		echo "<p>" . gettext("Please see <em>Installation and Basic Setup</em> "
+			. "in the User Guide for more information.") . "</p>";
 	}
 	return empty($missing_php_extn_list);
 }
@@ -2614,7 +2616,7 @@ class ldap_server
 	function get_object_class($entry)
 	{
 		$object_data_found = false;
-		$item_object_class = "(unrecognised)";
+		$item_object_class = "(" . gettext("unrecognised") . ")";
 
 		foreach($this->object_schema as $object_class)
 			if(in_array($object_class["name"],
@@ -2884,17 +2886,16 @@ class ldap_server
 					if($this->get_attribute_schema_setting($attrib,"data_type","text") == "image")
 						if(isset($_POST["ldap_attribute_" . $attrib])
 								&& $_POST["ldap_attribute_" . $attrib] != "")
-							return "Clear attribute '" . $attrib . "'";
+							return sprintf(gettext("Clear attribute '%s'"),$attrib);
 						else
-							return "Set attribute '" . $attrib
-								. "' to contents of '" . $_FILES["ldap_attribute_"
-								. $attrib . "_file"]["name"] . "'";
+							return sprintf(gettext("Set attribute '%s' to the contents of '%s'"),
+								$attrib,$_FILES["ldap_attribute_". $attrib . "_file"]["name"]);
 					else
-						return "Set attribute '" . $attrib
-							. "' to '" . htmlentities($new_val,ENT_COMPAT,"UTF-8") . "'";
+						return sprintf(gettext("Set attribute '%s' to '%s'"),
+							$attrib,htmlentities($new_val,ENT_COMPAT,"UTF-8"));
 				}
 				else
-					return "Error whilst setting attribute '"
+					return gettext("Error whilst setting attribute") . " '"
 						. $attrib . "': " . ldap_error($this->connection) . "<br>";
 			}
 		}
