@@ -721,6 +721,11 @@ class ldap_entry_viewer
 						. "  <input type=\"submit\" value=\"" . gettext("Edit") . "\">\n</form>\n";
 				}
 
+			if(get_user_setting("allow_move") && !$this->edit && 0)
+				echo "<a href=\"move.php?dn="
+					. urlencode($dn)
+					. "\"><button>" . gettext("Move") . "</button></a>\n";
+
 			if(get_user_setting("allow_delete") && !$this->edit)
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
@@ -1780,6 +1785,7 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_view":
 			case "allow_create":
 			case "allow_edit":
+			case "allow_move":
 			case "allow_delete":
 			case "allow_export":
 			case "allow_export_bulk":
