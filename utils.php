@@ -26,6 +26,18 @@ define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 // provide ldap_escape function for PHP <5.6
 if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
 
+// get prefered language from user agent if not explicitly set
+if(!isset($language))
+	$language = substr(getenv("HTTP_ACCEPT_LANGUAGE"),0,2);
+
+// set language
+setlocale(LC_ALL,$language);
+putenv("LANG=" . $language);
+putenv("LANGUAGE=" . $language);
+
+bindtextdomain("main","./locale");
+textdomain("main");
+
 /** Output the site's HTML header elements */
 
 function show_site_header()
@@ -2962,7 +2974,12 @@ class ldap_server
 		include_once("schema/" . $name . ".php");
 		$schema_class_name = $name . "_schema";
 
+                bindtextdomain($schema_class_name,"./locale");
+                textdomain($schema_class_name);
+
 		$schema_class = new $schema_class_name($this);
+
+                textdomain("main");
 	}
 
 	/** Add an object class to the schema
