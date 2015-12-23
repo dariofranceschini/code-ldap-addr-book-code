@@ -3,7 +3,7 @@
 // Address book name (for page title and browser search plugin)
 // --------------------------------------------------------------------
 
-$site_name = "Address Book";
+$site_name = gettext("Address Book");
 
 // --------------------------------------------------------------------
 // Links displayed in page footer
