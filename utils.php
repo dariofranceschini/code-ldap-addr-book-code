@@ -26,17 +26,27 @@ define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 // provide ldap_escape function for PHP <5.6
 if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
 
-// get prefered language from user agent if not explicitly set
-if(!isset($language))
-	$language = substr(getenv("HTTP_ACCEPT_LANGUAGE"),0,2);
+/** Set user interface display language
 
-// set language
-setlocale(LC_ALL,$language);
-putenv("LANG=" . $language);
-putenv("LANGUAGE=" . $language);
+    @param string $language
+	Language code to use
+*/
 
-bindtextdomain("main","./locale");
-textdomain("main");
+function set_language($language)
+{
+	if($language == "__auto__")
+		// get prefered language from user agent
+		$language = substr(getenv("HTTP_ACCEPT_LANGUAGE"),0,2);
+	else
+	{
+		setlocale(LC_ALL,$language);
+		putenv("LANG=" . $language);
+		putenv("LANGUAGE=" . $language);
+
+		bindtextdomain("main","./locale");
+		textdomain("main");
+	}
+}
 
 /** Output the site's HTML header elements */
 

@@ -1,5 +1,22 @@
 <?php
 // --------------------------------------------------------------------
+// User Interface Language
+// --------------------------------------------------------------------
+
+// Specify language to be used for buttons, messages, etc. On Linux
+// systems the corresponding language pack needs to be installed.
+// (Installed language packs can be listed by "locale -a").
+//
+// The address book will be displayed in English if:
+//  - no language is set
+//  - language is set to __auto__ but the user's prefered language is
+//    not available
+
+// set_language("__auto__");	// Detect from browser settings
+// set_language("en_US.UTF-8");	// English (US)
+// set_language("fr_FR.UTF-8");	// French (France)
+
+// --------------------------------------------------------------------
 // Address book name (for page title and browser search plugin)
 // --------------------------------------------------------------------
 
