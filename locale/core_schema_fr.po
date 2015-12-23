@@ -1,0 +1,86 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2015 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-14 20:41+0000\n"
+"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/core.php:9
+msgid "Country Code"
+msgstr "Abréviation du Pays"
+
+#: ../schema/core.php:10
+msgid "Common Name/Full Name"
+msgstr "Nom commun/Nom complet"
+
+#: ../schema/core.php:11
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/core.php:12
+msgid "Fax Number"
+msgstr "Numéro de Télécopieur"
+
+#: ../schema/core.php:13
+msgid "Given Name"
+msgstr "Prénom"
+
+#: ../schema/core.php:14
+msgid "Locality (e.g. Town/City)"
+msgstr "Localité (Ville ou Region)"
+
+#: ../schema/core.php:15
+msgid "E-mail Address"
+msgstr "Adresse de Messagerie"
+
+#: ../schema/core.php:16
+msgid "Member"
+msgstr "Membre"
+
+#: ../schema/core.php:17
+msgid "Office"
+msgstr "Bureau"
+
+#: ../schema/core.php:18
+msgid "Postal Code"
+msgstr "Code Postal"
+
+#: ../schema/core.php:19
+msgid "Surname"
+msgstr "Nom de Famille"
+
+#: ../schema/core.php:20
+msgid "State (or Province/County)"
+msgstr "État (ou Province/Comté)"
+
+#: ../schema/core.php:21
+msgid "Street Address"
+msgstr "Adresse Postale"
+
+#: ../schema/core.php:22
+msgid "Telephone Number"
+msgstr "Numéro de Téléphone"
+
+#: ../schema/core.php:23
+msgid "Job Title"
+msgstr "Intitulé de la Fonction"
+
+#: ../schema/core.php:26
+msgid "Member Of"
+msgstr "Membre De"
+
+#: ../schema/core.php:31
+msgid "Organizational Unit"
+msgstr "Unité d'Organisation"

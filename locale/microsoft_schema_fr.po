@@ -1,0 +1,226 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2015 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-15 01:02+0000\n"
+"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/microsoft.php:14
+msgid "Country Code"
+msgstr "Abréviation du Pays"
+
+#: ../schema/microsoft.php:15
+msgid "Common Name/Full Name"
+msgstr "Nom commun/Nom complet"
+
+#: ../schema/microsoft.php:16
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/microsoft.php:17
+msgid "Fax Number"
+msgstr "Numéro de Télécopieur"
+
+#: ../schema/microsoft.php:18
+msgid "Given Name"
+msgstr "Prénom"
+
+#: ../schema/microsoft.php:19
+msgid "Home Telephone Number"
+msgstr "Numéro de Téléphone Domicile"
+
+#: ../schema/microsoft.php:20
+msgid "Locality (e.g. Town/City)"
+msgstr "Localité (Ville ou Region)"
+
+#: ../schema/microsoft.php:21
+msgid "Members"
+msgstr "Membres"
+
+#: ../schema/microsoft.php:22
+msgid "E-mail Address"
+msgstr "Adresse de Messagerie"
+
+#: ../schema/microsoft.php:23
+msgid "Mobile/Cell Telephone Number"
+msgstr "Numéro de Téléphone Mobile"
+
+#: ../schema/microsoft.php:24
+msgid "Pager Telephone Number"
+msgstr "Numéro de Téléphone Bip"
+
+#: ../schema/microsoft.php:25
+msgid "Office"
+msgstr "Bureau"
+
+#: ../schema/microsoft.php:26
+msgid "Postal Code"
+msgstr "Code Postal"
+
+#: ../schema/microsoft.php:27
+msgid "Surname"
+msgstr "Nom de Famille"
+
+#: ../schema/microsoft.php:28
+msgid "State (or Province/County)"
+msgstr "État (ou Province/Comté)"
+
+#: ../schema/microsoft.php:29
+msgid "Telephone Number"
+msgstr "Numéro de Téléphone"
+
+#: ../schema/microsoft.php:30
+msgid "Thumbnail Logo"
+msgstr "Logo Miniature"
+
+#: ../schema/microsoft.php:31
+msgid "Thumbnail Photograph"
+msgstr "Photo Miniature"
+
+#: ../schema/microsoft.php:32
+msgid "Job Title"
+msgstr "Intitulé de la Fonction"
+
+#: ../schema/microsoft.php:35
+msgid "Photograph"
+msgstr "Photo"
+
+#: ../schema/microsoft.php:38
+msgid "Company"
+msgstr "Société"
+
+#: ../schema/microsoft.php:39
+msgid "Department"
+msgstr "Département"
+
+#: ../schema/microsoft.php:40
+msgid "Display/Preferred Name"
+msgstr "Nom Préféré pour l'Affichage"
+
+#: ../schema/microsoft.php:41
+msgid "Group Type/Scope"
+msgstr "Type et la Portée Groupe"
+
+#: ../schema/microsoft.php:42
+msgid "General Information"
+msgstr "Informations Générales"
+
+#: ../schema/microsoft.php:43
+msgid "Member Of"
+msgstr "Membre De"
+
+#: ../schema/microsoft.php:44
+msgid "Color Printing Supported"
+msgstr "Prend en charge l'impression en couleur"
+
+#: ../schema/microsoft.php:45
+msgid "Double-Sided Printing Supported"
+msgstr "Prend en charge l'impression recto verso"
+
+#: ../schema/microsoft.php:46
+msgid "Paper Available"
+msgstr "Papier disponible"
+
+#: ../schema/microsoft.php:47
+msgid "Paper Supported"
+msgstr "Types de papier pris en charge"
+
+#: ../schema/microsoft.php:48
+msgid "Stapling Supported"
+msgstr "Prend en charge l'agrafage"
+
+#: ../schema/microsoft.php:49
+msgid "Pre-Windows 2000 Account Name"
+msgstr "Nom (antérieur à Windows 2000)"
+
+#: ../schema/microsoft.php:50
+msgid "Street Address"
+msgstr "Adresse Postale"
+
+#: ../schema/microsoft.php:51
+msgid "URL (e.g. web page)"
+msgstr "URL (e.g. page web)"
+
+#: ../schema/microsoft.php:52
+msgid "Creation Date"
+msgstr "Date crée"
+
+#: ../schema/microsoft.php:53
+msgid "Last Modification Date"
+msgstr "Date de dernière modification"
+
+#: ../schema/microsoft.php:54
+msgid "WWW Home Page"
+msgstr "Adresse de Page Web"
+
+#: ../schema/microsoft.php:59
+msgid "Organizational Unit"
+msgstr "Unité d'Organisation"
+
+#: ../schema/microsoft.php:60
+msgid "RPC Services"
+msgstr "Services RPC"
+
+#: ../schema/microsoft.php:61
+msgid "Container"
+msgstr "Conteneur"
+
+#: ../schema/microsoft.php:65
+msgid "Domain"
+msgstr "Domaine"
+
+#: ../schema/microsoft.php:66
+msgid "Group"
+msgstr "Groupe"
+
+#: ../schema/microsoft.php:67
+msgid "Contact"
+msgstr "Contact"
+
+#: ../schema/microsoft.php:68
+msgid "Computer"
+msgstr "Ordinateur"
+
+#: ../schema/microsoft.php:69
+msgid "Foreign Security Principal"
+msgstr "Entité de Sécurité Externe"
+
+#: ../schema/microsoft.php:70
+msgid "Printer"
+msgstr "Imprimante"
+
+#: ../schema/microsoft.php:71
+msgid "Shared Folder"
+msgstr "Dossier Partagé"
+
+#: ../schema/microsoft.php:72
+msgid "User"
+msgstr "Utilisateur"
+
+#: ../schema/microsoft.php:73
+msgid "Query-based Distribution Group"
+msgstr "Groupe de Distribution Fondé sur une Requête"
+
+#: ../schema/microsoft.php:78
+msgid "InetOrgPerson"
+msgstr "InetOrgPerson"
+
+#: ../schema/microsoft.php:93
+msgid "Domain Policy"
+msgstr "Politique de Domaine"
+
+#: ../schema/microsoft.php:94
+msgid "FRS Settings"
+msgstr "Paramètres de FRS"

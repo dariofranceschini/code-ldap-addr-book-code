@@ -4,7 +4,7 @@ PACKAGE_NAME=LDAP Address Book
 PACKAGE_COPYRIGHT=James Turner and other contributors
 
 SCHEMAS=core cosine inetorgperson microsoft mozilla novell schac
-LANGUAGES=en
+LANGUAGES=en fr
 
 # ------------------------------------
 
