@@ -1,3 +1,5 @@
 config.php
 styles_local.css
 notes
+*.mo
+*.pot
