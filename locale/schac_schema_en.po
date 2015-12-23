@@ -1,0 +1,102 @@
+# English translations for LDAP Address package.
+# Copyright (C) 2015 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-14 20:41+0000\n"
+"PO-Revision-Date: 2015-11-14 20:07+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/schac.php:12
+msgid "Preferred Language"
+msgstr "Preferred Language"
+
+#: ../schema/schac.php:13
+msgid "Gender"
+msgstr "Gender"
+
+#: ../schema/schac.php:14
+msgid "Date of Birth"
+msgstr "Date of Birth"
+
+#: ../schema/schac.php:15
+msgid "Place of Birth"
+msgstr "Place of Birth"
+
+#: ../schema/schac.php:16
+msgid "Country of Citizenship"
+msgstr "Country of Citizenship"
+
+#: ../schema/schac.php:17
+msgid "First Surname"
+msgstr "First Surname"
+
+#: ../schema/schac.php:18
+msgid "Second Surname"
+msgstr "Second Surname"
+
+#: ../schema/schac.php:19
+msgid "Personal Title"
+msgstr "Personal Title"
+
+#: ../schema/schac.php:20
+msgid "Home Organization Domain Name"
+msgstr "Home Organization Domain Name"
+
+#: ../schema/schac.php:21
+msgid "Home Organization Type"
+msgstr "Home Organization Type"
+
+#: ../schema/schac.php:22
+msgid "Country of Residence"
+msgstr "Country of Residence"
+
+#: ../schema/schac.php:23
+msgid "Presence Service URL"
+msgstr "Presence Service URL"
+
+#: ../schema/schac.php:24
+msgid "Personal Position"
+msgstr "Personal Position"
+
+#: ../schema/schac.php:25
+msgid "Personal Unique Code"
+msgstr "Personal Unique Code"
+
+#: ../schema/schac.php:26
+msgid "Personal Unique ID"
+msgstr "Personal Unique ID"
+
+#: ../schema/schac.php:27
+msgid "Record Expiry Date"
+msgstr "Record Expiry Date"
+
+#: ../schema/schac.php:28
+msgid "Private Attributes"
+msgstr "Private Attributes"
+
+#: ../schema/schac.php:29
+msgid "User Status"
+msgstr "User Status"
+
+#: ../schema/schac.php:30
+msgid "Project Membership"
+msgstr "Project Membership"
+
+#: ../schema/schac.php:31
+msgid "Project Specific Role"
+msgstr "Project Specific Role"
+
+#: ../schema/schac.php:32
+msgid "Year of Birth"
+msgstr "Year of Birth"

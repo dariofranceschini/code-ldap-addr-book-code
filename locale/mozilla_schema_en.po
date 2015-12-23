@@ -1,0 +1,79 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2015 James Turner
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-14 20:41+0000\n"
+"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/mozilla.php:11
+msgid "Custom 1"
+msgstr "Custom 1"
+
+#: ../schema/mozilla.php:12
+msgid "Custom 2"
+msgstr "Custom 2"
+
+#: ../schema/mozilla.php:13
+msgid "Custom 3"
+msgstr "Custom 3"
+
+#: ../schema/mozilla.php:14
+msgid "Custom 4"
+msgstr "Custom 4"
+
+#: ../schema/mozilla.php:15
+msgid "Street Address 1"
+msgstr "Street Address 1"
+
+#: ../schema/mozilla.php:16 ../schema/mozilla.php:22 ../schema/mozilla.php:31
+#: ../schema/mozilla.php:32
+msgid "Street Address 2"
+msgstr "Street Address 2"
+
+#: ../schema/mozilla.php:17
+msgid "City"
+msgstr "City"
+
+#: ../schema/mozilla.php:18
+msgid "County"
+msgstr "County"
+
+#: ../schema/mozilla.php:19
+msgid "Post Code"
+msgstr "Post Code"
+
+#: ../schema/mozilla.php:20 ../schema/mozilla.php:33
+msgid "Country"
+msgstr "Country"
+
+#: ../schema/mozilla.php:21 ../schema/mozilla.php:23
+msgid "Web Page"
+msgstr "Web Page"
+
+#: ../schema/mozilla.php:24
+msgid "Nickname"
+msgstr "Nickname"
+
+#: ../schema/mozilla.php:25
+msgid "Additional E-Mail"
+msgstr "Additional E-Mail"
+
+#: ../schema/mozilla.php:26
+msgid "Preferred Message Format"
+msgstr "Preferred Message Format"
+
+#: ../schema/mozilla.php:27
+msgid "Chat Name (AIM)"
+msgstr "Chat Name (AIM)"

@@ -1,0 +1,26 @@
+# English translations for LDAP Address package.
+# Copyright (C) 2015 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-14 20:41+0000\n"
+"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/inetorgperson.php:9
+msgid "Display/Preferred Name"
+msgstr "Display/Preferred Name"
+
+#: ../schema/inetorgperson.php:10
+msgid "Photograph"
+msgstr "Photograph"
