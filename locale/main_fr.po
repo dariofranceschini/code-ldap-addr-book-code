@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 03:14+0000\n"
+"POT-Creation-Date: 2015-12-23 14:29+0000\n"
 "PO-Revision-Date: 2015-09-26 14:57+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
@@ -17,9 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../config.php:6 ../utils.php:165
+#: ../config.php:23 ../utils.php:178
 msgid "Address Book"
 msgstr "Carnet d'Adresses"
+
+#: ../config.php:39
+msgid "User Guide"
+msgstr "Mode d'Emploi"
+
+#: ../config.php:41
+msgid "Get Source Code"
+msgstr "Obtenir le Code Source"
 
 #: ../create.php:27 ../index.php:198
 msgid "New Record"
@@ -37,11 +45,11 @@ msgstr "Suivant"
 msgid "Are you sure you want to delete this record?"
 msgstr "Êtes-vous sûr de vouloir supprimer cet enregistrement?"
 
-#: ../delete.php:64 ../utils.php:1180
+#: ../delete.php:64 ../utils.php:1193
 msgid "Yes"
 msgstr "Oui"
 
-#: ../delete.php:67 ../utils.php:1181
+#: ../delete.php:67 ../utils.php:1194
 msgid "No"
 msgstr "Non"
 
@@ -49,7 +57,7 @@ msgstr "Non"
 msgid "Unable to delete record"
 msgstr "Impossible de supprimer le enregistrement"
 
-#: ../delete.php:80 ../delete.php:90 ../delete.php:99 ../utils.php:136
+#: ../delete.php:80 ../delete.php:90 ../delete.php:99 ../utils.php:149
 msgid "Return to the Address Book"
 msgstr "Revenir au carnet d'adresses"
 
@@ -65,7 +73,7 @@ msgstr "Impossible de localiser le enregistrement LDAP"
 msgid "You do not have permission to search the directory"
 msgstr "Vous n'êtes pas autorisé à consulter l'annuaire"
 
-#: ../index.php:129 ../utils.php:1670
+#: ../index.php:129 ../utils.php:1683
 msgid "Please log in to use the address book."
 msgstr "S'il vous plaît vous connecter pour utiliser le carnet d'adresses"
 
@@ -156,7 +164,7 @@ msgstr ""
 msgid "Try again"
 msgstr "Essaye encore"
 
-#: ../utils.php:81
+#: ../utils.php:94
 #, php-format
 msgid ""
 "This Address Book uses Free and Open Source Software, licensed under the "
@@ -165,160 +173,160 @@ msgstr ""
 "Ce carnet d'adresses utilise Logiciels Libres et Open Source, sous licence "
 "selon les termes de la %sLicence Publique Générale GNU Affero version 3%s"
 
-#: ../utils.php:111
+#: ../utils.php:124
 msgid "Search for:"
 msgstr "Recherche pour"
 
-#: ../utils.php:117
+#: ../utils.php:130
 msgid "Search"
 msgstr "Recherche"
 
-#: ../utils.php:179
+#: ../utils.php:192
 msgid "Folder"
 msgstr "Dossier"
 
-#: ../utils.php:192
+#: ../utils.php:205
 msgid "Address Book Entry"
 msgstr "Enregistrement d'adresse"
 
-#: ../utils.php:223
+#: ../utils.php:236
 msgid "Log out"
 msgstr "Déconnecter"
 
-#: ../utils.php:225
+#: ../utils.php:238
 msgid "Log in"
 msgstr "S'identifier"
 
-#: ../utils.php:681
+#: ../utils.php:694
 #, php-format
 msgid "New %s"
 msgstr "Nouveau %s"
 
-#: ../utils.php:714
+#: ../utils.php:727
 msgid "Create record"
 msgstr "Nouvel enregistrement"
 
-#: ../utils.php:717
+#: ../utils.php:730
 msgid "Save changes"
 msgstr "Enregistrer les changements"
 
-#: ../utils.php:722
+#: ../utils.php:735
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../utils.php:730
+#: ../utils.php:743
 msgid "Edit"
 msgstr "Editer"
 
-#: ../utils.php:736
+#: ../utils.php:749
 msgid "Move"
 msgstr "Déplacer"
 
-#: ../utils.php:741 ../utils.php:2127
+#: ../utils.php:754 ../utils.php:2140
 msgid "Delete"
 msgstr "Effacer"
 
-#: ../utils.php:746
+#: ../utils.php:759
 msgid "Save as vCard"
 msgstr "Enregistrer le vCard"
 
-#: ../utils.php:749
+#: ../utils.php:762
 msgid "You do not have permission to view this record"
 msgstr "Vous n'êtes pas autorisé à consulter cet enregistrement"
 
-#: ../utils.php:1088
+#: ../utils.php:1101
 msgid "Unsupported data type:"
 msgstr "Type de données est prise en charge:"
 
-#: ../utils.php:1141
+#: ../utils.php:1154
 msgid "Security group"
 msgstr "Groupe de sécurité"
 
-#: ../utils.php:1141
+#: ../utils.php:1154
 msgid "Distribution group"
 msgstr "Groupe de distribution"
 
-#: ../utils.php:1142
+#: ../utils.php:1155
 msgid "System generated"
 msgstr "Généré par le système"
 
-#: ../utils.php:1145
+#: ../utils.php:1158
 msgid "Windows Authorization Manager APP_BASIC group"
 msgstr "Groupe de Windows Authorization Manager APP_BASIC"
 
-#: ../utils.php:1146
+#: ../utils.php:1159
 msgid "Windows Authorization Manager APP_QUERY group"
 msgstr "Groupe de Windows Authorization Manager APP_QUERY"
 
-#: ../utils.php:1147
+#: ../utils.php:1160
 msgid "Global scope"
 msgstr "Portée mondiale"
 
-#: ../utils.php:1148
+#: ../utils.php:1161
 msgid "Domain local scope"
 msgstr "Portée de domaine local"
 
-#: ../utils.php:1149
+#: ../utils.php:1162
 msgid "Universal scope"
 msgstr "Portée universelle"
 
-#: ../utils.php:1168
+#: ../utils.php:1181
 msgid "Plain Text"
 msgstr "Le Texte Brut"
 
-#: ../utils.php:1169
+#: ../utils.php:1182
 msgid "HTML"
 msgstr "HTML"
 
-#: ../utils.php:1198
+#: ../utils.php:1211
 msgid "Not known"
 msgstr "Pas connu"
 
-#: ../utils.php:1199
+#: ../utils.php:1212
 msgid "Male"
 msgstr "Mâle"
 
-#: ../utils.php:1200
+#: ../utils.php:1213
 msgid "Female"
 msgstr "Femelle"
 
-#: ../utils.php:1201
+#: ../utils.php:1214
 msgid "Not specified"
 msgstr "Non précisé"
 
-#: ../utils.php:1233
+#: ../utils.php:1246
 msgid "blank"
 msgstr "vide"
 
-#: ../utils.php:1253
+#: ../utils.php:1266
 msgid "Unrecognised value:"
 msgstr "Valeur est non reconnu:"
 
-#: ../utils.php:1254
+#: ../utils.php:1267
 msgid "none"
 msgstr "aucun"
 
-#: ../utils.php:1565
+#: ../utils.php:1578
 msgid "View map"
 msgstr "Voir la carte"
 
-#: ../utils.php:1597
+#: ../utils.php:1610
 msgid "Clear Image"
 msgstr "Supprimer l'image"
 
-#: ../utils.php:1665
+#: ../utils.php:1678
 msgid "You do not have permission to log in to the address book directory."
 msgstr "Vous n'êtes pas autorisé à se connecter au carnet d'adresses."
 
-#: ../utils.php:1667
+#: ../utils.php:1680
 msgid "Log in as a different user"
 msgstr "Connectez-vous en tant qu'utilisateur différent"
 
-#: ../utils.php:1675
+#: ../utils.php:1688
 msgid "Unable to connect to address book directory. (LDAP bind failed)"
 msgstr "Impossible de se connecter au annuaire. (LDAP attacher échoué)"
 
-#: ../utils.php:1681
+#: ../utils.php:1694
 #, php-format
 msgid ""
 "If you have not already done so, please\n"
@@ -329,23 +337,23 @@ msgstr ""
 "Si vous ne l'avez pas déjà fait, s'il vous plaît lire le manuel pour des "
 "instructions sur la façon de configurer l'accès de l'annuaire."
 
-#: ../utils.php:2066 ../utils.php:2634
+#: ../utils.php:2079 ../utils.php:2647
 msgid "unrecognised"
 msgstr "méconnu"
 
-#: ../utils.php:2217
+#: ../utils.php:2230
 msgid "GD Support"
 msgstr "Soutien à GD"
 
-#: ../utils.php:2218
+#: ../utils.php:2231
 msgid "Internationalization Support"
 msgstr "Soutien à l'internationalisation"
 
-#: ../utils.php:2219
+#: ../utils.php:2232
 msgid "LDAP Support"
 msgstr "Soutien à LDAP"
 
-#: ../utils.php:2232
+#: ../utils.php:2245
 msgid ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
@@ -353,7 +361,7 @@ msgstr ""
 "Les modules d'extension de PHP suivantes doivent être installés et activés "
 "afin d'utiliser le carnet d'adresses:"
 
-#: ../utils.php:2238
+#: ../utils.php:2251
 msgid ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
@@ -361,21 +369,21 @@ msgstr ""
 "S'il vous plaît voir «Installation et configuration de base» dans le Guide "
 "de l'utilisateur pour plus d'informations."
 
-#: ../utils.php:2904
+#: ../utils.php:2917
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Effacer l'attribut '%s'"
 
-#: ../utils.php:2906
+#: ../utils.php:2919
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Définissez l'attribut '%s' sur le contenu de '%s'"
 
-#: ../utils.php:2909
+#: ../utils.php:2922
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Définissez l'attribut '%s' en '%s'"
 
-#: ../utils.php:2913
+#: ../utils.php:2926
 msgid "Error whilst setting attribute"
 msgstr "Erreur tout attribut changer"

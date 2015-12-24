@@ -36,9 +36,9 @@ $site_name = gettext("Address Book");
 // --------------------------------------------------------------------
 
 $site_footer_links = array(
-	array("url"=>"doc/","text"=>"User Guide"),
+	array("url"=>"doc/","text"=>gettext("User Guide")),
 	array("url"=>"https://sourceforge.net/projects/ldap-addr-book/",
-		"text"=>"Get Source Code")
+		"text"=>gettext("Get Source Code"))
 	);
 
 // --------------------------------------------------------------------
