@@ -21,6 +21,7 @@ class core_schema extends ldap_schema
 			array("name"=>"streetAddress",			"data_type"=>"text_area",	"display_name"=>gettext("Street Address")),
 			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
+			array("name"=>"uid",				"data_type"=>"text",		"display_name"=>gettext("User ID")),
 
 			// used with memberof overlay
 			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of"))

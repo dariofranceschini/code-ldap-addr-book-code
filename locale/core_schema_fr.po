@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-14 20:41+0000\n"
+"POT-Creation-Date: 2016-01-10 15:03+0000\n"
 "PO-Revision-Date: 2015-11-14 20:02+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
@@ -77,10 +77,14 @@ msgstr "Numéro de Téléphone"
 msgid "Job Title"
 msgstr "Intitulé de la Fonction"
 
-#: ../schema/core.php:26
+#: ../schema/core.php:24
+msgid "User ID"
+msgstr "Identificateur d'Utilisateur"
+
+#: ../schema/core.php:27
 msgid "Member Of"
 msgstr "Membre De"
 
-#: ../schema/core.php:31
+#: ../schema/core.php:32
 msgid "Organizational Unit"
 msgstr "Unité d'Organisation"
