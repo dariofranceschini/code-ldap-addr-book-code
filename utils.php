@@ -1718,7 +1718,7 @@ function get_ldap_bind_password()
 		// currently logged in user
 		if(!isset($_SESSION)) session_start();
 
-		return $_SESSION["LOGIN_PASSWORD"];
+		return base64_decode($_SESSION["LOGIN_PASSWORD"]);
 	}
 }
 

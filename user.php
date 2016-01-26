@@ -47,7 +47,7 @@ if(!isset($_SESSION["LOGIN_USER"]))
 			// blank means nobody logged in)
 
 			$_SESSION["LOGIN_USER"] = $_SERVER["PHP_AUTH_USER"];
-			$_SESSION["LOGIN_PASSWORD"] = $_SERVER["PHP_AUTH_PW"];
+			$_SESSION["LOGIN_PASSWORD"] = base64_encode($_SERVER["PHP_AUTH_PW"]);
 
 			if($ldap_server->log_on())
 				return_to_previous_url();
