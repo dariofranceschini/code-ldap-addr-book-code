@@ -99,7 +99,7 @@ if(prereq_components_ok())
 	if($ldap_server->log_on())
 	{
 		if(empty($_GET["vcard"]))
-			if(get_user_setting("allow_search") && get_user_setting("ldap_name")!="__DENY__")
+			if(get_user_setting("allow_search") && get_user_setting("ldap_dn")!="__DENY__")
 				if(!empty($_GET["filter"]))
 					show_search_box($_GET["filter"]);
 				else

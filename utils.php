@@ -1690,7 +1690,7 @@ function show_ldap_bind_error()
 
 		// don't show this line if the user has already configured
 		// a non-blank default user
-		if(get_user_setting("ldap_name","__ANONYMOUS__")=="")
+		if(get_user_setting("ldap_dn","__ANONYMOUS__")=="")
 			echo "<p>" . sprintf(gettext("If you have not already done so, please
 				%sread the manual%s for
 				instructions on how to configure directory
@@ -1734,7 +1734,7 @@ function get_ldap_bind_password()
 
 function ldap_referral_rebind($ldap_link,$referral_uri)
 {
-	$user = get_user_setting("ldap_name");
+	$user = get_user_setting("ldap_dn");
 
 	if($user == "__DENY__")
 		return 1;
@@ -1786,9 +1786,9 @@ function get_user_setting($attrib,$user_name = "")
 				$found = true;
 		}
 
-	if(isset($user_info["ldap_name"]))
-		$user_info["ldap_name"]=str_replace("__USERNAME__",
-			$user_name,$user_info["ldap_name"]);
+	if(isset($user_info["ldap_dn"]))
+		$user_info["ldap_dn"]=str_replace("__USERNAME__",
+			$user_name,$user_info["ldap_dn"]);
 
 	// return the value of the requested attribute
 
@@ -2774,7 +2774,7 @@ class ldap_server
 
 	function log_on()
 	{
-		$user = get_user_setting("ldap_name");
+		$user = get_user_setting("ldap_dn");
 
 		$result=false;
 		if($user != "__DENY__")
@@ -2937,21 +2937,21 @@ class ldap_server
 		Address book login name
 		* __ANONYMOUS__ - settings used when no user logged in by name
 		* __DEFAULT__ - settings used for log in by name but not explicit config
-	    @param string $ldap_name
-		Corresponding LDAP server name
+	    @param string $ldap_dn
+		Corresponding bind DN on LDAP server
 	    @param array $settings
 		Array of permissions/settings for the user
 
 	    @see
 		"configuring users and permissions" in the manual
 	*/
-	function add_user_mapping($login_name,$ldap_name,$settings=array())
+	function add_user_mapping($login_name,$ldap_dn,$settings=array())
 	{
 		// Assign no settings if third argument is not an array
 		if(!is_array($settings)) $settings=array();
 
 		$this->user_map[] = array_merge(
-			array("login_name"=>$login_name,"ldap_name"=>$ldap_name),
+			array("login_name"=>$login_name,"ldap_dn"=>$ldap_dn),
 			$settings);
 	}
 
