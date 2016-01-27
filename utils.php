@@ -2774,10 +2774,10 @@ class ldap_server
 
 	function log_on()
 	{
-		$user = get_user_setting("ldap_dn");
+		$user_bind_dn = get_user_setting("ldap_dn");
 
 		$result=false;
-		if($user != "__DENY__")
+		if($user_bind_dn != "__DENY__")
 		{
 			ldap_set_option($this->connection,
 				LDAP_OPT_PROTOCOL_VERSION,3);
@@ -2785,7 +2785,7 @@ class ldap_server
 			ldap_set_option($this->connection,
 				LDAP_OPT_REFERRALS,$this->follow_referrals);
 
-			$result=@ldap_bind_log($this->connection,$user,
+			$result=@ldap_bind_log($this->connection,$user_bind_dn,
 				get_ldap_bind_password());
 
 			if($this->follow_referrals)
