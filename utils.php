@@ -2937,21 +2937,19 @@ class ldap_server
 		Address book login name
 		* __ANONYMOUS__ - settings used when no user logged in by name
 		* __DEFAULT__ - settings used for log in by name but not explicit config
-	    @param string $ldap_dn
-		Corresponding bind DN on LDAP server
 	    @param array $settings
 		Array of permissions/settings for the user
 
 	    @see
 		"configuring users and permissions" in the manual
 	*/
-	function add_user_mapping($login_name,$ldap_dn,$settings=array())
+	function add_user_mapping($login_name,$settings=array())
 	{
 		// Assign no settings if third argument is not an array
 		if(!is_array($settings)) $settings=array();
 
 		$this->user_map[] = array_merge(
-			array("login_name"=>$login_name,"ldap_dn"=>$ldap_dn),
+			array("login_name"=>$login_name),
 			$settings);
 	}
 

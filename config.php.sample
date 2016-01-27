@@ -83,9 +83,16 @@ $ldap_default_password = "";
 // have any access unless they have logged in by name.
 
 $ldap_server->add_user_mapping("__ANONYMOUS__",
-		$ldap_default_user,
 	array(
-		"ldap_password"=>$ldap_default_password,
+		// LDAP login (or bind DN) to connect to the directory
+		//
+		// If the LDAP server is set up to allow "anonymous bind"
+		// then the the user name and password can be left blank,
+		// otherwise replace with a "generic" user that has read
+		// permission.
+
+		"ldap_dn"=>"",
+		"ldap_password"=>"",
 
 		// Permissions granted to anonymous users:
 
@@ -103,11 +110,12 @@ $ldap_server->add_user_mapping("__ANONYMOUS__",
 // named user (such as a system administrator).
 
 $ldap_server->add_user_mapping("admin",
+	array(
 		// LDAP login (or bind DN) to connect to the directory
-		"Administrator@turnersoft.co.uk",
+		"ldap_dn"=>"Administrator@turnersoft.co.uk",
 
 		// Permissions granted to this user:
-	array(
+
 		"allow_browse"=>true,
 		"allow_search"=>true,
 		"allow_view"=>true,
@@ -127,12 +135,12 @@ $ldap_server->add_user_mapping("admin",
 // __USERNAME__ with the name the user typed into the login box.
 
 $ldap_server->add_user_mapping("__DEFAULT__",
-		// Specify how to convert the user name typed into the
-		// login box into an LDAP login (or bind DN)
-		"__USERNAME__@turnersoft.co.uk",
-
-		// Permissions granted:
 	array(
+		// LDAP login (or bind DN) to connect to the directory
+		"ldap_dn"=>"__USERNAME__@turnersoft.co.uk",
+
+		// Permissions granted to this user:
+
 		"allow_browse"=>true,
 		"allow_search"=>true,
 		"allow_view"=>true,
