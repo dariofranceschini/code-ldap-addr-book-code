@@ -1800,7 +1800,7 @@ function get_user_setting($attrib,$user_name = "")
 		// for the specified user
 		switch($attrib)
 		{
-			case "ldap_user":
+			case "ldap_dn":
 				return "__DENY__"; break;
 			case "allow_browse":
 			case "allow_search":
