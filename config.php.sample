@@ -9,7 +9,7 @@
 //
 // The address book will be displayed in English if:
 //  - no language is set
-//  - language is set to __auto__ but the user's prefered language is
+//  - language is set to __auto__ but the user's preferred language is
 //    not available
 
 // set_language("__auto__");	// Detect from browser settings
