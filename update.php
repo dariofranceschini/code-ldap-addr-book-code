@@ -159,7 +159,7 @@ if($ldap_server->log_on())
 
 				show_ldap_path($dn,$ldap_base_dn,$ldap_server->get_icon_for_ldap_entry($entry[0]));
 
-				if(get_user_setting("allow_search") && get_user_setting("ldap_dn")!="__DENY__")
+				if(get_user_setting("allow_search") && get_user_setting("allow_login"))
 					show_search_box("");
 
 				if($change_list == "")

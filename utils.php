@@ -1736,7 +1736,7 @@ function ldap_referral_rebind($ldap_link,$referral_uri)
 {
 	$user = get_user_setting("ldap_dn");
 
-	if($user == "__DENY__")
+	if(get_user_setting("allow_login"))
 		return 1;
 	else
 		return @ldap_bind_log($ldap_link,$user,
@@ -1811,6 +1811,7 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_delete":
 			case "allow_export":
 			case "allow_export_bulk":
+			case "allow_login":
 				return false; break;
 			default:
 				return null;
@@ -2795,11 +2796,11 @@ class ldap_server
 	{
 		global $ldap_base_dn;
 
-		$user_bind_dn = get_user_setting("ldap_dn");
-
 		$result=false;
-		if($user_bind_dn != "__DENY__")
+		if(get_user_setting("allow_login"))
 		{
+			$user_bind_dn = get_user_setting("ldap_dn");
+
 			ldap_set_option($this->connection,
 				LDAP_OPT_PROTOCOL_VERSION,3);
 
@@ -3030,6 +3031,10 @@ class ldap_server
 	{
 		// Assign no settings if third argument is not an array
 		if(!is_array($settings)) $settings=array();
+
+		// Assume "allow_login"=true if not explicitly set
+		if(!array_key_exists("allow_login",$settings))
+			$settings["allow_login"] = true;
 
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name),
