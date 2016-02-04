@@ -2435,6 +2435,7 @@ class ldap_server
 		- ad - Microsoft Active Directory
 		- edir - Novell eDirectory
 		- openldap - OpenLDAP
+		- custom - Custom type (configure schema, etc, "by hand")
 	*/
 	var $server_type;
 
