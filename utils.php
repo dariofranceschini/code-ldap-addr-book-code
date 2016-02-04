@@ -2935,7 +2935,7 @@ class ldap_server
 	    Defines the permissions that should be given to the user
 
 	    @param string $login_name
-		Address book login name
+		Address book login name. Special names:
 		* __ANONYMOUS__ - settings used when no user logged in by name
 		* __DEFAULT__ - settings used for log in by name but not explicit config
 	    @param array $settings
