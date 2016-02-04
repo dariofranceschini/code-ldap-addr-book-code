@@ -3028,7 +3028,7 @@ class ldap_server
 	    @see
 		"configuring users and permissions" in the manual
 	*/
-	function add_user_mapping($login_name,$settings=array())
+	function add_user($login_name,$settings=array())
 	{
 		// Assign no settings if third argument is not an array
 		if(!is_array($settings)) $settings=array();

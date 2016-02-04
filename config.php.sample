@@ -109,7 +109,7 @@ $ldap_server->dn_search_password = "";
 // Remove or comment out this section if you don't want to people to
 // have any access unless they have logged in by name.
 
-$ldap_server->add_user_mapping("__ANONYMOUS__",
+$ldap_server->add_user("__ANONYMOUS__",
 	array(
 		// LDAP login (or bind DN) to connect to the directory
 		//
@@ -136,7 +136,7 @@ $ldap_server->add_user_mapping("__ANONYMOUS__",
 // The following shows how to grant extra permissions to a specifc
 // named user (such as a system administrator).
 
-$ldap_server->add_user_mapping("admin",
+$ldap_server->add_user("admin",
 	array(
 		// LDAP login (or bind DN) to connect to the directory
 		"ldap_dn"=>"Administrator@turnersoft.co.uk",
@@ -161,7 +161,7 @@ $ldap_server->add_user_mapping("admin",
 // The user's LDAP login (or bind DN) will be created by replacing
 // __USERNAME__ with the name the user typed into the login box.
 
-$ldap_server->add_user_mapping("__DEFAULT__",
+$ldap_server->add_user("__DEFAULT__",
 	array(
 		// LDAP login (or bind DN) to connect to the directory
 //		"ldap_dn"=>"cn=__USERNAME__,o=turnersoft",
