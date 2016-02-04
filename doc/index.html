@@ -1721,14 +1721,14 @@ $ldap_server->add_display_layout("printQueue",array(
 
 <tr><th colspan=2>Schema Configuration</th></tr>
 
-<tr><td><code>$search_server->add_schema()</code></td>
+<tr><td><code>$ldap_server->add_schema()</code></td>
     <td>Adds the contents of a schema file to the Address Book.
      <p>
      Example:<br>
-     <code>$search_server->add_schema("mozilla");</code>
+     <code>$ldap_server->add_schema("mozilla");</code>
      </p></td></tr>
 
-<tr><td><code>$search_server->add_object_class()</code></td>
+<tr><td><code>$ldap_server->add_object_class()</code></td>
     <td>Adds a new object class to the schema.
      <p>
      Example:<br>
@@ -1740,7 +1740,7 @@ $ldap_server->add_display_layout("printQueue",array(
 	);</pre>
      </p></td></tr>
 
-<tr><td><code>$search_server->add_attribute_class()</code></td>
+<tr><td><code>$ldap_server->add_attribute_class()</code></td>
     <td>Adds a new attribute class to the schema.
      <p>
      Example:<br>
@@ -1750,14 +1750,14 @@ $ldap_server->add_display_layout("printQueue",array(
 	);</pre>
      </p></td></tr>
 
-<tr><td><code>$search_server->delete_object_class()</code></td>
+<tr><td><code>$ldap_server->delete_object_class()</code></td>
     <td>Deletes an object class from the schema.
      <p>
      Example:<br>
      <code>$ldap_server->delete_object_class("container");</code>
      </p></td></tr>
 
-<tr><td><code>$search_server->delete_attribute_class()</code></td>
+<tr><td><code>$ldap_server->delete_attribute_class()</code></td>
     <td>Deletes an attribute class from the schema.
      <p>
      Example:<br>
