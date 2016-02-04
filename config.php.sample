@@ -66,18 +66,44 @@ $ldap_server = new ldap_server(
 $ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
 
 // --------------------------------------------------------------------
+// Settings for looking up user login names into LDAP bind DNs
+// --------------------------------------------------------------------
+
+// Location which will be searched to look up user's DN during the
+// login process.
+//
+// Configure this setting to search for login user accounts outside
+// the part of the directory tree containing the Address Book. If this
+// setting is not configured then searches will start from
+// $ldap_base_dn.
+
+// $ldap_server->dn_search_base = "CN=Users,DC=turnersoft,DC=co,DC=uk";
+
+// LDAP credentials used to search for the user's DN during the
+// login process.
+//
+// Use a "generic" user that has only read permission to search for a
+// user's DN.
+//
+// If these settings are not configured (or if both the user name and
+// password are empty) then an "anonymous bind" will be used.
+
+$ldap_server->dn_search_user = "";
+$ldap_server->dn_search_password = "";
+
+// Search filter used to look up a user's DN during the login process.
+//
+// If this setting is not configure then set then a default search filter
+// will be used (which is appropriate to the directory type).
+
+// $ldap_server->dn_search_filter = "(uid=__USERNAME__)";
+
+// --------------------------------------------------------------------
 // User names and passwords for logging on to the LDAP server
 // --------------------------------------------------------------------
 
 // Default credentials used to browse the directory when no user has
 // explicitly logged in ("anonymous" access).
-
-$ldap_default_user = "";
-$ldap_default_password = "";
-
-// If the LDAP server is set up to allow "anonymous bind" then the
-// the user name and password can be left blank, otherwise replace
-// with a "generic" user that has read permission.
 //
 // Remove or comment out this section if you don't want to people to
 // have any access unless they have logged in by name.

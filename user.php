@@ -94,6 +94,7 @@ function reset_login_session()
 	unset($_SESSION["LOGIN_SENT"]);
 	unset($_SESSION["LOGIN_USER"]);
 	unset($_SESSION["LOGIN_PASSWORD"]);
+	unset($_SESSION["LOGIN_BIND_DN"]);
 }
 
 /** Redirect user to their previous URL once login has been completed
