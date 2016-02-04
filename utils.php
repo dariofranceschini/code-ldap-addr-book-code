@@ -2796,7 +2796,6 @@ class ldap_server
 	{
 		global $ldap_base_dn;
 
-		$result=false;
 		if(get_user_setting("allow_login"))
 		{
 			$user_bind_dn = get_user_setting("ldap_dn");
@@ -2883,6 +2882,8 @@ class ldap_server
 			if(!ini_get("date.timezone"))
 				date_default_timezone_set("UTC");
 		}
+		else
+			$result=false;
 
 		return $result;
 	}
