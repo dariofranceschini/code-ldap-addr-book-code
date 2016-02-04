@@ -13,6 +13,7 @@
 //    not available
 
 // set_language("__auto__");	// Detect from browser settings
+
 // set_language("en_US.UTF-8");	// English (US)
 // set_language("fr_FR.UTF-8");	// French (France)
 
@@ -163,7 +164,7 @@ $ldap_server->add_user_mapping("admin",
 $ldap_server->add_user_mapping("__DEFAULT__",
 	array(
 		// LDAP login (or bind DN) to connect to the directory
-		"ldap_dn"=>"__USERNAME__@turnersoft.co.uk",
+//		"ldap_dn"=>"cn=__USERNAME__,o=turnersoft",
 
 		// Permissions granted to this user:
 
