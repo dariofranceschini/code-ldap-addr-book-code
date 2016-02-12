@@ -48,6 +48,7 @@ if(!isset($_SESSION["LOGIN_USER"]))
 
 			$_SESSION["LOGIN_USER"] = $_SERVER["PHP_AUTH_USER"];
 			$_SESSION["LOGIN_PASSWORD"] = base64_encode($_SERVER["PHP_AUTH_PW"]);
+			$_SESSION["CACHED_PERMISSIONS"] = array();
 
 			if($ldap_server->log_on())
 				return_to_previous_url();
@@ -95,6 +96,7 @@ function reset_login_session()
 	unset($_SESSION["LOGIN_USER"]);
 	unset($_SESSION["LOGIN_PASSWORD"]);
 	unset($_SESSION["LOGIN_BIND_DN"]);
+	unset($_SESSION["CACHED_PERMISSIONS"]);
 }
 
 /** Redirect user to their previous URL once login has been completed
