@@ -1812,6 +1812,7 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_export":
 			case "allow_export_bulk":
 			case "allow_login":
+			case "allow_folder_info":
 				$attrib_value = false; break;
 			default:
 				$attrib_value = null;
