@@ -1793,7 +1793,7 @@ function get_user_setting($attrib,$user_name = "")
 	// return the value of the requested attribute
 
 	if(isset($user_info[$attrib]))
-		return $user_info[$attrib];
+		$attrib_value = $user_info[$attrib];
 	else
 	{
 		// default values to return if setting is undefined
@@ -1801,7 +1801,7 @@ function get_user_setting($attrib,$user_name = "")
 		switch($attrib)
 		{
 			case "ldap_dn":
-				return "__SEARCH__"; break;
+				$attrib_value = "__SEARCH__"; break;
 			case "allow_browse":
 			case "allow_search":
 			case "allow_view":
@@ -1812,11 +1812,13 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_export":
 			case "allow_export_bulk":
 			case "allow_login":
-				return false; break;
+				$attrib_value = false; break;
 			default:
-				return null;
+				$attrib_value = null;
 		}
 	}
+
+	return $attrib_value;
 }
 
 /** Sort an array of LDAP entries against one or more attributes.
