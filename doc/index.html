@@ -35,9 +35,9 @@
   <li>Installation on Windows: Apache HTTP Server or Microsoft IIS
   <li>Set up access to the directory service
   </ol>
+<li><a href="#config_users">Configuring Users and Permissions</a>
 <li><a href="#customising">Customising the Address Book</a>
   <ol>
-  <li>Configuring users and permissions
   <li>Changing the attributes shown for search results
   <li>Applying language-specific sorting rules for search results
   <li>Applying custom LDAP filters to directory browsing and searching
@@ -278,10 +278,8 @@ don't need to create a new user account or fill in
 at all.
 </p>
 <hr>
-<a name="customising"></a>
-<h2>Customising the Address Book</h2>
-
-<h3>Configuring users and permissions</h3>
+<a name="config_users"></a>
+<h2>Configuring Users and Permissions</h2>
 <p>
 The LDAP address book supports logging in with named user
 accounts. Typically, this is used by administrators
@@ -449,6 +447,8 @@ $ldap_server-&gt;add_user_mapping("admin","Administrator@example.org",
                 "allow_export_bulk"=&gt;true
         ));
 </pre>
+<a name="customising"></a>
+<h2>Customising the Address Book</h2>
 <h3>Changing the attributes shown for search results</h3>
 <p>
 The fields/attributes that are used when searching can be customised
@@ -646,8 +646,8 @@ the Address Book then these attributes must be included in your
 directory entry layout so that users can fill them in.
 </p>
 <ul>
-<li><i>Configuring users and permissions</i> (above) describes how
-to allow creating/editing of records.
+<li><a href="#config_users">Configuring Users and Permissions</a>
+describes how to allow creating/editing of records.
 
 <li>Your directory service's schema documentation should list which
 attributes must have values.
@@ -1332,7 +1332,8 @@ in order to indicate the type of data and how it should be displayed/edited:
 <tr><td><code>$ldap_server-&gt;add_user_mapping()</code></td>
     <td>Specifies the mapping between address book logins and the
     back-end directory when per-user authentication is enabled.
-    (see "Configuring users and permissions" above.)
+    (see <a href="#config_users">Configuring Users and Permissions<a>
+    for further information.)
     <br>&nbsp;<br>
     This setting can be repeated for however many user mappings
     need are needed.
