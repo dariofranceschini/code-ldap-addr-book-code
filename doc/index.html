@@ -1245,15 +1245,17 @@ in order to indicate the type of data and how it should be displayed/edited:
         (or Samba 4 Active Directory)<br>
         <code>edir</code> - Novell eDirectory<br>
         <code>openldap</code> - OpenLDAP (core/inetorgperson schema)</p>
-    <li><p>Host name, port number or LDAP URL</p>
+    <li><p>Host name, port number or LDAP URL (or several, separated by spaces)</p>
     <li><p>Port number (optional)</p>
     </ul>
     <p>Examples:<br>
     <code>$ldap_server = new ldap_server("openldap","ldap.example.org");</code><br>
+
+    <code>$ldap_server = new ldap_server("openldap","ldap.example.org ldap-backup.example.org");</code>
+     - fail over to a backup LDAP server if first is not available<br>
+
     <code>$ldap_server = new ldap_server("openldap","ldapi://",0);</code>
      - connect to local server via a UNIX domain socket</p>
-
-
 
     <p>Active Directory-specific Options:</p><p>
     (1) As an alternative to giving the name of a specific server (domain
