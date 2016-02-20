@@ -323,17 +323,6 @@ created:
     to the LDAP server (e.g. how to convert it into a "bind DN").
 </ul>
 <p>
-Setting a specific user's LDAP login to <code>__DENY__</code> prevents
-that user from accessing the address book (whilst still allowing others
-to log in using settings from the <code>__DEFAULT__</code> user map
-entry). For example, the following might be used to prevent the
-directory's top-level administrative user from being (mis)used to
-browse the address book:
-</p>
-<p>
-<code>$ldap_server->add_user_mapping("admin","__DENY__");</code>
-</p>
-<p>
 The following settings can be applied to each user map entry
 in order to enable or disable various features of the
 address book. To use each feature, the necessary permissions
@@ -449,6 +438,17 @@ $ldap_server-&gt;add_user_mapping("admin","Administrator@example.org",
                 "allow_export_bulk"=&gt;true
         ));
 </pre>
+<p>
+Setting a specific user's LDAP login to <code>__DENY__</code> prevents
+that user from accessing the address book (whilst still allowing others
+to log in using settings from the <code>__DEFAULT__</code> user map
+entry). For example, the following might be used to prevent the
+directory's top-level administrative user from being (mis)used to
+browse the address book:
+</p>
+<p>
+<code>$ldap_server->add_user_mapping("admin","__DENY__");</code>
+</p>
 <a name="customising"></a>
 <h2>Customising the Address Book</h2>
 <h3>Changing the attributes shown for search results</h3>
