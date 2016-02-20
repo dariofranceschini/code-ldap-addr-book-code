@@ -1626,35 +1626,35 @@ $ldap_server->add_display_layout("printQueue",array(
     <td>Specifies the format/layout for displaying attributes
         containing dates on an LDAP entry's "detailed info" page.
         <p>
-        The following tokens (each consisting of % followed by a
+        The following tokens (each consisting of <code>%</code> followed by a
         letter) used to describe the format/layout:
         </p>
         <ul>
-        <li>%a - An abbreviated textual representation of the day
-        <li>%A - A full textual representation of the day
-        <li>%d - Two-digit day of the month (with leading zeros)
-        <li>%e - Day of the month, with a space preceding single digits. (Not implemented on Windows.)
-        <li>%j - Day of the year, 3 digits with leading zeros
-        <li>%u - ISO-8601 numeric representation of the day of the week
-        <li>%w - Numeric representation of the day of the week
-        <li>%U - Week number of the given year, starting with the first Sunday as the first week
-        <li>%V - ISO-8601:1988 week number of the given year, starting with the first week of the year with at least 4 weekdays, with Monday being the start of the week
-        <li>%W - A numeric representation of the week of the year, starting with the first Monday as the first week
-        <li>%b - Abbreviated month name, based on the locale
-        <li>%B - Full month name, based on the locale
-        <li>%h - Abbreviated month name, based on the locale (an alias of %b)
-        <li>%m - Two digit representation of the month
-        <li>%C - Two digit representation of the century (year divided by 100, truncated to an integer)
-        <li>%g - Two digit representation of the year going by ISO-8601:1988 standards (see %V)
-        <li>%G - The full four-digit version of %g
-        <li>%y - Two digit representation of the year
-        <li>%Y - Four digit representation for the year
-        <li>%D - Same as "%m/%d/%y"
-        <li>%F - Same as "%Y-%m-%d" (commonly used in database datestamps)
-        <li>%x - Preferred date representation based on locale (without the time)
-        <li>%n - A newline character ("\n")
-        <li>%t - A Tab character ("\t")
-        <li>%% - A literal percentage character ("%")
+        <li><code>%a</code> - An abbreviated textual representation of the day
+        <li><code>%A</code> - A full textual representation of the day
+        <li><code>%d</code> - Two-digit day of the month (with leading zeros)
+        <li><code>%e</code> - Day of the month, with a space preceding single digits. (Not implemented on Windows.)
+        <li><code>%j</code> - Day of the year, 3 digits with leading zeros
+        <li><code>%u</code> - ISO-8601 numeric representation of the day of the week
+        <li><code>%w</code> - Numeric representation of the day of the week
+        <li><code>%U</code> - Week number of the given year, starting with the first Sunday as the first week
+        <li><code>%V</code> - ISO-8601:1988 week number of the given year, starting with the first week of the year with at least 4 weekdays, with Monday being the start of the week
+        <li><code>%W</code> - A numeric representation of the week of the year, starting with the first Monday as the first week
+        <li><code>%b</code> - Abbreviated month name, based on the locale
+        <li><code>%B</code> - Full month name, based on the locale
+        <li><code>%h</code> - Abbreviated month name, based on the locale (an alias of <code>%b</code>)
+        <li><code>%m</code> - Two digit representation of the month
+        <li><code>%C</code> - Two digit representation of the century (year divided by 100, truncated to an integer)
+        <li><code>%g</code> - Two digit representation of the year going by ISO-8601:1988 standards (see <code>%V</code>)
+        <li><code>%G</code> - The full four-digit version of <code>%g</code>
+        <li><code>%y</code> - Two digit representation of the year
+        <li><code>%Y</code> - Four digit representation for the year
+        <li><code>%D</code> - Same as <code>%m/%d/%y</code>
+        <li><code>%F</code> - Same as <code>%Y-%m-%d</code> (commonly used in database datestamps)
+        <li><code>%x</code> - Preferred date representation based on locale (without the time)
+        <li><code>%n</code> - A newline character (<code>\n</code>)
+        <li><code>%t</code> - A Tab character (<code>\t</code>)
+        <li><code>%%</code> - A literal percentage character (<code>%</code>)
         </ul>
         <p>(information based on PHP manual)</p>
         <p>Example:<br>
@@ -1668,27 +1668,27 @@ $ldap_server->add_display_layout("printQueue",array(
         entry's "detailed info" page.
         <p>
         See the description of <code>$date_format</code> (above)
-        for a list of tokens (each consisting of % followed by a
+        for a list of tokens (each consisting of <code>%</code> followed by a
         letter) used to describe the format/layout. The following
         additional tokens may be used to describe the time:
         </p>
         <ul>
-        <li>%H - Two digit representation of the hour in 24-hour format
-        <li>%k - Two digit representation of the hour in 24-hour format, with a space preceding single digits
-        <li>%I - Two digit representation of the hour in 12-hour format
-        <li>%l - Hour in 12-hour format, with a space preceding single digits
-        <li>%M - Two digit representation of the minute
-        <li>%p - Upper-case 'AM' or 'PM' based on the given time
-        <li>%P - Lower-case 'am' or 'pm' based on the given time
-        <li>%r - Same as "%I:%M:%S %p"
-        <li>%R - Same as "%H:%M"
-        <li>%S - Two digit representation of the second
-        <li>%T - Same as "%H:%M:%S"
-        <li>%X - Preferred time representation based on locale, without the date
-        <li>%z - The time zone offset. Not implemented as described on Windows. See below for more information.
-        <li>%Z - The time zone abbreviation. Not implemented as described on Windows. See below for more information.
-        <li>%c - Preferred date and time stamp based on locale
-        <li>%s - Unix Epoch Time timestamp (same as the time() function)
+        <li><code>%H</code> - Two digit representation of the hour in 24-hour format
+        <li><code>%k</code> - Two digit representation of the hour in 24-hour format, with a space preceding single digits
+        <li><code>%I</code> - Two digit representation of the hour in 12-hour format
+        <li><code>%l</code> - Hour in 12-hour format, with a space preceding single digits
+        <li><code>%M</code> - Two digit representation of the minute
+        <li><code>%p</code> - Upper-case 'AM' or 'PM' based on the given time
+        <li><code>%P</code> - Lower-case 'am' or 'pm' based on the given time
+        <li><code>%r</code> - Same as <code>%I:%M:%S %p</code>
+        <li><code>%R</code> - Same as <code>%H:%M</code>
+        <li><code>%S</code> - Two digit representation of the second
+        <li><code>%T</code> - Same as <code>%H:%M:%S</code>
+        <li><code>%X</code> - Preferred time representation based on locale, without the date
+        <li><code>%z</code> - The time zone offset. Not implemented as described on Windows. See below for more information.
+        <li><code>%Z</code> - The time zone abbreviation. Not implemented as described on Windows. See below for more information.
+        <li><code>%c</code> - Preferred date and time stamp based on locale
+        <li><code>%s</code> - Unix Epoch Time timestamp (same as the <code>time()</code> function)
         </ul>
         <p>Example:<br>
         <code>
@@ -1701,7 +1701,7 @@ $ldap_server->add_display_layout("printQueue",array(
        the address book.
         <p>
         See the description of <code>$date_format</code> (above)
-        for a list of the tokens (each consisting of % followed by a
+        for a list of the tokens (each consisting of <code>%</code> followed by a
         letter) used to describe the format/layout.
         </p>
         <p>Example:<br>
@@ -1716,7 +1716,7 @@ $ldap_server->add_display_layout("printQueue",array(
         <p>
         See the descriptions of <code>$date_format</code> and
         <code>$date_time_format</code> (above)
-        for lists of the tokens (each consisting of % followed by a
+        for lists of the tokens (each consisting of <code>%</code> followed by a
         letter) used to describe the format/layout.
         </p>
         <p>Example:<br>
