@@ -385,7 +385,7 @@ to browse, search and view Microsoft Active Directory (domain name
 <code>example.org</code>):
 </p>
 <pre>
-ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
+$ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
@@ -404,7 +404,7 @@ permission to all users inside the <code>home</code> container at the
 top level of a Novell eDirectory tree:
 </p>
 <pre>
-ldap_server-&gt;add_user_mapping("__DEFAULT__","cn=__USERNAME__,dc=home",
+$ldap_server-&gt;add_user_mapping("__DEFAULT__","cn=__USERNAME__,dc=home",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
