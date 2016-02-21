@@ -36,6 +36,12 @@
   <li>Set up access to the directory service
   </ol>
 <li><a href="#config_users">Configuring Users and Permissions</a>
+    <ol>
+    <li>Require users to log in with a user name and password
+    <li>Only allow users in a paricular OU to log in
+    <li>Grant additional permissions to a specific user
+    <li>Deny access to the Address Book for a specific user
+    </ol>
 <li><a href="#customising">Customising the Address Book</a>
   <ol>
   <li>Changing the attributes shown for search results
@@ -368,6 +374,7 @@ will also need to be granted within the back-end directory.
 
 </table>
 
+<h3>Require users to log in with a user name and password</h3>
 <p>
 The following example shows how to grant all logged in users permission
 to browse, search and view Microsoft Active Directory (domain name
@@ -387,6 +394,7 @@ principal name (UPN), i.e. the user name as entered into the login
 box followed by <code>@</code> followed by the domain's DNS name (or
 other allowed UPN suffix, if any have been configured).
 </p>
+<h3>Only allow users in a paricular OU to log in</h3>
 <p>
 The following example shows how to grant browse, search and view
 permission to all users inside the <code>home</code> container at the
@@ -403,6 +411,7 @@ $ldap_server-&gt;add_user_mapping("__DEFAULT__","cn=__USERNAME__,dc=home",
 <p>
 <img src="edir.png">
 </p>
+<h3>Grant additional permissions to a specific user</h3>
 <p>
 The following set of user map entries:
 </p>
@@ -438,6 +447,7 @@ $ldap_server-&gt;add_user_mapping("admin","Administrator@example.org",
                 "allow_export_bulk"=&gt;true
         ));
 </pre>
+<h3>Deny access to the Address Book for a specific user</h3>
 <p>
 Setting a specific user's LDAP login to <code>__DENY__</code> prevents
 that user from accessing the address book (whilst still allowing others
