@@ -307,7 +307,7 @@ User login names, passwords and permissions are taken from the
 LDAP directory itself rather than the address book application.
 </p>
 <p>
-The <code>$ldap_server-&gt;add_user_map()</code> command
+The <code>$ldap_server-&gt;add_user()</code> command
 is used to set up a relationship between the address book's login
 names and the corresponding LDAP bind user names and permissions
 within the back-end directory. Three types of mapping can be
@@ -381,7 +381,7 @@ to browse, search and view Microsoft Active Directory (domain name
 <code>example.org</code>):
 </p>
 <pre>
-$ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
+$ldap_server-&gt;add_user("__DEFAULT__","__USERNAME__@example.org",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
@@ -401,7 +401,7 @@ permission to all users inside the <code>home</code> container at the
 top level of a Novell eDirectory tree:
 </p>
 <pre>
-$ldap_server-&gt;add_user_mapping("__DEFAULT__","cn=__USERNAME__,dc=home",
+$ldap_server-&gt;add_user("__DEFAULT__","cn=__USERNAME__,dc=home",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
@@ -428,14 +428,14 @@ address book login name <code>admin</code> is mapped to
 <code>Administrator@example.org</code>.)
 </p>
 <pre>
-$ldap_server-&gt;add_user_mapping("__ANONYMOUS__","ldap-browse@example.org",
+$ldap_server-&gt;add_user("__ANONYMOUS__","ldap-browse@example.org",
         array(
                 "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
-$ldap_server-&gt;add_user_mapping("admin","Administrator@example.org",
+$ldap_server-&gt;add_user("admin","Administrator@example.org",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
@@ -457,7 +457,7 @@ directory's top-level administrative user from being (mis)used to
 browse the address book:
 </p>
 <p>
-<code>$ldap_server->add_user_mapping("admin","__DENY__");</code>
+<code>$ldap_server->add_user("admin","__DENY__");</code>
 </p>
 <a name="customising"></a>
 <h2>Customising the Address Book</h2>
@@ -1343,7 +1343,7 @@ in order to indicate the type of data and how it should be displayed/edited:
     <code>$ldap_default_password  = "password";</code>
     </p></td></tr>
 
-<tr><td><code>$ldap_server-&gt;add_user_mapping()</code></td>
+<tr><td><code>$ldap_server-&gt;add_user()</code></td>
     <td>Specifies the mapping between address book logins and the
     back-end directory when per-user authentication is enabled.
     (see <a href="#config_users">Configuring Users and Permissions<a>
@@ -1353,14 +1353,14 @@ in order to indicate the type of data and how it should be displayed/edited:
     need are needed.
 
     <br>&nbsp;<br>Example:<br>
-    <pre>$ldap_server-&gt;add_user_mapping("__ANONYMOUS__","ldap-browse@example.org",
+    <pre>$ldap_server-&gt;add_user("__ANONYMOUS__","ldap-browse@example.org",
         array(
                 "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
-$ldap_server-&gt;add_user_mapping("__DEFAULT__","__USERNAME__@example.org",
+$ldap_server-&gt;add_user("__DEFAULT__","__USERNAME__@example.org",
         array(
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
