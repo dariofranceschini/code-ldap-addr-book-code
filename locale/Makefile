@@ -34,12 +34,14 @@ translate: ${MAIN_MO} ${SCHEMA_MO}
 
 main.pot: $(wildcard ../*.php)
 	ls ../*.php | xargs xgettext -o main.pot \
+		--from-code UTF-8 \
 		--package-name="${PACKAGE_NAME}" \
 		--copyright-holder="${PACKAGE_COPYRIGHT}"
 	sed -i -e"s/CHARSET/UTF-8/" $@
 
 %_schema.pot: ../schema/%.php
 	xgettext -o $@ \
+		--from-code UTF-8 \
                 --package-name="${PACKAGE_NAME}" \
                 --copyright-holder="${PACKAGE_COPYRIGHT}" $<
 	sed -i -e"s/CHARSET/UTF-8/" $@
