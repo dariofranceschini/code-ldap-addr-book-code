@@ -45,6 +45,8 @@
     <li>Require users to log in with a user name and password
     <li>Only allow users in a paricular OU to log in
     <li>Grant additional permissions to a specific user
+    <li>Grant permissions based on LDAP group membership
+    <li>Grant access to the Address Book based on LDAP group membership
     <li>Deny access to the Address Book for a specific user
     <li>Changing the user DN search behaviour
     </ol>
@@ -663,6 +665,46 @@ the <code>__DEFAULT__</code> permissions. In the above example,
 <code>admin</code> will not receive the <code>allow_folder_info</code>
 permission.
 </p>
+<h3>Grant permissions based on LDAP group membership</h3>
+<p>
+Permissions can be granted according to LDAP group membership by
+specifying the group name as the permission's value.
+The following example grants all logged in users permission
+to browse, search or view the Address Book. Members of the
+<code>Address Book Admins</code> group are also granted permission
+to create, edit or delete records.
+</p>
+<pre>
+$ldap_server-&gt;add_user("__DEFAULT__",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true,
+                "allow_create"=&gt;"cn=Address Book Admins,ou=HR,o=BigCorp",
+                "allow_edit"=&gt;"cn=Address Book Admins,ou=HR,o=BigCorp",
+                "allow_delete"=&gt;"cn=Address Book Admins,ou=HR,o=BigCorp"
+        ));
+</pre>
+<p>
+Note: Group memberships cannot be used to assign permissions to the
+<code>__ANONYMOUS__</code> user.
+</p>
+<h3>Grant access to the Address Book based on LDAP group membership</h3>
+<p>
+The <code>allow_login</code> permission can be used to decide whether
+users will be allowed to log in to the address book. It is automatically
+granted if not explicitly defined. The following example shows how to grant
+login permission based on group membership:
+</p>
+<pre>
+$ldap_server-&gt;add_user("__DEFAULT__",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true,
+                "allow_login"=&gt;"cn=Address Book Users,ou=HR,o=BigCorp"
+        ));
+</pre>
 <h3>Deny access to the Address Book for a specific user</h3>
 <p>
 A specific user can be prevented from accessing the address book
