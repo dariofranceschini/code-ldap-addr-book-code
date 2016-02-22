@@ -445,7 +445,8 @@ $ldap_server-&gt;add_user("__ANONYMOUS__",
                 "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
-                "allow_view"=&gt;true
+                "allow_view"=&gt;true,
+                "allow_folder_info"=&gt;true
         ));
 $ldap_server-&gt;add_user("admin",
         array(
@@ -460,6 +461,12 @@ $ldap_server-&gt;add_user("admin",
                 "allow_export_bulk"=&gt;true
         ));
 </pre>
+<p>
+Permissions granted to a user by name will be used instead of
+the <code>__DEFAULT__</code> permissions. In the above example,
+<code>admin</code> will not receive the <code>allow_folder_info</code>
+permission.
+</p>
 <h3>Deny access to the Address Book for a specific user</h3>
 <p>
 A specific user can be prevented from accessing the address book
