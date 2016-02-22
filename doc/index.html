@@ -337,6 +337,12 @@ will also need to be granted within the back-end directory.
 <table border=1>
 <tr><th>Setting</th><th>Description</th></tr>
 
+<tr><td><code>ldap_dn</code></td><td>Specifies the LDAP DN (or alternatively
+    the UPN when used with Active Directory) used to log in to the
+    directory. The token <code>__USERNAME__</code> will be replaced
+    by the actual user name as typed into the login dialogue.
+    </td></tr>
+
 <tr><td><code>ldap_password</code></td><td>Specifies the password to
     be used when connecting to the directory. This is only used for
     the <code>__ANONYMOUS__</code> user.</td></tr>
@@ -384,15 +390,16 @@ to browse, search and view Microsoft Active Directory (domain name
 <code>example.org</code>):
 </p>
 <pre>
-$ldap_server-&gt;add_user("__DEFAULT__","__USERNAME__@example.org",
+$ldap_server-&gt;add_user("__DEFAULT__",
         array(
+		"ldap_dn=&gt;"__USERNAME__@example.org",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
 </pre>
 <p>
-To connect to Active Directory, <code>ldap_name</code> should be a user
+When connecting to Active Directory, <code>ldap_dn</code> can be a user
 principal name (UPN), i.e. the user name as entered into the login
 box followed by <code>@</code> followed by the domain's DNS name (or
 other allowed UPN suffix, if any have been configured).
@@ -404,8 +411,9 @@ permission to all users inside the <code>home</code> container at the
 top level of a Novell eDirectory tree:
 </p>
 <pre>
-$ldap_server-&gt;add_user("__DEFAULT__","cn=__USERNAME__,dc=home",
+$ldap_server-&gt;add_user("__DEFAULT__",
         array(
+		"ldap_dn"=&gt;"cn=__USERNAME__,dc=home",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
@@ -431,15 +439,17 @@ address book login name <code>admin</code> is mapped to
 <code>Administrator@example.org</code>.)
 </p>
 <pre>
-$ldap_server-&gt;add_user("__ANONYMOUS__","ldap-browse@example.org",
+$ldap_server-&gt;add_user("__ANONYMOUS__",
         array(
+                "ldap_dn"=&gt;"ldap-browse@example.org",
                 "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
-$ldap_server-&gt;add_user("admin","Administrator@example.org",
+$ldap_server-&gt;add_user("admin",
         array(
+                "ldap_dn"=&gt;"Administrator@example.org",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true,
@@ -460,8 +470,9 @@ account from being (mis)used to browse the address book:
 </p>
 <p>
 <pre>
-$ldap_server-&gt;add_user("Administrator","Administrator@example.org",
+$ldap_server-&gt;add_user("Administrator",
 	array(
+                "ldap_dn"=&gt;"Administrator@example.org",
 		"allow_login"=&gt;false
 	));</pre>
 </p>
@@ -1359,15 +1370,17 @@ in order to indicate the type of data and how it should be displayed/edited:
     need are needed.
 
     <br>&nbsp;<br>Example:<br>
-    <pre>$ldap_server-&gt;add_user("__ANONYMOUS__","ldap-browse@example.org",
+    <pre>$ldap_server-&gt;add_user("__ANONYMOUS__",
         array(
+                "ldap_dn"=&gt;"CN=ldap-browse,O=example",
                 "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
-$ldap_server-&gt;add_user("__DEFAULT__","__USERNAME__@example.org",
+$ldap_server-&gt;add_user("__DEFAULT__",
         array(
+		"ldap_dn"=&gt;"CN=__USERNAME__,O=example",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true,
