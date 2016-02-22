@@ -372,8 +372,11 @@ will also need to be granted within the back-end directory.
     and (if <code>allow_edit</code> is also granted) edit folders, OUs and
     other container objects.</td></tr>
 
-</table>
+<tr><td><code>allow_login</code></td><td>Allows the user to log in to the
+    directory. This permission is granted automatically if not specified
+    explicitly.</td></tr>
 
+</table>
 <h3>Require users to log in with a user name and password</h3>
 <p>
 The following example shows how to grant all logged in users permission
@@ -449,15 +452,18 @@ $ldap_server-&gt;add_user("admin","Administrator@example.org",
 </pre>
 <h3>Deny access to the Address Book for a specific user</h3>
 <p>
-Setting a specific user's LDAP login to <code>__DENY__</code> prevents
-that user from accessing the address book (whilst still allowing others
-to log in using settings from the <code>__DEFAULT__</code> user map
-entry). For example, the following might be used to prevent the
-directory's top-level administrative user from being (mis)used to
-browse the address book:
+A specific user can be prevented from accessing the address book
+(whilst continuing to allow others to log in) by setting their
+"allow_login" permission to "false". For example, the following
+might be used to prevent the directory's top-level administrative
+account from being (mis)used to browse the address book:
 </p>
 <p>
-<code>$ldap_server->add_user("admin","__DENY__");</code>
+<pre>
+$ldap_server-&gt;add_user("Administrator","Administrator@example.org",
+	array(
+		"allow_login"=&gt;false
+	));</pre>
 </p>
 <a name="customising"></a>
 <h2>Customising the Address Book</h2>
