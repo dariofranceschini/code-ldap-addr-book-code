@@ -34,6 +34,11 @@
   <li>Installation on Linux: Apache HTTP Server on Debian/Ubuntu
   <li>Installation on Windows: Apache HTTP Server or Microsoft IIS
   <li>Set up access to the directory service
+  <li>What is an LDAP distinguished name (DN)?
+    <ol>
+    <li>DNs as shown in Active Directory Users and Computers
+    <li>DNs as shown in Novell iManager or ConsoleOne
+    </ol>
   </ol>
 <li><a href="#config_users">Configuring Users and Permissions</a>
     <ol>
@@ -41,6 +46,7 @@
     <li>Only allow users in a paricular OU to log in
     <li>Grant additional permissions to a specific user
     <li>Deny access to the Address Book for a specific user
+    <li>Changing the user DN search behaviour
     </ol>
 <li><a href="#customising">Customising the Address Book</a>
   <ol>
@@ -235,27 +241,12 @@ under Windows is as follows:
 
 <h3>Set up access to the directory service</h3>
 <p>
-The LDAP Address Book will need at least one user login
-account on the directory service in order to access its
-contents. This can be either:
-</p>
-<ul>
-<li>A generic "default" user account, which typically
-    provides read-only access for searching or browsing records.
-<li>Individual (named) login accounts (e.g. admin/editing
-    permissions in future versions of the Address Book)
-</ul>
-<p>
-If you just want to get the LDAP Address Book up and running
-quickly, set up a new user account that provides read-only
-access to your directory, open the file <code>config.php</code>
-in your preferred text editor and fill in
-<code>$ldap_default_user</code> and
-<code>$ldap_default_password</code> with the account's
-credentials.
+First, copy (or rename) the sample configuration file supplied with
+LDAP Address Book, <code>config.php.sample</code> to <code>config.php</code>.
 </p>
 <p>
-You will also need to fill in the following settings:
+Open the file in your preferred text editor and change the following settings
+to tell the application where your Address Book data is stored:
 </p>
 <ul>
 <li><p><code>$ldap_server</code> - Specify the type, host name and
@@ -276,12 +267,231 @@ file using the default "Notepad" text editor. Try downloading and using
 be able to open and edit the file correctly.
 </p>
 <p>
-Note: Some LDAP directory servers may allow read only access
-with a blank user name/password ("anonymous
-bind"). If this is the case then you may find that you
-don't need to create a new user account or fill in
-<code>$ldap_default_user</code> or <code>$ldap_default_password</code>
-at all.
+Some LDAP directory servers will allow limited read access without having to
+enter any user name or password (known as allowing "anonymous bind" access).
+If your directory is set up to allow this then you should be able to open the
+LDAP Address Book in your web browser and view its contents.
+</p>
+<p>Note: Anonymous access may have very limited read permissions. Some
+attributes (e.g. telephone numbers) may appear blank unless you log in by
+name.
+</p>
+<p>
+If anonymous access is not allowed then you'll get the message
+"Please log in to use the address book" when you open the LDAP Address
+Book in your web browser.
+</p>
+<p>
+The LDAP Address Book will need at least one user login account on the
+directory service in order to access its contents. This can be either:
+</p>
+<ul>
+<li>A generic "anonymous" user account, which is used automatically.
+    This typically provides read-only access for searching or browsing
+    records.
+<li>Individual (named) login accounts. These can be given additional
+    permissions, e.g. creating and editing of records.
+</ul>
+<p>
+If you just want to get the LDAP Address Book up and running quickly, set
+up a new user account that provides read-only access to your directory,
+open the <code>config.php</code> in your preferred text editor and locate
+the following section:
+</p>
+<pre>
+$ldap_server-&gt;add_user("__ANONYMOUS__",
+        array(
+                // LDAP login (or bind DN) to connect to the directory
+                //
+                // If the LDAP server is set up to allow "anonymous bind"
+                // then the the user name and password can be left blank,
+                // otherwise replace with a "generic" user that has read
+                // permission.
+
+                <strong>"ldap_dn"=&gt;"",</strong>
+                <strong>"ldap_password"=&gt;"",</strong>
+
+                // Permissions granted to anonymous users:
+
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+        ));
+</pre>
+<p>
+Fill in the values of "ldap_dn" and "ldap_password" with the user account's
+DN and password. Once the details are correct you should be able to open the
+LDAP Address Book in your web browser and view its contents.
+</p>
+<p>
+The section <a href="#ldap_dn">What is an LDAP distinguished name (DN)?</a>
+(below) gives more information about LDAP DNs and how to fill in the
+<code>ldap_dn</code> setting correctly. It is also possible to configure
+individual logging in with individual user names and passwords - see
+<a href="#config_users">Configuring Users and Permissions</a> for more
+information.
+</p>
+<a name="ldap_dn"></a>
+<h3>What is an LDAP distinguished name (DN)?</h3>
+<p>
+You'll need to use LDAP distinguished names (DNs) in a few places when
+configuring the LDAP Address Book:
+</p>
+<ul>
+<li>To specify which part of the LDAP directory contains the
+   Address Book data.
+<li>When setting up users and permissions.
+</ul>
+<p>
+This section gives a brief overview of what a DN is and how to find
+which DNs to use when configuring the Address Book.
+</p>
+
+<p>
+LDAP records are organised into a "directory information tree" (DIT)
+of categories and subcategories - similar to how files and folders
+(directories) are stored on a computer's hard disc.
+</p>
+<p>
+Each record in the directory is identified by it's name and location
+within the tree - known as its "Distinguished Name" or DN. A
+distinguished name consists of a comma-separated representing
+the "navigation path" through the tree to the object.
+Here's an example:
+</p>
+<p>
+<code>CN=John Doe,OU=Friends,O=BigCorp</code>
+</p>
+<p>
+Each item in the list is represented by an attribute and its value.
+In the above example:
+</p>
+<ul>
+<li>"CN=John Doe" means the the object's CN (common name/full name)
+   attribute has the value "John Doe".
+<li>"OU=Friends" means that the OU (organizational unit name)
+   attribute of the location that contains the "John Doe" record
+   has the value "Friends".
+<li>"O=BigCorp" means that the O (organization name) attribute
+   of the location that contains "Friends" has the value "BigCorp".
+</ul>
+<p>
+The attribute used to identify each item varies according to its
+type, for example:
+</p>
+<ul>
+<li>People are generally identified by their full name (or "common name", CN).
+<li>People within an organization's LDAP directory are often grouped
+    into departments or divisions, identified by their "organizational unit
+    name" (OU).
+<li>A company or other organization is identified by its
+    "organization name" (O).
+</ul>
+<p>
+Here's how to work out the DNs from the graphical admin tools
+for Microsoft Active Directory and Novell eDirectory.
+</p>
+<h4>DNs as shown in Active Directory Users and Computers</h4>
+<p>
+The Active Directory Users and Computers admin tool shows the
+LDAP directory tree in the left-hand panel of its window. Icons
+are used to represent the type of each object.
+</p>
+<p>
+<img alt="Active Directory Users and Computers showing example AD domain layout" src="ad.png">
+</p>
+<p>
+The top-level object shown in Active Directory Users and Computers
+is the domain. The name of the domain is shown as a series of
+elements separated by dots (e.g. <code>turnersoft.co.uk</code>),
+however this is not the domain's LDAP distinguished name. Each element
+of the domain name is represented as a separate <em>domain component</em> (DC)
+in LDAP notation:
+</p>
+<p>
+<code>DC=turnersoft,DC=co,DC=uk</code>
+</p>
+<p>
+The second-level elements within the domain include organizational
+units (shown with a folder icon overlaid with a book/grey blob)
+and containers (shown as a folder icon without a book).
+</p>
+<p>
+The DN of the "Home" organizational unit in the above screenshot is:
+</p>
+<p>
+<code>OU=Home,DC=turnersoft,DC=co,DC=uk</code>
+</p>
+<p>
+If you wanted the LDAP Address Book to show only the contents
+of the "Home" organizational unit, you'd configure the
+<code>$ldap_base_dn</code> setting (in <code>config.php</code>)
+as follows:
+</p>
+<p>
+<code>$ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";</code>
+</p>
+<p>
+Containers are similar to organizational units, but are named
+using their CN (common name) attribute. The DN of the "Users"
+container is:
+</p>
+<p>
+<code>CN=Users,DC=turnersoft,DC=co,DC=uk</code>
+</p>
+<p>
+Users are named using their CN (common name) attribute. For
+example, the DN of the <code>Administrator</code> user for this domain
+is
+</p>
+<p>
+<code>CN=Administrator,CN=Users,DC=turnersoft,DC=co,DC=uk</code>
+</p>
+<p>
+LDAP Address Book also allows you to specify an Active Directory
+user by their User Principle Name (UPN), i.e. their user login name
+followed by <code>@</code> followed by the domain's DNS name (or
+other allowed UPN suffix, if any have been configured). This
+allows a user to be specified independently of its position in
+the directory information tree.
+</p>
+<p>
+The <code>Administrator</code> user for this domain has the UPN:
+</p>
+<p>
+<code>Administrator@turnersoft.co.uk</code>
+</p>
+<h4>DNs as shown in Novell iManager or ConsoleOne</h4>
+<p>
+The iManager and ConsoleOne admin tools also show the
+LDAP directory structure as a tree of objects. As with
+Active Directory Users and Computers, icons are used to represent
+the type of each object.
+</p>
+<p>
+<img alt="Novell iManager showing example eDirectory tree layout" src="edir.png">
+</p>
+<p>
+The top-level object is the tree, which is not included in the
+LDAP DN. The DN of the "turnersoft" organization in the above
+screenshot is:
+</p>
+<p>
+<code>o=turnersoft</code>
+</p>
+<p>
+The DN of the "Home" organizational unit in the above screenshot
+is:
+</p>
+<p>
+<code>ou=home,o=turnersoft</code>
+</p>
+<p>
+Users are named using their CN (common name) attribute. For
+example, the DN of the "admin" user for this tree is:
+</p>
+<p>
+<code>cn=admin,o=turnersoft</code>
 </p>
 <hr>
 <a name="config_users"></a>
@@ -294,9 +504,10 @@ if you need to limit browsing/searching access to known
 users.
 </p>
 <p>
-Users can log in under their own names by clicking the
-"log in" link in the top-right corner of each page. (This
-link is not displayed if only anonymous access has been
+Once per-user access has been set up, users can log in
+with their own user names and passwords by clicking the
+"log in" link in the top-right corner of each page.
+(This link is not displayed if only anonymous access has been
 configured.)
 </p>
 <p>
@@ -307,26 +518,31 @@ User login names, passwords and permissions are taken from the
 LDAP directory itself rather than the address book application.
 </p>
 <p>
-The <code>$ldap_server-&gt;add_user()</code> command
-is used to set up a relationship between the address book's login
-names and the corresponding LDAP bind user names and permissions
-within the back-end directory. Three types of mapping can be
-created:
+LDAP does not provide any (standard) way of retreiving a
+user's permissions, so the <code>$ldap_server-&gt;add_user()</code>
+configuration command should be used to tell the Address Book
+which facilities should be made available to each user.
+within the back-end directory.
+</p>
+<p>
+Three types of user mapping can be defined:
 </p>
 <ul>
-<li>The special login name <code>__ANONYMOUS__</code> is used to specify the
-    LDAP login details that the address book should use use when nobody
-    is logged in by name. In most cases this should provide read-only access.
+<li><p>The special user name <code>__ANONYMOUS__</code> is used to specify the
+    LDAP credentials to be used and permissions to be given when nobody
+    is logged in by name. (If the <code>__ANONYMOUS__</code> user is
+    not configured then all users will have to log in by name in order to
+    browse the directory. If it is used, the <code>__ANONYMOUS__</code> user
+    should be given read-only access.)</p>
 
-<li>A specific user's login name can be mapped to a corresponding
-    LDAP login (e.g. to a "bind DN") and permissions associated with it.
+<li><p>The special login name <code>__DEFAULT__</code> is used to specify the
+    permissions to be given when a user has logged in by name.</p>
+
+<li><p>An individual user's login name can be assigned a different set of
+    permissions to those granted to <code>__DEFAULT__</code>.
     This is typically used when setting up an "admin" user for the
-    address book.
+    address book.</p>
 
-<li>The special login name <code>__DEFAULT__</code> is used to grant
-    permissions for any other valid LDAP logins, and to set how the
-    name typed into the Address Book's login box should be passed
-    to the LDAP server (e.g. how to convert it into a "bind DN").
 </ul>
 <p>
 The following settings can be applied to each user map entry
@@ -340,7 +556,8 @@ will also need to be granted within the back-end directory.
 <tr><td><code>ldap_dn</code></td><td>Specifies the LDAP DN (or alternatively
     the UPN when used with Active Directory) used to log in to the
     directory. The token <code>__USERNAME__</code> will be replaced
-    by the actual user name as typed into the login dialogue.
+    by the actual user name as typed into the login dialogue. If not
+    set then the Address Book will search for the user's DN automatically.
     </td></tr>
 
 <tr><td><code>ldap_password</code></td><td>Specifies the password to
@@ -386,29 +603,22 @@ will also need to be granted within the back-end directory.
 <h3>Require users to log in with a user name and password</h3>
 <p>
 The following example shows how to grant all logged in users permission
-to browse, search and view Microsoft Active Directory (domain name
-<code>example.org</code>):
+to browse, search or view the Address Book (assuming the
+<code>__ANONYMOUS__</code> user has been disabled or removed from the
+configuration):
 </p>
 <pre>
 $ldap_server-&gt;add_user("__DEFAULT__",
         array(
-		"ldap_dn=&gt;"__USERNAME__@example.org",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true
         ));
 </pre>
-<p>
-When connecting to Active Directory, <code>ldap_dn</code> can be a user
-principal name (UPN), i.e. the user name as entered into the login
-box followed by <code>@</code> followed by the domain's DNS name (or
-other allowed UPN suffix, if any have been configured).
-</p>
 <h3>Only allow users in a paricular OU to log in</h3>
 <p>
-The following example shows how to grant browse, search and view
-permission to all users inside the <code>home</code> container at the
-top level of a Novell eDirectory tree:
+The following example shows how to allow only those users in a particular
+OU to log in to browse, search or view the Address Book:
 </p>
 <pre>
 $ldap_server-&gt;add_user("__DEFAULT__",
@@ -419,30 +629,16 @@ $ldap_server-&gt;add_user("__DEFAULT__",
                 "allow_view"=&gt;true
         ));
 </pre>
-<p>
-<img src="edir.png">
-</p>
 <h3>Grant additional permissions to a specific user</h3>
 <p>
-The following set of user map entries:
-</p>
-<ul>
-<li>Allow users to browse and search the directory without having to
-    explicitly log in.
-<li>Define an address book administrator (who logs in as <code>admin</code>).
-<li>Disallow other users from logging in by name.
-</ul>
-<p>
-(The anonymous users access the directory as LDAP user
-<code>ldap-browse@example.org</code>, password <code>foobar</code>. The
-address book login name <code>admin</code> is mapped to
-<code>Administrator@example.org</code>.)
+The following example shows how to grant additional permissions to a
+specific user. The user name "admin" will be logged in using
+with Active Directory UPN <code>Administrator@example.org</code>
+(the default domain administrator).
 </p>
 <pre>
-$ldap_server-&gt;add_user("__ANONYMOUS__",
+$ldap_server-&gt;add_user("__DEFAULT__",
         array(
-                "ldap_dn"=&gt;"ldap-browse@example.org",
-                "ldap_password"=&gt;"foobar",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true,
@@ -476,12 +672,34 @@ might be used to prevent the directory's top-level administrative
 account from being (mis)used to browse the address book:
 </p>
 <p>
-<pre>
-$ldap_server-&gt;add_user("Administrator",
-	array(
-                "ldap_dn"=&gt;"Administrator@example.org",
-		"allow_login"=&gt;false
-	));</pre>
+<code>$ldap_server-&gt;add_user("Administrator",array("allow_login"=&gt;false));</code>
+</p>
+<h3>Changing the user DN search behaviour</h3>
+<p>
+The LDAP Address Book searches the directory in order to
+determine a user's DN during the login process.
+</p>
+<p>
+By default, the Address Book will search for login user accounts
+in the same area of the directory as the address book data
+(i.e. under the location indicated by $ldap_base_dn). If you
+wish to store the login accounts in a different location outside
+of this area (e.g. for security reasons) then the setting
+<code>$ldap_server-&gt;dn_search_base</code> can be used:
+</p>
+<p>
+<code>$ldap_server-&gt;dn_search_base = "CN=Users,DC=example,DC=org";</code>
+</p>
+<p>
+Searching is carried out using an anonymous connection
+by default. The <code>$ldap_server-&gt;dn_search_user</code>
+and <code>$ldap_server-&gt;dn_search_password</code> settings
+can be used to specify a different account to use when searching
+for a user's DN:
+</p>
+<p>
+<code>$ldap_server-&gt;dn_search_user = "CN=ldap-browse,OU=Service Accounts,DC=example,DC=org";<br>
+$ldap_server-&gt;dn_search_password = "foobar";</code>
 </p>
 <a name="customising"></a>
 <h2>Customising the Address Book</h2>
@@ -1335,36 +1553,38 @@ in order to indicate the type of data and how it should be displayed/edited:
     </p>
 </td></tr>
 
-<tr><td><code>$ldap_default_user</code></td>
-    <td>User name which will be used by the address book software to
-    access the LDAP directory service (also known as "binding" to the
-    directory). The corresponding password should be provided in
-    <code>$ldap_default_password</code>. If you have enabled
-    authenticated access to the directory then these settings will
-    be used only when nobody is logged in (e.g. to provide read-only
-    access).
+<tr><td><code>$ldap_server-&gt;dn_search_base</code></td>
+    <td>Specifies the search base within the directory for looking
+    up a potential user's DN during the login process.
+    <p>
+    Example:<br>
+    <code>$ldap_server-&gt;dn_search_base = "cn=Users,dc=example,dc=org"</code>
+    </p></td></tr>
+
+<tr><td><code>$ldap_server-&gt;dn_search_user</code></td>
+    <td>Temporary user name (bind DN) used by the address book software
+    to search the LDAP directory for a user's DN when logging in.
+    The corresponding password should be provided in
+    <code>$ldap_server-&gt;dn_search_password</code>.
     <p>
     Examples:<br>
-    <code>$ldap_default_user
-    = "cn=LDAPUser,cn=Users,dc=example,dc=org";</code><br>
-    <code>$ldap_default_user = "cn=LDAPUser,dc=MyDirectory";</code><br>
-    <code>$ldap_default_user  = "LDAPUser@example.org";</code>
+    <code>$ldap_server-&gt;dn_search_user
+    = "cn=LDAPUserLookup,cn=Users,dc=example,dc=org";</code><br>
+    <code>$ldap_server-&gt;dn_search_user = "cn=LDAPUserLookup,dc=MyDirectory";</code><br>
+    <code>$ldap_server-&gt;dn_search_user = "LDAPUserLookup@example.org";</code>
      - Active Directory specific syntax<br>
     </p>
     <p>If the directory is set up to allow read access without having
     to log on then just leave the user name and password blank
     (which will perform an "anonymous bind").</p></td></tr>
 
-<tr><td><code>$ldap_default_password</code></td>
+<tr><td><code>$ldap_server-&gt;dn_search_password</code></td>
     <td>Password corresponding to the account specified in
-    <code>$ldap_default_user</code>, which is used by the
-    address book software to access the LDAP directory service (also
-    known as "binding" to the directory). If you have enabled
-    authenticated access to the directory then these settings will
-    be used only when nobody is logged in (e.g. to provide read-only
-    access).
+    <code>$ldap_server-&gt;dn_search_user</code>, which is used by the
+    address book software to search the LDAP directory for a user's
+    DN when logging in.
     <p>Example:<br>
-    <code>$ldap_default_password  = "password";</code>
+    <code>$ldap_server-&gt;dn_search_password  = "password";</code>
     </p></td></tr>
 
 <tr><td><code>$ldap_server-&gt;add_user()</code></td>
@@ -1387,7 +1607,6 @@ in order to indicate the type of data and how it should be displayed/edited:
         ));
 $ldap_server-&gt;add_user("__DEFAULT__",
         array(
-		"ldap_dn"=&gt;"CN=__USERNAME__,O=example",
                 "allow_browse"=&gt;true,
                 "allow_search"=&gt;true,
                 "allow_view"=&gt;true,
