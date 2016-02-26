@@ -35,7 +35,7 @@ if(prereq_components_ok())
 		switch($search_method)
 		{
 			case 2: // match start of string
-				$attribute_search_template = "(___search_attrib___=*___search_value___)";
+				$attribute_search_template = "(___search_attrib___=___search_value___*)";
 				break;
 			case 1:	// match anywhere in string
 			default:
