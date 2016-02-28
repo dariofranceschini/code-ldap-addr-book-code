@@ -3295,7 +3295,7 @@ class ldap_server
 					$found = true;
 					$selected_layout = $layout["layout"];
 				}
-				if(in_array("*",$layout["object_classes"]))
+				if(in_array("*",$layout["object_classes"]) && empty($selected_layout))
 					$selected_layout = $layout["layout"];
 			}
 		}
