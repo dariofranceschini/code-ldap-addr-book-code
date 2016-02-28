@@ -52,7 +52,7 @@ class novell_schema extends ldap_schema
 			// Novell proprietary classes
 
 			array("name"=>"ncpServer",			"icon"=>"novell/server24.png", "is_folder"=>false,"display_name"=>gettext("NCP Server")),
-			array("name"=>"ldapServer",			"icon"=>"novell/directory-server.png","is_folder"=>false,"display_name"=>gettext("LDAP Server"),"can_create"=>true),
+			array("name"=>"ldapServer",			"icon"=>"novell/ldap-server.png","is_folder"=>false,"display_name"=>gettext("LDAP Server"),"can_create"=>true),
 			array("name"=>"Person",				"icon"=>"contact24.png",		  "is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true),
 			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
 			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png","is_folder"=>false,"display_name"=>gettext("NDSPKI:Key Material"),"can_create"=>true),
