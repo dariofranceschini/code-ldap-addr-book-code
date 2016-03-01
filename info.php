@@ -62,6 +62,16 @@ if(prereq_components_ok())
 				if($search_resource)
 				{
 					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+
+					// assign an object class for eDirectory tree root (not defined
+					// by default)
+					if($ldap_server->server_type="edir" && $dn == "" && !isset($entry[0]["objectclass"]))
+					{
+						$entry[0][  $entry[0]["count"]    ] = "objectclass";
+						$entry[0]["objectclass"][0] = "treeRoot";
+						$entry[0]["count"]++;
+					}
+
 					$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
 					if(!empty($_GET["vcard"]))

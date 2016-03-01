@@ -178,7 +178,11 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		. "<img alt=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	$folder_list = substr($base,0,-strlen($default_base)-1);
+	if($default_base == "")
+		$folder_list = $base;
+	else
+		$folder_list = substr($base,0,-strlen($default_base)-1);
+
 	if($folder_list != "")
 	{
 		$folder_list = ldap_explode_dn2($folder_list);
@@ -193,6 +197,8 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 				$folder_icon="schema/folder.png";
 				if($folder_list[$i-1]["dn"] == $ldap_base_dn)
 					$folder_dn = $ldap_base_dn;
+				else if($ldap_base_dn == "")
+					$folder_dn = $folder_list[$i-1]["dn"];
 				else
 					$folder_dn = $folder_list[$i-1]["dn"]
 						. "," . $ldap_base_dn;
@@ -1443,6 +1449,15 @@ class ldap_attribute
 					if($search_resource)
 					{
 						$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+
+						// assign an object class for eDirectory tree root (not defined
+						// by default)
+						if($ldap_server->server_type="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
+						{
+							$entry[0][$entry[0]["count"]] = "objectclass";
+							$entry[0]["objectclass"][0] = "treeRoot";
+							$entry[0]["count"]++;
+						}
 						$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
 					}
 					else
@@ -1450,10 +1465,15 @@ class ldap_attribute
 
 					$rdn_list = ldap_explode_dn2($value);
 
-					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
-						echo "<img src=\"" . $icon . "\"> <a href=\"info.php?dn=" . $value . "\">" . $rdn_list["0"]["value"] . "</a><br>";
+					if(!empty($rdn_list["0"]["value"]))
+						$value_display_name = $rdn_list["0"]["value"];
 					else
-						echo "<img src=\"" . $icon . "\">" . $rdn_list["0"]["value"] . "<br>";
+						$value_display_name = "[ROOT]";
+
+					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
+						echo "<img src=\"" . $icon . "\"> <a href=\"info.php?dn=" . $value . "\">" . $value_display_name . "</a><br>";
+					else
+						echo "<img src=\"" . $icon . "\">" . $value_display_name . "<br>";
 				}
 		}
 		else echo "(none)";
@@ -2958,6 +2978,8 @@ class ldap_server
 		$dn_base_section = implode(array_slice(ldap_explode_dn($dn,0),
 			-$base_rdn_count),",");
 
+		if($base_dn == "")
+			return true;
 		if($this->compare_dn_supported)
 			return @ldap_compare($this->connection,
 				$base_dn,"DN",$dn_base_section);
