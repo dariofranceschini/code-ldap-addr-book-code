@@ -2045,6 +2045,20 @@ class ldap_entry_list
 
 		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$ldap_entries);
 
+		// Reconstruct any missing RDN attributes using object DNs
+		for($i=0;$i< $this->ldap_entries["count"];$i++)
+		{
+			$dn_elements=ldap_explode_dn2($this->ldap_entries[$i]["dn"]);
+
+			if(!isset($this->ldap_entries[$i][$dn_elements[0]["attrib"]]))
+			{
+				$this->ldap_entries[$i][$this->ldap_entries[$i]["count"]] = $dn_elements[0]["attrib"];
+				$this->ldap_entries[$i][$dn_elements[0]["attrib"]]["count"] = 1;
+				$this->ldap_entries[$i][$dn_elements[0]["attrib"]][0] = $dn_elements[0]["value"];
+				$this->ldap_entries[$i]["count"]++;
+			}
+		}
+
 		// apply user's chosen sort order
 
 		$this->ldap_entries = ldap_sort_entries(
