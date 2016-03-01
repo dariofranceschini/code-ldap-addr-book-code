@@ -23,6 +23,10 @@ define("LDAP_ATTRIBUTE_IS_RDN",true);
 define("MAX_DN_LENGTH",1000);
 define("MAX_IMAGE_UPLOAD",1048576);		// 1 MiB
 
+define("ENTRY_LIST_SHOW_ALL_OBJECTS",1);
+define("ENTRY_LIST_SHOW_FOLDER_OBJECTS",2);
+define("ENTRY_LIST_SHOW_LEAF_OBJECTS",3);
+
 // provide ldap_escape function for PHP <5.6
 if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
 
@@ -2064,16 +2068,70 @@ class ldap_entry_list
 
 	function show()
 	{
+		global $display_folders_separately;
+
 		echo "<table class=\"search_results_viewer\">\n  <tr>\n";
 
-		$this->show_column_headings();
-
-		// Display records
-
-		for($i=0;$i < $this->ldap_entries["count"]; $i++)
-			$this->show_ldap_entry($this->ldap_entries[$i]);
+		if(isset($display_folders_separately) && $display_folders_separately)
+		{
+			$this->show_ldap_entries(ENTRY_LIST_SHOW_FOLDER_OBJECTS);
+			$this->show_ldap_entries(ENTRY_LIST_SHOW_LEAF_OBJECTS);
+		}
+		else
+			$this->show_ldap_entries(ENTRY_LIST_SHOW_ALL_OBJECTS);
 
 		echo "</table>\n";
+
+		if($this->ldap_entries["count"]==0)
+			echo "<p>This is an empty folder</p>";
+	}
+
+	/** Show LDAP entries
+
+	    @param integer $objects_to_show
+		Specifies which type of objects are to be shown
+
+		- ENTRY_LIST_SHOW_ALL_OBJECTS - All objects
+		- ENTRY_LIST_SHOW_FOLDER_OBJECTS - Folder objects only
+		- ENTRY_LIST_SHOW_LEAF_OBJECTS - Leaf (non-folder) objects
+	*/
+
+	function show_ldap_entries($objects_to_show)
+	{
+		$header_shown=false;
+		for($i=0;$i < $this->ldap_entries["count"]; $i++)
+		{
+			$item_object_class = $this->ldap_server->get_object_class($this->ldap_entries[$i]);
+			$item_is_folder = $this->ldap_server->get_object_schema_setting(
+				$item_object_class,"is_folder");
+
+			switch($objects_to_show)
+			{
+				case ENTRY_LIST_SHOW_FOLDER_OBJECTS:
+					$to_be_shown = $item_is_folder;
+					break;
+				case ENTRY_LIST_SHOW_LEAF_OBJECTS:
+					$to_be_shown = !$item_is_folder;
+					break;
+				default:
+					$to_be_shown = true;
+			}
+
+			if($to_be_shown)
+			{
+				if(!$header_shown)
+				{
+					if($objects_to_show == ENTRY_LIST_SHOW_FOLDER_OBJECTS)
+						echo "<th class=\"column_header\" colspan="
+							. (count($this->search_result_columns)+1)
+							. ">Folders</th>";
+					else
+						$this->show_column_headings();
+					$header_shown = true;
+				}
+				$this->show_ldap_entry($this->ldap_entries[$i]);
+			}
+		}
 	}
 
 	/** Display column headings */
