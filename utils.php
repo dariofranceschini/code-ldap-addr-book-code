@@ -2097,7 +2097,7 @@ class ldap_entry_list
 		echo "</table>\n";
 
 		if($this->ldap_entries["count"]==0)
-			echo "<p>This is an empty folder</p>";
+			echo "<p>" . gettext("This is an empty folder") . "</p>";
 	}
 
 	/** Show LDAP entries
