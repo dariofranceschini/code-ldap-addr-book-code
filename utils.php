@@ -2008,8 +2008,7 @@ function ldap_sort_entries_getattrib($entry,$attrib)
 
 class ldap_entry_list
 {
-	/** LDAP search resource containing the LDAP object entries which
-            are to be displayed */
+	/** LDAP object entries which are to be displayed */
 	var $ldap_entries;
 
 	/** Column layout used for displaying search results */
@@ -2037,30 +2036,31 @@ class ldap_entry_list
 	function __construct($ldap_server,$ldap_entries,$search_result_columns,$sort_order)
 	{
 		$this->ldap_server = $ldap_server;
-		$this->ldap_entries = $ldap_entries;
 		$this->search_result_columns = $search_result_columns;
 		$this->sort_order = $sort_order;
+
+		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$ldap_entries);
+
+		// apply user's chosen sort order
+
+		$this->ldap_entries = ldap_sort_entries(
+			$this->ldap_entries,
+			$this->sort_order == "sortableName"
+			? array("sn","givenName","ou","cn")
+			: array($this->sort_order),
+			LDAP_SORT_ASCENDING);
+
 	}
 
 	/** Output address book contents as vCard */
 
 	function save_vcard()
 	{
-		// Fetch and sort records
-
-		$ldap_data = ldap_sort_entries(
-			ldap_get_entries($this->ldap_server->connection,$this->ldap_entries),
-			$this->sort_order == "sortableName"
-			? array("sn","givenName","ou","cn")
-			: array($this->sort_order),
-			LDAP_SORT_ASCENDING);
-
-		for($i=0;$i < $ldap_data["count"]; $i++)
-			echo vcard($ldap_data[$i]) . "\n";
+		for($i=0;$i < $this->ldap_entries["count"]; $i++)
+			echo vcard($this->ldap_entries[$i]) . "\n";
 	}
 
-	/** Output the object entry list as HTML, applying
-	    user's chosen sort order */
+	/** Output the object entry list as HTML */
 
 	function show()
 	{
@@ -2068,19 +2068,10 @@ class ldap_entry_list
 
 		$this->show_column_headings();
 
-		// Fetch and sort records
-
-		$ldap_data = ldap_sort_entries(
-			ldap_get_entries($this->ldap_server->connection,$this->ldap_entries),
-			$this->sort_order == "sortableName"
-			? array("sn","givenName","ou","cn")
-			: array($this->sort_order),
-			LDAP_SORT_ASCENDING);
-
 		// Display records
 
-		for($i=0;$i < $ldap_data["count"]; $i++)
-			$this->show_ldap_entry($ldap_data[$i]);
+		for($i=0;$i < $this->ldap_entries["count"]; $i++)
+			$this->show_ldap_entry($this->ldap_entries[$i]);
 
 		echo "</table>\n";
 	}
