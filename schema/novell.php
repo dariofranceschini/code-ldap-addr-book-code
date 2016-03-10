@@ -62,7 +62,7 @@ class novell_schema extends ldap_schema
 			array("name"=>"ndsPredicateStats",		"icon"=>"novell/stats.png",    "is_folder"=>false),
 			array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false,"display_name"=>gettext("Queue")),
 			array("name"=>"nLSLicenseServer",		"icon"=>"novell/lic_srv.png",  "is_folder"=>false),
-			array("name"=>"nssfsPool",			"icon"=>"novell/raid.png",	  "is_folder"=>false)
+			array("name"=>"nssfsPool",			"icon"=>"novell/nssfs-pool.png",  "is_folder"=>false)
 			);
 
 		parent::__construct($ldap_server);
