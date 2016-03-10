@@ -57,7 +57,7 @@ class novell_schema extends ldap_schema
 			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
 			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png","is_folder"=>false,"display_name"=>gettext("NDSPKI:Key Material"),"can_create"=>true),
 			array("name"=>"sASService",			"icon"=>"novell/security.png", "is_folder"=>false,"display_name"=>gettext("SAS:Service"),"can_create"=>true),
-			array("name"=>"ldapGroup",			"icon"=>"novell/ldapgroup24.png","is_folder"=>false,"display_name"=>gettext("LDAP Group"),"can_create"=>true),
+			array("name"=>"ldapGroup",			"icon"=>"novell/ldap-group.png","is_folder"=>false,"display_name"=>gettext("LDAP Group"),"can_create"=>true),
 			array("name"=>"Volume",				"icon"=>"novell/volume.png",   "is_folder"=>false,"display_name"=>gettext("Volume")),
 			array("name"=>"ndsPredicateStats",		"icon"=>"novell/stats.png",    "is_folder"=>false),
 			array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false,"display_name"=>gettext("Queue")),
