@@ -2851,8 +2851,9 @@ class ldap_server
 		- thumbnailLogo attribute
 		- icon representing object class
 
-	    @param array $entry
-		Entry for which thumbnail URL is to be retrieved
+	    @param mixed $entry
+		Entry for which thumbnail URL is to be retrieved, either
+		as an array of attributes or string containing the DN
 	    @return
 		URL of image. This can be either retrieved from the record
 		itself (if present, and image display is turned on) or an
@@ -2863,6 +2864,18 @@ class ldap_server
 	function get_icon_for_ldap_entry($entry)
 	{
 		global $enable_ldap_path_thumbnail,$thumbnail_image_size;
+
+		// if an object DN was passed then fetch the corresponding LDAP entry
+		if(is_string($entry))
+		{
+			$search_resource = @ldap_read($this->connection,$entry,"(objectclass=*)",array("objectclass"));
+
+			if($search_resource)
+			{
+				$entry = ldap_get_entries($this->connection,$search_resource);
+				$entry = $entry[0];
+			}
+		}
 
 		// Resume existing session (if any exists) in order to get
 		// currently logged in user
