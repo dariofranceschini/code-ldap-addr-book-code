@@ -1460,9 +1460,13 @@ class ldap_attribute
 							$entry[0]["count"]++;
 						}
 						$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
+						$alt_text = $ldap_server->get_object_class($entry[0]);
 					}
 					else
+					{
 						$icon = "schema/generic24.png";
+						$alt_text = "Address Book Entry";
+					}
 
 					$rdn_list = ldap_explode_dn2($value);
 
@@ -1471,10 +1475,12 @@ class ldap_attribute
 					else
 						$value_display_name = "[ROOT]";
 
+					echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
 					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
-						echo "<img src=\"" . $icon . "\"> <a href=\"info.php?dn=" . $value . "\">" . $value_display_name . "</a><br>";
+						echo "<a href=\"info.php?dn=" . $value . "\">" . $value_display_name . "</a>";
 					else
-						echo "<img src=\"" . $icon . "\">" . $value_display_name . "<br>";
+						echo $value_display_name;
+					echo "<br>";
 				}
 		}
 		else echo "(none)";
