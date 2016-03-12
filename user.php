@@ -82,7 +82,7 @@ function show_try_again_message($message)
 {
 	global $ldap_base_dn;
 	show_site_header();
-	show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
+	show_ldap_path($ldap_base_dn,"schema/folder.png");
 	echo "<p>" . $message . "</p>\n";
 	echo "<a href=\"user.php\">" . gettext("Try again") . "</a>\n";
 	show_site_footer();

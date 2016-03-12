@@ -92,7 +92,7 @@ if(prereq_components_ok())
 	}
 
 	if(empty($_GET["vcard"]))
-		show_ldap_path($dn,$ldap_base_dn,"schema/folder.png");
+		show_ldap_path($dn,"schema/folder.png");
 
 	$search_resource = false;
 

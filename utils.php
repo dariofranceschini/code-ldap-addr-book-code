@@ -146,7 +146,7 @@ function show_search_box($initial_value)
 function show_error_message($message)
 {
 	global $ldap_base_dn;
-	show_ldap_path($ldap_base_dn,$ldap_base_dn,"schema/folder.png");
+	show_ldap_path($ldap_base_dn,"schema/folder.png");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
@@ -163,16 +163,13 @@ function show_error_message($message)
     @param string $base
 	The DN for which the breadcrumb navigation is to be
 	displayed
-    @param string $default_base
-	The address book's base DN. Elements of this DN
-	are not to be displayed as breadcrumb elements.
     @param string $leaf_icon
 	Icon image to use for the last item in the path.
 	Typically either the icon for the object class or
 	the object's photo attribute.
 */
 
-function show_ldap_path($base,$default_base,$leaf_icon)
+function show_ldap_path($base,$leaf_icon)
 {
 	global $site_name,$ldap_server,$ldap_base_dn;
 
@@ -182,10 +179,10 @@ function show_ldap_path($base,$default_base,$leaf_icon)
 		. "<img alt=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if($default_base == "")
+	if($ldap_base_dn == "")
 		$folder_list = $base;
 	else
-		$folder_list = substr($base,0,-strlen($default_base)-1);
+		$folder_list = substr($base,0,-strlen($ldap_base_dn)-1);
 
 	if($folder_list != "")
 	{
@@ -704,10 +701,10 @@ class ldap_entry_viewer
 			show_ldap_path("CN=" . sprintf(gettext("New %s"),
 				$ldap_server->get_object_schema_setting(
                                 $ldap_server->get_object_class($this->ldap_entry[0]),
-                                "display_name")) .  "," . $dn,$ldap_base_dn,
+                                "display_name")) .  "," . $dn,
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
-			show_ldap_path($dn,$ldap_base_dn,
+			show_ldap_path($dn,
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 
 		if(get_user_setting("allow_search"))
@@ -2370,7 +2367,7 @@ function prereq_components_ok()
 
 	if(!empty($missing_php_extn_list))
 	{
-		show_ldap_path("","","folder.png");
+		show_ldap_path("","folder.png");
 
 		echo "<p>" . gettext("The following PHP extension modules must be "
 			. "installed and enabled in order to use the "

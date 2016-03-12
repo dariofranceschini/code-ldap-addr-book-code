@@ -54,7 +54,7 @@ if($ldap_server->log_on())
 		if(get_user_setting("allow_delete"))
 		{
 			show_site_header();
-			show_ldap_path($dn,$ldap_base_dn,$icon);
+			show_ldap_path($dn,$icon);
 
 			if(empty($_GET["confirm"]))
 			{
@@ -73,7 +73,7 @@ if($ldap_server->log_on())
 				else
 				{
 					show_site_header();
-					show_ldap_path($dn,$ldap_base_dn,$icon);
+					show_ldap_path($dn,$icon);
 					echo "<p>" . gettext("Unable to delete record") . "</p>";
 
 					echo "<a href=\"" . $return_page_if_not_deleted
@@ -84,7 +84,7 @@ if($ldap_server->log_on())
 		else
 		{
 			show_site_header();
-			show_ldap_path($dn,$ldap_base_dn,$icon);
+			show_ldap_path($dn,$icon);
 			echo "<p>" . gettext("You do not have permission to delete this record") . "</p>"
 				. "<p><a href=\"" . $return_page_if_not_deleted
 				. "\">" . gettext("Return to the Address Book") . "</a></p>";
@@ -93,7 +93,7 @@ if($ldap_server->log_on())
 	else
 	{
 		show_site_header();
-		show_ldap_path($dn,$ldap_base_dn,"contact24.png");
+		show_ldap_path($dn,"contact24.png");
 		echo "<p>" . gettext("Unable to locate LDAP record") . "</p>"
 			. "<p><a href=\"" . $return_page_if_not_deleted
 			. "\">" . gettext("Return to the Address Book") . "</a></p>";
