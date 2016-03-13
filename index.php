@@ -189,17 +189,17 @@ if(empty($_GET["vcard"]))
 
 	if(get_user_setting("allow_folder_info"))
 		$buttons .= "<a href=\"info.php?dn="
-			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+			. urlencode($dn)
 				. "\"><button>" . gettext("Folder Details") . "</button></a>\n";
 
 	if(get_user_setting("allow_create"))
 		$buttons .= "<a href=\"create.php?dn="
-			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+			. urlencode($dn)
 			. "\"><button>" . gettext("New Record") . "</button></a>\n";
 
 	if(get_user_setting("allow_export_bulk") && empty($_GET["filter"]))
 		$buttons .= "<a href=\"index.php?vcard=1&dn="
-			. htmlentities($dn,ENT_COMPAT,"UTF-8")
+			. urlencode($dn)
 			. "\"><button>" . gettext("Export Records") . "</button></a>\n";
 
 	if(!empty($buttons))
