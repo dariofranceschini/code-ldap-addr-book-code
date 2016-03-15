@@ -2419,7 +2419,20 @@ function vcard($entry)
 		$ldap_server->get_object_class($entry)
 		,"rdn_attrib");
 
-	$vcard .= "FN:" . $entry[strtolower($rdn_attrib)][0] . "\n";
+	$rdn_list = explode(",",$rdn_attrib);
+
+	$formatted_name = "";
+	foreach($rdn_list as $rdn)
+	{
+		if($formatted_name != "") $formatted_name .= " + ";
+
+		if(isset($entry[strtolower($rdn)][0]))
+			$formatted_name .= $entry[strtolower($rdn)][0];
+		else
+			$formatted_name .= $entry[strtolower($rdn)];
+	}
+
+	$vcard .= "FN:" . $formatted_name . "\n";
 
 	if(isset($entry["title"][0]))
 		$vcard .= "TITLE:" . $entry["title"][0] . "\n";
@@ -2826,7 +2839,6 @@ class ldap_server
 	function check_object_requires_attribute($object_class,$attribute_name)
 	{
 		// is it required due to being the class's RDN?
-
 		$required = ($this->get_object_schema_setting($object_class,
 			"rdn_attrib")==$attribute_name);
 
