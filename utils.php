@@ -2840,9 +2840,17 @@ class ldap_server
 
 	function check_object_requires_attribute($object_class,$attribute_name)
 	{
+		$required = false;
+
 		// is it required due to being the class's RDN?
-		$required = ($this->get_object_schema_setting($object_class,
-			"rdn_attrib")==$attribute_name);
+
+		$rdn_attrib = explode(",",
+			$this->get_object_schema_setting($object_class,
+			"rdn_attrib"));
+
+		foreach($rdn_attrib as $attrib)
+			if($attrib == $attribute_name)
+				$required = true;
 
 		// if not required due to being the class's RDN attribute,
 		// check whether it is listed in required_attribs
