@@ -77,9 +77,22 @@ if(prereq_components_ok())
 							$ldap_server->get_object_class($entry[0])
 							,"rdn_attrib");
 
+						$rdn_list = explode(",",$rdn_attrib);
+
+						$filename = "";
+						foreach($rdn_list as $rdn)
+						{
+							if($filename != "") $filename .= "_";
+
+							if(isset($entry[0][strtolower($rdn)][0]))
+								$filename .= $entry[0][strtolower($rdn)][0];
+							else
+								$filename .= $entry[0][strtolower($rdn)];
+						}
+
 						header("Content-Type: text/x-vcard");
 						header("Content-Disposition: attachment; filename=\""
-							. $entry[0][strtolower($rdn_attrib)][0] . ".vcf\"");
+							. $filename . ".vcf\"");
 						$entry_viewer->save_vcard();
 					}
 					else
