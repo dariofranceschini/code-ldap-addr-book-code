@@ -255,11 +255,7 @@ function show_ldap_path($base,$leaf_icon)
 
     Decodes the elements of the specified DN into an associative array.
     Correctly handles accented characters - in contrast to the
-    built-in PHP function ldap_explode_dn(), however does not currently
-    support:
-
-	- multi-valued RDNs
-	- DNs which have commas within any of their values.
+    built-in PHP function ldap_explode_dn().
 
     @todo
 	Support for commas in RDN values could do with being
@@ -278,18 +274,24 @@ function ldap_explode_dn2($dn)
 	$dn = explode(",",$dn);
 
 	for($i=0;$i<count($dn);$i++)
+	{
+		$component_dn = "";
+		for($j=$i;$j<count($dn);$j++)
+			$component_dn .= ($j>$i?",":"") . $dn[$j];
+
+		$rdn = explode("+",$dn[$i]);
+
 		$dn[$i] = array(
-			"attrib"=>substr($dn[$i],0,strpos($dn[$i],"=")),
-			"value"=>substr($dn[$i],strpos($dn[$i],"=")+1)
-			);
+			"attrib"=>"",
+			"value"=>"",
+			"dn"=>$component_dn);
 
-	// add the DN of each array element
-	$previous_element_dn="";
-	for($i=count($dn)-1;$i>=0;$i--)
-		$dn[$i]["dn"] = $previous_element_dn = $dn[$i]["attrib"] . "=" . $dn[$i]["value"]
-			. ($previous_element_dn == "" ? "" : ",")
-			. $previous_element_dn;
-
+		for($j=0;$j<count($rdn);$j++)
+		{
+			$dn[$i]["attrib"].=($j==0?"":"+") . substr($rdn[$j],0,strpos($rdn[$j],"="));
+			$dn[$i]["value"].=($j==0?"":" + ") . substr($rdn[$j],strpos($rdn[$j],"=")+1);
+		}
+	}
 	$dn = array("count"=>count($dn)) + $dn;
 
 	return $dn;
