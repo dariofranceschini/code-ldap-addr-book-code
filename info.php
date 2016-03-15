@@ -118,7 +118,7 @@ if(prereq_components_ok())
 	}
 	else
 	{
-		show_ldap_path($ldap_base_dn,"schema/folder.png");
+		show_ldap_path("","schema/folder.png");
 		show_ldap_bind_error();
 	}
 

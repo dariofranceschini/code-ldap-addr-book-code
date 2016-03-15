@@ -146,7 +146,7 @@ function show_search_box($initial_value)
 function show_error_message($message)
 {
 	global $ldap_base_dn;
-	show_ldap_path($ldap_base_dn,"schema/folder.png");
+	show_ldap_path("","schema/folder.png");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
