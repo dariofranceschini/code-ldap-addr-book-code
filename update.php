@@ -168,7 +168,10 @@ if($ldap_server->log_on())
 					echo "<p>" . gettext("Changes made to this record:") . "</p>\n"
 						. "<ul>\n" . $change_list . "</ul>\n\n";
 
-				echo "<p><a href=\"info.php?dn=" . $dn . "\">" . gettext("Back to record") . "</a></p>\n";
+				echo "<p><a href=\"info.php?dn="
+					. urlencode($dn) . "\">"
+					. gettext("Back to record")
+					. "</a></p>\n";
 			}
 			else
 				show_error_message(gettext("Unable to locate LDAP record."));
