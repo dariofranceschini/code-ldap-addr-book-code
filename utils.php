@@ -2242,8 +2242,8 @@ class ldap_entry_list
 					"object",$item_is_folder);
 			else
 			{
-                                $dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
-                                echo "<td colspan=" . count($this->search_result_columns)
+				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
+				echo "<td colspan=" . count($this->search_result_columns)
 					. "><a href=\"?dn=" . urlencode($ldap_entry["dn"])
 					. "\">" . htmlentities($dn_elements[0]["value"]) . "</a></td>";
 			}
