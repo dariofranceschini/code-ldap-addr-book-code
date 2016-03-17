@@ -2784,7 +2784,7 @@ class ldap_server
 		$object_data_found = false;
 
 		foreach($this->object_schema as $object_class)
-			if($object_class["name"] == $class && isset($object_class[$setting_name]))
+			if(strtolower($object_class["name"]) == strtolower($class) && isset($object_class[$setting_name]))
 			{
 				$setting_value = $object_class[$setting_name];
 				$object_data_found = true;
@@ -2817,9 +2817,11 @@ class ldap_server
 		$object_data_found = false;
 		$item_object_class = "(" . gettext("unrecognised") . ")";
 
+		$entry_object_class = array_map("strtolower",$entry["objectclass"]);
+
 		foreach($this->object_schema as $object_class)
-			if(in_array($object_class["name"],
-				$entry["objectclass"])
+			if(in_array(strtolower($object_class["name"]),
+				$entry_object_class)
 				&& $object_data_found == false)
 			{
 				$item_object_class = $object_class["name"];
@@ -3409,6 +3411,7 @@ class ldap_server
 
 	function get_display_layout($object_class)
 	{
+		$object_class = strtolower($object_class);
 		$found = false;
 		$selected_layout = array();
 
@@ -3416,13 +3419,15 @@ class ldap_server
 		{
 			if(!$found)
 			{
-				if(in_array($object_class,$layout["object_classes"])
-					|| in_array("*",$layout["object_classes"]))
+				$layout_object_classes = array_map("strtolower",$layout["object_classes"]);
+
+				if(in_array($object_class,$layout_object_classes)
+					|| in_array("*",$layout_object_classes))
 				{
 					$found = true;
 					$selected_layout = $layout["layout"];
 				}
-				if(in_array("*",$layout["object_classes"]) && empty($selected_layout))
+				if(in_array("*",$layout_object_classes) && empty($selected_layout))
 					$selected_layout = $layout["layout"];
 			}
 		}
