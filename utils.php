@@ -740,7 +740,7 @@ class ldap_entry_viewer
 							. "\n</form>\n";
 
 					echo "<a href=\"info.php?dn="
-						. htmlentities($dn,ENT_COMPAT,"UTF-8")
+						. urlencode($dn)
 						. "\"><button>" . gettext("Cancel") . "</button></a>\n";
 				}
 				else
