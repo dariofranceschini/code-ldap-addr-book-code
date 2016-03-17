@@ -180,43 +180,43 @@ function show_ldap_path($base,$leaf_icon)
 		. $site_name . "</a></li>\n";
 
 	if($ldap_base_dn == "")
-		$folder_list = $base;
+		$rdn_list = $base;
 	else
-		$folder_list = substr($base,0,-strlen($ldap_base_dn)-1);
+		$rdn_list = substr($base,0,-strlen($ldap_base_dn)-1);
 
-	if($folder_list != "")
+	if($rdn_list != "")
 	{
-		$folder_list = ldap_explode_dn2($folder_list);
+		$rdn_list = ldap_explode_dn2($rdn_list);
 
-		for($i=$folder_list["count"];$i>0;$i--)
+		for($i=$rdn_list["count"];$i>0;$i--)
 		{
 			echo "        <li>";
 
 			if($i>1)
 			{
-				$folder_alt_text=gettext("Folder");
-				$folder_icon="schema/folder.png";
-				if($folder_list[$i-1]["dn"] == $ldap_base_dn)
-					$folder_dn = $ldap_base_dn;
+				$alt_text=gettext("Folder");
+				$icon="schema/folder.png";
+				if($rdn_list[$i-1]["dn"] == $ldap_base_dn)
+					$object_dn = $ldap_base_dn;
 				else if($ldap_base_dn == "")
-					$folder_dn = $folder_list[$i-1]["dn"];
+					$object_dn = $rdn_list[$i-1]["dn"];
 				else
-					$folder_dn = $folder_list[$i-1]["dn"]
+					$object_dn = $rdn_list[$i-1]["dn"]
 						. "," . $ldap_base_dn;
 
 				echo "<a href=\"" . current_page_folder_url()
-					. "?dn=" . urlencode($folder_dn) . "\">";
+					. "?dn=" . urlencode($object_dn) . "\">";
 			}
 			else
 			{
-				$folder_alt_text=gettext("Address Book Entry");
-				$folder_icon=$leaf_icon;
+				$alt_text=gettext("Address Book Entry");
+				$icon=$leaf_icon;
 			}
 
 			echo "<img alt=\""
-				. $folder_alt_text . "\" src=\""
-				. $folder_icon . "\"> "
-				. $folder_list[$i-1]["value"];
+				. $alt_text . "\" src=\""
+				. $icon . "\"> "
+				. $rdn_list[$i-1]["value"];
 
 			if($i>1) echo "</a>";
 
