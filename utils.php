@@ -158,7 +158,8 @@ function show_error_message($message)
     Each level in the DIT appears with a folder icon; final item
     is displayed with $leaf_icon next to it
 
-    Also shows "login" button to right (if editing enabled)
+    Also shows "login" button to right (if per-user logins
+    are enabled)
 
     @param string $base
 	The DN for which the breadcrumb navigation is to be
