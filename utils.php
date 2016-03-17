@@ -176,7 +176,8 @@ function show_ldap_path($base,$leaf_icon)
 	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
 		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
 		. "        <li><a href=\"" . current_page_folder_url() . "\">"
-		. "<img alt=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
+		. "<img alt=\"" . gettext("Address Book")
+		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
 	if($ldap_base_dn == "")
@@ -214,7 +215,7 @@ function show_ldap_path($base,$leaf_icon)
 			}
 
 			echo "<img alt=\""
-				. $alt_text . "\" src=\""
+				. $alt_text . "\" title=\"" . $alt_text . "\" src=\""
 				. $icon . "\"> "
 				. $rdn_list[$i-1]["value"];
 
