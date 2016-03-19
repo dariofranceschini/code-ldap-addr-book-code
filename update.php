@@ -157,7 +157,7 @@ if($ldap_server->log_on())
 						. "," . $rdn_list[1]["dn"];
 				}
 
-				show_ldap_path($dn,$ldap_server->get_icon_for_ldap_entry($entry[0]));
+				show_ldap_path($dn);
 
 				if(get_user_setting("allow_search") && get_user_setting("allow_login"))
 					show_search_box("");

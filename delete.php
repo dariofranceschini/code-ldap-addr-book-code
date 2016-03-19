@@ -40,21 +40,10 @@ if($ldap_server->log_on())
 
 	if($search_resource)
 	{
-		// Use generic contact24.png instead of actual
-		// icon/thumbnail if the user isn't granted allow_view
-		// permission.
-		if(get_user_setting("allow_view"))
-		{
-			$entry = ldap_get_entries($ldap_server->connection,$search_resource);
-			$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
-		}
-		else
-			$icon = "contact24.png";
-
 		if(get_user_setting("allow_delete"))
 		{
 			show_site_header();
-			show_ldap_path($dn,$icon);
+			show_ldap_path($dn);
 
 			if(empty($_GET["confirm"]))
 			{
@@ -73,7 +62,7 @@ if($ldap_server->log_on())
 				else
 				{
 					show_site_header();
-					show_ldap_path($dn,$icon);
+					show_ldap_path($dn);
 					echo "<p>" . gettext("Unable to delete record") . "</p>";
 
 					echo "<a href=\"" . $return_page_if_not_deleted
@@ -84,7 +73,7 @@ if($ldap_server->log_on())
 		else
 		{
 			show_site_header();
-			show_ldap_path($dn,$icon);
+			show_ldap_path($dn);
 			echo "<p>" . gettext("You do not have permission to delete this record") . "</p>"
 				. "<p><a href=\"" . $return_page_if_not_deleted
 				. "\">" . gettext("Return to the Address Book") . "</a></p>";
@@ -93,7 +82,7 @@ if($ldap_server->log_on())
 	else
 	{
 		show_site_header();
-		show_ldap_path($dn,"contact24.png");
+		show_ldap_path($dn);
 		echo "<p>" . gettext("Unable to locate LDAP record") . "</p>"
 			. "<p><a href=\"" . $return_page_if_not_deleted
 			. "\">" . gettext("Return to the Address Book") . "</a></p>";

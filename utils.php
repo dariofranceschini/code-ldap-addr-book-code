@@ -146,7 +146,7 @@ function show_search_box($initial_value)
 function show_error_message($message)
 {
 	global $ldap_base_dn;
-	show_ldap_path("","schema/folder.png");
+	show_ldap_path("");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
@@ -155,9 +155,6 @@ function show_error_message($message)
 
 /** Show "breadcrumb navigation" version of specified LDAP path
 
-    Each level in the DIT appears with a folder icon; final item
-    is displayed with $leaf_icon next to it
-
     Also shows "login" button to right (if per-user logins
     are enabled)
 
@@ -165,12 +162,13 @@ function show_error_message($message)
 	The DN for which the breadcrumb navigation is to be
 	displayed
     @param string $leaf_icon
-	Icon image to use for the last item in the path.
-	Typically either the icon for the object class or
-	the object's photo attribute.
+	Placeholder image to use for the last item in the path
+	if the actual icon isn't available. Typically used when
+	a creating a new object, before the object has gets
+	written to the directory.
 */
 
-function show_ldap_path($base,$leaf_icon)
+function show_ldap_path($base,$leaf_icon = "")
 {
 	global $site_name,$ldap_server,$ldap_base_dn;
 
@@ -194,26 +192,45 @@ function show_ldap_path($base,$leaf_icon)
 		{
 			echo "        <li>";
 
-			if($i>1)
-			{
-				$alt_text=gettext("Folder");
-				$icon="schema/folder.png";
-				if($rdn_list[$i-1]["dn"] == $ldap_base_dn)
-					$object_dn = $ldap_base_dn;
-				else if($ldap_base_dn == "")
-					$object_dn = $rdn_list[$i-1]["dn"];
-				else
-					$object_dn = $rdn_list[$i-1]["dn"]
-						. "," . $ldap_base_dn;
+			if($rdn_list[$i-1]["dn"] == $ldap_base_dn)
+				$object_dn = $ldap_base_dn;
+			else if($ldap_base_dn == "")
+				$object_dn = $rdn_list[$i-1]["dn"];
+			else
+				$object_dn = $rdn_list[$i-1]["dn"]
+					. "," . $ldap_base_dn;
 
-				echo "<a href=\"" . current_page_folder_url()
-					. "?dn=" . urlencode($object_dn) . "\">";
+			// read LDAP entry to get object class/icon information
+
+			$search_resource = @ldap_read($ldap_server->connection,
+				$object_dn,"(objectclass=*)",array("objectclass",
+				"jpegphoto","thumbnailphoto","thumbnaillogo"));
+
+			if($search_resource)
+			{
+				$ldap_entry = ldap_get_entries($ldap_server->connection,$search_resource);
+				$icon = $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
+				$alt_text = $ldap_server->get_object_class($ldap_entry[0]);
 			}
 			else
 			{
-				$alt_text=gettext("Address Book Entry");
-				$icon=$leaf_icon;
+				// Use a generic icon if object's actual icon couldn't be retrieved
+
+				if($i==1)
+				{
+					$icon = empty($leaf_icon) ? "schema/generic24.png" : $leaf_icon;
+					$alt_text=gettext("Address Book Entry");
+				}
+				else
+				{
+					$icon="schema/folder.png";
+					$alt_text=gettext("Folder");
+				}
 			}
+
+			if($i>1)
+				echo "<a href=\"" . current_page_folder_url()
+					. "?dn=" . urlencode($object_dn) . "\">";
 
 			echo "<img alt=\""
 				. $alt_text . "\" title=\"" . $alt_text . "\" src=\""
@@ -708,8 +725,7 @@ class ldap_entry_viewer
                                 "display_name")) .  "," . $dn,
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
-			show_ldap_path($dn,
-				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
+			show_ldap_path($dn);
 
 		if(get_user_setting("allow_search"))
 			show_search_box("");
@@ -2381,7 +2397,7 @@ function prereq_components_ok()
 
 	if(!empty($missing_php_extn_list))
 	{
-		show_ldap_path("","folder.png");
+		show_ldap_path("");
 
 		echo "<p>" . gettext("The following PHP extension modules must be "
 			. "installed and enabled in order to use the "

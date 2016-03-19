@@ -91,19 +91,20 @@ if(prereq_components_ok())
 			$dn = $ldap_base_dn;
 	}
 
-	if(empty($_GET["vcard"]))
-		show_ldap_path($dn,"schema/folder.png");
-
 	$search_resource = false;
 
 	if($ldap_server->log_on())
 	{
 		if(empty($_GET["vcard"]))
+		{
+			show_ldap_path($dn);
+
 			if(get_user_setting("allow_search") && get_user_setting("allow_login"))
 				if(!empty($_GET["filter"]))
 					show_search_box($_GET["filter"]);
 				else
 					show_search_box("");
+		}
 
 		if($search_type == "subtree")
 			// get search results
