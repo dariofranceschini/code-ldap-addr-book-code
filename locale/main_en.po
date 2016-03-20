@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 14:29+0000\n"
+"POT-Creation-Date: 2016-03-20 10:59+0000\n"
 "PO-Revision-Date: 2015-09-26 14:48+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../config.php:23 ../utils.php:178
+#: ../config.php:25 ../utils.php:178 ../utils.php:179
 msgid "Address Book"
 msgstr "Address Book"
 
-#: ../config.php:39
+#: ../config.php:41
 msgid "User Guide"
 msgstr "User Guide"
 
-#: ../config.php:41
+#: ../config.php:43
 msgid "Get Source Code"
 msgstr "Get Source Code"
 
-#: ../create.php:27 ../index.php:198
+#: ../create.php:27 ../index.php:199
 msgid "New Record"
 msgstr "New Record"
 
@@ -41,67 +41,67 @@ msgstr "What type of record would you like to create?"
 msgid "Next"
 msgstr "Next"
 
-#: ../delete.php:61
+#: ../delete.php:50
 msgid "Are you sure you want to delete this record?"
 msgstr "Are you sure you want to delete this record?"
 
-#: ../delete.php:64 ../utils.php:1193
+#: ../delete.php:53 ../utils.php:1221
 msgid "Yes"
 msgstr "Yes"
 
-#: ../delete.php:67 ../utils.php:1194
+#: ../delete.php:56 ../utils.php:1222
 msgid "No"
 msgstr "No"
 
-#: ../delete.php:77
+#: ../delete.php:66
 msgid "Unable to delete record"
 msgstr "Unable to delete record"
 
-#: ../delete.php:80 ../delete.php:90 ../delete.php:99 ../utils.php:149
+#: ../delete.php:69 ../delete.php:79 ../delete.php:88 ../utils.php:153
 msgid "Return to the Address Book"
 msgstr "Return to the Address Book"
 
-#: ../delete.php:88
+#: ../delete.php:77
 msgid "You do not have permission to delete this record"
 msgstr "You do not have permission to delete this record"
 
-#: ../delete.php:97
+#: ../delete.php:86
 msgid "Unable to locate LDAP record"
 msgstr "Unable to locate LDAP record"
 
-#: ../index.php:114
+#: ../index.php:115
 msgid "You do not have permission to search the directory"
 msgstr "You do not have permission to search the directory"
 
-#: ../index.php:129 ../utils.php:1683
+#: ../index.php:130 ../utils.php:1731
 msgid "Please log in to use the address book."
 msgstr "Please log in to use the address book."
 
-#: ../index.php:131
+#: ../index.php:132
 msgid "You do not have permission to access the directory"
 msgstr "You do not have permission to access the directory"
 
-#: ../index.php:135
+#: ../index.php:136
 msgid "You do not have permission to browse the directory"
 msgstr "You do not have permission to browse the directory"
 
-#: ../index.php:193
+#: ../index.php:194
 msgid "Folder Details"
 msgstr "Folder Details"
 
-#: ../index.php:203
+#: ../index.php:204
 msgid "Export Records"
 msgstr "Export Records"
 
-#: ../info.php:87 ../update.php:174
+#: ../info.php:107 ../update.php:177
 msgid "Unable to locate LDAP record."
 msgstr "Unable to locate LDAP record."
 
-#: ../info.php:91
+#: ../info.php:111
 msgid "Record being accessed:"
 msgstr "Record being accessed:"
 
-#: ../info.php:93
+#: ../info.php:113
 msgid ""
 "This record is outside the part of the directory which stores the address "
 "book. You do not have permission to display it."
@@ -109,7 +109,7 @@ msgstr ""
 "This record is outside the part of the directory which stores the address "
 "book. You do not have permission to display it."
 
-#: ../info.php:96
+#: ../info.php:116
 msgid "The address book is stored at:"
 msgstr "The address book is stored at:"
 
@@ -138,11 +138,11 @@ msgstr "No changes were made to this record"
 msgid "Changes made to this record:"
 msgstr "Changes made to this record:"
 
-#: ../update.php:171
+#: ../update.php:173
 msgid "Back to record"
 msgstr "Back to record"
 
-#: ../update.php:178
+#: ../update.php:181
 msgid "You do not have permission to change this record"
 msgstr "You do not have permission to change this record"
 
@@ -150,19 +150,19 @@ msgstr "You do not have permission to change this record"
 msgid "You must enter a valid login and password"
 msgstr "You must enter a valid login and password"
 
-#: ../user.php:57
+#: ../user.php:58
 msgid "The user name/password you entered is not valid"
 msgstr "The user name/password you entered is not valid"
 
-#: ../user.php:62
+#: ../user.php:63
 msgid "You must enter a user name/password to log in"
 msgstr "You must enter a user name/password to log in"
 
-#: ../user.php:86
+#: ../user.php:87
 msgid "Try again"
 msgstr "Try again"
 
-#: ../utils.php:94
+#: ../utils.php:98
 #, php-format
 msgid ""
 "This Address Book uses Free and Open Source Software, licensed under the "
@@ -171,160 +171,160 @@ msgstr ""
 "This Address Book uses Free and Open Source Software, licensed under the "
 "terms of the %sGNU Affero GPL version 3%s"
 
-#: ../utils.php:124
+#: ../utils.php:128
 msgid "Search for:"
 msgstr "Search for:"
 
-#: ../utils.php:130
+#: ../utils.php:134
 msgid "Search"
 msgstr "Search"
 
-#: ../utils.php:192
-msgid "Folder"
-msgstr "Folder"
-
-#: ../utils.php:205
+#: ../utils.php:222
 msgid "Address Book Entry"
 msgstr "Address Book Entry"
 
-#: ../utils.php:236
+#: ../utils.php:227
+msgid "Folder"
+msgstr "Folder"
+
+#: ../utils.php:263
 msgid "Log out"
 msgstr "Log out"
 
-#: ../utils.php:238
+#: ../utils.php:265
 msgid "Log in"
 msgstr "Log in"
 
-#: ../utils.php:694
+#: ../utils.php:723
 #, php-format
 msgid "New %s"
 msgstr "New %s"
 
-#: ../utils.php:727
+#: ../utils.php:755
 msgid "Create record"
 msgstr "Create record"
 
-#: ../utils.php:730
+#: ../utils.php:758
 msgid "Save changes"
 msgstr "Save changes"
 
-#: ../utils.php:735
+#: ../utils.php:763
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../utils.php:743
+#: ../utils.php:771
 msgid "Edit"
 msgstr "Edit"
 
-#: ../utils.php:749
+#: ../utils.php:777
 msgid "Move"
 msgstr "Move"
 
-#: ../utils.php:754 ../utils.php:2140
+#: ../utils.php:782 ../utils.php:2298
 msgid "Delete"
 msgstr "Delete"
 
-#: ../utils.php:759
+#: ../utils.php:787
 msgid "Save as vCard"
 msgstr "Save as vCard"
 
-#: ../utils.php:762
+#: ../utils.php:790
 msgid "You do not have permission to view this record"
 msgstr "You do not have permission to view this record"
 
-#: ../utils.php:1101
+#: ../utils.php:1129
 msgid "Unsupported data type:"
 msgstr "Unsupported data type"
 
-#: ../utils.php:1154
+#: ../utils.php:1182
 msgid "Security group"
 msgstr "Security group"
 
-#: ../utils.php:1154
+#: ../utils.php:1182
 msgid "Distribution group"
 msgstr "Distribution group"
 
-#: ../utils.php:1155
+#: ../utils.php:1183
 msgid "System generated"
 msgstr "System generated"
 
-#: ../utils.php:1158
+#: ../utils.php:1186
 msgid "Windows Authorization Manager APP_BASIC group"
 msgstr "Windows Authorization Manager APP_BASIC group"
 
-#: ../utils.php:1159
+#: ../utils.php:1187
 msgid "Windows Authorization Manager APP_QUERY group"
 msgstr "Windows Authorization Manager APP_QUERY group"
 
-#: ../utils.php:1160
+#: ../utils.php:1188
 msgid "Global scope"
 msgstr "Global scope"
 
-#: ../utils.php:1161
+#: ../utils.php:1189
 msgid "Domain local scope"
 msgstr "Domain local scope"
 
-#: ../utils.php:1162
+#: ../utils.php:1190
 msgid "Universal scope"
 msgstr "Universal scope"
 
-#: ../utils.php:1181
+#: ../utils.php:1209
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: ../utils.php:1182
+#: ../utils.php:1210
 msgid "HTML"
 msgstr "HTML"
 
-#: ../utils.php:1211
+#: ../utils.php:1239
 msgid "Not known"
 msgstr "Not known"
 
-#: ../utils.php:1212
+#: ../utils.php:1240
 msgid "Male"
 msgstr "Male"
 
-#: ../utils.php:1213
+#: ../utils.php:1241
 msgid "Female"
 msgstr "Female"
 
-#: ../utils.php:1214
+#: ../utils.php:1242
 msgid "Not specified"
 msgstr "Not specified"
 
-#: ../utils.php:1246
+#: ../utils.php:1274
 msgid "blank"
 msgstr "blank"
 
-#: ../utils.php:1266
+#: ../utils.php:1294
 msgid "Unrecognised value:"
 msgstr "Unrecognised value:"
 
-#: ../utils.php:1267
+#: ../utils.php:1295
 msgid "none"
 msgstr "none"
 
-#: ../utils.php:1578
+#: ../utils.php:1626
 msgid "View map"
 msgstr "View map"
 
-#: ../utils.php:1610
+#: ../utils.php:1658
 msgid "Clear Image"
 msgstr "Clear Image"
 
-#: ../utils.php:1678
+#: ../utils.php:1726
 msgid "You do not have permission to log in to the address book directory."
 msgstr "You do not have permission to log in to the address book directory."
 
-#: ../utils.php:1680
+#: ../utils.php:1728
 msgid "Log in as a different user"
 msgstr "Log in as a different user"
 
-#: ../utils.php:1688
+#: ../utils.php:1736
 msgid "Unable to connect to address book directory. (LDAP bind failed)"
 msgstr "Unable to connect to address book directory. (LDAP bind failed)"
 
-#: ../utils.php:1694
+#: ../utils.php:1742
 #, php-format
 msgid ""
 "If you have not already done so, please\n"
@@ -337,23 +337,27 @@ msgstr ""
 "\t\t\t\tinstructions on how to configure directory\n"
 "\t\t\t\taccess."
 
-#: ../utils.php:2079 ../utils.php:2647
+#: ../utils.php:2124
+msgid "This is an empty folder"
+msgstr ""
+
+#: ../utils.php:2233 ../utils.php:2837
 msgid "unrecognised"
 msgstr "unrecognised"
 
-#: ../utils.php:2230
+#: ../utils.php:2388
 msgid "GD Support"
 msgstr "GD Support"
 
-#: ../utils.php:2231
+#: ../utils.php:2389
 msgid "Internationalization Support"
 msgstr "Internationalization Support"
 
-#: ../utils.php:2232
+#: ../utils.php:2390
 msgid "LDAP Support"
 msgstr "LDAP Support"
 
-#: ../utils.php:2245
+#: ../utils.php:2403
 msgid ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
@@ -361,7 +365,7 @@ msgstr ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
 
-#: ../utils.php:2251
+#: ../utils.php:2409
 msgid ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
@@ -369,21 +373,21 @@ msgstr ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
 
-#: ../utils.php:2917
+#: ../utils.php:3196
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Clear attribute '%s'"
 
-#: ../utils.php:2919
+#: ../utils.php:3198
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Set attribute '%s' to the contents of '%s'"
 
-#: ../utils.php:2922
+#: ../utils.php:3201
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Set attribute '%s' to '%s'"
 
-#: ../utils.php:2926
+#: ../utils.php:3205
 msgid "Error whilst setting attribute"
 msgstr "Error whilst setting attribute"
