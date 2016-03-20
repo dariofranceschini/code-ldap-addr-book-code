@@ -228,7 +228,7 @@ function show_ldap_path($base,$leaf_icon = "")
 				}
 			}
 
-			if($i>1)
+			if($i>1 && get_user_setting("allow_browse"))
 				echo "<a href=\"" . current_page_folder_url()
 					. "?dn=" . urlencode($object_dn) . "\">";
 
@@ -237,7 +237,8 @@ function show_ldap_path($base,$leaf_icon = "")
 				. $icon . "\"> "
 				. $rdn_list[$i-1]["value"];
 
-			if($i>1) echo "</a>";
+			if($i>1 && get_user_setting("allow_browse"))
+				echo "</a>";
 
 			echo "</li>";
 
