@@ -54,7 +54,7 @@ if(prereq_components_ok())
 			}
 			else
 			{
-				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)",array("*","+"));
 
 				if($search_resource)
 				{
