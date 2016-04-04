@@ -1111,6 +1111,7 @@ class ldap_attribute
 
 		switch($data_type)
 		{
+			case "dn":		$this->show_dn_list();		break;
 			case "dn_list":		$this->show_dn_list();		break;
 			case "date":		$this->show_date();		break;
 			case "date_time":	$this->show_date_time();	break;
