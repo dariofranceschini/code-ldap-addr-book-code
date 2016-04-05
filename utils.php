@@ -170,7 +170,7 @@ function show_error_message($message)
 
 function show_ldap_path($base,$leaf_icon = "")
 {
-	global $site_name,$ldap_server,$ldap_base_dn;
+	global $site_name,$ldap_server,$ldap_base_dn,$show_ldap_path;
 
 	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
 		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
@@ -188,7 +188,12 @@ function show_ldap_path($base,$leaf_icon = "")
 	{
 		$rdn_list = ldap_explode_dn2($rdn_list);
 
-		for($i=$rdn_list["count"];$i>0;$i--)
+		if(get_user_setting("allow_ldap_path"))
+			$starting_entry = $rdn_list["count"];
+		else
+			$starting_entry = 1;
+
+		for($i=$starting_entry;$i>0;$i--)
 		{
 			echo "        <li>";
 
@@ -1813,7 +1818,8 @@ function get_user_setting($attrib,$user_name = "")
 	$boolean_attribs_with_ldap_lookup = array("allow_browse",
 		"allow_search","allow_view","allow_create","allow_edit",
 		"allow_move","allow_delete","allow_export",
-		"allow_export_bulk","allow_login","allow_folder_info");
+		"allow_export_bulk","allow_login","allow_folder_info",
+		"allow_ldap_path");
 
 	// use current user name if no user name passed as a parameter
 
@@ -1869,6 +1875,7 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_export":
 			case "allow_export_bulk":
 			case "allow_login":
+			case "allow_ldap_path":
 			case "allow_folder_info":
 				$attrib_value = false; break;
 			default:
@@ -3231,6 +3238,10 @@ class ldap_server
 		// Assume "allow_login"=true if not explicitly set
 		if(!array_key_exists("allow_login",$settings))
 			$settings["allow_login"] = true;
+
+		// Assume "allow_ldap_path"=true if not explicitly set
+		if(!array_key_exists("allow_ldap_path",$settings))
+			$settings["allow_ldap_path"] = true;
 
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name),
