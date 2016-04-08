@@ -1500,12 +1500,17 @@ class ldap_attribute
 							$entry[0]["count"]++;
 						}
 						$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
-						$alt_text = $ldap_server->get_object_class($entry[0]);
+						$item_object_class = $ldap_server->get_object_class($entry[0]);
+						$is_folder = $ldap_server->get_object_schema_setting(
+							$item_object_class,"is_folder");
+
+						$alt_text = $item_object_class;
 					}
 					else
 					{
 						$icon = "schema/generic24.png";
 						$alt_text = "Address Book Entry";
+						$is_folder = false;
 					}
 
 					$rdn_list = ldap_explode_dn2($value);
@@ -1517,7 +1522,13 @@ class ldap_attribute
 
 					echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
 					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
-						echo "<a href=\"info.php?dn=" . $value . "\">" . $value_display_name . "</a>";
+					{
+						if($is_folder)
+							echo "<a href=\"" . current_page_folder_url() . "?dn=";
+						else
+							echo "<a href=\"info.php?dn=";
+						echo urlencode($value)  ."\">" . htmlentities($value_display_name) . "</a>";
+					}
 					else
 						echo $value_display_name;
 					echo "<br>";
