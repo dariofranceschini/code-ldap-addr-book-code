@@ -751,6 +751,19 @@ class ldap_entry_viewer
 
 			echo "</table>\n\n";
 
+			if($ldap_server->get_object_schema_setting(
+				$ldap_server->get_object_class($this->ldap_entry[0]),
+				"is_folder") && get_user_setting("allow_browse") && !$this->edit)
+			{
+				echo "<p>"
+					. gettext("This record is a folder that can contain other objects.")
+					. "</p>";
+
+				echo "<a href=\"" . current_page_folder_url()
+					. "?dn=" . urlencode ($dn). "\"><button>"
+					. gettext("Show Contents") . "</button></a>";
+			}
+
 			if(get_user_setting("allow_edit"))
 				if($this->edit)
 				{
