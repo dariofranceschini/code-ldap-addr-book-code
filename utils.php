@@ -712,7 +712,8 @@ class ldap_entry_viewer
 
 	function save_vcard()
 	{
-		echo vcard($this->ldap_entry[0]);
+		$vcard = new vcard($this->ldap_entry[0]);
+		echo $vcard->data;
 	}
 
 	/** Output the object entry as HTML */
@@ -2131,7 +2132,10 @@ class ldap_entry_list
 	function save_vcard()
 	{
 		for($i=0;$i < $this->ldap_entries["count"]; $i++)
-			echo vcard($this->ldap_entries[$i]) . "\n";
+		{
+			$vcard = new vcard($this->ldap_entries[$i]);
+			echo $vcard->data . "\r\n";
+		}
 	}
 
 	/** Output the object entry list as HTML */
@@ -2444,144 +2448,150 @@ function prereq_components_ok()
 	return empty($missing_php_extn_list);
 }
 
-/** Return the specified LDAP entry in vCard format
+/** vCard */
 
-    @param array $entry
-	LDAP entry which is to be converted to vCard
-    @return
-	String containing a vCard representation of the LDAP entry
-*/
-
-function vcard($entry)
+class vcard
 {
-	global $exclude_logo_if_photo_present,$ldap_server;
+	/** String containing a vCard representation of the LDAP entry */
+	var $data = "";
 
-	$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
+	/** Constructor
 
-	// Family Name, Given Name, Additional Names, Honorific
-	//   Prefixes, and Honorific Suffixes
+	    @param array $entry
+		LDAP entry which is to be converted to vCard
+	*/
 
-	if(isset($entry["sn"][0])) $sn = $entry["sn"][0]; else $sn = "";
-	if(isset($entry["givenname"][0])) $givenname = $entry["givenname"][0]; else $givenname = "";
-
-	$vcard .= "N:"
-		. $sn . ";"	// family name
-		. $givenname . ";"	// given name
-		. "" . ";"	// additional names
-		. "" . ";"	// honorific prefixes
-		. "" . "\n";	// honorific suffixes
-
-	// formatted name
-	$rdn_attrib = $ldap_server->get_object_schema_setting(
-		$ldap_server->get_object_class($entry)
-		,"rdn_attrib");
-
-	$rdn_list = explode(",",$rdn_attrib);
-
-	$formatted_name = "";
-	foreach($rdn_list as $rdn)
+	function __construct($entry)
 	{
-		if($formatted_name != "") $formatted_name .= " + ";
+		global $exclude_logo_if_photo_present,$ldap_server;
 
-		if(isset($entry[strtolower($rdn)][0]))
-			$formatted_name .= $entry[strtolower($rdn)][0];
-		else
-			$formatted_name .= $entry[strtolower($rdn)];
-	}
+		$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
 
-	$vcard .= "FN:" . $formatted_name . "\n";
+		// Family Name, Given Name, Additional Names, Honorific
+		//   Prefixes, and Honorific Suffixes
 
-	if(isset($entry["title"][0]))
-		$vcard .= "TITLE:" . $entry["title"][0] . "\n";
+		if(isset($entry["sn"][0])) $sn = $entry["sn"][0]; else $sn = "";
+		if(isset($entry["givenname"][0])) $givenname = $entry["givenname"][0]; else $givenname = "";
 
-	if(isset($entry["company"][0]))
-	{
-		$vcard .=  "ORG:" . $entry["company"][0];
-		if(isset($entry["department"][0]))
-			$vcard .=  ";" . $entry["department"][0];
-		$vcard .= "\n";
-	}
+		$vcard .= "N:"
+			. $sn . ";"	// family name
+			. $givenname . ";"	// given name
+			. "" . ";"	// additional names
+			. "" . ";"	// honorific prefixes
+			. "" . "\n";	// honorific suffixes
 
-	if(isset($entry["streetaddress"][0])) $streetaddress = $entry["streetaddress"][0]; else $streetaddress = "";
-	if(isset($entry["l"][0])) $l = $entry["l"][0]; else $l = "";
-	if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
-	if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
+		// formatted name
+		$rdn_attrib = $ldap_server->get_object_schema_setting(
+			$ldap_server->get_object_class($entry)
+			,"rdn_attrib");
 
-	$vcard .=  "ADR:;;" . $streetaddress
-		. ";" . $l . ";" . $st . ";" . $postalcode . "\n";
+		$rdn_list = explode(",",$rdn_attrib);
 
-	// Familiar/informal name of person
-	if(isset($entry["displayname"][0]))
-		$vcard .= "NICKNAME:" . $entry["displayname"][0] . "\n";
-	if(isset($entry["homephone"][0]))
-		$vcard .= "TEL;TYPE=HOME:" . str_replace(" ","",$entry["homephone"][0]) . "\n";
-	if(isset($entry["telephonenumber"][0]))
-		$vcard .= "TEL;TYPE=WORK:" . str_replace(" ","",$entry["telephonenumber"][0]) . "\n";
-	if(isset($entry["mobile"][0]))
-		$vcard .= "TEL;TYPE=CELL:" . str_replace(" ","",$entry["mobile"][0]) . "\n";
-	if(isset($entry["facsimiletelephonenumber"][0]))
-		$vcard .= "TEL;WORK;FAX:" . str_replace(" ","",$entry["facsimiletelephonenumber"][0]) . "\n";
-	if(isset($entry["mail"][0]))
-		$vcard .= "EMAIL;TYPE=INTERNET:" . $entry["mail"][0] . "\n";
-	// Intepretted as "personal" URL in default layout
-	if(isset($entry["wwwhomepage"][0]))
-		$vcard .= "URL:" . $entry["wwwhomepage"][0] . "\n";
-	// Intepretted as "business" URL in default layout
-	if(isset($entry["url"][0]))
-		$vcard .= "URL:" . $entry["url"][0] . "\n";
-
-	if(isset($entry["jpegphoto"][0]))
-		$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
-			. chunk_split(base64_encode($entry["jpegphoto"][0]),76,"\n") . "\n";
-	else if(isset($entry["thumbnailphoto"][0]))
-		$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
-			. chunk_split(base64_encode($entry["thumbnailphoto"][0]),76,"\n") . "\n";
-
-	if(isset($entry["thumbnaillogo"][0]))
-	{
-		if(isset($exclude_logo_if_photo_present) && $exclude_logo_if_photo_present)
+		$formatted_name = "";
+		foreach($rdn_list as $rdn)
 		{
-			if(!isset($entry["jpegphoto"][0]) && !isset($entry["thumbnailphoto"][0]))
+			if($formatted_name != "") $formatted_name .= " + ";
+
+			if(isset($entry[strtolower($rdn)][0]))
+				$formatted_name .= $entry[strtolower($rdn)][0];
+			else
+				$formatted_name .= $entry[strtolower($rdn)];
+		}
+
+		$vcard .= "FN:" . $formatted_name . "\n";
+
+		if(isset($entry["title"][0]))
+			$vcard .= "TITLE:" . $entry["title"][0] . "\n";
+
+		if(isset($entry["company"][0]))
+		{
+			$vcard .=  "ORG:" . $entry["company"][0];
+			if(isset($entry["department"][0]))
+				$vcard .=  ";" . $entry["department"][0];
+			$vcard .= "\n";
+		}
+
+		if(isset($entry["streetaddress"][0])) $streetaddress = $entry["streetaddress"][0]; else $streetaddress = "";
+		if(isset($entry["l"][0])) $l = $entry["l"][0]; else $l = "";
+		if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
+		if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
+
+		$vcard .=  "ADR:;;" . $streetaddress
+			. ";" . $l . ";" . $st . ";" . $postalcode . "\n";
+
+		// Familiar/informal name of person
+		if(isset($entry["displayname"][0]))
+			$vcard .= "NICKNAME:" . $entry["displayname"][0] . "\n";
+		if(isset($entry["homephone"][0]))
+			$vcard .= "TEL;TYPE=HOME:" . str_replace(" ","",$entry["homephone"][0]) . "\n";
+		if(isset($entry["telephonenumber"][0]))
+			$vcard .= "TEL;TYPE=WORK:" . str_replace(" ","",$entry["telephonenumber"][0]) . "\n";
+		if(isset($entry["mobile"][0]))
+			$vcard .= "TEL;TYPE=CELL:" . str_replace(" ","",$entry["mobile"][0]) . "\n";
+		if(isset($entry["facsimiletelephonenumber"][0]))
+			$vcard .= "TEL;WORK;FAX:" . str_replace(" ","",$entry["facsimiletelephonenumber"][0]) . "\n";
+		if(isset($entry["mail"][0]))
+			$vcard .= "EMAIL;TYPE=INTERNET:" . $entry["mail"][0] . "\n";
+		// Intepretted as "personal" URL in default layout
+		if(isset($entry["wwwhomepage"][0]))
+			$vcard .= "URL:" . $entry["wwwhomepage"][0] . "\n";
+		// Intepretted as "business" URL in default layout
+		if(isset($entry["url"][0]))
+			$vcard .= "URL:" . $entry["url"][0] . "\n";
+
+		if(isset($entry["jpegphoto"][0]))
+			$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
+				. chunk_split(base64_encode($entry["jpegphoto"][0]),76,"\n") . "\n";
+		else if(isset($entry["thumbnailphoto"][0]))
+			$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
+				. chunk_split(base64_encode($entry["thumbnailphoto"][0]),76,"\n") . "\n";
+
+		if(isset($entry["thumbnaillogo"][0]))
+		{
+			if(isset($exclude_logo_if_photo_present) && $exclude_logo_if_photo_present)
+			{
+				if(!isset($entry["jpegphoto"][0]) && !isset($entry["thumbnailphoto"][0]))
+					$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
+						. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
+			}
+			else
 				$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
 					. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
 		}
-		else
-			$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
-				. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
-	}
 
-	if(isset($entry["manager"][0]))
-	{
-		$manager = ldap_explode_dn2($entry["manager"][0]);
-
-		$vcard .= "X-ANDROID-CUSTOM:vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;\n";
-	}
-
-	if(isset($entry["mozillaUseHtmlMail"]))
-		$vcard .= "x-mozilla-html:" . $entry["mozillaUseHtmlMail"] . "\n";
-
-	if(isset($entry["info"][0]))
-	{
-		$info="NOTE;ENCODING=QUOTED-PRINTABLE:";
-
-		$count = strlen($info);
-		foreach(str_split($entry["info"][0]) as $char)
+		if(isset($entry["manager"][0]))
 		{
-			$info .= "=" . (ord($char)<16 ? "0" : "") . dechex(ord($char));
-			$count+=3;
+			$manager = ldap_explode_dn2($entry["manager"][0]);
 
-			if($count>70)
-			{
-				$info .= "=\n";
-				$count = 0;
-			}
+			$vcard .= "X-ANDROID-CUSTOM:vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;\n";
 		}
-		$vcard .= $info . "\n";
+
+		if(isset($entry["mozillaUseHtmlMail"]))
+			$vcard .= "x-mozilla-html:" . $entry["mozillaUseHtmlMail"] . "\n";
+
+		if(isset($entry["info"][0]))
+		{
+			$info="NOTE;ENCODING=QUOTED-PRINTABLE:";
+
+			$count = strlen($info);
+			foreach(str_split($entry["info"][0]) as $char)
+			{
+				$info .= "=" . (ord($char)<16 ? "0" : "") . dechex(ord($char));
+				$count+=3;
+
+				if($count>70)
+				{
+					$info .= "=\n";
+					$count = 0;
+				}
+			}
+			$vcard .= $info . "\n";
+		}
+
+		$vcard .= "END:VCARD\n";
+
+		$this->data = $vcard;
 	}
-
-	$vcard .= "END:VCARD\n";
-
-	return $vcard;
 }
 
 /** Format and output a phone number of display
