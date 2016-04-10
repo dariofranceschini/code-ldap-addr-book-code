@@ -2537,8 +2537,14 @@ class vcard
 		if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
 		if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
 
-		$this->add_property("ADR",";;". $streetaddress
-			. ";" . $l . ";" . $st . ";" . $postalcode . ";");
+		$this->add_property("ADR",
+			"" . ";"		// Post Office Address (not used)
+			. "" . ";"		// Extended Address (not used)
+			. $streetaddress. ";"	// Street (or Street Address)
+			. $l . ";"		// Locality
+			. $st . ";"		// Region
+			. $postalcode . ";"	// Postal Code
+			. "");			// Country Name (not used)
 
 		// Familiar/informal name of person
 		if(isset($entry["displayname"][0]))
