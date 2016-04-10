@@ -2474,8 +2474,7 @@ class vcard
 		$this->add_property("BEGIN","VCARD");
 		$this->add_property("VERSION","2.1");
 
-		// Family Name, Given Name, Additional Names, Honorific
-		//   Prefixes, and Honorific Suffixes
+		// Structured Name (N)
 
 		if(isset($entry["sn"][0])) $sn = $entry["sn"][0]; else $sn = "";
 		if(isset($entry["givenname"][0])) $givenname = $entry["givenname"][0]; else $givenname = "";
@@ -2483,11 +2482,12 @@ class vcard
 		$this->add_property("N",
 			$sn . ";"		// family name
 			. $givenname . ";"	// given name
-			. "" . ";"	// additional names
-			. "" . ";"	// honorific prefixes
-			. "");		// honorific suffixes
+			. "" . ";"		// additional names (not used)
+			. "" . ";"		// honorific prefixes (not used)
+			. "");			// honorific suffixes (not used)
 
-		// formatted name
+		// Formatted Name (FN), as used for display purposes
+
 		$rdn_attrib = $ldap_server->get_object_schema_setting(
 			$ldap_server->get_object_class($entry)
 			,"rdn_attrib");
@@ -2507,8 +2507,12 @@ class vcard
 
 		$this->add_property("FN",$formatted_name);
 
+		// Title
+
 		if(isset($entry["title"][0]))
 			$this->add_property("TITLE",$entry["title"][0]);
+
+		// Organization and Organizational Unit
 
 		if(isset($entry["company"][0]))
 		{
@@ -2564,10 +2568,10 @@ class vcard
 				str_replace(" ","",$entry["facsimiletelephonenumber"][0]));
 		if(isset($entry["mail"][0]))
 			$this->add_property("EMAIL;TYPE=INTERNET",$entry["mail"][0]);
-		// Intepretted as "personal" URL in default layout
+		// Presented as a "personal" URL in the default record layout
 		if(isset($entry["wwwhomepage"][0]))
 			$this->add_property("URL",$entry["wwwhomepage"][0]);
-		// Intepretted as "business" URL in default layout
+		// Presented as a "business" URL in the default record layout
 		if(isset($entry["url"][0]))
 			$this->add_property("URL",$entry["url"][0]);
 
