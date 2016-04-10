@@ -2600,7 +2600,7 @@ class vcard
 
 		// Apply encoding
 		if($encoding == "BASE64")
-			$value = chunk_split(base64_encode($value),76,"\n");
+			$value = chunk_split(base64_encode($value),76,"\r\n");
 		else if($encoding == "QUOTED-PRINTABLE")
 		{
 			$count = strlen($property)+1;
@@ -2616,14 +2616,14 @@ class vcard
 				// Wrap to next line if length exceeds 70 characters
 				if($count>70)
 				{
-					$encoded_value .= "=\n";
+					$encoded_value .= "=\r\n";
 					$count = 0;
 				}
 			}
 			$value = $encoded_value;
 		}
 
-		$this->data .= $property . ":" . $value . "\n";
+		$this->data .= $property . ":" . $value . "\r\n";
 	}
 }
 
