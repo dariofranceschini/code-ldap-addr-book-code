@@ -2545,13 +2545,13 @@ class vcard
 			$this->add_property("NICKNAME",$entry["displayname"][0]);
 
 		if(isset($entry["homephone"][0]))
-			$this->add_property("TEL;TYPE=HOME",
+			$this->add_property("TEL;TYPE=HOME;TYPE=VOICE",
 				str_replace(" ","",$entry["homephone"][0]));
 		if(isset($entry["telephonenumber"][0]))
-			$this->add_property("TEL;TYPE=WORK",
+			$this->add_property("TEL;TYPE=WORK;TYPE=VOICE",
 				str_replace(" ","",$entry["telephonenumber"][0]));
 		if(isset($entry["mobile"][0]))
-			$this->add_property("TEL;TYPE=CELL",
+			$this->add_property("TEL;TYPE=CELL;TYPE=VOICE",
 				str_replace(" ","",$entry["mobile"][0]));
 		if(isset($entry["facsimiletelephonenumber"][0]))
 			$this->add_property("TEL;TYPE=WORK;TYPE=FAX",
