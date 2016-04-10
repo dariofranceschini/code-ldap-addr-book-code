@@ -2591,7 +2591,11 @@ class vcard
 		{
 			$manager = ldap_explode_dn2($entry["manager"][0]);
 			$this->add_property("X-ANDROID-CUSTOM",
-				"vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;");
+				"vnd.android.cursor.item/relation;"	// Data kind representing a relation
+				. $manager["0"]["value"] . ";"		// Data1: Name
+				. "7;"					// Data2: Type (7 = TYPE_MANAGER)
+				. ";"					// Data3: Label (unused)
+				. ";;;;;;;;;;;");			// other unused fields
 		}
 
 		if(isset($entry["mozillaUseHtmlMail"]))
