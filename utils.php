@@ -2595,6 +2595,11 @@ class vcard
 
 	function add_property($property,$value,$encoding = "")
 	{
+		// indicate a character set of UTF-8 if the value contains
+		// any non-ASCII code points
+		if(empty($encoding) && !mb_check_encoding($value,"ASCII"))
+			$property .= ";CHARSET=UTF-8";
+
 		if(!empty($encoding))
 			$property .= ";ENCODING=" . $encoding;
 
