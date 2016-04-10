@@ -2471,7 +2471,8 @@ class vcard
 	{
 		global $exclude_logo_if_photo_present;
 
-		$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
+		$this->add_property("BEGIN","VCARD");
+		$this->add_property("VERSION","2.1");
 
 		// Family Name, Given Name, Additional Names, Honorific
 		//   Prefixes, and Honorific Suffixes
@@ -2479,12 +2480,12 @@ class vcard
 		if(isset($entry["sn"][0])) $sn = $entry["sn"][0]; else $sn = "";
 		if(isset($entry["givenname"][0])) $givenname = $entry["givenname"][0]; else $givenname = "";
 
-		$vcard .= "N:"
-			. $sn . ";"	// family name
+		$this->add_property("N",
+			$sn . ";"		// family name
 			. $givenname . ";"	// given name
 			. "" . ";"	// additional names
 			. "" . ";"	// honorific prefixes
-			. "" . "\n";	// honorific suffixes
+			. "");		// honorific suffixes
 
 		// formatted name
 		$rdn_attrib = $ldap_server->get_object_schema_setting(
@@ -2504,17 +2505,17 @@ class vcard
 				$formatted_name .= $entry[strtolower($rdn)];
 		}
 
-		$vcard .= "FN:" . $formatted_name . "\n";
+		$this->add_property("FN",$formatted_name);
 
 		if(isset($entry["title"][0]))
-			$vcard .= "TITLE:" . $entry["title"][0] . "\n";
+			$this->add_property("TITLE",$entry["title"][0]);
 
 		if(isset($entry["company"][0]))
 		{
-			$vcard .=  "ORG:" . $entry["company"][0];
+			$org = $entry["company"][0];
 			if(isset($entry["department"][0]))
-				$vcard .=  ";" . $entry["department"][0];
-			$vcard .= "\n";
+				$org .= ";" . $entry["department"][0];
+			$this->add_property("ORG",$org);
 		}
 
 		if(isset($entry["streetaddress"][0])) $streetaddress = $entry["streetaddress"][0]; else $streetaddress = "";
@@ -2522,81 +2523,107 @@ class vcard
 		if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
 		if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
 
-		$vcard .=  "ADR:;;" . $streetaddress
-			. ";" . $l . ";" . $st . ";" . $postalcode . "\n";
+		$this->add_property("ADR",";;". $streetaddress
+			. ";" . $l . ";" . $st . ";" . $postalcode . ";");
 
 		// Familiar/informal name of person
 		if(isset($entry["displayname"][0]))
-			$vcard .= "NICKNAME:" . $entry["displayname"][0] . "\n";
+			$this->add_property("NICKNAME",$entry["displayname"][0]);
+
 		if(isset($entry["homephone"][0]))
-			$vcard .= "TEL;TYPE=HOME:" . str_replace(" ","",$entry["homephone"][0]) . "\n";
+			$this->add_property("TEL;TYPE=HOME",
+				str_replace(" ","",$entry["homephone"][0]));
 		if(isset($entry["telephonenumber"][0]))
-			$vcard .= "TEL;TYPE=WORK:" . str_replace(" ","",$entry["telephonenumber"][0]) . "\n";
+			$this->add_property("TEL;TYPE=WORK",
+				str_replace(" ","",$entry["telephonenumber"][0]));
 		if(isset($entry["mobile"][0]))
-			$vcard .= "TEL;TYPE=CELL:" . str_replace(" ","",$entry["mobile"][0]) . "\n";
+			$this->add_property("TEL;TYPE=CELL",
+				str_replace(" ","",$entry["mobile"][0]));
 		if(isset($entry["facsimiletelephonenumber"][0]))
-			$vcard .= "TEL;WORK;FAX:" . str_replace(" ","",$entry["facsimiletelephonenumber"][0]) . "\n";
+			$this->add_property("TEL;TYPE=WORK;TYPE=FAX",
+				str_replace(" ","",$entry["facsimiletelephonenumber"][0]));
 		if(isset($entry["mail"][0]))
-			$vcard .= "EMAIL;TYPE=INTERNET:" . $entry["mail"][0] . "\n";
+			$this->add_property("EMAIL;TYPE=INTERNET",$entry["mail"][0]);
 		// Intepretted as "personal" URL in default layout
 		if(isset($entry["wwwhomepage"][0]))
-			$vcard .= "URL:" . $entry["wwwhomepage"][0] . "\n";
+			$this->add_property("URL",$entry["wwwhomepage"][0]);
 		// Intepretted as "business" URL in default layout
 		if(isset($entry["url"][0]))
-			$vcard .= "URL:" . $entry["url"][0] . "\n";
+			$this->add_property("URL",$entry["url"][0]);
 
 		if(isset($entry["jpegphoto"][0]))
-			$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
-				. chunk_split(base64_encode($entry["jpegphoto"][0]),76,"\n") . "\n";
+			$this->add_property("PHOTO;TYPE=JPEG",$entry["jpegphoto"][0],"BASE64");
 		else if(isset($entry["thumbnailphoto"][0]))
-			$vcard .= "PHOTO;ENCODING=BASE64;JPEG:"
-				. chunk_split(base64_encode($entry["thumbnailphoto"][0]),76,"\n") . "\n";
+			$this->add_property("PHOTO;TYPE=JPEG",$entry["thumbnailphoto"][0],"BASE64");
 
 		if(isset($entry["thumbnaillogo"][0]))
 		{
 			if(isset($exclude_logo_if_photo_present) && $exclude_logo_if_photo_present)
 			{
 				if(!isset($entry["jpegphoto"][0]) && !isset($entry["thumbnailphoto"][0]))
-					$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
-						. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
+					$this->add_property("PHOTO;TYPE=JPEG",$entry["thumbnaillogo"][0],"BASE64");
 			}
 			else
-				$vcard .= "LOGO;ENCODING=BASE64;JPEG:"
-					. chunk_split(base64_encode($entry["thumbnaillogo"][0]),76,"\n") . "\n";
+				$this->add_property("PHOTO;TYPE=JPEG",$entry["thumbnaillogo"][0],"BASE64");
 		}
 
 		if(isset($entry["manager"][0]))
 		{
 			$manager = ldap_explode_dn2($entry["manager"][0]);
-
-			$vcard .= "X-ANDROID-CUSTOM:vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;\n";
+			$this->add_property("X-ANDROID-CUSTOM",
+				"vnd.android.cursor.item/relation;" . $manager["0"]["value"] . ";7;;;;;;;;;;;;;");
 		}
 
 		if(isset($entry["mozillaUseHtmlMail"]))
-			$vcard .= "x-mozilla-html:" . $entry["mozillaUseHtmlMail"] . "\n";
+			$this->add_property("x-mozilla-html",$entry["mozillaUseHtmlMail"]);
 
 		if(isset($entry["info"][0]))
-		{
-			$info="NOTE;ENCODING=QUOTED-PRINTABLE:";
+			$this->add_property("NOTE",$entry["info"][0],"QUOTED-PRINTABLE");
 
-			$count = strlen($info);
-			foreach(str_split($entry["info"][0]) as $char)
+		$this->add_property("END","VCARD");
+	}
+
+	/** Add the specified property to the vCard data
+
+	    @param string $property
+		Property to be added
+	    @param string $value
+		Value to be added
+	    @param string $encoding
+		Encoding to be applied
+	*/
+
+	function add_property($property,$value,$encoding = "")
+	{
+		if(!empty($encoding))
+			$property .= ";ENCODING=" . $encoding;
+
+		// Apply encoding
+		if($encoding == "BASE64")
+			$value = chunk_split(base64_encode($value),76,"\n");
+		else if($encoding == "QUOTED-PRINTABLE")
+		{
+			$count = strlen($property)+1;
+			$encoded_value = "";
+			foreach(str_split($value) as $char)
 			{
-				$info .= "=" . (ord($char)<16 ? "0" : "") . dechex(ord($char));
+				$encoded_value .= "="
+					. (ord($char)<16 ? "0" : "")
+					. dechex(ord($char));
+
 				$count+=3;
 
+				// Wrap to next line if length exceeds 70 characters
 				if($count>70)
 				{
-					$info .= "=\n";
+					$encoded_value .= "=\n";
 					$count = 0;
 				}
 			}
-			$vcard .= $info . "\n";
+			$value = $encoded_value;
 		}
 
-		$vcard .= "END:VCARD\n";
-
-		$this->data = $vcard;
+		$this->data .= $property . ":" . $value . "\n";
 	}
 }
 
