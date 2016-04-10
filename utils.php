@@ -611,6 +611,9 @@ class ldap_entry_viewer
 	/** Display layout (array of ldap_entry_viewer_section) */
 	var $section = array();
 
+	/** LDAP server containing the entry to be displayed */
+	var $ldap_server;
+
 	/** LDAP object entry which is to be displayed */
 	var $ldap_entry;
 
@@ -637,6 +640,7 @@ class ldap_entry_viewer
 
 	function __construct($ldap_server,$ldap_entry)
 	{
+		$this->ldap_server = $ldap_server;
 		$this->ldap_entry = $ldap_entry;
 
 		$entry_viewer_layout = $ldap_server->get_display_layout(
@@ -712,7 +716,7 @@ class ldap_entry_viewer
 
 	function save_vcard()
 	{
-		$vcard = new vcard($this->ldap_entry[0]);
+		$vcard = new vcard($this->ldap_server,$this->ldap_entry[0]);
 		echo $vcard->data;
 	}
 
@@ -2133,7 +2137,7 @@ class ldap_entry_list
 	{
 		for($i=0;$i < $this->ldap_entries["count"]; $i++)
 		{
-			$vcard = new vcard($this->ldap_entries[$i]);
+			$vcard = new vcard($this->ldap_server,$this->ldap_entries[$i]);
 			echo $vcard->data . "\r\n";
 		}
 	}
@@ -2457,13 +2461,15 @@ class vcard
 
 	/** Constructor
 
+	    @param object $ldap_server
+		LDAP server containing the entry to be converted
 	    @param array $entry
 		LDAP entry which is to be converted to vCard
 	*/
 
-	function __construct($entry)
+        function __construct($ldap_server,$entry)
 	{
-		global $exclude_logo_if_photo_present,$ldap_server;
+		global $exclude_logo_if_photo_present;
 
 		$vcard = "BEGIN:VCARD\nVERSION:2.1\n";
 
