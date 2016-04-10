@@ -2519,6 +2519,20 @@ class vcard
 		}
 
 		if(isset($entry["streetaddress"][0])) $streetaddress = $entry["streetaddress"][0]; else $streetaddress = "";
+
+		// Microsoft Active Directory implements "street" and "streetAddress"
+		// as separate attributes, both of which are used to represent a
+		// street address. Some AD object classes use one, some the other.
+		//
+		// RFC-compliant LDAP schemas implement "street" and "streetAddress"
+		// as aliases of the same underlying attribute.
+
+		if($ldap_server->type = "ad" && isset($entry["street"][0]))
+		{
+			if(!empty($streetaddress)) $streetaddress .= ", ";
+			$streetaddress .= $entry["street"][0];
+		}
+
 		if(isset($entry["l"][0])) $l = $entry["l"][0]; else $l = "";
 		if(isset($entry["st"][0])) $st = $entry["st"][0]; else $st = "";
 		if(isset($entry["postalcode"][0])) $postalcode = $entry["postalcode"][0]; else $postalcode = "";
