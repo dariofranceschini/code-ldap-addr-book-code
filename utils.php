@@ -3595,6 +3595,13 @@ abstract class ldap_schema
 	var $object_schema = array();
 	var $attribute_schema = array();
 
+	/** Constructor
+
+	    @param string $ldap_server
+		LDAP server object to which the schema definitions
+		will be exported
+	*/
+
 	function __construct(&$ldap_server)
 	{
 		// Export object schema settings to LDAP server object
