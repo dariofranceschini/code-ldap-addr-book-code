@@ -3123,7 +3123,7 @@ class ldap_server
 
 				// handle special case: Active Directory login
 				// with UPN
-				if($this->server_type="ad" && !empty($user_bind_dn)
+				if($this->server_type=="ad" && !empty($user_bind_dn)
 					&& !strpos($user_bind_dn,"=")>0
 					&& strpos($user_bind_dn,"@")>0)
 				{
