@@ -65,8 +65,8 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 			$ldap_data = ldap_sort_entries(ldap_get_entries($ldap_server->connection,$search_resource),
 				$sort_order == "sortableName"
 				? array("sn","givenName","ou","cn")
-        	                : array($sort_order),
-                	        LDAP_SORT_ASCENDING);
+				: array($sort_order),
+				LDAP_SORT_ASCENDING);
 
 			// JSON search suggestion response consists of four elements:
 			//	Text for which search term suggestions were requested

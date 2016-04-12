@@ -33,8 +33,8 @@ else
 
 if($ldap_server->log_on())
 {
-        $search_resource = ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
-        $entry = ldap_get_entries($ldap_server->connection,$search_resource);
+	$search_resource = ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+	$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
 	$image = imagecreatefromstring($entry[0][strtolower($attrib)][0]);
 
@@ -81,6 +81,6 @@ else
 {
 	// TODO: do we want to return a textual error here, or
 	// create an image containing the error text?
-        show_ldap_bind_error();
+	show_ldap_bind_error();
 }
 ?>

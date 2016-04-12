@@ -91,7 +91,7 @@ if($ldap_server->log_on())
 else
 {
 	show_site_header();
-        show_ldap_bind_error();
+	show_ldap_bind_error();
 }
 show_site_footer();
 ?>

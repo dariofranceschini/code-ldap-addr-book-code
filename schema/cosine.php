@@ -82,7 +82,7 @@ class cosine_schema extends ldap_schema
 
 			array("name"=>"audio",				"data_type"=>"text",		"display_name"=>gettext("Audio (u Law Format)")),
 			array("name"=>"mailPreferenceOption",		"data_type"=>"text",		"display_name"=>gettext("Mail Preference Option")),
-			array("name"=>"personalSignature",		"data_type"=>"image",           "display_name"=>gettext("Signature (G3 Fax Format)")),
+			array("name"=>"personalSignature",		"data_type"=>"image",		"display_name"=>gettext("Signature (G3 Fax Format)")),
 			array("name"=>"photo",				"data_type"=>"image",		"display_name"=>gettext("Photo (G3 Fax Format)"))
 			);
 

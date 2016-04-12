@@ -38,13 +38,13 @@ if(prereq_components_ok())
 				$object_class = $_GET["create"];
 
 				// Stub LDAP entry which is to be created
-		                $entry = array(
-                		        "count"=>1,
-		                        array(
-                        		        "objectclass"=>array("count"=>1,$object_class),
-                                		"dn"=>$dn
-         		                       )
-		                        );
+				$entry = array(
+					"count"=>1,
+					array(
+						"objectclass"=>array("count"=>1,$object_class),
+						"dn"=>$dn
+						)
+					);
 
 				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
@@ -60,13 +60,29 @@ if(prereq_components_ok())
 				{
 					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
-					// assign an object class for eDirectory tree root (not defined
-					// by default)
-					if($ldap_server->server_type="edir" && $dn == "" && !isset($entry[0]["objectclass"]))
+					// assign an object class to the root DSE object, if the directory doesn't
+					// report one itself
+
+					if($dn == "" && !isset($entry[0]["objectclass"]))
 					{
-						$entry[0][  $entry[0]["count"]    ] = "objectclass";
-						$entry[0]["objectclass"][0] = "treeRoot";
-						$entry[0]["count"]++;
+						switch($ldap_server->server_type)
+						{
+							case "ad":
+								// made up rootDSE class
+								$entry[0][$entry[0]["count"]] = "objectclass";
+								$entry[0]["objectclass"][0] = "rootDSE";
+								$entry[0]["count"]++;
+								break;
+
+							case "edir":
+								$entry[0][$entry[0]["count"]] = "objectclass";
+								$entry[0]["objectclass"][0] = "treeRoot";
+								$entry[0]["count"]++;
+								break;
+
+							default:
+								// no change made for other server types
+						}
 					}
 
 					$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);

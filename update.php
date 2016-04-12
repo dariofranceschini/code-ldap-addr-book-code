@@ -48,8 +48,8 @@ if($ldap_server->log_on())
 
 		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
-                if(!empty($_POST["create"]))
-                {
+		if(!empty($_POST["create"]))
+		{
 			if($search_resource)
 			{
 				show_error_message(gettext("Unable to create - A record already exists with this name."));
@@ -90,7 +90,7 @@ if($ldap_server->log_on())
 					show_error_message(gettext("Unable to create this type of object."));
 				}
 			}
-                }
+		}
 
 		if($create_failed == false)
 		{
@@ -100,7 +100,7 @@ if($ldap_server->log_on())
 			{
 				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
-		                if(empty($_POST["create"]))
+				if(empty($_POST["create"]))
 					$change_list = "";
 				else
 					$change_list = "  <li>"
@@ -181,7 +181,7 @@ if($ldap_server->log_on())
 		show_error_message(gettext("You do not have permission to change this record"));
 }
 else
-        show_ldap_bind_error();
+	show_ldap_bind_error();
 
 show_site_footer();
 ?>

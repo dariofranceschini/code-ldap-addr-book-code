@@ -6,8 +6,8 @@
 
 class schac_schema extends ldap_schema
 {
-        function __construct(&$ldap_server)
-        {
+	function __construct(&$ldap_server)
+	{
 		$this->attribute_schema = array(
 			array("name"=>"schacMotherTongue",		"data_type"=>"text",		"display_name"=>gettext("Preferred Language")),
 			array("name"=>"schacGender",			"data_type"=>"gender",		"display_name"=>gettext("Gender")),
@@ -34,7 +34,7 @@ class schac_schema extends ldap_schema
 
 		// No structural object classes for this schema (auxillary classes only)
 
-                parent::__construct($ldap_server);
-        }
+		parent::__construct($ldap_server);
+	}
 }
 ?>

@@ -341,7 +341,7 @@ function current_page_folder_url()
 
 	if(($scheme == "http" && $_SERVER["SERVER_PORT"] != 80)
 			|| ($scheme == "https" && $_SERVER["SERVER_PORT"] != 443))
-		$port = ":" .  $_SERVER["SERVER_PORT"];
+		$port = ":" . $_SERVER["SERVER_PORT"];
 	else
 		$port = "";
 
@@ -1424,7 +1424,7 @@ class ldap_attribute
 		}
 		else
 		{
-	                if($this->value == "")
+			if($this->value == "")
 				$formatted_date = "";
 			else
 			{
@@ -1532,7 +1532,7 @@ class ldap_attribute
 							echo "<a href=\"" . current_page_folder_url() . "?dn=";
 						else
 							echo "<a href=\"info.php?dn=";
-						echo urlencode($value)  ."\">" . htmlentities($value_display_name) . "</a>";
+						echo urlencode($value) . "\">" . htmlentities($value_display_name) . "</a>";
 					}
 					else
 						echo $value_display_name;
@@ -1808,7 +1808,7 @@ function get_ldap_bind_password()
 /** Callback function to reauthenticate following LDAP referral
 
     @param resource $ldap_link
-        LDAP connection handle to bind/authenticate against
+	LDAP connection handle to bind/authenticate against
     @param string $referral_uri
 	LDAP URI to be accessed following rebind (unused)
     @return
@@ -2467,7 +2467,7 @@ class vcard
 		LDAP entry which is to be converted to vCard
 	*/
 
-        function __construct($ldap_server,$entry)
+	function __construct($ldap_server,$entry)
 	{
 		global $exclude_logo_if_photo_present;
 
@@ -2840,17 +2840,17 @@ class ldap_server
 		Port number on LDAP server to connect to
 	*/
 
-        function __construct($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
-        {
+	function __construct($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
+	{
 		if(is_null($ldap_server_port))
 			$this->connection = ldap_connect($ldap_server_host_or_url);
 		else
 			$this->connection = ldap_connect($ldap_server_host_or_url,
 				$ldap_server_port);
 
-                $this->server_type = $ldap_server_type;
+		$this->server_type = $ldap_server_type;
 
-		$schema_list  = "";
+		$schema_list = "";
 		foreach($this->server_types as $server_type)
 		{
 			if($server_type["name"] == $this->server_type)
@@ -2867,7 +2867,7 @@ class ldap_server
 
 		foreach($schema_list as $schema)
 			$this->add_schema($schema);
-        }
+	}
 
 	/** Return a schema setting for the specified LDAP attribute
 
@@ -2890,7 +2890,7 @@ class ldap_server
 			if($schema_entry["name"] == $class)
 				$setting_value = $schema_entry[$setting_name];
 
-	        return $setting_value;
+		return $setting_value;
 	}
 
 	/** Return the value of a setting for the specified object class
@@ -3267,7 +3267,7 @@ class ldap_server
 					{
 						// updated image uploaded
 						$fd = fopen($_FILES["ldap_attribute_" . $attrib . "_file"]["tmp_name"],"r");
-						$new_val =  fread($fd,MAX_IMAGE_UPLOAD);
+						$new_val = fread($fd,MAX_IMAGE_UPLOAD);
 						fclose($fd);
 					}
 					else
@@ -3359,7 +3359,7 @@ class ldap_server
 	function per_user_login_enabled()
 	{
 		if(count($this->user_map) == 1
-                        && $this->user_map[0]["login_name"] == "__ANONYMOUS__")
+			&& $this->user_map[0]["login_name"] == "__ANONYMOUS__")
 
 			return false;
 		else
@@ -3377,12 +3377,12 @@ class ldap_server
 		include_once("schema/" . $name . ".php");
 		$schema_class_name = str_replace("/","_",$name) . "_schema";
 
-                bindtextdomain($schema_class_name,"./locale");
-                textdomain($schema_class_name);
+		bindtextdomain($schema_class_name,"./locale");
+		textdomain($schema_class_name);
 
 		$schema_class = new $schema_class_name($this);
 
-                textdomain("main");
+		textdomain("main");
 	}
 
 	/** Add an object class to the schema
@@ -3575,7 +3575,7 @@ class ldap_server
 /** Bind to LDAP directory, recording failures to server error log
 
     @param resource $ldap_link
-        LDAP connection handle to bind/authenticate against
+	LDAP connection handle to bind/authenticate against
     @param string $user
 	LDAP bind DN/login name of current user
     @param string $password
