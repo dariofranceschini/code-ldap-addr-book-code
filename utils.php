@@ -3375,7 +3375,7 @@ class ldap_server
 	function add_schema($name)
 	{
 		include_once("schema/" . $name . ".php");
-		$schema_class_name = $name . "_schema";
+		$schema_class_name = str_replace("/","_",$name) . "_schema";
 
                 bindtextdomain($schema_class_name,"./locale");
                 textdomain($schema_class_name);
