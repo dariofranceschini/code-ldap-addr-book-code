@@ -1498,7 +1498,7 @@ class ldap_attribute
 
 						// assign an object class for eDirectory tree root (not defined
 						// by default)
-						if($ldap_server->server_type="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
+						if($ldap_server->server_type=="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
 						{
 							$entry[0][$entry[0]["count"]] = "objectclass";
 							$entry[0]["objectclass"][0] = "treeRoot";
