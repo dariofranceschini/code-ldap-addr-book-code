@@ -3562,6 +3562,12 @@ class ldap_server
 					$selected_layout = $layout["layout"];
 			}
 		}
+
+		if(!$found)
+			$selected_layout = array(
+				array("section_name"=>gettext("The Address Book is not able to display this record"),
+					"attributes"=>array()));
+
 		return $selected_layout;
 	}
 }
