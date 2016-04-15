@@ -733,7 +733,7 @@ class ldap_entry_viewer
 				$filename .= $entry[0][strtolower($rdn)];
 		}
 
-		header("Content-Type: text/x-vcard");
+		header("Content-Type: text/vcard");
 		header("Content-Disposition: attachment; filename=\""
 			. $filename . ".vcf\"");
 
@@ -2170,7 +2170,7 @@ class ldap_entry_list
 			$filename = $rdn_list[0]["value"];
 		}
 
-		header("Content-Type: text/x-vcard");
+		header("Content-Type: text/vcard");
 		header("Content-Disposition: attachment; filename=\""
 			. $filename . ".vcf\"");
 
