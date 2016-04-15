@@ -716,6 +716,27 @@ class ldap_entry_viewer
 
 	function save_vcard()
 	{
+		$rdn_attrib = $this->ldap_server->get_object_schema_setting(
+			$this->ldap_server->get_object_class($this->entry[0])
+			,"rdn_attrib");
+
+		$rdn_list = explode(",",$rdn_attrib);
+
+		$filename = "";
+		foreach($rdn_list as $rdn)
+		{
+			if($filename != "") $filename .= "_";
+
+			if(isset($entry[0][strtolower($rdn)][0]))
+				$filename .= $entry[0][strtolower($rdn)][0];
+			else
+				$filename .= $entry[0][strtolower($rdn)];
+		}
+
+		header("Content-Type: text/x-vcard");
+		header("Content-Disposition: attachment; filename=\""
+			. $filename . ".vcf\"");
+
 		$vcard = new vcard($this->ldap_server,$this->ldap_entry[0]);
 		echo $vcard->data;
 	}
@@ -2131,10 +2152,28 @@ class ldap_entry_list
 
 	}
 
-	/** Output address book contents as vCard */
+	/** Output address book contents as vCard
 
-	function save_vcard()
+	    @param string $dn
+		DN to use as basis of vCard filename
+	*/
+
+	function save_vcard($dn)
 	{
+		global $ldap_base_dn;
+
+		if($dn == $ldap_base_dn)
+			$filename = $site_name;
+		else
+		{
+			$rdn_list = ldap_explode_dn2($dn);
+			$filename = $rdn_list[0]["value"];
+		}
+
+		header("Content-Type: text/x-vcard");
+		header("Content-Disposition: attachment; filename=\""
+			. $filename . ".vcf\"");
+
 		for($i=0;$i < $this->ldap_entries["count"]; $i++)
 		{
 			$vcard = new vcard($this->ldap_server,$this->ldap_entries[$i]);

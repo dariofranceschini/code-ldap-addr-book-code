@@ -165,20 +165,7 @@ if(prereq_components_ok())
 			$entry_list->show();
 		}
 		else
-		{
-			if($dn == $ldap_base_dn)
-				$filename = $site_name;
-			else
-			{
-				$rdn_list = ldap_explode_dn2($dn);
-				$filename = $rdn_list[0]["value"];
-			}
-
-			header("Content-Type: text/x-vcard");
-			header("Content-Disposition: attachment; filename=\""
-				. $filename . ".vcf\"");
-			$entry_list->save_vcard();
-		}
+			$entry_list->save_vcard($dn);
 	}
 
 	echo "\n";
