@@ -604,6 +604,129 @@ $country_name=array(
 	"BL" => "Saint Barthelemy",
 	"MF" => "Saint Martin");
 
+/** Array of ASN.1/X.690 object identifiers/names
+
+    @see https://www.ietf.org/assignments/ldap-parameters/ldap-parameters.xml
+    @see http://svn.apache.org/repos/asf/directory/studio/trunk/plugins/connection.core/src/main/resources/org/apache/directory/studio/connection/core/OIDDescriptions.properties
+    @see http://www.novell.com/documentation/developer/ldapover/ldap_enu/data/a6ik7oi.html
+    @see http://fossies.org/linux/web2ldap/etc/web2ldap/ldapoidreg.py
+    @see http://search.cpan.org/dist/perl-ldap-0.57/lib/Net/LDAP/Constant.pm
+
+*/
+
+$oid_name=array(
+	// LDAP Grouping Types
+
+	"2.16.840.1.113719.1.27.103.8"		=>"Transaction",				// draft-zeilenga-ldap-grouping-06
+
+	// LDAP Controls
+
+	"1.2.826.0.1.3344810.2.3"		=>"Matched Values Control",			// RFC3876
+	"1.2.840.113556.1.4.319"		=>"LDAP Simple Paged Results Control",		// RFC2696
+	"1.2.840.113556.1.4.473"		=>"Sort Request",				// RFC2891
+	"1.2.840.113556.1.4.417"		=>"Show Deleted",				// Microsoft
+	"1.2.840.113556.1.4.529"		=>"Extended DN",				// Microsoft
+	"1.2.840.113556.1.4.801"		=>"Security Descriptor Flags",			// Microsoft
+	"1.2.840.113556.1.4.1339"		=>"Domain Scope",				// Microsoft
+	"1.2.840.113556.1.4.1340"		=>"Search Options",				// Microsoft
+	"1.2.840.113556.1.4.1504"		=>"Attribute Scoped Query",			// Microsoft
+	"1.3.6.1.1.12"				=>"Assertion Control",				// RFC4528
+	"1.3.6.1.1.13.1"			=>"LDAP Pre-read Control",			// RFC4527
+	"1.3.6.1.1.13.2"			=>"LDAP Post-read Control",			// RFC4527
+	"1.3.6.1.4.1.4203.1.10.1"		=>"Subentries",					// RFC3672
+	"2.16.840.1.113719.1.27.101.6"		=>"Create Forward Reference Request",		// Novell
+	"2.16.840.1.113719.1.27.101.5"		=>"Simple Password Control",			// Novell
+	"2.16.840.1.113719.1.27.103.7"		=>"GroupingControl",				// draft-zeilenga-ldap-grouping-06
+	"2.16.840.1.113719.1.27.101.40"		=>"LDAP_CONTROL_SSTATREQUEST",			// Novell (Search Status Request?)
+	"2.16.840.1.113730.3.4.2"		=>"Manage DSA Information Tree",		// RFC3296
+	"2.16.840.1.113730.3.4.3"		=>"Persistent Search",				// draft-ietf-ldapext-psearch-03
+	"2.16.840.1.113730.3.4.18"		=>"Proxy Authorization Control",		// RFC4370
+
+	// LDAP Features
+
+	"1.3.6.1.1.14"				=>"Modify-Increment",				// RFC4525
+	"1.3.6.1.4.1.4203.1.5.1"		=>"All Operational Attributes",			// RFC3673
+	"1.3.6.1.4.1.4203.1.5.2"		=>"OC AD Lists",				// RFC4529 (OC=Object Class)
+	"1.3.6.1.4.1.4203.1.5.3"		=>"True/False filters",				// RFC4526
+	"1.3.6.1.4.1.4203.1.5.4"		=>"Language Tag Options",			// RFC3866
+	"1.3.6.1.4.1.4203.1.5.5"		=>"Language Range Options",			// RFC3866
+	"2.16.840.1.113719.1.27.99.1"		=>"Superior References",			// Novell
+
+	// LDAP Extensions
+
+	"1.3.6.1.1.8"				=>"Cancel Operation",				// RFC3909
+	"1.3.6.1.4.1.1466.20037"		=>"Start TLS",					// RFC4511, RFC4513
+	"1.3.6.1.4.1.4203.1.11.1"		=>"Modify Password",				// RFC3062
+	"1.3.6.1.4.1.4203.1.11.3"		=>"Who Am I?",					// RFC4532
+	"2.16.840.1.113719.1.27.100.1"		=>"ndsToLdapResponse",				// Novell
+	"2.16.840.1.113719.1.27.100.3"		=>"createNamingContextRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.5"		=>"mergeNamingContextRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.7"		=>"addReplicaRequest",				// Novell
+	"2.16.840.1.113719.1.27.100.9"		=>"refreshLDAPServerRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.11"		=>"removeReplicaRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.13"		=>"namingContextEntryCountRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.15"		=>"changeReplicaTypeRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.17"		=>"getReplicaInfoRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.19"		=>"listReplicaRequest",				// Novell
+	"2.16.840.1.113719.1.27.100.21"		=>"receiveAllUpdatesRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.23"		=>"sendAllUpdatesRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.25"		=>"requestNamingContextSyncRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.27"		=>"requestSchemaSyncRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.29"		=>"abortNamingContextOperationRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.31"		=>"getContextIdentityNameRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.33"		=>"getEffectivePrivilegesRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.35"		=>"SetReplicationFilterRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.37"		=>"getReplicationFilterRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.39"		=>"createOrphanPartitionrequest",		// Novell
+	"2.16.840.1.113719.1.27.100.41"		=>"removeOrphanPartitionRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.43"		=>"triggerBKLinkerRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.45"		=>"triggerDRLProcessRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.47"		=>"triggerJanitorRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.49"		=>"triggerLimberRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.51"		=>"triggerSkulkerRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.53"		=>"triggerSchemaSyncRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.55"		=>"triggerPartitionPurgeRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.79"		=>"EventMonitorRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.84"		=>"filteredEventMonitorRequest",		// Novell
+	"2.16.840.1.113719.1.27.100.96"		=>"LDAPBackupRequest",				// Novell
+	"2.16.840.1.113719.1.27.100.98"		=>"LDAPRestoreRequest",				// Novell
+	"2.16.840.1.113719.1.27.100.101"	=>"LDAPDNStoX500DNRequest",			// Novell
+	"2.16.840.1.113719.1.27.100.103"	=>"Get Privileges List Request",		// Novell
+	"2.16.840.1.113719.1.27.103.1"		=>"createGroupingRequest",			// draft-zeilenga-ldap-grouping-06
+	"2.16.840.1.113719.1.27.103.2"		=>"endGroupingRequest",				// draft-zeilenga-ldap-grouping-06
+	"2.16.840.1.113719.1.39.42.100.1"	=>"NMAS Put Login Configuration Request",	// Novell
+	"2.16.840.1.113719.1.39.42.100.3"	=>"NMAS Get Login Configuration Request",	// Novell
+	"2.16.840.1.113719.1.39.42.100.5"	=>"NMAS Delete Login Configuration Request",	// Novell
+	"2.16.840.1.113719.1.39.42.100.7"	=>"NMAS Put Login Secret Request",		// Novell
+	"2.16.840.1.113719.1.39.42.100.9"	=>"NMAS Delete Login Secret Request",		// Novell
+	"2.16.840.1.113719.1.39.42.100.11"	=>"NMAS Set Password Request",			// Novell
+	"2.16.840.1.113719.1.39.42.100.13"	=>"NMAS Get Password Request",			// Novell
+	"2.16.840.1.113719.1.39.42.100.15"	=>"NMAS Delete Password Request",		// Novell
+	"2.16.840.1.113719.1.39.42.100.17"	=>"NMAS Password Policy Check Request",		// Novell
+	"2.16.840.1.113719.1.39.42.100.19"	=>"Get Password Policy Information",		// Novell
+	"2.16.840.1.113719.1.39.42.100.21"	=>"Change Universal Password",			// Novell
+	"2.16.840.1.113719.1.39.42.100.23"	=>"Graded Authentication Management",		// Novell
+	"2.16.840.1.113719.1.39.42.100.25"	=>"NMAS Management",				// Novell
+	"2.16.840.1.113719.1.142.100.1"		=>"startFramedProtocolRequest",			// Novell
+	"2.16.840.1.113719.1.142.100.4"		=>"endFramedProtocolRequest",			// Novell
+	"2.16.840.1.113719.1.142.100.6"		=>"lburpOperationRequest",			// Novell
+	"2.16.840.1.113719.1.148.100.1"		=>"Put Login Configuration",			// Novell
+	"2.16.840.1.113719.1.148.100.3"		=>"Get Login Configuration",			// Novell
+	"2.16.840.1.113719.1.148.100.5"		=>"Delete Login Configuration",			// Novell
+	"2.16.840.1.113719.1.148.100.7"		=>"Put Login Secret",				// Novell
+	"2.16.840.1.113719.1.148.100.9"		=>"Delete Login Secret",			// Novell
+	"2.16.840.1.113719.1.148.100.11"	=>"Set Universal Password",			// Novell
+	"2.16.840.1.113719.1.148.100.13"	=>"Get Universal Password",			// Novell
+	"2.16.840.1.113719.1.148.100.15"	=>"Delete Universal Password",			// Novell
+	"2.16.840.1.113719.1.148.100.17"	=>"Check Password Against Password Policy",	// Novell
+
+	// LDAP Capabilities
+
+	"1.2.840.113556.1.4.800"		=>"Active Directory",				// Microsoft
+	"1.2.840.113556.1.4.1670"		=>"Active Directory V51: Windows Server 2003",	// Microsoft
+	"1.2.840.113556.1.4.1791"		=>"Active Directory LDAP Integration",		// Microsoft
+	);
+
 /** View LDAP entry as HTML */
 
 class ldap_entry_viewer
@@ -1167,6 +1290,7 @@ class ldap_attribute
 			case "yes_no":		$this->show_boolean_yes_no();	break;
 			case "use_html_mail":	$this->show_use_html_mail();	break;
 			case "text":		$this->show_text();		break;
+			case "oid_list":	$this->show_oid_list();		break;
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
@@ -1487,6 +1611,32 @@ class ldap_attribute
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
+			echo "</ul>";
+		}
+	}
+
+	/** Show list of ASN.1/X.690 object identifier attribute (data type "oid_list")
+
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support editing
+	*/
+
+	function show_oid_list()
+	{
+		global $oid_name;
+
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+		{
+			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+					if(isset($oid_name[$value]))
+						echo "<li>" . htmlentities($oid_name[$value] . " (" . $value . ")") . "</li>";
+					else
+						echo "<li>" . htmlentities($value) . "</li>";
 			echo "</ul>";
 		}
 	}
