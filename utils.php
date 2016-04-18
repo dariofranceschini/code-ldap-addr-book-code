@@ -1199,13 +1199,13 @@ class ldap_attribute
 		global $ldap_server;
 
 		$this->ldap_entry = $ldap_entry;
-		$this->attribute = $attribute;
+		$this->attribute = $ldap_server->get_attribute_primary_class($attribute);
 
 		$this->value = $this->get_value();
 
 		// Get display name for attribute
 		$this->display_name = $ldap_server->get_attribute_schema_setting(
-			$attribute,"display_name",$attribute);
+			$this->attribute,"display_name",$this->attribute);
 
 		if($this->display_name!=$this->attribute)
 			$this->display_name .= " (" . $this->attribute . ")";
@@ -1213,7 +1213,7 @@ class ldap_attribute
 		// determine whether this is a required attribute
 
 		$this->required = $ldap_server->check_object_requires_attribute(
-			$ldap_server->get_object_class($ldap_entry),$attribute);
+			$ldap_server->get_object_class($ldap_entry),$this->attribute);
 	}
 
 	/** Gets the attribute's value (or first value if multi-valued)
@@ -3080,6 +3080,42 @@ class ldap_server
 				$setting_value = $schema_entry[$setting_name];
 
 		return $setting_value;
+	}
+
+	/** Return the primary class name of the specified LDAP attribute
+
+	    $param string $class
+		Attribute class for which the primary name is required
+	    @return
+		Primary class name of attribute (otherwise $class)
+	*/
+
+	function get_attribute_primary_class($class)
+	{
+		$primary_name = $class;
+		$found = false;
+		foreach($this->attribute_schema as $schema_entry)
+		{
+			if(!$found && $schema_entry["name"] == $class)
+			{
+				$primary_name = $schema_entry["name"];
+				$found = true;
+			}
+
+			if(!$found && isset($schema_entry["alias_names"]))
+			{
+				$alias_names = explode(",",$schema_entry["alias_names"]);
+				foreach($alias_names as $alias)
+				{
+					if(!$found && $alias == $class)
+					{
+						$primary_name = $alias;
+						$found = true;
+					}
+				}
+			}
+		}
+		return $primary_name;
 	}
 
 	/** Return the value of a setting for the specified object class
