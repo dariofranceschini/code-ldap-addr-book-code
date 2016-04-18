@@ -3076,7 +3076,7 @@ class ldap_server
 		$setting_value = $setting_default;
 
 		foreach($this->attribute_schema as $schema_entry)
-			if($schema_entry["name"] == $class)
+			if($schema_entry["name"] == $class && isset($schema_entry[$setting_name]))
 				$setting_value = $schema_entry[$setting_name];
 
 		return $setting_value;
