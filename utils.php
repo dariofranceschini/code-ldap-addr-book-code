@@ -1164,7 +1164,7 @@ class ldap_attribute
 	/** LDAP object entry which is to be displayed */
 	var $ldap_entry;
 
-	/** Attribute which is to be display */
+	/** Attribute which is to be displayed */
 	var $attribute;
 
 	/** Value of the attribute (or first value for a multi-valued attributes) */
