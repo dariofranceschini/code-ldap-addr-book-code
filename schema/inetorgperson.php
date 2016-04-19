@@ -6,8 +6,6 @@
     meet the requirements of Internet/Intranet directory service
     deployments.
 
-    (Partial implementation only)
-
     @see https://www.ietf.org/rfc/rfc2798.txt
 */
 
@@ -16,8 +14,15 @@ class inetorgperson_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
+			array("name"=>"carLicense",			"data_type"=>"text",		"display_name"=>gettext("Vehicle License/Registration")),
+			array("name"=>"departmentNumber",		"data_type"=>"text",		"display_name"=>gettext("Department Number")),
 			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
-			array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>gettext("Photograph"))
+			array("name"=>"employeeNumber",			"data_type"=>"text",		"display_name"=>gettext("Employee Number")),
+			array("name"=>"employeeType",			"data_type"=>"text",		"display_name"=>gettext("Employee Type")),
+			array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>gettext("Photograph")),
+			array("name"=>"preferredLanguage",		"data_type"=>"text",		"display_name"=>gettext("Preferred Language")),
+			array("name"=>"userPKCS12;binary",		"data_type"=>"download_list",	"display_name"=>gettext("PKCS #12 PFX Data")),
+			array("name"=>"userSMIMECertificate;binary",	"data_type"=>"download_list",	"display_name"=>gettext("S/MIME Certificate"))
 			);
 
 		// Structural object classes
