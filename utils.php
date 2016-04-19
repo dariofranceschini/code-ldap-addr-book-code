@@ -1292,6 +1292,8 @@ class ldap_attribute
 			case "text":		$this->show_text();		break;
 			case "oid_list":	$this->show_oid_list();		break;
 			case "mail_preference":	$this->show_mail_preference();	break;
+			case "download":	$this->show_download_list();	break;
+			case "download_list":	$this->show_download_list();	break;
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
@@ -1899,6 +1901,46 @@ class ldap_attribute
 				. $this->attribute . "_file\" title=\"" . $this->display_name
 				. "\" accept=\".jpg,.jpeg,.png,.gd2,.wbmp\">";
 		}
+	}
+
+	/** Show download (e.g. for binary attribute)
+
+	    @todo
+		Editing support for this data type
+	*/
+
+	function show_download_list()
+	{
+                if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+                {
+			if(isset($this->ldap_entry[strtolower($this->attribute)]["count"]))
+			{
+				// multi-valued attributes
+				echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+				foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+					if(empty($key) || $key != "count")
+					{
+						echo "<li><a href=\"download.php?dn="
+							. urlencode($this->ldap_entry["dn"]) . "&attrib=" . $this->attribute
+							. "&index=" . $key . "\"><button>";
+						if($this->ldap_entry[strtolower($this->attribute)]["count"]==1)
+							echo gettext("Download");
+						else
+							echo sprintf(gettext("Download Item %s"),$key+1);
+
+						echo "</button></a></li>\n";
+					}
+				echo "</ul>";
+			}
+			else
+				// single valued attributes
+				if(empty($this->value))
+					echo "Not set";
+				else
+					echo "<a href=\"download.php?dn="
+                                                . urlencode($this->ldap_entry["dn"]) . "&attrib=" . $this->attribute
+                                                . "\"><button>" . gettext("Download") . "</button></a>\n";
+                }
 	}
 }
 
