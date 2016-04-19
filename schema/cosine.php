@@ -69,19 +69,19 @@ class cosine_schema extends ldap_schema
 			// Other legacy attributes not carried forward from predecessors of RFC 4524
 
 			// "dc" (alias "domainComponent", included in COSINE as per RFC 1274) is defined in core schema instead
+			array("name"=>"audio",				"data_type"=>"download",	"display_name"=>gettext("Audio (u Law Format)")),
 			array("name"=>"dITRedirect",			"data_type"=>"dn_list",		"display_name"=>gettext("DIT Redirection")),
 			array("name"=>"janetMailbox",			"data_type"=>"text",		"display_name"=>gettext("Janet Mailbox")),
 			array("name"=>"lastModifiedTime",		"data_type"=>"text",		"display_name"=>gettext("Last Modified Time")),
 			array("name"=>"lastModifiedBy",			"data_type"=>"dn_list",		"display_name"=>gettext("Last Modified By")),
+			array("name"=>"mailPreferenceOption",		"data_type"=>"mail_preference",	"display_name"=>gettext("Mailing List Inclusion Preference")),
 			array("name"=>"otherMailbox",			"data_type"=>"text",		"display_name"=>gettext("Other Mailbox")),
 			array("name"=>"textEncodedORAddress",		"data_type"=>"text",		"display_name"=>gettext("Text Encoded O/R Address")),
 			// "uid" (alias "userid", included in COSINE as per RFC 1274) is defined in core schema instead
 
 			// Other legacy attributes not carried forward from predecessors of RFC 4524, of data types/formats not
-			// supported by the LDAP Address Book application. (data_type values are approximate only)
+			// supported by the LDAP Address Book application.
 
-			array("name"=>"audio",				"data_type"=>"text",		"display_name"=>gettext("Audio (u Law Format)")),
-			array("name"=>"mailPreferenceOption",		"data_type"=>"text",		"display_name"=>gettext("Mail Preference Option")),
 			array("name"=>"personalSignature",		"data_type"=>"image",		"display_name"=>gettext("Signature (G3 Fax Format)")),
 			array("name"=>"photo",				"data_type"=>"image",		"display_name"=>gettext("Photo (G3 Fax Format)"))
 			);
