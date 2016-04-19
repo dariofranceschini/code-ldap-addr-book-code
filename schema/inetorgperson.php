@@ -1,5 +1,15 @@
 <?php
-/** inetorgperson.schema (partial) */
+/** Internet/Intranet Organizational Person Schema (inetorgperson.schema)
+
+    The inetOrgPerson object class extends the X.521 standard's
+    organizationalPerson class with additional attributes to better
+    meet the requirements of Internet/Intranet directory service
+    deployments.
+
+    (Partial implementation only)
+
+    @see https://www.ietf.org/rfc/rfc2798.txt
+*/
 
 class inetorgperson_schema extends ldap_schema
 {
