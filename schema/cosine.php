@@ -10,8 +10,6 @@
     subsequently adopted by the IETF and became de facto
     Internet standards.
 
-    (This file includes the attribute definitions only)
-
     @see http://www.ietf.org/rfc/rfc1274.txt
     @see http://www.ietf.org/rfc/rfc4524.txt
 */
@@ -84,6 +82,24 @@ class cosine_schema extends ldap_schema
 
 			array("name"=>"personalSignature",		"data_type"=>"image",		"display_name"=>gettext("Signature (G3 Fax Format)")),
 			array("name"=>"photo",				"data_type"=>"image",		"display_name"=>gettext("Photo (G3 Fax Format)"))
+			);
+
+		// Structural object classes
+		$this->object_schema = array(
+			array("name"=>"account",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Account"),"rdn_attrib"=>"uid"),
+			array("name"=>"document",			"icon"=>"document.png",		"is_folder"=>false,"display_name"=>gettext("Document")),
+			array("name"=>"documentSeries",			"icon"=>"document-series.png",	"is_folder"=>false,"display_name"=>gettext("Document Series")),
+			array("name"=>"domain",				"icon"=>"microsoft/domain24.png","is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc"),
+			array("name"=>"friendlyCountry",		"icon"=>"country.png",		"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)")),
+			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc"),
+			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
+
+			// Legacy attributes not carried forward from predecessors of RFC 4524
+			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)")),
+			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)")), // alias of pilotPerson
+			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)")),
+			array("name"=>"dNSDomain",			"icon"=>"microsoft/domain24.png","is_folder"=>false,"display_name"=>gettext("DNS Domain")),
+			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"))
 			);
 
 		parent::__construct($ldap_server);
