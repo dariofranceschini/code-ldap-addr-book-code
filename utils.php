@@ -1291,6 +1291,7 @@ class ldap_attribute
 			case "use_html_mail":	$this->show_use_html_mail();	break;
 			case "text":		$this->show_text();		break;
 			case "oid_list":	$this->show_oid_list();		break;
+			case "mail_preference":	$this->show_mail_preference();	break;
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
@@ -1377,6 +1378,32 @@ class ldap_attribute
 			array(
 				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
+				)
+			);
+	}
+
+	/** Show mailPreferenceOption attribute (data type "use_html_mail")
+
+	    This attribute indicates a person's preference for inclusion in
+	    mailing lists. If no value is given then the record should be
+	    processed as if the value was 0, i.e. don't include in mailing
+	    lists.
+
+		- 0 - no-list-inclusion
+		- 1 - any-list-inclusion
+		- 2 - professional-list-inclusion
+
+	    The attribute is defined in the COSINE schema.
+	*/
+
+	function show_mail_preference()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"","display_name"=>gettext("Not known")),
+				array("value"=>"0","display_name"=>gettext("Don't include in mailing lists")),
+				array("value"=>"1","display_name"=>gettext("Include in any mailing lists")),
+				array("value"=>"2","display_name"=>gettext("Include in professional mailing lists only"))
 				)
 			);
 	}
