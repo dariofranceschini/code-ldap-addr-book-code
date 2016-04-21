@@ -44,6 +44,7 @@ main.pot: $(wildcard ../*.php)
 		--from-code UTF-8 \
                 --package-name="${PACKAGE_NAME}" \
                 --copyright-holder="${PACKAGE_COPYRIGHT}" $<
+	if [ ! -f $@ ]; then touch $@; fi
 	sed -i -e"s/CHARSET/UTF-8/" $@
 
 %_${BUILD_LANGUAGE}.po: %.pot
@@ -54,6 +55,7 @@ main.pot: $(wildcard ../*.php)
 	else \
 		if [ "${BUILD_LANGUAGE}" = "en" ]; then \
 			msgen --lang=en $< --output-file=$@; \
+			if [ ! -f $@ ]; then touch $@; fi \
 		else \
 			msginit --no-translator --locale=${BUILD_LANGUAGE} --input=$< --output-file=$@; \
 		fi \
@@ -62,5 +64,7 @@ main.pot: $(wildcard ../*.php)
 ${BUILD_LANGUAGE}/LC_MESSAGES/%.mo: %_${BUILD_LANGUAGE}.po
 	@mkdir -p `dirname $@`
 	@echo -n "$<: "
+	@rm -f $@
 	@msgfmt -v $< -o $@
+	@if [ ! -f $@ ]; then touch $@; fi
 	@chmod g+r $@
