@@ -3,13 +3,14 @@
 PACKAGE_NAME=LDAP Address Book
 PACKAGE_COPYRIGHT=James Turner and other contributors
 
-SCHEMAS=core cosine inetorgperson microsoft mozilla novell schac
 LANGUAGES=en fr
 
 # ------------------------------------
 
 MAIN_PO=main_${BUILD_LANGUAGE}.po
 MAIN_MO=${BUILD_LANGUAGE}/LC_MESSAGES/main.mo
+
+SCHEMAS=$(shell find ../schema -name *.php | sed "s/^..\/schema\///;s/.php//;s/\//_/g")
 
 SCHEMA_POT=$(foreach schema,${SCHEMAS},${schema}_schema.pot)
 SCHEMA_PO=$(foreach schema,${SCHEMAS},${schema}_schema_${BUILD_LANGUAGE}.po)
