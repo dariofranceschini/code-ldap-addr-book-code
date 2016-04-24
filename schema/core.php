@@ -30,7 +30,7 @@ class core_schema extends ldap_schema
 		// Structural object classes
 		$this->object_schema = array(
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
-			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"can_create"=>true)
+			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"required_attribs"=>"member","can_create"=>true)
 			);
 
 		parent::__construct($ldap_server);
