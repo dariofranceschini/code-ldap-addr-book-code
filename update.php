@@ -28,7 +28,9 @@ if($ldap_server->log_on())
 {
 	// Update record
 
-	if(get_user_setting("allow_edit"))
+	if(get_user_setting("allow_edit")
+		|| (get_user_setting("allow_edit_self")
+		&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn)))
 	{
 		$create_failed = false;
 

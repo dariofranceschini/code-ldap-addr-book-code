@@ -889,7 +889,10 @@ class ldap_entry_viewer
 
 		if(get_user_setting("allow_view"))
 		{
-			if($this->edit && get_user_setting("allow_edit"))
+			if($this->edit && (get_user_setting("allow_edit")
+				|| (get_user_setting("allow_edit_self")
+                                && !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
+
 				echo "<form method=\"post\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
 
@@ -915,7 +918,7 @@ class ldap_entry_viewer
 
 			if(get_user_setting("allow_edit")
 					|| (get_user_setting("allow_edit_self")
-					&& strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn)))
+					&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn)))
 				if($this->edit)
 				{
 					if($this->create)
@@ -2088,7 +2091,7 @@ function get_user_setting($attrib,$user_name = "")
 	// the user's group membership
 	$boolean_attribs_with_ldap_lookup = array("allow_browse",
 		"allow_search","allow_view","allow_create","allow_edit",
-		"allow_move","allow_delete","allow_export",
+		"allow_edit_self","allow_move","allow_delete","allow_export",
 		"allow_export_bulk","allow_login","allow_folder_info",
 		"allow_ldap_path");
 
@@ -2141,6 +2144,7 @@ function get_user_setting($attrib,$user_name = "")
 			case "allow_view":
 			case "allow_create":
 			case "allow_edit":
+			case "allow_edit_self":
 			case "allow_move":
 			case "allow_delete":
 			case "allow_export":
