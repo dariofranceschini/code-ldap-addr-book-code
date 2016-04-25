@@ -1,5 +1,14 @@
 <?php
-/** core.schema (partial) */
+/** LDAP Core Schema for User Applications (core.schema)
+
+    (Partial implementation only)
+
+    @see http://www.ietf.org/rfc/rfc2079.txt
+    @see http://www.ietf.org/rfc/rfc2256.txt
+    @see http://www.ietf.org/rfc/rfc3280.txt
+    @see http://www.ietf.org/rfc/rfc4519.txt
+    @see http://www.ietf.org/rfc/rfc4523.txt
+*/
 
 class core_schema extends ldap_schema
 {
