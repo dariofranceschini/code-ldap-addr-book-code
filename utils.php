@@ -3079,7 +3079,7 @@ class ldap_server
 
 		array("name"=>"openldap",
 			"default_create_class"=>"inetOrgPerson",
-			"schema_list"=>"core,cosine,inetorgperson"),
+			"schema_list"=>"system,core,cosine,inetorgperson"),
 
 		array("name"=>"custom",
 			"default_create_class"=>"person",
