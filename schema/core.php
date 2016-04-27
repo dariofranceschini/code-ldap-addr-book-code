@@ -69,14 +69,14 @@ class core_schema extends ldap_schema
 			array("name"=>"certificateRevocationList;binary","data_type"=>"download_list",	"display_name"=>gettext("Certificate Revocation List")),
 			array("name"=>"crossCertificatePair;binary",	"data_type"=>"download",	"display_name"=>gettext("Cross Certificate Pair")),
 			array("name"=>"deltaRevocationList;binary",	"data_type"=>"download_list",	"display_name"=>gettext("Delta Revocation List")),
-			array("name"=>"email",				"data_type"=>"text",		"display_name"=>gettext("E-mail Address"),		"alias_names"=>"emailAddress,pkcs9email"),
+			array("name"=>"email",				"data_type"=>"text",		"display_name"=>gettext("PKCS #9 E-mail Address"),	"alias_names"=>"emailAddress,pkcs9email"),
 			array("name"=>"pseudonym",			"data_type"=>"text",		"display_name"=>gettext("Pseudonym")),
 			array("name"=>"supportedAlgorithms;binary",	"data_type"=>"download_list",	"display_name"=>gettext("Supported Algorithms")),
 			array("name"=>"userCertificate;binary",		"data_type"=>"download_list",	"display_name"=>gettext("User Certificate")),
 
 			// Other legacy attributes not carried forward from predecessors of RFC 4519
 
-			array("name"=>"dmdName",			"data_type"=>"text",		"display_name"=>gettext("Directory Management Domain")),
+			array("name"=>"dmdName",			"data_type"=>"text",		"display_name"=>gettext("Directory Management Domain Name")),
 			array("name"=>"knowledgeInformation",		"data_type"=>"text",		"display_name"=>gettext("Knowledge Information")),
 			array("name"=>"presentationAddress",		"data_type"=>"text",		"display_name"=>gettext("OSI Presentation Address")),
 			array("name"=>"protocolInformation",		"data_type"=>"text",		"display_name"=>gettext("Protocol Information")),
