@@ -1,6 +1,6 @@
-# French translations for LDAP Address package.
+# French translations for LDAP Address Book package.
 # Copyright (C) 2015 James Turner and other contributors
-# This file is distributed under the same license as the LDAP Address package.
+# This file is distributed under the same license as the LDAP Address Book package.
 # Automatically generated, 2015.
 #
 msgid ""
