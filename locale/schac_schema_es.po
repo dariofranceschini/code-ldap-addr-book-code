@@ -1,0 +1,102 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-27 12:26+0100\n"
+"PO-Revision-Date: 2016-04-27 12:26+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/schac.php:12
+msgid "Preferred Language"
+msgstr "Idioma Preferido"
+
+#: ../schema/schac.php:13
+msgid "Gender"
+msgstr "Sexo"
+
+#: ../schema/schac.php:14
+msgid "Date of Birth"
+msgstr "Fecha de Cumpleaños"
+
+#: ../schema/schac.php:15
+msgid "Place of Birth"
+msgstr "Lugar de Nacimiento"
+
+#: ../schema/schac.php:16
+msgid "Country of Citizenship"
+msgstr "Pais de Ciudadania"
+
+#: ../schema/schac.php:17
+msgid "First Surname"
+msgstr "Primer Apellido"
+
+#: ../schema/schac.php:18
+msgid "Second Surname"
+msgstr "Segundo apellido"
+
+#: ../schema/schac.php:19
+msgid "Personal Title"
+msgstr "Titulo Personal"
+
+#: ../schema/schac.php:20
+msgid "Home Organization Domain Name"
+msgstr "Inicio Nombre de Dominio Organización"
+
+#: ../schema/schac.php:21
+msgid "Home Organization Type"
+msgstr "Tipo de Organización Inicio"
+
+#: ../schema/schac.php:22
+msgid "Country of Residence"
+msgstr "País de Residencia"
+
+#: ../schema/schac.php:23
+msgid "Presence Service URL"
+msgstr "Presencia Servicio URL"
+
+#: ../schema/schac.php:24
+msgid "Personal Position"
+msgstr "Posición Personal"
+
+#: ../schema/schac.php:25
+msgid "Personal Unique Code"
+msgstr "Personal Código Único"
+
+#: ../schema/schac.php:26
+msgid "Personal Unique ID"
+msgstr "Personal Identidad Único"
+
+#: ../schema/schac.php:27
+msgid "Record Expiry Date"
+msgstr "Fecha de Caducidad del Expediente"
+
+#: ../schema/schac.php:28
+msgid "Private Attributes"
+msgstr "Atributos Privados"
+
+#: ../schema/schac.php:29
+msgid "User Status"
+msgstr "Estatus de usuario"
+
+#: ../schema/schac.php:30
+msgid "Project Membership"
+msgstr "Membresía Proyecto"
+
+#: ../schema/schac.php:31
+msgid "Project Specific Role"
+msgstr "Proyecto Rol Específico"
+
+#: ../schema/schac.php:32
+msgid "Year of Birth"
+msgstr "Año de Nacimiento"

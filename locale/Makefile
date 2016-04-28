@@ -3,7 +3,7 @@
 PACKAGE_NAME=LDAP Address Book
 PACKAGE_COPYRIGHT=James Turner and other contributors
 
-LANGUAGES=en fr
+LANGUAGES=en es fr
 
 # ------------------------------------
 

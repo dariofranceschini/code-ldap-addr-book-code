@@ -1,0 +1,154 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-27 12:26+0100\n"
+"PO-Revision-Date: 2016-04-27 12:26+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell.php:10
+msgid "Country Code"
+msgstr "Código de País"
+
+#: ../schema/novell.php:11
+msgid "Common Name/Full Name"
+msgstr "Nombre Común / Nombre Completo"
+
+#: ../schema/novell.php:12
+msgid "Description"
+msgstr "Descripción"
+
+#: ../schema/novell.php:13
+msgid "Fax Number"
+msgstr "Número de Fax"
+
+#: ../schema/novell.php:14
+msgid "Given Name"
+msgstr "Nombre de Pila"
+
+#: ../schema/novell.php:15
+msgid "Locality (e.g. Town/City)"
+msgstr "Localidad (por ejemplo Ciudad)"
+
+#: ../schema/novell.php:16
+msgid "E-mail Address"
+msgstr "Dirección de Correo Electrónico"
+
+#: ../schema/novell.php:17
+msgid "Member"
+msgstr "Miembro"
+
+#: ../schema/novell.php:18
+msgid "Office"
+msgstr "Oficina"
+
+#: ../schema/novell.php:19
+msgid "Postal Code"
+msgstr "Código Postal"
+
+#: ../schema/novell.php:20
+msgid "Surname"
+msgstr "Apellido"
+
+#: ../schema/novell.php:21
+msgid "State (or Province/County)"
+msgstr "Estado (o Provincia / Condado)"
+
+#: ../schema/novell.php:22
+msgid "Street Address"
+msgstr "Dirección"
+
+#: ../schema/novell.php:23
+msgid "Telephone Number"
+msgstr "Número de Teléfono"
+
+#: ../schema/novell.php:24
+msgid "Job Title"
+msgstr "Título Profesional"
+
+#: ../schema/novell.php:27
+msgid "Home Telephone Number"
+msgstr "Número de Teléfono de su Casa"
+
+#: ../schema/novell.php:28
+msgid "Mobile/Cell Telephone Number"
+msgstr "Número de la Célula Teléfono"
+
+#: ../schema/novell.php:29
+msgid "Pager Telephone Number"
+msgstr "Localizador Número de Teléfono"
+
+#: ../schema/novell.php:32
+msgid "Display/Preferred Name"
+msgstr "Mostrar / Nombre Preferido"
+
+#: ../schema/novell.php:33
+msgid "Photograph"
+msgstr "Fotografía"
+
+#: ../schema/novell.php:36
+msgid "Company"
+msgstr "Empresa"
+
+#: ../schema/novell.php:37
+msgid "Group Membership"
+msgstr "Pertenencia a un Grupo"
+
+#: ../schema/novell.php:43
+msgid "Organizational Unit"
+msgstr "Unidad Organizacional"
+
+#: ../schema/novell.php:46
+msgid "Group"
+msgstr "Grupo"
+
+#: ../schema/novell.php:50
+msgid "User"
+msgstr "Usuario"
+
+#: ../schema/novell.php:54
+msgid "NCP Server"
+msgstr "Servidor NCP"
+
+#: ../schema/novell.php:55
+msgid "LDAP Server"
+msgstr "Servidor LDAP"
+
+#: ../schema/novell.php:56
+msgid "Person"
+msgstr "Persona"
+
+#: ../schema/novell.php:57
+msgid "External Entity"
+msgstr "Entidad Externa"
+
+#: ../schema/novell.php:58
+msgid "NDSPKI:Key Material"
+msgstr "NDSPKI:Material de Key"
+
+#: ../schema/novell.php:59
+msgid "SAS:Service"
+msgstr "SAS:Servicio"
+
+#: ../schema/novell.php:60
+msgid "LDAP Group"
+msgstr "Grupo LDAP"
+
+#: ../schema/novell.php:61
+msgid "Volume"
+msgstr "Tomo"
+
+#: ../schema/novell.php:63
+msgid "Queue"
+msgstr "Cola"
