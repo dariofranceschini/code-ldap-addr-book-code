@@ -1,14 +1,14 @@
 # French translations for LDAP Address Book package.
-# Copyright (C) 2015 James Turner and other contributors
+# Copyright (C) 2015-2016 James Turner and other contributors
 # This file is distributed under the same license as the LDAP Address Book package.
-# James Turner <james@turnersoft.co.uk>, 2015.
+# James Turner <james@turnersoft.co.uk>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-14 20:41+0000\n"
-"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"POT-Creation-Date: 2016-04-27 10:33+0100\n"
+"PO-Revision-Date: 2016-04-27 10:33+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,10 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/inetorgperson.php:9
+#: ../schema/inetorgperson.php:17
+msgid "Vehicle License/Registration"
+msgstr "Plaque d'immatriculation du véhicule"
+
+#: ../schema/inetorgperson.php:18
+msgid "Department Number"
+msgstr "Numéro du ministère"
+
+#: ../schema/inetorgperson.php:19
 msgid "Display/Preferred Name"
 msgstr "Nom Préféré pour l'Affichage"
 
-#: ../schema/inetorgperson.php:10
+#: ../schema/inetorgperson.php:20
+msgid "Employee Number"
+msgstr "Numéro d'employé"
+
+#: ../schema/inetorgperson.php:21
+msgid "Employee Type"
+msgstr "Type d'employé"
+
+#: ../schema/inetorgperson.php:22
 msgid "Photograph"
 msgstr "Photo"
+
+#: ../schema/inetorgperson.php:23
+msgid "Preferred Language"
+msgstr "Langue préférée"
+
+#: ../schema/inetorgperson.php:24
+msgid "PKCS #12 PFX Data"
+msgstr "PKCS #12 PFX Données"
+
+#: ../schema/inetorgperson.php:25
+msgid "S/MIME Certificate"
+msgstr "Certificat S/MIME"

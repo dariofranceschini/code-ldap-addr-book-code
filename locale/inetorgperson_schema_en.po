@@ -1,14 +1,14 @@
 # English translations for LDAP Address Book package.
-# Copyright (C) 2015 James Turner and other contributors
+# Copyright (C) 2015-2016 James Turner and other contributors
 # This file is distributed under the same license as the LDAP Address Book package.
-# Automatically generated, 2015.
+# Automatically generated, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-14 20:41+0000\n"
-"PO-Revision-Date: 2015-11-14 20:02+0000\n"
+"POT-Creation-Date: 2016-04-27 10:33+0100\n"
+"PO-Revision-Date: 2016-04-27 10:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,10 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/inetorgperson.php:9
+#: ../schema/inetorgperson.php:17
+msgid "Vehicle License/Registration"
+msgstr "Vehicle License/Registration"
+
+#: ../schema/inetorgperson.php:18
+msgid "Department Number"
+msgstr "Department Number"
+
+#: ../schema/inetorgperson.php:19
 msgid "Display/Preferred Name"
 msgstr "Display/Preferred Name"
 
-#: ../schema/inetorgperson.php:10
+#: ../schema/inetorgperson.php:20
+msgid "Employee Number"
+msgstr "Employee Number"
+
+#: ../schema/inetorgperson.php:21
+msgid "Employee Type"
+msgstr "Employee Type"
+
+#: ../schema/inetorgperson.php:22
 msgid "Photograph"
 msgstr "Photograph"
+
+#: ../schema/inetorgperson.php:23
+msgid "Preferred Language"
+msgstr "Preferred Language"
+
+#: ../schema/inetorgperson.php:24
+msgid "PKCS #12 PFX Data"
+msgstr "PKCS #12 PFX Data"
+
+#: ../schema/inetorgperson.php:25
+msgid "S/MIME Certificate"
+msgstr "S/MIME Certificate"

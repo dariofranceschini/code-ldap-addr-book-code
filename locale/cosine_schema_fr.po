@@ -1,14 +1,14 @@
 # French translations for LDAP Address Book package.
-# Copyright (C) 2015 James Turner and other contributors
+# Copyright (C) 2015-2016 James Turner and other contributors
 # This file is distributed under the same license as the LDAP Address Book package.
-# James Turner <james@turnersoft.co.uk>, 2015.
+# James Turner <james@turnersoft.co.uk>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-11 00:25+0000\n"
-"PO-Revision-Date: 2016-01-10 15:12+0000\n"
+"POT-Creation-Date: 2016-04-27 10:33+0100\n"
+"PO-Revision-Date: 2016-04-27 10:33+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,157 +17,165 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/cosine.php:26
+#: ../schema/cosine.php:24
 msgid "Associated Domain"
 msgstr "Domaine Associé"
 
-#: ../schema/cosine.php:27
+#: ../schema/cosine.php:25
 msgid "Associated Name"
 msgstr "Nom Associé"
 
-#: ../schema/cosine.php:28
+#: ../schema/cosine.php:26
 msgid "Building Name"
 msgstr "Nom du Bâtiment"
 
-#: ../schema/cosine.php:29
+#: ../schema/cosine.php:27
 msgid "Country Name"
 msgstr "Nom du Pays"
 
-#: ../schema/cosine.php:30
+#: ../schema/cosine.php:28
 msgid "Document Author"
 msgstr "Auteur du Document"
 
-#: ../schema/cosine.php:31
+#: ../schema/cosine.php:29
 msgid "Document Identifier"
 msgstr "Identificateur de Document"
 
-#: ../schema/cosine.php:32
+#: ../schema/cosine.php:30
 msgid "Document Location"
 msgstr "Emplacement du Document"
 
-#: ../schema/cosine.php:33
+#: ../schema/cosine.php:31
 msgid "Document Publisher"
 msgstr "Editeur du Document"
 
-#: ../schema/cosine.php:34
+#: ../schema/cosine.php:32
 msgid "Document Title"
 msgstr "Titre du Document"
 
-#: ../schema/cosine.php:35
+#: ../schema/cosine.php:33
 msgid "Document Version"
 msgstr "Version de Document"
 
-#: ../schema/cosine.php:36
+#: ../schema/cosine.php:34
 msgid "Favorite Drink"
 msgstr "Boisson Préférée"
 
-#: ../schema/cosine.php:37
+#: ../schema/cosine.php:35
 msgid "Home Telephone Number"
 msgstr "Numéro de Téléphone Domicile"
 
-#: ../schema/cosine.php:38
+#: ../schema/cosine.php:36
 msgid "Home Address"
 msgstr "Adresse du Domicile"
 
-#: ../schema/cosine.php:39
+#: ../schema/cosine.php:37
 msgid "Host Computer"
 msgstr "Ordinateur Hôte"
 
-#: ../schema/cosine.php:40
+#: ../schema/cosine.php:38
 msgid "General Information"
 msgstr "Informations Générales"
 
-#: ../schema/cosine.php:42
+#: ../schema/cosine.php:40
 msgid "Manager"
 msgstr "Gérante"
 
-#: ../schema/cosine.php:43
+#: ../schema/cosine.php:41
 msgid "Mobile/Cell Telephone Number"
 msgstr "Numéro de Téléphone Mobile"
 
-#: ../schema/cosine.php:44
+#: ../schema/cosine.php:42
 msgid "Organizational Status"
 msgstr "Statut dans l'Organisation"
 
-#: ../schema/cosine.php:45
+#: ../schema/cosine.php:43
 msgid "Pager Telephone Number"
 msgstr "Numéro de Téléphone Bip"
 
-#: ../schema/cosine.php:46
+#: ../schema/cosine.php:44
 msgid "Personal Title"
 msgstr "Titre Personnel"
 
-#: ../schema/cosine.php:47
+#: ../schema/cosine.php:45
 msgid "Room Number"
 msgstr "Numéro de Bureau"
 
-#: ../schema/cosine.php:48
+#: ../schema/cosine.php:46
 msgid "Secretary"
 msgstr "Secrétaire"
 
-#: ../schema/cosine.php:49
+#: ../schema/cosine.php:47
 msgid "Unique Identifier"
 msgstr "Identifiant Unique"
 
-#: ../schema/cosine.php:50
+#: ../schema/cosine.php:48
 msgid "Category of User"
 msgstr "Catégorie d'Utilisateur"
 
-#: ../schema/cosine.php:54
+#: ../schema/cosine.php:52
 msgid "IPv4 Address Record"
 msgstr "Enregistrement d'Adresse IPv4"
 
-#: ../schema/cosine.php:55
+#: ../schema/cosine.php:53
 msgid "Mail Destination Record"
 msgstr "Enregistrement de Destination Mail"
 
-#: ../schema/cosine.php:56
+#: ../schema/cosine.php:54
 msgid "Mail Exchange Record"
 msgstr "Enregistrement MX"
 
-#: ../schema/cosine.php:57
+#: ../schema/cosine.php:55
 msgid "Name Server Record"
 msgstr "Enregistrement du Serveur de Nom"
 
-#: ../schema/cosine.php:58
+#: ../schema/cosine.php:56
 msgid "Start of Authority Record"
 msgstr "Enregistrement de Début de l'Autorité"
 
-#: ../schema/cosine.php:59
+#: ../schema/cosine.php:57
 msgid "Canonical Name Record"
 msgstr "Enregistrement de Nom Canonique"
 
-#: ../schema/cosine.php:64
+#: ../schema/cosine.php:62
 msgid "Service Quality for this DSA"
 msgstr "la Qualité du Service pour cette DSA"
 
-#: ../schema/cosine.php:65
+#: ../schema/cosine.php:63
 msgid "Data Quality for this DIT Level"
 msgstr "La qualité des données pour ce niveau de DIT"
 
-#: ../schema/cosine.php:66
+#: ../schema/cosine.php:64
 msgid "Minimum Data Quality for DIT Subtree"
 msgstr "Qualité des données minimum en DIT arborescence"
 
-#: ../schema/cosine.php:67
+#: ../schema/cosine.php:65
 msgid "Maximum Data Quality for DIT Subtree"
 msgstr "Qualité des données maximale dans DIT arborescence"
 
-#: ../schema/cosine.php:72
+#: ../schema/cosine.php:70
+msgid "Audio (u Law Format)"
+msgstr "Audio (u Law Format)"
+
+#: ../schema/cosine.php:71
 msgid "DIT Redirection"
 msgstr "Redirection sein DIT"
 
-#: ../schema/cosine.php:73
+#: ../schema/cosine.php:72
 msgid "Janet Mailbox"
 msgstr "Janet Email"
 
-#: ../schema/cosine.php:74
+#: ../schema/cosine.php:73
 msgid "Last Modified Time"
 msgstr "Date de Dernière Modification"
 
-#: ../schema/cosine.php:75
+#: ../schema/cosine.php:74
 msgid "Last Modified By"
 msgstr "Dernière Modification par"
+
+#: ../schema/cosine.php:75
+msgid "Mailing List Inclusion Preference"
+msgstr "La préférence pour l'inclusion dans les listes de diffusion"
 
 #: ../schema/cosine.php:76
 msgid "Other Mailbox"
@@ -178,17 +186,53 @@ msgid "Text Encoded O/R Address"
 msgstr "O/R Adresse codée sous Forme de Texte"
 
 #: ../schema/cosine.php:83
-msgid "Audio (u Law Format)"
-msgstr "Audio (u Law Format)"
-
-#: ../schema/cosine.php:84
-msgid "Mail Preference Option"
-msgstr "Que l'Option Mail de Préférence"
-
-#: ../schema/cosine.php:85
 msgid "Signature (G3 Fax Format)"
 msgstr "Signature (G3 Fax Format)"
 
-#: ../schema/cosine.php:86
+#: ../schema/cosine.php:84
 msgid "Photo (G3 Fax Format)"
 msgstr "Photo (G3 Fax Format)"
+
+#: ../schema/cosine.php:89
+msgid "Account"
+msgstr "Compte"
+
+#: ../schema/cosine.php:90
+msgid "Document"
+msgstr "Document"
+
+#: ../schema/cosine.php:91
+msgid "Document Series"
+msgstr "Série de documents"
+
+#: ../schema/cosine.php:92
+msgid "Domain"
+msgstr "Domaine"
+
+#: ../schema/cosine.php:93
+msgid "Country (Friendly Name)"
+msgstr "Pays (nom convivial)"
+
+#: ../schema/cosine.php:94
+msgid "RFC 822 Local Part"
+msgstr "RFC 822 Partie locale"
+
+#: ../schema/cosine.php:95
+msgid "Room"
+msgstr "Salle"
+
+#: ../schema/cosine.php:98 ../schema/cosine.php:99
+msgid "Person (COSINE Pilot)"
+msgstr "Personne (COSINE Pilot)"
+
+#: ../schema/cosine.php:100
+msgid "Organization (COSINE Pilot)"
+msgstr "Organisation (COSINE Pilot)"
+
+#: ../schema/cosine.php:101
+msgid "DNS Domain"
+msgstr "Domaine DNS"
+
+#: ../schema/cosine.php:102
+msgid "DSA (COSINE Pilot)"
+msgstr "DSA (COSINE Pilot)"
