@@ -50,14 +50,11 @@ class novell_schema extends ldap_schema
 			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"required_attribs"=>"sn","can_create"=>true),
 
 			// Novell proprietary classes
-
 			array("name"=>"ncpServer",			"icon"=>"server.png", "is_folder"=>false,"display_name"=>gettext("NCP Server")),
-			array("name"=>"ldapServer",			"icon"=>"ldap-server.png","is_folder"=>false,"display_name"=>gettext("LDAP Server"),"can_create"=>true),
 			array("name"=>"Person",				"icon"=>"contact24.png",		  "is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true),
 			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
 			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png","is_folder"=>false,"display_name"=>gettext("NDSPKI:Key Material"),"can_create"=>true),
 			array("name"=>"sASService",			"icon"=>"novell/security.png", "is_folder"=>false,"display_name"=>gettext("SAS:Service"),"can_create"=>true),
-			array("name"=>"ldapGroup",			"icon"=>"novell/ldap-group.png","is_folder"=>false,"display_name"=>gettext("LDAP Group"),"can_create"=>true),
 			array("name"=>"Volume",				"icon"=>"novell/volume.png",   "is_folder"=>false,"display_name"=>gettext("Volume")),
 			array("name"=>"ndsPredicateStats",		"icon"=>"novell/stats.png",    "is_folder"=>false),
 			array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false,"display_name"=>gettext("Queue")),
@@ -66,6 +63,9 @@ class novell_schema extends ldap_schema
 			);
 
 		parent::__construct($ldap_server);
+
+		// component schema
+		$ldap_server->add_schema("novell/ldap");
 	}
 }
 ?>

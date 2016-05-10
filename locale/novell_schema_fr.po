@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-15 01:02+0000\n"
-"PO-Revision-Date: 2015-11-14 20:07+0000\n"
+"POT-Creation-Date: 2016-05-10 08:39+0100\n"
+"PO-Revision-Date: 2016-05-10 08:39+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -117,38 +117,30 @@ msgstr "Groupe"
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../schema/novell.php:54
+#: ../schema/novell.php:53
 msgid "NCP Server"
 msgstr "Serveur NCP"
 
-#: ../schema/novell.php:55
-msgid "LDAP Server"
-msgstr "Serveur LDAP"
-
-#: ../schema/novell.php:56
+#: ../schema/novell.php:54
 msgid "Person"
 msgstr "Personne"
 
-#: ../schema/novell.php:57
+#: ../schema/novell.php:55
 msgid "External Entity"
 msgstr "Entité Externe"
 
-#: ../schema/novell.php:58
+#: ../schema/novell.php:56
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Matériel de Clé"
 
-#: ../schema/novell.php:59
+#: ../schema/novell.php:57
 msgid "SAS:Service"
 msgstr "SAS:Service"
 
-#: ../schema/novell.php:60
-msgid "LDAP Group"
-msgstr "Groupe LDAP"
-
-#: ../schema/novell.php:61
+#: ../schema/novell.php:58
 msgid "Volume"
 msgstr "Volume"
 
-#: ../schema/novell.php:63
+#: ../schema/novell.php:60
 msgid "Queue"
 msgstr "Queue"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 12:26+0100\n"
-"PO-Revision-Date: 2016-04-27 12:26+0100\n"
+"POT-Creation-Date: 2016-05-10 08:39+0100\n"
+"PO-Revision-Date: 2016-05-10 08:39+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -117,38 +117,30 @@ msgstr "Grupo"
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/novell.php:54
+#: ../schema/novell.php:53
 msgid "NCP Server"
 msgstr "Servidor NCP"
 
-#: ../schema/novell.php:55
-msgid "LDAP Server"
-msgstr "Servidor LDAP"
-
-#: ../schema/novell.php:56
+#: ../schema/novell.php:54
 msgid "Person"
 msgstr "Persona"
 
-#: ../schema/novell.php:57
+#: ../schema/novell.php:55
 msgid "External Entity"
 msgstr "Entidad Externa"
 
-#: ../schema/novell.php:58
+#: ../schema/novell.php:56
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Material de Key"
 
-#: ../schema/novell.php:59
+#: ../schema/novell.php:57
 msgid "SAS:Service"
 msgstr "SAS:Servicio"
 
-#: ../schema/novell.php:60
-msgid "LDAP Group"
-msgstr "Grupo LDAP"
-
-#: ../schema/novell.php:61
+#: ../schema/novell.php:58
 msgid "Volume"
 msgstr "Tomo"
 
-#: ../schema/novell.php:63
+#: ../schema/novell.php:60
 msgid "Queue"
 msgstr "Cola"
