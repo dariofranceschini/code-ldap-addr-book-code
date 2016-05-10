@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 08:39+0100\n"
-"PO-Revision-Date: 2016-05-10 08:39+0100\n"
+"POT-Creation-Date: 2016-05-10 09:20+0100\n"
+"PO-Revision-Date: 2016-05-10 09:20+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -78,69 +78,49 @@ msgid "Job Title"
 msgstr "Título Profesional"
 
 #: ../schema/novell.php:27
-msgid "Home Telephone Number"
-msgstr "Número de Teléfono de su Casa"
-
-#: ../schema/novell.php:28
-msgid "Mobile/Cell Telephone Number"
-msgstr "Número de la Célula Teléfono"
-
-#: ../schema/novell.php:29
-msgid "Pager Telephone Number"
-msgstr "Localizador Número de Teléfono"
-
-#: ../schema/novell.php:32
-msgid "Display/Preferred Name"
-msgstr "Mostrar / Nombre Preferido"
-
-#: ../schema/novell.php:33
-msgid "Photograph"
-msgstr "Fotografía"
-
-#: ../schema/novell.php:36
 msgid "Company"
 msgstr "Empresa"
 
-#: ../schema/novell.php:37
+#: ../schema/novell.php:28
 msgid "Group Membership"
 msgstr "Pertenencia a un Grupo"
 
-#: ../schema/novell.php:43
+#: ../schema/novell.php:34
 msgid "Organizational Unit"
 msgstr "Unidad Organizacional"
 
-#: ../schema/novell.php:46
+#: ../schema/novell.php:37
 msgid "Group"
 msgstr "Grupo"
 
-#: ../schema/novell.php:50
+#: ../schema/novell.php:41
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/novell.php:53
+#: ../schema/novell.php:44
 msgid "NCP Server"
 msgstr "Servidor NCP"
 
-#: ../schema/novell.php:54
+#: ../schema/novell.php:45
 msgid "Person"
 msgstr "Persona"
 
-#: ../schema/novell.php:55
+#: ../schema/novell.php:46
 msgid "External Entity"
 msgstr "Entidad Externa"
 
-#: ../schema/novell.php:56
+#: ../schema/novell.php:47
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Material de Key"
 
-#: ../schema/novell.php:57
+#: ../schema/novell.php:48
 msgid "SAS:Service"
 msgstr "SAS:Servicio"
 
-#: ../schema/novell.php:58
+#: ../schema/novell.php:49
 msgid "Volume"
 msgstr "Tomo"
 
-#: ../schema/novell.php:60
+#: ../schema/novell.php:51
 msgid "Queue"
 msgstr "Cola"

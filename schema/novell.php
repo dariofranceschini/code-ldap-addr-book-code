@@ -23,15 +23,6 @@ class novell_schema extends ldap_schema
 			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
-			// matches cosine.schema
-			array("name"=>"homePhone",			"data_type"=>"phone_number",	"display_name"=>gettext("Home Telephone Number")),
-			array("name"=>"mobile",				"data_type"=>"phone_number",	"display_name"=>gettext("Mobile/Cell Telephone Number")),
-			array("name"=>"pager",				"data_type"=>"text",		"display_name"=>gettext("Pager Telephone Number")),
-
-			// matches inetorgperson.schema
-			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
-			array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>gettext("Photograph")),
-
 			// Novell proprietary classes
 			array("name"=>"company",			"data_type"=>"text",		"display_name"=>gettext("Company")),
 			array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>gettext("Group Membership"))
@@ -66,6 +57,7 @@ class novell_schema extends ldap_schema
 
 		// component schema
 		$ldap_server->add_schema("novell/ldap");
+		$ldap_server->add_schema("novell/nov_inet");
 	}
 }
 ?>
