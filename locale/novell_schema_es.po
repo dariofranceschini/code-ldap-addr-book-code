@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 07:22+0100\n"
-"PO-Revision-Date: 2016-05-11 07:22+0100\n"
+"POT-Creation-Date: 2016-05-11 08:45+0100\n"
+"PO-Revision-Date: 2016-05-11 08:45+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -106,13 +106,9 @@ msgid "External Entity"
 msgstr "Entidad Externa"
 
 #: ../schema/novell.php:46
-msgid "SAS:Service"
-msgstr "SAS:Servicio"
-
-#: ../schema/novell.php:47
 msgid "Volume"
 msgstr "Tomo"
 
-#: ../schema/novell.php:49
+#: ../schema/novell.php:48
 msgid "Queue"
 msgstr "Cola"
