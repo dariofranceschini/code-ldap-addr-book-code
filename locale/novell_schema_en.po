@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 09:20+0100\n"
-"PO-Revision-Date: 2016-05-10 09:20+0100\n"
+"POT-Creation-Date: 2016-05-11 06:53+0100\n"
+"PO-Revision-Date: 2016-05-11 06:53+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -78,49 +78,45 @@ msgid "Job Title"
 msgstr "Job Title"
 
 #: ../schema/novell.php:27
-msgid "Company"
-msgstr "Company"
-
-#: ../schema/novell.php:28
 msgid "Group Membership"
 msgstr "Group Membership"
 
-#: ../schema/novell.php:34
+#: ../schema/novell.php:33
 msgid "Organizational Unit"
 msgstr "Organizational Unit"
 
-#: ../schema/novell.php:37
+#: ../schema/novell.php:36
 msgid "Group"
 msgstr "Group"
 
-#: ../schema/novell.php:41
+#: ../schema/novell.php:40
 msgid "User"
 msgstr "User"
 
-#: ../schema/novell.php:44
+#: ../schema/novell.php:43
 msgid "NCP Server"
 msgstr "NCP Server"
 
-#: ../schema/novell.php:45
+#: ../schema/novell.php:44
 msgid "Person"
 msgstr "Person"
 
-#: ../schema/novell.php:46
+#: ../schema/novell.php:45
 msgid "External Entity"
 msgstr "External Entity"
 
-#: ../schema/novell.php:47
+#: ../schema/novell.php:46
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Key Material"
 
-#: ../schema/novell.php:48
+#: ../schema/novell.php:47
 msgid "SAS:Service"
 msgstr "SAS:Service"
 
-#: ../schema/novell.php:49
+#: ../schema/novell.php:48
 msgid "Volume"
 msgstr "Volume"
 
-#: ../schema/novell.php:51
+#: ../schema/novell.php:50
 msgid "Queue"
 msgstr "Queue"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 09:20+0100\n"
-"PO-Revision-Date: 2016-05-10 09:20+0100\n"
+"POT-Creation-Date: 2016-05-11 06:53+0100\n"
+"PO-Revision-Date: 2016-05-11 06:53+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -78,49 +78,45 @@ msgid "Job Title"
 msgstr "Título Profesional"
 
 #: ../schema/novell.php:27
-msgid "Company"
-msgstr "Empresa"
-
-#: ../schema/novell.php:28
 msgid "Group Membership"
 msgstr "Pertenencia a un Grupo"
 
-#: ../schema/novell.php:34
+#: ../schema/novell.php:33
 msgid "Organizational Unit"
 msgstr "Unidad Organizacional"
 
-#: ../schema/novell.php:37
+#: ../schema/novell.php:36
 msgid "Group"
 msgstr "Grupo"
 
-#: ../schema/novell.php:41
+#: ../schema/novell.php:40
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/novell.php:44
+#: ../schema/novell.php:43
 msgid "NCP Server"
 msgstr "Servidor NCP"
 
-#: ../schema/novell.php:45
+#: ../schema/novell.php:44
 msgid "Person"
 msgstr "Persona"
 
-#: ../schema/novell.php:46
+#: ../schema/novell.php:45
 msgid "External Entity"
 msgstr "Entidad Externa"
 
-#: ../schema/novell.php:47
+#: ../schema/novell.php:46
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Material de Key"
 
-#: ../schema/novell.php:48
+#: ../schema/novell.php:47
 msgid "SAS:Service"
 msgstr "SAS:Servicio"
 
-#: ../schema/novell.php:49
+#: ../schema/novell.php:48
 msgid "Volume"
 msgstr "Tomo"
 
-#: ../schema/novell.php:51
+#: ../schema/novell.php:50
 msgid "Queue"
 msgstr "Cola"

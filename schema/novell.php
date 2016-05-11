@@ -24,7 +24,6 @@ class novell_schema extends ldap_schema
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
 			// Novell proprietary classes
-			array("name"=>"company",			"data_type"=>"text",		"display_name"=>gettext("Company")),
 			array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>gettext("Group Membership"))
 			);
 
@@ -57,6 +56,7 @@ class novell_schema extends ldap_schema
 
 		// component schema
 		$ldap_server->add_schema("novell/ldap");
+		$ldap_server->add_schema("novell/ndscomm");
 		$ldap_server->add_schema("novell/nov_inet");
 	}
 }
