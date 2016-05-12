@@ -5,7 +5,7 @@ class novell_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-	        $this->attribute_schema = array(
+		$this->attribute_schema = array(
 			// matches core.schema
 			array("name"=>"c",				"data_type"=>"country_code",	"display_name"=>gettext("Country Code")),
 			array("name"=>"cn",				"data_type"=>"text",		"display_name"=>gettext("Common Name/Full Name")),
