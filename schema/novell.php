@@ -45,7 +45,6 @@ class novell_schema extends ldap_schema
 			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
 			array("name"=>"Volume",				"icon"=>"novell/volume.png",   "is_folder"=>false,"display_name"=>gettext("Volume")),
 			array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false,"display_name"=>gettext("Queue")),
-			array("name"=>"nssfsPool",			"icon"=>"novell/nssfs-pool.png",  "is_folder"=>false)
 			);
 
 		parent::__construct($ldap_server);
@@ -57,6 +56,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/ndspki");
 		$ldap_server->add_schema("novell/nls");
 		$ldap_server->add_schema("novell/nov_inet");
+		$ldap_server->add_schema("novell/nssfs");
 		$ldap_server->add_schema("novell/sas");
 	}
 }
