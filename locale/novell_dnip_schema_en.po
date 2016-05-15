@@ -1,0 +1,90 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-15 11:06+0100\n"
+"PO-Revision-Date: 2016-05-15 11:06+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/dnip.php:20
+msgid "DNS/DHCP Group Object Name"
+msgstr "DNS/DHCP Group Object Name"
+
+#: ../schema/novell/dnip.php:21
+msgid "DNS Zone Object Names"
+msgstr "DNS Zone Object Names"
+
+#: ../schema/novell/dnip.php:22
+msgid "DHCP Subnet Attribute Object Names"
+msgstr "DHCP Subnet Attribute Object Names"
+
+#: ../schema/novell/dnip.php:23
+msgid "Comments"
+msgstr "Comments"
+
+#: ../schema/novell/dnip.php:24
+msgid "Associated NDS Object"
+msgstr "Associated NDS Object"
+
+#: ../schema/novell/dnip.php:25
+msgid "Subnet Pool Reference"
+msgstr "Subnet Pool Reference"
+
+#: ../schema/novell/dnip.php:26
+msgid "Subnet Objects"
+msgstr "Subnet Objects"
+
+#: ../schema/novell/dnip.php:27
+msgid "DNS/DHCP Locator DN"
+msgstr "DNS/DHCP Locator DN"
+
+#: ../schema/novell/dnip.php:28
+msgid "DNS Secondary Zone"
+msgstr "DNS Secondary Zone"
+
+#: ../schema/novell/dnip.php:33
+msgid "Locator"
+msgstr "Locator"
+
+#: ../schema/novell/dnip.php:34
+msgid "DNS Zone"
+msgstr "DNS Zone"
+
+#: ../schema/novell/dnip.php:35
+msgid "DNS RRset"
+msgstr "DNS RRset"
+
+#: ../schema/novell/dnip.php:36
+msgid "Subnet"
+msgstr "Subnet"
+
+#: ../schema/novell/dnip.php:37
+msgid "Subnet Pool"
+msgstr "Subnet Pool"
+
+#: ../schema/novell/dnip.php:38
+msgid "Subnet Address Range"
+msgstr "Subnet Address Range"
+
+#: ../schema/novell/dnip.php:39
+msgid "IP Address Configuration"
+msgstr "IP Address Configuration"
+
+#: ../schema/novell/dnip.php:40
+msgid "DNIP:DNS Key"
+msgstr "DNIP:DNS Key"
+
+#: ../schema/novell/dnip.php:41
+msgid "DHCP Server"
+msgstr "DHCP Server"
