@@ -1,0 +1,82 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-15 10:47+0100\n"
+"PO-Revision-Date: 2016-05-15 10:37+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/dhcp.php:9
+msgid "DHCP Locator DN"
+msgstr "DHCP Locator DN"
+
+#: ../schema/dhcp.php:10
+msgid "DHCP Service DN"
+msgstr "DHCP Service DN"
+
+#: ../schema/dhcp.php:11
+msgid "DHCP Server DN"
+msgstr "DHCP Server DN"
+
+#: ../schema/dhcp.php:12
+msgid "DHCP Configuration Statements"
+msgstr "DHCP Configuration Statements"
+
+#: ../schema/dhcp.php:13
+msgid "DHCP Option List"
+msgstr "DHCP Option List"
+
+#: ../schema/dhcp.php:14
+msgid "DHCP TSIG Key DN"
+msgstr "DHCP TSIG Key DN"
+
+#: ../schema/dhcp.php:19
+msgid "DHCP Failover Peer"
+msgstr "DHCP Failover Peer"
+
+#: ../schema/dhcp.php:20
+msgid "DHCP DNS Zone"
+msgstr "DHCP DNS Zone"
+
+#: ../schema/dhcp.php:21
+msgid "DHCP Class"
+msgstr "DHCP Class"
+
+#: ../schema/dhcp.php:22
+msgid "DHCP Service"
+msgstr "DHCP Service"
+
+#: ../schema/dhcp.php:23
+msgid "DHCP Locator"
+msgstr "DHCP Locator"
+
+#: ../schema/dhcp.php:24
+msgid "DHCP Host/IP Address"
+msgstr "DHCP Host/IP Address"
+
+#: ../schema/dhcp.php:25
+msgid "DHCP Server"
+msgstr "DHCP Server"
+
+#: ../schema/dhcp.php:26
+msgid "DHCP Subnet"
+msgstr "DHCP Subnet"
+
+#: ../schema/dhcp.php:27
+msgid "DHCP Shared Network"
+msgstr "DHCP Shared Network"
+
+#: ../schema/dhcp.php:28
+msgid "DHCP TSIG Key"
+msgstr "DHCP TSIG Key"

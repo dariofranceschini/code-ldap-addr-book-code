@@ -1,0 +1,82 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-15 10:47+0100\n"
+"PO-Revision-Date: 2016-05-15 10:37+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/dhcp.php:9
+msgid "DHCP Locator DN"
+msgstr "DN del localizador DHCP"
+
+#: ../schema/dhcp.php:10
+msgid "DHCP Service DN"
+msgstr "DN del servicio DHCP"
+
+#: ../schema/dhcp.php:11
+msgid "DHCP Server DN"
+msgstr "DN del servidor DHCP"
+
+#: ../schema/dhcp.php:12
+msgid "DHCP Configuration Statements"
+msgstr "Declaraciones de configuración de DHCP"
+
+#: ../schema/dhcp.php:13
+msgid "DHCP Option List"
+msgstr "Lista de opciones DHCP"
+
+#: ../schema/dhcp.php:14
+msgid "DHCP TSIG Key DN"
+msgstr "DN del clave DHCP TSIG"
+
+#: ../schema/dhcp.php:19
+msgid "DHCP Failover Peer"
+msgstr "DHCP pares de conmutación por error"
+
+#: ../schema/dhcp.php:20
+msgid "DHCP DNS Zone"
+msgstr "Zona DNS DHCP"
+
+#: ../schema/dhcp.php:21
+msgid "DHCP Class"
+msgstr "Clase DHCP"
+
+#: ../schema/dhcp.php:22
+msgid "DHCP Service"
+msgstr "Servicio DHCP"
+
+#: ../schema/dhcp.php:23
+msgid "DHCP Locator"
+msgstr "Localizador DHCP"
+
+#: ../schema/dhcp.php:24
+msgid "DHCP Host/IP Address"
+msgstr "Anfitrión DHCP/Dirección IP"
+
+#: ../schema/dhcp.php:25
+msgid "DHCP Server"
+msgstr "Servidor DHCP"
+
+#: ../schema/dhcp.php:26
+msgid "DHCP Subnet"
+msgstr "Subred DHCP"
+
+#: ../schema/dhcp.php:27
+msgid "DHCP Shared Network"
+msgstr "DHCP de red compartida"
+
+#: ../schema/dhcp.php:28
+msgid "DHCP TSIG Key"
+msgstr "Clave DHCP TSIG"
