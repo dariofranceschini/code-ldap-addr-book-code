@@ -52,6 +52,7 @@ class novell_schema extends ldap_schema
 		// component schema
 		$ldap_server->add_schema("dhcp");		// ISC DHCP (OES Linux)
 		$ldap_server->add_schema("novell/dnip");	// Novell DHCP (legacy NetWare) and DNS
+		$ldap_server->add_schema("novell/embox");
 		$ldap_server->add_schema("novell/ldap");
 		$ldap_server->add_schema("novell/nds");
 		$ldap_server->add_schema("novell/ndscomm");
