@@ -5,7 +5,7 @@ class novell_nov_inet_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-	        $this->attribute_schema = array(
+		$this->attribute_schema = array(
 			// Equivalents to cosine.schema classes
 			// homePhone, mobile and pager are also duplicated in the ndscomm schema
 			array("name"=>"homePhone",			"data_type"=>"phone_number",	"display_name"=>gettext("Home Telephone Number")),
