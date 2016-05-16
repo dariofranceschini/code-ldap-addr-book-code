@@ -64,6 +64,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/sas");
 		$ldap_server->add_schema("novell/sss");
 		$ldap_server->add_schema("novell/wanman");
+		$ldap_server->add_schema("novell/xtier");
 	}
 }
 ?>
