@@ -1,0 +1,30 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-17 07:06+0100\n"
+"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/uam.php:9
+msgid "UAM POSIX Workstation Contexts"
+msgstr "UAM POSIX Workstation Contexts"
+
+#: ../schema/novell/uam.php:10
+msgid "Reuse UID Numbers"
+msgstr "Reuse UID Numbers"
+
+#: ../schema/novell/uam.php:11
+msgid "Reuse GID Numbers"
+msgstr "Reuse GID Numbers"
