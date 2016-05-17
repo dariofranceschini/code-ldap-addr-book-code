@@ -68,6 +68,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/nps");
 		$ldap_server->add_schema("novell/nssfs");
 		$ldap_server->add_schema("novell/nwadmin");
+		$ldap_server->add_schema("novell/pki");
 		$ldap_server->add_schema("novell/sas");
 		$ldap_server->add_schema("novell/slp");
 		$ldap_server->add_schema("novell/snmp");
