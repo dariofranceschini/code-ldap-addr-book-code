@@ -54,6 +54,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/apache");
 		$ldap_server->add_schema("novell/dnip");	// Novell DHCP (legacy NetWare) and DNS
 		$ldap_server->add_schema("novell/embox");
+		$ldap_server->add_schema("novell/encrypt");
 		$ldap_server->add_schema("novell/httpstk");
 		$ldap_server->add_schema("novell/ldap");
 		$ldap_server->add_schema("novell/ncs");
