@@ -7,7 +7,7 @@ class novell_ndspki_schema extends ldap_schema
 	{
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png",	"is_folder"=>false,"display_name"=>gettext("NDSPKI:Key Material"),"can_create"=>true),
+			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png",	"is_folder"=>false,"display_name"=>gettext("NDSPKI:Key Material")),
 			);
 
 		parent::__construct($ldap_server);
