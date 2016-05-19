@@ -8,7 +8,7 @@ class novell_nls_schema extends ldap_schema
 		// Structural object classes
 
 		$this->object_schema = array(
-			array("name"=>"nLSLicenseServer",		"icon"=>"novell/license-server.png",	"is_folder"=>false),
+			array("name"=>"nLSLicenseServer",		"icon"=>"novell/license-server.png",	"is_folder"=>false,"display_name"=>gettext("License Service Provider")),
 			);
 
 		parent::__construct($ldap_server);
