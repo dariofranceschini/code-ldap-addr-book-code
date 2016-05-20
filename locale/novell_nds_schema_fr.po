@@ -1,0 +1,50 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-20 09:09+0100\n"
+"PO-Revision-Date: 2016-05-18 07:06+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/novell/nds.php:10
+msgid "Domain Component Name"
+msgstr "Nom du Composant de Domaine"
+
+#: ../schema/novell/nds.php:13
+msgid "NDS Predicate Stats DN"
+msgstr "DN d'objet Statistiques Prédicat NDS"
+
+#: ../schema/novell/nds.php:14
+msgid "NDS Predicate Flush"
+msgstr "Flush prédicats pour NDS"
+
+#: ../schema/novell/nds.php:15
+msgid "NDS Predicate State"
+msgstr "Statut prédicat pour NDS"
+
+#: ../schema/novell/nds.php:16
+msgid "NDS Predicate Use Values"
+msgstr "Valeurs d'Utilisation Prédicat pour NDS"
+
+#: ../schema/novell/nds.php:17
+msgid "Cached Attributes On External References"
+msgstr "Attributs en Cache sur les Références Externes"
+
+#: ../schema/novell/nds.php:18
+msgid "Index Definition List"
+msgstr "Liste de Définitions d'Index"
+
+#: ../schema/novell/nds.php:24
+msgid "Domain"
+msgstr "Domaine"
