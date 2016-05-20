@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 08:45+0100\n"
-"PO-Revision-Date: 2016-05-11 08:45+0100\n"
+"POT-Creation-Date: 2016-05-19 09:26+0100\n"
+"PO-Revision-Date: 2016-05-19 09:26+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -50,65 +50,121 @@ msgid "Member"
 msgstr "Membre"
 
 #: ../schema/novell.php:18
+msgid "Organization Name"
+msgstr "Nom de l'Organisation"
+
+#: ../schema/novell.php:19
+msgid "Organizational Unit Name"
+msgstr "Nom de l'Unité d'Organisation"
+
+#: ../schema/novell.php:20
 msgid "Office"
 msgstr "Bureau"
 
-#: ../schema/novell.php:19
+#: ../schema/novell.php:21
 msgid "Postal Code"
 msgstr "Code Postal"
 
-#: ../schema/novell.php:20
+#: ../schema/novell.php:22
+msgid "Postal Office Box"
+msgstr "Boîte Postale"
+
+#: ../schema/novell.php:23
+msgid "Role Occupant"
+msgstr "Rôle Occupés Par"
+
+#: ../schema/novell.php:24
 msgid "Surname"
 msgstr "Nom de Famille"
 
-#: ../schema/novell.php:21
+#: ../schema/novell.php:25
 msgid "State (or Province/County)"
 msgstr "État (ou Province/Comté)"
 
-#: ../schema/novell.php:22
+#: ../schema/novell.php:26
 msgid "Street Address"
 msgstr "Adresse Postale"
 
-#: ../schema/novell.php:23
+#: ../schema/novell.php:27
 msgid "Telephone Number"
 msgstr "Numéro de Téléphone"
 
-#: ../schema/novell.php:24
+#: ../schema/novell.php:28
 msgid "Job Title"
 msgstr "Intitulé de la Fonction"
 
-#: ../schema/novell.php:27
+#: ../schema/novell.php:31
 msgid "Group Membership"
 msgstr "les Membres du Groupe"
 
+#: ../schema/novell.php:32
+msgid "Host Server"
+msgstr "Serveur Hôte"
+
 #: ../schema/novell.php:33
+msgid "Login Script"
+msgstr "Script de Connexion"
+
+#: ../schema/novell.php:34
+msgid "Cross Certificate Pair (NDS)"
+msgstr "Paire de Certificats Croix (NDS)"
+
+#: ../schema/novell.php:41
 msgid "Organizational Unit"
 msgstr "Unité d'Organisation"
 
-#: ../schema/novell.php:36
+#: ../schema/novell.php:42
+msgid "Organization"
+msgstr "Organisation"
+
+#: ../schema/novell.php:43
+msgid "Country"
+msgstr "Pays"
+
+#: ../schema/novell.php:44
+msgid "Locality"
+msgstr "Localité"
+
+#: ../schema/novell.php:45
 msgid "Group"
 msgstr "Groupe"
 
-#: ../schema/novell.php:40
+#: ../schema/novell.php:46
+msgid "Organizational Role"
+msgstr "Rôle au sein de l'Organisation"
+
+#: ../schema/novell.php:50
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../schema/novell.php:43
-msgid "NCP Server"
-msgstr "Serveur NCP"
-
-#: ../schema/novell.php:44
+#: ../schema/novell.php:56
 msgid "Person"
 msgstr "Personne"
 
-#: ../schema/novell.php:45
+#: ../schema/novell.php:59
 msgid "External Entity"
 msgstr "Entité Externe"
 
-#: ../schema/novell.php:46
+#: ../schema/novell.php:60
+msgid "Profile"
+msgstr "Profil"
+
+#: ../schema/novell.php:61
 msgid "Volume"
 msgstr "Volume"
 
-#: ../schema/novell.php:48
+#: ../schema/novell.php:62
 msgid "Queue"
 msgstr "Queue"
+
+#: ../schema/novell.php:63
+msgid "Directory Map"
+msgstr "Annuaire Carte"
+
+#: ../schema/novell.php:64
+msgid "NCP Server"
+msgstr "Serveur NCP"
+
+#: ../schema/novell.php:65
+msgid "Alias"
+msgstr "Alias"

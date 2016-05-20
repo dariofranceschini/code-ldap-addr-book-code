@@ -15,8 +15,12 @@ class novell_schema extends ldap_schema
 			array("name"=>"l",				"data_type"=>"text",		"display_name"=>gettext("Locality (e.g. Town/City)")),
 			array("name"=>"mail",				"data_type"=>"text",		"display_name"=>gettext("E-mail Address")),
 			array("name"=>"member",				"data_type"=>"dn_list",		"display_name"=>gettext("Member")),
+			array("name"=>"o",				"data_type"=>"text",		"display_name"=>gettext("Organization Name")),
+			array("name"=>"ou",				"data_type"=>"text",		"display_name"=>gettext("Organizational Unit Name")),
 			array("name"=>"physicalDeliveryOfficeName",	"data_type"=>"text",		"display_name"=>gettext("Office")),
 			array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>gettext("Postal Code")),
+			array("name"=>"postOfficeBox",			"data_type"=>"text",		"display_name"=>gettext("Postal Office Box")),
+			array("name"=>"roleOccupant",			"data_type"=>"dn_list",		"display_name"=>gettext("Role Occupant")),
 			array("name"=>"sn",				"data_type"=>"text",		"display_name"=>gettext("Surname")),
 			array("name"=>"st",				"data_type"=>"text",		"display_name"=>gettext("State (or Province/County)")),
 			array("name"=>"street",				"data_type"=>"text_area",	"display_name"=>gettext("Street Address")),	// a.k.a. streetAddress
@@ -24,27 +28,41 @@ class novell_schema extends ldap_schema
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
 			// Novell proprietary classes
-			array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>gettext("Group Membership"))
+			array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>gettext("Group Membership")),
+			array("name"=>"hostServer",			"data_type"=>"dn",		"display_name"=>gettext("Host Server")),
+			array("name"=>"loginScript",			"data_type"=>"text_area",	"display_name"=>gettext("Login Script")),
+			array("name"=>"ndsCrossCertificatePair",	"data_type"=>"download",	"display_name"=>gettext("Cross Certificate Pair (NDS)")),
 			);
 
 		// Structural object classes
 		$this->object_schema = array(
 			// matches core.schema
+			// (Class names for organization, country, locality are capitalised in their Novell versions)
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",			"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
-
-			// matches core.schema other than addition of display_name "Group"
+			array("name"=>"Organization",			"icon"=>"org.png",			"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true),
+			array("name"=>"Country",			"icon"=>"country.png",			"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
+			array("name"=>"Locality",			"icon"=>"locality.png",			"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality"),"can_create"=>true),
 			array("name"=>"groupOfNames",			"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("Group"),"can_create"=>true),
+			array("name"=>"organizationalRole",		"icon"=>"org-role.png",			"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
 
 			// matches inetorgperson.schema other than addition of display_name "User"
 			// (inetOrgPerson LDAP class maps to eDirectory User class)
 			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"required_attribs"=>"sn","can_create"=>true),
 
+			// base schema - equivalents to core.schema classes
+			//
+			// (Person should be listed after inetOrgPerson but before externalEntity
+			// for correct inheritence behaviour)
+			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true),
+
 			// Novell proprietary classes
-			array("name"=>"ncpServer",			"icon"=>"server.png", "is_folder"=>false,"display_name"=>gettext("NCP Server")),
-			array("name"=>"Person",				"icon"=>"contact24.png",		  "is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true),
-			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png","is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
-			array("name"=>"Volume",				"icon"=>"novell/volume.png",   "is_folder"=>false,"display_name"=>gettext("Volume")),
-			array("name"=>"Queue",				"icon"=>"novell/queue.png",    "is_folder"=>false,"display_name"=>gettext("Queue")),
+			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png",	"is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
+			array("name"=>"Profile",			"icon"=>"novell/profile.png",		"is_folder"=>false,"display_name"=>gettext("Profile")),
+			array("name"=>"Volume",				"icon"=>"novell/volume.png",		"is_folder"=>false,"display_name"=>gettext("Volume")),
+			array("name"=>"Queue",				"icon"=>"novell/queue.png",		"is_folder"=>false,"display_name"=>gettext("Queue")),
+			array("name"=>"directoryMap",			"icon"=>"novell/directory-map.png",	"is_folder"=>false,"display_name"=>gettext("Directory Map")),
+			array("name"=>"ncpServer",			"icon"=>"server.png",			"is_folder"=>false,"display_name"=>gettext("NCP Server")),
+			array("name"=>"aliasObject",			"icon"=>"alias.png",			"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			);
 
 		parent::__construct($ldap_server);
