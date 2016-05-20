@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 07:22+0100\n"
-"PO-Revision-Date: 2016-05-11 07:22+0100\n"
+"POT-Creation-Date: 2016-05-19 09:52+0100\n"
+"PO-Revision-Date: 2016-05-19 09:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,6 +17,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../schema/novell/ndspki.php:9
+msgid "Valid From Date"
+msgstr "Valid From Date"
+
 #: ../schema/novell/ndspki.php:10
+msgid "Valid To Date"
+msgstr "Valid To Date"
+
+#: ../schema/novell/ndspki.php:11
+msgid "Key Material DN List"
+msgstr "Key Material DN List"
+
+#: ../schema/novell/ndspki.php:12
+msgid "Issued Certificates Container DN"
+msgstr "Issued Certificates Container DN"
+
+#: ../schema/novell/ndspki.php:13
+msgid "CRL Container DN"
+msgstr "CRL Container DN"
+
+#: ../schema/novell/ndspki.php:14
+msgid "CRL Configuration DN List"
+msgstr "CRL Configuration DN List"
+
+#: ../schema/novell/ndspki.php:15
+msgid "CA Certificate"
+msgstr "CA Certificate"
+
+#: ../schema/novell/ndspki.php:16
+msgid "Certificate Chain"
+msgstr "Certificate Chain"
+
+#: ../schema/novell/ndspki.php:17
+msgid "Public Key Certificate"
+msgstr "Public Key Certificate"
+
+#: ../schema/novell/ndspki.php:18
+msgid "Private Key"
+msgstr "Private Key"
+
+#: ../schema/novell/ndspki.php:19
+msgid "Public Key"
+msgstr "Public Key"
+
+#: ../schema/novell/ndspki.php:24
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Key Material"
+
+#: ../schema/novell/ndspki.php:25
+msgid "Security Domain Key Access Partition"
+msgstr "Security Domain Key Access Partition"
+
+#: ../schema/novell/ndspki.php:26
+msgid "Security Domain Key List"
+msgstr "Security Domain Key List"
+
+#: ../schema/novell/ndspki.php:27
+msgid "Certificate Authority"
+msgstr "Certificate Authority"

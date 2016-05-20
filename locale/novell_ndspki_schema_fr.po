@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 07:22+0100\n"
-"PO-Revision-Date: 2016-05-11 07:22+0100\n"
+"POT-Creation-Date: 2016-05-19 09:52+0100\n"
+"PO-Revision-Date: 2016-05-19 09:52+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,6 +17,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: ../schema/novell/ndspki.php:9
+msgid "Valid From Date"
+msgstr "Applicable à Partir du Jour"
+
 #: ../schema/novell/ndspki.php:10
+msgid "Valid To Date"
+msgstr "Valable Jusqu'au Jour"
+
+#: ../schema/novell/ndspki.php:11
+msgid "Key Material DN List"
+msgstr "Liste DN pour le matériel clé"
+
+#: ../schema/novell/ndspki.php:12
+msgid "Issued Certificates Container DN"
+msgstr "DN du Conteneur pour les Certificats Délivrés"
+
+#: ../schema/novell/ndspki.php:13
+msgid "CRL Container DN"
+msgstr "DN pour Contenir CRLs"
+
+#: ../schema/novell/ndspki.php:14
+msgid "CRL Configuration DN List"
+msgstr "Liste des DNs pour la configuration CRL"
+
+#: ../schema/novell/ndspki.php:15
+msgid "CA Certificate"
+msgstr "Certificat CA"
+
+#: ../schema/novell/ndspki.php:16
+msgid "Certificate Chain"
+msgstr "Chaîne de Certificats"
+
+#: ../schema/novell/ndspki.php:17
+msgid "Public Key Certificate"
+msgstr "Certificat de Clé Publique"
+
+#: ../schema/novell/ndspki.php:18
+msgid "Private Key"
+msgstr "Clé Privée"
+
+#: ../schema/novell/ndspki.php:19
+msgid "Public Key"
+msgstr "Clé Publique"
+
+#: ../schema/novell/ndspki.php:24
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Matériel de Clé"
+
+#: ../schema/novell/ndspki.php:25
+msgid "Security Domain Key Access Partition"
+msgstr "Partition d'Accès pour les Clés de Domaine de Sécurité"
+
+#: ../schema/novell/ndspki.php:26
+msgid "Security Domain Key List"
+msgstr "Liste des Clés pour la Sécurité de Domaine"
+
+#: ../schema/novell/ndspki.php:27
+msgid "Certificate Authority"
+msgstr "Autorité de Certification"

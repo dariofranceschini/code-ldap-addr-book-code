@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 07:22+0100\n"
-"PO-Revision-Date: 2016-05-11 07:22+0100\n"
+"POT-Creation-Date: 2016-05-19 09:52+0100\n"
+"PO-Revision-Date: 2016-05-19 09:52+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,6 +17,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../schema/novell/ndspki.php:9
+msgid "Valid From Date"
+msgstr "Válido desde Fecha"
+
 #: ../schema/novell/ndspki.php:10
+msgid "Valid To Date"
+msgstr "Válido hasta Fecha"
+
+#: ../schema/novell/ndspki.php:11
+msgid "Key Material DN List"
+msgstr "Lista DN para el Material de Claves"
+
+#: ../schema/novell/ndspki.php:12
+msgid "Issued Certificates Container DN"
+msgstr "DN emitido Certificados de Contenedores"
+
+#: ../schema/novell/ndspki.php:13
+msgid "CRL Container DN"
+msgstr "DN de los Recipientes para las CRL"
+
+#: ../schema/novell/ndspki.php:14
+msgid "CRL Configuration DN List"
+msgstr "DN Lista para la Configuración de CRL"
+
+#: ../schema/novell/ndspki.php:15
+msgid "CA Certificate"
+msgstr "Certificado CA"
+
+#: ../schema/novell/ndspki.php:16
+msgid "Certificate Chain"
+msgstr "Cadena de Certificados"
+
+#: ../schema/novell/ndspki.php:17
+msgid "Public Key Certificate"
+msgstr "Certificado de Clave Pública"
+
+#: ../schema/novell/ndspki.php:18
+msgid "Private Key"
+msgstr "Clave Privada"
+
+#: ../schema/novell/ndspki.php:19
+msgid "Public Key"
+msgstr "Clave Pública"
+
+#: ../schema/novell/ndspki.php:24
 msgid "NDSPKI:Key Material"
 msgstr "NDSPKI:Material de Key"
+
+#: ../schema/novell/ndspki.php:25
+msgid "Security Domain Key Access Partition"
+msgstr "Partición de acceso con la codificación del dominio de seguridad"
+
+#: ../schema/novell/ndspki.php:26
+msgid "Security Domain Key List"
+msgstr "Lista de claves de dominio de seguridad"
+
+#: ../schema/novell/ndspki.php:27
+msgid "Certificate Authority"
+msgstr "Autoridad Certificada"
