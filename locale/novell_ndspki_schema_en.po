@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 09:52+0100\n"
-"PO-Revision-Date: 2016-05-19 09:52+0100\n"
+"POT-Creation-Date: 2016-05-20 02:47+0100\n"
+"PO-Revision-Date: 2016-05-20 02:47+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -62,8 +62,8 @@ msgid "Public Key"
 msgstr "Public Key"
 
 #: ../schema/novell/ndspki.php:24
-msgid "NDSPKI:Key Material"
-msgstr "NDSPKI:Key Material"
+msgid "Key Material"
+msgstr "Key Material"
 
 #: ../schema/novell/ndspki.php:25
 msgid "Security Domain Key Access Partition"
