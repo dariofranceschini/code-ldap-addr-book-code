@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 09:09+0100\n"
-"PO-Revision-Date: 2016-05-18 07:06+0100\n"
+"POT-Creation-Date: 2016-05-20 10:03+0100\n"
+"PO-Revision-Date: 2016-05-20 10:03+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -37,14 +37,18 @@ msgstr "Estado del Predicado NDS"
 msgid "NDS Predicate Use Values"
 msgstr "Predicado Uso Valor NDS"
 
-#: ../schema/novell/nds.php:17
+#: ../schema/novell/nds.php:18
 msgid "Cached Attributes On External References"
 msgstr "Atributos Almacenados en Caché en Referencias Externas"
 
-#: ../schema/novell/nds.php:18
+#: ../schema/novell/nds.php:19
 msgid "Index Definition List"
 msgstr "Lista de Definición de Indice"
 
-#: ../schema/novell/nds.php:24
+#: ../schema/novell/nds.php:25
 msgid "Domain"
 msgstr "Dominio"
+
+#: ../schema/novell/nds.php:31
+msgid "Tree Root"
+msgstr "Árbol de la raíz"

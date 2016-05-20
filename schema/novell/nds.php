@@ -14,6 +14,7 @@ class novell_nds_schema extends ldap_schema
 			array("name"=>"ndsPredicateFlush",	"data_type"=>"yes_no",		"display_name"=>gettext("NDS Predicate Flush")),
 			array("name"=>"ndsPredicateState",	"data_type"=>"yes_no",		"display_name"=>gettext("NDS Predicate State")),
 			array("name"=>"ndsPredicateUseValues",	"data_type"=>"yes_no",		"display_name"=>gettext("NDS Predicate Use Values")),
+
 			array("name"=>"CachedAttrsOnExtRefs",	"data_type"=>"text_list",	"display_name"=>gettext("Cached Attributes On External References")),
 			array("name"=>"indexDefinition",	"data_type"=>"text_list",	"display_name"=>gettext("Index Definition List"))
 			);
@@ -25,6 +26,9 @@ class novell_nds_schema extends ldap_schema
 
 			// Novell proprietary classes
 			array("name"=>"ndsPredicateStats",		"icon"=>"novell/stats.png",		"is_folder"=>false),
+
+			// rdn_attrib is "t" in legacy NetWare 5 version of this class
+			array("name"=>"treeRoot",			"icon"=>"novell/tree-root.png",		"is_folder"=>true,"display_name"=>gettext("Tree Root"),"rdn_attrib"=>"directoryTreeName")
 			);
 
 		parent::__construct($ldap_server);
