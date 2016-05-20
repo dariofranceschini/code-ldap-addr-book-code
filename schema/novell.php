@@ -1,5 +1,5 @@
 <?php
-/** Novell eDirectory schema (partial) */
+/** Novell eDirectory base schema (partial) */
 
 class novell_schema extends ldap_schema
 {
