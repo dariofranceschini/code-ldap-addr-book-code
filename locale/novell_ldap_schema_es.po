@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 08:39+0100\n"
-"PO-Revision-Date: 2016-05-10 08:39+0100\n"
+"POT-Creation-Date: 2016-05-22 10:30+0100\n"
+"PO-Revision-Date: 2016-05-22 10:30+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,10 +17,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../schema/novell/ldap.php:9
+msgid "LDAP Server List"
+msgstr "Lista de Servidores LDAP"
+
+#: ../schema/novell/ldap.php:10
+msgid "LDAP Anonymous Identity"
+msgstr "Identidad Anónima para LDAP"
+
 #: ../schema/novell/ldap.php:11
+msgid "LDAP Allow Clear Text Password"
+msgstr "Permitir Borrar Contraseña de Texto para LDAP"
+
+#: ../schema/novell/ldap.php:12
+msgid "LDAP Class List"
+msgstr "Lista de Clase LDAP"
+
+#: ../schema/novell/ldap.php:13
+msgid "LDAP Attribute List"
+msgstr "Lista de Atributos LDAP"
+
+#: ../schema/novell/ldap.php:14
+msgid "LDAP Group DN"
+msgstr "DN del grupo LDAP"
+
+#: ../schema/novell/ldap.php:15
+msgid "LDAP Server Host"
+msgstr "Host del Servidor LDAP"
+
+#: ../schema/novell/ldap.php:16
+msgid "Dereference Aliases on Authentication"
+msgstr "Eliminar la Referencia a los Alias de Autenticación"
+
+#: ../schema/novell/ldap.php:17
+msgid "Dereference Aliases"
+msgstr "Eliminar la Referencia a los Alias"
+
+#: ../schema/novell/ldap.php:18
+msgid "TLS Required"
+msgstr "TLS Requerido"
+
+#: ../schema/novell/ldap.php:19
+msgid "Enable TLS"
+msgstr "Habilitar TLS"
+
+#: ../schema/novell/ldap.php:20
+msgid "Enable TCP (non-TLS)"
+msgstr "Habilitar TCP (no-TLS)"
+
+#: ../schema/novell/ldap.php:21
+msgid "Enable Persistent Search"
+msgstr "Habilitar la Búsqueda Persistente"
+
+#: ../schema/novell/ldap.php:22
+msgid "Ignore Persistent Search Limits for Events"
+msgstr "No haga caso de Límites Persistente Búsqueda de Eventos"
+
+#: ../schema/novell/ldap.php:23
+msgid "Non-Standard All User Attributes Mode"
+msgstr "Modo no Estándar para Todos los Atributos de los Usuarios"
+
+#: ../schema/novell/ldap.php:24
+msgid "Enable Monitor Events"
+msgstr "Activar Monitor de Eventos"
+
+#: ../schema/novell/ldap.php:25
+msgid "Non-Standard Client Schema Compatibility Mode"
+msgstr "Modo de Compatibilidad no Estándar para el Esquema de Cliente"
+
+#: ../schema/novell/ldap.php:26
+msgid "LDAP Server DN"
+msgstr "DN del servidor LDAP"
+
+#: ../schema/novell/ldap.php:31
 msgid "LDAP Server"
 msgstr "Servidor LDAP"
 
-#: ../schema/novell/ldap.php:12
+#: ../schema/novell/ldap.php:32
 msgid "LDAP Group"
 msgstr "Grupo LDAP"
