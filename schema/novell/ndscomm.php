@@ -5,7 +5,7 @@ class novell_ndscomm_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-	        $this->attribute_schema = array(
+		$this->attribute_schema = array(
 			// Definitions for homePhone, mobile and pager from novl_inet (Novell's
 			// version of inetOrgPerson) are duplicated in this schema
 
