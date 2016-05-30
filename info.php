@@ -24,7 +24,7 @@ if(empty($_GET["vcard"]))
 
 if(prereq_components_ok())
 {
-	if(!empty($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
+	if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
 	else $dn = $ldap_base_dn;
 
 	if($ldap_server->log_on())
