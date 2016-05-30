@@ -623,7 +623,7 @@ $oid_name=array(
 
 	"1.2.826.0.1.3344810.2.3"		=>"Matched Values Control",			// RFC3876
 	"1.2.840.113556.1.4.319"		=>"LDAP Simple Paged Results Control",		// RFC2696
-	"1.2.840.113556.1.4.473"		=>"Sort Request",				// RFC2891
+	"1.2.840.113556.1.4.473"		=>"Server Side Sorting Request",		// RFC2891
 	"1.2.840.113556.1.4.417"		=>"Show Deleted",				// Microsoft
 	"1.2.840.113556.1.4.529"		=>"Extended DN",				// Microsoft
 	"1.2.840.113556.1.4.801"		=>"Security Descriptor Flags",			// Microsoft
