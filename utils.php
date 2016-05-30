@@ -179,7 +179,7 @@ function show_ldap_path($base,$leaf_icon = "")
 		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if($ldap_base_dn == "")
+	if($ldap_base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_base_dn))
 		$rdn_list = $base;
 	else
 		$rdn_list = substr($base,0,-strlen($ldap_base_dn)-1);
@@ -199,7 +199,7 @@ function show_ldap_path($base,$leaf_icon = "")
 
 			if($rdn_list[$i-1]["dn"] == $ldap_base_dn)
 				$object_dn = $ldap_base_dn;
-			else if($ldap_base_dn == "")
+			else if($ldap_base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_base_dn))
 				$object_dn = $rdn_list[$i-1]["dn"];
 			else
 				$object_dn = $rdn_list[$i-1]["dn"]
