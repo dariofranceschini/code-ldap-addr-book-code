@@ -35,20 +35,30 @@ echo "  <input type=\"hidden\" name=\"dn\" value=\""
 
 echo "  <select name=\"create\" style=\"width:300px\">\n";
 
+$create_list = array();
 foreach($ldap_server->object_schema as $object_class)
 	if($ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
-	{
-		$display_name = $ldap_server->get_object_schema_setting($object_class["name"],
-			"display_name");
+		$create_list[] = $object_class["name"];
 
-		echo "    <option value=\"" . $object_class["name"]
+asort($create_list);
+
+foreach($create_list as $object_class)
+{
+		$display_name = $ldap_server->get_object_schema_setting($object_class,
+			"display_name");
+		$icon = $ldap_server->get_object_schema_setting($object_class,
+                        "icon");
+
+
+		echo "    <option value=\"" . $object_class
 			. "\" style=\"background-image:url(schema/"
-			. $object_class["icon"]
+			. $icon
 			. ");background-repeat:no-repeat;height:24px;padding-left:24px\"";
 
-		if($object_class["name"] == $ldap_server->default_create_class) echo " selected";
+		if($object_class == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
-	}
+
+}
 
 echo "  </select>\n";
 
