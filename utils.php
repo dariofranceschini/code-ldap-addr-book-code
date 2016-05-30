@@ -624,15 +624,25 @@ $oid_name=array(
 	"1.2.826.0.1.3344810.2.3"		=>"Matched Values Control",			// RFC3876
 	"1.2.840.113556.1.4.319"		=>"LDAP Simple Paged Results Control",		// RFC2696
 	"1.2.840.113556.1.4.473"		=>"Server Side Sorting Request",		// RFC2891
+	"1.2.840.113556.1.4.474"		=>"Server Side Sorting Response",		// RFC2891
 	"1.2.840.113556.1.4.417"		=>"Show Deleted",				// Microsoft
+	"1.2.840.113556.1.4.521"		=>"Cross-Domain Move",				// Microsoft
+	"1.2.840.113556.1.4.528"		=>"Server Search Notification",			// Microsoft
 	"1.2.840.113556.1.4.529"		=>"Extended DN",				// Microsoft
+	"1.2.840.113556.1.4.619"		=>"Lazy Commit",				// Microsoft
 	"1.2.840.113556.1.4.801"		=>"Security Descriptor Flags",			// Microsoft
+	"1.2.840.113556.1.4.805"		=>"Tree Delete",				// draft-armijo-ldap-treedelete-02
+	"1.2.840.113556.1.4.841"		=>"Directory Synchronization",			// Microsoft
+	"1.2.840.113556.1.4.970"		=>"Get Stats",					// Microsoft
+	"1.2.840.113556.1.4.1338"		=>"Verify Name",				// Microsoft
 	"1.2.840.113556.1.4.1339"		=>"Domain Scope",				// Microsoft
 	"1.2.840.113556.1.4.1340"		=>"Search Options",				// Microsoft
+	"1.2.840.113556.1.4.1413"		=>"Permissive Modify",				// Microsoft
 	"1.2.840.113556.1.4.1504"		=>"Attribute Scoped Query",			// Microsoft
 	"1.3.6.1.1.12"				=>"Assertion Control",				// RFC4528
 	"1.3.6.1.1.13.1"			=>"LDAP Pre-read Control",			// RFC4527
 	"1.3.6.1.1.13.2"			=>"LDAP Post-read Control",			// RFC4527
+	"1.3.6.1.1.22"				=>"Don't Use Copy",				// RFC6171
 	"1.3.6.1.4.1.4203.1.10.1"		=>"Subentries",					// RFC3672
 	"2.16.840.1.113719.1.27.101.6"		=>"Create Forward Reference Request",		// Novell
 	"2.16.840.1.113719.1.27.101.5"		=>"Simple Password Control",			// Novell
@@ -640,6 +650,8 @@ $oid_name=array(
 	"2.16.840.1.113719.1.27.101.40"		=>"LDAP_CONTROL_SSTATREQUEST",			// Novell (Search Status Request?)
 	"2.16.840.1.113730.3.4.2"		=>"Manage DSA Information Tree",		// RFC3296
 	"2.16.840.1.113730.3.4.3"		=>"Persistent Search",				// draft-ietf-ldapext-psearch-03
+	"2.16.840.1.113730.3.4.9"		=>"Virtual List View Request",			// draft-ietf-ldapext-ldapv3-vlv-09
+	"2.16.840.1.113730.3.4.10"		=>"Virtual List View Response",			// draft-ietf-ldapext-ldapv3-vlv-09
 	"2.16.840.1.113730.3.4.18"		=>"Proxy Authorization Control",		// RFC4370
 
 	// LDAP Features
@@ -725,6 +737,8 @@ $oid_name=array(
 	"1.2.840.113556.1.4.800"		=>"Active Directory",				// Microsoft
 	"1.2.840.113556.1.4.1670"		=>"Active Directory V51: Windows Server 2003",	// Microsoft
 	"1.2.840.113556.1.4.1791"		=>"Active Directory LDAP Integration",		// Microsoft
+	"1.2.840.113556.1.4.1935"		=>"Active Directory V60: Windows Server 2008",	// Microsoft
+	"1.2.840.113556.1.4.2080"		=>"Active Directory V61R2: Windows Server 2008 R2", // Microsoft
 	);
 
 /** View LDAP entry as HTML */
