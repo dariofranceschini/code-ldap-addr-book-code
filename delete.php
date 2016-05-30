@@ -42,11 +42,11 @@ if($ldap_server->log_on())
 	{
 		if(get_user_setting("allow_delete"))
 		{
-			show_site_header();
-			show_ldap_path($dn);
-
 			if(empty($_GET["confirm"]))
 			{
+				show_site_header();
+				show_ldap_path($dn);
+
 				echo "<p>" . gettext("Are you sure you want to delete this record?") . "</p>\n";
 
 				echo "<a href=\"delete.php?dn=" . urlencode($dn)
