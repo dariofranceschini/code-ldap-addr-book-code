@@ -61,9 +61,12 @@ if($ldap_server->log_on())
 					header("Location: " . $return_page_if_deleted);
 				else
 				{
+					$error=ldap_error($ldap_server->connection);
+
 					show_site_header();
 					show_ldap_path($dn);
-					echo "<p>" . gettext("Unable to delete record") . "</p>";
+
+					echo "<p>" . gettext("Unable to delete record") . ": " . $error . "</p>";
 
 					echo "<a href=\"" . $return_page_if_not_deleted
 						. "\">" . gettext("Return to the Address Book") . "</a>\n";
