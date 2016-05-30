@@ -646,7 +646,7 @@ $oid_name=array(
 
 	"1.3.6.1.1.14"				=>"Modify-Increment",				// RFC4525
 	"1.3.6.1.4.1.4203.1.5.1"		=>"All Operational Attributes",			// RFC3673
-	"1.3.6.1.4.1.4203.1.5.2"		=>"OC AD Lists",				// RFC4529 (OC=Object Class)
+	"1.3.6.1.4.1.4203.1.5.2"		=>"Object Class Attribute Description Lists",	// RFC4529
 	"1.3.6.1.4.1.4203.1.5.3"		=>"True/False filters",				// RFC4526
 	"1.3.6.1.4.1.4203.1.5.4"		=>"Language Tag Options",			// RFC3866
 	"1.3.6.1.4.1.4203.1.5.5"		=>"Language Range Options",			// RFC3866
