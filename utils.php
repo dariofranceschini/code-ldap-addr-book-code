@@ -254,6 +254,13 @@ function show_ldap_path($base,$leaf_icon = "")
 	echo "      </ul>\n";
 	echo "    </td>\n";
 
+	echo "<td class=\"login_info\">";
+	if(get_user_setting("allow_system_admin"))
+		echo "<a href=\"info.php?dn=\">Server Info</a>";
+	if($ldap_server->per_user_login_enabled() && get_user_setting("allow_system_admin"))
+		echo " | ";
+	echo "</td>";
+
 	echo "    <td class=\"login_info\">";
 	if($ldap_server->per_user_login_enabled())
 	{
@@ -1295,6 +1302,14 @@ class ldap_attribute
 		$data_type = $ldap_server->get_attribute_schema_setting(
 			$this->attribute,"data_type","text");
 
+		// Work around potential Active Directory schema inconsistency:
+		// The serverName attribute contains a DN when used in the rootDSE
+		// object, but a DNS host name when used in printQueue objects.
+
+		if($this->attribute=="serverName" && $this->ldap_entry["dn"]==""
+				&& $ldap_server->server_type == "ad")
+			$data_type = "dn";
+
 		switch($data_type)
 		{
 			case "dn":		$this->show_dn_list();		break;
@@ -1745,7 +1760,9 @@ class ldap_attribute
 						$value_display_name = "[ROOT]";
 
 					echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
-					if($this->show_embedded_links && $ldap_server->compare_dn_to_base($value,$ldap_base_dn))
+					if($this->show_embedded_links &&
+						($ldap_server->compare_dn_to_base($value,$ldap_base_dn)
+						|| get_user_setting("allow_system_admin")))
 					{
 						if($is_folder)
 							echo "<a href=\"" . current_page_folder_url() . "?dn=";
@@ -3066,12 +3083,12 @@ class ldap_server
 	var $server_types = array(
 		array("name"=>"ad",
 			"default_create_class"=>"contact",
-			"schema_list"=>"microsoft",
+			"schema_list"=>"system,microsoft",
 			"dn_search_filter"=>"(sAMAccountName=__USERNAME__)"),
 
 		array("name"=>"edir",
 			"default_create_class"=>"inetOrgPerson",
-			"schema_list"=>"novell",
+			"schema_list"=>"system,novell",
 
 			/**
 			    Novell eDirectory does not appear to support

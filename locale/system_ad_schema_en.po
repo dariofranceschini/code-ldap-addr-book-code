@@ -1,0 +1,142 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-30 11:59+0100\n"
+"PO-Revision-Date: 2016-05-30 11:59+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/system/ad.php:9 ../schema/system/ad.php:72
+msgid "Supported Capabilities"
+msgstr "Supported Capabilities"
+
+#: ../schema/system/ad.php:10
+msgid "Configuration Context"
+msgstr "Configuration Context"
+
+#: ../schema/system/ad.php:11
+msgid "Default Naming Context"
+msgstr "Default Naming Context"
+
+#: ../schema/system/ad.php:12
+msgid "Schema Naming Context"
+msgstr "Schema Naming Context"
+
+#: ../schema/system/ad.php:13
+msgid "Root Domain Naming Context"
+msgstr "Root Domain Naming Context"
+
+#: ../schema/system/ad.php:14
+msgid "Configuration Naming Context"
+msgstr "Configuration Naming Context"
+
+#: ../schema/system/ad.php:15
+msgid "Directory Service Name"
+msgstr "Directory Service Name"
+
+#: ../schema/system/ad.php:16
+msgid "Current Time"
+msgstr "Current Time"
+
+#: ../schema/system/ad.php:17 ../schema/system/ad.php:51
+msgid "Is Synchronized"
+msgstr "Is Synchronized"
+
+#: ../schema/system/ad.php:22
+msgid "Root DSE"
+msgstr "Root DSE"
+
+#: ../schema/system/ad.php:37 ../schema/system/ad.php:64
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/system/ad.php:41
+msgid "Active Directory Domain Controller"
+msgstr "Active Directory Domain Controller"
+
+#: ../schema/system/ad.php:43
+msgid "Server Name"
+msgstr "Server Name"
+
+#: ../schema/system/ad.php:44
+msgid "Vendor Name"
+msgstr "Vendor Name"
+
+#: ../schema/system/ad.php:45
+msgid "DNS Host Name"
+msgstr "DNS Host Name"
+
+#: ../schema/system/ad.php:46
+msgid "Directory Service"
+msgstr "Directory Service"
+
+#: ../schema/system/ad.php:47
+msgid "Supported LDAP Versions"
+msgstr "Supported LDAP Versions"
+
+#: ../schema/system/ad.php:48
+msgid "LDAP Service Name"
+msgstr "LDAP Service Name"
+
+#: ../schema/system/ad.php:49
+msgid "Naming Contexts"
+msgstr "Naming Contexts"
+
+#: ../schema/system/ad.php:50
+msgid "Subschema Subentry"
+msgstr "Subschema Subentry"
+
+#: ../schema/system/ad.php:52
+msgid "Current Time at Server"
+msgstr "Current Time at Server"
+
+#: ../schema/system/ad.php:53
+msgid "Highest Committed USN"
+msgstr "Highest Committed USN"
+
+#: ../schema/system/ad.php:54
+msgid "Server Functional Level"
+msgstr "Server Functional Level"
+
+#: ../schema/system/ad.php:55
+msgid "Domain Functional Level"
+msgstr "Domain Functional Level"
+
+#: ../schema/system/ad.php:56
+msgid "Forest Functional Level"
+msgstr "Forest Functional Level"
+
+#: ../schema/system/ad.php:59
+msgid "Well-Known Naming Contexts"
+msgstr "Well-Known Naming Contexts"
+
+#: ../schema/system/ad.php:61
+msgid "Default (Domain)"
+msgstr "Default (Domain)"
+
+#: ../schema/system/ad.php:62
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../schema/system/ad.php:63
+msgid "Forest Root Domain"
+msgstr "Forest Root Domain"
+
+#: ../schema/system/ad.php:67
+msgid "Supported Controls"
+msgstr "Supported Controls"
+
+#: ../schema/system/ad.php:77
+msgid "Supported SASL Mechanisms"
+msgstr "Supported SASL Mechanisms"

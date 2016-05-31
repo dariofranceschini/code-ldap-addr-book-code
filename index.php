@@ -85,7 +85,9 @@ if(prereq_components_ok())
 		//	stop "nasties" being passed through to the LDAP server
 		//	prevent access to directory outside of address book base DN
 
-		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH && $ldap_server->compare_dn_to_base($dn,$ldap_base_dn))
+		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH
+				&& ($ldap_server->compare_dn_to_base($dn,$ldap_base_dn)
+				|| get_user_setting("allow_system_admin")))
 			$dn = $_GET["dn"];
 		else
 			$dn = $ldap_base_dn;

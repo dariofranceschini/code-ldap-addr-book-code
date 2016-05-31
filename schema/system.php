@@ -36,6 +36,17 @@ class system_schema extends ldap_schema
 			);
 
 		parent::__construct($ldap_server);
+
+		// component schema
+		switch($ldap_server->server_type)
+		{
+			case "ad":		$ldap_server->add_schema("system/ad");		break;
+			case "edir":		$ldap_server->add_schema("system/edir");	break;
+			case "openldap":	$ldap_server->add_schema("system/openldap");	break;
+
+			default:		// no change made for other server types
+		}
+
 	}
 }
 ?>
