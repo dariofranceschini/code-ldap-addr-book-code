@@ -55,48 +55,53 @@ if(prereq_components_ok())
 			}
 			else
 			{
-				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)",array("*","+"));
+				$search_resource = @ldap_read($ldap_server->connection,$dn,$browse_ldap_filter,array("*","+"));
 
 				if($search_resource)
 				{
 					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
-					// assign an object class to the root DSE object, if the directory doesn't
-					// report one itself
-
-					if($dn == "" && !isset($entry[0]["objectclass"]))
+					if($entry["count"]>0)
 					{
-						switch($ldap_server->server_type)
+						// assign an object class to the root DSE object, if the directory doesn't
+						// report one itself
+
+						if($dn == "" && !isset($entry[0]["objectclass"]))
 						{
-							case "ad":
-								// made up rootDSE class
-								$entry[0][$entry[0]["count"]] = "objectclass";
-								$entry[0]["objectclass"][0] = "rootDSE";
-								$entry[0]["count"]++;
-								break;
+							switch($ldap_server->server_type)
+							{
+								case "ad":
+									// made up rootDSE class
+									$entry[0][$entry[0]["count"]] = "objectclass";
+									$entry[0]["objectclass"][0] = "rootDSE";
+									$entry[0]["count"]++;
+									break;
 
-							case "edir":
-								$entry[0][$entry[0]["count"]] = "objectclass";
-								$entry[0]["objectclass"][0] = "treeRoot";
-								$entry[0]["count"]++;
-								break;
+								case "edir":
+									$entry[0][$entry[0]["count"]] = "objectclass";
+									$entry[0]["objectclass"][0] = "treeRoot";
+									$entry[0]["count"]++;
+									break;
 
-							default:
-								// no change made for other server types
+								default:
+									// no change made for other server types
+							}
+						}
+
+						$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
+
+						if(!empty($_GET["vcard"]))
+							$entry_viewer->save_vcard();
+						else
+						{
+							if(!empty($_GET["edit"]))
+								$entry_viewer->edit = true;
+
+							$entry_viewer->show();
 						}
 					}
-
-					$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
-
-					if(!empty($_GET["vcard"]))
-						$entry_viewer->save_vcard();
 					else
-					{
-						if(!empty($_GET["edit"]))
-							$entry_viewer->edit = true;
-
-						$entry_viewer->show();
-					}
+						show_error_message(gettext("Unable to locate LDAP record."));
 				}
 				else
 					show_error_message(gettext("Unable to locate LDAP record."));
