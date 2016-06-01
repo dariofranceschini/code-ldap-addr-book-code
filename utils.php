@@ -3140,7 +3140,7 @@ class ldap_server
 	var $follow_referrals = false;
 
 	/** Whether the server supports ldap_compare() acting on an object's DN */
-	var $compare_dn_supported = true;
+	var $compare_dn_supported = false;
 
 	/** Permissions and user name mappings between address book and LDAP server */
 	var $user_map = array();
