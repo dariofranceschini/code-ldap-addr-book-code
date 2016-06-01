@@ -1299,8 +1299,11 @@ class ldap_attribute
 	{
 		global $ldap_server;
 
-		$data_type = $ldap_server->get_attribute_schema_setting(
-			$this->attribute,"data_type","text");
+		if($this->attribute=="__CHILD_OBJECTS__")
+			$data_type = "child_objects";
+		else
+			$data_type = $ldap_server->get_attribute_schema_setting(
+				$this->attribute,"data_type","text");
 
 		// Work around potential Active Directory schema inconsistency:
 		// The serverName attribute contains a DN when used in the rootDSE
@@ -1328,6 +1331,7 @@ class ldap_attribute
 			case "mail_preference":	$this->show_mail_preference();	break;
 			case "download":	$this->show_download_list();	break;
 			case "download_list":	$this->show_download_list();	break;
+			case "child_objects":	$this->show_child_objects();	break;
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
@@ -1776,6 +1780,70 @@ class ldap_attribute
 				}
 		}
 		else echo "(none)";
+	}
+
+	/** Show child objects (data type "child_objects")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support editing
+	*/
+
+	function show_child_objects()
+	{
+		global $ldap_server,$ldap_base_dn;
+
+		$search_resource = @ldap_list($ldap_server->connection,
+			$this->ldap_entry["dn"],"(objectclass=*)");
+
+		if($search_resource)
+		{
+			$child_entries = ldap_get_entries($ldap_server->connection,$search_resource);
+			if($child_entries["count"]>0)
+				foreach($child_entries as $child_entry)
+				{
+					if(is_array($child_entry))
+					{
+						$icon = $ldap_server->get_icon_for_ldap_entry($child_entry);
+						$item_object_class = $ldap_server->get_object_class($child_entry);
+						$rdn_list = ldap_explode_dn2($child_entry["dn"]);
+						$value_display_name = $rdn_list["0"]["value"];
+						$alt_text = $item_object_class;
+
+						$is_folder = $ldap_server->get_object_schema_setting(
+							$item_object_class,"is_folder");
+
+						echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
+
+						if($this->show_embedded_links &&
+							($ldap_server->compare_dn_to_base($child_entry["dn"],$ldap_base_dn)
+							|| get_user_setting("allow_system_admin")))
+						{
+							if($is_folder)
+								echo "<a href=\"" . current_page_folder_url() . "?dn=";
+							else
+								echo "<a href=\"info.php?dn=";
+							echo urlencode($child_entry["dn"]) . "\">"
+								. htmlentities($value_display_name,ENT_COMPAT,"UTF-8") . "</a>";
+						}
+						else
+							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
+						echo "<br>";
+					}
+				}
+			else
+				echo gettext("(none)");
+		}
+		else
+			echo gettext("(none)");
+
+		if(!$this->edit && get_user_setting("allow_create"))
+			echo "<br><a href=\"create.php?dn="
+				. urlencode($this->ldap_entry["dn"])
+				. "\"><button>" . gettext("Add") . "</button></a>\n";
 	}
 
 	/** Show telephone number (data type "phone_number")
