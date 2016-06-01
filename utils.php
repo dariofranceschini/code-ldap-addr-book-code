@@ -1772,7 +1772,8 @@ class ldap_attribute
 							echo "<a href=\"" . current_page_folder_url() . "?dn=";
 						else
 							echo "<a href=\"info.php?dn=";
-						echo urlencode($value) . "\">" . htmlentities($value_display_name) . "</a>";
+						echo urlencode($value) . "\">"
+							. htmlentities($value_display_name,ENT_COMPAT,"UTF-8") . "</a>";
 					}
 					else
 						echo $value_display_name;
