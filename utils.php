@@ -2895,7 +2895,7 @@ class vcard
 		// RFC-compliant LDAP schemas implement "street" and "streetAddress"
 		// as aliases of the same underlying attribute.
 
-		if($ldap_server->type = "ad" && isset($entry["street"][0]))
+		if($ldap_server->type == "ad" && isset($entry["street"][0]))
 		{
 			if(!empty($streetaddress)) $streetaddress .= ", ";
 			$streetaddress .= $entry["street"][0];
