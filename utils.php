@@ -3732,7 +3732,7 @@ class ldap_server
 	*/
 	function add_user($login_name,$settings=array())
 	{
-		// Assign no settings if third argument is not an array
+		// Assign no settings if $settings argument is not an array
 		if(!is_array($settings)) $settings=array();
 
 		// Assume "allow_login"=true if not explicitly set
