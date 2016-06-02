@@ -3496,81 +3496,81 @@ class ldap_server
 	{
 		global $ldap_base_dn;
 
-		if(get_user_setting("allow_login"))
+		$user_bind_dn = get_user_setting("ldap_dn");
+
+		ldap_set_option($this->connection,
+			LDAP_OPT_PROTOCOL_VERSION,3);
+
+		ldap_set_option($this->connection,
+			LDAP_OPT_REFERRALS,$this->follow_referrals);
+
+		$login_name = get_user_setting("login_name");
+
+		if($login_name = "__DEFAULT__" && isset($_SESSION["LOGIN_USER"]))
+			$login_name = $_SESSION["LOGIN_USER"];
+
+		if(isset($_SESSION["LOGIN_BIND_DN"]))
 		{
-			$user_bind_dn = get_user_setting("ldap_dn");
+			// use previously stored bind DN if available
+			$user_bind_dn = $_SESSION["LOGIN_BIND_DN"];
+		}
+		else
+		{
+			if($login_name == "__ANONYMOUS__")
+				$user_bind_dn = $this->dn_search_user;
 
-			ldap_set_option($this->connection,
-				LDAP_OPT_PROTOCOL_VERSION,3);
-
-			ldap_set_option($this->connection,
-				LDAP_OPT_REFERRALS,$this->follow_referrals);
-
-			$login_name = get_user_setting("login_name");
-
-			if($login_name = "__DEFAULT__" && isset($_SESSION["LOGIN_USER"]))
-				$login_name = $_SESSION["LOGIN_USER"];
-
-			if(isset($_SESSION["LOGIN_BIND_DN"]))
+			// handle special case: Active Directory login
+			// with UPN
+			if($this->server_type=="ad" && !empty($user_bind_dn)
+				&& !strpos($user_bind_dn,"=")>0
+				&& strpos($user_bind_dn,"@")>0)
 			{
-				// use previously stored bind DN if available
-				$user_bind_dn = $_SESSION["LOGIN_BIND_DN"];
+				$filter = "(userPrincipalName="
+					. $user_bind_dn . ")";
+				$user_bind_dn = "__SEARCH__";
 			}
 			else
-			{
-				if($login_name == "__ANONYMOUS__")
-					$user_bind_dn = $this->dn_search_user;
+				$filter = str_replace("__USERNAME__",
+					$login_name,
+					$this->dn_search_filter);
 
-				// handle special case: Active Directory login
-				// with UPN
-				if($this->server_type=="ad" && !empty($user_bind_dn)
-					&& !strpos($user_bind_dn,"=")>0
-					&& strpos($user_bind_dn,"@")>0)
+			if($user_bind_dn == "__SEARCH__")
+			{
+				// temporary LDAP bind in order to look up actual user DN
+				$result=@ldap_bind_log($this->connection,$this->dn_search_user,
+					$this->dn_search_password);
+
+				if($result)
 				{
-					$filter = "(userPrincipalName="
-						. $user_bind_dn . ")";
-					$user_bind_dn = "__SEARCH__";
+					// search for user within $ldap_base_dn unless explicitly configured otherwise
+					if(empty($this->dn_search_base))
+						$this->dn_search_base=$ldap_base_dn;
+
+					$search_resource = @ldap_search($this->connection,
+						$this->dn_search_base,$filter);
+
+					if(is_resource($search_resource))
+				        {
+						$entries = ldap_get_entries($this->connection,$search_resource);
+
+						// use resulting DN if exactly 1 found (i.e. unambiguous result)
+						if($entries["count"]==1)
+							$user_bind_dn = $entries[0]["dn"];
+					}
 				}
 				else
-					$filter = str_replace("__USERNAME__",
-						$login_name,
-						$this->dn_search_filter);
-
-				if($user_bind_dn == "__SEARCH__")
-				{
-					// temporary LDAP bind in order to look up actual user DN
-					$result=@ldap_bind_log($this->connection,$this->dn_search_user,
-						$this->dn_search_password);
-
-					if($result)
-					{
-						// search for user within $ldap_base_dn unless explicitly configured otherwise
-						if(empty($this->dn_search_base))
-							$this->dn_search_base=$ldap_base_dn;
-
-						$search_resource = @ldap_search($this->connection,
-							$this->dn_search_base,$filter);
-
-						if(is_resource($search_resource))
-					        {
-							$entries = ldap_get_entries($this->connection,$search_resource);
-
-							// use resulting DN if exactly 1 found (i.e. unambiguous result)
-							if($entries["count"]==1)
-								$user_bind_dn = $entries[0]["dn"];
-						}
-					}
-					else
-						echo "anonymous bind failed";	/** @todo report anonymous bind error more nicely */
-				}
-
-				if(!empty($user_bind_dn))
-					$_SESSION["LOGIN_BIND_DN"] = $user_bind_dn;
+					echo "anonymous bind failed";	/** @todo report anonymous bind error more nicely */
 			}
 
-			$result=@ldap_bind_log($this->connection,$user_bind_dn,
-				get_ldap_bind_password());
+			if(!empty($user_bind_dn))
+				$_SESSION["LOGIN_BIND_DN"] = $user_bind_dn;
+		}
 
+		$result=@ldap_bind_log($this->connection,$user_bind_dn,
+			get_ldap_bind_password());
+
+		if($result)
+		{
 			if($this->follow_referrals)
 				ldap_set_rebind_proc($this->connection,
 					"ldap_referral_rebind");	// callback
@@ -3581,9 +3581,14 @@ class ldap_server
 			// is not set.
 			if(!ini_get("date.timezone"))
 				date_default_timezone_set("UTC");
+
+			// User's allow_login setting must be checked after LDAP bind
+			// has taken place in order to handle cases where it is
+			// conditional on group membership. If the user doesn't have
+			// sufficient access to the directory to enumerate the group's
+			// membership then allow_login will evaluate to false.
+			$result = get_user_setting("allow_login");
 		}
-		else
-			$result=false;
 
 		return $result;
 	}
