@@ -3496,8 +3496,6 @@ class ldap_server
 	{
 		global $ldap_base_dn;
 
-		$user_bind_dn = get_user_setting("ldap_dn");
-
 		ldap_set_option($this->connection,
 			LDAP_OPT_PROTOCOL_VERSION,3);
 
@@ -3516,6 +3514,16 @@ class ldap_server
 		}
 		else
 		{
+			// Use the ldap_dn setting as the starting basis for the
+			// user's DN.
+			//
+			// If no value was explicitly assigned to this user setting
+			// then a default value of "__SEARCH__" will be returned,
+			// indicating that the directory must be searched to
+			// convert $login_name into the user's actual DN.
+
+			$user_bind_dn = get_user_setting("ldap_dn");
+
 			if($login_name == "__ANONYMOUS__")
 				$user_bind_dn = $this->dn_search_user;
 
