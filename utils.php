@@ -1780,7 +1780,7 @@ class ldap_attribute
 					echo "<br>";
 				}
 		}
-		else echo "(none)";
+		else echo gettext("(none)");
 	}
 
 	/** Show child objects (data type "child_objects")
