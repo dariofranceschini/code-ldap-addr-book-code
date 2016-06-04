@@ -699,9 +699,14 @@ $ldap_server-&gt;add_user("__DEFAULT__",
         ));
 </pre>
 <p>
-Note: Group memberships cannot be used to assign permissions to the
-<code>__ANONYMOUS__</code> user.
+Note:
 </p>
+<ul>
+  <li>The user must be have sufficient access the back-end directory
+  to read the group membership.</li>
+  <li>Group memberships cannot be used to assign permissions for the
+  <code>__ANONYMOUS__</code> user.</li>
+</ul>
 <h3>Grant access to the Address Book based on LDAP group membership</h3>
 <p>
 The <code>allow_login</code> permission can be used to decide whether
