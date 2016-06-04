@@ -62,7 +62,6 @@ msgid "Public Key"
 msgstr "Clé Publique"
 
 #: ../schema/novell/ndspki.php:24
-#, fuzzy
 msgid "Key Material"
 msgstr "Matériel de Clé"
 
