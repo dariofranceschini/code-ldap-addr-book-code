@@ -24,8 +24,8 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"st",				"data_type"=>"text",		"display_name"=>gettext("State (or Province/County)")),
 			array("name"=>"street",				"data_type"=>"text_area",	"display_name"=>gettext("Street Address")),
 			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
-			array("name"=>"thumbnailLogo",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Logo")),
-			array("name"=>"thumbnailPhoto",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Photograph")),
+			array("name"=>"thumbnailLogo",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Logo")),		// non-standard
+			array("name"=>"thumbnailPhoto",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Photograph")),	// non-standard
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
 			// Added for Windows Server 2003 (or inetOrgPerson kit for Windows 2000 Server)
