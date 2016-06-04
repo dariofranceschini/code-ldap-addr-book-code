@@ -3504,12 +3504,21 @@ class ldap_server
 
 		$login_name = get_user_setting("login_name");
 
+		// If the __DEFAULT__ user settings are being used then replace
+		// $login_name with the use name typed into the login box
+		// (if available)
+
 		if($login_name = "__DEFAULT__" && isset($_SESSION["LOGIN_USER"]))
 			$login_name = $_SESSION["LOGIN_USER"];
 
+		// Determine the LDAP DN corresponding to $login_name.
+
 		if(isset($_SESSION["LOGIN_BIND_DN"]))
 		{
-			// use previously stored bind DN if available
+			// Reuse a previously stored bind DN if available. (This
+			// value gets cleared when the user logs off or the
+			// PHP session times out.)
+
 			$user_bind_dn = $_SESSION["LOGIN_BIND_DN"];
 		}
 		else
@@ -3524,44 +3533,50 @@ class ldap_server
 
 			$user_bind_dn = get_user_setting("ldap_dn");
 
-			if($login_name == "__ANONYMOUS__")
-				$user_bind_dn = $this->dn_search_user;
+			// Determine the LDAP filter for searching the directory to
+			// find the user's actual DN, handling Active Directory login
+			// by UPN as a special case.
 
-			// handle special case: Active Directory login
-			// with UPN
 			if($this->server_type=="ad" && !empty($user_bind_dn)
 				&& !strpos($user_bind_dn,"=")>0
 				&& strpos($user_bind_dn,"@")>0)
 			{
-				$filter = "(userPrincipalName="
-					. $user_bind_dn . ")";
+				// Flag that user DN lookup will be required
 				$user_bind_dn = "__SEARCH__";
+
+				$filter = "(userPrincipalName=" . $user_bind_dn . ")";
 			}
 			else
 				$filter = str_replace("__USERNAME__",
 					$login_name,
 					$this->dn_search_filter);
 
+			// Search the directory for the user's actual DN (if required)
+
 			if($user_bind_dn == "__SEARCH__")
 			{
-				// temporary LDAP bind in order to look up actual user DN
+				// Temporary LDAP bind as $this->dn_search_user to carry out the search
 				$result=@ldap_bind_log($this->connection,$this->dn_search_user,
 					$this->dn_search_password);
 
 				if($result)
 				{
-					// search for user within $ldap_base_dn unless explicitly configured otherwise
+					// Determine the search base - default to $ldap_base_dn
+					// unless the user has specified otherwise by assigning
+					// a non-empty value to $this->dn_search_base.
+
 					if(empty($this->dn_search_base))
 						$this->dn_search_base=$ldap_base_dn;
 
 					$search_resource = @ldap_search($this->connection,
 						$this->dn_search_base,$filter);
 
+					// use resulting DN if exactly 1 found (i.e. unambiguous result)
+
 					if(is_resource($search_resource))
 				        {
 						$entries = ldap_get_entries($this->connection,$search_resource);
 
-						// use resulting DN if exactly 1 found (i.e. unambiguous result)
 						if($entries["count"]==1)
 							$user_bind_dn = $entries[0]["dn"];
 					}
@@ -3574,6 +3589,7 @@ class ldap_server
 				$_SESSION["LOGIN_BIND_DN"] = $user_bind_dn;
 		}
 
+		// Bind as the actual user
 		$result=@ldap_bind_log($this->connection,$user_bind_dn,
 			get_ldap_bind_password());
 
