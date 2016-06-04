@@ -40,7 +40,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png","is_folder"=>false,"display_name"=>gettext("Printer")),
 			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png","is_folder"=>false,"display_name"=>gettext("Shared Folder")),
 			array("name"=>"user",				"icon"=>"user24.png",	"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true),
-			array("name"=>"msExchDynamicDistributionList",	"icon"=>"microsoft/dynamic-group24.png","is_folder"=>false,"display_name"=>gettext("Query-based Distribution Group")),
 
 			// Proprietary implementation of InetOrgPerson:
 			//	- Subclass of proprietary "user" (so listed after it in schema definition)
@@ -65,6 +64,9 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"fileLinkTracking",		"icon"=>"folder.png","is_folder"=>true),
 			array("name"=>"dfsConfiguration",		"icon"=>"folder.png","is_folder"=>true),
 			);
+
+		// component schema (derived)
+		$ldap_server->add_schema("microsoft/exchange");
 
 		parent::__construct($ldap_server);
 
