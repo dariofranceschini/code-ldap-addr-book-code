@@ -1,0 +1,106 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-04 10:51+0100\n"
+"PO-Revision-Date: 2016-06-04 10:51+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/microsoft/std.php:10
+msgid "Country Code"
+msgstr "Country Code"
+
+#: ../schema/microsoft/std.php:11
+msgid "Common Name/Full Name"
+msgstr "Common Name/Full Name"
+
+#: ../schema/microsoft/std.php:12
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/microsoft/std.php:13
+msgid "Fax Number"
+msgstr "Fax Number"
+
+#: ../schema/microsoft/std.php:14
+msgid "Given Name"
+msgstr "Given Name"
+
+#: ../schema/microsoft/std.php:15
+msgid "Home Telephone Number"
+msgstr "Home Telephone Number"
+
+#: ../schema/microsoft/std.php:16
+msgid "Locality (e.g. Town/City)"
+msgstr "Locality (e.g. Town/City)"
+
+#: ../schema/microsoft/std.php:17
+msgid "Members"
+msgstr "Members"
+
+#: ../schema/microsoft/std.php:18
+msgid "E-mail Address"
+msgstr "E-mail Address"
+
+#: ../schema/microsoft/std.php:19
+msgid "Mobile/Cell Telephone Number"
+msgstr "Mobile/Cell Telephone Number"
+
+#: ../schema/microsoft/std.php:20
+msgid "Pager Telephone Number"
+msgstr "Pager Telephone Number"
+
+#: ../schema/microsoft/std.php:21
+msgid "Office"
+msgstr "Office"
+
+#: ../schema/microsoft/std.php:22
+msgid "Postal Code"
+msgstr "Postal Code"
+
+#: ../schema/microsoft/std.php:23
+msgid "Surname"
+msgstr "Surname"
+
+#: ../schema/microsoft/std.php:24
+msgid "State (or Province/County)"
+msgstr "State (or Province/County)"
+
+#: ../schema/microsoft/std.php:25
+msgid "Street Address"
+msgstr "Street Address"
+
+#: ../schema/microsoft/std.php:26
+msgid "Telephone Number"
+msgstr "Telephone Number"
+
+#: ../schema/microsoft/std.php:27
+msgid "Thumbnail Logo"
+msgstr "Thumbnail Logo"
+
+#: ../schema/microsoft/std.php:28
+msgid "Thumbnail Photograph"
+msgstr "Thumbnail Photograph"
+
+#: ../schema/microsoft/std.php:29
+msgid "Job Title"
+msgstr "Job Title"
+
+#: ../schema/microsoft/std.php:32
+msgid "Photograph"
+msgstr "Photograph"
+
+#: ../schema/microsoft/std.php:37
+msgid "Organizational Unit"
+msgstr "Organizational Unit"

@@ -58,6 +58,16 @@ system_%_schema.pot: ../schema/system/%.php
 	if [ ! -f $@ ]; then touch $@; fi
 	sed -i -e"s/CHARSET/UTF-8/" $@
 
+# Generate pot files for component schemas in "microsoft" subdirectory
+
+microsoft_%_schema.pot: ../schema/microsoft/%.php
+	xgettext -o $@ \
+		--from-code UTF-8 \
+                --package-name="${PACKAGE_NAME}" \
+                --copyright-holder="${PACKAGE_COPYRIGHT}" $<
+	if [ ! -f $@ ]; then touch $@; fi
+	sed -i -e"s/CHARSET/UTF-8/" $@
+
 # Generate pot files for component schemas in "novell" subdirectory
 
 novell_%_schema.pot: ../schema/novell/%.php

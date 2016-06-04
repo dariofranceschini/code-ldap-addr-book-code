@@ -5,36 +5,7 @@ class microsoft_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// delete any pre-existing version of the inetOrgPerson class,
-		// to be re-created with MS-specific class inheritance order
-		$ldap_server->delete_object_class("inetOrgPerson");
-
 		$this->attribute_schema = array(
-			// microsoft.std.schema entries (partial)
-			array("name"=>"c",				"data_type"=>"country_code",	"display_name"=>gettext("Country Code")),
-			array("name"=>"cn",				"data_type"=>"text",		"display_name"=>gettext("Common Name/Full Name")),
-			array("name"=>"description",			"data_type"=>"text",		"display_name"=>gettext("Description")),
-			array("name"=>"facsimileTelephoneNumber",	"data_type"=>"text",		"display_name"=>gettext("Fax Number")),
-			array("name"=>"givenName",			"data_type"=>"text",		"display_name"=>gettext("Given Name")),
-			array("name"=>"homePhone",			"data_type"=>"phone_number",	"display_name"=>gettext("Home Telephone Number")),
-			array("name"=>"l",				"data_type"=>"text",		"display_name"=>gettext("Locality (e.g. Town/City)")),
-			array("name"=>"member",				"data_type"=>"dn_list",		"display_name"=>gettext("Members")),
-			array("name"=>"mail",				"data_type"=>"text",		"display_name"=>gettext("E-mail Address")),
-			array("name"=>"mobile",				"data_type"=>"phone_number",	"display_name"=>gettext("Mobile/Cell Telephone Number")),
-			array("name"=>"pager",				"data_type"=>"text",		"display_name"=>gettext("Pager Telephone Number")),
-			array("name"=>"physicalDeliveryOfficeName",	"data_type"=>"text",		"display_name"=>gettext("Office")),
-			array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>gettext("Postal Code")),
-			array("name"=>"sn",				"data_type"=>"text",		"display_name"=>gettext("Surname")),
-			array("name"=>"st",				"data_type"=>"text",		"display_name"=>gettext("State (or Province/County)")),
-			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
-			array("name"=>"thumbnailLogo",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Logo")),
-			array("name"=>"thumbnailPhoto",			"data_type"=>"image",		"display_name"=>gettext("Thumbnail Photograph")),
-			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
-
-			// Added for Windows Server 2003 (or inetOrgPerson kit for Windows 2000 Server)
-			array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>gettext("Photograph")),
-
-			// microsoft.schema entries (partial)
 			array("name"=>"company",			"data_type"=>"text",		"display_name"=>gettext("Company")),
 			array("name"=>"department",			"data_type"=>"text",		"display_name"=>gettext("Department")),
 			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
@@ -56,7 +27,6 @@ class microsoft_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"organizationalUnit",		"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services")),
 			array("name"=>"container",			"icon"=>"folder.png",	"is_folder"=>true,"display_name"=>gettext("Container"),"can_create"=>true),
 			array("name"=>"builtinDomain",			"icon"=>"folder.png",	"is_folder"=>true),
@@ -97,6 +67,9 @@ class microsoft_schema extends ldap_schema
 			);
 
 		parent::__construct($ldap_server);
+
+		// component schema (derived from)
+		$ldap_server->add_schema("microsoft/std");
 	}
 }
 ?>

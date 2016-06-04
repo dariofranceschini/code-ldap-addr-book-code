@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 10:33+0100\n"
-"PO-Revision-Date: 2016-04-27 10:33+0100\n"
+"POT-Creation-Date: 2016-06-04 10:51+0100\n"
+"PO-Revision-Date: 2016-06-04 10:51+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,210 +17,126 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/microsoft.php:14
-msgid "Country Code"
-msgstr "Código de País"
-
-#: ../schema/microsoft.php:15
-msgid "Common Name/Full Name"
-msgstr "Nombre Común / Nombre Completo"
-
-#: ../schema/microsoft.php:16
-msgid "Description"
-msgstr "Descripción"
-
-#: ../schema/microsoft.php:17
-msgid "Fax Number"
-msgstr "Número de Fax"
-
-#: ../schema/microsoft.php:18
-msgid "Given Name"
-msgstr "Nombre de Pila"
-
-#: ../schema/microsoft.php:19
-msgid "Home Telephone Number"
-msgstr "Número de Teléfono de su Casa"
-
-#: ../schema/microsoft.php:20
-msgid "Locality (e.g. Town/City)"
-msgstr "Localidad (por ejemplo Ciudad)"
-
-#: ../schema/microsoft.php:21
-msgid "Members"
-msgstr "Miembros"
-
-#: ../schema/microsoft.php:22
-msgid "E-mail Address"
-msgstr "Dirección de Correo Electrónico"
-
-#: ../schema/microsoft.php:23
-msgid "Mobile/Cell Telephone Number"
-msgstr "Número de la Célula Teléfono"
-
-#: ../schema/microsoft.php:24
-msgid "Pager Telephone Number"
-msgstr "Localizador Número de Teléfono"
-
-#: ../schema/microsoft.php:25
-msgid "Office"
-msgstr "Oficina"
-
-#: ../schema/microsoft.php:26
-msgid "Postal Code"
-msgstr "Código Postal"
-
-#: ../schema/microsoft.php:27
-msgid "Surname"
-msgstr "Apellido"
-
-#: ../schema/microsoft.php:28
-msgid "State (or Province/County)"
-msgstr "Estado (o Provincia / Condado)"
-
-#: ../schema/microsoft.php:29
-msgid "Telephone Number"
-msgstr "Número de Teléfono"
-
-#: ../schema/microsoft.php:30
-msgid "Thumbnail Logo"
-msgstr "Logo Miniatura"
-
-#: ../schema/microsoft.php:31
-msgid "Thumbnail Photograph"
-msgstr "Foto Miniatura"
-
-#: ../schema/microsoft.php:32
-msgid "Job Title"
-msgstr "Título Profesional"
-
-#: ../schema/microsoft.php:35
-msgid "Photograph"
-msgstr "Fotografía"
-
-#: ../schema/microsoft.php:38
+#: ../schema/microsoft.php:9
 msgid "Company"
 msgstr "Empresa"
 
-#: ../schema/microsoft.php:39
+#: ../schema/microsoft.php:10
 msgid "Department"
 msgstr "Departamento"
 
-#: ../schema/microsoft.php:40
+#: ../schema/microsoft.php:11
 msgid "Display/Preferred Name"
 msgstr "Mostrar / Nombre Preferido"
 
-#: ../schema/microsoft.php:41
+#: ../schema/microsoft.php:12
 msgid "Group Type/Scope"
 msgstr "Tipo y Alcance del Grupo"
 
-#: ../schema/microsoft.php:42
+#: ../schema/microsoft.php:13
 msgid "General Information"
 msgstr "Información General"
 
-#: ../schema/microsoft.php:43
+#: ../schema/microsoft.php:14
 msgid "Member Of"
 msgstr "Miembro De"
 
-#: ../schema/microsoft.php:44
+#: ../schema/microsoft.php:15
 msgid "Color Printing Supported"
 msgstr "Impresión a Color está Soportada"
 
-#: ../schema/microsoft.php:45
+#: ../schema/microsoft.php:16
 msgid "Double-Sided Printing Supported"
 msgstr "Impresión a Doble Cara está Soportada"
 
-#: ../schema/microsoft.php:46
+#: ../schema/microsoft.php:17
 msgid "Paper Available"
 msgstr "Tipos de Papel Disponibles"
 
-#: ../schema/microsoft.php:47
+#: ../schema/microsoft.php:18
 msgid "Paper Supported"
 msgstr "Tipos de Papel Admitidos"
 
-#: ../schema/microsoft.php:48
+#: ../schema/microsoft.php:19
 msgid "Stapling Supported"
 msgstr "Engrapado se Admite"
 
-#: ../schema/microsoft.php:49
+#: ../schema/microsoft.php:20
 msgid "Pre-Windows 2000 Account Name"
 msgstr "Nombre de Cuenta antes de Windows 2000"
 
-#: ../schema/microsoft.php:50
+#: ../schema/microsoft.php:21
 msgid "Street Address"
 msgstr "Dirección"
 
-#: ../schema/microsoft.php:51
+#: ../schema/microsoft.php:22
 msgid "URL (e.g. web page)"
 msgstr "URL (por ejemplo, la Página Web)"
 
-#: ../schema/microsoft.php:52
+#: ../schema/microsoft.php:23
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
-#: ../schema/microsoft.php:53
+#: ../schema/microsoft.php:24
 msgid "Last Modification Date"
 msgstr "última Fecha de Modificación"
 
-#: ../schema/microsoft.php:54
+#: ../schema/microsoft.php:25
 msgid "WWW Home Page"
 msgstr "Página de inicio de Internet"
 
-#: ../schema/microsoft.php:59
-msgid "Organizational Unit"
-msgstr "Unidad Organizacional"
-
-#: ../schema/microsoft.php:60
+#: ../schema/microsoft.php:30
 msgid "RPC Services"
 msgstr "Servicios RPC"
 
-#: ../schema/microsoft.php:61
+#: ../schema/microsoft.php:31
 msgid "Container"
 msgstr "Recipiente"
 
-#: ../schema/microsoft.php:65
+#: ../schema/microsoft.php:35
 msgid "Domain"
 msgstr "Dominio"
 
-#: ../schema/microsoft.php:66
+#: ../schema/microsoft.php:36
 msgid "Group"
 msgstr "Grupo"
 
-#: ../schema/microsoft.php:67
+#: ../schema/microsoft.php:37
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../schema/microsoft.php:68
+#: ../schema/microsoft.php:38
 msgid "Computer"
 msgstr "Computadora"
 
-#: ../schema/microsoft.php:69
+#: ../schema/microsoft.php:39
 msgid "Foreign Security Principal"
 msgstr "Exterior y de Seguridad Principal"
 
-#: ../schema/microsoft.php:70
+#: ../schema/microsoft.php:40
 msgid "Printer"
 msgstr "Impresora"
 
-#: ../schema/microsoft.php:71
+#: ../schema/microsoft.php:41
 msgid "Shared Folder"
 msgstr "Carpeta compartida"
 
-#: ../schema/microsoft.php:72
+#: ../schema/microsoft.php:42
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/microsoft.php:73
+#: ../schema/microsoft.php:43
 msgid "Query-based Distribution Group"
 msgstr "Grupo de Distribución basado en Consultas"
 
-#: ../schema/microsoft.php:78
+#: ../schema/microsoft.php:48
 msgid "InetOrgPerson"
 msgstr "InetOrgPerson"
 
-#: ../schema/microsoft.php:93
+#: ../schema/microsoft.php:63
 msgid "Domain Policy"
 msgstr "Directiva de Dominio"
 
-#: ../schema/microsoft.php:94
+#: ../schema/microsoft.php:64
 msgid "FRS Settings"
 msgstr "FRS Ajustes"
