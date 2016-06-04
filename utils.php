@@ -1780,7 +1780,7 @@ class ldap_attribute
 					echo "<br>";
 				}
 		}
-		else echo gettext("(none)");
+		else echo "(" . gettext("none") . ")";
 	}
 
 	/** Show child objects (data type "child_objects")
@@ -1836,10 +1836,10 @@ class ldap_attribute
 					}
 				}
 			else
-				echo gettext("(none)");
+				echo "(" . gettext("none") . ")";
 		}
 		else
-			echo gettext("(none)");
+			echo "(" . gettext("none") . ")";
 
 		if(!$this->edit && get_user_setting("allow_create"))
 			echo "<br><a href=\"create.php?dn="
