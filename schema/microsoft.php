@@ -67,6 +67,7 @@ class microsoft_schema extends ldap_schema
 
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
+		$ldap_server->add_schema("microsoft/laps");
 
 		parent::__construct($ldap_server);
 
