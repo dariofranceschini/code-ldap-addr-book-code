@@ -24,7 +24,7 @@ show_site_header();
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
-show_ldap_path("cn=" . gettext("New Record") . "," . $dn,"schema/generic24.png");
+show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
 
 echo "<form method=\"get\" action=\"info.php\">\n";
 

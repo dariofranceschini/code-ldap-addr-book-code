@@ -45,7 +45,7 @@ if($ldap_server->log_on())
 				"rdn_attrib");
 
 			$dn = $rdn_attrib . "=" . $_POST["ldap_attribute_"
-				. $rdn_attrib] . "," . $dn;
+				. $rdn_attrib] . (empty($dn) ? "" : "," . $dn);
 		}
 
 		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
@@ -156,7 +156,7 @@ if($ldap_server->log_on())
 					$rdn_list = ldap_explode_dn2($dn);
 					$dn = $rdn_attrib . "="
 						. $_POST["ldap_attribute_" . $rdn_attrib]
-						. "," . $rdn_list[1]["dn"];
+						. (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
 				}
 
 				show_ldap_path($dn);

@@ -25,13 +25,19 @@ $dn = $_GET["dn"];
 // if successful delete then should take the user back to displaying parent
 // container object afterwards.
 $rdn_list = ldap_explode_dn2($dn);
-$return_page_if_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+if(isset($rdn_list[1]["dn"]))
+	$return_page_if_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+else
+	$return_page_if_deleted = "index.php";
 
 // Determine where to return to if delete was cancelled or failed
 if(isset($_GET["page"]) && $_GET["page"] == "info")
 	$return_page_if_not_deleted = "info.php?dn=" . urlencode($dn);
 else
-	$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+	if(isset($rdn_list[1]["dn"]))
+		$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+	else
+		$return_page_if_not_deleted = "index.php";
 
 if($ldap_server->log_on())
 {

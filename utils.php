@@ -898,7 +898,7 @@ class ldap_entry_viewer
 			show_ldap_path("CN=" . sprintf(gettext("New %s"),
 				$ldap_server->get_object_schema_setting(
                                 $ldap_server->get_object_class($this->ldap_entry[0]),
-                                "display_name")) .  "," . $dn,
+                                "display_name")) .  (empty($dn) ? "" : "," . $dn),
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
 			show_ldap_path($dn);
