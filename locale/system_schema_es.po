@@ -27,7 +27,7 @@ msgstr "Contextos de Nomenclatura"
 
 #: ../schema/system.php:12
 msgid "Subschema Subentry"
-msgstr "Subordinate entry for subordinate schema"
+msgstr "Subordinada entrada para el esquema subordinado"
 
 #: ../schema/system.php:13
 msgid "Supported Controls"
