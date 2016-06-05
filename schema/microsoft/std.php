@@ -17,6 +17,7 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"member",				"data_type"=>"dn_list",		"display_name"=>gettext("Members")),
 			array("name"=>"mail",				"data_type"=>"text",		"display_name"=>gettext("E-mail Address")),
 			array("name"=>"mobile",				"data_type"=>"phone_number",	"display_name"=>gettext("Mobile/Cell Telephone Number")),
+			array("name"=>"ou",				"data_type"=>"text",		"display_name"=>gettext("Organizational Unit Name")),
 			array("name"=>"pager",				"data_type"=>"text",		"display_name"=>gettext("Pager Telephone Number")),
 			array("name"=>"physicalDeliveryOfficeName",	"data_type"=>"text",		"display_name"=>gettext("Office")),
 			array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>gettext("Postal Code")),

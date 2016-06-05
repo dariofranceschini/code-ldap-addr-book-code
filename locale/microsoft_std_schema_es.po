@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 11:24+0100\n"
-"PO-Revision-Date: 2016-06-05 11:24+0100\n"
+"POT-Creation-Date: 2016-06-05 11:35+0100\n"
+"PO-Revision-Date: 2016-06-05 11:35+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -58,53 +58,57 @@ msgid "Mobile/Cell Telephone Number"
 msgstr "Número de la Célula Teléfono"
 
 #: ../schema/microsoft/std.php:20
+msgid "Organizational Unit Name"
+msgstr "Nombre de Unidad Organizativa"
+
+#: ../schema/microsoft/std.php:21
 msgid "Pager Telephone Number"
 msgstr "Localizador Número de Teléfono"
 
-#: ../schema/microsoft/std.php:21
+#: ../schema/microsoft/std.php:22
 msgid "Office"
 msgstr "Oficina"
 
-#: ../schema/microsoft/std.php:22
+#: ../schema/microsoft/std.php:23
 msgid "Postal Code"
 msgstr "Código Postal"
 
-#: ../schema/microsoft/std.php:23
+#: ../schema/microsoft/std.php:24
 msgid "Surname"
 msgstr "Apellido"
 
-#: ../schema/microsoft/std.php:24
+#: ../schema/microsoft/std.php:25
 msgid "State (or Province/County)"
 msgstr "Estado (o Provincia / Condado)"
 
-#: ../schema/microsoft/std.php:25
+#: ../schema/microsoft/std.php:26
 msgid "Street Address"
 msgstr "Dirección"
 
-#: ../schema/microsoft/std.php:26
+#: ../schema/microsoft/std.php:27
 msgid "Telephone Number"
 msgstr "Número de Teléfono"
 
-#: ../schema/microsoft/std.php:27
+#: ../schema/microsoft/std.php:28
 msgid "Thumbnail Logo"
 msgstr "Logo Miniatura"
 
-#: ../schema/microsoft/std.php:28
+#: ../schema/microsoft/std.php:29
 msgid "Thumbnail Photograph"
 msgstr "Foto Miniatura"
 
-#: ../schema/microsoft/std.php:29
+#: ../schema/microsoft/std.php:30
 msgid "Job Title"
 msgstr "Título Profesional"
 
-#: ../schema/microsoft/std.php:32
+#: ../schema/microsoft/std.php:33
 msgid "Photograph"
 msgstr "Fotografía"
 
-#: ../schema/microsoft/std.php:37
+#: ../schema/microsoft/std.php:38
 msgid "Organizational Unit"
 msgstr "Unidad Organizacional"
 
-#: ../schema/microsoft/std.php:38
+#: ../schema/microsoft/std.php:39
 msgid "Schema"
 msgstr "Esquema"
