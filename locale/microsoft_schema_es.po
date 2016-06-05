@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 11:16+0100\n"
-"PO-Revision-Date: 2016-06-04 11:16+0100\n"
+"POT-Creation-Date: 2016-06-05 12:08+0100\n"
+"PO-Revision-Date: 2016-06-05 12:08+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -18,121 +18,173 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/microsoft.php:9
+msgid "Admin Context Menu Entries"
+msgstr "Entradas del Menú de Contexto Administrativo"
+
+#: ../schema/microsoft.php:10
+msgid "Admin Property Pages"
+msgstr "Páginas de Propiedades de Administración"
+
+#: ../schema/microsoft.php:11
+msgid "Attribute Display Names"
+msgstr "Nombres para Mostrar de los Atributos"
+
+#: ../schema/microsoft.php:12
 msgid "Company"
 msgstr "Empresa"
 
-#: ../schema/microsoft.php:10
+#: ../schema/microsoft.php:13
+msgid "Context Menu Entries"
+msgstr "Entradas del Menú Contextual"
+
+#: ../schema/microsoft.php:14
+msgid "Object Creation Wizard Extensions"
+msgstr "Extensiones para el Asistente para la Creación de Objetos"
+
+#: ../schema/microsoft.php:15
 msgid "Department"
 msgstr "Departamento"
 
-#: ../schema/microsoft.php:11
+#: ../schema/microsoft.php:16
 msgid "Display/Preferred Name"
 msgstr "Mostrar / Nombre Preferido"
 
-#: ../schema/microsoft.php:12
+#: ../schema/microsoft.php:17
 msgid "Group Type/Scope"
 msgstr "Tipo y Alcance del Grupo"
 
-#: ../schema/microsoft.php:13
+#: ../schema/microsoft.php:18
 msgid "General Information"
 msgstr "Información General"
 
-#: ../schema/microsoft.php:14
+#: ../schema/microsoft.php:19
+msgid "Managed By"
+msgstr "Gestionado Por"
+
+#: ../schema/microsoft.php:20
 msgid "Member Of"
 msgstr "Miembro De"
 
-#: ../schema/microsoft.php:15
+#: ../schema/microsoft.php:21
 msgid "Color Printing Supported"
 msgstr "Impresión a Color está Soportada"
 
-#: ../schema/microsoft.php:16
+#: ../schema/microsoft.php:22
 msgid "Double-Sided Printing Supported"
 msgstr "Impresión a Doble Cara está Soportada"
 
-#: ../schema/microsoft.php:17
+#: ../schema/microsoft.php:23
 msgid "Paper Available"
 msgstr "Tipos de Papel Disponibles"
 
-#: ../schema/microsoft.php:18
+#: ../schema/microsoft.php:24
 msgid "Paper Supported"
 msgstr "Tipos de Papel Admitidos"
 
-#: ../schema/microsoft.php:19
+#: ../schema/microsoft.php:25
 msgid "Stapling Supported"
 msgstr "Engrapado se Admite"
 
-#: ../schema/microsoft.php:20
+#: ../schema/microsoft.php:26
 msgid "Pre-Windows 2000 Account Name"
 msgstr "Nombre de Cuenta antes de Windows 2000"
 
-#: ../schema/microsoft.php:21
+#: ../schema/microsoft.php:31
+msgid "Server Name"
+msgstr "Nombre del Servidor"
+
+#: ../schema/microsoft.php:33
+msgid "Service Principal Names"
+msgstr "Nombre Principal de Servicio"
+
+#: ../schema/microsoft.php:34
+msgid "Shell Property Pages"
+msgstr "Páginas de Propiedades de la Shell"
+
+#: ../schema/microsoft.php:36
 msgid "Street Address"
 msgstr "Dirección"
 
-#: ../schema/microsoft.php:22
+#: ../schema/microsoft.php:37
+msgid "Treat as Leaf Object"
+msgstr "Tratar Como un Objeto Hoja"
+
+#: ../schema/microsoft.php:38
 msgid "URL (e.g. web page)"
 msgstr "URL (por ejemplo, la Página Web)"
 
-#: ../schema/microsoft.php:23
+#: ../schema/microsoft.php:39
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
-#: ../schema/microsoft.php:24
+#: ../schema/microsoft.php:40
 msgid "Last Modification Date"
 msgstr "última Fecha de Modificación"
 
-#: ../schema/microsoft.php:25
+#: ../schema/microsoft.php:41
 msgid "WWW Home Page"
 msgstr "Página de inicio de Internet"
 
-#: ../schema/microsoft.php:30
+#: ../schema/microsoft.php:44
+msgid "Admin Multi Select Property Pages"
+msgstr "Páginas de Propiedades de Administración con Selección Múltiple"
+
+#: ../schema/microsoft.php:45
+msgid "Extra Columns"
+msgstr "Columnas Adicionales"
+
+#: ../schema/microsoft.php:46
+msgid "Allowed to Delegate To"
+msgstr "Para la Posibilidad de Delegar"
+
+#: ../schema/microsoft.php:51
 msgid "RPC Services"
 msgstr "Servicios RPC"
 
-#: ../schema/microsoft.php:31
+#: ../schema/microsoft.php:52
 msgid "Container"
 msgstr "Recipiente"
 
-#: ../schema/microsoft.php:35
+#: ../schema/microsoft.php:56
 msgid "Domain"
 msgstr "Dominio"
 
-#: ../schema/microsoft.php:36
+#: ../schema/microsoft.php:57
 msgid "Group"
 msgstr "Grupo"
 
-#: ../schema/microsoft.php:37
+#: ../schema/microsoft.php:58
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../schema/microsoft.php:38
+#: ../schema/microsoft.php:59
 msgid "Computer"
 msgstr "Computadora"
 
-#: ../schema/microsoft.php:39
+#: ../schema/microsoft.php:60
 msgid "Foreign Security Principal"
 msgstr "Exterior y de Seguridad Principal"
 
-#: ../schema/microsoft.php:40
+#: ../schema/microsoft.php:61
 msgid "Printer"
 msgstr "Impresora"
 
-#: ../schema/microsoft.php:41
+#: ../schema/microsoft.php:62
 msgid "Shared Folder"
 msgstr "Carpeta compartida"
 
-#: ../schema/microsoft.php:42
+#: ../schema/microsoft.php:63
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/microsoft.php:47
+#: ../schema/microsoft.php:68
 msgid "InetOrgPerson"
 msgstr "InetOrgPerson"
 
-#: ../schema/microsoft.php:62
+#: ../schema/microsoft.php:83
 msgid "Domain Policy"
 msgstr "Directiva de Dominio"
 
-#: ../schema/microsoft.php:63
+#: ../schema/microsoft.php:84
 msgid "FRS Settings"
 msgstr "FRS Ajustes"
