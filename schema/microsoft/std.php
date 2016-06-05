@@ -39,6 +39,19 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"subSchema",			"icon"=>"system/schema.png",	"is_folder"=>false,"display_name"=>gettext("Schema"))
                         );
 
+		// Display layouts
+		$ldap_server->add_display_layout("organizationalUnit",array(
+			array("section_name"=>"Folder Details",
+				"attributes"=>array(
+					array("ou",			gettext("OU Name"),		"folder.png"),
+					array("description",		gettext("Description"),		"microsoft/description24.png"),
+					array("street:l:st:postalCode",	gettext("Postal Address"),	"address.png"),
+					// Country attribute of OU class is Microsoft-specific addition
+					array("c",			gettext("Country"),		"country.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

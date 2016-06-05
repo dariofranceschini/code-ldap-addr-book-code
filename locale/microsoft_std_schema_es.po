@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 11:35+0100\n"
-"PO-Revision-Date: 2016-06-05 11:35+0100\n"
+"POT-Creation-Date: 2016-06-05 11:45+0100\n"
+"PO-Revision-Date: 2016-06-05 11:45+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -25,7 +25,7 @@ msgstr "Código de País"
 msgid "Common Name/Full Name"
 msgstr "Nombre Común / Nombre Completo"
 
-#: ../schema/microsoft/std.php:12
+#: ../schema/microsoft/std.php:12 ../schema/microsoft/std.php:47
 msgid "Description"
 msgstr "Descripción"
 
@@ -112,3 +112,15 @@ msgstr "Unidad Organizacional"
 #: ../schema/microsoft/std.php:39
 msgid "Schema"
 msgstr "Esquema"
+
+#: ../schema/microsoft/std.php:46
+msgid "OU Name"
+msgstr "Nombre de OU"
+
+#: ../schema/microsoft/std.php:48
+msgid "Postal Address"
+msgstr "Direccion Postal"
+
+#: ../schema/microsoft/std.php:50
+msgid "Country"
+msgstr "País"
