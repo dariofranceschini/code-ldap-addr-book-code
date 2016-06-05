@@ -32,9 +32,8 @@ class system_ad_schema extends ldap_schema
 		$ldap_server->delete_attribute_class("creatorsName");
 		$ldap_server->delete_attribute_class("modifiersName");
 
-		// change capitalisation to match Microsoft
+		// capitalised as "subSchema" in microsoft.std.schema
 		$ldap_server->delete_object_class("subschema");
-		$ldap_server->add_object_class("subSchema",array("icon"=>"system/schema.png","is_folder"=>false,"display_name"=>gettext("Schema")));
 
 		// Display layouts
 		$ldap_server->add_display_layout("rootDSE",array(

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 11:59+0100\n"
-"PO-Revision-Date: 2016-05-30 11:59+0100\n"
+"POT-Creation-Date: 2016-06-05 11:24+0100\n"
+"PO-Revision-Date: 2016-06-05 11:24+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/system/ad.php:9 ../schema/system/ad.php:72
+#: ../schema/system/ad.php:9 ../schema/system/ad.php:71
 msgid "Supported Capabilities"
 msgstr "Fonctionnalités Prises en Charge"
 
@@ -49,7 +49,7 @@ msgstr "Nom du Service d'Annuaire"
 msgid "Current Time"
 msgstr "Heure Actuelle"
 
-#: ../schema/system/ad.php:17 ../schema/system/ad.php:51
+#: ../schema/system/ad.php:17 ../schema/system/ad.php:50
 msgid "Is Synchronized"
 msgstr "Est Synchronisée"
 
@@ -57,86 +57,86 @@ msgstr "Est Synchronisée"
 msgid "Root DSE"
 msgstr "RootDSE"
 
-#: ../schema/system/ad.php:37 ../schema/system/ad.php:64
-msgid "Schema"
-msgstr "Schéma"
-
-#: ../schema/system/ad.php:41
+#: ../schema/system/ad.php:40
 msgid "Active Directory Domain Controller"
 msgstr "Contrôleur de Domaine Active Directory"
 
-#: ../schema/system/ad.php:43
+#: ../schema/system/ad.php:42
 msgid "Server Name"
 msgstr "Nom du Serveur"
 
-#: ../schema/system/ad.php:44
+#: ../schema/system/ad.php:43
 msgid "Vendor Name"
 msgstr "Nom du Vendeur"
 
-#: ../schema/system/ad.php:45
+#: ../schema/system/ad.php:44
 msgid "DNS Host Name"
 msgstr "Nom d'Hôte DNS"
 
-#: ../schema/system/ad.php:46
+#: ../schema/system/ad.php:45
 msgid "Directory Service"
 msgstr "Service d'Annuaire"
 
-#: ../schema/system/ad.php:47
+#: ../schema/system/ad.php:46
 msgid "Supported LDAP Versions"
 msgstr "Versions Prises en Charge LDAP"
 
-#: ../schema/system/ad.php:48
+#: ../schema/system/ad.php:47
 msgid "LDAP Service Name"
 msgstr "Nom du Service LDAP"
 
-#: ../schema/system/ad.php:49
+#: ../schema/system/ad.php:48
 msgid "Naming Contexts"
 msgstr "Contextes des Nommage"
 
-#: ../schema/system/ad.php:50
+#: ../schema/system/ad.php:49
 msgid "Subschema Subentry"
 msgstr "Entrée Subordonnée pour le Schéma Subordonné"
 
-#: ../schema/system/ad.php:52
+#: ../schema/system/ad.php:51
 msgid "Current Time at Server"
 msgstr "Heure au serveur"
 
-#: ../schema/system/ad.php:53
+#: ../schema/system/ad.php:52
 msgid "Highest Committed USN"
 msgstr "Nombre élevé de mise à jour de la séquence qui a été commis"
 
-#: ../schema/system/ad.php:54
+#: ../schema/system/ad.php:53
 msgid "Server Functional Level"
 msgstr "Niveau Fonctionnel du Serveur"
 
-#: ../schema/system/ad.php:55
+#: ../schema/system/ad.php:54
 msgid "Domain Functional Level"
 msgstr "Niveau Fonctionnel du Domaine"
 
-#: ../schema/system/ad.php:56
+#: ../schema/system/ad.php:55
 msgid "Forest Functional Level"
 msgstr "Niveau Fonctionnel de la Forêt"
 
-#: ../schema/system/ad.php:59
+#: ../schema/system/ad.php:58
 msgid "Well-Known Naming Contexts"
 msgstr "Contextes des Nommage qui sont bien connus"
 
-#: ../schema/system/ad.php:61
+#: ../schema/system/ad.php:60
 msgid "Default (Domain)"
 msgstr "Par défaut (Domaine)"
 
-#: ../schema/system/ad.php:62
+#: ../schema/system/ad.php:61
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../schema/system/ad.php:63
+#: ../schema/system/ad.php:62
 msgid "Forest Root Domain"
 msgstr "Domaine Racine de la Forêt"
 
-#: ../schema/system/ad.php:67
+#: ../schema/system/ad.php:63
+msgid "Schema"
+msgstr "Schéma"
+
+#: ../schema/system/ad.php:66
 msgid "Supported Controls"
 msgstr "Commandes Prises en Charge"
 
-#: ../schema/system/ad.php:77
+#: ../schema/system/ad.php:76
 msgid "Supported SASL Mechanisms"
 msgstr "Mécanismes SASL Pris en Charge"
