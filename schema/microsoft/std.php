@@ -34,7 +34,7 @@ class microsoft_std_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"organizationalUnit",		"icon"=>"folder.png",	"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
+			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"subSchema",			"icon"=>"system/schema.png",	"is_folder"=>false,"display_name"=>gettext("Schema"))
                         );
 
