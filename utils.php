@@ -767,6 +767,7 @@ $oid_name=array(
 	"1.2.840.113556.1.4.1791"		=>"Active Directory LDAP Integration",		// Microsoft
 	"1.2.840.113556.1.4.1851"		=>"Active Directory ADAM: Lightweight Directory Services", // Microsoft
 	"1.2.840.113556.1.4.1880"		=>"Active Directory ADAM: Accept DIGEST-MD5 Bind", // Microsoft
+	"1.2.840.113556.1.4.1920"		=>"Active Directory: Read-Only Domain Controller", // Microsoft
 	"1.2.840.113556.1.4.1935"		=>"Active Directory V60: Windows Server 2008",	// Microsoft
 	"1.2.840.113556.1.4.2080"		=>"Active Directory V61R2: Windows Server 2008 R2", // Microsoft
 	"1.2.840.113556.1.4.2237"		=>"LDAP_CAP_ACTIVE_DIRECTORY_W8_OID"	// Microsoft (Windows Server 2012)
