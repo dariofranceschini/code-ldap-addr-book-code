@@ -618,6 +618,8 @@ $country_name=array(
     @see http://www.novell.com/documentation/developer/ldapover/ldap_enu/data/a6ik7oi.html
     @see http://fossies.org/linux/web2ldap/etc/web2ldap/ldapoidreg.py
     @see http://search.cpan.org/dist/perl-ldap-0.57/lib/Net/LDAP/Constant.pm
+    @see https://docs.ldap.com/ldap-sdk/docs/specs/internet-drafts.html
+    @see https://github.com/cannatag/ldap3/blob/master/ldap3/protocol/oid.py
 
 */
 
@@ -638,14 +640,33 @@ $oid_name=array(
 	"1.2.840.113556.1.4.529"		=>"Extended DN",				// Microsoft
 	"1.2.840.113556.1.4.619"		=>"Lazy Commit",				// Microsoft
 	"1.2.840.113556.1.4.801"		=>"Security Descriptor Flags",			// Microsoft
+	"1.2.840.113556.1.4.802"		=>"Range Property",				// draft-kashi-incremental-00
 	"1.2.840.113556.1.4.805"		=>"Tree Delete",				// draft-armijo-ldap-treedelete-02
 	"1.2.840.113556.1.4.841"		=>"Directory Synchronization",			// Microsoft
 	"1.2.840.113556.1.4.970"		=>"Get Stats",					// Microsoft
 	"1.2.840.113556.1.4.1338"		=>"Verify Name",				// Microsoft
 	"1.2.840.113556.1.4.1339"		=>"Domain Scope",				// Microsoft
 	"1.2.840.113556.1.4.1340"		=>"Search Options",				// Microsoft
+	"1.2.840.113556.1.4.1341"		=>"RODC DCPROMO",				// Microsoft
 	"1.2.840.113556.1.4.1413"		=>"Permissive Modify",				// Microsoft
 	"1.2.840.113556.1.4.1504"		=>"Attribute Scoped Query",			// Microsoft
+	"1.2.840.113556.1.4.1852"		=>"Quota",					// Microsoft
+	"1.2.840.113556.1.4.1907"		=>"Shutdown Notify",				// Microsoft
+	"1.2.840.113556.1.4.1948"		=>"Range Retrieval No Error",			// Microsoft
+	"1.2.840.113556.1.4.1974"		=>"Force Update",				// Microsoft
+	"1.2.840.113556.1.4.2026"		=>"Input DN",					// Microsoft
+	"1.2.840.113556.1.4.2064"		=>"Show Recycled",				// Microsoft
+	"1.2.840.113556.1.4.2065"		=>"Show Deactivated Link",			// Microsoft
+	"1.2.840.113556.1.4.2066"		=>"Policy Hints (Deprecated)",			// Microsoft
+	"1.2.840.113556.1.4.2090"		=>"DirSync EX",					// Microsoft
+	"1.2.840.113556.1.4.2204"		=>"Tree Delete EX",				// Microsoft
+	"1.2.840.113556.1.4.2205"		=>"Update Stats",				// Microsoft
+	"1.2.840.113556.1.4.2206"		=>"Search Hints",				// Microsoft
+	"1.2.840.113556.1.4.2211"		=>"Expected Entry Count",			// Microsoft
+	"1.2.840.113556.1.4.2239"		=>"Policy Hints",				// Microsoft
+	"1.2.840.113556.1.4.2255"		=>"Set Owner",					// Microsoft
+	"1.2.840.113556.1.4.2256"		=>"Bypass Quota",				// Microsoft
+	"1.2.840.113556.1.4.2309"		=>"Link TTL",					// Microsoft
 	"1.3.6.1.1.12"				=>"Assertion Control",				// RFC4528
 	"1.3.6.1.1.13.1"			=>"LDAP Pre-read Control",			// RFC4527
 	"1.3.6.1.1.13.2"			=>"LDAP Post-read Control",			// RFC4527
@@ -746,6 +767,7 @@ $oid_name=array(
 	"1.2.840.113556.1.4.1791"		=>"Active Directory LDAP Integration",		// Microsoft
 	"1.2.840.113556.1.4.1935"		=>"Active Directory V60: Windows Server 2008",	// Microsoft
 	"1.2.840.113556.1.4.2080"		=>"Active Directory V61R2: Windows Server 2008 R2", // Microsoft
+	"1.2.840.113556.1.4.2237"		=>"LDAP_CAP_ACTIVE_DIRECTORY_W8_OID"	// Microsoft (Windows Server 2012)
 	);
 
 /** View LDAP entry as HTML */
