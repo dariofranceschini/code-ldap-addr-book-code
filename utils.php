@@ -1070,7 +1070,7 @@ class ldap_entry_viewer_section
 
 	/** Output this section of the object entry as HTML
 
-	    $param bool $edit
+	    @param bool $edit
 		Whether the section should be rendered with editing enabled
 	*/
 
@@ -3307,7 +3307,7 @@ class ldap_server
 
 	/** Return the primary class name of the specified LDAP attribute
 
-	    $param string $class
+	    @param string $class
 		Attribute class for which the primary name is required
 	    @return
 		Primary class name of attribute (otherwise $class)
