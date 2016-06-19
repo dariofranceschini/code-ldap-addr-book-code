@@ -84,6 +84,7 @@ body,table,textarea
 .ldap_entry_viewer_section th,
 .search_results_viewer td.object_class_icon,
 .login_info,
+.server_info,
 .search th,
 .search th+td+td
 {
@@ -175,6 +176,7 @@ a
 }
 
 .login_info
+.server_info
 {
 	text-align:right;
 	vertical-align:top;
