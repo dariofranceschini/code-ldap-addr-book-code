@@ -254,12 +254,15 @@ function show_ldap_path($base,$leaf_icon = "")
 	echo "      </ul>\n";
 	echo "    </td>\n";
 
-	echo "<td class=\"server_info\">";
+	echo "    <td class=\"server_info\">";
 	if(get_user_setting("allow_system_admin"))
 		echo "<a href=\"info.php?dn=\">Server Info</a>";
+	else
+		echo "<!-- server info not enabled -->";
+
 	if($ldap_server->per_user_login_enabled() && get_user_setting("allow_system_admin"))
 		echo " | ";
-	echo "</td>";
+	echo "</td>\n";
 
 	echo "    <td class=\"login_info\">";
 	if($ldap_server->per_user_login_enabled())
