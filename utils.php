@@ -4042,7 +4042,7 @@ function ldap_bind_log($ldap_link,$user=null,$password=null)
 	$result=@ldap_bind($ldap_link,$user,$password);
 	if(!$result)
 		error_log("[" . $_SERVER["REMOTE_ADDR"]
-			. "] Authentication to LDAP addressbook as '"
+			. "] Authentication to LDAP Address Book as '"
 			. preg_replace("/[^[:print:]]/","",$user)
 			. "' failed");
 	return $result;
