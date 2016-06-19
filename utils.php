@@ -101,13 +101,14 @@ function show_site_footer()
 		"<a href=\"doc/license.html\">","</a>") . "\n  <ul>\n";
 
 	$first_link = true;
-	foreach($site_footer_links as $link)
-	{
-		echo "    <li><a href=\"" . $link["url"] . "\">"
-			. $link["text"] . "</a></li>\n";
+	if(isset($site_footer_links))
+		foreach($site_footer_links as $link)
+		{
+			echo "    <li><a href=\"" . $link["url"] . "\">"
+				. $link["text"] . "</a></li>\n";
 
-		$first_link = false;
-	}
+			$first_link = false;
+		}
 
 	echo "  </ul>\n</div>\n\n</body>\n</html>\n";
 }
