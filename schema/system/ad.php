@@ -6,18 +6,18 @@ class system_ad_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			array("name"=>"supportedCapabilities",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Capabilities")),
 			array("name"=>"configContext",			"data_type"=>"dn",		"display_name"=>gettext("Configuration Context")),
-			array("name"=>"defaultNamingContext",		"data_type"=>"dn",		"display_name"=>gettext("Default Naming Context")),
-			array("name"=>"schemaNamingContext",		"data_type"=>"dn",		"display_name"=>gettext("Schema Naming Context")),
-			array("name"=>"rootDomainNamingContext",	"data_type"=>"dn",		"display_name"=>gettext("Root Domain Naming Context")),
 			array("name"=>"configurationNamingContext",	"data_type"=>"dn",		"display_name"=>gettext("Configuration Naming Context")),
-			array("name"=>"dSServiceName",			"data_type"=>"dn",		"display_name"=>gettext("Directory Service Name")),
 			array("name"=>"currentTime",			"data_type"=>"date_time",	"display_name"=>gettext("Current Time")),
+			array("name"=>"defaultNamingContext",		"data_type"=>"dn",		"display_name"=>gettext("Default Naming Context")),
 			array("name"=>"domainControllerFunctionality",	"data_type"=>"ad_func_level",	"display_name"=>gettext("Server Functional Level")),
 			array("name"=>"domainFunctionality",		"data_type"=>"ad_func_level",	"display_name"=>gettext("Domain Functional Level")),
+			array("name"=>"dSServiceName",			"data_type"=>"dn",		"display_name"=>gettext("Directory Service Name")),
 			array("name"=>"forestFunctionality",		"data_type"=>"ad_func_level",	"display_name"=>gettext("Forest Functional Level")),
 			array("name"=>"isSynchronized",			"data_type"=>"yes_no",		"display_name"=>gettext("Is Synchronized")),
+			array("name"=>"rootDomainNamingContext",	"data_type"=>"dn",		"display_name"=>gettext("Root Domain Naming Context")),
+			array("name"=>"schemaNamingContext",		"data_type"=>"dn",		"display_name"=>gettext("Schema Naming Context")),
+			array("name"=>"supportedCapabilities",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Capabilities")),
 			);
 
 		// Structural object classes
