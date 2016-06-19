@@ -1346,6 +1346,7 @@ class ldap_attribute
 			case "date_time":	$this->show_date_time();	break;
 			case "gender":		$this->show_gender();		break;
 			case "ad_group_type":	$this->show_ad_group_type();	break;
+			case "ad_func_level":	$this->show_ad_func_level();	break;
 			case "postcode":	$this->show_postcode();		break;
 			case "country_code":	$this->show_country_code();	break;
 			case "image":		$this->show_image();		break;
@@ -1481,6 +1482,29 @@ class ldap_attribute
 			array(
 				array("value"=>"TRUE","display_name"=>gettext("Yes")),
 				array("value"=>"FALSE","display_name"=>gettext("No"))
+				)
+			);
+	}
+
+	/** Show Active Directory functional level
+
+	    These values represent Active Directory Domain, Forest and
+	    Domain Controller functional levels. (The value 1 is not used
+	    as a Domain Controller functional level.)
+	*/
+
+	function show_ad_func_level()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("Windows 2000")),
+				array("value"=>"1","display_name"=>gettext("Windows Server 2003 Interrim")),
+				array("value"=>"2","display_name"=>gettext("Windows Server 2003")),
+				array("value"=>"3","display_name"=>gettext("Windows Server 2008")),
+				array("value"=>"4","display_name"=>gettext("Windows Server 2008 R2")),
+				array("value"=>"5","display_name"=>gettext("Windows Server 2012")),
+				array("value"=>"6","display_name"=>gettext("Windows Server 2012 R2")),
+				array("value"=>"7","display_name"=>gettext("Windows Server 2016"))
 				)
 			);
 	}

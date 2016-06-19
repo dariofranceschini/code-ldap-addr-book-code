@@ -14,6 +14,9 @@ class system_ad_schema extends ldap_schema
 			array("name"=>"configurationNamingContext",	"data_type"=>"dn",		"display_name"=>gettext("Configuration Naming Context")),
 			array("name"=>"dSServiceName",			"data_type"=>"dn",		"display_name"=>gettext("Directory Service Name")),
 			array("name"=>"currentTime",			"data_type"=>"date_time",	"display_name"=>gettext("Current Time")),
+			array("name"=>"domainControllerFunctionality",	"data_type"=>"ad_func_level",	"display_name"=>gettext("Server Functional Level")),
+			array("name"=>"domainFunctionality",		"data_type"=>"ad_func_level",	"display_name"=>gettext("Domain Functional Level")),
+			array("name"=>"forestFunctionality",		"data_type"=>"ad_func_level",	"display_name"=>gettext("Forest Functional Level")),
 			array("name"=>"isSynchronized",			"data_type"=>"yes_no",		"display_name"=>gettext("Is Synchronized")),
 			);
 
