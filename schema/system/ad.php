@@ -50,7 +50,7 @@ class system_ad_schema extends ldap_schema
 					array("isSynchronized",			gettext("Is Synchronized"),		"generic24.png"),
 					array("currentTime",			gettext("Current Time at Server"),	"generic24.png"),
 					array("highestCommittedUSN",		gettext("Highest Committed USN"),	"generic24.png"),
-					array("domaincontrollerFunctionality",	gettext("Server Functional Level"),	"generic24.png"),
+					array("domainControllerFunctionality",	gettext("Server Functional Level"),	"generic24.png"),
 					array("domainFunctionality",		gettext("Domain Functional Level"),	"generic24.png"),
 					array("forestFunctionality",		gettext("Forest Functional Level"),	"generic24.png")
 					),
