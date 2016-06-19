@@ -1111,9 +1111,6 @@ class ldap_entry_viewer_attrib
 	/** Icon image to display next to attribute */
 	var $icon;
 
-	/** Whether the attribute should be rendered with editing enabled */
-	var $edit = false;
-
 	/** LDAP entry whose attribute is to be displayed */
 	var $ldap_entry;
 
@@ -1153,9 +1150,7 @@ class ldap_entry_viewer_attrib
 	{
 		global $ldap_server;
 
-		$this->edit = $edit;
-
-		if($this->edit || !$this->hide_unless_editing)
+		if($edit || !$this->hide_unless_editing)
 		{
 			echo "        <tr>\n";
 
@@ -1196,7 +1191,7 @@ class ldap_entry_viewer_attrib
 
 					$attrib = new ldap_attribute($this->ldap_entry[0],$attribute);
 
-					$attrib->edit = $this->edit;
+					$attrib->edit = $edit;
 					$attrib->show();
 				}
 			}
