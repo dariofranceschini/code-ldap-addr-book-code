@@ -55,8 +55,8 @@ if(!isset($_SESSION["LOGIN_USER"]))
 			else
 			{
 				reset_login_session();
-				show_try_again_message(gettext("The user name/password you entered "
-					. "is not valid"));
+				show_try_again_message(
+					gettext("The user name/password you entered is not valid"));
 			}
 		}
 		else

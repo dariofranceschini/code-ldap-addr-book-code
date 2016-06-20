@@ -2155,11 +2155,12 @@ function show_ldap_bind_error()
 		if(isset($_SESSION["LOGIN_USER"]))
 			echo "<p>" . gettext("You do not have permission to log in to"
 				. " the address book directory.") . "</p>\n"
-				. "<p><a href=\"user.php\">" . gettext("Log in as a"
-				. " different user") . "</a></p>";
+				. "<p><a href=\"user.php\">"
+				. gettext("Log in as a different user") . "</a></p>";
 		else
-			echo "<p><a href=\"user.php\">" . gettext("Please log in to"
-				. " use the address book.") . "</a></p>";
+			echo "<p><a href=\"user.php\">"
+				. gettext("Please log in to use the address book.")
+				. "</a></p>";
 	}
 	else
 	{
