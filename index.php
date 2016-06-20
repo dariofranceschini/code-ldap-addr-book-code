@@ -177,7 +177,8 @@ if(empty($_GET["vcard"]))
 {
 	$buttons = "";
 
-	if(get_user_setting("allow_folder_info"))
+	if(empty($_GET["filter"]) && get_user_setting("allow_folder_info")
+			&& get_user_setting("allow_browse") && get_user_setting("allow_view"))
 		$buttons .= "<a href=\"info.php?dn="
 			. urlencode($dn)
 				. "\"><button>" . gettext("Folder Details") . "</button></a>\n";
