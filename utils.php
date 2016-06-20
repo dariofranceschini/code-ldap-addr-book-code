@@ -27,6 +27,8 @@ define("ENTRY_LIST_SHOW_ALL_OBJECTS",1);
 define("ENTRY_LIST_SHOW_FOLDER_OBJECTS",2);
 define("ENTRY_LIST_SHOW_LEAF_OBJECTS",3);
 
+if(!isset($site_name)) $site_name = gettext("Address Book");
+
 // provide ldap_escape function for PHP <5.6
 if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
 
