@@ -3633,7 +3633,22 @@ class ldap_server
 					}
 				}
 				else
-					echo "anonymous bind failed";	/** @todo report anonymous bind error more nicely */
+				{
+					show_site_header();
+					show_ldap_path("");
+
+					echo "<p>\n  "
+						. gettext("Unable connect to the directory to look up the user name.")
+						. "\n</p>\n<p>\n  "
+						. sprintf(gettext("Please check the %s and %s settings in the Address Book configuration."),
+						"<code>\$ldap_server->dn_search_user</code>",
+						"<code>\$ldap_server->dn_search_password</code>")
+						. "\n</p>\n\n";
+
+					show_site_footer();
+
+					exit(0);
+				}
 			}
 
 			if(!empty($user_bind_dn))
