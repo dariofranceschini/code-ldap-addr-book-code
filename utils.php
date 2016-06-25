@@ -3667,7 +3667,7 @@ class ldap_server
 				}
 			}
 
-			if(!empty($user_bind_dn))
+			if(!empty($user_bind_dn) && $user_bind_dn != "__SEARCH__")
 				$_SESSION["LOGIN_BIND_DN"] = $user_bind_dn;
 		}
 
