@@ -27,6 +27,7 @@ define("ENTRY_LIST_SHOW_ALL_OBJECTS",1);
 define("ENTRY_LIST_SHOW_FOLDER_OBJECTS",2);
 define("ENTRY_LIST_SHOW_LEAF_OBJECTS",3);
 
+if(!file_exists("config.php")) missing_config_error();
 if(!isset($site_name)) $site_name = gettext("Address Book");
 
 // provide ldap_escape function for PHP <5.6
@@ -4163,5 +4164,24 @@ function show_searchable_attributes()
                         $attrib,"display_name",$attrib) . "</li>";
 	}
 	echo "</ul>";
+}
+
+/** Display explanatory message if configuration file is missing */
+
+function missing_config_error()
+{
+	show_site_header();
+	show_ldap_path("");
+
+	echo "<p>\n  "
+		. sprintf(gettext("The Address Book's configuration file (%sconfig.php%s) is missing."),
+		"<code>","</code>") . "\n</p>\n<p>\n  "
+		. sprintf(gettext("Please read %sInstallation and Basic Setup%s in the User Guide for instructions on how to configure a new Address Book installation."),
+		"<a style=\"font-style:italic\" href=\"doc/#installation\">","</a>\n ")
+		. "\n</p>\n\n";
+
+	show_site_footer();
+
+	exit(0);
 }
 ?>
