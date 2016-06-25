@@ -263,12 +263,12 @@ function show_ldap_path($base,$leaf_icon = "")
 	else
 		echo "<!-- server info not enabled -->";
 
-	if($ldap_server->per_user_login_enabled() && get_user_setting("allow_system_admin"))
+	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled() && get_user_setting("allow_system_admin"))
 		echo " | ";
 	echo "</td>\n";
 
 	echo "    <td class=\"login_info\">";
-	if($ldap_server->per_user_login_enabled())
+	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled())
 	{
 		// Resume existing session (if any exists) in order to get
 		// currently logged in user
