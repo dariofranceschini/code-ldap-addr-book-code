@@ -2536,7 +2536,7 @@ class ldap_entry_list
 
 	function save_vcard($dn)
 	{
-		global $ldap_base_dn;
+		global $ldap_base_dn,$site_name;
 
 		if($dn == $ldap_base_dn)
 			$filename = $site_name;
