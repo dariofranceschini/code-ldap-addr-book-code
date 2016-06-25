@@ -3592,10 +3592,10 @@ class ldap_server
 				&& !strpos($user_bind_dn,"=")>0
 				&& strpos($user_bind_dn,"@")>0)
 			{
+				$filter = "(userPrincipalName=" . $user_bind_dn . ")";
+
 				// Flag that user DN lookup will be required
 				$user_bind_dn = "__SEARCH__";
-
-				$filter = "(userPrincipalName=" . $user_bind_dn . ")";
 			}
 			else
 				$filter = str_replace("__USERNAME__",
