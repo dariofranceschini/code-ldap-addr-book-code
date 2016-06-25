@@ -125,7 +125,14 @@ if(prereq_components_ok())
 				// only show error if explicit base DN browse attempt
 				if(empty($_GET["dn"]))
 				{
-					if(!get_user_setting("allow_search"))
+					if(get_user_setting("allow_search"))
+					{
+						echo "<p>" . gettext("Please enter the text you want to look up in the Address Book.") . "</p>";
+						echo "<p>" . gettext("You can search for text in any of the following fields:") . "</p>";
+
+		                                show_searchable_attributes();
+					}
+					else
 					{
 						if($ldap_server->per_user_login_enabled())
 							echo "<p><a href=\"user.php\">"
