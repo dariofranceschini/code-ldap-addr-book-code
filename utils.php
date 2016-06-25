@@ -952,7 +952,7 @@ class ldap_entry_viewer
 			echo "<table class=\"ldap_entry_viewer\">\n";
 
 			foreach($this->section as $section)
-				$section->show($this->edit);
+				$section->show($this->create,$this->edit);
 
 			echo "</table>\n\n";
 
@@ -1073,11 +1073,14 @@ class ldap_entry_viewer_section
 
 	/** Output this section of the object entry as HTML
 
+	    @param bool $create
+		Whether the section should be rendered as for a new object
+		which is being created
 	    @param bool $edit
 		Whether the section should be rendered with editing enabled
 	*/
 
-	function show($edit)
+	function show($create,$edit)
 	{
 		echo "\n<!-- Section: " . $this->text . " -->\n\n";
 
@@ -1098,7 +1101,7 @@ class ldap_entry_viewer_section
 				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
-			$attrib->show($edit);
+			$attrib->show($create,$edit);
 
 		echo "      </table>\n";
 		echo "    </td>\n";
@@ -1149,11 +1152,14 @@ class ldap_entry_viewer_attrib
 
 	/** Output this object attribute as HTML
 
+	    @param bool $create
+		Whether the attribute should be rendered as for a new object
+		which is being created
 	    @param bool $edit
 		Whether the attribute should be rendered with editing enabled
 	*/
 
-	function show($edit)
+	function show($create,$edit)
 	{
 		global $ldap_server;
 
@@ -1199,6 +1205,7 @@ class ldap_entry_viewer_attrib
 					$attrib = new ldap_attribute($this->ldap_entry[0],$attribute);
 
 					$attrib->edit = $edit;
+					$attrib->create = $create;
 					$attrib->show();
 				}
 			}
@@ -1228,6 +1235,9 @@ class ldap_attribute
 
 	/** Whether attribute is mandatory (either marked as such or the RDN) */
 	var $required;
+
+	/** Whether the attribute is for a new record that is being created */
+	var $create = false;
 
 	/** Whether the attribute should be rendered with editing enabled */
 	var $edit = false;
