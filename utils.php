@@ -1861,7 +1861,7 @@ class ldap_attribute
 		$search_resource = @ldap_list($ldap_server->connection,
 			$this->ldap_entry["dn"],"(objectclass=*)");
 
-		if($search_resource)
+		if($search_resource && !$this->create)
 		{
 			$child_entries = ldap_get_entries($ldap_server->connection,$search_resource);
 			if($child_entries["count"]>0)
@@ -1902,7 +1902,7 @@ class ldap_attribute
 		else
 			echo "(" . gettext("none") . ")";
 
-		if(!$this->edit && get_user_setting("allow_create"))
+		if(!$this->edit && get_user_setting("allow_create") && !$this->create)
 			echo "<br><a href=\"create.php?dn="
 				. urlencode($this->ldap_entry["dn"])
 				. "\"><button>" . gettext("Add") . "</button></a>\n";
