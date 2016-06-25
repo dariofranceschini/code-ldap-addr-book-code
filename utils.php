@@ -2264,15 +2264,16 @@ function get_user_setting($attrib,$user_name = "")
 
 	$user_info = array();	// default if no match at all
 	$found=false;
-	foreach($ldap_server->user_map as $map_user)
-		if(!$found && ($map_user["login_name"] == $user_name
-			|| ($map_user["login_name"] == "__DEFAULT__"
-			&& $user_name != "__ANONYMOUS__")))
-		{
-			$user_info = $map_user;
-			if($map_user["login_name"] != "__DEFAULT__")
-				$found = true;
-		}
+	if(is_object($ldap_server))
+		foreach($ldap_server->user_map as $map_user)
+			if(!$found && ($map_user["login_name"] == $user_name
+				|| ($map_user["login_name"] == "__DEFAULT__"
+				&& $user_name != "__ANONYMOUS__")))
+			{
+				$user_info = $map_user;
+				if($map_user["login_name"] != "__DEFAULT__")
+					$found = true;
+			}
 
 	if(isset($user_info["ldap_dn"]))
 		$user_info["ldap_dn"]=str_replace("__USERNAME__",
