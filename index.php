@@ -204,7 +204,7 @@ if(empty($_GET["vcard"]))
 			. "\"><button>" . gettext("Export Records") . "</button></a>\n";
 
 	if(!empty($buttons))
-		echo "<hr>\n" . $buttons;
+		echo "<hr class=\"button_separator_line\">\n" . $buttons;
 
 	show_site_footer();
 }
