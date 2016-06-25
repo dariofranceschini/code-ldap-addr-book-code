@@ -158,6 +158,9 @@ if(prereq_components_ok())
 		$entry_list = new ldap_entry_list($ldap_server,$search_resource,
 			$search_result_columns,$sort_order);
 
+		if(!empty($_GET["filter"]))
+			$entry_list->contains_search_results=true;
+
 		if(empty($_GET["vcard"]))
 		{
 			// extra space between LDAP path and results if no search box

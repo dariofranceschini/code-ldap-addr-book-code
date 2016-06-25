@@ -2482,6 +2482,9 @@ class ldap_entry_list
 	/** LDAP server containing the entries to be displayed */
 	var $ldap_server;
 
+	/** Whether the LDAP entry list contains search results */
+	var $contains_search_results = false;
+
 	/** Constructor
 
 	    @param object $ldap_server
@@ -2576,7 +2579,20 @@ class ldap_entry_list
 		echo "</table>\n";
 
 		if($this->ldap_entries["count"]==0)
-			echo "<p>" . gettext("This is an empty folder") . "</p>";
+			if($this->contains_search_results)
+			{
+				echo "<p>" . gettext("Your search did not match any records in the Address Book.") . "</p>"
+					. "<p>" . gettext("Suggestions:") . "</p>"
+					. "<ul>"
+					. "<li>" . gettext("Make sure that all words are spelled correctly") . "</li>"
+					. "<li>" . gettext("Search for different or more general keywords") . "</li>"
+					. "</ul>"
+					. "<p>" . gettext("You can search for text in any of the following fields:") . "</p>";
+
+				show_searchable_attributes();
+			}
+			else
+				echo "<p>" . gettext("This is an empty folder") . "</p>";
 	}
 
 	/** Show LDAP entries
@@ -4122,5 +4138,19 @@ abstract class ldap_schema
 			$ldap_server->add_attribute_class($name,$settings);
 		}
 	}
+}
+
+/** Show a list of the searchable attributes */
+
+function show_searchable_attributes()
+{
+	global $search_ldap_attrib,$ldap_server;
+	echo "<ul>";
+	foreach($search_ldap_attrib as $attrib)
+	{
+		echo "<li>" . $ldap_server->get_attribute_schema_setting(
+                        $attrib,"display_name",$attrib) . "</li>";
+	}
+	echo "</ul>";
 }
 ?>
