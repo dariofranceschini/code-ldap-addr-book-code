@@ -1,0 +1,16 @@
+.search,
+.login_info,
+button,
+.button_separator_line
+{
+	display:none;
+}
+
+th,
+.search_results_viewer,
+.ldap_entry_viewer
+{
+	border-style:solid;
+	border-width:1pt;
+	border-color:grey;
+}

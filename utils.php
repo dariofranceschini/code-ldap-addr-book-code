@@ -76,6 +76,7 @@ function show_site_header()
 		. $site_name . "\" href=\"search-plugin.php\">\n";
 	echo "  <link rel=\"icon\" type=\"image/png\" href=\"addressbook24.png\">\n";
 	echo "  <link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">\n";
+	echo "  <link rel=\"stylesheet\" href=\"styles_print.css\" type=\"text/css\" media=\"print\">\n";
 	if(file_exists("styles_local.css"))
 		echo "  <link rel=\"stylesheet\" href=\"styles_local.css\" type=\"text/css\">\n";
 
