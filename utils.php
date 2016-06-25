@@ -3672,8 +3672,18 @@ class ldap_server
 		}
 
 		// Bind as the actual user
-		$result=@ldap_bind_log($this->connection,$user_bind_dn,
-			get_ldap_bind_password());
+		if($user_bind_dn == "__SEARCH__")
+		{
+			error_log("[" . $_SERVER["REMOTE_ADDR"]
+				. "] User lookup for LDAP Address Book with '"
+				. preg_replace("/[^[:print:]]/","",$filter)
+				. "' failed");
+
+			$result=false;
+		}
+		else
+			$result=@ldap_bind_log($this->connection,$user_bind_dn,
+				get_ldap_bind_password());
 
 		if($result)
 		{
