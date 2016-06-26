@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-26 11:36+0100\n"
-"PO-Revision-Date: 2016-06-26 11:36+0100\n"
+"POT-Creation-Date: 2016-06-27 08:31+0100\n"
+"PO-Revision-Date: 2016-06-27 08:31+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -189,46 +189,78 @@ msgstr "Dossier Partagé"
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../schema/microsoft.php:78
+#: ../schema/microsoft.php:76
 msgid "Sites Container"
 msgstr "Conteneur pour l'Emplacements"
 
-#: ../schema/microsoft.php:79
+#: ../schema/microsoft.php:77
 msgid "Inter-Site Transport"
 msgstr "Transport entre l'Emplacements"
 
-#: ../schema/microsoft.php:80
+#: ../schema/microsoft.php:78
 msgid "Inter-Site Transports Container"
 msgstr "Conteneur pour le Transport entre l'Emplacements"
 
-#: ../schema/microsoft.php:81
+#: ../schema/microsoft.php:79
 msgid "Subnets Container"
 msgstr "Conteneur Subnets"
 
-#: ../schema/microsoft.php:82
+#: ../schema/microsoft.php:80
 msgid "Site"
 msgstr "Emplacement"
 
-#: ../schema/microsoft.php:83
+#: ../schema/microsoft.php:81
 msgid "Servers Container"
 msgstr "Conteneur pour les Serveurs"
 
-#: ../schema/microsoft.php:84
+#: ../schema/microsoft.php:82
 msgid "Server"
 msgstr "Serveur"
 
-#: ../schema/microsoft.php:85
+#: ../schema/microsoft.php:83
 msgid "Domain Controller Settings"
 msgstr "Paramètres du Contrôleur de Domaine"
 
-#: ../schema/microsoft.php:86
+#: ../schema/microsoft.php:84
 msgid "Active Directory Domain Services"
 msgstr "Active Directory Domain Services"
 
-#: ../schema/microsoft.php:89
+#: ../schema/microsoft.php:85
 msgid "Domain Policy"
 msgstr "Politique de Domaine"
 
-#: ../schema/microsoft.php:90
+#: ../schema/microsoft.php:86
 msgid "FRS Settings"
 msgstr "Paramètres de FRS"
+
+#: ../schema/microsoft.php:95
+msgid "Group Name (Active Directory)"
+msgstr "Nom du groupe (Active Directory)"
+
+#: ../schema/microsoft.php:96
+msgid "Group Name (pre-Windows 2000)"
+msgstr "Nom du groupe (pré-Windows 2000)"
+
+#: ../schema/microsoft.php:97
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/microsoft.php:98
+msgid "E-mail"
+msgstr "Email"
+
+#: ../schema/microsoft.php:99
+msgid "Type/Scope"
+msgstr "Type et Portée"
+
+#: ../schema/microsoft.php:102
+msgid "Group Members"
+msgstr "Membres du Groupe"
+
+#: ../schema/microsoft.php:107
+msgid "Group is a Member Of"
+msgstr "Groupe est Membre De"
+
+#: ../schema/microsoft.php:112
+msgid "Additional Notes"
+msgstr "Notes Complémentaires"

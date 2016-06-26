@@ -88,6 +88,34 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"dfsConfiguration",		"icon"=>"folder.png",			"is_folder"=>true),
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("group",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Group Name (Active Directory)"),	"contact24.png",true),
+					array("sAMAccountName",			gettext("Group Name (pre-Windows 2000)"),	"contact24.png"),
+					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("mail",				gettext("E-mail"),				"mail.png"),
+					array("groupType",			gettext("Type/Scope"),				"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Group Members"),"new_row"=>true,"width"=>"50%",
+				"attributes"=>array(
+					array("member")
+					)
+				),
+			array("section_name"=>gettext("Group is a Member Of"),
+				"attributes"=>array(
+					array("memberOf")
+					)
+				),
+			array("section_name"=>gettext("Additional Notes"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("info")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
