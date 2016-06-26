@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 12:08+0100\n"
-"PO-Revision-Date: 2016-06-05 12:08+0100\n"
+"POT-Creation-Date: 2016-06-26 11:01+0100\n"
+"PO-Revision-Date: 2016-06-26 11:01+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -137,54 +137,62 @@ msgstr "Colonnes Supplémentaires"
 msgid "Allowed to Delegate To"
 msgstr "Autorisé à déléguer à"
 
-#: ../schema/microsoft.php:51
-msgid "RPC Services"
-msgstr "Services RPC"
-
 #: ../schema/microsoft.php:52
-msgid "Container"
-msgstr "Conteneur"
+msgid "Group Managed Service Account"
+msgstr "Compte de groupe pour Service Géré"
 
-#: ../schema/microsoft.php:56
-msgid "Domain"
-msgstr "Domaine"
-
-#: ../schema/microsoft.php:57
-msgid "Group"
-msgstr "Groupe"
-
-#: ../schema/microsoft.php:58
-msgid "Contact"
-msgstr "Contact"
-
-#: ../schema/microsoft.php:59
-msgid "Computer"
-msgstr "Ordinateur"
+#: ../schema/microsoft.php:55
+msgid "Managed Service Account"
+msgstr "Compte pour Service Géré"
 
 #: ../schema/microsoft.php:60
-msgid "Foreign Security Principal"
-msgstr "Entité de Sécurité Externe"
-
-#: ../schema/microsoft.php:61
-msgid "Printer"
-msgstr "Imprimante"
-
-#: ../schema/microsoft.php:62
-msgid "Shared Folder"
-msgstr "Dossier Partagé"
-
-#: ../schema/microsoft.php:63
-msgid "User"
-msgstr "Utilisateur"
-
-#: ../schema/microsoft.php:68
 msgid "InetOrgPerson"
 msgstr "InetOrgPerson"
 
-#: ../schema/microsoft.php:83
+#: ../schema/microsoft.php:62
+msgid "RPC Services"
+msgstr "Services RPC"
+
+#: ../schema/microsoft.php:63
+msgid "Container"
+msgstr "Conteneur"
+
+#: ../schema/microsoft.php:67
+msgid "Domain"
+msgstr "Domaine"
+
+#: ../schema/microsoft.php:68
+msgid "Group"
+msgstr "Groupe"
+
+#: ../schema/microsoft.php:69
+msgid "Contact"
+msgstr "Contact"
+
+#: ../schema/microsoft.php:70
+msgid "Computer"
+msgstr "Ordinateur"
+
+#: ../schema/microsoft.php:71
+msgid "Foreign Security Principal"
+msgstr "Entité de Sécurité Externe"
+
+#: ../schema/microsoft.php:72
+msgid "Printer"
+msgstr "Imprimante"
+
+#: ../schema/microsoft.php:73
+msgid "Shared Folder"
+msgstr "Dossier Partagé"
+
+#: ../schema/microsoft.php:74
+msgid "User"
+msgstr "Utilisateur"
+
+#: ../schema/microsoft.php:89
 msgid "Domain Policy"
 msgstr "Politique de Domaine"
 
-#: ../schema/microsoft.php:84
+#: ../schema/microsoft.php:90
 msgid "FRS Settings"
 msgstr "Paramètres de FRS"

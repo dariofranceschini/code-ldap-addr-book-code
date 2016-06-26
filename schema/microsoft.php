@@ -48,6 +48,12 @@ class microsoft_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
+			// Added for Windows Server 2012
+			array("name"=>"msDS-GroupManagedServiceAccount","icon"=>"microsoft/service.png",	"is_folder"=>false,"display_name"=>gettext("Group Managed Service Account")),
+
+			// Added for Windows Server 2008 R2
+			array("name"=>"msDS-ManagedServiceAccount",	"icon"=>"microsoft/service.png",	"is_folder"=>false,"display_name"=>gettext("Managed Service Account")),
+
 			// Proprietary implementation of InetOrgPerson:
 			//	- Subclass of proprietary "user" (so listed before it in schema definition)
 			//	- Attribute "sn" is not mandatory
