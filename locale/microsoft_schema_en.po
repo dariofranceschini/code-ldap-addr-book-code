@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-26 11:01+0100\n"
-"PO-Revision-Date: 2016-06-26 11:01+0100\n"
+"POT-Creation-Date: 2016-06-26 11:36+0100\n"
+"PO-Revision-Date: 2016-06-26 11:36+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -188,6 +188,42 @@ msgstr "Shared Folder"
 #: ../schema/microsoft.php:74
 msgid "User"
 msgstr "User"
+
+#: ../schema/microsoft.php:78
+msgid "Sites Container"
+msgstr "Sites Container"
+
+#: ../schema/microsoft.php:79
+msgid "Inter-Site Transport"
+msgstr "Inter-Site Transport"
+
+#: ../schema/microsoft.php:80
+msgid "Inter-Site Transports Container"
+msgstr "Inter-Site Transports Container"
+
+#: ../schema/microsoft.php:81
+msgid "Subnets Container"
+msgstr "Subnets Container"
+
+#: ../schema/microsoft.php:82
+msgid "Site"
+msgstr "Site"
+
+#: ../schema/microsoft.php:83
+msgid "Servers Container"
+msgstr "Servers Container"
+
+#: ../schema/microsoft.php:84
+msgid "Server"
+msgstr "Server"
+
+#: ../schema/microsoft.php:85
+msgid "Domain Controller Settings"
+msgstr "Domain Controller Settings"
+
+#: ../schema/microsoft.php:86
+msgid "Active Directory Domain Services"
+msgstr "Active Directory Domain Services"
 
 #: ../schema/microsoft.php:89
 msgid "Domain Policy"

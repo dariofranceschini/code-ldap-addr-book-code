@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-26 11:01+0100\n"
-"PO-Revision-Date: 2016-06-26 11:01+0100\n"
+"POT-Creation-Date: 2016-06-26 11:36+0100\n"
+"PO-Revision-Date: 2016-06-26 11:36+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -188,6 +188,42 @@ msgstr "Dossier Partagé"
 #: ../schema/microsoft.php:74
 msgid "User"
 msgstr "Utilisateur"
+
+#: ../schema/microsoft.php:78
+msgid "Sites Container"
+msgstr "Conteneur pour l'Emplacements"
+
+#: ../schema/microsoft.php:79
+msgid "Inter-Site Transport"
+msgstr "Transport entre l'Emplacements"
+
+#: ../schema/microsoft.php:80
+msgid "Inter-Site Transports Container"
+msgstr "Conteneur pour le Transport entre l'Emplacements"
+
+#: ../schema/microsoft.php:81
+msgid "Subnets Container"
+msgstr "Conteneur Subnets"
+
+#: ../schema/microsoft.php:82
+msgid "Site"
+msgstr "Emplacement"
+
+#: ../schema/microsoft.php:83
+msgid "Servers Container"
+msgstr "Conteneur pour les Serveurs"
+
+#: ../schema/microsoft.php:84
+msgid "Server"
+msgstr "Serveur"
+
+#: ../schema/microsoft.php:85
+msgid "Domain Controller Settings"
+msgstr "Paramètres du Contrôleur de Domaine"
+
+#: ../schema/microsoft.php:86
+msgid "Active Directory Domain Services"
+msgstr "Active Directory Domain Services"
 
 #: ../schema/microsoft.php:89
 msgid "Domain Policy"

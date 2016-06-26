@@ -75,15 +75,15 @@ class microsoft_schema extends ldap_schema
 
 			// Specialist object classes used in Configuration Partition to be shown as folders
 			array("name"=>"crossRefContainer",		"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"sitesContainer",			"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"interSiteTransportContainer",	"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"subnetContainer",		"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"site",				"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"serversContainer",		"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"server",				"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"nTDSDSA",			"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"nTDSService",			"icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"sitesContainer",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Sites Container")),
+			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
+			array("name"=>"interSiteTransportContainer",	"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transports Container")),
+			array("name"=>"subnetContainer",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Subnets Container")),
+			array("name"=>"site",				"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Site")),
+			array("name"=>"serversContainer",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Servers Container")),
+			array("name"=>"server",				"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Server")),
+			array("name"=>"nTDSDSA",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Domain Controller Settings")),
+			array("name"=>"nTDSService",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Active Directory Domain Services")),
 
 			// Specialist object classes used in "System" container
 			array("name"=>"domainPolicy",			"icon"=>"microsoft/domain_policy24.png","is_folder"=>true,"display_name"=>gettext("Domain Policy")),
