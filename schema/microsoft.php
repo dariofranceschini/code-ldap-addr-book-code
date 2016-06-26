@@ -60,7 +60,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true),
 
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services")),
-			array("name"=>"container",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Container"),"can_create"=>true),
+			array("name"=>"container",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Container")),
 			array("name"=>"builtinDomain",			"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"lostAndFound",			"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDS-QuotaContainer",		"icon"=>"folder.png",			"is_folder"=>true),
