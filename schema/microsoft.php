@@ -72,8 +72,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png",	"is_folder"=>false,"display_name"=>gettext("Printer")),
 			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder")),
 			array("name"=>"user",				"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true),
-
-			// Specialist object classes used in Configuration Partition to be shown as folders
 			array("name"=>"crossRefContainer",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"sitesContainer",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Sites Container")),
 			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
@@ -84,8 +82,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"server",				"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Server")),
 			array("name"=>"nTDSDSA",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Domain Controller Settings")),
 			array("name"=>"nTDSService",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Active Directory Domain Services")),
-
-			// Specialist object classes used in "System" container
 			array("name"=>"domainPolicy",			"icon"=>"microsoft/domain_policy24.png","is_folder"=>true,"display_name"=>gettext("Domain Policy")),
 			array("name"=>"nTFRSSettings",			"icon"=>"microsoft/frs_settings24.png",	"is_folder"=>true,"display_name"=>gettext("FRS Settings")),
 			array("name"=>"fileLinkTracking",		"icon"=>"folder.png",			"is_folder"=>true),
