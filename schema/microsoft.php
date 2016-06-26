@@ -48,6 +48,11 @@ class microsoft_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
+			// Proprietary implementation of InetOrgPerson:
+			//	- Subclass of proprietary "user" (so listed before it in schema definition)
+			//	- Attribute "sn" is not mandatory
+			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true),
+
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services")),
 			array("name"=>"container",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Container"),"can_create"=>true),
 			array("name"=>"builtinDomain",			"icon"=>"folder.png",			"is_folder"=>true),
@@ -61,11 +66,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png",	"is_folder"=>false,"display_name"=>gettext("Printer")),
 			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder")),
 			array("name"=>"user",				"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true),
-
-			// Proprietary implementation of InetOrgPerson:
-			//	- Subclass of proprietary "user" (so listed after it in schema definition)
-			//	- Attribute "sn" is not mandatory
-			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true),
 
 			// Specialist object classes used in Configuration Partition to be shown as folders
 			array("name"=>"crossRefContainer",		"icon"=>"folder.png",			"is_folder"=>true),
