@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 09:35+0100\n"
+"POT-Creation-Date: 2016-06-27 09:46+0100\n"
 "PO-Revision-Date: 2016-06-27 09:35+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -73,7 +73,7 @@ msgstr "Color Printing Supported"
 msgid "Double-Sided Printing Supported"
 msgstr "Double-Sided Printing Supported"
 
-#: ../schema/microsoft.php:23
+#: ../schema/microsoft.php:23 ../schema/microsoft.php:161
 msgid "Paper Available"
 msgstr "Paper Available"
 
@@ -242,6 +242,7 @@ msgid "Group Name (pre-Windows 2000)"
 msgstr "Group Name (pre-Windows 2000)"
 
 #: ../schema/microsoft.php:97 ../schema/microsoft.php:131
+#: ../schema/microsoft.php:143
 msgid "Description"
 msgstr "Description"
 
@@ -280,3 +281,59 @@ msgstr "Folder Details"
 #: ../schema/microsoft.php:130
 msgid "Name"
 msgstr "Name"
+
+#: ../schema/microsoft.php:137
+msgid "Shared Printer"
+msgstr "Shared Printer"
+
+#: ../schema/microsoft.php:139
+msgid "Object Name"
+msgstr "Object Name"
+
+#: ../schema/microsoft.php:140
+msgid "Printer Name"
+msgstr "Printer Name"
+
+#: ../schema/microsoft.php:141
+msgid "Driver"
+msgstr "Driver"
+
+#: ../schema/microsoft.php:142
+msgid "Location"
+msgstr "Location"
+
+#: ../schema/microsoft.php:146
+msgid "Capabilities"
+msgstr "Capabilities"
+
+#: ../schema/microsoft.php:148
+msgid "Color Printing"
+msgstr "Color Printing"
+
+#: ../schema/microsoft.php:149
+msgid "Stapling"
+msgstr "Stapling"
+
+#: ../schema/microsoft.php:150
+msgid "Double-Sided Printing"
+msgstr "Double-Sided Printing"
+
+#: ../schema/microsoft.php:151
+msgid "Printing Speed (PPM)"
+msgstr "Printing Speed (PPM)"
+
+#: ../schema/microsoft.php:152
+msgid "Max. Resolution (DPI)"
+msgstr "Max. Resolution (DPI)"
+
+#: ../schema/microsoft.php:155
+msgid "Print Server"
+msgstr "Print Server"
+
+#: ../schema/microsoft.php:157
+msgid "Host Name"
+msgstr "Host Name"
+
+#: ../schema/microsoft.php:158
+msgid "Printer UNC Path"
+msgstr "Printer UNC Path"

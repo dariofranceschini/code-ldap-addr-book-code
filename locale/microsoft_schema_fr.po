@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 09:35+0100\n"
-"PO-Revision-Date: 2016-06-27 09:35+0100\n"
+"POT-Creation-Date: 2016-06-27 09:46+0100\n"
+"PO-Revision-Date: 2016-06-27 09:46+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -73,7 +73,7 @@ msgstr "Prend en charge l'impression en couleur"
 msgid "Double-Sided Printing Supported"
 msgstr "Prend en charge l'impression recto verso"
 
-#: ../schema/microsoft.php:23
+#: ../schema/microsoft.php:23 ../schema/microsoft.php:161
 msgid "Paper Available"
 msgstr "Papier disponible"
 
@@ -242,6 +242,7 @@ msgid "Group Name (pre-Windows 2000)"
 msgstr "Nom du groupe (pré-Windows 2000)"
 
 #: ../schema/microsoft.php:97 ../schema/microsoft.php:131
+#: ../schema/microsoft.php:143
 msgid "Description"
 msgstr "Description"
 
@@ -280,3 +281,59 @@ msgstr "Détails du Dossier"
 #: ../schema/microsoft.php:130
 msgid "Name"
 msgstr "Nom"
+
+#: ../schema/microsoft.php:137
+msgid "Shared Printer"
+msgstr "Imprimante Partagée"
+
+#: ../schema/microsoft.php:139
+msgid "Object Name"
+msgstr "Nom de l'Objet"
+
+#: ../schema/microsoft.php:140
+msgid "Printer Name"
+msgstr "Nom de l'Imprimante"
+
+#: ../schema/microsoft.php:141
+msgid "Driver"
+msgstr "Combinateur"
+
+#: ../schema/microsoft.php:142
+msgid "Location"
+msgstr "Emplacement"
+
+#: ../schema/microsoft.php:146
+msgid "Capabilities"
+msgstr "Capacités"
+
+#: ../schema/microsoft.php:148
+msgid "Color Printing"
+msgstr "Impression Couleur"
+
+#: ../schema/microsoft.php:149
+msgid "Stapling"
+msgstr "Agrafage"
+
+#: ../schema/microsoft.php:150
+msgid "Double-Sided Printing"
+msgstr "L'Impression Recto-Verso"
+
+#: ../schema/microsoft.php:151
+msgid "Printing Speed (PPM)"
+msgstr "Vitesse d'Impression (PPM)"
+
+#: ../schema/microsoft.php:152
+msgid "Max. Resolution (DPI)"
+msgstr "Résolution Maximale (DPI)"
+
+#: ../schema/microsoft.php:155
+msgid "Print Server"
+msgstr "Serveur d'Impression"
+
+#: ../schema/microsoft.php:157
+msgid "Host Name"
+msgstr "Nom d'Hôte"
+
+#: ../schema/microsoft.php:158
+msgid "Printer UNC Path"
+msgstr "Chemin UNC d'Imprimante"

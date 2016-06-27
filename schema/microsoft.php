@@ -133,6 +133,38 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("printQueue",array(
+			array("section_name"=>gettext("Shared Printer"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),				"generic24.png",true),
+					array("printerName",			gettext("Printer Name"),			"microsoft/printer24.png"),
+					array("driverName",			gettext("Driver"),				"app.png"),
+					array("location",			gettext("Location"),				"address.png"),
+					array("description",			gettext("Description"),				"microsoft/description24.png")
+					)
+				),
+			array("section_name"=>gettext("Capabilities"),"width"=>"50%",
+				"attributes"=>array(
+					array("printColor",			gettext("Color Printing"),			"generic24.png"),
+					array("printStaplingSupported",		gettext("Stapling"),				"generic24.png"),
+					array("printDuplexSupported",		gettext("Double-Sided Printing"),		"generic24.png"),
+					array("printRate",			gettext("Printing Speed (PPM)"),		"generic24.png"),
+					array("printMaxResolutionSupported",	gettext("Max. Resolution (DPI)"),		"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Print Server"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("serverName",			gettext("Host Name"),				"microsoft/computer24.png"),
+					array("uNCName",			gettext("Printer UNC Path"),			"folder.png")
+					)
+				),
+			array("section_name"=>gettext("Paper Available"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("printMediaReady")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
