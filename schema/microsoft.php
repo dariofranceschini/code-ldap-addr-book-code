@@ -116,6 +116,14 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("domainDNS",array(
+			array("section_name"=>gettext("Active Directory Domain Details"),
+				"attributes"=>array(
+					array("distinguishedName",		gettext("Domain Name"),				"microsoft/domain24.png")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");

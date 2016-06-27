@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 08:31+0100\n"
-"PO-Revision-Date: 2016-06-27 08:29+0100\n"
+"POT-Creation-Date: 2016-06-27 09:20+0100\n"
+"PO-Revision-Date: 2016-06-27 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -264,3 +264,11 @@ msgstr "Group is a Member Of"
 #: ../schema/microsoft.php:112
 msgid "Additional Notes"
 msgstr "Additional Notes"
+
+#: ../schema/microsoft.php:120
+msgid "Active Directory Domain Details"
+msgstr "Active Directory Domain Details"
+
+#: ../schema/microsoft.php:122
+msgid "Domain Name"
+msgstr "Domain Name"
