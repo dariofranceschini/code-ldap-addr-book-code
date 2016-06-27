@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 09:20+0100\n"
-"PO-Revision-Date: 2016-06-27 09:20+0100\n"
+"POT-Creation-Date: 2016-06-27 09:35+0100\n"
+"PO-Revision-Date: 2016-06-27 09:35+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -241,7 +241,7 @@ msgstr "Nom du groupe (Active Directory)"
 msgid "Group Name (pre-Windows 2000)"
 msgstr "Nom du groupe (pré-Windows 2000)"
 
-#: ../schema/microsoft.php:97
+#: ../schema/microsoft.php:97 ../schema/microsoft.php:131
 msgid "Description"
 msgstr "Description"
 
@@ -272,3 +272,11 @@ msgstr "Détails de Domaine Active Directory"
 #: ../schema/microsoft.php:122
 msgid "Domain Name"
 msgstr "Nom de domaine"
+
+#: ../schema/microsoft.php:128
+msgid "Folder Details"
+msgstr "Détails du Dossier"
+
+#: ../schema/microsoft.php:130
+msgid "Name"
+msgstr "Nom"

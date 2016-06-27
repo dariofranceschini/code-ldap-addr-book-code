@@ -124,6 +124,15 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("container,builtinDomain,lostAndFound,msDS-QuotaContainer,crossRefContainer,sitesContainer",array(
+			array("section_name"=>gettext("Folder Details"),
+				"attributes"=>array(
+					array("cn",				gettext("Name"),				"folder.png"),
+					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
