@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 09:46+0100\n"
-"PO-Revision-Date: 2016-06-27 09:35+0100\n"
+"POT-Creation-Date: 2016-06-28 09:59+0100\n"
+"PO-Revision-Date: 2016-06-28 09:59+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -181,7 +181,7 @@ msgstr "Foreign Security Principal"
 msgid "Printer"
 msgstr "Printer"
 
-#: ../schema/microsoft.php:73
+#: ../schema/microsoft.php:73 ../schema/microsoft.php:169
 msgid "Shared Folder"
 msgstr "Shared Folder"
 
@@ -286,7 +286,7 @@ msgstr "Name"
 msgid "Shared Printer"
 msgstr "Shared Printer"
 
-#: ../schema/microsoft.php:139
+#: ../schema/microsoft.php:139 ../schema/microsoft.php:171
 msgid "Object Name"
 msgstr "Object Name"
 
@@ -337,3 +337,7 @@ msgstr "Host Name"
 #: ../schema/microsoft.php:158
 msgid "Printer UNC Path"
 msgstr "Printer UNC Path"
+
+#: ../schema/microsoft.php:172
+msgid "UNC Path"
+msgstr "UNC Path"

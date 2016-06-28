@@ -165,6 +165,15 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("volume",array(
+			array("section_name"=>gettext("Shared Folder"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),				"microsoft/fileshare24.png"),
+					array("uNCName",			gettext("UNC Path"),				"folder.png")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");

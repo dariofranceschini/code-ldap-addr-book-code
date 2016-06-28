@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 09:46+0100\n"
-"PO-Revision-Date: 2016-06-27 09:46+0100\n"
+"POT-Creation-Date: 2016-06-28 09:59+0100\n"
+"PO-Revision-Date: 2016-06-28 09:59+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -181,7 +181,7 @@ msgstr "Entité de Sécurité Externe"
 msgid "Printer"
 msgstr "Imprimante"
 
-#: ../schema/microsoft.php:73
+#: ../schema/microsoft.php:73 ../schema/microsoft.php:169
 msgid "Shared Folder"
 msgstr "Dossier Partagé"
 
@@ -286,7 +286,7 @@ msgstr "Nom"
 msgid "Shared Printer"
 msgstr "Imprimante Partagée"
 
-#: ../schema/microsoft.php:139
+#: ../schema/microsoft.php:139 ../schema/microsoft.php:171
 msgid "Object Name"
 msgstr "Nom de l'Objet"
 
@@ -337,3 +337,7 @@ msgstr "Nom d'Hôte"
 #: ../schema/microsoft.php:158
 msgid "Printer UNC Path"
 msgstr "Chemin UNC d'Imprimante"
+
+#: ../schema/microsoft.php:172
+msgid "UNC Path"
+msgstr "Chemin UNC"
