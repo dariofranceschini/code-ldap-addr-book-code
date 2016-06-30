@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-28 09:59+0100\n"
-"PO-Revision-Date: 2016-06-28 09:59+0100\n"
+"POT-Creation-Date: 2016-06-30 09:33+0100\n"
+"PO-Revision-Date: 2016-06-30 09:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -57,7 +57,7 @@ msgstr "Group Type/Scope"
 msgid "General Information"
 msgstr "General Information"
 
-#: ../schema/microsoft.php:19
+#: ../schema/microsoft.php:19 ../schema/microsoft.php:184
 msgid "Managed By"
 msgstr "Managed By"
 
@@ -93,7 +93,7 @@ msgstr "Pre-Windows 2000 Account Name"
 msgid "Server Name"
 msgstr "Server Name"
 
-#: ../schema/microsoft.php:33
+#: ../schema/microsoft.php:33 ../schema/microsoft.php:197
 msgid "Service Principal Names"
 msgstr "Service Principal Names"
 
@@ -242,7 +242,7 @@ msgid "Group Name (pre-Windows 2000)"
 msgstr "Group Name (pre-Windows 2000)"
 
 #: ../schema/microsoft.php:97 ../schema/microsoft.php:131
-#: ../schema/microsoft.php:143
+#: ../schema/microsoft.php:143 ../schema/microsoft.php:183
 msgid "Description"
 msgstr "Description"
 
@@ -298,7 +298,7 @@ msgstr "Printer Name"
 msgid "Driver"
 msgstr "Driver"
 
-#: ../schema/microsoft.php:142
+#: ../schema/microsoft.php:142 ../schema/microsoft.php:185
 msgid "Location"
 msgstr "Location"
 
@@ -341,3 +341,43 @@ msgstr "Printer UNC Path"
 #: ../schema/microsoft.php:172
 msgid "UNC Path"
 msgstr "UNC Path"
+
+#: ../schema/microsoft.php:178
+msgid "Computer Information"
+msgstr "Computer Information"
+
+#: ../schema/microsoft.php:180
+msgid "Computer Name (Active Directory)"
+msgstr "Computer Name (Active Directory)"
+
+#: ../schema/microsoft.php:181
+msgid "Computer Name (pre-Windows 2000)"
+msgstr "Computer Name (pre-Windows 2000)"
+
+#: ../schema/microsoft.php:182
+msgid "DNS Name"
+msgstr "DNS Name"
+
+#: ../schema/microsoft.php:186
+msgid "Delegation Service List"
+msgstr "Delegation Service List"
+
+#: ../schema/microsoft.php:187
+msgid "Operating System"
+msgstr "Operating System"
+
+#: ../schema/microsoft.php:188
+msgid "OS Version"
+msgstr "OS Version"
+
+#: ../schema/microsoft.php:189
+msgid "OS Service Pack"
+msgstr "OS Service Pack"
+
+#: ../schema/microsoft.php:192
+msgid "Group Membership"
+msgstr "Group Membership"
+
+#: ../schema/microsoft.php:202
+msgid "Contained Records"
+msgstr "Contained Records"

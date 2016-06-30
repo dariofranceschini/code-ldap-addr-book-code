@@ -174,6 +174,38 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("computer",array(
+			array("section_name"=>gettext("Computer Information"),"width"=>"50%",
+				"attributes"=>array(
+					array("cn",				gettext("Computer Name (Active Directory)"),	"generic24.png"),
+					array("sAMAccountName",			gettext("Computer Name (pre-Windows 2000)"),	"generic24.png"),
+					array("dNSHostName",			gettext("DNS Name"),				"generic24.png"),
+					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("managedBy",			gettext("Managed By"),				"alias.png"),
+					array("location",			gettext("Location"),				"address.png"),
+					array("msDS-AllowedToDelegateTo",	gettext("Delegation Service List"),		"generic24.png"),
+					array("operatingSystem",		gettext("Operating System"),			"app.png"),
+					array("operatingSystemVersion",		gettext("OS Version"),				"generic24.png"),
+					array("operatingSystemServicePack",	gettext("OS Service Pack"),			"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Group Membership"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("memberOf")
+					)
+				),
+			array("section_name"=>gettext("Service Principal Names"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("servicePrincipalName")
+					)
+				),
+			array("section_name"=>gettext("Contained Records"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				),
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");

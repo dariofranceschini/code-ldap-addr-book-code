@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-28 09:59+0100\n"
-"PO-Revision-Date: 2016-06-28 09:59+0100\n"
+"POT-Creation-Date: 2016-06-30 09:33+0100\n"
+"PO-Revision-Date: 2016-06-30 09:33+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -57,7 +57,7 @@ msgstr "Type et la Portée Groupe"
 msgid "General Information"
 msgstr "Informations Générales"
 
-#: ../schema/microsoft.php:19
+#: ../schema/microsoft.php:19 ../schema/microsoft.php:184
 msgid "Managed By"
 msgstr "Gére Par"
 
@@ -93,7 +93,7 @@ msgstr "Nom (antérieur à Windows 2000)"
 msgid "Server Name"
 msgstr "Nom du Serveur"
 
-#: ../schema/microsoft.php:33
+#: ../schema/microsoft.php:33 ../schema/microsoft.php:197
 msgid "Service Principal Names"
 msgstr "Noms Principaux de Service"
 
@@ -242,7 +242,7 @@ msgid "Group Name (pre-Windows 2000)"
 msgstr "Nom du groupe (pré-Windows 2000)"
 
 #: ../schema/microsoft.php:97 ../schema/microsoft.php:131
-#: ../schema/microsoft.php:143
+#: ../schema/microsoft.php:143 ../schema/microsoft.php:183
 msgid "Description"
 msgstr "Description"
 
@@ -298,7 +298,7 @@ msgstr "Nom de l'Imprimante"
 msgid "Driver"
 msgstr "Combinateur"
 
-#: ../schema/microsoft.php:142
+#: ../schema/microsoft.php:142 ../schema/microsoft.php:185
 msgid "Location"
 msgstr "Emplacement"
 
@@ -341,3 +341,43 @@ msgstr "Chemin UNC d'Imprimante"
 #: ../schema/microsoft.php:172
 msgid "UNC Path"
 msgstr "Chemin UNC"
+
+#: ../schema/microsoft.php:178
+msgid "Computer Information"
+msgstr "Informations sur l'Ordinateur"
+
+#: ../schema/microsoft.php:180
+msgid "Computer Name (Active Directory)"
+msgstr "Nom de l'Ordinateur (Active Directory)"
+
+#: ../schema/microsoft.php:181
+msgid "Computer Name (pre-Windows 2000)"
+msgstr "Nom de l'Ordinateur (pré-Windows 2000)"
+
+#: ../schema/microsoft.php:182
+msgid "DNS Name"
+msgstr "Nom DNS"
+
+#: ../schema/microsoft.php:186
+msgid "Delegation Service List"
+msgstr "Liste des Services Délégation"
+
+#: ../schema/microsoft.php:187
+msgid "Operating System"
+msgstr "Système Opérateur"
+
+#: ../schema/microsoft.php:188
+msgid "OS Version"
+msgstr "Version d'OS"
+
+#: ../schema/microsoft.php:189
+msgid "OS Service Pack"
+msgstr "Service Pack d'OS"
+
+#: ../schema/microsoft.php:192
+msgid "Group Membership"
+msgstr "Membres du Groupe"
+
+#: ../schema/microsoft.php:202
+msgid "Contained Records"
+msgstr "Enregistrements Contenus"
