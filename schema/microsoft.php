@@ -206,6 +206,20 @@ class microsoft_schema extends ldap_schema
 				),
 			));
 
+		$ldap_server->add_display_layout("foreignSecurityPrincipal",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Name"),				"contact24.png",true),
+					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					)
+				),
+			array("section_name"=>gettext("Group Membership"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("memberOf")
+					)
+				),
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
