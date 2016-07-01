@@ -79,6 +79,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"mSMQEnterpriseSettings",		"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>true,"display_name"=>gettext("MSMQ Enterprise")),
 			array("name"=>"mSMQSiteLink",			"icon"=>"microsoft/msmq-site-link.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Routing Link")),
 			array("name"=>"crossRefContainer",		"icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"displaySpecifier",		"icon"=>"generic24.png",		"is_folder"=>false),
 			array("name"=>"sitesContainer",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Sites Container")),
 			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
 			array("name"=>"interSiteTransportContainer",	"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transports Container")),
@@ -233,6 +234,44 @@ class microsoft_schema extends ldap_schema
 				"attributes"=>array(
 					array("cn",				gettext("Queue Alias Name"),			"generic24.png"),
 					array("msMQ-Recipient-FormatName",	gettext("Format Name of Recipient"),		"generic24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("displaySpecifier",array(
+			array("section_name"=>gettext("Class Display Name"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("classDisplayName")
+					)
+				),
+			array("section_name"=>gettext("Icon Path"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("iconPath")
+					)
+				),
+			array("section_name"=>gettext("Treat as Leaf Object"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("treatAsLeaf")
+					)
+				),
+			array("section_name"=>gettext("User Interface Extensions"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("adminPropertyPages",		gettext("Admin Property Pages"),		"generic24.png"),
+					array("adminMultiSelectPropertyPages",	gettext("Admin Multi Select Property Pages"),	"generic24.png"),
+					array("shellPropertyPages",		gettext("Shell Property Pages"),		"generic24.png"),
+					array("adminContextMenu",		gettext("Admin Context Menu Entries"),		"generic24.png"),
+					array("contextMenu",			gettext("Context Menu Entries"),		"generic24.png"),
+					array("createWizardExt",		gettext("Object Creation Wizard Extensions"),	"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Attribute Display Names"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("attributeDisplayNames")
+					)
+				),
+			array("section_name"=>gettext("Extra Columns"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("extraColumns")
 					)
 				)
 			));
