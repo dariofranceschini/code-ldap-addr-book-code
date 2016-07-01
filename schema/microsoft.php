@@ -72,6 +72,12 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png",	"is_folder"=>false,"display_name"=>gettext("Printer")),
 			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder")),
 			array("name"=>"user",				"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true),
+			array("name"=>"mSMQConfiguration",		"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Configuration")),
+			array("name"=>"mSMQMigratedUser",		"icon"=>"generic24.png",		"is_folder"=>false,"display_name"=>gettext("MSMQ Upgraded User")),
+			array("name"=>"mSMQQueue",			"icon"=>"microsoft/msmq-queue.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Queue")),
+			array("name"=>"mSMQSettings",			"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Settings")),
+			array("name"=>"mSMQEnterpriseSettings",		"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>true,"display_name"=>gettext("MSMQ Enterprise")),
+			array("name"=>"mSMQSiteLink",			"icon"=>"microsoft/msmq-site-link.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Routing Link")),
 			array("name"=>"crossRefContainer",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"sitesContainer",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Sites Container")),
 			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
@@ -86,6 +92,8 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"nTFRSSettings",			"icon"=>"microsoft/frs_settings24.png",	"is_folder"=>true,"display_name"=>gettext("FRS Settings")),
 			array("name"=>"fileLinkTracking",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"dfsConfiguration",		"icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"msMQ-Custom-Recipient",		"icon"=>"microsoft/msmq-queue-alias.png","is_folder"=>false,"display_name"=>gettext("MSMQ Queue Alias"),"can_create"=>true),
+			array("name"=>"msMQ-Group",			"icon"=>"generic24.png",		"is_folder"=>false,"display_name"=>gettext("MSMQ Group"))
 			);
 
 		// Display layouts
@@ -218,6 +226,15 @@ class microsoft_schema extends ldap_schema
 					array("memberOf")
 					)
 				),
+			));
+
+		$ldap_server->add_display_layout("msMQ-Custom-Recipient",array(
+			array("section_name"=>gettext("MSMQ Queue Alias"),"width"=>"50%",
+				"attributes"=>array(
+					array("cn",				gettext("Queue Alias Name"),			"generic24.png"),
+					array("msMQ-Recipient-FormatName",	gettext("Format Name of Recipient"),		"generic24.png"),
+					)
+				)
 			));
 
 		// component schema (derived)

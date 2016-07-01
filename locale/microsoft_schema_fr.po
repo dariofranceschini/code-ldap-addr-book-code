@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-30 09:33+0100\n"
-"PO-Revision-Date: 2016-06-30 09:33+0100\n"
+"POT-Creation-Date: 2016-06-30 10:00+0100\n"
+"PO-Revision-Date: 2016-06-30 10:00+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -57,7 +57,7 @@ msgstr "Type et la Portée Groupe"
 msgid "General Information"
 msgstr "Informations Générales"
 
-#: ../schema/microsoft.php:19 ../schema/microsoft.php:184
+#: ../schema/microsoft.php:19 ../schema/microsoft.php:192
 msgid "Managed By"
 msgstr "Gére Par"
 
@@ -73,7 +73,7 @@ msgstr "Prend en charge l'impression en couleur"
 msgid "Double-Sided Printing Supported"
 msgstr "Prend en charge l'impression recto verso"
 
-#: ../schema/microsoft.php:23 ../schema/microsoft.php:161
+#: ../schema/microsoft.php:23 ../schema/microsoft.php:169
 msgid "Paper Available"
 msgstr "Papier disponible"
 
@@ -93,7 +93,7 @@ msgstr "Nom (antérieur à Windows 2000)"
 msgid "Server Name"
 msgstr "Nom du Serveur"
 
-#: ../schema/microsoft.php:33 ../schema/microsoft.php:197
+#: ../schema/microsoft.php:33 ../schema/microsoft.php:205
 msgid "Service Principal Names"
 msgstr "Noms Principaux de Service"
 
@@ -181,7 +181,7 @@ msgstr "Entité de Sécurité Externe"
 msgid "Printer"
 msgstr "Imprimante"
 
-#: ../schema/microsoft.php:73 ../schema/microsoft.php:169
+#: ../schema/microsoft.php:73 ../schema/microsoft.php:177
 msgid "Shared Folder"
 msgstr "Dossier Partagé"
 
@@ -189,195 +189,236 @@ msgstr "Dossier Partagé"
 msgid "User"
 msgstr "Utilisateur"
 
+#: ../schema/microsoft.php:75
+msgid "MSMQ Configuration"
+msgstr "Configuration MSMQ"
+
 #: ../schema/microsoft.php:76
+msgid "MSMQ Upgraded User"
+msgstr "L'utilisateur amélioré pour MSMQ"
+
+#: ../schema/microsoft.php:77
+msgid "MSMQ Queue"
+msgstr "Queue MSMQ"
+
+#: ../schema/microsoft.php:78
+msgid "MSMQ Settings"
+msgstr "Paramètres MSMQ"
+
+#: ../schema/microsoft.php:79
+msgid "MSMQ Enterprise"
+msgstr "Entreprise MSMQ"
+
+#: ../schema/microsoft.php:80
+msgid "MSMQ Routing Link"
+msgstr "Routage Connexion pour MSMQ"
+
+#: ../schema/microsoft.php:82
 msgid "Sites Container"
 msgstr "Conteneur pour l'Emplacements"
 
-#: ../schema/microsoft.php:77
+#: ../schema/microsoft.php:83
 msgid "Inter-Site Transport"
 msgstr "Transport entre l'Emplacements"
 
-#: ../schema/microsoft.php:78
+#: ../schema/microsoft.php:84
 msgid "Inter-Site Transports Container"
 msgstr "Conteneur pour le Transport entre l'Emplacements"
 
-#: ../schema/microsoft.php:79
+#: ../schema/microsoft.php:85
 msgid "Subnets Container"
 msgstr "Conteneur Subnets"
 
-#: ../schema/microsoft.php:80
+#: ../schema/microsoft.php:86
 msgid "Site"
 msgstr "Emplacement"
 
-#: ../schema/microsoft.php:81
+#: ../schema/microsoft.php:87
 msgid "Servers Container"
 msgstr "Conteneur pour les Serveurs"
 
-#: ../schema/microsoft.php:82
+#: ../schema/microsoft.php:88
 msgid "Server"
 msgstr "Serveur"
 
-#: ../schema/microsoft.php:83
+#: ../schema/microsoft.php:89
 msgid "Domain Controller Settings"
 msgstr "Paramètres du Contrôleur de Domaine"
 
-#: ../schema/microsoft.php:84
+#: ../schema/microsoft.php:90
 msgid "Active Directory Domain Services"
 msgstr "Active Directory Domain Services"
 
-#: ../schema/microsoft.php:85
+#: ../schema/microsoft.php:91
 msgid "Domain Policy"
 msgstr "Politique de Domaine"
 
-#: ../schema/microsoft.php:86
+#: ../schema/microsoft.php:92
 msgid "FRS Settings"
 msgstr "Paramètres de FRS"
 
-#: ../schema/microsoft.php:95
+#: ../schema/microsoft.php:95 ../schema/microsoft.php:232
+msgid "MSMQ Queue Alias"
+msgstr "Alias de file d'attente MSMQ"
+
+#: ../schema/microsoft.php:96
+msgid "MSMQ Group"
+msgstr "Groupe MSMQ"
+
+#: ../schema/microsoft.php:103
 msgid "Group Name (Active Directory)"
 msgstr "Nom du groupe (Active Directory)"
 
-#: ../schema/microsoft.php:96
+#: ../schema/microsoft.php:104
 msgid "Group Name (pre-Windows 2000)"
 msgstr "Nom du groupe (pré-Windows 2000)"
 
-#: ../schema/microsoft.php:97 ../schema/microsoft.php:131
-#: ../schema/microsoft.php:143 ../schema/microsoft.php:183
+#: ../schema/microsoft.php:105 ../schema/microsoft.php:139
+#: ../schema/microsoft.php:151 ../schema/microsoft.php:191
+#: ../schema/microsoft.php:221
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/microsoft.php:98
+#: ../schema/microsoft.php:106
 msgid "E-mail"
 msgstr "Email"
 
-#: ../schema/microsoft.php:99
+#: ../schema/microsoft.php:107
 msgid "Type/Scope"
 msgstr "Type et Portée"
 
-#: ../schema/microsoft.php:102
+#: ../schema/microsoft.php:110
 msgid "Group Members"
 msgstr "Membres du Groupe"
 
-#: ../schema/microsoft.php:107
+#: ../schema/microsoft.php:115
 msgid "Group is a Member Of"
 msgstr "Groupe est Membre De"
 
-#: ../schema/microsoft.php:112
+#: ../schema/microsoft.php:120
 msgid "Additional Notes"
 msgstr "Notes Complémentaires"
 
-#: ../schema/microsoft.php:120
+#: ../schema/microsoft.php:128
 msgid "Active Directory Domain Details"
 msgstr "Détails de Domaine Active Directory"
 
-#: ../schema/microsoft.php:122
+#: ../schema/microsoft.php:130
 msgid "Domain Name"
 msgstr "Nom de domaine"
 
-#: ../schema/microsoft.php:128
+#: ../schema/microsoft.php:136
 msgid "Folder Details"
 msgstr "Détails du Dossier"
 
-#: ../schema/microsoft.php:130
+#: ../schema/microsoft.php:138 ../schema/microsoft.php:220
 msgid "Name"
 msgstr "Nom"
 
-#: ../schema/microsoft.php:137
+#: ../schema/microsoft.php:145
 msgid "Shared Printer"
 msgstr "Imprimante Partagée"
 
-#: ../schema/microsoft.php:139 ../schema/microsoft.php:171
+#: ../schema/microsoft.php:147 ../schema/microsoft.php:179
 msgid "Object Name"
 msgstr "Nom de l'Objet"
 
-#: ../schema/microsoft.php:140
+#: ../schema/microsoft.php:148
 msgid "Printer Name"
 msgstr "Nom de l'Imprimante"
 
-#: ../schema/microsoft.php:141
+#: ../schema/microsoft.php:149
 msgid "Driver"
 msgstr "Combinateur"
 
-#: ../schema/microsoft.php:142 ../schema/microsoft.php:185
+#: ../schema/microsoft.php:150 ../schema/microsoft.php:193
 msgid "Location"
 msgstr "Emplacement"
 
-#: ../schema/microsoft.php:146
+#: ../schema/microsoft.php:154
 msgid "Capabilities"
 msgstr "Capacités"
 
-#: ../schema/microsoft.php:148
+#: ../schema/microsoft.php:156
 msgid "Color Printing"
 msgstr "Impression Couleur"
 
-#: ../schema/microsoft.php:149
+#: ../schema/microsoft.php:157
 msgid "Stapling"
 msgstr "Agrafage"
 
-#: ../schema/microsoft.php:150
+#: ../schema/microsoft.php:158
 msgid "Double-Sided Printing"
 msgstr "L'Impression Recto-Verso"
 
-#: ../schema/microsoft.php:151
+#: ../schema/microsoft.php:159
 msgid "Printing Speed (PPM)"
 msgstr "Vitesse d'Impression (PPM)"
 
-#: ../schema/microsoft.php:152
+#: ../schema/microsoft.php:160
 msgid "Max. Resolution (DPI)"
 msgstr "Résolution Maximale (DPI)"
 
-#: ../schema/microsoft.php:155
+#: ../schema/microsoft.php:163
 msgid "Print Server"
 msgstr "Serveur d'Impression"
 
-#: ../schema/microsoft.php:157
+#: ../schema/microsoft.php:165
 msgid "Host Name"
 msgstr "Nom d'Hôte"
 
-#: ../schema/microsoft.php:158
+#: ../schema/microsoft.php:166
 msgid "Printer UNC Path"
 msgstr "Chemin UNC d'Imprimante"
 
-#: ../schema/microsoft.php:172
+#: ../schema/microsoft.php:180
 msgid "UNC Path"
 msgstr "Chemin UNC"
 
-#: ../schema/microsoft.php:178
+#: ../schema/microsoft.php:186
 msgid "Computer Information"
 msgstr "Informations sur l'Ordinateur"
 
-#: ../schema/microsoft.php:180
+#: ../schema/microsoft.php:188
 msgid "Computer Name (Active Directory)"
 msgstr "Nom de l'Ordinateur (Active Directory)"
 
-#: ../schema/microsoft.php:181
+#: ../schema/microsoft.php:189
 msgid "Computer Name (pre-Windows 2000)"
 msgstr "Nom de l'Ordinateur (pré-Windows 2000)"
 
-#: ../schema/microsoft.php:182
+#: ../schema/microsoft.php:190
 msgid "DNS Name"
 msgstr "Nom DNS"
 
-#: ../schema/microsoft.php:186
+#: ../schema/microsoft.php:194
 msgid "Delegation Service List"
 msgstr "Liste des Services Délégation"
 
-#: ../schema/microsoft.php:187
+#: ../schema/microsoft.php:195
 msgid "Operating System"
 msgstr "Système Opérateur"
 
-#: ../schema/microsoft.php:188
+#: ../schema/microsoft.php:196
 msgid "OS Version"
 msgstr "Version d'OS"
 
-#: ../schema/microsoft.php:189
+#: ../schema/microsoft.php:197
 msgid "OS Service Pack"
 msgstr "Service Pack d'OS"
 
-#: ../schema/microsoft.php:192
+#: ../schema/microsoft.php:200 ../schema/microsoft.php:224
 msgid "Group Membership"
 msgstr "Membres du Groupe"
 
-#: ../schema/microsoft.php:202
+#: ../schema/microsoft.php:210
 msgid "Contained Records"
 msgstr "Enregistrements Contenus"
+
+#: ../schema/microsoft.php:234
+msgid "Queue Alias Name"
+msgstr "Nom de l'alias pour la file d'attente"
+
+#: ../schema/microsoft.php:235
+msgid "Format Name of Recipient"
+msgstr "Nom Format du bénéficiaire"
