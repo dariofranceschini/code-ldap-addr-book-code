@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 10:51+0100\n"
-"PO-Revision-Date: 2016-06-04 10:51+0100\n"
+"POT-Creation-Date: 2016-07-02 12:05+0100\n"
+"PO-Revision-Date: 2016-07-02 12:05+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -20,3 +20,131 @@ msgstr ""
 #: ../schema/microsoft/exchange.php:10
 msgid "Query-based Distribution Group"
 msgstr "Query-based Distribution Group"
+
+#: ../schema/microsoft/exchange.php:11
+msgid "Exchange Organization"
+msgstr "Exchange Organization"
+
+#: ../schema/microsoft/exchange.php:12
+msgid "Offline Address List"
+msgstr "Offline Address List"
+
+#: ../schema/microsoft/exchange.php:41
+msgid "Public Folder"
+msgstr "Public Folder"
+
+#: ../schema/microsoft/exchange.php:42
+msgid "Address Type"
+msgstr "Address Type"
+
+#: ../schema/microsoft/exchange.php:43
+msgid "Administrative Group"
+msgstr "Administrative Group"
+
+#: ../schema/microsoft/exchange.php:44
+msgid "Routing Group"
+msgstr "Routing Group"
+
+#: ../schema/microsoft/exchange.php:45
+msgid "SMTP Connector"
+msgstr "SMTP Connector"
+
+#: ../schema/microsoft/exchange.php:46
+msgid "Internet Message Formats"
+msgstr "Internet Message Formats"
+
+#: ../schema/microsoft/exchange.php:47
+msgid "Wireless Carriers"
+msgstr "Wireless Carriers"
+
+#: ../schema/microsoft/exchange.php:48
+msgid "Message Delivery Configuration"
+msgstr "Message Delivery Configuration"
+
+#: ../schema/microsoft/exchange.php:49
+msgid "Instant Messaging Global Settings"
+msgstr "Instant Messaging Global Settings"
+
+#: ../schema/microsoft/exchange.php:50
+msgid "Advanced Security"
+msgstr "Advanced Security"
+
+#: ../schema/microsoft/exchange.php:52
+msgid "Exchange Server"
+msgstr "Exchange Server"
+
+#: ../schema/microsoft/exchange.php:53
+msgid "Recipient Policy"
+msgstr "Recipient Policy"
+
+#: ../schema/microsoft/exchange.php:54
+msgid "System Policy"
+msgstr "System Policy"
+
+#: ../schema/microsoft/exchange.php:55
+msgid "Address Template"
+msgstr "Address Template"
+
+#: ../schema/microsoft/exchange.php:56
+msgid "Display Template"
+msgstr "Display Template"
+
+#: ../schema/microsoft/exchange.php:57
+msgid "Message Transfer Agent"
+msgstr "Message Transfer Agent"
+
+#: ../schema/microsoft/exchange.php:58
+msgid "System Attendant"
+msgstr "System Attendant"
+
+#: ../schema/microsoft/exchange.php:59
+msgid "Site Addressing"
+msgstr "Site Addressing"
+
+#: ../schema/microsoft/exchange.php:60
+msgid "Public Folder Top Level Hierarchy"
+msgstr "Public Folder Top Level Hierarchy"
+
+#: ../schema/microsoft/exchange.php:61
+msgid "IMAP Virtual Server"
+msgstr "IMAP Virtual Server"
+
+#: ../schema/microsoft/exchange.php:62
+msgid "POP Virtual Server"
+msgstr "POP Virtual Server"
+
+#: ../schema/microsoft/exchange.php:63
+msgid "SMTP Virtual Server"
+msgstr "SMTP Virtual Server"
+
+#: ../schema/microsoft/exchange.php:64
+msgid "SMTP Domains"
+msgstr "SMTP Domains"
+
+#: ../schema/microsoft/exchange.php:65
+msgid "SMTP Routing Sources"
+msgstr "SMTP Routing Sources"
+
+#: ../schema/microsoft/exchange.php:66
+msgid "SMTP Sessions"
+msgstr "SMTP Sessions"
+
+#: ../schema/microsoft/exchange.php:67
+msgid "Encryption Configuration"
+msgstr "Encryption Configuration"
+
+#: ../schema/microsoft/exchange.php:68
+msgid "Information Store"
+msgstr "Information Store"
+
+#: ../schema/microsoft/exchange.php:69
+msgid "Private Information Store"
+msgstr "Private Information Store"
+
+#: ../schema/microsoft/exchange.php:70
+msgid "Public Information Store"
+msgstr "Public Information Store"
+
+#: ../schema/microsoft/exchange.php:71
+msgid "Storage Group"
+msgstr "Storage Group"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 10:51+0100\n"
-"PO-Revision-Date: 2016-06-04 10:51+0100\n"
+"POT-Creation-Date: 2016-07-02 12:05+0100\n"
+"PO-Revision-Date: 2016-07-02 12:05+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -20,3 +20,131 @@ msgstr ""
 #: ../schema/microsoft/exchange.php:10
 msgid "Query-based Distribution Group"
 msgstr "Groupe de Distribution Fondé sur une Requête"
+
+#: ../schema/microsoft/exchange.php:11
+msgid "Exchange Organization"
+msgstr "Organisation Exchange"
+
+#: ../schema/microsoft/exchange.php:12
+msgid "Offline Address List"
+msgstr "Liste d'Adresses en Mode Hors Connexion"
+
+#: ../schema/microsoft/exchange.php:41
+msgid "Public Folder"
+msgstr "Dossier Public"
+
+#: ../schema/microsoft/exchange.php:42
+msgid "Address Type"
+msgstr "Type d'Adresse"
+
+#: ../schema/microsoft/exchange.php:43
+msgid "Administrative Group"
+msgstr "Groupe Administratif"
+
+#: ../schema/microsoft/exchange.php:44
+msgid "Routing Group"
+msgstr "Groupe pour le Routage"
+
+#: ../schema/microsoft/exchange.php:45
+msgid "SMTP Connector"
+msgstr "Connecteur SMTP"
+
+#: ../schema/microsoft/exchange.php:46
+msgid "Internet Message Formats"
+msgstr "Formats des messages Internet"
+
+#: ../schema/microsoft/exchange.php:47
+msgid "Wireless Carriers"
+msgstr "Fournisseurs de Réseaux Sans Fil"
+
+#: ../schema/microsoft/exchange.php:48
+msgid "Message Delivery Configuration"
+msgstr "Configuration du Message de Livraison"
+
+#: ../schema/microsoft/exchange.php:49
+msgid "Instant Messaging Global Settings"
+msgstr "Paramètres Globaux pour la Messagerie Instantanée"
+
+#: ../schema/microsoft/exchange.php:50
+msgid "Advanced Security"
+msgstr "Sécurité Avancée"
+
+#: ../schema/microsoft/exchange.php:52
+msgid "Exchange Server"
+msgstr "Serveur pour Exchange"
+
+#: ../schema/microsoft/exchange.php:53
+msgid "Recipient Policy"
+msgstr "Politique du Bénéficiaire"
+
+#: ../schema/microsoft/exchange.php:54
+msgid "System Policy"
+msgstr "Politique de Système"
+
+#: ../schema/microsoft/exchange.php:55
+msgid "Address Template"
+msgstr "Modèle d'Adresse"
+
+#: ../schema/microsoft/exchange.php:56
+msgid "Display Template"
+msgstr "Modèle d'Affichage"
+
+#: ../schema/microsoft/exchange.php:57
+msgid "Message Transfer Agent"
+msgstr "Agent de Transfert des Messages"
+
+#: ../schema/microsoft/exchange.php:58
+msgid "System Attendant"
+msgstr "Surveillance du Système"
+
+#: ../schema/microsoft/exchange.php:59
+msgid "Site Addressing"
+msgstr "Adressage du site"
+
+#: ../schema/microsoft/exchange.php:60
+msgid "Public Folder Top Level Hierarchy"
+msgstr "Haut Niveau de la Hiérarchie des Dossiers Publics"
+
+#: ../schema/microsoft/exchange.php:61
+msgid "IMAP Virtual Server"
+msgstr "Serveur Virtuel pour IMAP"
+
+#: ../schema/microsoft/exchange.php:62
+msgid "POP Virtual Server"
+msgstr "Serveur Virtuel pour POP"
+
+#: ../schema/microsoft/exchange.php:63
+msgid "SMTP Virtual Server"
+msgstr "Serveur Virtuel pour SMTP"
+
+#: ../schema/microsoft/exchange.php:64
+msgid "SMTP Domains"
+msgstr "Domaines pour SMTP"
+
+#: ../schema/microsoft/exchange.php:65
+msgid "SMTP Routing Sources"
+msgstr "Sources de routage pour SMTP"
+
+#: ../schema/microsoft/exchange.php:66
+msgid "SMTP Sessions"
+msgstr "Sessions SMTP"
+
+#: ../schema/microsoft/exchange.php:67
+msgid "Encryption Configuration"
+msgstr "Configuration de Chiffrement"
+
+#: ../schema/microsoft/exchange.php:68
+msgid "Information Store"
+msgstr "Magasin d'Information"
+
+#: ../schema/microsoft/exchange.php:69
+msgid "Private Information Store"
+msgstr "Magasin d'Information Privée"
+
+#: ../schema/microsoft/exchange.php:70
+msgid "Public Information Store"
+msgstr "Magasin d'Information Publique"
+
+#: ../schema/microsoft/exchange.php:71
+msgid "Storage Group"
+msgstr "Groupe de Stockage"
