@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 10:16+0100\n"
-"PO-Revision-Date: 2016-06-04 10:16+0100\n"
+"POT-Creation-Date: 2016-07-03 10:09+0100\n"
+"PO-Revision-Date: 2016-07-03 10:09+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../config.php:25 ../utils.php:178 ../utils.php:179
+#: ../config.php:25 ../utils.php:31 ../utils.php:183 ../utils.php:184
 msgid "Address Book"
 msgstr "Address Book"
 
@@ -29,7 +29,7 @@ msgstr "User Guide"
 msgid "Get Source Code"
 msgstr "Get Source Code"
 
-#: ../create.php:27 ../index.php:188
+#: ../create.php:27 ../index.php:199
 msgid "New Record"
 msgstr "New Record"
 
@@ -45,11 +45,11 @@ msgstr "Next"
 msgid "Are you sure you want to delete this record?"
 msgstr "Are you sure you want to delete this record?"
 
-#: ../delete.php:59 ../utils.php:1457
+#: ../delete.php:59 ../utils.php:1496
 msgid "Yes"
 msgstr "Yes"
 
-#: ../delete.php:62 ../utils.php:1458
+#: ../delete.php:62 ../utils.php:1497
 msgid "No"
 msgstr "No"
 
@@ -57,7 +57,7 @@ msgstr "No"
 msgid "Unable to delete record"
 msgstr "Unable to delete record"
 
-#: ../delete.php:78 ../delete.php:88 ../delete.php:97 ../utils.php:153
+#: ../delete.php:78 ../delete.php:88 ../delete.php:97 ../utils.php:158
 msgid "Return to the Address Book"
 msgstr "Return to the Address Book"
 
@@ -73,23 +73,31 @@ msgstr "Unable to locate LDAP record"
 msgid "You do not have permission to search the directory"
 msgstr "You do not have permission to search the directory"
 
-#: ../index.php:132 ../utils.php:2111
+#: ../index.php:130
+msgid "Please enter the text you want to look up in the Address Book."
+msgstr "Please enter the text you want to look up in the Address Book."
+
+#: ../index.php:131 ../utils.php:2603
+msgid "You can search for text in any of the following fields:"
+msgstr "You can search for text in any of the following fields:"
+
+#: ../index.php:139 ../utils.php:2174
 msgid "Please log in to use the address book."
 msgstr "Please log in to use the address book."
 
-#: ../index.php:134
+#: ../index.php:141
 msgid "You do not have permission to access the directory"
 msgstr "You do not have permission to access the directory"
 
-#: ../index.php:138
+#: ../index.php:145
 msgid "You do not have permission to browse the directory"
 msgstr "You do not have permission to browse the directory"
 
-#: ../index.php:183
+#: ../index.php:194
 msgid "Folder Details"
 msgstr "Folder Details"
 
-#: ../index.php:193
+#: ../index.php:204
 msgid "Export Records"
 msgstr "Export Records"
 
@@ -150,7 +158,7 @@ msgstr "You do not have permission to change this record"
 msgid "You must enter a valid login and password"
 msgstr "You must enter a valid login and password"
 
-#: ../user.php:58
+#: ../user.php:59
 msgid "The user name/password you entered is not valid"
 msgstr "The user name/password you entered is not valid"
 
@@ -162,7 +170,7 @@ msgstr "You must enter a user name/password to log in"
 msgid "Try again"
 msgstr "Try again"
 
-#: ../utils.php:98
+#: ../utils.php:102
 #, php-format
 msgid ""
 "This Address Book uses Free and Open Source Software, licensed under the "
@@ -171,193 +179,225 @@ msgstr ""
 "This Address Book uses Free and Open Source Software, licensed under the "
 "terms of the %sGNU Affero GPL version 3%s"
 
-#: ../utils.php:128
+#: ../utils.php:133
 msgid "Search for:"
 msgstr "Search for:"
 
-#: ../utils.php:134
+#: ../utils.php:139
 msgid "Search"
 msgstr "Search"
 
-#: ../utils.php:227
+#: ../utils.php:232
 msgid "Address Book Entry"
 msgstr "Address Book Entry"
 
-#: ../utils.php:232
+#: ../utils.php:237
 msgid "Folder"
 msgstr "Folder"
 
-#: ../utils.php:275
+#: ../utils.php:283
 msgid "Log out"
 msgstr "Log out"
 
-#: ../utils.php:277
+#: ../utils.php:285
 msgid "Log in"
 msgstr "Log in"
 
-#: ../utils.php:898
+#: ../utils.php:931
 #, php-format
 msgid "New %s"
 msgstr "New %s"
 
-#: ../utils.php:932
+#: ../utils.php:965
 msgid "This record is a folder that can contain other objects."
 msgstr "This record is a folder that can contain other objects."
 
-#: ../utils.php:937
+#: ../utils.php:970
 msgid "Show Contents"
 msgstr "Show Contents"
 
-#: ../utils.php:948
+#: ../utils.php:981
 msgid "Create record"
 msgstr "Create record"
 
-#: ../utils.php:951
+#: ../utils.php:984
 msgid "Save changes"
 msgstr "Save changes"
 
-#: ../utils.php:956
+#: ../utils.php:989
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../utils.php:964
+#: ../utils.php:997
 msgid "Edit"
 msgstr "Edit"
 
-#: ../utils.php:970
+#: ../utils.php:1003
 msgid "Move"
 msgstr "Move"
 
-#: ../utils.php:975 ../utils.php:2702
+#: ../utils.php:1008 ../utils.php:2782
 msgid "Delete"
 msgstr "Delete"
 
-#: ../utils.php:980
+#: ../utils.php:1013
 msgid "Save as vCard"
 msgstr "Save as vCard"
 
-#: ../utils.php:983
+#: ../utils.php:1016
 msgid "You do not have permission to view this record"
 msgstr "You do not have permission to view this record"
 
-#: ../utils.php:1339
+#: ../utils.php:1378
 msgid "Unsupported data type:"
 msgstr "Unsupported data type"
 
-#: ../utils.php:1392
+#: ../utils.php:1431
 msgid "Security group"
 msgstr "Security group"
 
-#: ../utils.php:1392
+#: ../utils.php:1431
 msgid "Distribution group"
 msgstr "Distribution group"
 
-#: ../utils.php:1393
+#: ../utils.php:1432
 msgid "System generated"
 msgstr "System generated"
 
-#: ../utils.php:1396
+#: ../utils.php:1435
 msgid "Windows Authorization Manager APP_BASIC group"
 msgstr "Windows Authorization Manager APP_BASIC group"
 
-#: ../utils.php:1397
+#: ../utils.php:1436
 msgid "Windows Authorization Manager APP_QUERY group"
 msgstr "Windows Authorization Manager APP_QUERY group"
 
-#: ../utils.php:1398
+#: ../utils.php:1437
 msgid "Global scope"
 msgstr "Global scope"
 
-#: ../utils.php:1399
+#: ../utils.php:1438
 msgid "Domain local scope"
 msgstr "Domain local scope"
 
-#: ../utils.php:1400
+#: ../utils.php:1439
 msgid "Universal scope"
 msgstr "Universal scope"
 
-#: ../utils.php:1419
+#: ../utils.php:1458
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: ../utils.php:1420
+#: ../utils.php:1459
 msgid "HTML"
 msgstr "HTML"
 
-#: ../utils.php:1443 ../utils.php:1475
+#: ../utils.php:1482 ../utils.php:1537
 msgid "Not known"
 msgstr "Not known"
 
-#: ../utils.php:1444
+#: ../utils.php:1483
 msgid "Don't include in mailing lists"
 msgstr "Don't include in mailing lists"
 
-#: ../utils.php:1445
+#: ../utils.php:1484
 msgid "Include in any mailing lists"
 msgstr "Include in any mailing lists"
 
-#: ../utils.php:1446
+#: ../utils.php:1485
 msgid "Include in professional mailing lists only"
 msgstr "Include in professional mailing lists only"
 
-#: ../utils.php:1476
+#: ../utils.php:1513
+msgid "Windows 2000"
+msgstr "Windows 2000"
+
+#: ../utils.php:1514
+msgid "Windows Server 2003 Interrim"
+msgstr "Windows Server 2003 Interrim"
+
+#: ../utils.php:1515
+msgid "Windows Server 2003"
+msgstr "Windows Server 2003"
+
+#: ../utils.php:1516
+msgid "Windows Server 2008"
+msgstr "Windows Server 2008"
+
+#: ../utils.php:1517
+msgid "Windows Server 2008 R2"
+msgstr "Windows Server 2008 R2"
+
+#: ../utils.php:1518
+msgid "Windows Server 2012"
+msgstr "Windows Server 2012"
+
+#: ../utils.php:1519
+msgid "Windows Server 2012 R2"
+msgstr "Windows Server 2012 R2"
+
+#: ../utils.php:1520
+msgid "Windows Server 2016"
+msgstr "Windows Server 2016"
+
+#: ../utils.php:1538
 msgid "Male"
 msgstr "Male"
 
-#: ../utils.php:1477
+#: ../utils.php:1539
 msgid "Female"
 msgstr "Female"
 
-#: ../utils.php:1478
+#: ../utils.php:1540
 msgid "Not specified"
 msgstr "Not specified"
 
-#: ../utils.php:1510
+#: ../utils.php:1572
 msgid "blank"
 msgstr "blank"
 
-#: ../utils.php:1530
+#: ../utils.php:1592
 msgid "Unrecognised value:"
 msgstr "Unrecognised value:"
 
-#: ../utils.php:1531 ../utils.php:1783 ../utils.php:1839 ../utils.php:1842
+#: ../utils.php:1593 ../utils.php:1845 ../utils.php:1901 ../utils.php:1904
 msgid "none"
 msgstr "none"
 
-#: ../utils.php:1847
+#: ../utils.php:1909
 msgid "Add"
 msgstr "Add"
 
-#: ../utils.php:1966
+#: ../utils.php:2028
 msgid "View map"
 msgstr "View map"
 
-#: ../utils.php:1998
+#: ../utils.php:2060
 msgid "Clear Image"
 msgstr "Clear Image"
 
-#: ../utils.php:2032 ../utils.php:2047
+#: ../utils.php:2094 ../utils.php:2109
 msgid "Download"
 msgstr "Download"
 
-#: ../utils.php:2034
+#: ../utils.php:2096
 #, php-format
 msgid "Download Item %s"
 msgstr "Download Item %s"
 
-#: ../utils.php:2106
+#: ../utils.php:2168
 msgid "You do not have permission to log in to the address book directory."
 msgstr "You do not have permission to log in to the address book directory."
 
-#: ../utils.php:2108
+#: ../utils.php:2171
 msgid "Log in as a different user"
 msgstr "Log in as a different user"
 
-#: ../utils.php:2116
+#: ../utils.php:2179
 msgid "Unable to connect to address book directory. (LDAP bind failed)"
 msgstr "Unable to connect to address book directory. (LDAP bind failed)"
 
-#: ../utils.php:2122
+#: ../utils.php:2185
 #, php-format
 msgid ""
 "If you have not already done so, please\n"
@@ -370,27 +410,47 @@ msgstr ""
 "\t\t\t\tinstructions on how to configure directory\n"
 "\t\t\t\taccess."
 
-#: ../utils.php:2528
+#: ../utils.php:2597
+msgid "Your search did not match any records in the Address Book."
+msgstr "Your search did not match any records in the Address Book."
+
+#: ../utils.php:2598
+msgid "Suggestions:"
+msgstr "Suggestions:"
+
+#: ../utils.php:2600
+msgid "Make sure that all words are spelled correctly"
+msgstr "Make sure that all words are spelled correctly"
+
+#: ../utils.php:2601
+msgid "Search for different or more general keywords"
+msgstr "Search for different or more general keywords"
+
+#: ../utils.php:2608
 msgid "This is an empty folder"
 msgstr "This is an empty folder"
 
-#: ../utils.php:2637 ../utils.php:3348
+#: ../utils.php:2649
+msgid "Folders"
+msgstr "Folders"
+
+#: ../utils.php:2717 ../utils.php:3428
 msgid "unrecognised"
 msgstr "unrecognised"
 
-#: ../utils.php:2792
+#: ../utils.php:2872
 msgid "GD Support"
 msgstr "GD Support"
 
-#: ../utils.php:2793
+#: ../utils.php:2873
 msgid "Internationalization Support"
 msgstr "Internationalization Support"
 
-#: ../utils.php:2794
+#: ../utils.php:2874
 msgid "LDAP Support"
 msgstr "LDAP Support"
 
-#: ../utils.php:2807
+#: ../utils.php:2887
 msgid ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
@@ -398,7 +458,7 @@ msgstr ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
 
-#: ../utils.php:2813
+#: ../utils.php:2893
 msgid ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
@@ -406,25 +466,48 @@ msgstr ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
 
-#: ../utils.php:3736
+#: ../utils.php:3673
+msgid "Unable connect to the directory to look up the user name."
+msgstr "Unable connect to the directory to look up the user name."
+
+#: ../utils.php:3675
+#, php-format
+msgid "Please check the %s and %s settings in the Address Book configuration."
+msgstr "Please check the %s and %s settings in the Address Book configuration."
+
+#: ../utils.php:3841
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Clear attribute '%s'"
 
-#: ../utils.php:3738
+#: ../utils.php:3843
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Set attribute '%s' to the contents of '%s'"
 
-#: ../utils.php:3741
+#: ../utils.php:3846
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Set attribute '%s' to '%s'"
 
-#: ../utils.php:3745
+#: ../utils.php:3850
 msgid "Error whilst setting attribute"
 msgstr "Error whilst setting attribute"
 
-#: ../utils.php:4022
+#: ../utils.php:4127
 msgid "The Address Book is not able to display this record"
 msgstr "The Address Book is not able to display this record"
+
+#: ../utils.php:4213
+#, php-format
+msgid "The Address Book's configuration file (%sconfig.php%s) is missing."
+msgstr "The Address Book's configuration file (%sconfig.php%s) is missing."
+
+#: ../utils.php:4215
+#, php-format
+msgid ""
+"Please read %sInstallation and Basic Setup%s in the User Guide for "
+"instructions on how to configure a new Address Book installation."
+msgstr ""
+"Please read %sInstallation and Basic Setup%s in the User Guide for "
+"instructions on how to configure a new Address Book installation."
