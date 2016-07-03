@@ -2646,7 +2646,7 @@ class ldap_entry_list
 					if($objects_to_show == ENTRY_LIST_SHOW_FOLDER_OBJECTS)
 						echo "<th class=\"column_header\" colspan="
 							. (count($this->search_result_columns)+1)
-							. ">Folders</th>";
+							. ">" . gettext("Folders") . "</th>";
 					else
 						$this->show_column_headings();
 					$header_shown = true;
