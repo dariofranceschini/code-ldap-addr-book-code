@@ -50,6 +50,7 @@ $site_footer_links = array(
 //	ad		Microsoft Active Directory
 //	edir		Novell eDirectory
 //	openldap	OpenLDAP
+//	custom		Custom type (configure schema, etc, "by hand")
 //
 // For Active Directory, providing just the domain name will
 // load balance across available domain controllers.
