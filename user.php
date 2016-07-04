@@ -48,6 +48,10 @@ if(!isset($_SESSION["LOGIN_USER"]))
 
 			$_SESSION["LOGIN_USER"] = $_SERVER["PHP_AUTH_USER"];
 			$_SESSION["LOGIN_PASSWORD"] = base64_encode($_SERVER["PHP_AUTH_PW"]);
+
+			if(isset($_SESSION["LOGIN_BIND_DN"]))
+				unset($_SESSION["LOGIN_BIND_DN"]);
+
 			$_SESSION["CACHED_PERMISSIONS"] = array();
 
 			if($ldap_server->log_on())
