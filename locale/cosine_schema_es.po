@@ -260,6 +260,3 @@ msgstr "Fax"
 #: ../schema/cosine.php:138
 msgid "Associated Names"
 msgstr "Nombres Asociados"
-
-#~ msgid "Mail Preference Option"
-#~ msgstr "Opción de Preferencia de Correo"
