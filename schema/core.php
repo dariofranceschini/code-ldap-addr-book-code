@@ -147,6 +147,26 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("groupOfNames",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Group Name"),		"group24.png"),
+					array("description",			gettext("Description"),		"microsoft/description24.png"),
+
+					// array("ou",				gettext("Department"),		"org.png"),
+					// array("o",				gettext("Organization"),	"company.png"),
+					// array("businessCategory",		gettext("Business Category"),	"company.png"),
+					// array("owner",			gettext("Owner"),		"alias.png"),
+					// array("seeAlso",			gettext("See Also"),		"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Group Members"),"new_row"=>true,"width"=>"50%",
+				"attributes"=>array(
+					array("member")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
