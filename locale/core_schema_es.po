@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 08:26+0100\n"
-"PO-Revision-Date: 2016-07-05 08:26+0100\n"
+"POT-Creation-Date: 2016-07-05 08:36+0100\n"
+"PO-Revision-Date: 2016-07-05 08:36+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -38,6 +38,7 @@ msgid "Domain Component Name"
 msgstr "Nombre de Componente de Dominio"
 
 #: ../schema/core.php:22 ../schema/core.php:119 ../schema/core.php:154
+#: ../schema/core.php:174
 msgid "Description"
 msgstr "Descripción"
 
@@ -348,3 +349,11 @@ msgstr "Nombre del Grupo "
 #: ../schema/core.php:163
 msgid "Group Members"
 msgstr "Miembros del Grupo"
+
+#: ../schema/core.php:173
+msgid "Locality Name"
+msgstr "Nombre de la Localidad"
+
+#: ../schema/core.php:175
+msgid "Address"
+msgstr "Dirección"

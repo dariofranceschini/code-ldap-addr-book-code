@@ -167,6 +167,17 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("locality",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("l",				gettext("Locality Name"),	"locality.png"),
+					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("street:st",			gettext("Address"),		"address.png")
+					// array("seeAlso",			gettext("See Also"),		"alias.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
