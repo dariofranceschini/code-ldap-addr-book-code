@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 12:26+0100\n"
-"PO-Revision-Date: 2016-04-27 12:26+0100\n"
+"POT-Creation-Date: 2016-07-05 08:03+0100\n"
+"PO-Revision-Date: 2016-07-05 08:03+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -37,7 +37,7 @@ msgstr "Nombre Común / Nombre Completo"
 msgid "Domain Component Name"
 msgstr "Nombre de Componente de Dominio"
 
-#: ../schema/core.php:22
+#: ../schema/core.php:22 ../schema/core.php:119
 msgid "Description"
 msgstr "Descripción"
 
@@ -121,7 +121,7 @@ msgstr "Propietario"
 msgid "Office"
 msgstr "Oficina"
 
-#: ../schema/core.php:43
+#: ../schema/core.php:43 ../schema/core.php:131
 msgid "Postal Address"
 msgstr "Direccion postal"
 
@@ -324,3 +324,19 @@ msgstr "Administración de directorios de dominio"
 #: ../schema/core.php:111
 msgid "Directory System Agent"
 msgstr "Agente de sistema de directorio"
+
+#: ../schema/core.php:116
+msgid "Folder Details"
+msgstr "Detalles de la Carpeta"
+
+#: ../schema/core.php:118
+msgid "OU Name"
+msgstr "Nombre OU"
+
+#: ../schema/core.php:142
+msgid "Phone"
+msgstr "Fon"
+
+#: ../schema/core.php:143
+msgid "Fax"
+msgstr "Fax"
