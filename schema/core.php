@@ -132,7 +132,7 @@ class core_schema extends ldap_schema
 
 					// Multi-attribute address representation, including a field for PO Box:
 					//
-					// array("postOfficeBox:street:l:st:postalCode","Postal Address","address.png"),
+					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),"address.png"),
 
 					// Complete addresses represented using a single attribute value:
 					//
