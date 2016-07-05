@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 08:36+0100\n"
-"PO-Revision-Date: 2016-07-05 08:36+0100\n"
+"POT-Creation-Date: 2016-07-05 09:11+0100\n"
+"PO-Revision-Date: 2016-07-05 09:11+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -38,7 +38,7 @@ msgid "Domain Component Name"
 msgstr "Nom du composant de domaine"
 
 #: ../schema/core.php:22 ../schema/core.php:119 ../schema/core.php:154
-#: ../schema/core.php:174
+#: ../schema/core.php:174 ../schema/core.php:185
 msgid "Description"
 msgstr "Description"
 
@@ -102,7 +102,7 @@ msgstr "Membre"
 msgid "Name"
 msgstr "Nom"
 
-#: ../schema/core.php:38
+#: ../schema/core.php:38 ../schema/core.php:184
 msgid "Organization Name"
 msgstr "Nom de l'Organisation"
 
@@ -122,7 +122,7 @@ msgstr "Propriétaire"
 msgid "Office"
 msgstr "Bureau"
 
-#: ../schema/core.php:43 ../schema/core.php:131
+#: ../schema/core.php:43 ../schema/core.php:131 ../schema/core.php:197
 msgid "Postal Address"
 msgstr "Adresse Postale"
 
@@ -334,11 +334,11 @@ msgstr "Détails du Dossier"
 msgid "OU Name"
 msgstr "Nom OU"
 
-#: ../schema/core.php:142
+#: ../schema/core.php:142 ../schema/core.php:208
 msgid "Phone"
 msgstr "Phone"
 
-#: ../schema/core.php:143
+#: ../schema/core.php:143 ../schema/core.php:209
 msgid "Fax"
 msgstr "Fax"
 
@@ -357,3 +357,7 @@ msgstr "Nom Localité"
 #: ../schema/core.php:175
 msgid "Address"
 msgstr "Adresse"
+
+#: ../schema/core.php:182
+msgid "Organization Details"
+msgstr "Détails d'Organisation"

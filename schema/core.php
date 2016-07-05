@@ -178,6 +178,41 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("organization",array(
+			array("section_name"=>gettext("Organization Details"),
+				"attributes"=>array(
+					array("o",				gettext("Organization Name"),	"org.png"),
+					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					// array("businessCategory",		gettext("Business Category"),	"company.png"),
+					// array("physicalDeliveryOfficeName",	gettext("Office Name"),		"office.png"),
+
+					// Address of Organization
+					//
+					// Several potential address layouts are possible, depending on country-specific
+					// conventions and individual preferences. If used, the postalCode attribute can
+					// control a link to a web-based map service which shows the organization's location.
+
+					// Multi-attribute address representation, not including a field for PO Box:
+
+					array("street:l:st:postalCode",		gettext("Postal Address"),	"address.png"),
+
+					// Multi-attribute address representation, including a field for PO Box:
+					//
+					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),"address.png"),
+
+					// Complete addresses represented using a single attribute value:
+					//
+					// array("postalAddress",		gettext("Postal Address"),	"address.png"),
+					// array("registeredAddress",		gettext("Registered Address"),	"address.png"),
+
+					array("telephoneNumber",		gettext("Phone"),		"landline-phone.png"),
+					array("facsimileTelephoneNumber",	gettext("Fax"),			"fax.png")
+					// array("internationaliSDNNumber",	gettext("ISDN"),		"landline-phone.png"),
+					// array("seeAlso",			gettext("See Also"),		"alias.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
