@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 10:33+0100\n"
-"PO-Revision-Date: 2016-04-27 10:33+0100\n"
+"POT-Creation-Date: 2016-07-05 09:35+0100\n"
+"PO-Revision-Date: 2016-07-05 09:35+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -236,3 +236,27 @@ msgstr "DNS Domain"
 #: ../schema/cosine.php:102
 msgid "DSA (COSINE Pilot)"
 msgstr "DSA (COSINE Pilot)"
+
+#: ../schema/cosine.php:110
+msgid "Domain Name Component"
+msgstr "Domain Name Component"
+
+#: ../schema/cosine.php:111
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/cosine.php:123
+msgid "Postal Address"
+msgstr "Postal Address"
+
+#: ../schema/cosine.php:132
+msgid "Phone"
+msgstr "Phone"
+
+#: ../schema/cosine.php:133
+msgid "Fax"
+msgstr "Fax"
+
+#: ../schema/cosine.php:138
+msgid "Associated Names"
+msgstr "Associated Names"
