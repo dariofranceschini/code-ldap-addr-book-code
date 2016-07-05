@@ -213,6 +213,46 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("organizationalRole",array(
+			array("section_name"=>gettext("Organizational Role"),
+				"attributes"=>array(
+					array("cn",				gettext("Role Name"),		"org-role.png"),
+					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("ou",				gettext("Department"),		"org.png"),
+
+					// array("physicalDeliveryOfficeName",	gettext("Office Name"),		"office.png"),
+
+					// Address of Organizational Role
+					//
+					// Several potential address layouts are possible, depending on country-specific
+					// conventions and individual preferences. If used, the postalCode attribute can
+					// control a link to a web-based map service which shows the organization's location.
+
+					// Multi-attribute address representation, not including a field for PO Box:
+					array("street:l:st:postalCode",		gettext("Postal Address"),	"address.png"),
+
+					// Multi-attribute address representation, including a field for PO Box:
+					//
+					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),"address.png"),
+
+					// Complete addresses represented using a single attribute value:
+					//
+					// array("postalAddress",		gettext("Postal Address"),	"address.png"),
+					// array("registeredAddress",		gettext("Registered Address"),	"address.png"),
+
+					array("telephoneNumber",		gettext("Phone"),		"landline-phone.png"),
+					array("facsimileTelephoneNumber",	gettext("Fax"),			"fax.png")
+					// array("internationaliSDNNumber",	gettext("ISDN"),		"landline-phone.png"),
+					// array("seeAlso",			gettext("See Also"),		"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Role Occupants"),"new_row"=>true,
+				"attributes"=>array(
+					array("roleOccupant")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
