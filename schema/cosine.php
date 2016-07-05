@@ -89,7 +89,7 @@ class cosine_schema extends ldap_schema
 			array("name"=>"account",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Account"),"rdn_attrib"=>"uid"),
 			array("name"=>"document",			"icon"=>"document.png",		"is_folder"=>false,"display_name"=>gettext("Document")),
 			array("name"=>"documentSeries",			"icon"=>"document-series.png",	"is_folder"=>false,"display_name"=>gettext("Document Series")),
-			array("name"=>"domain",				"icon"=>"microsoft/domain24.png","is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc"),
+			array("name"=>"domain",				"icon"=>"microsoft/domain24.png","is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc","can_create"=>true),
 			array("name"=>"friendlyCountry",		"icon"=>"country.png",		"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)")),
 			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc"),
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
