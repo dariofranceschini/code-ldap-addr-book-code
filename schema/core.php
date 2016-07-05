@@ -253,6 +253,15 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("country",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("c",				gettext("Country Code"),	"country.png"),
+					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
