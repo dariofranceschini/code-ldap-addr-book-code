@@ -262,6 +262,14 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("alias",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("aliasedObjectName",		"Aliased Object",	"alias24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
