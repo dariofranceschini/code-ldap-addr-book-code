@@ -65,6 +65,196 @@ class novell_schema extends ldap_schema
 			array("name"=>"aliasObject",			"icon"=>"alias.png",			"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("directoryMap",array(
+			array("section_name"=>gettext("Directory Map Target"),
+				"attributes"=>array(
+					array("hostServer",			gettext("Host Server"),			"generic24.png"),
+					array("path",				gettext("Volume and Path"),		"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Other Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("l",				gettext("Location"),			"generic24.png"),
+					array("ou",				gettext("Department"),			"generic24.png"),
+					array("o",				gettext("Organization"),		"generic24.png"),
+					array("description",			gettext("Description"),			"generic24.png"),
+					array("seeAlso",			gettext("See Also"),			"generic24.png")
+					)
+				),
+			));
+
+		$ldap_server->add_display_layout("groupOfNames",array(
+			array("section_name"=>gettext("Group Members"),"colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("member")
+					)
+				),
+			array("section_name"=>gettext("Additional Notes"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("info")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("Organization",array(
+			array("section_name"=>gettext("Folder Details"),
+				"attributes"=>array(
+					array("o",				gettext("Organization Name"),		"folder.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("organizationalUnit",array(
+			array("section_name"=>gettext("Folder Details"),
+				"attributes"=>array(
+					array("ou",				gettext("OU Name"),			"folder.png"),
+					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					array("street:physicalDeliveryOfficeName:st:postalCode",
+										gettext("Postal Address"),		"address.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("Country",array(
+			array("section_name"=>gettext("Folder Details"),
+				"attributes"=>array(
+					array("c",				gettext("Country Code"),		"country.png"),
+					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("Profile",array(
+			array("section_name"=>gettext("Login Script"),
+				"attributes"=>array(
+					array("loginScript"),
+					)
+				),
+			array("section_name"=>gettext("Other Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("l",				gettext("Location"),			"generic24.png"),
+					array("ou",				gettext("Department"),			"generic24.png"),
+					array("o",				gettext("Organization"),		"generic24.png"),
+					array("description",			gettext("Description"),			"generic24.png"),
+					array("seeAlso",			gettext("See Also"),			"generic24.png")
+					)
+				),
+			));
+
+		$ldap_server->add_display_layout("ncpServer",array(
+			array("section_name"=>gettext("Server Information"),"new_row"=>true,
+				"attributes"=>array(
+		//			array("networkAddress",			gettext("Network Address"),		"generic24.png"),
+					array("status",				gettext("Status"),			"generic24.png"),
+					array("version",			gettext("Version"),			"generic24.png"),
+					array("languageId",			gettext("Language ID"),			"generic24.png"),
+					array("ncpKeyMaterialName",		gettext("Server Certificate"),		"generic24.png"),
+					array("dnipDNSServerVersion",		gettext("DNS Server Version"),		"generic24.png"),
+					array("dsRevision",			gettext("DS Revision"),			"generic24.png"),
+					array("seeAlso",			gettext("See Also"),			"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Associated Service Objects"),"width"=>"50%",
+				"attributes"=>array(
+					array("dnipLocatorPtr",			gettext("DNS/DHCP Locator"),		"generic24.png"),
+					array("snmpGroupDN",			gettext("SNMP Group"),			"generic24.png"),
+					array("sasServiceDN",			gettext("SAS Service"),			"generic24.png"),
+					array("httpServerDN",			gettext("HTTP Server (iMonitor)"),	"generic24.png"),
+					array("ldapServerDN",			gettext("LDAP Server"),			"generic24.png"),
+					array("ndsPredicateStatsDN",		gettext("Predicate Stats"),		"generic24.png"),
+					array("encryptionPolicyDN",		gettext("Encryption Policy"),		"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Directory Index Definitions"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("indexDefinition")
+					)
+				),
+			array("section_name"=>gettext("NMAS Cached Attributes on External References (CAER)"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("CachedAttrsOnExtRefs"),
+					)
+				),
+			array("section_name"=>gettext("CIFS Native File Access Package"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("nfapCIFSServerName",		gettext("Server Name")),
+					array("nfapCIFSWorkGroup",		gettext("Workgroup")),
+					array("nfapCIFSComment",		gettext("Comment")),
+					array("nfapCIFSShares",			gettext("Shares")),
+					array("nfapCIFSShareVolsByDefault",	gettext("Share Volumes by Default")),
+					array("nfapCIFSDFS",			gettext("DFS")),
+					array("nfapCIFSDialect",		gettext("SMB/CIFS Dialect")),
+					array("nfapCIFSUnicode",		gettext("Unicode Support")),
+					array("nfapCIFSOpLocks",		gettext("OpLocks Support")),
+					array("nfapCIFSAuthent",		gettext("Authentication")),
+					array("nfapCIFSSignatures",		gettext("Signatures")),
+					array("nfapCIFSPDCEnable",		gettext("PDC Enabled")),
+					array("nfapCIFSPDCName",		gettext("PDC Name")),
+					array("nfapCIFSPDCAddr",		gettext("PDC Address")),
+					array("nfapCIFSUserContext",		gettext("User Context")),
+					array("nfapCIFSWINSAddr",		gettext("WINS Address")),
+					)
+				),
+			array("section_name"=>gettext("eDirectory Management Toolbox (eMBox) Configuration"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("emboxConfig"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("aliasObject",array(
+			array("section_name"=>gettext("Alias"),
+				"attributes"=>array(
+					array("cn",				gettext("Name"),			"generic24.png"),
+					array("aliasedObjectName",		gettext("Aliased Object"),		"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("Volume",array(
+			array("section_name"=>gettext("Volume Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("hostServer",			gettext("Host Server"),			"generic24.png"),
+					/* TODO: revision number */
+					array("hostResourceName",		gettext("Host Resource Name"),		"generic24.png"),
+					array("l",				gettext("Location"),			"generic24.png"),
+					array("ou",				gettext("Department"),			"generic24.png"),
+					array("o",				gettext("Organization"),		"generic24.png"),
+					array("description",			gettext("Description"),			"generic24.png"),
+					array("linuxNCPMountPoint",		gettext("Linux NCP Mount Point"),	"generic24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("organizationalRole",array(
+			array("section_name"=>gettext("Organizational Role"),
+				"attributes"=>array(
+					array("cn",				gettext("Role Name"),			"org-role.png"),
+					array("l",				gettext("Location"),			"locality.png"),
+					array("ou",				gettext("Department"),			"org.png"),
+					array("telephoneNumber",		gettext("Phone"),			"landline-phone.png"),
+					array("facsimileTelephoneNumber",	gettext("Fax"),				"fax.png"),
+					array("description",			gettext("Description"),			"microsoft/description24.png"),
+
+					array("street:postOfficeBox:physicalDeliveryOfficeName:st:postalCode",
+										gettext("Postal Address"),		"address.png"),
+
+					// The address book does not yet support the stuctured mail
+					// information format used in eDirectory
+					//
+					// array("postalAddress",		gettext("Mailing Label Information"),	"address.png"),
+
+					array("seeAlso",			gettext("See Also"),			"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Role Occupants"),"new_row"=>true,
+				"attributes"=>array(
+					array("roleOccupant")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 
 		// component schema
