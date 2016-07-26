@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 02:47+0100\n"
-"PO-Revision-Date: 2016-05-20 02:47+0100\n"
+"POT-Creation-Date: 2016-07-25 10:00+0100\n"
+"PO-Revision-Date: 2016-07-25 10:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -41,15 +41,17 @@ msgstr "CRL Container DN"
 msgid "CRL Configuration DN List"
 msgstr "CRL Configuration DN List"
 
-#: ../schema/novell/ndspki.php:15
+#: ../schema/novell/ndspki.php:15 ../schema/novell/ndspki.php:62
 msgid "CA Certificate"
 msgstr "CA Certificate"
 
-#: ../schema/novell/ndspki.php:16
+#: ../schema/novell/ndspki.php:16 ../schema/novell/ndspki.php:39
+#: ../schema/novell/ndspki.php:57
 msgid "Certificate Chain"
 msgstr "Certificate Chain"
 
-#: ../schema/novell/ndspki.php:17
+#: ../schema/novell/ndspki.php:17 ../schema/novell/ndspki.php:40
+#: ../schema/novell/ndspki.php:58
 msgid "Public Key Certificate"
 msgstr "Public Key Certificate"
 
@@ -57,7 +59,8 @@ msgstr "Public Key Certificate"
 msgid "Private Key"
 msgstr "Private Key"
 
-#: ../schema/novell/ndspki.php:19
+#: ../schema/novell/ndspki.php:19 ../schema/novell/ndspki.php:42
+#: ../schema/novell/ndspki.php:60
 msgid "Public Key"
 msgstr "Public Key"
 
@@ -73,6 +76,62 @@ msgstr "Security Domain Key Access Partition"
 msgid "Security Domain Key List"
 msgstr "Security Domain Key List"
 
-#: ../schema/novell/ndspki.php:27
+#: ../schema/novell/ndspki.php:27 ../schema/novell/ndspki.php:48
 msgid "Certificate Authority"
 msgstr "Certificate Authority"
+
+#: ../schema/novell/ndspki.php:32
+msgid "Certificate Information"
+msgstr "Certificate Information"
+
+#: ../schema/novell/ndspki.php:34
+msgid "Distinguished Name"
+msgstr "Distinguished Name"
+
+#: ../schema/novell/ndspki.php:35
+msgid "Certificate for Server"
+msgstr "Certificate for Server"
+
+#: ../schema/novell/ndspki.php:36
+msgid "Subject Name"
+msgstr "Subject Name"
+
+#: ../schema/novell/ndspki.php:37
+msgid "Valid From"
+msgstr "Valid From"
+
+#: ../schema/novell/ndspki.php:38
+msgid "Valid To"
+msgstr "Valid To"
+
+#: ../schema/novell/ndspki.php:50
+msgid "Object Name"
+msgstr "Object Name"
+
+#: ../schema/novell/ndspki.php:51
+msgid "CA Subject Name"
+msgstr "CA Subject Name"
+
+#: ../schema/novell/ndspki.php:52
+msgid "Parent CA"
+msgstr "Parent CA"
+
+#: ../schema/novell/ndspki.php:53
+msgid "Host Server"
+msgstr "Host Server"
+
+#: ../schema/novell/ndspki.php:54
+msgid "Issued Certificate Container"
+msgstr "Issued Certificates Container"
+
+#: ../schema/novell/ndspki.php:55
+msgid "CRL Container"
+msgstr "CRL Container"
+
+#: ../schema/novell/ndspki.php:56
+msgid "CRL Configuration DNs"
+msgstr "CRL Configuration DNs"
+
+#: ../schema/novell/ndspki.php:61
+msgid "Cross Certificate Pair"
+msgstr "Cross Certificate Pair"

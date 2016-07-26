@@ -27,6 +27,43 @@ class novell_ndspki_schema extends ldap_schema
 			array("name"=>"nDSPKICertificateAuthority",	"icon"=>"cert-authority.png",		"is_folder"=>false,"display_name"=>gettext("Certificate Authority"))
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("nDSPKIKeyMaterial",array(
+			array("section_name"=>gettext("Certificate Information"),
+				"attributes"=>array(
+					array("ndspkiGivenName",			gettext("Distinguished Name"),			"generic24.png"),
+					array("hostServer",				gettext("Certificate for Server"),		"generic24.png"),
+					array("ndspkiSubjectName",			gettext("Subject Name"),			"generic24.png"),
+					array("ndspkiNotBefore",			gettext("Valid From"),				"generic24.png"),
+					array("ndspkiNotAfter",				gettext("Valid To"),				"generic24.png"),
+					array("ndspkiCertificateChain",			gettext("Certificate Chain"),			"generic24.png"),
+					array("ndspkiPublicKeyCertificate",		gettext("Public Key Certificate"),		"generic24.png"),
+					// array("ndspkiPrivateKey",			gettext("Private Key"),				"generic24.png"),
+					array("ndspkiPublicKey",			gettext("Public Key"),				"generic24.png")
+					)
+				),
+			));
+
+		$ldap_server->add_display_layout("nDSPKICertificateAuthority",array(
+			array("section_name"=>gettext("Certificate Authority"),
+				"attributes"=>array(
+					array("cn",					gettext("Object Name"),				"generic24.png"),
+					array("ndspkiSubjectName",			gettext("CA Subject Name"),			"generic24.png"),
+					array("ndspkiParentCA",				gettext("Parent CA"),				"generic24.png"),
+					array("hostServer",				gettext("Host Server"),				"generic24.png"),
+					array("ndspkiIssuedCertContainerDN",		gettext("Issued Certificate Container"),	"generic24.png"),
+					array("ndspkiCRLContainerDN",			gettext("CRL Container"),			"generic24.png"),
+					array("ndspkiCRLConfigurationDNList",		gettext("CRL Configuration DNs"),		"generic24.png"),
+					array("ndspkiCertificateChain",			gettext("Certificate Chain"),			"generic24.png"),
+					array("ndspkiPublicKeyCertificate",		gettext("Public Key Certificate"),		"generic24.png"),
+					// array("ndspkiPrivateKey",			gettext("Private Key"),				"generic24.png"),
+					array("ndspkiPublicKey",			gettext("Public Key"),				"generic24.png"),
+					array("ndsCrossCertificatePair",		gettext("Cross Certificate Pair"),		"generic24.png"),
+					array("cACertificate;binary",			gettext("CA Certificate"),			"generic24.png")
+					)
+				),
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
