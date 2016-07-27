@@ -24,6 +24,10 @@ class novell_ldap_schema extends ldap_schema
 			array("name"=>"ldapEnableMonitorEvents",		"data_type"=>"yes_no","display_name"=>gettext("Enable Monitor Events")),
 			array("name"=>"nonStdClientSchemaCompatMode",		"data_type"=>"yes_no","display_name"=>gettext("Non-Standard Client Schema Compatibility Mode")),
 			array("name"=>"ldapServerDN",				"data_type"=>"dn_list","display_name"=>gettext("LDAP Server DN")),
+
+			// Approximate data types only - specific decoders needed
+			array("name"=>"extensionInfo",				"data_type"=>"text_list","display_name"=>gettext("LDAP Extension List")),
+			array("name"=>"filteredReplicaUsage",			"data_type"=>"text","display_name"=>gettext("Filtered Replica Usage")),
 			);
 
 		// Structural object classes
