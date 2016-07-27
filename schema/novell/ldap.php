@@ -11,7 +11,7 @@ class novell_ldap_schema extends ldap_schema
 			array("name"=>"ldapAllowClearTextPassword",		"data_type"=>"yes_no","display_name"=>gettext("LDAP Allow Clear Text Password")),
 			array("name"=>"ldapClassList",				"data_type"=>"text_list","display_name"=>gettext("LDAP Class List")),
 			array("name"=>"ldapAttributeList",			"data_type"=>"text_list","display_name"=>gettext("LDAP Attribute List")),
-			array("name"=>"ldapGroupDN",				"data_type"=>"dn_list","display_name"=>gettext("LDAP Group")),
+			array("name"=>"ldapGroupDN",				"data_type"=>"dn_list","display_name"=>gettext("LDAP Group DN")),
 			array("name"=>"ldapHostServer",				"data_type"=>"dn_list","display_name"=>gettext("LDAP Server Host")),
 			array("name"=>"ldapDerefAliasOnAuth",			"data_type"=>"yes_no","display_name"=>gettext("Dereference Aliases on Authentication")),
 			array("name"=>"ldapDerefAlias",				"data_type"=>"yes_no","display_name"=>gettext("Dereference Aliases")),
