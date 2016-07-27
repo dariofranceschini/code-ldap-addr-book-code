@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 10:30+0100\n"
-"PO-Revision-Date: 2016-05-22 10:30+0100\n"
+"POT-Creation-Date: 2016-07-26 09:35+0100\n"
+"PO-Revision-Date: 2016-07-26 09:35+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/novell/ldap.php:9
+#: ../schema/novell/ldap.php:9 ../schema/novell/ldap.php:137
 msgid "LDAP Server List"
 msgstr "Liste des serveurs LDAP"
 
@@ -65,7 +65,7 @@ msgstr "Activer TLS"
 msgid "Enable TCP (non-TLS)"
 msgstr "Activer TCP (non-TLS)"
 
-#: ../schema/novell/ldap.php:21
+#: ../schema/novell/ldap.php:21 ../schema/novell/ldap.php:84
 msgid "Enable Persistent Search"
 msgstr "Activer la Recherche Persistante"
 
@@ -89,10 +89,190 @@ msgstr "Mode Non-Standard Compatibilité pour le Schéma du Client"
 msgid "LDAP Server DN"
 msgstr "DN du serveur LDAP"
 
-#: ../schema/novell/ldap.php:31
+#: ../schema/novell/ldap.php:29
+msgid "LDAP Extension List"
+msgstr "Liste des extensions LDAP"
+
+#: ../schema/novell/ldap.php:30
+msgid "Filtered Replica Usage"
+msgstr "utilisation de Répliques Filtrées"
+
+#: ../schema/novell/ldap.php:35 ../schema/novell/ldap.php:74
 msgid "LDAP Server"
 msgstr "Serveur LDAP"
 
-#: ../schema/novell/ldap.php:32
+#: ../schema/novell/ldap.php:36 ../schema/novell/ldap.php:45
 msgid "LDAP Group"
 msgstr "Groupe LDAP"
+
+#: ../schema/novell/ldap.php:41
+msgid "LDAP Server Details"
+msgstr "Détails du Serveur LDAP"
+
+#: ../schema/novell/ldap.php:43
+msgid "Product Version"
+msgstr "Version du Produit"
+
+#: ../schema/novell/ldap.php:44
+msgid "Host"
+msgstr "Hôte"
+
+#: ../schema/novell/ldap.php:48
+msgid "Non-Standard Behaviors"
+msgstr "Comportements non Standard"
+
+#: ../schema/novell/ldap.php:50
+msgid "Dereference Aliases when Resolving Names for Authentication"
+msgstr "Alias Déréférencement à la Résolution de Noms pour l'Authentification"
+
+#: ../schema/novell/ldap.php:51
+msgid "Dereference Aliases when Resolving Names on All Operations"
+msgstr "Alias Déréférencement à la Résolution de Noms sur toutes les Opérations"
+
+#: ../schema/novell/ldap.php:54
+msgid "Transport Layer Security (TLS/SSL)"
+msgstr "sécurité de la Couche Transport"
+
+#: ../schema/novell/ldap.php:56
+msgid "Server Certificate"
+msgstr "Certificat de Serveur"
+
+#: ../schema/novell/ldap.php:57
+msgid "Client Certificate"
+msgstr "Certificat de Client"
+
+#: ../schema/novell/ldap.php:58
+msgid "Require TLS for All Operations"
+msgstr "Exiger TLS pour Toutes les Opérations"
+
+#: ../schema/novell/ldap.php:61
+msgid "Ports"
+msgstr "Sabords"
+
+#: ../schema/novell/ldap.php:63
+msgid "Enable Encrypted Port"
+msgstr "Activer le Port Chiffré"
+
+#: ../schema/novell/ldap.php:64
+msgid "Encrypted Port"
+msgstr "Port Chiffré"
+
+#: ../schema/novell/ldap.php:65
+msgid "Enable Non-Encrypted Port"
+msgstr "Activer le Port Non Chiffré"
+
+#: ../schema/novell/ldap.php:66
+msgid "Non-Encrypted Port"
+msgstr "Port Non Chiffré"
+
+#: ../schema/novell/ldap.php:69
+msgid "LDAP Bulk Update/Replication Protocol (LBURP)"
+msgstr "Protocole pour Mise à jour en vrac / réplication de LDAP (LBURP)"
+
+#: ../schema/novell/ldap.php:71
+msgid "Number of Writer Threads"
+msgstr "Nombre de Fils d'Écriture"
+
+#: ../schema/novell/ldap.php:76
+msgid "LDAP Interfaces"
+msgstr "Interfaces LDAP"
+
+#: ../schema/novell/ldap.php:77
+msgid "Concurrent Bind Limit"
+msgstr "Limite Lier Concurrent"
+
+#: ../schema/novell/ldap.php:78
+msgid "Idle Timeout (s)"
+msgstr "Délai d'Inactivité (s)"
+
+#: ../schema/novell/ldap.php:79
+msgid "Bind Restrictions"
+msgstr "Restrictions sur Lier"
+
+#: ../schema/novell/ldap.php:82
+msgid "Searches"
+msgstr "Recherches"
+
+#: ../schema/novell/ldap.php:85
+msgid "Maximum Concurrent Persistent Searches"
+msgstr "Recherches Persistantes Simultanées Maximum"
+
+#: ../schema/novell/ldap.php:86
+msgid "Ignore Size and Time Limits when Monitoring Persistent Search Events"
+msgstr "Ignorer Limites de Taille et Lors de la Surveillance Persistants Rechercher des Événements"
+
+#: ../schema/novell/ldap.php:87
+msgid "Search Time Limit"
+msgstr "Limite de Temps sur les Recherches"
+
+#: ../schema/novell/ldap.php:88
+msgid "Result Size Limit (Number of Entries)"
+msgstr "Limite Résultat Taille (Nombre d'Entrées)"
+
+#: ../schema/novell/ldap.php:89
+msgid "Return Operational Attributes when all User Attributes are Requested"
+msgstr "Retour Attributs Opérationnels lorsque Tous les Attributs de l'Utilisateur sont Demandées"
+
+#: ../schema/novell/ldap.php:90
+msgid "Enable old ADSI and Netscape Schema Output"
+msgstr "Activer Ancienne Sortie ADSI et Netscape Schema"
+
+#: ../schema/novell/ldap.php:93
+msgid "Event Monitoring and Tracing"
+msgstr "Suivi de l'Événement et le Traçage"
+
+#: ../schema/novell/ldap.php:95
+msgid "Enable Event Monitoring"
+msgstr "Activer la Surveillance des Événements"
+
+#: ../schema/novell/ldap.php:96
+msgid "Maximum Event Monitoring Load (operations)"
+msgstr "Charge Maximale de Surveillance de l'Événement (opérations)"
+
+#: ../schema/novell/ldap.php:97
+msgid "Tracing Options"
+msgstr "Options de Vectorisation"
+
+#: ../schema/novell/ldap.php:100 ../schema/novell/ldap.php:148
+msgid "Referrals"
+msgstr "Parrainages"
+
+#: ../schema/novell/ldap.php:102 ../schema/novell/ldap.php:150
+msgid "Default Referral URL"
+msgstr "URL par Défaut pour Parrainages"
+
+#: ../schema/novell/ldap.php:103 ../schema/novell/ldap.php:151
+msgid "Conditions Which Return Default Referral"
+msgstr "Conditions qui Renvoient Renvoi par Défaut"
+
+#: ../schema/novell/ldap.php:104 ../schema/novell/ldap.php:152
+msgid "Use Referrals for Searches"
+msgstr "Utilisez Parrainages pour Recherches"
+
+#: ../schema/novell/ldap.php:105 ../schema/novell/ldap.php:153
+msgid "Use Referrals for Other eDirectory Operations"
+msgstr "Utilisez Parrainages pour d'Autres Opérations eDirectory"
+
+#: ../schema/novell/ldap.php:129 ../schema/novell/ldap.php:166
+msgid "Config Version"
+msgstr "Version de Configuration"
+
+#: ../schema/novell/ldap.php:142
+msgid "Authentication Options"
+msgstr "Options d'Authentification"
+
+#: ../schema/novell/ldap.php:144
+msgid "Proxy User (Anonymous Identity)"
+msgstr "Proxy Utilisateur (Anonymous Identity)"
+
+#: ../schema/novell/ldap.php:145
+msgid "Require TLS for Simple Binds with Password"
+msgstr "Exiger TLS en cas de Liaison Simple avec Mot de Passe"
+
+#: ../schema/novell/ldap.php:156
+msgid "NDS to LDAP Object Mappings"
+msgstr "Objet Mappages de NDS à LDAP"
+
+#: ../schema/novell/ldap.php:161
+msgid "NDS to LDAP Attribute Mappings"
+msgstr "Attribut Mappages de NDS à LDAP"
