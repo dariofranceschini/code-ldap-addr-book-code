@@ -31,6 +31,19 @@ class novell_nds_schema extends ldap_schema
 			array("name"=>"treeRoot",			"icon"=>"novell/tree-root.png",		"is_folder"=>true,"display_name"=>gettext("Tree Root"),"rdn_attrib"=>"directoryTreeName")
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("ndsPredicateStats",array(
+			array("section_name"=>gettext("NDS Predicate Statistics"),"new_row"=>true,
+				"attributes"=>array(
+					array("ndsPredicate",			gettext("Predicate"),			"generic24.png"),
+					array("ndsPredicateFlush",		gettext("Flush"),			"generic24.png"),
+					array("ndsPredicateState",		gettext("State"),			"generic24.png"),
+					array("ndsPredicateTimeout",		gettext("Timeout"),			"generic24.png"),
+					array("ndsPredicateUseValues",		gettext("Use Values"),			"generic24.png"),
+					)
+				),
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

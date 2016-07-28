@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 10:03+0100\n"
-"PO-Revision-Date: 2016-05-20 10:03+0100\n"
+"POT-Creation-Date: 2016-07-28 09:44+0100\n"
+"PO-Revision-Date: 2016-07-28 09:44+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -52,3 +52,27 @@ msgstr "Domaine"
 #: ../schema/novell/nds.php:31
 msgid "Tree Root"
 msgstr "Racine de l'Arbre"
+
+#: ../schema/novell/nds.php:36
+msgid "NDS Predicate Statistics"
+msgstr "Statut Prédicat pour NDS"
+
+#: ../schema/novell/nds.php:38
+msgid "Predicate"
+msgstr "Prédicat"
+
+#: ../schema/novell/nds.php:39
+msgid "Flush"
+msgstr "Rincez"
+
+#: ../schema/novell/nds.php:40
+msgid "State"
+msgstr "Statut"
+
+#: ../schema/novell/nds.php:41
+msgid "Timeout"
+msgstr "Temps Mort"
+
+#: ../schema/novell/nds.php:42
+msgid "Use Values"
+msgstr "Utilisez Valeurs"
