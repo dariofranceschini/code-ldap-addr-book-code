@@ -18,6 +18,21 @@ class novell_sas_schema extends ldap_schema
 			array("name"=>"sASNMASLoginMethod",		"icon"=>"novell/login-method.png",	"is_folder"=>false,"display_name"=>gettext("Login Method")),
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("sASService",array(
+			array("section_name"=>gettext("Secure Authentication Services"),"new_row"=>true,
+				"attributes"=>array(
+					array("hostServer",			gettext("Server"),				"generic24.png"),
+					array("ndspkiKeyMaterialDN",		gettext("Certificate Objects"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("KMO Export Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("ndspkiKMOExport")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

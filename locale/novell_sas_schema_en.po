@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-18 07:07+0100\n"
-"PO-Revision-Date: 2016-05-18 07:07+0100\n"
+"POT-Creation-Date: 2016-07-28 09:01+0100\n"
+"PO-Revision-Date: 2016-07-28 09:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -40,3 +40,19 @@ msgstr "Post-Login Method Container"
 #: ../schema/novell/sas.php:18
 msgid "Login Method"
 msgstr "Login Method"
+
+#: ../schema/novell/sas.php:23
+msgid "Secure Authentication Services"
+msgstr "Secure Authentication Services"
+
+#: ../schema/novell/sas.php:25
+msgid "Server"
+msgstr "Server"
+
+#: ../schema/novell/sas.php:26
+msgid "Certificate Objects"
+msgstr "Certificate Objects"
+
+#: ../schema/novell/sas.php:29
+msgid "KMO Export Information"
+msgstr "KMO Export Information"

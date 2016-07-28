@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-18 07:07+0100\n"
-"PO-Revision-Date: 2016-05-18 07:07+0100\n"
+"POT-Creation-Date: 2016-07-28 09:01+0100\n"
+"PO-Revision-Date: 2016-07-28 09:01+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -40,3 +40,19 @@ msgstr "Contenedor procedimiento de después del inicio de sesión"
 #: ../schema/novell/sas.php:18
 msgid "Login Method"
 msgstr "Método de inicio de sesión"
+
+#: ../schema/novell/sas.php:23
+msgid "Secure Authentication Services"
+msgstr "Servicios de Autenticación"
+
+#: ../schema/novell/sas.php:25
+msgid "Server"
+msgstr "Servidor"
+
+#: ../schema/novell/sas.php:26
+msgid "Certificate Objects"
+msgstr "Objetos de Certificados"
+
+#: ../schema/novell/sas.php:29
+msgid "KMO Export Information"
+msgstr "Información de Exportación KMO"
