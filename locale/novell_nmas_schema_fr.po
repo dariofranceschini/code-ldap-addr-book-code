@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-28 09:09+0100\n"
+"PO-Revision-Date: 2016-07-28 09:09+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -21,6 +21,26 @@ msgstr ""
 msgid "SAS Login Sequence"
 msgstr "SAS Connexion Séquence"
 
-#: ../schema/novell/nmas.php:14
+#: ../schema/novell/nmas.php:14 ../schema/novell/nmas.php:19
 msgid "Login Policy"
 msgstr "Politique Connexion"
+
+#: ../schema/novell/nmas.php:21
+msgid "Enable Auditing"
+msgstr "Activation de l'Audit"
+
+#: ../schema/novell/nmas.php:23
+msgid "NMAS Login Sequences"
+msgstr "NMAS Séquence de Connexion"
+
+#: ../schema/novell/nmas.php:24
+msgid "Default Login Sequence"
+msgstr "Défaut Connexion Sequence"
+
+#: ../schema/novell/nmas.php:33
+msgid "Policy Update"
+msgstr "Mise à Jour de la Politique"
+
+#: ../schema/novell/nmas.php:34
+msgid "Policy Object Version"
+msgstr "Version de la Objet Politique"
