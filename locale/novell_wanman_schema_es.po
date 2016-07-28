@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 08:13+0100\n"
-"PO-Revision-Date: 2016-05-16 08:13+0100\n"
+"POT-Creation-Date: 2016-07-28 08:56+0100\n"
+"PO-Revision-Date: 2016-07-28 08:56+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -24,3 +24,7 @@ msgstr "Lista de Políticas para el Director de tráfico WAN"
 #: ../schema/novell/wanman.php:14
 msgid "WAN Traffic Manager LAN Area"
 msgstr "Área de LAN al Director de tráfico WAN"
+
+#: ../schema/novell/wanman.php:20
+msgid "WAN Traffic Manager Policies"
+msgstr "Políticas para el Director de tráfico WAN"
