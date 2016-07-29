@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 08:50+0100\n"
-"PO-Revision-Date: 2016-05-16 08:50+0100\n"
+"POT-Creation-Date: 2016-07-28 21:40+0100\n"
+"PO-Revision-Date: 2016-07-28 21:40+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/slp.php:10
+#: ../schema/novell/slp.php:10 ../schema/novell/slp.php:17
 msgid "SLP Scope Unit"
 msgstr "SLP Scope Unit"
 
@@ -25,6 +25,26 @@ msgstr "SLP Scope Unit"
 msgid "SLP Directory Agent"
 msgstr "SLP Directory Agent"
 
-#: ../schema/novell/slp.php:12
+#: ../schema/novell/slp.php:12 ../schema/novell/slp.php:25
 msgid "SLP Service"
 msgstr "SLP Service"
+
+#: ../schema/novell/slp.php:19
+msgid "Name"
+msgstr "Name"
+
+#: ../schema/novell/slp.php:27
+msgid "Type"
+msgstr "Type"
+
+#: ../schema/novell/slp.php:28
+msgid "Lifetime"
+msgstr "Lifetime"
+
+#: ../schema/novell/slp.php:29
+msgid "Language"
+msgstr "Language"
+
+#: ../schema/novell/slp.php:30
+msgid "URL"
+msgstr "URL"
