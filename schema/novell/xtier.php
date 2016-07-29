@@ -10,6 +10,15 @@ class novell_xtier_schema extends ldap_schema
 			array("name"=>"xTier-StorageLocation",		"icon"=>"novell/xtier-storage-loc.png","is_folder"=>false),
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("xTier-StorageLocation",array(
+			array("section_name"=>gettext("xTier Storage Location"),
+				"attributes"=>array(
+					array("xtier-url",				gettext("URL"),			"generic24.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
