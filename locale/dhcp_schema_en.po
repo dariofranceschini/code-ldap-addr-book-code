@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-15 10:47+0100\n"
-"PO-Revision-Date: 2016-05-15 10:37+0100\n"
+"POT-Creation-Date: 2016-07-30 12:00+0100\n"
+"PO-Revision-Date: 2016-07-30 12:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -41,7 +41,7 @@ msgstr "DHCP Option List"
 msgid "DHCP TSIG Key DN"
 msgstr "DHCP TSIG Key DN"
 
-#: ../schema/dhcp.php:19
+#: ../schema/dhcp.php:19 ../schema/dhcp.php:65
 msgid "DHCP Failover Peer"
 msgstr "DHCP Failover Peer"
 
@@ -80,3 +80,120 @@ msgstr "DHCP Shared Network"
 #: ../schema/dhcp.php:28
 msgid "DHCP TSIG Key"
 msgstr "DHCP TSIG Key"
+
+#: ../schema/dhcp.php:33
+msgid "DHCP Class Configuration"
+msgstr "DHCP Class Configuration"
+
+#: ../schema/dhcp.php:38 ../schema/dhcp.php:135
+msgid "DHCP Options"
+msgstr "DHCP Options"
+
+#: ../schema/dhcp.php:43 ../schema/dhcp.php:57 ../schema/dhcp.php:86
+#: ../schema/dhcp.php:140 ../schema/dhcp.php:158 ../schema/dhcp.php:173
+msgid "Comments"
+msgstr "Comments"
+
+#: ../schema/dhcp.php:51
+msgid "DHCP Dynamic DNS Update Settings"
+msgstr "DHCP Dynamic DNS Update Settings"
+
+#: ../schema/dhcp.php:53
+msgid "DNS Server"
+msgstr "DNS Server"
+
+#: ../schema/dhcp.php:54
+msgid "TSIG Key"
+msgstr "TSIG Key"
+
+#: ../schema/dhcp.php:67
+msgid "Load Balance Time (s)"
+msgstr "Load Balance Time (s)"
+
+#: ../schema/dhcp.php:68
+msgid "Split"
+msgstr "Split"
+
+#: ../schema/dhcp.php:69
+msgid "Maximum Client Lead Time (s)"
+msgstr "Maximum Client Lead Time (s)"
+
+#: ../schema/dhcp.php:70
+msgid "Response Delay (s)"
+msgstr "Response Delay (s)"
+
+#: ../schema/dhcp.php:71
+msgid "Unacknowledged Updates"
+msgstr "Unacknowledged Updates"
+
+#: ../schema/dhcp.php:74
+msgid "Primary"
+msgstr "Primary"
+
+#: ../schema/dhcp.php:76 ../schema/dhcp.php:82
+msgid "Server"
+msgstr "Server"
+
+#: ../schema/dhcp.php:77 ../schema/dhcp.php:83
+msgid "Port"
+msgstr "Port"
+
+#: ../schema/dhcp.php:80
+msgid "Secondary"
+msgstr "Secondary"
+
+#: ../schema/dhcp.php:94
+msgid "Host Information"
+msgstr "Host Information"
+
+#: ../schema/dhcp.php:96
+msgid "Hardware Address"
+msgstr "Hardware Address"
+
+#: ../schema/dhcp.php:99 ../schema/dhcp.php:122 ../schema/dhcp.php:153
+msgid "DHCP Server Configuration"
+msgstr "DHCP Server Configuration"
+
+#: ../schema/dhcp.php:107
+msgid "DHCP Object Locations"
+msgstr "DHCP Object Locations"
+
+#: ../schema/dhcp.php:109
+msgid "Server Objects"
+msgstr "Server Objects"
+
+#: ../schema/dhcp.php:110
+msgid "Service Objects"
+msgstr "Service Objects"
+
+#: ../schema/dhcp.php:118
+msgid "DHCP Locator Object"
+msgstr "DHCP Locator Object"
+
+#: ../schema/dhcp.php:119
+msgid "DHCP Service Object"
+msgstr "DHCP Service Object"
+
+#: ../schema/dhcp.php:130
+msgid "Shared Network Configuration"
+msgstr "Shared Network Configuration"
+
+#: ../schema/dhcp.php:148
+msgid "Subnet Information"
+msgstr "Subnet Information"
+
+#: ../schema/dhcp.php:150
+msgid "Netmask"
+msgstr "Netmask"
+
+#: ../schema/dhcp.php:166
+msgid "DHCP Transaction Signature (TSIG) Key"
+msgstr "DHCP Transaction Signature (TSIG) Key"
+
+#: ../schema/dhcp.php:169
+msgid "Algorithm"
+msgstr "Algorithm"
+
+#: ../schema/dhcp.php:170
+msgid "Secret"
+msgstr "Secret"
