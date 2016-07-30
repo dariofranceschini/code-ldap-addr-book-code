@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-30 11:08+0100\n"
+"PO-Revision-Date: 2016-07-30 11:08+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -20,3 +20,57 @@ msgstr ""
 #: ../schema/novell/apache.php:9
 msgid "Apache HTTP Server Configuration Info"
 msgstr "Apache HTTP información de configuración del servidor"
+
+#: ../schema/novell/apache.php:24
+msgid "Apache HTTP Server Configuration Block"
+msgstr "Bloque de Configuración de Apache HTTP Server"
+
+#: ../schema/novell/apache.php:26 ../schema/novell/apache.php:46
+msgid "Object Name"
+msgstr "Nombre del Objeto"
+
+#: ../schema/novell/apache.php:27
+msgid "Scope"
+msgstr "Alcance"
+
+#: ../schema/novell/apache.php:28
+msgid "Block Type"
+msgstr "Tipo de Bloque"
+
+#: ../schema/novell/apache.php:31 ../schema/novell/apache.php:53
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../schema/novell/apache.php:36 ../schema/novell/apache.php:58
+#: ../schema/novell/apache.php:71
+msgid "Configuration Info"
+msgstr "Información de Configuración"
+
+#: ../schema/novell/apache.php:38 ../schema/novell/apache.php:60
+#: ../schema/novell/apache.php:73
+msgid "Type Name"
+msgstr "Nombre de Tipo"
+
+#: ../schema/novell/apache.php:44
+msgid "Apache HTTP Server Module"
+msgstr "Módulo de Apache HTTP Server"
+
+#: ../schema/novell/apache.php:47
+msgid "Disabled"
+msgstr "Discapacitado"
+
+#: ../schema/novell/apache.php:48
+msgid "File Name"
+msgstr "Nombre del Archivo"
+
+#: ../schema/novell/apache.php:49
+msgid "Object File"
+msgstr "Archivo de Objetos"
+
+#: ../schema/novell/apache.php:50
+msgid "Symbol Name"
+msgstr "Nombre Símbolo"
+
+#: ../schema/novell/apache.php:66
+msgid "Apache HTTP Server Configuration"
+msgstr "Configuración de Apache HTTP Server"
