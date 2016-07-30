@@ -13,6 +13,19 @@ class novell_nls_schema extends ldap_schema
 			array("name"=>"nLSLicenseCertificate",		"icon"=>"novell/license-cert.png",	"is_folder"=>false,"rdn_attrib"=>"nLSLicenseID","display_name"=>gettext("License Certificate")),
 			);
 
+		// Display layouts
+
+		$ldap_server->add_display_layout("nLSProductContainer",array(
+			array("section_name"=>gettext("License Product Container"),
+				"attributes"=>array(
+					array("nLSProduct",		gettext("Product"),			"generic24.png"),
+					array("nLSRevision",		gettext("Revision"),			"generic24.png"),
+					array("nLSVersion",		gettext("Version"),			"generic24.png"),
+					array("nLSPublisher",		gettext("Publisher"),			"generic24.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

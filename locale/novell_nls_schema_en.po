@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 09:35+0100\n"
-"PO-Revision-Date: 2016-05-19 09:35+0100\n"
+"POT-Creation-Date: 2016-07-30 09:26+0100\n"
+"PO-Revision-Date: 2016-07-30 09:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,10 +21,26 @@ msgstr ""
 msgid "License Service Provider"
 msgstr "License Service Provider"
 
-#: ../schema/novell/nls.php:12
+#: ../schema/novell/nls.php:12 ../schema/novell/nls.php:19
 msgid "License Product Container"
 msgstr "License Product Container"
 
 #: ../schema/novell/nls.php:13
 msgid "License Certificate"
 msgstr "License Certificate"
+
+#: ../schema/novell/nls.php:21
+msgid "Product"
+msgstr "Product"
+
+#: ../schema/novell/nls.php:22
+msgid "Revision"
+msgstr "Revision"
+
+#: ../schema/novell/nls.php:23
+msgid "Version"
+msgstr "Version"
+
+#: ../schema/novell/nls.php:24
+msgid "Publisher"
+msgstr "Publisher"
