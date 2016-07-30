@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-15 11:06+0100\n"
-"PO-Revision-Date: 2016-05-15 11:06+0100\n"
+"POT-Creation-Date: 2016-07-29 09:49+0100\n"
+"PO-Revision-Date: 2016-07-29 09:49+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -29,19 +29,20 @@ msgstr "Nombres de objeto de zonas DNS"
 msgid "DHCP Subnet Attribute Object Names"
 msgstr "Nombres de objetos de atributos de subred DHCP"
 
-#: ../schema/novell/dnip.php:23
+#: ../schema/novell/dnip.php:23 ../schema/novell/dnip.php:82
+#: ../schema/novell/dnip.php:95 ../schema/novell/dnip.php:137
 msgid "Comments"
 msgstr "Comentarios"
 
-#: ../schema/novell/dnip.php:24
+#: ../schema/novell/dnip.php:24 ../schema/novell/dnip.php:93
 msgid "Associated NDS Object"
 msgstr "Objeto asociado NDS"
 
-#: ../schema/novell/dnip.php:25
+#: ../schema/novell/dnip.php:25 ../schema/novell/dnip.php:128
 msgid "Subnet Pool Reference"
 msgstr "Referencia de reserva de subred"
 
-#: ../schema/novell/dnip.php:26
+#: ../schema/novell/dnip.php:26 ../schema/novell/dnip.php:150
 msgid "Subnet Objects"
 msgstr "Objetos de subred"
 
@@ -57,7 +58,7 @@ msgstr "Zona DNS secundario"
 msgid "Locator"
 msgstr "Locador"
 
-#: ../schema/novell/dnip.php:34
+#: ../schema/novell/dnip.php:34 ../schema/novell/dnip.php:55
 msgid "DNS Zone"
 msgstr "Zona DNS"
 
@@ -88,3 +89,135 @@ msgstr "DNIP:Clave DNS"
 #: ../schema/novell/dnip.php:41
 msgid "DHCP Server"
 msgstr "servidor DHCP"
+
+#: ../schema/novell/dnip.php:46
+msgid "NetWare DHCP Server Object"
+msgstr "Objeto NetWare Servidor DHCP"
+
+#: ../schema/novell/dnip.php:48
+msgid "Name"
+msgstr "Nombre"
+
+#: ../schema/novell/dnip.php:49
+msgid "Version"
+msgstr "Versión"
+
+#: ../schema/novell/dnip.php:57
+msgid "Object Name"
+msgstr "Nombre del Objeto"
+
+#: ../schema/novell/dnip.php:58
+msgid "Secondary Zone"
+msgstr "Zona Secundaria"
+
+#: ../schema/novell/dnip.php:61
+msgid "Start of Authority Record"
+msgstr "Registro de Inicio de Autoridad"
+
+#: ../schema/novell/dnip.php:63
+msgid "Fully Qualified Domain Name"
+msgstr "Nombre de Dominio Completo"
+
+#: ../schema/novell/dnip.php:64
+msgid "Admin Mailbox"
+msgstr "Buzón del Administrador"
+
+#: ../schema/novell/dnip.php:65
+msgid "Zone Master"
+msgstr "Zona Maestra"
+
+#: ../schema/novell/dnip.php:66
+msgid "Zone Serial Number"
+msgstr "Número de Serie de la Zona"
+
+#: ../schema/novell/dnip.php:67
+msgid "Refresh Interval (s)"
+msgstr "Intervalo de Actualización (s)"
+
+#: ../schema/novell/dnip.php:68
+msgid "Refresh Retry Interval (s)"
+msgstr "Reintentar Intervalo de Actualización (s)"
+
+#: ../schema/novell/dnip.php:69
+msgid "Minimum Record TTL for Zone (s)"
+msgstr "Registro Mínimo TTL para la Zona (s)"
+
+#: ../schema/novell/dnip.php:70
+msgid "Authority Expiry Time (s)"
+msgstr "Autoridad Tiempo de Expiración (s)"
+
+#: ../schema/novell/dnip.php:76
+msgid "DNS Transaction Signature (TSIG) Key"
+msgstr "Clave para la Firma de Transacción DNS (TSIG)"
+
+#: ../schema/novell/dnip.php:78
+msgid "Algorithm"
+msgstr "Algoritmo"
+
+#: ../schema/novell/dnip.php:79
+msgid "Secret"
+msgstr "Secreto"
+
+#: ../schema/novell/dnip.php:90
+msgid "DNS Resource Record Set"
+msgstr "Conjunto de Registros DNS de Recursos"
+
+#: ../schema/novell/dnip.php:92 ../schema/novell/dnip.php:133
+msgid "Domain Name"
+msgstr "Nombre de Dominio"
+
+#: ../schema/novell/dnip.php:94
+msgid "Status"
+msgstr "Estado"
+
+#: ../schema/novell/dnip.php:100
+msgid "Resource Data"
+msgstr "Datos de Recursos"
+
+#: ../schema/novell/dnip.php:108
+msgid "DNS/DHCP Group Object"
+msgstr "Grupo de objetos DNS / DHCP"
+
+#: ../schema/novell/dnip.php:113
+msgid "DNS Objects"
+msgstr "Objetos de DNS"
+
+#: ../schema/novell/dnip.php:115
+msgid "Zones"
+msgstr "Zonas"
+
+#: ../schema/novell/dnip.php:118
+msgid "DHCP Objects"
+msgstr "Objetos DHCP"
+
+#: ../schema/novell/dnip.php:120
+msgid "Subnet Attributes"
+msgstr "Atributos de Subred"
+
+#: ../schema/novell/dnip.php:126
+msgid "NetWare DNS/DHCP Subnet"
+msgstr "NetWare DNS / DHCP Subred"
+
+#: ../schema/novell/dnip.php:129
+msgid "Subnet Address"
+msgstr "Dirección de Subred"
+
+#: ../schema/novell/dnip.php:130
+msgid "Subnet Mask"
+msgstr "Máscara de Subred"
+
+#: ../schema/novell/dnip.php:131
+msgid "Subnet Type"
+msgstr "Tipo de Subred"
+
+#: ../schema/novell/dnip.php:132
+msgid "IP Address Lease Time (s)"
+msgstr "Dirección IP Lease Time (s)"
+
+#: ../schema/novell/dnip.php:145
+msgid "NetWare DNS/DHCP Subnet Pool"
+msgstr "NetWare DNS / DHCP Subred Agrupación"
+
+#: ../schema/novell/dnip.php:147
+msgid "Type"
+msgstr "Tipo"
