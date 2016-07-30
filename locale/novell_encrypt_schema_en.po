@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-30 09:44+0100\n"
-"PO-Revision-Date: 2016-07-30 09:44+0100\n"
+"POT-Creation-Date: 2016-07-30 11:49+0100\n"
+"PO-Revision-Date: 2016-07-30 11:49+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Encryption Policy DN"
 msgstr "Encryption Policy DN"
 
-#: ../schema/novell/encrypt.php:10
+#: ../schema/novell/encrypt.php:10 ../schema/novell/encrypt.php:23
 msgid "Encrypted Attributes"
 msgstr "Encrypted Attributes"
 
@@ -32,3 +32,11 @@ msgstr "Require Secure Channel to Access Attribute"
 #: ../schema/novell/encrypt.php:17
 msgid "Encrypted Attributes Policy"
 msgstr "Encrypted Attributes Policy"
+
+#: ../schema/novell/encrypt.php:28
+msgid "Settings"
+msgstr "Settings"
+
+#: ../schema/novell/encrypt.php:30
+msgid "Always require secure channel for client access"
+msgstr "Always require secure channel for client access"

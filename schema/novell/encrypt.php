@@ -17,6 +17,21 @@ class novell_encrypt_schema extends ldap_schema
 			array("name"=>"encryptionPolicy",		"icon"=>"novell/encryption-policy.png",	"is_folder"=>false,"display_name"=>gettext("Encrypted Attributes Policy")),
 			);
 
+		// Display layouts
+
+		$ldap_server->add_display_layout("encryptionPolicy",array(
+			array("section_name"=>gettext("Encrypted Attributes"),
+				"attributes"=>array(
+					array("attrEncryptionDefinition"),
+					)
+				),
+			array("section_name"=>gettext("Settings"),"new_row"=>true,
+				"attributes"=>array(
+					array("attrEncryptionRequiresSecure",	gettext("Always require secure channel for client access"),"generic24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
