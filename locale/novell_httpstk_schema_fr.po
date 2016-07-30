@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-30 09:57+0100\n"
+"PO-Revision-Date: 2016-07-30 09:57+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -28,3 +28,59 @@ msgstr "Serveur HTTP TLS Certificate"
 #: ../schema/novell/httpstk.php:11
 msgid "HTTP Server (iMonitor) DN"
 msgstr "DN pour le serveur HTTP (iMonitor)"
+
+#: ../schema/novell/httpstk.php:21
+msgid "HTTP Server (iMonitor)"
+msgstr "Serveur HTTP (iMonitor)"
+
+#: ../schema/novell/httpstk.php:23
+msgid "Host Server"
+msgstr "Serveur Hôte"
+
+#: ../schema/novell/httpstk.php:24
+msgid "Default Port - HTTP"
+msgstr "Port par Défaut - HTTP"
+
+#: ../schema/novell/httpstk.php:25
+msgid "Default Port - HTTPS"
+msgstr "Port par Défaut - HTTPS"
+
+#: ../schema/novell/httpstk.php:26
+msgid "TLS Required for Authentication"
+msgstr "TLS Requis pour l'Authentification"
+
+#: ../schema/novell/httpstk.php:27
+msgid "Certificate"
+msgstr "Certificat"
+
+#: ../schema/novell/httpstk.php:30
+msgid "Server Configuration"
+msgstr "Configuration du Serveur"
+
+#: ../schema/novell/httpstk.php:32
+msgid "Bind Restrictions"
+msgstr "Restrictions Bind"
+
+#: ../schema/novell/httpstk.php:33
+msgid "Trace Level"
+msgstr "Niveau de Trace"
+
+#: ../schema/novell/httpstk.php:34
+msgid "Session Timeout (s)"
+msgstr "Expiration de la Session (s)"
+
+#: ../schema/novell/httpstk.php:35
+msgid "Keep-Alive Request Timeout (s)"
+msgstr "Expiration de la Requête pour Rester en Vie (s)"
+
+#: ../schema/novell/httpstk.php:36
+msgid "Request Timeout (s)"
+msgstr "Expiration de la Requête (s)"
+
+#: ../schema/novell/httpstk.php:37
+msgid "I/O Buffer Size"
+msgstr "Taille de la Mémoire Tampon O / I"
+
+#: ../schema/novell/httpstk.php:38
+msgid "Threads per CPU"
+msgstr "Filets par CPU"
