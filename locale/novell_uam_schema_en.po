@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-30 11:27+0100\n"
+"PO-Revision-Date: 2016-07-30 11:27+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,10 +21,50 @@ msgstr ""
 msgid "UAM POSIX Workstation Contexts"
 msgstr "UAM POSIX Workstation Contexts"
 
-#: ../schema/novell/uam.php:10
+#: ../schema/novell/uam.php:10 ../schema/novell/uam.php:32
 msgid "Reuse UID Numbers"
 msgstr "Reuse UID Numbers"
 
-#: ../schema/novell/uam.php:11
+#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:41
 msgid "Reuse GID Numbers"
 msgstr "Reuse GID Numbers"
+
+#: ../schema/novell/uam.php:22
+msgid "Workstation Contexts for Unix Account Management"
+msgstr "Workstation Contexts for Unix Account Management"
+
+#: ../schema/novell/uam.php:27
+msgid "User ID Mapping"
+msgstr "User ID Mapping"
+
+#: ../schema/novell/uam.php:29
+msgid "Starting UID"
+msgstr "Starting UID"
+
+#: ../schema/novell/uam.php:30
+msgid "End UID"
+msgstr "End UID"
+
+#: ../schema/novell/uam.php:31
+msgid "Last Assigned UID"
+msgstr "Last Assigned UID"
+
+#: ../schema/novell/uam.php:36
+msgid "Group ID Mapping"
+msgstr "Group ID Mapping"
+
+#: ../schema/novell/uam.php:38
+msgid "Starting GID"
+msgstr "Starting GID"
+
+#: ../schema/novell/uam.php:39
+msgid "End GID"
+msgstr "End GID"
+
+#: ../schema/novell/uam.php:40
+msgid "Last Assigned GID"
+msgstr "Last Assigned GID"
+
+#: ../schema/novell/uam.php:48
+msgid "Groups with access to LUM-enabled Services"
+msgstr "Groups with access to LUM-enabled Services"
