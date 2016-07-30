@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-30 10:29+0100\n"
+"PO-Revision-Date: 2016-07-30 10:29+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -33,7 +33,9 @@ msgstr "Portal Module List"
 msgid "Parent Module List"
 msgstr "Parent Module List"
 
-#: ../schema/novell/nps.php:13
+#: ../schema/novell/nps.php:13 ../schema/novell/nps.php:64
+#: ../schema/novell/nps.php:136 ../schema/novell/nps.php:161
+#: ../schema/novell/nps.php:186
 msgid "Portal DN"
 msgstr "Portal DN"
 
@@ -53,10 +55,96 @@ msgstr "Portal Page Set List"
 msgid "Portal Theme List"
 msgstr "Portal Theme List"
 
-#: ../schema/novell/nps.php:18
+#: ../schema/novell/nps.php:18 ../schema/novell/nps.php:96
 msgid "Community Container"
 msgstr "Community Container"
 
 #: ../schema/novell/nps.php:21
 msgid "Portal Configuration"
 msgstr "Portal Configuration"
+
+#: ../schema/novell/nps.php:36 ../schema/novell/nps.php:58
+msgid "Portal Gadget"
+msgstr "Portal Gadget"
+
+#: ../schema/novell/nps.php:38 ../schema/novell/nps.php:60
+#: ../schema/novell/nps.php:92 ../schema/novell/nps.php:134
+#: ../schema/novell/nps.php:159 ../schema/novell/nps.php:184
+msgid "Name"
+msgstr "Name"
+
+#: ../schema/novell/nps.php:39 ../schema/novell/nps.php:61
+#: ../schema/novell/nps.php:93
+msgid "Location"
+msgstr "Location"
+
+#: ../schema/novell/nps.php:40 ../schema/novell/nps.php:62
+#: ../schema/novell/nps.php:94
+msgid "Version"
+msgstr "Version"
+
+#: ../schema/novell/nps.php:41 ../schema/novell/nps.php:63
+#: ../schema/novell/nps.php:95 ../schema/novell/nps.php:135
+#: ../schema/novell/nps.php:160 ../schema/novell/nps.php:185
+msgid "Object GUID"
+msgstr "Object GUID"
+
+#: ../schema/novell/nps.php:42
+msgid "Instance Class Name"
+msgstr "Instance Class Name"
+
+#: ../schema/novell/nps.php:45 ../schema/novell/nps.php:67
+#: ../schema/novell/nps.php:99 ../schema/novell/nps.php:139
+#: ../schema/novell/nps.php:164 ../schema/novell/nps.php:189
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../schema/novell/nps.php:50 ../schema/novell/nps.php:124
+#: ../schema/novell/nps.php:149 ../schema/novell/nps.php:174
+msgid "Other Objects"
+msgstr "Other Objects"
+
+#: ../schema/novell/nps.php:72
+msgid "Gadgets"
+msgstr "Gadgets"
+
+#: ../schema/novell/nps.php:77 ../schema/novell/nps.php:114
+msgid "Page Sets"
+msgstr "Page Sets"
+
+#: ../schema/novell/nps.php:82 ../schema/novell/nps.php:119
+msgid "Themes"
+msgstr "Themes"
+
+#: ../schema/novell/nps.php:90
+msgid "Portal"
+msgstr "Portal"
+
+#: ../schema/novell/nps.php:104
+msgid "Modules"
+msgstr "Modules"
+
+#: ../schema/novell/nps.php:109
+msgid "Pages"
+msgstr "Pages"
+
+#: ../schema/novell/nps.php:132
+msgid "Portal Page"
+msgstr "Portal Page"
+
+#: ../schema/novell/nps.php:144 ../schema/novell/nps.php:169
+#: ../schema/novell/nps.php:194
+msgid "Parent Modules"
+msgstr "Parent Modules"
+
+#: ../schema/novell/nps.php:157
+msgid "Portal Theme"
+msgstr "Portal Theme"
+
+#: ../schema/novell/nps.php:182
+msgid "Portal Page Set"
+msgstr "Portal Page Set"
+
+#: ../schema/novell/nps.php:199
+msgid "GUIDs"
+msgstr "GUIDs"
