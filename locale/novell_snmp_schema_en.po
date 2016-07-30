@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 07:06+0100\n"
-"PO-Revision-Date: 2016-05-17 07:06+0100\n"
+"POT-Creation-Date: 2016-07-30 09:44+0100\n"
+"PO-Revision-Date: 2016-07-30 09:44+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -28,3 +28,23 @@ msgstr "SNMP Traps Disabled"
 #: ../schema/novell/snmp.php:11
 msgid "SNMP Group DN"
 msgstr "SNMP Group DN"
+
+#: ../schema/novell/snmp.php:22
+msgid "SNMP Group"
+msgstr "SNMP Group"
+
+#: ../schema/novell/snmp.php:24
+msgid "SNMP Servers"
+msgstr "SNMP Servers"
+
+#: ../schema/novell/snmp.php:25
+msgid "Default SNMP Time Interval (s)"
+msgstr "Default SNMP Time Interval (s)"
+
+#: ../schema/novell/snmp.php:26
+msgid "Disable all SNMP Traps"
+msgstr "Disable all SNMP Traps"
+
+#: ../schema/novell/snmp.php:32
+msgid "Version"
+msgstr "Version"
