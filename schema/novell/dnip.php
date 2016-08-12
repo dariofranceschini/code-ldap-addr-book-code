@@ -24,7 +24,7 @@ class novell_dnip_schema extends ldap_schema
 			array("name"=>"dnipAliasedObjectName",		"data_type"=>"dn_list",		"display_name"=>gettext("Associated NDS Object")),
 			array("name"=>"dnipSubnetPoolReference",	"data_type"=>"dn_list",		"display_name"=>gettext("Subnet Pool Reference")),
 			array("name"=>"dnipSubnetAttr",			"data_type"=>"dn_list",		"display_name"=>gettext("Subnet Objects")),
-			array("name"=>"dnipLocatorPtr",			"data_type"=>"dn_list",		"display_name"=>gettext("DNS/DHCP Locator DN")),
+			array("name"=>"dnipLocatorPtr",			"data_type"=>"dn",		"display_name"=>gettext("DNS/DHCP Locator DN")),
 			array("name"=>"dnipSecondaryZone",		"data_type"=>"yes_no",		"display_name"=>gettext("DNS Secondary Zone")),
 			);
 
