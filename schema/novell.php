@@ -85,6 +85,11 @@ class novell_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("groupOfNames",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Group Name"),			"group24.png",true),
+					)
+				),
 			array("section_name"=>gettext("Group Members"),"colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("member")
