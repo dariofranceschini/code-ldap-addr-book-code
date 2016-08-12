@@ -6,7 +6,7 @@ class novell_sas_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			array("name"=>"sasServiceDN",		"data_type"=>"dn_list",		"display_name"=>gettext("SAS Service DN")),
+			array("name"=>"sasServiceDN",		"data_type"=>"dn",		"display_name"=>gettext("SAS Service DN")),
 			);
 
 		// Structural object classes
