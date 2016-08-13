@@ -40,7 +40,7 @@ foreach($ldap_server->object_schema as $object_class)
 	if($ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
 		$create_list[] = $object_class["name"];
 
-asort($create_list);
+natcasesort($create_list);
 
 foreach($create_list as $object_class)
 {
