@@ -88,7 +88,7 @@ msgstr "DNIP:Clave DNS"
 
 #: ../schema/novell/dnip.php:41
 msgid "DHCP Server (NetWare)"
-msgstr "servidor DHCP (NetWare)"
+msgstr "Servidor DHCP (NetWare)"
 
 #: ../schema/novell/dnip.php:46
 msgid "NetWare DHCP Server Object"
