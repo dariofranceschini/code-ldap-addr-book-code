@@ -61,7 +61,6 @@ if($ldap_server->log_on())
 
 		if($object_class == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
-
 	}
 
 	echo "  </select>\n";
