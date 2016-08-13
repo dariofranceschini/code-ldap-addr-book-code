@@ -38,7 +38,7 @@ class novell_dnip_schema extends ldap_schema
 			array("name"=>"dNIPSubnetAddressRange",		"icon"=>"novell/dnip-subnet-address-range.png",	"is_folder"=>false,"display_name"=>gettext("Subnet Address Range")),
 			array("name"=>"dNIPIPAddressConfiguration",	"icon"=>"dhcp/dhcp-host.png",			"is_folder"=>false,"display_name"=>gettext("IP Address Configuration")),
 			array("name"=>"dNIPDNSKey",			"icon"=>"dhcp/dhcp-dns-key.png",		"is_folder"=>false,"display_name"=>gettext("DNIP:DNS Key")),
-			array("name"=>"dNIPDHCPServer",			"icon"=>"dhcp/dhcp-server.png",			"is_folder"=>false,"display_name"=>gettext("DHCP Server")),
+			array("name"=>"dNIPDHCPServer",			"icon"=>"dhcp/dhcp-server.png",			"is_folder"=>false,"display_name"=>gettext("DHCP Server (NetWare)")),
 			);
 
 		// Display layouts

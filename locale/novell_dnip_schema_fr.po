@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-29 09:49+0100\n"
-"PO-Revision-Date: 2016-07-29 09:49+0100\n"
+"POT-Creation-Date: 2016-08-13 09:13+0100\n"
+"PO-Revision-Date: 2016-08-13 09:13+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -87,8 +87,8 @@ msgid "DNIP:DNS Key"
 msgstr "DNIP:Clé pour DNS"
 
 #: ../schema/novell/dnip.php:41
-msgid "DHCP Server"
-msgstr "Serveur DHCP"
+msgid "DHCP Server (NetWare)"
+msgstr "Serveur DHCP (NetWare)"
 
 #: ../schema/novell/dnip.php:46
 msgid "NetWare DHCP Server Object"
