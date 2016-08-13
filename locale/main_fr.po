@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 10:09+0100\n"
-"PO-Revision-Date: 2016-07-03 10:09+0100\n"
+"POT-Creation-Date: 2016-08-13 09:25+0100\n"
+"PO-Revision-Date: 2016-08-13 09:25+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -29,15 +29,35 @@ msgstr "Mode d'Emploi"
 msgid "Get Source Code"
 msgstr "Obtenir le Code Source"
 
-#: ../create.php:27 ../index.php:199
+#: ../create.php:31 ../index.php:199
 msgid "New Record"
 msgstr "Nouvel enregistrement"
 
-#: ../create.php:31
+#: ../create.php:35
 msgid "What type of record would you like to create?"
 msgstr "Quel type de dossier voulez-vous créer?"
 
-#: ../create.php:65
+#: ../create.php:69
+msgid ""
+"This list contains all object classes that are recognised by the Address "
+"Book."
+msgstr ""
+"Cette liste contient toutes les classes d'objets qui sont reconnus par le "
+"Carnet d'Adresses."
+
+#: ../create.php:72
+msgid ""
+"This list contains only those object classes that end users are allowed to "
+"create."
+msgstr ""
+"Cette liste ne contient que les classes d'objets que les utilisateurs finaux "
+"sont autorisés à créer."
+
+#: ../create.php:74
+msgid "Choose from all recognised object classes"
+msgstr "Choisissez parmi toutes les classes d'objets reconnus"
+
+#: ../create.php:76
 msgid "Next"
 msgstr "Suivant"
 
@@ -75,7 +95,9 @@ msgstr "Vous n'êtes pas autorisé à consulter l'annuaire"
 
 #: ../index.php:130
 msgid "Please enter the text you want to look up in the Address Book."
-msgstr "S'il vous plaît entrer le texte que vous souhaitez rechercher dans le Carnet d'Adresses."
+msgstr ""
+"S'il vous plaît entrer le texte que vous souhaitez rechercher dans le Carnet "
+"d'Adresses."
 
 #: ../index.php:131 ../utils.php:2603
 msgid "You can search for text in any of the following fields:"
@@ -101,15 +123,15 @@ msgstr "Détails du dossier"
 msgid "Export Records"
 msgstr "Exporter des enregistrements"
 
-#: ../info.php:104 ../info.php:107 ../update.php:179
+#: ../info.php:113 ../info.php:116 ../update.php:194
 msgid "Unable to locate LDAP record."
 msgstr "Impossible de localiser le enregistrement LDAP."
 
-#: ../info.php:111
+#: ../info.php:120
 msgid "Record being accessed:"
 msgstr "L'enregistrement étant accessible:"
 
-#: ../info.php:113
+#: ../info.php:122
 msgid ""
 "This record is outside the part of the directory which stores the address "
 "book. You do not have permission to display it."
@@ -117,40 +139,40 @@ msgstr ""
 "Cet enregistrement est en dehors de la partie du répertoire qui stocke le "
 "carnet d'adresses. Vous n'êtes pas autorisé à afficher."
 
-#: ../info.php:116
+#: ../info.php:125
 msgid "The address book is stored at:"
 msgstr "Te carnet d'adresses est stocké à:"
 
-#: ../update.php:57
+#: ../update.php:58
 msgid "Unable to create - A record already exists with this name."
 msgstr "Impossible de créer - Un enregistrement existe déjà avec ce nom."
 
-#: ../update.php:85
+#: ../update.php:100
 msgid "Unable to create LDAP record: "
 msgstr "Impossible de créer enregistrement LDAP: "
 
-#: ../update.php:92
+#: ../update.php:107
 msgid "Unable to create this type of object."
 msgstr "Impossible de créer ce type d'objet."
 
-#: ../update.php:109
+#: ../update.php:124
 #, php-format
 msgid "New '%s' record created: '%s'"
 msgstr "Un nouveau record de '%s' a été créé: '%s'"
 
-#: ../update.php:168
+#: ../update.php:183
 msgid "No changes were made to this record"
 msgstr "L'enregistrement n'a pas été modifié."
 
-#: ../update.php:170
+#: ../update.php:185
 msgid "Changes made to this record:"
 msgstr "Les modifications apportées à cet enregistrement sont:"
 
-#: ../update.php:175
+#: ../update.php:190
 msgid "Back to record"
 msgstr "Revenir à enregistrement"
 
-#: ../update.php:183
+#: ../update.php:198
 msgid "You do not have permission to change this record"
 msgstr "Vous n'êtes pas autorisé à consulter l'annuaire"
 
@@ -158,17 +180,17 @@ msgstr "Vous n'êtes pas autorisé à consulter l'annuaire"
 msgid "You must enter a valid login and password"
 msgstr "Vous devez entrer un nom d'utilisateur et mot de passe"
 
-#: ../user.php:59
+#: ../user.php:63
 msgid "The user name/password you entered is not valid"
 msgstr ""
 "Le nom d'utilisateur ou mot de passe que vous avez saisi ne sont pas valides"
 
-#: ../user.php:63
+#: ../user.php:67
 msgid "You must enter a user name/password to log in"
 msgstr ""
 "Vous devez entrer un nom d'utilisateur et mot de passe pour vous connecter"
 
-#: ../user.php:87
+#: ../user.php:91
 msgid "Try again"
 msgstr "Essaye encore"
 
@@ -412,7 +434,9 @@ msgstr ""
 
 #: ../utils.php:2597
 msgid "Your search did not match any records in the Address Book."
-msgstr "Votre recherche ne correspond à aucun des enregistrements dans le Carnet d'Adresses."
+msgstr ""
+"Votre recherche ne correspond à aucun des enregistrements dans le Carnet "
+"d'Adresses."
 
 #: ../utils.php:2598
 msgid "Suggestions:"
@@ -434,7 +458,7 @@ msgstr "Ceci est un dossier vide"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: ../utils.php:2717 ../utils.php:3428
+#: ../utils.php:2717 ../utils.php:3425
 msgid "unrecognised"
 msgstr "méconnu"
 
@@ -466,44 +490,49 @@ msgstr ""
 "S'il vous plaît voir «Installation et configuration de base» dans le Guide "
 "de l'utilisateur pour plus d'informations."
 
-#: ../utils.php:3673
+#: ../utils.php:3670
 msgid "Unable connect to the directory to look up the user name."
-msgstr "Impossible se connecter à l'annuaire pour rechercher le nom d'utilisateur."
+msgstr ""
+"Impossible se connecter à l'annuaire pour rechercher le nom d'utilisateur."
 
-#: ../utils.php:3675
+#: ../utils.php:3672
 #, php-format
 msgid "Please check the %s and %s settings in the Address Book configuration."
-msgstr "S'il vous plaît vérifier les %s et %s paramètres dans la configuration du Carnet d'Adresses."
+msgstr ""
+"S'il vous plaît vérifier les %s et %s paramètres dans la configuration du "
+"Carnet d'Adresses."
 
-#: ../utils.php:3841
+#: ../utils.php:3838
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Effacer l'attribut '%s'"
 
-#: ../utils.php:3843
+#: ../utils.php:3840
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Définissez l'attribut '%s' sur le contenu de '%s'"
 
-#: ../utils.php:3846
+#: ../utils.php:3843
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Définissez l'attribut '%s' en '%s'"
 
-#: ../utils.php:3850
+#: ../utils.php:3847
 msgid "Error whilst setting attribute"
 msgstr "Erreur tout attribut changer"
 
-#: ../utils.php:4127
+#: ../utils.php:4102
 msgid "The Address Book is not able to display this record"
 msgstr "Le Carnet d'Adresses ne sont pas en mesure d'afficher cette fiche"
 
-#: ../utils.php:4213
+#: ../utils.php:4188
 #, php-format
 msgid "The Address Book's configuration file (%sconfig.php%s) is missing."
-msgstr "Le fichier de configuration du Carnet d'Ddresses (%sconfig.php%s) est manquant."
+msgstr ""
+"Le fichier de configuration du Carnet d'Ddresses (%sconfig.php%s) est "
+"manquant."
 
-#: ../utils.php:4215
+#: ../utils.php:4190
 #, php-format
 msgid ""
 "Please read %sInstallation and Basic Setup%s in the User Guide for "

@@ -62,12 +62,24 @@ if($ldap_server->log_on())
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
 				if($ldap_server->get_object_schema_setting($entry["objectclass"],
-					"can_create"))
+					"can_create") || get_user_setting("allow_system_admin"))
 				{
-					$required_attribs = explode(",",
-						$ldap_server->get_object_schema_setting(
-						$entry["objectclass"],
-						"required_attribs"));
+					if($ldap_server->get_object_schema_setting($entry["objectclass"],"atomic_create",false))
+					{
+						// Include every attribute which appears in the display layout
+						$required_attribs=array();
+						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"]);
+						foreach($entry_layout as $section)
+							foreach($section["attributes"] as $attrib_spec)
+								foreach(explode(":",$attrib_spec[0]) as $attribute_line)
+									foreach(explode("+",$attribute_line) as $attrib)
+										$required_attribs[] = $attrib;
+					}
+					else
+						$required_attribs = explode(",",
+							$ldap_server->get_object_schema_setting(
+							$entry["objectclass"],
+							"required_attribs"));
 
 					// TODO: guard against nasties in attribute value
 					foreach($required_attribs as $attrib)

@@ -19,31 +19,35 @@
 include "utils.php";
 include "config.php";
 
-show_site_header();
-
-// TODO: guard against nasties in the DN
-$dn = $_GET["dn"];
-
-show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
-
-echo "<form method=\"get\" action=\"info.php\">\n";
-
-echo "  <p>\n    " . gettext("What type of record would you like to create?") . "\n  </p>\n";
-
-echo "  <input type=\"hidden\" name=\"dn\" value=\""
-	. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n";
-
-echo "  <select name=\"create\" style=\"width:300px\">\n";
-
-$create_list = array();
-foreach($ldap_server->object_schema as $object_class)
-	if($ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
-		$create_list[] = $object_class["name"];
-
-natcasesort($create_list);
-
-foreach($create_list as $object_class)
+if($ldap_server->log_on())
 {
+	show_site_header();
+
+	// TODO: guard against nasties in the DN
+	$dn = $_GET["dn"];
+
+	$show_all_object_classes = isset($_GET["show_all"]) && get_user_setting("allow_system_admin");
+
+	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
+
+	echo "<form method=\"get\" action=\"info.php\">\n";
+
+	echo "  <p>\n    " . gettext("What type of record would you like to create?") . "\n  </p>\n";
+
+	echo "  <input type=\"hidden\" name=\"dn\" value=\""
+		. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n";
+
+	echo "  <select name=\"create\" style=\"width:300px\">\n";
+
+	$create_list = array();
+	foreach($ldap_server->object_schema as $object_class)
+		if($show_all_object_classes || $ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
+			$create_list[] = $object_class["name"];
+
+	natcasesort($create_list);
+
+	foreach($create_list as $object_class)
+	{
 		$display_name = $ldap_server->get_object_schema_setting($object_class,
 			"display_name");
 		$icon = $ldap_server->get_object_schema_setting($object_class,
@@ -58,12 +62,23 @@ foreach($create_list as $object_class)
 		if($object_class == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
 
+	}
+
+	echo "  </select>\n";
+
+	if($show_all_object_classes)
+		echo "  <p>" . gettext("This list contains all object classes that are recognised by the Address Book.") . "</p>";
+	else
+		echo "  <p>"
+			. gettext("This list contains only those object classes that end users are allowed to create.")
+			. "</p>\n  <p><a href=\"create.php?dn=" . urlencode($dn) . "&show_all=yes\">"
+			. gettext("Choose from all recognised object classes") . "</a></p>";
+
+	echo "  <p>\n    <input type=\"submit\" value=\"" . gettext("Next") . "&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
+	echo "</form>\n";
+
+	show_site_footer();
 }
-
-echo "  </select>\n";
-
-echo "  <p>\n    <input type=\"submit\" value=\"" . gettext("Next") . "&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
-echo "</form>\n";
-
-show_site_footer();
+else
+	show_ldap_bind_error();
 ?>

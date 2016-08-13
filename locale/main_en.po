@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 10:09+0100\n"
-"PO-Revision-Date: 2016-07-03 10:09+0100\n"
+"POT-Creation-Date: 2016-08-13 09:25+0100\n"
+"PO-Revision-Date: 2016-08-13 09:25+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -29,15 +29,35 @@ msgstr "User Guide"
 msgid "Get Source Code"
 msgstr "Get Source Code"
 
-#: ../create.php:27 ../index.php:199
+#: ../create.php:31 ../index.php:199
 msgid "New Record"
 msgstr "New Record"
 
-#: ../create.php:31
+#: ../create.php:35
 msgid "What type of record would you like to create?"
 msgstr "What type of record would you like to create?"
 
-#: ../create.php:65
+#: ../create.php:69
+msgid ""
+"This list contains all object classes that are recognised by the Address "
+"Book."
+msgstr ""
+"This list contains all object classes that are recognised by the Address "
+"Book."
+
+#: ../create.php:72
+msgid ""
+"This list contains only those object classes that end users are allowed to "
+"create."
+msgstr ""
+"This list contains only those object classes that end users are allowed to "
+"create."
+
+#: ../create.php:74
+msgid "Choose from all recognised object classes"
+msgstr "Choose from all recognised object classes"
+
+#: ../create.php:76
 msgid "Next"
 msgstr "Next"
 
@@ -101,15 +121,15 @@ msgstr "Folder Details"
 msgid "Export Records"
 msgstr "Export Records"
 
-#: ../info.php:104 ../info.php:107 ../update.php:179
+#: ../info.php:113 ../info.php:116 ../update.php:194
 msgid "Unable to locate LDAP record."
 msgstr "Unable to locate LDAP record."
 
-#: ../info.php:111
+#: ../info.php:120
 msgid "Record being accessed:"
 msgstr "Record being accessed:"
 
-#: ../info.php:113
+#: ../info.php:122
 msgid ""
 "This record is outside the part of the directory which stores the address "
 "book. You do not have permission to display it."
@@ -117,40 +137,40 @@ msgstr ""
 "This record is outside the part of the directory which stores the address "
 "book. You do not have permission to display it."
 
-#: ../info.php:116
+#: ../info.php:125
 msgid "The address book is stored at:"
 msgstr "The address book is stored at:"
 
-#: ../update.php:57
+#: ../update.php:58
 msgid "Unable to create - A record already exists with this name."
 msgstr "Unable to create - A record already exists with this name."
 
-#: ../update.php:85
+#: ../update.php:100
 msgid "Unable to create LDAP record: "
 msgstr "Unable to create LDAP record: "
 
-#: ../update.php:92
+#: ../update.php:107
 msgid "Unable to create this type of object."
 msgstr "Unable to create this type of object."
 
-#: ../update.php:109
+#: ../update.php:124
 #, php-format
 msgid "New '%s' record created: '%s'"
 msgstr "New '%s' record created: '%s'"
 
-#: ../update.php:168
+#: ../update.php:183
 msgid "No changes were made to this record"
 msgstr "No changes were made to this record"
 
-#: ../update.php:170
+#: ../update.php:185
 msgid "Changes made to this record:"
 msgstr "Changes made to this record:"
 
-#: ../update.php:175
+#: ../update.php:190
 msgid "Back to record"
 msgstr "Back to record"
 
-#: ../update.php:183
+#: ../update.php:198
 msgid "You do not have permission to change this record"
 msgstr "You do not have permission to change this record"
 
@@ -158,15 +178,15 @@ msgstr "You do not have permission to change this record"
 msgid "You must enter a valid login and password"
 msgstr "You must enter a valid login and password"
 
-#: ../user.php:59
+#: ../user.php:63
 msgid "The user name/password you entered is not valid"
 msgstr "The user name/password you entered is not valid"
 
-#: ../user.php:63
+#: ../user.php:67
 msgid "You must enter a user name/password to log in"
 msgstr "You must enter a user name/password to log in"
 
-#: ../user.php:87
+#: ../user.php:91
 msgid "Try again"
 msgstr "Try again"
 
@@ -434,7 +454,7 @@ msgstr "This is an empty folder"
 msgid "Folders"
 msgstr "Folders"
 
-#: ../utils.php:2717 ../utils.php:3428
+#: ../utils.php:2717 ../utils.php:3425
 msgid "unrecognised"
 msgstr "unrecognised"
 
@@ -466,44 +486,44 @@ msgstr ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
 
-#: ../utils.php:3673
+#: ../utils.php:3670
 msgid "Unable connect to the directory to look up the user name."
 msgstr "Unable connect to the directory to look up the user name."
 
-#: ../utils.php:3675
+#: ../utils.php:3672
 #, php-format
 msgid "Please check the %s and %s settings in the Address Book configuration."
 msgstr "Please check the %s and %s settings in the Address Book configuration."
 
-#: ../utils.php:3841
+#: ../utils.php:3838
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Clear attribute '%s'"
 
-#: ../utils.php:3843
+#: ../utils.php:3840
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Set attribute '%s' to the contents of '%s'"
 
-#: ../utils.php:3846
+#: ../utils.php:3843
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Set attribute '%s' to '%s'"
 
-#: ../utils.php:3850
+#: ../utils.php:3847
 msgid "Error whilst setting attribute"
 msgstr "Error whilst setting attribute"
 
-#: ../utils.php:4127
+#: ../utils.php:4102
 msgid "The Address Book is not able to display this record"
 msgstr "The Address Book is not able to display this record"
 
-#: ../utils.php:4213
+#: ../utils.php:4188
 #, php-format
 msgid "The Address Book's configuration file (%sconfig.php%s) is missing."
 msgstr "The Address Book's configuration file (%sconfig.php%s) is missing."
 
-#: ../utils.php:4215
+#: ../utils.php:4190
 #, php-format
 msgid ""
 "Please read %sInstallation and Basic Setup%s in the User Guide for "
