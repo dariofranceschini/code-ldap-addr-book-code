@@ -32,8 +32,8 @@ class novell_ldap_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"ldapServer",			"icon"=>"ldap-server.png",		"is_folder"=>false,"display_name"=>gettext("LDAP Server"),"can_create"=>true),
-			array("name"=>"ldapGroup",			"icon"=>"novell/ldap-group.png",	"is_folder"=>false,"display_name"=>gettext("LDAP Group"),"can_create"=>true),
+			array("name"=>"ldapServer",			"icon"=>"ldap-server.png",		"is_folder"=>false,"display_name"=>gettext("LDAP Server")),
+			array("name"=>"ldapGroup",			"icon"=>"novell/ldap-group.png",	"is_folder"=>false,"display_name"=>gettext("LDAP Group")),
 			);
 
 		// Display layouts
