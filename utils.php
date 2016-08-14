@@ -156,6 +156,9 @@ function show_error_message($message)
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
 		. "\">" . gettext("Return to the Address Book") . "</a>\n</p>";
+
+	show_site_footer();
+	exit(0);
 }
 
 /** Show "breadcrumb navigation" version of specified LDAP path
