@@ -2780,6 +2780,9 @@ class ldap_server
 	*/
 	var $attribute_schema = array();
 
+	/* Return an array of ldap_schema objects for the server */
+	var $schema_modules = array();
+
 	/** Return the default LDAP object class to use when creating new records
 
 	    The default class for new objects depends on the LDAP server type.
@@ -3502,7 +3505,7 @@ class ldap_server
 		bindtextdomain($schema_class_name,"./locale");
 		textdomain($schema_class_name);
 
-		$schema_class = new $schema_class_name($this);
+		$this->schema_modules[] = new $schema_class_name($this);
 
 		textdomain("main");
 	}
