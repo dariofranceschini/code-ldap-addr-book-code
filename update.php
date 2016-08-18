@@ -89,6 +89,8 @@ if($ldap_server->log_on())
 							$entry[$attrib] = $_POST["ldap_attribute_"
 								. $attrib];
 
+					$ldap_server->call_schema_function("before_create_" . $entry["objectclass"],$entry);
+
 					$result = @ldap_add($ldap_server->connection,$dn,$entry);
 
 					if(!$result)
