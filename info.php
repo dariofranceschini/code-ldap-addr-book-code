@@ -47,6 +47,8 @@ if(prereq_components_ok())
 						)
 					);
 
+				$ldap_server->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
+
 				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
 				$entry_viewer->create = $entry_viewer->edit = true;
@@ -87,6 +89,9 @@ if(prereq_components_ok())
 									// no change made for other server types
 							}
 						}
+
+						$ldap_server->call_schema_function("before_show_"
+							. $ldap_server->get_object_class($entry[0]),$entry[0]);
 
 						$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
