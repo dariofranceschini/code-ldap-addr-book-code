@@ -3510,6 +3510,43 @@ class ldap_server
 		textdomain("main");
 	}
 
+	/** Call the specified schema plugin/callback function
+
+	    The named member function will be called for each schema object
+	    in which it has been defined. Functions are called in the order
+	    that the schemas were loaded/enabled.
+
+	    This facility is used to implement a "plugin" architecture,
+	    e.g. for applying object class specific pre-processing and/or
+	    post-processing of LDAP records as they are being created,
+	    updated, etc.
+
+	    @param string $function_name
+		Schema function name to be called.
+	    @param array $entry
+		LDAP object entry which is being processed.
+	    @param array $extra_param
+		Associative array of additional parameters to be
+		passed to the function (where the function supports
+		this).
+	*/
+
+	function call_schema_function($function_name,&$entry,$extra_param=null)
+	{
+		foreach($this->schema_modules as $module)
+		{
+			if(method_exists($module,$function_name))
+			{
+				if(!empty($extra_param))
+					$module->$function_name(&$this,
+						&$entry,$extra_param);
+				else
+					$module->$function_name(&$this,
+						&$entry);
+			}
+		}
+	}
+
 	/** Add an object class to the schema
 
 	    If the object class is already defined then its previous definition
