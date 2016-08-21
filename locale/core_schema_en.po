@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 09:19+0100\n"
-"PO-Revision-Date: 2016-07-05 09:19+0100\n"
+"POT-Creation-Date: 2016-08-21 09:51+0100\n"
+"PO-Revision-Date: 2016-08-21 09:51+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -25,7 +25,7 @@ msgstr "Aliased Object"
 msgid "Business Category"
 msgstr "Business Category"
 
-#: ../schema/core.php:19
+#: ../schema/core.php:19 ../schema/core.php:280
 msgid "Country Code"
 msgstr "Country Code"
 
@@ -37,8 +37,9 @@ msgstr "Common Name/Full Name"
 msgid "Domain Component Name"
 msgstr "Domain Component Name"
 
-#: ../schema/core.php:22 ../schema/core.php:119 ../schema/core.php:154
-#: ../schema/core.php:174 ../schema/core.php:185 ../schema/core.php:220
+#: ../schema/core.php:22 ../schema/core.php:120 ../schema/core.php:155
+#: ../schema/core.php:175 ../schema/core.php:195 ../schema/core.php:206
+#: ../schema/core.php:241 ../schema/core.php:281
 msgid "Description"
 msgstr "Description"
 
@@ -102,7 +103,7 @@ msgstr "Member"
 msgid "Name"
 msgstr "Name"
 
-#: ../schema/core.php:38 ../schema/core.php:184
+#: ../schema/core.php:38 ../schema/core.php:205
 msgid "Organization Name"
 msgstr "Organization Name"
 
@@ -122,8 +123,8 @@ msgstr "Owner"
 msgid "Office"
 msgstr "Office"
 
-#: ../schema/core.php:43 ../schema/core.php:131 ../schema/core.php:197
-#: ../schema/core.php:232
+#: ../schema/core.php:43 ../schema/core.php:132 ../schema/core.php:218
+#: ../schema/core.php:253
 msgid "Postal Address"
 msgstr "Postal Address"
 
@@ -191,186 +192,194 @@ msgstr "Job Title"
 msgid "User ID"
 msgstr "User ID"
 
-#: ../schema/core.php:60
+#: ../schema/core.php:61
 msgid "Unique Member"
 msgstr "Unique Member"
 
-#: ../schema/core.php:61
+#: ../schema/core.php:62
 msgid "User Password"
 msgstr "User Password"
 
-#: ../schema/core.php:62
+#: ../schema/core.php:63
 msgid "X.121 Network Address"
 msgstr "X.121 Network Address"
 
-#: ../schema/core.php:63
+#: ../schema/core.php:64
 msgid "X.500 Unique Identifier"
 msgstr "X.500 Unique Identifier"
 
-#: ../schema/core.php:67
+#: ../schema/core.php:68
 msgid "Certification Authority Revocation List"
 msgstr "Certification Authority Revocation List"
 
-#: ../schema/core.php:68
+#: ../schema/core.php:69
 msgid "Certification Authority Certificate"
 msgstr "Certification Authority Certificate"
 
-#: ../schema/core.php:69
+#: ../schema/core.php:70
 msgid "Certificate Revocation List"
 msgstr "Certificate Revocation List"
 
-#: ../schema/core.php:70
+#: ../schema/core.php:71
 msgid "Cross Certificate Pair"
 msgstr "Cross Certificate Pair"
 
-#: ../schema/core.php:71
+#: ../schema/core.php:72
 msgid "Delta Revocation List"
 msgstr "Delta Revocation List"
 
-#: ../schema/core.php:72
+#: ../schema/core.php:73
 msgid "PKCS #9 E-mail Address"
 msgstr "PKCS #9 E-mail Address"
 
-#: ../schema/core.php:73
+#: ../schema/core.php:74
 msgid "Pseudonym"
 msgstr "Pseudonym"
 
-#: ../schema/core.php:74
+#: ../schema/core.php:75
 msgid "Supported Algorithms"
 msgstr "Supported Algorithms"
 
-#: ../schema/core.php:75
+#: ../schema/core.php:76
 msgid "User Certificate"
 msgstr "User Certificate"
 
-#: ../schema/core.php:79
+#: ../schema/core.php:80
 msgid "Directory Management Domain Name"
 msgstr "Directory Management Domain Name"
 
-#: ../schema/core.php:80
+#: ../schema/core.php:81
 msgid "Knowledge Information"
 msgstr "Knowledge Information"
 
-#: ../schema/core.php:81
+#: ../schema/core.php:82
 msgid "OSI Presentation Address"
 msgstr "OSI Presentation Address"
 
-#: ../schema/core.php:82
+#: ../schema/core.php:83
 msgid "Protocol Information"
 msgstr "Protocol Information"
 
-#: ../schema/core.php:83
+#: ../schema/core.php:84
 msgid "Supported OSI Application Contexts"
 msgstr "Supported OSI Application Contexts"
 
-#: ../schema/core.php:86
+#: ../schema/core.php:87
 msgid "Member Of"
 msgstr "Member Of"
 
-#: ../schema/core.php:91
+#: ../schema/core.php:92
 msgid "Alias"
 msgstr "Alias"
 
-#: ../schema/core.php:92
+#: ../schema/core.php:93
 msgid "Organizational Unit"
 msgstr "Organizational Unit"
 
+#: ../schema/core.php:94
+msgid "Group"
+msgstr "Group"
+
 #: ../schema/core.php:95
+msgid "Group (Unique Names)"
+msgstr "Group (Unique Names)"
+
+#: ../schema/core.php:96
 msgid "Person"
 msgstr "Person"
 
-#: ../schema/core.php:96
+#: ../schema/core.php:97
 msgid "Organizational Person"
 msgstr "Organizational Person"
 
-#: ../schema/core.php:97
+#: ../schema/core.php:98
 msgid "Residential Person"
 msgstr "Residential Person"
 
-#: ../schema/core.php:98
+#: ../schema/core.php:99
 msgid "Application Process"
 msgstr "Application Process"
 
-#: ../schema/core.php:99
+#: ../schema/core.php:100
 msgid "Device"
 msgstr "Device"
 
-#: ../schema/core.php:100 ../schema/core.php:217
+#: ../schema/core.php:101 ../schema/core.php:238
 msgid "Organizational Role"
 msgstr "Organizational Role"
 
-#: ../schema/core.php:101
+#: ../schema/core.php:102
 msgid "Country"
 msgstr "Country"
 
-#: ../schema/core.php:102
+#: ../schema/core.php:103
 msgid "Locality"
 msgstr "Locality"
 
-#: ../schema/core.php:103
+#: ../schema/core.php:104
 msgid "Organization"
 msgstr "Organization"
 
-#: ../schema/core.php:106
+#: ../schema/core.php:107
 msgid "Certificate Revocation List Distribution Point"
 msgstr "Certificate Revocation List Distribution Point"
 
-#: ../schema/core.php:109
+#: ../schema/core.php:110
 msgid "Application Entity"
 msgstr "Application Entity"
 
-#: ../schema/core.php:110
+#: ../schema/core.php:111
 msgid "Directory Management Domain"
 msgstr "Directory Management Domain"
 
-#: ../schema/core.php:111
+#: ../schema/core.php:112
 msgid "Directory System Agent"
 msgstr "Directory System Agent"
 
-#: ../schema/core.php:116
+#: ../schema/core.php:117
 msgid "Folder Details"
 msgstr "Folder Details"
 
-#: ../schema/core.php:118
+#: ../schema/core.php:119
 msgid "OU Name"
 msgstr "OU Name"
 
-#: ../schema/core.php:142 ../schema/core.php:208 ../schema/core.php:243
+#: ../schema/core.php:143 ../schema/core.php:229 ../schema/core.php:264
 msgid "Phone"
 msgstr "Phone"
 
-#: ../schema/core.php:143 ../schema/core.php:209 ../schema/core.php:244
+#: ../schema/core.php:144 ../schema/core.php:230 ../schema/core.php:265
 msgid "Fax"
 msgstr "Fax"
 
-#: ../schema/core.php:153
+#: ../schema/core.php:154 ../schema/core.php:174
 msgid "Group Name"
 msgstr "Group Name"
 
-#: ../schema/core.php:163
+#: ../schema/core.php:164 ../schema/core.php:184
 msgid "Group Members"
 msgstr "Group Members"
 
-#: ../schema/core.php:173
+#: ../schema/core.php:194
 msgid "Locality Name"
 msgstr "Locality Name"
 
-#: ../schema/core.php:175
+#: ../schema/core.php:196
 msgid "Address"
 msgstr "Address"
 
-#: ../schema/core.php:182
+#: ../schema/core.php:203
 msgid "Organization Details"
 msgstr "Organization Details"
 
-#: ../schema/core.php:219
+#: ../schema/core.php:240
 msgid "Role Name"
 msgstr "Role Name"
 
-#: ../schema/core.php:221
+#: ../schema/core.php:242
 msgid "Department"
 msgstr "Department"
 
-#: ../schema/core.php:249
+#: ../schema/core.php:270
 msgid "Role Occupants"
 msgstr "Role Occupants"
