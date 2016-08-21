@@ -3347,9 +3347,18 @@ class ldap_server
 
 	function compare_dn_to_base($dn,$base_dn)
 	{
+		$test_rdn_list = ldap_explode_dn($dn,0);
+
+		// Handle case where $dn couldn't be parsed into
+		// a list of RDNs - ldap_explode_dn() returns false.
+		if(gettype($test_rdn_list)!="array")
+			$test_rdn_list = array("count"=>1,0=>$dn);
+
 		$base_rdn_list = ldap_explode_dn($base_dn,0);
+
 		$base_rdn_count = $base_rdn_list["count"];
-		$dn_base_section = implode(array_slice(ldap_explode_dn($dn,0),
+
+		$dn_base_section = implode(array_slice($test_rdn_list,
 			-$base_rdn_count),",");
 
 		if($base_dn == "")
