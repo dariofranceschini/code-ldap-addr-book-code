@@ -57,6 +57,7 @@ class core_schema extends ldap_schema
 			array("name"=>"telexNumber",			"data_type"=>"text",		"display_name"=>gettext("Telex Number")),
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 			array("name"=>"uid",				"data_type"=>"text",		"display_name"=>gettext("User ID"),			"alias_names"=>"userid"),
+			/** @todo "uniqueMember" data type is approximate only - the optional UID suffix notation is not currently supported */
 			array("name"=>"uniqueMember",			"data_type"=>"dn_list",		"display_name"=>gettext("Unique Member")),
 			array("name"=>"userPassword",			"data_type"=>"text",		"display_name"=>gettext("User Password")),
 			array("name"=>"x121Address",			"data_type"=>"text",		"display_name"=>gettext("X.121 Network Address")),
