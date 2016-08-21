@@ -17,6 +17,7 @@
    ************************************************************************ */
 
 include "lib/country.php";
+include "lib/ldap_result.php";
 include "lib/oid.php";
 
 define("LDAP_SORT_ASCENDING",1);
@@ -962,6 +963,7 @@ class ldap_attribute
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
+			case "ldap_result":	$this->show_ldap_result();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1047,6 +1049,19 @@ class ldap_attribute
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
 				)
 			);
+	}
+
+	/** Show LDAP result code attribute (data type "ldap_result") */
+
+	function show_ldap_result()
+	{
+		global $ldap_result_code;
+		asort($ldap_result_code);
+
+		foreach($ldap_result_code as $code => $name)
+			$codes[] = array("value"=>$code,"display_name"=>$name);
+
+		$this->show_enum($codes);
 	}
 
 	/** Show mailPreferenceOption attribute (data type "use_html_mail")
