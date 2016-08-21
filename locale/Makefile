@@ -78,6 +78,16 @@ novell_%_schema.pot: ../schema/novell/%.php
 	if [ ! -f $@ ]; then touch $@; fi
 	sed -i -e"s/CHARSET/UTF-8/" $@
 
+# Generate pot files for component schemas in "oracle" subdirectory
+
+oracle_%_schema.pot: ../schema/oracle/%.php
+	xgettext -o $@ \
+		--from-code UTF-8 \
+                --package-name="${PACKAGE_NAME}" \
+                --copyright-holder="${PACKAGE_COPYRIGHT}" $<
+	if [ ! -f $@ ]; then touch $@; fi
+	sed -i -e"s/CHARSET/UTF-8/" $@
+
 %_${BUILD_LANGUAGE}.po: %.pot
 	@if [ -f $@ ]; then \
 		echo Updating $@; \
