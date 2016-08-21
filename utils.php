@@ -963,6 +963,7 @@ class ldap_attribute
 			case "text_list":	$this->show_text_list();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
+			case "olc_dangling":	$this->show_olc_dangling();	break;
 			case "ldap_result":	$this->show_ldap_result();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1047,6 +1048,19 @@ class ldap_attribute
 			array(
 				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
+				)
+			);
+	}
+
+	/** Show olcMemberOfDangling attribute (data type "olc_dangling") */
+
+	function show_olc_dangling()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"ignore","display_name"=>gettext("Leave the dangling reference in place (ignore)")),
+				array("value"=>"drop","display_name"=>gettext("Remove the dangling reference (drop)")),
+				array("value"=>"error","display_name"=>gettext("Generate an LDAP error"))
 				)
 			);
 	}
