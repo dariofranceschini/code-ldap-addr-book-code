@@ -2855,7 +2855,7 @@ class ldap_server
 	var $dn_search_password = "";
 
 	/** Search filter used to find LDAP bind DN corresponding to a user name */
-	var $dn_search_filter = "(uid=__USERNAME__)";
+	var $dn_search_filter = "(|(uid=__USERNAME__)(cn=__USERNAME__))";
 
 	/** Search base DN used to look up LDAP bind DN corresponding to a user name
 
