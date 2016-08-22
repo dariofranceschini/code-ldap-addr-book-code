@@ -1951,8 +1951,7 @@ function get_user_setting($attrib,$user_name = "")
 					$search_resource);
 
 				$attrib_value = ($entry["count"]>0);
-				$_SESSION["CACHED_PERMISSIONS"][$attrib]
-					= $attrib_value;
+				assign_cached_user_setting($attrib,$attrib_value);
 			}
 			else
 				// default to setting permission to false
@@ -2002,6 +2001,19 @@ function get_user_info($user_name)
 			}
 
 	return $user_info;
+}
+
+/** Cache the effective value of the specified user setting in the PHP session
+
+    @param string $setting
+	Name of setting to be stored
+    @param mixed $value
+	Value to be stored
+*/
+
+function assign_cached_user_setting($setting,$value)
+{
+	$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
 }
 
 /** Sort an array of LDAP entries against one or more attributes.
