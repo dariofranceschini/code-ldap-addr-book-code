@@ -2272,7 +2272,6 @@ class ldap_entry_list
 			? array("sn","givenName","ou","cn")
 			: array($this->sort_order),
 			LDAP_SORT_ASCENDING);
-
 	}
 
 	/** Output address book contents as vCard
