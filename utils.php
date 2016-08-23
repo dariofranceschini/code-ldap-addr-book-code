@@ -2344,7 +2344,7 @@ class ldap_entry_list
 
 	/** Display a single LDAP entry (row in table of search results)
 
-	    @param arary $ldap_entry
+	    @param array $ldap_entry
 		LDAP entry to display
 	*/
 
@@ -3070,7 +3070,7 @@ class ldap_server
 
 	/** Return matching schema object class for the specified LDAP entry
 
-	    @param string $entry
+	    @param array $entry
 		Entry for which matching class name is to be returned
 	    @return
 		Most specific class name for the object, or the
@@ -3842,7 +3842,7 @@ abstract class ldap_schema
 
 	/** Constructor
 
-	    @param string $ldap_server
+	    @param object $ldap_server
 		LDAP server object to which the schema definitions
 		will be exported
 	*/
