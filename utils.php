@@ -1403,9 +1403,12 @@ class ldap_attribute
 
 		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
 		{
+			$first_item = true;
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 				{
+					if(!$first_item) echo "<br>";
+					$first_item = false;
 					// retrieve object class icon
 					$search_resource = @ldap_read($ldap_server->connection,$value,"(objectclass=*)");
 
@@ -1456,7 +1459,6 @@ class ldap_attribute
 					}
 					else
 						echo $value_display_name;
-					echo "<br>";
 				}
 		}
 		else echo "(" . gettext("none") . ")";
