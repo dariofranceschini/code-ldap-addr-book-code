@@ -1866,97 +1866,102 @@ function get_user_setting($attrib,$user_name = "")
 {
 	global $ldap_server;
 
-	// list of ordinarily boolean attributes which if found to
-	// contain a DN of an LDAP group will be evaluated based on
-	// the user's group membership
-	$boolean_attribs_with_ldap_lookup = array("allow_browse",
-		"allow_search","allow_view","allow_create","allow_edit",
-		"allow_edit_self","allow_move","allow_delete","allow_export",
-		"allow_export_bulk","allow_login","allow_folder_info",
-		"allow_ldap_path");
-
-	// use current user name if no user name passed as a parameter
-
-	if(empty($user_name))
-	{
-		// Resume existing session (if any exists) in order to get
-		// currently logged in user
-		if(!isset($_SESSION)) session_start();
-
-		if(isset($_SESSION["LOGIN_USER"]))
-			$user_name = $_SESSION["LOGIN_USER"];
-		else
-			$user_name = "__ANONYMOUS__";
-	}
-
-	$user_info = get_user_info($user_name);
-
-	if(isset($user_info["ldap_dn"]))
-		$user_info["ldap_dn"]=str_replace("__USERNAME__",
-			$user_name,$user_info["ldap_dn"]);
-
-	// return the value of the requested attribute
-
-	if(isset($user_info[$attrib]))
-		$attrib_value = $user_info[$attrib];
+	if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+		$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$attrib];
 	else
 	{
-		// default values to return if setting is undefined
-		// for the specified user
-		switch($attrib)
-		{
-			case "ldap_dn":
-				$attrib_value = "__SEARCH__"; break;
-			case "allow_browse":
-			case "allow_search":
-			case "allow_view":
-			case "allow_create":
-			case "allow_edit":
-			case "allow_edit_self":
-			case "allow_move":
-			case "allow_delete":
-			case "allow_export":
-			case "allow_export_bulk":
-			case "allow_login":
-			case "allow_ldap_path":
-			case "allow_folder_info":
-				$attrib_value = false; break;
-			default:
-				$attrib_value = null;
-		}
-	}
+		// list of ordinarily boolean attributes which if found to
+		// contain a DN of an LDAP group will be evaluated based on
+		// the user's group membership
+		$boolean_attribs_with_ldap_lookup = array("allow_browse",
+			"allow_search","allow_view","allow_create","allow_edit",
+			"allow_edit_self","allow_move","allow_delete","allow_export",
+			"allow_export_bulk","allow_login","allow_folder_info",
+			"allow_ldap_path");
 
-	// If value contains a DN instead of true/false then look up
-	// based on group membership instead.
-	if(!is_bool($attrib_value)
-		&& isset($_SESSION["LOGIN_BIND_DN"])
-		&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
-	{
-		// re-use previously cached permission setting
-		if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
-			$attrib_value
-				= $_SESSION["CACHED_PERMISSIONS"][$attrib];
+		// use current user name if no user name passed as a parameter
+
+		if(empty($user_name))
+		{
+			// Resume existing session (if any exists) in order to get
+			// currently logged in user
+			if(!isset($_SESSION)) session_start();
+
+			if(isset($_SESSION["LOGIN_USER"]))
+				$user_name = $_SESSION["LOGIN_USER"];
+			else
+				$user_name = "__ANONYMOUS__";
+		}
+
+		$user_info = get_user_info($user_name);
+
+		if(isset($user_info["ldap_dn"]))
+			$user_info["ldap_dn"]=str_replace("__USERNAME__",
+				$user_name,$user_info["ldap_dn"]);
+
+		// return the value of the requested attribute
+
+		if(isset($user_info[$attrib]))
+			$attrib_value = $user_info[$attrib];
 		else
 		{
-			$search_resource
-				= @ldap_read($ldap_server->connection,
-				$attrib_value,
-				"member=" . $_SESSION["LOGIN_BIND_DN"],
-				array("member"));
-
-			if(is_resource($search_resource))
+			// default values to return if setting is undefined
+			// for the specified user
+			switch($attrib)
 			{
-				$entry = ldap_get_entries(
-					$ldap_server->connection,
-					$search_resource);
-
-				$attrib_value = ($entry["count"]>0);
-				assign_cached_user_setting($attrib,$attrib_value);
+				case "ldap_dn":
+					$attrib_value = "__SEARCH__"; break;
+				case "allow_browse":
+				case "allow_search":
+				case "allow_view":
+				case "allow_create":
+				case "allow_edit":
+				case "allow_edit_self":
+				case "allow_move":
+				case "allow_delete":
+				case "allow_export":
+				case "allow_export_bulk":
+				case "allow_login":
+				case "allow_ldap_path":
+				case "allow_folder_info":
+					$attrib_value = false; break;
+				default:
+					$attrib_value = null;
 			}
+		}
+
+		// If value contains a DN instead of true/false then look up
+		// based on group membership instead.
+		if(!is_bool($attrib_value)
+			&& isset($_SESSION["LOGIN_BIND_DN"])
+			&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
+		{
+			// re-use previously cached permission setting
+			if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+				$attrib_value
+					= $_SESSION["CACHED_PERMISSIONS"][$attrib];
 			else
-				// default to setting permission to false
-				// if LDAP lookup failed
-				$attrib_value=false;
+			{
+				$search_resource
+					= @ldap_read($ldap_server->connection,
+					$attrib_value,
+					"member=" . $_SESSION["LOGIN_BIND_DN"],
+					array("member"));
+
+				if(is_resource($search_resource))
+				{
+					$entry = ldap_get_entries(
+						$ldap_server->connection,
+						$search_resource);
+
+					$attrib_value = ($entry["count"]>0);
+					assign_cached_user_setting($attrib,$attrib_value);
+				}
+				else
+					// default to setting permission to false
+					// if LDAP lookup failed
+					$attrib_value=false;
+			}
 		}
 	}
 
