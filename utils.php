@@ -3998,7 +3998,10 @@ function ldap_bind_log($ldap_link,$user=null,$password=null)
 
 abstract class ldap_schema
 {
+	/** Array of object class definitions for this schema */
 	var $object_schema = array();
+
+	/** Array of attribute class definitions for this schema */
 	var $attribute_schema = array();
 
 	/** Constructor
