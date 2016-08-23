@@ -1968,6 +1968,76 @@ function get_user_setting($attrib,$user_name = "")
 	return $attrib_value;
 }
 
+/** Return the method to be used for merging group and user settings together.
+
+    In order to determine the effective value of a setting:
+	- Start with the user-assigned value of the setting
+	- Consider each group that the user is a member of
+	- Combine the group's settings (if any) with the user's
+	  settings as follows
+
+    string
+	Replace the previous value of the setting
+
+    boolean
+	If the previous value of the string is explictly set to false
+	then leave as-is, otherwise replace previous value (if any).
+
+    @param string $setting
+	Setting for which the merge method is to be returned
+    @return
+	Merge method to be used with this setting
+*/
+
+function get_user_setting_merge_method($setting)
+{
+	switch($setting)
+	{
+		case "ldap_dn":			return "string";		break;
+		case "ldap_password":		return "string";		break;
+
+		default:			return "boolean";
+	}
+}
+
+/** Return whether the specified user setting has been explicitly
+    assigned a value.
+
+    @param string $attrib
+	Attribute to be returned
+    @param string $user_name
+	Name of user whose setting is to be returned. If this is omitted
+	then the current logged in user will be used.
+    @return
+	True if a value is assigned.
+*/
+
+function user_setting_exists($attrib,$user_name = "")
+{
+	if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+		return true;
+	else
+	{
+		// use current user name if no user name passed as a parameter
+
+		if(empty($user_name))
+		{
+			// Resume existing session (if any exists) in order to get
+			// currently logged in user
+			if(!isset($_SESSION)) session_start();
+
+			if(isset($_SESSION["LOGIN_USER"]))
+				$user_name = $_SESSION["LOGIN_USER"];
+			else
+				$user_name = "__ANONYMOUS__";
+		}
+
+		$user_info = get_user_info($user_name);
+
+		return isset($user_info[$attrib]);
+	}
+}
+
 /** Retrieve the specified user's info from user_map array
 
     The settings to be used for anonymous access (when no user has
@@ -2889,6 +2959,9 @@ class ldap_server
 	/** Permissions and user name mappings between address book and LDAP server */
 	var $user_map = array();
 
+	/** Permissions and group name mappings between address book and LDAP server */
+	var $group_map = array();
+
 	/** Display layouts */
 	var $display_layouts = array();
 
@@ -3381,9 +3454,68 @@ class ldap_server
 			// sufficient access to the directory to enumerate the group's
 			// membership then allow_login will evaluate to false.
 			$result = get_user_setting("allow_login");
+			$this->assign_group_permissions();
 		}
 
 		return $result;
+	}
+
+	/** Assign permissions to the currently logged in user based on their
+	    group membership.
+
+	    @todo
+		Allow permissions to be assigned based on appearance of the
+		user's DN in roleOccupant or uniqueMember attributes in
+		addition to member.
+	*/
+
+	function assign_group_permissions()
+	{
+		foreach($this->group_map as $group_map_entry)
+		{
+
+			// check group membership
+                        $search_resource
+                                = @ldap_read($this->connection,
+                                $group_map_entry["group_name"],
+                                "member=" . $_SESSION["LOGIN_BIND_DN"],
+                                array("member"));
+
+                        if(is_resource($search_resource))
+                        {
+                                $entry = ldap_get_entries(
+                                        $this->connection,
+                                        $search_resource);
+
+                                if($entry["count"]>0)
+				{
+					foreach($group_map_entry as $setting=>$value)
+					{
+						if($setting != "group_name")
+						{
+							$previous_value = get_user_setting($setting);
+							$merge_method = get_user_setting_merge_method($setting);
+							switch($merge_method)
+							{
+								case "boolean":
+									// Don't override if already explicitly set to false
+									if($previous_value = true || !user_setting_exists($attrib))
+										assign_cached_user_setting($setting,$value);
+									break;
+								case "string":
+									if(!user_setting_exists($attrib))
+										assign_cached_user_setting($setting,$value);
+									break;
+								default:
+									show_error_message(gettext("Error") . ": "
+										. sprintf(gettext("Unsupported setting merge method: %s"),
+										$merge_method));
+							}
+						}
+					}
+				}
+                        }
+                }
 	}
 
 	/** Return whether a DN is within the specified base of the DIT
@@ -3552,6 +3684,29 @@ class ldap_server
 
 		$this->user_map[] = array_merge(
 			array("login_name"=>$login_name),
+			$settings);
+	}
+
+	/** Add a permission mapping for an LDAP group
+
+	    Defines the permissions that should be given to the group
+
+	    @param string $group_name
+		LDAP group name
+	    @param array $settings
+		Array of permissions/settings for the group
+
+	    @see
+		"configuring users and permissions" in the manual
+	*/
+
+	function add_group($group_name,$settings=array())
+	{
+		// Assign no settings if settings argument is not an array
+		if(!is_array($settings)) $settings=array();
+
+		$this->group_map[] = array_merge(
+			array("group_name"=>$group_name),
 			$settings);
 	}
 

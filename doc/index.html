@@ -679,12 +679,33 @@ permission.
 </p>
 <h3>Grant permissions based on LDAP group membership</h3>
 <p>
-Permissions can be granted according to LDAP group membership by
-specifying the group name as the permission's value.
-The following example grants all logged in users permission
-to browse, search or view the Address Book. Members of the
-<code>Address Book Admins</code> group are also granted permission
-to create, edit or delete records.
+Permissions can be granted to an LDAP group using the
+<code>$ldap_server-&gt;add_group()</code> configuration command. Members
+of the group will receive the group's permissions. In the following
+example, logged in users will receive permissions to browse, search
+and view the Address Book. Users who are members of the
+<code>Address Book Admins</code> are also granted permission
+to create, edit and delete records.
+</p>
+<pre>
+$ldap_server-&gt;add_user("__DEFAULT__",
+        array(
+                "allow_browse"=&gt;true,
+                "allow_search"=&gt;true,
+                "allow_view"=&gt;true
+        ));
+
+$ldap_server-&gt;add_group("cn=Address Book Admins,ou=HR,o=BigCorp",
+        array(
+                "allow_create"=&gt;true,
+                "allow_edit"=&gt;true,
+                "allow_delete"=&gt;true
+        ));
+</pre>
+<p>
+Alternatively, permissions can be granted according to LDAP group
+membership by specifying the group name as the permission's value.
+The following example shows how to use this method:
 </p>
 <pre>
 $ldap_server-&gt;add_user("__DEFAULT__",
