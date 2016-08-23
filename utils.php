@@ -1445,7 +1445,10 @@ class ldap_attribute
 					else
 						$value_display_name = "[ROOT]";
 
-					echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
+					echo "<img alt=\""
+						. $alt_text . "\" title=\"" . $alt_text
+						. "\" src=\"" . $icon . "\"> ";
+
 					if($this->show_embedded_links &&
 						($ldap_server->compare_dn_to_base($value,$ldap_base_dn)
 						|| get_user_setting("allow_system_admin")))
