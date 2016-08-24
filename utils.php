@@ -761,7 +761,7 @@ class ldap_entry_viewer_attrib
 			if($this->icon == "" && $this->caption == "")
 				echo "          <td colspan=3 class=\""
 						. ldap_attribute_to_css_class($this->ldap_attribute)
-						. "\">";
+						. "\">\n            ";
 			else
 			{
 				echo "          <th>";
@@ -1407,7 +1407,7 @@ class ldap_attribute
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 				{
-					if(!$first_item) echo "<br>";
+					if(!$first_item) echo "\n            <br>\n            ";
 					$first_item = false;
 					// retrieve object class icon
 					$search_resource = @ldap_read($ldap_server->connection,$value,"(objectclass=*)");
@@ -1447,7 +1447,7 @@ class ldap_attribute
 
 					echo "<img alt=\""
 						. $alt_text . "\" title=\"" . $alt_text
-						. "\" src=\"" . $icon . "\"> ";
+						. "\" src=\"" . $icon . "\">\n            ";
 
 					if($this->show_embedded_links &&
 						($ldap_server->compare_dn_to_base($value,$ldap_base_dn)
