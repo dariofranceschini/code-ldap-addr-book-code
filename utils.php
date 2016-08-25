@@ -942,7 +942,7 @@ class ldap_attribute
 
 		switch($data_type)
 		{
-			case "dn":		$this->show_dn_list();		break;
+			case "dn":		$this->show_dn();		break;
 			case "dn_list":		$this->show_dn_list();		break;
 			case "date":		$this->show_date();		break;
 			case "date_time":	$this->show_date_time();	break;
@@ -1387,21 +1387,42 @@ class ldap_attribute
 		}
 	}
 
+	/** Show single-value LDAP DN attribute (data type "dn")
+
+	    Implemented as a special case of show_dn_list()
+	*/
+
+	function show_dn()
+	{
+		$this->show_dn_list("dn");
+	}
+
 	/** Show list of LDAP DN attribute (data type "dn_list")
+
+	    @param string $attrib_type
+		Optionally indicates the type of attribute being shown:
+
+		- dn - single-valued DN attribute
+		- dn_list - multi-valued DN attribute (default)
 
 	    @todo
 		Escape "nasty values" in $attrib_value, e.g. "
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
-	    @todo
-		Support editing
 	*/
 
-	function show_dn_list()
+	function show_dn_list($attrib_type = "dn_list")
 	{
 		global $ldap_server,$ldap_base_dn;
 
-		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+		$has_values = !empty($this->ldap_entry[strtolower($this->attribute)]);
+
+		if($attrib_type == "dn")
+			$button_caption = ($has_values ? gettext("Change") : gettext("Add"));
+		else
+			$button_caption = gettext("Add");
+
+		if($has_values)
 		{
 			$first_item = true;
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
@@ -1462,9 +1483,21 @@ class ldap_attribute
 					}
 					else
 						echo $value_display_name;
+
+					if(!$this->edit && get_user_setting("allow_edit") && !$this->create)
+						echo "&nbsp;<a href=\"delete_dn_value.php?dn="
+							. urlencode($this->ldap_entry["dn"])
+							. "&attrib=" . urlencode($this->attribute)
+							. "&value=" . urlencode($value)
+							. "\"><button>" . gettext("Remove") . "</button></a>\n";
 				}
 		}
 		else echo "(" . gettext("none") . ")";
+
+		if(!$this->edit && !$this->create && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
+			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="
+				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
+				. "\"><button>" . $button_caption . "</button></a>\n";
 	}
 
 	/** Show child objects (data type "child_objects")
@@ -2234,6 +2267,9 @@ class ldap_entry_list
 	/** Whether the LDAP entry list contains search results */
 	var $contains_search_results = false;
 
+	/** Whether the LDAP entry list is for selecting an object_dn */
+	var $object_dn_select_mode = false;
+
 	/** Constructor
 
 	    @param object $ldap_server
@@ -2477,7 +2513,7 @@ class ldap_entry_list
 				// display the folder's contents.
 
 				$this->show_attrib($ldap_entry,$object_rdn_attrib,
-					"object",$item_is_folder);
+					$this->search_result_columns[0]["link_type"],$item_is_folder);
 			else
 			{
 				// Display folder name where $object_rdn_attrib
@@ -2511,7 +2547,7 @@ class ldap_entry_list
 			}
 		}
 
-		if(get_user_setting("allow_delete"))
+		if(!$this->object_dn_select_mode && get_user_setting("allow_delete"))
 			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
 				. urlencode($dn)
 				. "\"><button>" . gettext("Delete") . "</button></a>\n    </td>\n";
@@ -2578,6 +2614,45 @@ class ldap_entry_list
 			// Cell contains a link to the object
 			echo "<a href=\"" . ($is_folder ? "" : "info.php")
 				. "?dn=" . urlencode($ldap_entry["dn"]) . "\">";
+
+			$attrib->show_embedded_links=false;
+			$attrib->show();
+
+			echo "</a>";
+		}
+		else if($link_type == "add_dn_value")
+		{
+			if(isset($_GET["attrib"]))
+                		$attrib_name = $_GET["attrib"];
+		        else
+			{
+				echo "error: missing attribute name";
+		                $attrib_name = "";
+			}
+
+			if(isset($_GET["target_dn"]))
+                		$target_dn = $_GET["target_dn"];
+		        else
+			{
+				echo "error: missing target_dn";
+		                $target_dn = "";
+			}
+
+			// Cell contains a link to the object
+			if($is_folder)
+				echo "<a href=\"add_dn_value.php"
+					. "?dn=" . urlencode($ldap_entry["dn"])
+					. "&attrib=" . urlencode($attrib_name)
+					. "&target_dn=" . urlencode($target_dn)
+					. "\">";
+
+			else
+				echo "<a href=\"add_dn_value.php"
+					. "?dn=" . urlencode($ldap_entry["dn"])
+					. "&attrib=" . urlencode($attrib_name)
+					. "&target_dn=" . urlencode($target_dn)
+					. "&confirm=yes"
+					. "\">";
 
 			$attrib->show_embedded_links=false;
 			$attrib->show();
@@ -4114,5 +4189,23 @@ function missing_config_error()
 	show_site_footer();
 
 	exit(0);
+}
+
+/** Return the DN of the specified object's parent
+
+    @param string $dn
+	DN of the object whose parent DN is to be returned
+    @return
+	DN of the parent object
+*/
+
+function get_parent_dn($dn)
+{
+	$rdn_list = ldap_explode_dn2($dn);
+
+	if(isset($rdn_list[1]["dn"]))
+		return $rdn_list[1]["dn"];
+	else
+		return "";
 }
 ?>
