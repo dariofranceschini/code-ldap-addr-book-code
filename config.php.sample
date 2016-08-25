@@ -250,7 +250,7 @@ $lc_collate = "en_US";
 //	Icon to display next to attribute
 //	Whether to hide attribute when not editing
 
-$ldap_server->add_display_layout("*",array(
+$ldap_server->add_display_layout("inetOrgPerson,user",array(
 	array("section_name"=>"Personal",
 		"attributes"=>array(
 			array("givenName",			"Given Name",		"contact24.png",true),
