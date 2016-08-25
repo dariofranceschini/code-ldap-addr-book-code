@@ -184,6 +184,9 @@ function show_ldap_path($base,$leaf_icon = "")
 {
 	global $site_name,$ldap_server,$ldap_base_dn,$show_ldap_path;
 
+	if(!isset($site_name))
+		$site_name = gettext("Address Book");
+
 	echo "<table class=\"ldap_navigation_path_frame\">\n  <tr>\n"
 		. "    <td>\n      <ul class=\"ldap_navigation_path\">\n"
 		. "        <li><a href=\"" . current_page_folder_url() . "\">"
