@@ -354,7 +354,7 @@ msgstr "Fax"
 
 #: ../schema/core.php:154 ../schema/core.php:174
 msgid "Group Name"
-msgstr "Nombre del Grupo "
+msgstr "Nombre del Grupo"
 
 #: ../schema/core.php:164 ../schema/core.php:184
 msgid "Group Members"
