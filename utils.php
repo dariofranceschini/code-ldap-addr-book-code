@@ -4033,6 +4033,54 @@ abstract class ldap_schema
 			$ldap_server->add_attribute_class($name,$settings);
 		}
 	}
+
+	/** Add a value to a multi-valued attribute of the specified LDAP entry
+
+	    Call unset($entry["<attribute-name>"]) first in order to replace the
+	    existing value(s) of the attribute rather then add to them.
+
+	    @param object $ldap_server
+		LDAP server from which the object entry was retrieved
+	    @param array $entry
+		LDAP object entry to which a value is to be added
+	    @param string $attribute
+		Name of attribute to which the value is to be added
+	    @param string $value
+		Value to be added
+	*/
+
+        function add_attrib_value(&$ldap_server,&$entry,$attribute,$value)
+        {
+		if(isset($entry[strtolower($attribute)]["count"]))
+		{
+			// add additional value to existing attribute
+        	        $entry[strtolower($attribute)][$entry[strtolower($attribute)]["count"]]=$value;
+	                $entry[strtolower($attribute)]["count"]++;
+		}
+		else
+		{
+			// add as a new attribute
+        	        $entry[strtolower($attribute)][0]=$value;
+	                $entry[strtolower($attribute)]["count"]=1;
+		}
+        }
+
+	/** Add a value to a single-valued attribute of the specified LDAP entry
+
+	    @param object $ldap_server
+		LDAP server from which the object entry was retrieved
+	    @param array $entry
+		LDAP object entry to which a value is to be added
+	    @param string $attribute
+		Name of attribute to which the value is to be added
+	    @param string $value
+		Value to be added
+	*/
+
+        function add_attrib_single_value(&$ldap_server,&$entry,$attribute,$value)
+        {
+                $entry[strtolower($attribute)]=$value;
+        }
 }
 
 /** Show a list of the searchable attributes */
