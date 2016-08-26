@@ -80,7 +80,7 @@ if($ldap_server->log_on())
 					show_site_header();
 					show_ldap_path($target_dn);
 
-					echo gettext("<p>Error whilst setting attribute") . " '"
+					echo "<p>" . gettext("Error whilst setting attribute") . " '"
                 	                                . $attrib . "': " . $error . "</p>";
 
 				        echo  "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
