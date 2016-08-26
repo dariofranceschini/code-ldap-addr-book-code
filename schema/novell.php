@@ -150,6 +150,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_display_layout("ncpServer",array(
 			array("section_name"=>gettext("Server Information"),"new_row"=>true,
 				"attributes"=>array(
+					array("cn",				gettext("Server Name"),			"generic24.png",true),
 		//			array("networkAddress",			gettext("Network Address"),		"generic24.png"),
 					array("status",				gettext("Status"),			"generic24.png"),
 					array("version",			gettext("Version"),			"generic24.png"),
@@ -183,7 +184,7 @@ class novell_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("CIFS Native File Access Package"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("nfapCIFSServerName",		gettext("Server Name")),
+					array("nfapCIFSServerName",		gettext("CIFS Server Name")),
 					array("nfapCIFSWorkGroup",		gettext("Workgroup")),
 					array("nfapCIFSComment",		gettext("Comment")),
 					array("nfapCIFSShares",			gettext("Shares")),
