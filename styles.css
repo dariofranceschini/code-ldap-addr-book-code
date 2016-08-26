@@ -78,6 +78,25 @@ body,table,textarea
 }
 
 /* -------------------------------------------------------------------- */
+/* Buttons and data entry fields                                        */
+/* -------------------------------------------------------------------- */
+
+button,
+input[type=submit],
+select
+{
+	height:26px;
+}
+
+button,
+input,
+select
+{
+	font-size:10pt;
+	font-family:sans-serif;
+}
+
+/* -------------------------------------------------------------------- */
 /* Various other style directives (less useful for user configuration)  */
 /* -------------------------------------------------------------------- */
 

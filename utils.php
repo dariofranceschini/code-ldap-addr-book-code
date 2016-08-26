@@ -1469,7 +1469,7 @@ class ldap_attribute
 					else
 						$value_display_name = "[ROOT]";
 
-					echo "<img alt=\""
+					echo "<img style=\"vertical-align:middle\" alt=\""
 						. $alt_text . "\" title=\"" . $alt_text
 						. "\" src=\"" . $icon . "\">\n            ";
 
@@ -1495,7 +1495,8 @@ class ldap_attribute
 							. "\"><button>" . gettext("Remove") . "</button></a>\n";
 				}
 		}
-		else echo "(" . gettext("none") . ")";
+		else
+			echo "<span style=\"line-height:24px\">(" . gettext("none") . ")</span>\n";
 
 		if(!$this->edit && !$this->create && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
 			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="

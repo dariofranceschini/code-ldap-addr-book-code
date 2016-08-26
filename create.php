@@ -57,7 +57,7 @@ if($ldap_server->log_on())
 		echo "    <option value=\"" . $object_class
 			. "\" style=\"background-image:url(schema/"
 			. $icon
-			. ");background-repeat:no-repeat;height:24px;padding-left:24px\"";
+			. ");background-repeat:no-repeat;height:24px;padding-left:24px;padding-top:3px\"";
 
 		if($object_class == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
