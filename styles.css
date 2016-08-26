@@ -175,7 +175,7 @@ a
 	white-space:nowrap;
 }
 
-.login_info
+.login_info,
 .server_info
 {
 	text-align:right;
