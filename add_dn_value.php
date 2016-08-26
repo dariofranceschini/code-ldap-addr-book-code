@@ -33,6 +33,9 @@ if(prereq_components_ok())
 	else
 		$dn = get_parent_dn($target_dn);
 
+	if(!$ldap_server->compare_dn_to_base($dn,$ldap_base_dn) && !get_user_setting("allow_system_admin"))
+		$dn = $ldap_base_dn;
+
 	if(isset($_GET["attrib"]))
 		$attrib = $_GET["attrib"];
 	else
