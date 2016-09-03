@@ -25,7 +25,8 @@ if(prereq_components_ok())
 	if(isset($_GET["target_dn"]) && strlen($_GET["target_dn"])<=MAX_DN_LENGTH)
 		$target_dn = $_GET["target_dn"];
 	else
-		show_error_message(gettext("Unable to add DN value to an attribute - target object DN is missing"));
+		show_error_message(sprintf(gettext("Unable to add DN value to attribute: %s"),
+			gettext"Target object DN is missing"));
 
 	// DN being displayed
 	if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH)
@@ -41,7 +42,8 @@ if(prereq_components_ok())
 	else
 	{
 		$attrib = "(none)";
-		show_error_message(gettext("Unable to add DN value to an attribute - no attribute specified"));
+		show_error_message(sprintf(gettext("Unable to add DN value to attribute: %s"),
+			gettext("No attribute specified")));
 	}
 }
 
