@@ -136,11 +136,16 @@ if($ldap_server->log_on())
 				if(empty($_POST["create"]))
 					$change_list = "";
 				else
+				{
 					$change_list = "  <li>"
 						. sprintf(gettext("New '%s' record created: '%s'"),
 						htmlentities($_POST["create"],ENT_COMPAT,"UTF-8"),
 						htmlentities($name_of_object_created,ENT_COMPAT,"UTF-8"))
 						. "</li>\n";
+
+					$ldap_server->call_schema_function("after_create_"
+						. $ldap_server->get_object_class($entry[0]),$entry[0]);
+				}
 
 				/** @todo enhance to support multi-value RDNs - comma-separated list */
 
