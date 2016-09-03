@@ -881,6 +881,8 @@ class ldap_attribute
 
 	function get_value()
 	{
+		global $openldap_overlay_module,$openldap_backend_module;
+
 		if($this->attribute == "sortableName")
 		{
 			// sortableName is an internal "synthesised"
@@ -904,6 +906,28 @@ class ldap_attribute
 			{
 				$dn_elements=ldap_explode_dn2($this->ldap_entry["dn"]);
 				$attrib_value = $dn_elements[0]["value"];
+			}
+
+			// Append OpenLDAP module names to be loaded
+			if(!empty($this->ldap_entry["olcmoduleload"][0]))
+			{
+				$attrib_value .= " - ";
+				$first_value = true;
+				for($i=0;$i<$this->ldap_entry["olcmoduleload"]["count"];$i++)
+				{
+					$module_name = explode("}",$this->ldap_entry["olcmoduleload"][$i]);
+					$module_name = $module_name[1];
+
+					if(isset($openldap_overlay_module[$module_name]))
+						$module_name = $openldap_overlay_module[$module_name];
+					else if(isset($openldap_backend_module[$module_name]))
+						$module_name = $openldap_backend_module[$module_name];
+
+					if(!$first_value) $attrib_value .= ", ";
+						$first_value = false;
+
+					$attrib_value .= $module_name;
+				}
 			}
 		}
 		else
