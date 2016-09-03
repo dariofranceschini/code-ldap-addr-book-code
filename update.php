@@ -138,8 +138,8 @@ if($ldap_server->log_on())
 				else
 					$change_list = "  <li>"
 						. sprintf(gettext("New '%s' record created: '%s'"),
-						$_POST["create"],
-						$name_of_object_created)
+						htmlentities($_POST["create"],ENT_COMPAT,"UTF-8"),
+						htmlentities($name_of_object_created,ENT_COMPAT,"UTF-8"))
 						. "</li>\n";
 
 				/** @todo enhance to support multi-value RDNs - comma-separated list */
