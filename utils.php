@@ -1490,20 +1490,30 @@ class ldap_attribute
 					{
 						$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
-						// assign an object class for eDirectory tree root (not defined
-						// by default)
-						if($ldap_server->server_type=="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
+						if($entry["count"]==0)
 						{
-							$entry[0][$entry[0]["count"]] = "objectclass";
-							$entry[0]["objectclass"][0] = "treeRoot";
-							$entry[0]["count"]++;
+							// used if read operation returned not results (e.g no read permission)
+							$icon = "schema/generic24.png";
+							$alt_text = "Address Book Entry";
+							$is_folder = false;
 						}
-						$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
-						$item_object_class = $ldap_server->get_object_class($entry[0]);
-						$is_folder = $ldap_server->get_object_schema_setting(
-							$item_object_class,"is_folder");
+						else
+						{
+							// assign an object class for eDirectory tree root (not defined
+							// by default)
+							if($ldap_server->server_type=="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
+							{
+								$entry[0][$entry[0]["count"]] = "objectclass";
+								$entry[0]["objectclass"][0] = "treeRoot";
+								$entry[0]["count"]++;
+							}
+							$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
+							$item_object_class = $ldap_server->get_object_class($entry[0]);
+							$is_folder = $ldap_server->get_object_schema_setting(
+								$item_object_class,"is_folder");
 
-						$alt_text = $item_object_class;
+							$alt_text = $item_object_class;
+						}
 					}
 					else
 					{
