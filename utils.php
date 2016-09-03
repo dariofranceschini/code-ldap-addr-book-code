@@ -2584,6 +2584,9 @@ class ldap_entry_list
 				// doesn't correspond to a single attribute,
 				// e.g. object has compound RDN.
 
+				/** @todo support for add_dn_value link type behaviour for objects with multi-attribute RDNs */
+				/** @todo ability to delete - not currently implemented for objects with multi-attribute RDNs */
+
 				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
 				echo "<td colspan=" . count($this->search_result_columns)
 					. "><a href=\"?dn=" . urlencode($ldap_entry["dn"])

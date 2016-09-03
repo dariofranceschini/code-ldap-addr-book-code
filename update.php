@@ -125,6 +125,8 @@ if($ldap_server->log_on())
 						$_POST["ldap_attribute_". $rdn_attrib])
 						. "</li>\n";
 
+				/** @todo enhance to support multi-value RDNs - comma-separated list */
+
 				$rdn_attrib = $ldap_server->get_object_schema_setting(
 					$ldap_server->get_object_class($entry[0]),
 					"rdn_attrib");
@@ -140,6 +142,9 @@ if($ldap_server->log_on())
 								// Omit the RDN attribute - needs to be
 								// changed last as modifying it renames
 								// the object
+
+								/** @todo enhance to support multi-value RDNs - comma-separated list */
+
 								if($attrib != $rdn_attrib)
 								{
 									$change_description
@@ -152,6 +157,8 @@ if($ldap_server->log_on())
 							}
 
 				// update the RDN attribute after all others (if present in form data)
+				/** @todo enhance to support multi-value RDNs - comma-separated list */
+
 				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
 				{
 					// TODO: guard against nasties in the new RDN value
