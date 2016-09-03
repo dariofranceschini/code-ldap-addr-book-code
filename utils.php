@@ -4231,7 +4231,7 @@ function show_searchable_attributes()
 	foreach($search_ldap_attrib as $attrib)
 	{
 		echo "<li>" . $ldap_server->get_attribute_schema_setting(
-                        $attrib,"display_name",$attrib) . "</li>";
+			$attrib,"display_name",$attrib) . "</li>";
 	}
 	echo "</ul>";
 }
