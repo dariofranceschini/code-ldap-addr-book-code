@@ -4112,6 +4112,23 @@ class ldap_server
 
 		return $selected_layout;
 	}
+
+        /** Modify a setting of an attribute schema
+
+            @param string $attrib
+                Attribute to be modified
+            @param string $setting
+                Attribute setting to be modified
+            @param string $value
+                Value to be assigned to the attribute's setting
+        */
+
+        function modify_attribute_schema($attrib,$setting,$value)
+        {
+                foreach($this->attribute_schema as $attrib_index=>$attrib_settings)
+                        if(strtolower($this->attribute_schema[$attrib_index]["name"]) == strtolower($attrib))
+                                $this->attribute_schema[$attrib_index][$setting] = $value;
+        }
 }
 
 /** Bind to LDAP directory, recording failures to server error log
