@@ -908,6 +908,10 @@ class ldap_attribute
 				$attrib_value = $dn_elements[0]["value"];
 			}
 
+			// Append OpenLDAP database naming context
+			if(!empty($this->ldap_entry["olcsuffix"][0]))
+				$attrib_value .= " for '" . $this->ldap_entry["olcsuffix"][0] . "'";
+
 			// Append OpenLDAP module names to be loaded
 			if(!empty($this->ldap_entry["olcmoduleload"][0]))
 			{
