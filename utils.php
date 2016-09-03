@@ -19,6 +19,7 @@
 include "lib/country.php";
 include "lib/ldap_result.php";
 include "lib/oid.php";
+include "lib/openldap_module.php";
 
 define("LDAP_SORT_ASCENDING",1);
 define("LDAP_SORT_DESCENDING",2);
@@ -968,6 +969,7 @@ class ldap_attribute
 			case "phone_number":	$this->show_phone_number();	break;
 			case "olc_dangling":	$this->show_olc_dangling();	break;
 			case "ldap_result":	$this->show_ldap_result();	break;
+			case "openldap_module":	$this->show_openldap_module();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1066,6 +1068,26 @@ class ldap_attribute
 				array("value"=>"error","display_name"=>gettext("Generate an LDAP error"))
 				)
 			);
+	}
+
+	/** Show first value of olcModuleList attribute (data type "openldap_module")
+
+	    @todo support use of attributes whith more than one assigned value
+	*/
+
+	function show_openldap_module()
+	{
+		global $openldap_overlay_module,$openldap_backend_module;
+
+		foreach($openldap_overlay_module as $name => $description)
+			$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+
+		foreach($openldap_backend_module as $name => $description)
+			$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+
+		asort($codes);
+
+		$this->show_enum($codes);
 	}
 
 	/** Show LDAP result code attribute (data type "ldap_result") */
