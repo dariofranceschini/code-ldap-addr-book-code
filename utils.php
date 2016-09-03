@@ -4237,6 +4237,81 @@ abstract class ldap_schema
         {
                 $entry[strtolower($attribute)]=$value;
         }
+
+	/** Assign the RDN attribute for the next object in an ordered sequence
+
+	    @param object $ldap_server
+		LDAP server from which the object entry was retrieved
+	    @param array $entry
+		LDAP object entry to which a value is to be added
+	    @param mixed $class_name
+		Name of object class to count existing entries, either as a
+		string or as an array of objectClass entries
+	    @param string $base_name
+		Base name on which the DN will be based. The ordinal
+		indicator will be placed at the start unless otherwise
+		indicated using "{%d}" at the appropriate position.
+	    @param integer $offset
+		Optional offset to be added added to the object count.
+		(This is used for olcDatabaseConfig objects in OpenLDAP,
+		which are counted from -1)
+
+	    @see https://tools.ietf.org/html/draft-chu-ldap-xordered-00
+
+	    @todo
+		handle object classes with multi-valued RDNs
+	*/
+
+	function assign_ordered_sequence_rdn(&$ldap_server,&$entry,$class_name,$base_name,$offset=0)
+	{
+		// insert ordinal at start if not explicitly indicated otherwise
+		if(strpos($base_name,"{%d}")===false)
+			$base_name = "{%d}" . $base_name;
+
+		if(gettype($entry["objectclass"])=="array")
+		{
+			// behaviour on populate_for_create
+			$object_class = $ldap_server->get_object_class($entry);
+			$search_dn = $entry["dn"];
+
+			$rdn_attrib = strtolower($ldap_server->get_object_schema_setting(
+				$object_class,"rdn_attrib"));
+		}
+		else
+		{
+			// behaviour on before_create
+			$object_class = $entry["objectclass"];
+			$search_dn = get_parent_dn($entry["dn"]);
+
+			$rdn_attrib = $ldap_server->get_object_schema_setting(
+				$object_class,"rdn_attrib");
+		}
+
+		$search_resource = ldap_search($ldap_server->connection,$search_dn,
+			"(objectclass=" . $class_name . ")",array());
+
+		$ordinal = $search_resource ? ldap_count_entries($ldap_server->connection,
+			$search_resource) : 0;
+
+		$rdn_value = sprintf($base_name,$ordinal+$offset);
+
+		if(gettype($entry["objectclass"])=="array")
+		{
+			// when called from prepopulate_create_<class> schema function
+			unset($entry[$rdn_attrib]);
+			$entry[$rdn_attrib]["count"] = 1;
+			$entry[$rdn_attrib][0] = $rdn_value;
+		}
+		else
+		{
+			// when called from before_create_<class> schema function
+			$entry[$rdn_attrib] = $rdn_value;
+
+			$entry["dn"] = $rdn_attrib . "=" . $rdn_value;
+			if(!empty($search_dn))
+				$entry["dn"] .= "," . $search_dn;
+		}
+	}
 }
 
 /** Show a list of the searchable attributes */
