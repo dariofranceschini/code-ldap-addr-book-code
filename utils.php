@@ -3911,18 +3911,18 @@ class ldap_server
 		this).
 	*/
 
-	function call_schema_function($function_name,&$entry,$extra_param=null)
+	function call_schema_function($function_name,&$entry,&$extra_param=null)
 	{
 		foreach($this->schema_modules as $module)
 		{
 			if(method_exists($module,$function_name))
 			{
 				if(!empty($extra_param))
-					$module->$function_name(&$this,
-						&$entry,$extra_param);
+					$module->$function_name($this,
+						$entry,$extra_param);
 				else
-					$module->$function_name(&$this,
-						&$entry);
+					$module->$function_name($this,
+						$entry);
 			}
 		}
 	}
