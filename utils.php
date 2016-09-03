@@ -243,8 +243,8 @@ function show_ldap_path($base,$leaf_icon = "")
 				}
 				else
 				{
-					$icon="schema/folder.png";
-					$alt_text=gettext("Folder");
+					$icon="schema/folder-unreadable.png";
+					$alt_text=gettext("Unreadable Folder");
 				}
 			}
 
