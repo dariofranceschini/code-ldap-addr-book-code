@@ -77,6 +77,7 @@ $oid_name=array(
 	"1.3.6.1.1.13.2"			=>"LDAP Post-read Control",			// RFC4527
 	"1.3.6.1.1.22"				=>"Don't Use Copy",				// RFC6171
 	"1.3.6.1.4.1.4203.1.10.1"		=>"Subentries",					// RFC3672
+	"1.3.6.1.4.1.4203.666.5.2"		=>"No-Op Control",				// draft-zeilenga-ldap-noop-12
 	"2.16.840.1.113719.1.27.101.6"		=>"Create Forward Reference Request",		// Novell
 	"2.16.840.1.113719.1.27.101.5"		=>"Simple Password Control",			// Novell
 	"2.16.840.1.113719.1.27.103.7"		=>"GroupingControl",				// draft-zeilenga-ldap-grouping-06
