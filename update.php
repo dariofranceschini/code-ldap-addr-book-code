@@ -44,8 +44,15 @@ if($ldap_server->log_on())
 				$entry["objectclass"],
 				"rdn_attrib");
 
-			$dn = $rdn_attrib . "=" . $_POST["ldap_attribute_"
-				. $rdn_attrib] . (empty($dn) ? "" : "," . $dn);
+			// Allow for blank RDN attribute - e.g. if populated
+			// programatically by schema-specific function (called below)
+
+			/** @todo enhance to support multi-value RDNs */
+			if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
+				$dn = $rdn_attrib . "=" . $_POST["ldap_attribute_"
+					. $rdn_attrib] . (empty($dn) ? "" : "," . $dn);
+			else
+				$dn = $rdn_attrib . "=" . (empty($dn) ? "" : "," . $dn);
 		}
 
 		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
@@ -89,7 +96,17 @@ if($ldap_server->log_on())
 							$entry[$attrib] = $_POST["ldap_attribute_"
 								. $attrib];
 
+					// Allow schema function to see/modify the DN to be created
+					$entry["dn"] = $dn;
+
 					$ldap_server->call_schema_function("before_create_" . $entry["objectclass"],$entry);
+
+					// Update the DN to be created (if modified by the schema function)
+					$dn = $entry["dn"];
+					unset($entry["dn"]);
+
+					$name_of_object_created = ldap_explode_dn2($dn);
+					$name_of_object_created = $name_of_object_created[0]["value"];
 
 					$result = @ldap_add($ldap_server->connection,$dn,$entry);
 
@@ -122,7 +139,7 @@ if($ldap_server->log_on())
 					$change_list = "  <li>"
 						. sprintf(gettext("New '%s' record created: '%s'"),
 						$_POST["create"],
-						$_POST["ldap_attribute_". $rdn_attrib])
+						$name_of_object_created)
 						. "</li>\n";
 
 				/** @todo enhance to support multi-value RDNs - comma-separated list */
