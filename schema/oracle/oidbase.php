@@ -37,5 +37,10 @@ class oracle_oidbase_schema extends ldap_schema
 
 		parent::__construct($ldap_server);
         }
+
+        function populate_for_create_orclContext(&$ldap_server,&$entry)
+        {
+                $this->add_attrib_value($ldap_server,$entry,"cn","OracleContext");
+        }
 }
 ?>
