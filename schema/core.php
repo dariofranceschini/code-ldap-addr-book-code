@@ -293,5 +293,61 @@ class core_schema extends ldap_schema
 
 		parent::__construct($ldap_server);
 	}
+
+	/** The "member" attribute of "groupOfNames" objects must always have at
+	    least one value assigned. It cannot be omitted in order to represent
+	    an empty group (i.e. a group which has no members).
+
+	    Many LDAP appliications allow an empty group to be represented using
+	    a "member" attribute containing single, blank value. The following
+	    functions are responsible for adding this special value when the group
+	    is empty, removing it when other group members are present and hiding
+	    it in the user interface.
+
+	    A group which contains the rootDSE object (blank DN) will appear
+	    as an empty group.
+
+	    Alternative workarounds used in other directory types include:
+
+	    eDirectory:
+		defines "member" as optional, which allows it to be missing
+		if the group has no members
+
+	    Active Directory:
+		uses a separate "group" class in which "member" is optional.
+	*/
+
+	/** Add a blank placeholder group member when a new group is created */
+
+	function before_create_groupOfNames(&$ldap_server,&$entry)
+	{
+		if(empty($entry["member"]))
+			$this->add_attrib_single_value($ldap_server,$entry,"member","");
+	}
+
+	/** Hide the blank placeholder group member when displaying an empty group */
+
+	function before_show_groupOfNames(&$ldap_server,&$entry)
+	{
+		if(isset($entry["member"]["count"]) && $entry["member"]["count"]==1 && empty($entry["member"][0]))
+			unset($entry["member"]);
+	}
+
+	/** Remove the blank placeholder group member after a real member is added to a group */
+
+	function after_add_groupOfNames_member(&$ldap_server,&$entry)
+	{
+		if($entry["member"]["count"]==2)
+			@ldap_mod_del($ldap_server->connection,$entry["dn"],array("member"=>""));
+	}
+
+	/** Add a blank placeholder group member after the last (non-blank) group member
+	is removed from a group */
+
+	function before_delete_groupOfNames_member(&$ldap_server,&$entry)
+	{
+		if($entry["member"]["count"]==1)
+			@ldap_mod_add($ldap_server->connection,$entry["dn"],array("member"=>""));
+	}
 }
 ?>
