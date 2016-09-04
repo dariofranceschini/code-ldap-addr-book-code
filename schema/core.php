@@ -349,5 +349,52 @@ class core_schema extends ldap_schema
 		if($entry["member"]["count"]==1)
 			@ldap_mod_add($ldap_server->connection,$entry["dn"],array("member"=>""));
 	}
+
+	/** The "uniqueMember" attribute of "groupOfUniqueNames" objects must always have at
+	    least one value assigned, similar to "groupOfNames" objects as described above.
+
+	    Alternative workarounds used in other directory types include:
+
+	    eDirectory:
+		defines "groupOfUniqueNames" as an alias of "groupOfNames" rather than
+		a separate class.
+
+	    Active Directory:
+		uses a separate "group" class and maintains referential integrity between
+		the its member list and the corresponding directory objects.
+	*/
+
+	/** Add a blank placeholder group member when a new group is created */
+
+	function before_create_groupOfUniqueNames(&$ldap_server,&$entry)
+	{
+		if(empty($entry["uniquemember"]))
+			$this->add_attrib_single_value($ldap_server,$entry,"uniqueMember","");
+	}
+
+	/** Hide the blank placeholder group member when displaying an empty group */
+
+	function before_show_groupOfUniqueNames(&$ldap_server,&$entry)
+	{
+		if(isset($entry["uniquemember"]["count"]) && $entry["uniquemember"]["count"]==1 && empty($entry["uniquemember"][0]))
+			unset($entry["uniquemember"]);
+	}
+
+	/** Remove the blank placeholder group member after a real member is added to a group */
+
+	function after_add_groupOfUniqueNames_uniqueMember(&$ldap_server,&$entry)
+	{
+		if($entry["uniquemember"]["count"]==2)
+			@ldap_mod_del($ldap_server->connection,$entry["dn"],array("uniqueMember"=>""));
+	}
+
+	/** Add a blank placeholder group member after the last (non-blank) group member
+	is removed from a group */
+
+	function before_delete_groupOfUniqueNames_uniqueMember(&$ldap_server,&$entry)
+	{
+		if($entry["uniquemember"]["count"]==1)
+			@ldap_mod_add($ldap_server->connection,$entry["dn"],array("uniqueMember"=>""));
+	}
 }
 ?>
