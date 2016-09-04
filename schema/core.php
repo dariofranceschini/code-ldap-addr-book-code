@@ -91,7 +91,7 @@ class core_schema extends ldap_schema
 		$this->object_schema = array(
 			array("name"=>"alias",				"icon"=>"alias.png",		"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
-			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member"),
+			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member","can_create"=>true),
 			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
 			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
 			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person")),
