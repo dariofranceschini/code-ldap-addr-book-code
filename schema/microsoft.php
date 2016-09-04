@@ -129,7 +129,9 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msDFS-NamespaceAnchor",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDFS-Namespacev2",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"dnsZone",			"icon"=>"microsoft/dns-zone.png",	"is_folder"=>true,"rdn_attrib"=>"dc"),
-			array("name"=>"dnsNode",			"icon"=>"generic24.png",		"is_folder"=>false,"rdn_attrib"=>"dc")
+			array("name"=>"dnsNode",			"icon"=>"generic24.png",		"is_folder"=>false,"rdn_attrib"=>"dc"),
+			array("name"=>"classStore",			"icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"packageRegistration",		"icon"=>"app.png",			"is_folder"=>false)
 			);
 
 		// Display layouts
