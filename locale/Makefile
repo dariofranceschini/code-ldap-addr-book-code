@@ -33,8 +33,8 @@ clean:
 
 translate: ${MAIN_MO} ${SCHEMA_MO}
 
-main.pot: $(wildcard ../*.php)
-	ls ../*.php | xargs xgettext -o main.pot \
+main.pot: $(wildcard ../*.php) $(wildcard ../lib/*.php)
+	ls ../*.php ../lib/*.php | xargs xgettext -o main.pot \
 		--from-code UTF-8 \
 		--package-name="${PACKAGE_NAME}" \
 		--copyright-holder="${PACKAGE_COPYRIGHT}"
