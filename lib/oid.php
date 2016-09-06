@@ -35,8 +35,8 @@ $oid_name=array(
 
 	// LDAP Controls
 
-	"1.2.826.0.1.3344810.2.3"		=>"Matched Values Control",			// RFC3876
-	"1.2.840.113556.1.4.319"		=>"LDAP Simple Paged Results Control",		// RFC2696
+	"1.2.826.0.1.3344810.2.3"		=>"Matched Values",				// RFC3876
+	"1.2.840.113556.1.4.319"		=>"Simple Paged Results",			// RFC2696
 	"1.2.840.113556.1.4.473"		=>"Server Side Sorting Request",		// RFC2891
 	"1.2.840.113556.1.4.474"		=>"Server Side Sorting Response",		// RFC2891
 	"1.2.840.113556.1.4.417"		=>"Show Deleted",				// Microsoft
@@ -72,21 +72,21 @@ $oid_name=array(
 	"1.2.840.113556.1.4.2255"		=>"Set Owner",					// Microsoft
 	"1.2.840.113556.1.4.2256"		=>"Bypass Quota",				// Microsoft
 	"1.2.840.113556.1.4.2309"		=>"Link TTL",					// Microsoft
-	"1.3.6.1.1.12"				=>"Assertion Control",				// RFC4528
-	"1.3.6.1.1.13.1"			=>"LDAP Pre-read Control",			// RFC4527
-	"1.3.6.1.1.13.2"			=>"LDAP Post-read Control",			// RFC4527
+	"1.3.6.1.1.12"				=>"Assertion",					// RFC4528
+	"1.3.6.1.1.13.1"			=>"Pre-read",					// RFC4527
+	"1.3.6.1.1.13.2"			=>"Post-read",					// RFC4527
 	"1.3.6.1.1.22"				=>"Don't Use Copy",				// RFC6171
 	"1.3.6.1.4.1.4203.1.10.1"		=>"Subentries",					// RFC3672
-	"1.3.6.1.4.1.4203.666.5.2"		=>"No-Op Control",				// draft-zeilenga-ldap-noop-12
+	"1.3.6.1.4.1.4203.666.5.2"		=>"No-Op",					// draft-zeilenga-ldap-noop-12
 	"2.16.840.1.113719.1.27.101.6"		=>"Create Forward Reference Request",		// Novell
-	"2.16.840.1.113719.1.27.101.5"		=>"Simple Password Control",			// Novell
-	"2.16.840.1.113719.1.27.103.7"		=>"GroupingControl",				// draft-zeilenga-ldap-grouping-06
+	"2.16.840.1.113719.1.27.101.5"		=>"Simple Password",				// Novell
+	"2.16.840.1.113719.1.27.103.7"		=>"Grouping",					// draft-zeilenga-ldap-grouping-06
 	"2.16.840.1.113719.1.27.101.40"		=>"LDAP_CONTROL_SSTATREQUEST",			// Novell (Search Status Request?)
 	"2.16.840.1.113730.3.4.2"		=>"Manage DSA Information Tree",		// RFC3296
 	"2.16.840.1.113730.3.4.3"		=>"Persistent Search",				// draft-ietf-ldapext-psearch-03
 	"2.16.840.1.113730.3.4.9"		=>"Virtual List View Request",			// draft-ietf-ldapext-ldapv3-vlv-09
 	"2.16.840.1.113730.3.4.10"		=>"Virtual List View Response",			// draft-ietf-ldapext-ldapv3-vlv-09
-	"2.16.840.1.113730.3.4.18"		=>"Proxy Authorization Control",		// RFC4370
+	"2.16.840.1.113730.3.4.18"		=>"Proxy Authorization",			// RFC4370
 
 	// LDAP Features
 
