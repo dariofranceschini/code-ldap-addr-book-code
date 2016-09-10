@@ -7,6 +7,7 @@ class system_openldap_schema extends ldap_schema
 	{
 		$this->attribute_schema = array(
 			array("name"=>"configContext",			"data_type"=>"dn",		"display_name"=>gettext("Configuration Context")),
+			array("name"=>"monitorContext",			"data_type"=>"dn",		"display_name"=>gettext("Monitoring Context")),
 			);
 
 		// Structural object classes
@@ -21,6 +22,7 @@ class system_openldap_schema extends ldap_schema
 					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png"),
 					array("namingContexts",			gettext("Naming Contexts"),		"alias.png"),
 					array("configContext",			gettext("Configuration Context"),	"alias.png"),
+					array("monitorContext",			gettext("Monitoring Context"),		"alias.png"),
 					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png")
 					)
 				),

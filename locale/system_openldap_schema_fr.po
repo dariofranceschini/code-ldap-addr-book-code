@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 11:59+0100\n"
-"PO-Revision-Date: 2016-05-30 11:59+0100\n"
+"POT-Creation-Date: 2016-09-10 10:30+0100\n"
+"PO-Revision-Date: 2016-09-10 10:30+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,62 +17,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/system/openldap.php:9 ../schema/system/openldap.php:23
+#: ../schema/system/openldap.php:9 ../schema/system/openldap.php:24
 msgid "Configuration Context"
 msgstr "Contexte de Configuration"
 
-#: ../schema/system/openldap.php:14
+#: ../schema/system/openldap.php:10 ../schema/system/openldap.php:25
+msgid "Monitoring Context"
+msgstr "Contexte de la Surveillance"
+
+#: ../schema/system/openldap.php:15
 msgid "OpenLDAP Root DSE"
 msgstr "RootDSE OpenLDAP"
 
-#: ../schema/system/openldap.php:19
+#: ../schema/system/openldap.php:20
 msgid "OpenLDAP Server"
 msgstr "Serveur OpenLDAP"
 
-#: ../schema/system/openldap.php:21
+#: ../schema/system/openldap.php:22
 msgid "Supported LDAP Versions"
 msgstr "Versions Prises en Charge LDAP"
 
-#: ../schema/system/openldap.php:22
+#: ../schema/system/openldap.php:23
 msgid "Naming Contexts"
 msgstr "Contextes des Nommage"
 
-#: ../schema/system/openldap.php:24
+#: ../schema/system/openldap.php:26
 msgid "Subschema Subentry"
 msgstr "Entrée Subordonnée pour le Schéma Subordonné"
 
-#: ../schema/system/openldap.php:27
+#: ../schema/system/openldap.php:29
 msgid "Supported Controls"
 msgstr "Commandes Prises en Charge"
 
-#: ../schema/system/openldap.php:32
+#: ../schema/system/openldap.php:34
 msgid "Supported Features"
 msgstr "Fonctionnalités Prises en Charge"
 
-#: ../schema/system/openldap.php:37
+#: ../schema/system/openldap.php:39
 msgid "Supported SASL Mechanisms"
 msgstr "Mécanismes SASL Pris en Charge"
 
-#: ../schema/system/openldap.php:42
+#: ../schema/system/openldap.php:44
 msgid "Supported Extensions"
 msgstr "Extensions Prises en Charge"
 
-#: ../schema/system/openldap.php:50
+#: ../schema/system/openldap.php:52
 msgid "Object Class Definitions"
 msgstr "Définitions des Classes d'Objets"
 
-#: ../schema/system/openldap.php:55
+#: ../schema/system/openldap.php:57
 msgid "Attribute Type Definitions"
 msgstr "Définitions des Types d'Attributs"
 
-#: ../schema/system/openldap.php:60
+#: ../schema/system/openldap.php:62
 msgid "LDAP Syntax Definitions"
 msgstr "Définitions de LDAP Syntaxe"
 
-#: ../schema/system/openldap.php:65
+#: ../schema/system/openldap.php:67
 msgid "Matching Rules"
 msgstr "Règles de Correspondance"
 
-#: ../schema/system/openldap.php:70
+#: ../schema/system/openldap.php:72
 msgid "Matching Rule Use"
 msgstr "Utilisation des Règles de Correspondance"
