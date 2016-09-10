@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-04 09:48+0100\n"
-"PO-Revision-Date: 2016-09-04 09:48+0100\n"
+"POT-Creation-Date: 2016-09-10 09:57+0100\n"
+"PO-Revision-Date: 2016-09-10 09:57+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -21,6 +21,10 @@ msgstr ""
 #, php-format
 msgid "Unable to add DN value to attribute: %s"
 msgstr "Impossible d'ajouter de la valeur à attribuer DN: %s"
+
+#: ../add_dn_value.php:29
+msgid "Target object DN is missing"
+msgstr "DN de l'objet cible est manquant"
 
 #: ../add_dn_value.php:46
 msgid "No attribute specified"
