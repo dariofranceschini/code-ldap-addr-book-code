@@ -26,6 +26,34 @@ if($ldap_server->log_on())
 	// TODO: guard against nasties in the DN
 	$dn = $_GET["dn"];
 
+	$search_resource = @ldap_read($ldap_server->connection,$dn,$browse_ldap_filter,array("objectclass"));
+
+	if($search_resource)
+	{
+		$container_entry = ldap_get_entries($ldap_server->connection,$search_resource);
+
+		$contain_list = array("*");
+		foreach($container_entry[0]["objectclass"] as $class_index=>$container_class)
+		{
+			if(!($class_index === "count"))
+			{
+				$contain_list_for_class = explode(",",$ldap_server->get_object_schema_setting(
+					$container_class,"can_contain"));
+
+				if($contain_list_for_class[0] != "*")
+					// TODO: further restrict contain_list if already populated
+					$contain_list = $contain_list_for_class;
+			}
+		}
+
+		$container_object = $container_entry[0];
+	}
+	else
+	{
+		$container_object = array("objectclass"=>"top");
+		$contain_list = array("*");
+	}
+
 	$show_all_object_classes = isset($_GET["show_all"]) && get_user_setting("allow_system_admin");
 
 	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
@@ -41,8 +69,19 @@ if($ldap_server->log_on())
 
 	$create_list = array();
 	foreach($ldap_server->object_schema as $object_class)
-		if($show_all_object_classes || $ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
+		if($show_all_object_classes ||
+				(
+					// object must be marked as creatable (in general)
+					$ldap_server->get_object_schema_setting($object_class["name"],"can_create")
+					// ...and the container/folder is "willing" to contain it
+					&& can_create_in_container($object_class,$contain_list)
+					// ...and the object is "willing" to be contained here
+					&& can_be_contained_by($object_class,$container_object)
+				)
+			)
 			$create_list[] = $object_class["name"];
+
+
 
 	natcasesort($create_list);
 

@@ -3287,6 +3287,8 @@ class ldap_server
 			if($setting_name == "is_folder") $setting_value = false;
 			if($setting_name == "rdn_attrib") $setting_value = "cn";
 			if($setting_name == "can_create") $setting_value = false;
+			if($setting_name == "can_contain") $setting_value = "*";
+			if($setting_name == "contained_by") $setting_value = "*";
 			if($setting_name == "display_name") $setting_value = $class;
 		}
 		return $setting_value;
@@ -4366,5 +4368,99 @@ function get_parent_dn($dn)
 		return $rdn_list[1]["dn"];
 	else
 		return "";
+}
+
+/** Return whether the specified container accepts subordinates of the specified type
+
+    Container/folder object classes can be defined which only allow certain classes
+    of object to be created inside them. This function is used to limit the classes
+    listed in the "Create Object" menu to only those which are allowed.
+
+    @param string $object_class
+	Structural object class to be created
+    @param string $contain_list
+	List of object classes of container object
+    @return
+	True if the object can be created within the specified
+	container.
+
+    @todo check containment rules of parent classes recursively (parent of parent, etc)
+*/
+
+function can_create_in_container($object_class,$contain_list)
+{
+	$can_create = false;
+	if($contain_list[0]=="*")		// if container will accept any object class
+		$can_create = true;
+
+	if(!$can_create && in_array($object_class["name"],$contain_list))
+		$can_create = true;
+
+	if(!$can_create && isset($object_class["parent_class"]))
+	{
+		$parent_class = explode(",",$object_class["parent_class"]);
+
+		foreach($parent_class as $potential_container)
+			if(in_array($potential_container,$contain_list))
+				$can_create = true;
+	}
+
+	return $can_create;
+}
+
+/** Return whether the specified object is allowed to be created within the specified container
+
+    Object classes can be defined which are only allowed to be created in certain
+    containers/folders. This function is used to remove the object from "Create Object"
+    menu for containers/folders where it can't be created.
+
+    @param string $object_class
+	Structural object class to be created
+    @param string $contain_list
+	List of object classes of container object
+    @return
+	True if the object can be created within the specified
+	container.
+*/
+
+function can_be_contained_by($object_class,$container_object)
+{
+	global $ldap_server;
+
+	$can_create = false;
+
+	$container_object_class = $ldap_server->get_object_class($container_object);
+
+	$contained_by_list = explode(",",
+		$ldap_server->get_object_schema_setting($object_class["name"],
+		"contained_by"));
+
+	if(count(array_intersect($contained_by_list,$container_object["objectclass"]))>0)
+		$can_create = true;
+
+	if(!$can_create && isset($object_class["parent_class"]))
+	{
+		$parent_class = explode(",",$object_class["parent_class"]);
+
+		foreach($parent_class as $parent_class_to_consider)
+		{
+			// look up the parent class's schema info
+			$object_class_info = array("name"=>$parent_class_to_consider);
+			foreach($ldap_server->object_schema as $object_class)
+			{
+				if($object_class["name"] == $parent_class_to_consider)
+				$object_class_info = $object_class;
+			}
+
+			// self-recursion
+			$can_create = can_be_contained_by($object_class_info,$container_object);
+		}
+	}
+	else
+		// only take "*" into account at highest parent class level
+		if(!$can_create && $contained_by_list[0]=="*")
+			$can_create = true;
+
+	return $can_create;
 }
 ?>
