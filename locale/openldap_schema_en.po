@@ -1,0 +1,30 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-24 13:29+0100\n"
+"PO-Revision-Date: 2016-09-24 13:29+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap.php:10
+msgid "OpenLDAP Organization"
+msgstr "OpenLDAP Organization"
+
+#: ../schema/openldap.php:11
+msgid "OpenLDAP Organizational Unit"
+msgstr "OpenLDAP Organizational Unit"
+
+#: ../schema/openldap.php:12
+msgid "OpenLDAP Person"
+msgstr "OpenLDAP Person"
