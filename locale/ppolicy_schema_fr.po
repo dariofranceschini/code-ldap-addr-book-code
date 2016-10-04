@@ -1,0 +1,148 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-04 08:36+0100\n"
+"PO-Revision-Date: 2016-10-04 08:36+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/ppolicy.php:22
+msgid "Allow Users to Change their Password"
+msgstr "Autoriser les Utilisateurs à Changer leur Mot de Passe"
+
+#: ../schema/ppolicy.php:23
+msgid "Password Attribute Name"
+msgstr "Nom de l'Attribut de Mot de Passe"
+
+#: ../schema/ppolicy.php:24
+msgid "Password Quality Check Behavior"
+msgstr "Comportement de passe Contrôle de la Qualité"
+
+#: ../schema/ppolicy.php:25
+msgid "Length of Warning Period Before Password Expiry"
+msgstr "Longueur d'Avertissement Période Avant Mot de Passe d'Expiration"
+
+#: ../schema/ppolicy.php:26
+msgid "Reset Time for Failed Logins Counter"
+msgstr "Temps de Réinitialisation pour Échec Login Compteur"
+
+#: ../schema/ppolicy.php:27
+msgid "Number of Grace Logins Allowed for Expired Passwords"
+msgstr "Nombre de Logins de Grâce Autorisés pour les Mots de Passe Expirés"
+
+#: ../schema/ppolicy.php:28
+msgid "Number of Passwords to Store in History"
+msgstr "Nombre de Mots de Passe pour Stocker dans l'Histoire"
+
+#: ../schema/ppolicy.php:29
+msgid "Lock Accounts after Consecutive Login Failures"
+msgstr "Comptes de Verrouillage après Consécutives Connexion Échecs"
+
+#: ../schema/ppolicy.php:30
+msgid "Account Lock Time after Consecutive Login Failures"
+msgstr "Durée de Verrouillage Compte après Consécutifs Échecs de Connexion"
+
+#: ../schema/ppolicy.php:31
+msgid "Maximum Password Age (Expiry Time)"
+msgstr "Âge Maximum de Mot de Passe (Heure d'Expiration)"
+
+#: ../schema/ppolicy.php:32
+msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
+msgstr ""
+"Nombre de Défaillances Consécutives Connexion avant Applique la Politique de "
+"Verrouillage"
+
+#: ../schema/ppolicy.php:33
+msgid "Minimum Password Age"
+msgstr "Âge Minimum de Mots de Passe"
+
+#: ../schema/ppolicy.php:34
+msgid "Minimum Accepted Password Length"
+msgstr "longueur Minimale Acceptable de Mot de Passe"
+
+#: ../schema/ppolicy.php:35
+msgid "Users Must Change Password at Next Logon After Reset"
+msgstr ""
+"Utilisateurs Doivent Changer Mot de Passe à la Prochaine Ouverture de "
+"Session Après Réinitialisation"
+
+#: ../schema/ppolicy.php:36
+msgid "Users Must Send Old and New Passwords When Changing"
+msgstr ""
+"Utilisateurs Doivent Envoyer Anciens et Nouveaux Mots de Passe lors de la "
+"Modification"
+
+#: ../schema/ppolicy.php:39
+msgid "Password Quality Check Module Name"
+msgstr "Nom du Module pour Vérifier la Qualité des Mots de Passe"
+
+#: ../schema/ppolicy.php:45
+msgid "Grace Login Validity Period"
+msgstr "Période de Validité de Grâce Logins"
+
+#: ../schema/ppolicy.php:46
+msgid "Maximum Delay Introduced when Responding to Login Failure"
+msgstr "Délai Maximum Présenté lors de la Réponse à la Connexion Échec"
+
+#: ../schema/ppolicy.php:47
+msgid "Time after which Unused Accounts are Locked Out"
+msgstr "Temps après Lequel des Comptes Inutilisés sont Verrouillés"
+
+#: ../schema/ppolicy.php:48
+msgid "Maximum Accepted Password Length"
+msgstr "Longueur Maximale Acceptable de Mot de Passe"
+
+#: ../schema/ppolicy.php:49
+msgid "Initial Delay Introduced when Responding to Login Failure"
+msgstr "Retard Introduit lors de la Réponse à la Première Échec de Connexion"
+
+#: ../schema/ppolicy.php:53
+msgid "Time When Account Locked"
+msgstr "Temps Lorsque Compte a été Verrouillé"
+
+#: ../schema/ppolicy.php:54
+msgid "Time When Password Last Changed"
+msgstr "Temps Lorsque Mot de Passe a été Dernière Modification"
+
+#: ../schema/ppolicy.php:55
+msgid "Times of Last Consecutive Login Failures"
+msgstr "Temps de Dernières Consécutives Connexion Échecs"
+
+#: ../schema/ppolicy.php:56
+msgid "Times of Grace Logins after Password Expiry"
+msgstr "Temps de Logins de Grâce après Expiration Mot de Passe"
+
+#: ../schema/ppolicy.php:57
+msgid "Password History"
+msgstr "Histoire de Mot de Passe"
+
+#: ../schema/ppolicy.php:58
+msgid "Policy Object DN"
+msgstr "DN de l'Objet Politique"
+
+#: ../schema/ppolicy.php:59
+msgid "Password Has Been Reset"
+msgstr "Mot de Passe a été Réinitialisé"
+
+#: ../schema/ppolicy.php:65
+msgid "End of Password Validity Period"
+msgstr "Fin de la Période de Validité Mot de Passe"
+
+#: ../schema/ppolicy.php:66
+msgid "Time of Last Successful Login"
+msgstr "Heure de la Dernière Connexion Réussie"
+
+#: ../schema/ppolicy.php:67
+msgid "Start of Password Validity Period"
+msgstr "Début de la Période de Validité Mot de Passe"

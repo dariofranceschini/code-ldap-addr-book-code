@@ -1,0 +1,147 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-04 08:36+0100\n"
+"PO-Revision-Date: 2016-10-04 08:36+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/ppolicy.php:22
+msgid "Allow Users to Change their Password"
+msgstr "Permiten al Usuario Cambiar su Contraseña"
+
+#: ../schema/ppolicy.php:23
+msgid "Password Attribute Name"
+msgstr "Nombre del Atributo de Contraseña"
+
+#: ../schema/ppolicy.php:24
+msgid "Password Quality Check Behavior"
+msgstr "Comportamiento de la Contraseña Control de Calidad"
+
+#: ../schema/ppolicy.php:25
+msgid "Length of Warning Period Before Password Expiry"
+msgstr ""
+"Duración del Período de Advertencia Antes de Caducidad de la Contraseña"
+
+#: ../schema/ppolicy.php:26
+msgid "Reset Time for Failed Logins Counter"
+msgstr "Reposición de Tiempo para Fallos de Conexión del Contador"
+
+#: ../schema/ppolicy.php:27
+msgid "Number of Grace Logins Allowed for Expired Passwords"
+msgstr "Número de Entradas de Gracia Permitidos para las Contraseñas Caducadas"
+
+#: ../schema/ppolicy.php:28
+msgid "Number of Passwords to Store in History"
+msgstr "Número de Contraseñas Almacenar en Historia"
+
+#: ../schema/ppolicy.php:29
+msgid "Lock Accounts after Consecutive Login Failures"
+msgstr "Cuentas de Bloqueo después de Fallos de Conexión Consecutivos"
+
+#: ../schema/ppolicy.php:30
+msgid "Account Lock Time after Consecutive Login Failures"
+msgstr "Duración del Bloqueo de Cuenta después de Fallos de Conexión Consecutivos"
+
+#: ../schema/ppolicy.php:31
+msgid "Maximum Password Age (Expiry Time)"
+msgstr "Edad Máxima de Contraseñas (Tiempo de Expiración)"
+
+#: ../schema/ppolicy.php:32
+msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
+msgstr ""
+"Número de Errores de Entrada Consecutivos antes se Aplican Condiciones de "
+"Bloqueo"
+
+#: ../schema/ppolicy.php:33
+msgid "Minimum Password Age"
+msgstr "Edad Mínima de Contraseñas"
+
+#: ../schema/ppolicy.php:34
+msgid "Minimum Accepted Password Length"
+msgstr "Mínimo Aceptable Longitud de Contraseña"
+
+#: ../schema/ppolicy.php:35
+msgid "Users Must Change Password at Next Logon After Reset"
+msgstr ""
+"Usuarios Deben Cambiar la Contraseña en el Siguiente Inicio de Sesión "
+"Después de un Reajuste"
+
+#: ../schema/ppolicy.php:36
+msgid "Users Must Send Old and New Passwords When Changing"
+msgstr "Usuarios Deben Enviar Contraseñas Antiguas y Nuevas al Cambiar"
+
+#: ../schema/ppolicy.php:39
+msgid "Password Quality Check Module Name"
+msgstr "Nombre del Módulo de Calidad de Contraseñas Comprobación"
+
+#: ../schema/ppolicy.php:45
+msgid "Grace Login Validity Period"
+msgstr "Período de Validez de las Entradas de Gracia"
+
+#: ../schema/ppolicy.php:46
+msgid "Maximum Delay Introduced when Responding to Login Failure"
+msgstr "Máximo Retardo Introducido al Responder a Fallidos de Registro"
+
+#: ../schema/ppolicy.php:47
+msgid "Time after which Unused Accounts are Locked Out"
+msgstr "Tiempo Qespués del Cual las Cuentas no Utilizadas están Bloqueados"
+
+#: ../schema/ppolicy.php:48
+msgid "Maximum Accepted Password Length"
+msgstr "Máximo Aceptable Longitud de Contraseña"
+
+#: ../schema/ppolicy.php:49
+msgid "Initial Delay Introduced when Responding to Login Failure"
+msgstr "Retardo Introducido al Responder a Primera Fallidos de Registro"
+
+#: ../schema/ppolicy.php:53
+msgid "Time When Account Locked"
+msgstr "Cuando el Tiempo Cuenta se Bloqueó"
+
+#: ../schema/ppolicy.php:54
+msgid "Time When Password Last Changed"
+msgstr "Cuando el Tiempo se Cambió por Última Contraseña"
+
+#: ../schema/ppolicy.php:55
+msgid "Times of Last Consecutive Login Failures"
+msgstr "Últimos Momentos de Fallos de Conexión Consecutivos"
+
+#: ../schema/ppolicy.php:56
+msgid "Times of Grace Logins after Password Expiry"
+msgstr "Tiempos de Entradas de Gracia Después de Caducidad de la Contraseña"
+
+#: ../schema/ppolicy.php:57
+msgid "Password History"
+msgstr "Historial de Contraseñas"
+
+#: ../schema/ppolicy.php:58
+msgid "Policy Object DN"
+msgstr "DN del Objeto de Directiva"
+
+#: ../schema/ppolicy.php:59
+msgid "Password Has Been Reset"
+msgstr "Contraseña se ha Restablecido"
+
+#: ../schema/ppolicy.php:65
+msgid "End of Password Validity Period"
+msgstr "Fin de la Contraseña Período de Validez"
+
+#: ../schema/ppolicy.php:66
+msgid "Time of Last Successful Login"
+msgstr "Última Hora de Inicio de Sesión Correcto"
+
+#: ../schema/ppolicy.php:67
+msgid "Start of Password Validity Period"
+msgstr "Inicio del Período de Validez Contraseña"

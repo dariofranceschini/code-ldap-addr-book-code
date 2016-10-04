@@ -1,0 +1,142 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-04 08:36+0100\n"
+"PO-Revision-Date: 2016-10-04 08:36+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/ppolicy.php:22
+msgid "Allow Users to Change their Password"
+msgstr "Allow Users to Change their Password"
+
+#: ../schema/ppolicy.php:23
+msgid "Password Attribute Name"
+msgstr "Password Attribute Name"
+
+#: ../schema/ppolicy.php:24
+msgid "Password Quality Check Behavior"
+msgstr "Password Quality Check Behavior"
+
+#: ../schema/ppolicy.php:25
+msgid "Length of Warning Period Before Password Expiry"
+msgstr "Length of Warning Period Before Password Expiry"
+
+#: ../schema/ppolicy.php:26
+msgid "Reset Time for Failed Logins Counter"
+msgstr "Reset Time for Failed Logins Counter"
+
+#: ../schema/ppolicy.php:27
+msgid "Number of Grace Logins Allowed for Expired Passwords"
+msgstr "Number of Grace Logins Allowed for Expired Passwords"
+
+#: ../schema/ppolicy.php:28
+msgid "Number of Passwords to Store in History"
+msgstr "Number of Passwords to Store in History"
+
+#: ../schema/ppolicy.php:29
+msgid "Lock Accounts after Consecutive Login Failures"
+msgstr "Lock Accounts after Consecutive Login Failures"
+
+#: ../schema/ppolicy.php:30
+msgid "Account Lock Time after Consecutive Login Failures"
+msgstr "Account Lock Time after Consecutive Login Failures"
+
+#: ../schema/ppolicy.php:31
+msgid "Maximum Password Age (Expiry Time)"
+msgstr "Maximum Password Age (Expiry Time)"
+
+#: ../schema/ppolicy.php:32
+msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
+msgstr "Number of Consecutive Login Failures before Lock-Out Policy Applies"
+
+#: ../schema/ppolicy.php:33
+msgid "Minimum Password Age"
+msgstr "Minimum Password Age"
+
+#: ../schema/ppolicy.php:34
+msgid "Minimum Accepted Password Length"
+msgstr "Minimum Accepted Password Length"
+
+#: ../schema/ppolicy.php:35
+msgid "Users Must Change Password at Next Logon After Reset"
+msgstr "Users Must Change Password at Next Logon After Reset"
+
+#: ../schema/ppolicy.php:36
+msgid "Users Must Send Old and New Passwords When Changing"
+msgstr "Users Must Send Old and New Passwords When Changing"
+
+#: ../schema/ppolicy.php:39
+msgid "Password Quality Check Module Name"
+msgstr "Password Quality Check Module Name"
+
+#: ../schema/ppolicy.php:45
+msgid "Grace Login Validity Period"
+msgstr "Grace Login Validity Period"
+
+#: ../schema/ppolicy.php:46
+msgid "Maximum Delay Introduced when Responding to Login Failure"
+msgstr "Maximum Delay Introduced when Responding to Login Failure"
+
+#: ../schema/ppolicy.php:47
+msgid "Time after which Unused Accounts are Locked Out"
+msgstr "Time after which Unused Accounts are Locked Out"
+
+#: ../schema/ppolicy.php:48
+msgid "Maximum Accepted Password Length"
+msgstr "Maximum Accepted Password Length"
+
+#: ../schema/ppolicy.php:49
+msgid "Initial Delay Introduced when Responding to Login Failure"
+msgstr "Initial Delay Introduced when Responding to Login Failure"
+
+#: ../schema/ppolicy.php:53
+msgid "Time When Account Locked"
+msgstr "Time When Account Locked"
+
+#: ../schema/ppolicy.php:54
+msgid "Time When Password Last Changed"
+msgstr "Time When Password Last Changed"
+
+#: ../schema/ppolicy.php:55
+msgid "Times of Last Consecutive Login Failures"
+msgstr "Times of Last Consecutive Login Failures"
+
+#: ../schema/ppolicy.php:56
+msgid "Times of Grace Logins after Password Expiry"
+msgstr "Times of Grace Logins after Password Expiry"
+
+#: ../schema/ppolicy.php:57
+msgid "Password History"
+msgstr "Password History"
+
+#: ../schema/ppolicy.php:58
+msgid "Policy Object DN"
+msgstr "Policy Object DN"
+
+#: ../schema/ppolicy.php:59
+msgid "Password Has Been Reset"
+msgstr "Password Has Been Reset"
+
+#: ../schema/ppolicy.php:65
+msgid "End of Password Validity Period"
+msgstr "End of Password Validity Period"
+
+#: ../schema/ppolicy.php:66
+msgid "Time of Last Successful Login"
+msgstr "Time of Last Successful Login"
+
+#: ../schema/ppolicy.php:67
+msgid "Start of Password Validity Period"
+msgstr "Start of Password Validity Period"
