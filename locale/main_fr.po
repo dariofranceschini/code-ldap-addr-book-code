@@ -54,7 +54,7 @@ msgstr ""
 
 #: ../add_dn_value.php:116
 msgid "You are currently viewing the root of the directory"
-msgstr "Vous visualisez actuellement la racine du répertoire"
+msgstr "Vous visualisez actuellement la racine d'annuaire"
 
 #: ../add_dn_value.php:120
 #, php-format
