@@ -45,7 +45,7 @@ msgstr "Revenir au carnet d'adresses"
 
 #: ../add_dn_value.php:97 ../delete_dn_value.php:100 ../update.php:226
 msgid "You do not have permission to change this record"
-msgstr "Vous n'êtes pas autorisé à consulter l'annuaire"
+msgstr "Vous n'êtes pas autorisé à modifier cette fiche"
 
 #: ../add_dn_value.php:114
 msgid "You are currently viewing the top level of the Address Book"
