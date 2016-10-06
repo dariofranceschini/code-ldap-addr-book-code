@@ -651,6 +651,3 @@ msgstr ""
 "S'il vous plaît lire %sInstallation et Configuration de Base%s dans le Guide "
 "de l'utilisateur pour obtenir des instructions sur la façon de configurer "
 "une nouvelle installation du carnet d'adresses."
-
-#~ msgid "Folder"
-#~ msgstr "Dossier"
