@@ -40,6 +40,7 @@ $openldap_overlay_module=array(
 	"deref"		=> "Dereferencing Overlay",
 	"dyngroup"	=> "Dynamic Groups Overlay",	// Deprecated - use dynlist instead
 	"dynlist"	=> "Dynamic Lists Overlay",
+	"lastbind"	=> "Last Bind Overlay",
 	"memberof"	=> "Reverse Group Membership Maintenance Overlay",
 	"nssov"		=> "NSS/PAM Lookup Overlay",
 	"pcache"	=> "Proxy Cache Engine Overlay",
