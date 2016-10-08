@@ -1,0 +1,54 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 11:14+0100\n"
+"PO-Revision-Date: 2016-10-03 11:14+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/inetorgperson.php:17
+msgid "Vehicle License/Registration"
+msgstr "Registrazione del Veicolo"
+
+#: ../schema/inetorgperson.php:18
+msgid "Department Number"
+msgstr "Numero di Dipartimento"
+
+#: ../schema/inetorgperson.php:19
+msgid "Display/Preferred Name"
+msgstr "Nome per la Visualizzare / Nome Preferito"
+
+#: ../schema/inetorgperson.php:20
+msgid "Employee Number"
+msgstr "Impiegato Numero"
+
+#: ../schema/inetorgperson.php:21
+msgid "Employee Type"
+msgstr "Tipo di dipendenti"
+
+#: ../schema/inetorgperson.php:22
+msgid "Photograph"
+msgstr "Fotografia"
+
+#: ../schema/inetorgperson.php:23
+msgid "Preferred Language"
+msgstr "Lingua Preferita"
+
+#: ../schema/inetorgperson.php:24
+msgid "PKCS #12 PFX Data"
+msgstr "PKCS #12 PFX Dati"
+
+#: ../schema/inetorgperson.php:25
+msgid "S/MIME Certificate"
+msgstr "S/MIME Certificato"
