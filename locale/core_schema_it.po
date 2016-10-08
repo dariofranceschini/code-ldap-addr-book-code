@@ -1,0 +1,385 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-04 09:48+0100\n"
+"PO-Revision-Date: 2016-09-04 09:48+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/core.php:16
+msgid "Aliased Object"
+msgstr "Oggetto Aliasing"
+
+#: ../schema/core.php:18
+msgid "Business Category"
+msgstr "Categoria Affari"
+
+#: ../schema/core.php:19 ../schema/core.php:280
+msgid "Country Code"
+msgstr "Prefisso Internazionale"
+
+#: ../schema/core.php:20
+msgid "Common Name/Full Name"
+msgstr "Nome Comune/Nome e Cognome"
+
+#: ../schema/core.php:21
+msgid "Domain Component Name"
+msgstr "Nome del Componente di Dominio"
+
+#: ../schema/core.php:22 ../schema/core.php:120 ../schema/core.php:155
+#: ../schema/core.php:175 ../schema/core.php:195 ../schema/core.php:206
+#: ../schema/core.php:241 ../schema/core.php:281
+msgid "Description"
+msgstr "Descrizione"
+
+#: ../schema/core.php:23
+msgid "Telegram Destination Indicator"
+msgstr "Telegramma Indicatore Destinazione"
+
+#: ../schema/core.php:24
+msgid "Distinguished Name"
+msgstr "Nome Distinto"
+
+#: ../schema/core.php:25
+msgid "DN Qualifier"
+msgstr "Qualificatore di Nome Distinto"
+
+#: ../schema/core.php:26
+msgid "Enhanced Search Guide"
+msgstr "Guida Ricerca Avanzata"
+
+#: ../schema/core.php:27
+msgid "Fax Number"
+msgstr "Numero di Fax"
+
+#: ../schema/core.php:28
+msgid "Generation Qualifier"
+msgstr "Qualificativo di Generazione"
+
+#: ../schema/core.php:29
+msgid "Given Name"
+msgstr "Nome di Battesimo"
+
+#: ../schema/core.php:30
+msgid "House Identifier"
+msgstr "Identificazione di Casa"
+
+#: ../schema/core.php:31
+msgid "Initials"
+msgstr "Iniziali"
+
+#: ../schema/core.php:32
+msgid "ISDN Number"
+msgstr "Numero ISDN"
+
+#: ../schema/core.php:33
+msgid "Locality (e.g. Town/City)"
+msgstr "Località (ad esempio Località / Città)"
+
+#: ../schema/core.php:34
+msgid "URI (with Optional Label)"
+msgstr "URI (con Opzionale Cartellino)"
+
+#: ../schema/core.php:35
+msgid "E-mail Address"
+msgstr "Indirizzo email"
+
+#: ../schema/core.php:36
+msgid "Member"
+msgstr "Membro"
+
+#: ../schema/core.php:37
+msgid "Name"
+msgstr "Nome"
+
+#: ../schema/core.php:38 ../schema/core.php:205
+msgid "Organization Name"
+msgstr "Nome dell'Organizzazione"
+
+#: ../schema/core.php:39
+msgid "Object Class"
+msgstr "Classe di Oggetti"
+
+#: ../schema/core.php:40
+msgid "Organizational Unit Name"
+msgstr "Nome Unità Organizzativa"
+
+#: ../schema/core.php:41
+msgid "Owner"
+msgstr "Proprietario"
+
+#: ../schema/core.php:42
+msgid "Office"
+msgstr "Ufficio"
+
+#: ../schema/core.php:43 ../schema/core.php:132 ../schema/core.php:218
+#: ../schema/core.php:253
+msgid "Postal Address"
+msgstr "Indirizzo Postale"
+
+#: ../schema/core.php:44
+msgid "Postal Code"
+msgstr "Codice Postale"
+
+#: ../schema/core.php:45
+msgid "Post Office Box"
+msgstr "Casella Postale"
+
+#: ../schema/core.php:46
+msgid "Preferred Delivery Method"
+msgstr "Consegna Metodo che è Preferito"
+
+#: ../schema/core.php:47
+msgid "Registered Address"
+msgstr "Indirizzo Registrato"
+
+#: ../schema/core.php:48
+msgid "Role Occupant"
+msgstr "Occupante di Ruolo"
+
+#: ../schema/core.php:49
+msgid "Search Guide"
+msgstr "Guida Ricerca"
+
+#: ../schema/core.php:50
+msgid "See Also"
+msgstr "Guarda Anche"
+
+#: ../schema/core.php:51
+msgid "Serial Number"
+msgstr "Numero di Serie"
+
+#: ../schema/core.php:52
+msgid "Surname"
+msgstr "Cognome"
+
+#: ../schema/core.php:53
+msgid "State (or Province/County)"
+msgstr "Stato (o Provincia / Contea)"
+
+#: ../schema/core.php:54
+msgid "Street Address"
+msgstr "Indirizzo"
+
+#: ../schema/core.php:55
+msgid "Telephone Number"
+msgstr "Numero di Telefono"
+
+#: ../schema/core.php:56
+msgid "Teletex Terminal Identifier"
+msgstr "Identifier di Televideo Terminal"
+
+#: ../schema/core.php:57
+msgid "Telex Number"
+msgstr "Numero di Telex"
+
+#: ../schema/core.php:58
+msgid "Job Title"
+msgstr "Titolo di Lavoro"
+
+#: ../schema/core.php:59
+msgid "User ID"
+msgstr "ID Utente"
+
+#: ../schema/core.php:61
+msgid "Unique Member"
+msgstr "Unico Membro"
+
+#: ../schema/core.php:62
+msgid "User Password"
+msgstr "Password Utente"
+
+#: ../schema/core.php:63
+msgid "X.121 Network Address"
+msgstr "Indirizzo di Rete per X.121"
+
+#: ../schema/core.php:64
+msgid "X.500 Unique Identifier"
+msgstr "Identificatore Univoco per X.500"
+
+#: ../schema/core.php:68
+msgid "Certification Authority Revocation List"
+msgstr "Elenco delle Autorità Certificato Revocato"
+
+#: ../schema/core.php:69
+msgid "Certification Authority Certificate"
+msgstr "Certificato d'Autorità di Certificazione"
+
+#: ../schema/core.php:70
+msgid "Certificate Revocation List"
+msgstr "Elenco dei Certificati Revocati"
+
+#: ../schema/core.php:71
+msgid "Cross Certificate Pair"
+msgstr "Coppia di Certificati Incrociati"
+
+#: ../schema/core.php:72
+msgid "Delta Revocation List"
+msgstr "Modifiche di Elenco di Certificati Revocati"
+
+#: ../schema/core.php:73
+msgid "PKCS #9 E-mail Address"
+msgstr "Indirizzo per la Messaggistica PKCS #9"
+
+#: ../schema/core.php:74
+msgid "Pseudonym"
+msgstr "Pseudonimo"
+
+#: ../schema/core.php:75
+msgid "Supported Algorithms"
+msgstr "Gli Algoritmi che sono Supportati"
+
+#: ../schema/core.php:76
+msgid "User Certificate"
+msgstr "Certificato per l'Utente"
+
+#: ../schema/core.php:80
+msgid "Directory Management Domain Name"
+msgstr "Nome di Amministratore di Direttorio per il Dominio"
+
+#: ../schema/core.php:81
+msgid "Knowledge Information"
+msgstr "Informazioni sulla Conoscenza"
+
+#: ../schema/core.php:82
+msgid "OSI Presentation Address"
+msgstr "OSI Presentazione Indirizzo"
+
+#: ../schema/core.php:83
+msgid "Protocol Information"
+msgstr "Informazioni di Protocollo"
+
+#: ../schema/core.php:84
+msgid "Supported OSI Application Contexts"
+msgstr "OSI Applicazione Contesti che sono Supportati"
+
+#: ../schema/core.php:87
+msgid "Member Of"
+msgstr "Membro Di"
+
+#: ../schema/core.php:92
+msgid "Alias"
+msgstr "Alias"
+
+#: ../schema/core.php:93
+msgid "Organizational Unit"
+msgstr "Unità Organizzativa"
+
+#: ../schema/core.php:94
+msgid "Group"
+msgstr "Gruppo"
+
+#: ../schema/core.php:95
+msgid "Group (Unique Names)"
+msgstr "Gruppo (Nomi Unici)"
+
+#: ../schema/core.php:96
+msgid "Person"
+msgstr "Persona"
+
+#: ../schema/core.php:97
+msgid "Organizational Person"
+msgstr "Persona Organizzativa"
+
+#: ../schema/core.php:98
+msgid "Residential Person"
+msgstr "Persona Residenziale"
+
+#: ../schema/core.php:99
+msgid "Application Process"
+msgstr "Processo di Applicazione"
+
+#: ../schema/core.php:100
+msgid "Device"
+msgstr "Dispositivo"
+
+#: ../schema/core.php:101 ../schema/core.php:238
+msgid "Organizational Role"
+msgstr "Ruolo all'Interno dell'Organizzazione"
+
+#: ../schema/core.php:102
+msgid "Country"
+msgstr "Nazione"
+
+#: ../schema/core.php:103
+msgid "Locality"
+msgstr "Località"
+
+#: ../schema/core.php:104
+msgid "Organization"
+msgstr "Organizzazione"
+
+#: ../schema/core.php:107
+msgid "Certificate Revocation List Distribution Point"
+msgstr "Punto di Distribuzione per Elenco di Certificati Revocati"
+
+#: ../schema/core.php:110
+msgid "Application Entity"
+msgstr "Entità di Applicazione"
+
+#: ../schema/core.php:111
+msgid "Directory Management Domain"
+msgstr "Amministratore della Direttorio per il Dominio"
+
+#: ../schema/core.php:112
+msgid "Directory System Agent"
+msgstr "Agente di Sistema Direttorio"
+
+#: ../schema/core.php:117
+msgid "Folder Details"
+msgstr "Dettagli Cartella"
+
+#: ../schema/core.php:119
+msgid "OU Name"
+msgstr "Nome OU"
+
+#: ../schema/core.php:143 ../schema/core.php:229 ../schema/core.php:264
+msgid "Phone"
+msgstr "Telefono"
+
+#: ../schema/core.php:144 ../schema/core.php:230 ../schema/core.php:265
+msgid "Fax"
+msgstr "Fax"
+
+#: ../schema/core.php:154 ../schema/core.php:174
+msgid "Group Name"
+msgstr "Nome del Gruppo"
+
+#: ../schema/core.php:164 ../schema/core.php:184
+msgid "Group Members"
+msgstr "Membri del Gruppo"
+
+#: ../schema/core.php:194
+msgid "Locality Name"
+msgstr "Nome Località"
+
+#: ../schema/core.php:196
+msgid "Address"
+msgstr "Indirizzo"
+
+#: ../schema/core.php:203
+msgid "Organization Details"
+msgstr "Dettagli dell'Organizzazione"
+
+#: ../schema/core.php:240
+msgid "Role Name"
+msgstr "Nome di Ruolo"
+
+#: ../schema/core.php:242
+msgid "Department"
+msgstr "Dipartimento"
+
+#: ../schema/core.php:270
+msgid "Role Occupants"
+msgstr "Gli Occupanti di Ruolo"
