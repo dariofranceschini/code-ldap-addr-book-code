@@ -76,6 +76,10 @@ class system_openldap_schema extends ldap_schema
 				)
 			));
 
+		// OpenLDAP module schemas
+
+		$ldap_server->add_schema("openldap/memberof");
+
 		parent::__construct($ldap_server);
 	}
 }

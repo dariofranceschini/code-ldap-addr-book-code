@@ -82,9 +82,6 @@ class core_schema extends ldap_schema
 			array("name"=>"presentationAddress",		"data_type"=>"text",		"display_name"=>gettext("OSI Presentation Address")),
 			array("name"=>"protocolInformation",		"data_type"=>"text",		"display_name"=>gettext("Protocol Information")),
 			array("name"=>"supportedApplicationContext",	"data_type"=>"oid_list",	"display_name"=>gettext("Supported OSI Application Contexts")),
-
-			// used with memberof overlay
-			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of"))
 			);
 
 		// Structural object classes
