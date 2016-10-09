@@ -1,0 +1,90 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-09 13:04+0100\n"
+"PO-Revision-Date: 2016-10-09 13:04+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/system.php:10
+msgid "Alternative Servers"
+msgstr "Server Alternativi"
+
+#: ../schema/system.php:11
+msgid "Naming Contexts"
+msgstr "Contesti di Denominazione"
+
+#: ../schema/system.php:12
+msgid "Subschema Subentry"
+msgstr "Engresso Subordinato per lo Schema Subordinato"
+
+#: ../schema/system.php:13
+msgid "Supported Controls"
+msgstr "Controlli Supportati"
+
+#: ../schema/system.php:14
+msgid "Supported Extended Operations"
+msgstr "operazioni Estese Supportate"
+
+#: ../schema/system.php:15
+msgid "Supported Features"
+msgstr "Caratteristiche Supportate"
+
+#: ../schema/system.php:16
+msgid "Supported LDAP Versions"
+msgstr "Versioni LDAP Supportati"
+
+#: ../schema/system.php:17
+msgid "Supported SASL Mechanisms"
+msgstr "SASL Meccanismi che sono Supportati"
+
+#: ../schema/system.php:20
+msgid "Object Classes"
+msgstr "Classi di Oggetti"
+
+#: ../schema/system.php:21
+msgid "Attribute Types"
+msgstr "Tipi di Attributi"
+
+#: ../schema/system.php:22
+msgid "LDAP Syntaxes"
+msgstr "Sintassi LDAP"
+
+#: ../schema/system.php:23
+msgid "Matching Rules"
+msgstr "Regole di Congruenza"
+
+#: ../schema/system.php:24
+msgid "Matching Rule Use"
+msgstr "Utilizzo di Regole di Congruenza"
+
+#: ../schema/system.php:27
+msgid "Created"
+msgstr "Creato"
+
+#: ../schema/system.php:28
+msgid "Created By"
+msgstr "Creato Da"
+
+#: ../schema/system.php:29
+msgid "Last Modified"
+msgstr "Ultima Volta che Modifica"
+
+#: ../schema/system.php:30
+msgid "Last Modified By"
+msgstr "Ultima Modifica di"
+
+#: ../schema/system.php:35
+msgid "Schema"
+msgstr "Schema"

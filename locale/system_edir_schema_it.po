@@ -1,0 +1,202 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-09 13:04+0100\n"
+"PO-Revision-Date: 2016-10-09 13:04+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/system/edir.php:9
+msgid "DSA Name"
+msgstr "Nome DSA"
+
+#: ../schema/system/edir.php:11 ../schema/system/edir.php:83
+msgid "Supported Grouping Types"
+msgstr "Tipi di Raggruppamento Supportati"
+
+#: ../schema/system/edir.php:20
+msgid "eDirectory Tree"
+msgstr "eDirectory Albero"
+
+#: ../schema/system/edir.php:25
+msgid "Server Details"
+msgstr "Dettagli del Server"
+
+#: ../schema/system/edir.php:27
+msgid "LDAP Server"
+msgstr "Server LDAP"
+
+#: ../schema/system/edir.php:28
+msgid "Product Version"
+msgstr "Versione Prodotto"
+
+#: ../schema/system/edir.php:29
+msgid "Vendor"
+msgstr "Venditore"
+
+#: ../schema/system/edir.php:30
+msgid "Supported LDAP Versions"
+msgstr "Versioni LDAP Supportati"
+
+#: ../schema/system/edir.php:31
+msgid "Naming Contexts"
+msgstr "Contesti di Denominazione"
+
+#: ../schema/system/edir.php:32
+msgid "Subschema Subentry"
+msgstr "Engresso Subordinato per lo Schema Subordinato"
+
+#: ../schema/system/edir.php:35
+msgid "Replication"
+msgstr "Replicazione"
+
+#: ../schema/system/edir.php:37
+msgid "Updates Out"
+msgstr "Aggiornamenti Su"
+
+#: ../schema/system/edir.php:38
+msgid "Updates In"
+msgstr "Aggiornamenti in"
+
+#: ../schema/system/edir.php:41
+msgid "LDAP Binds"
+msgstr "LDAP Bind"
+
+#: ../schema/system/edir.php:43
+msgid "Strong Auth"
+msgstr "Autenticazione Forte"
+
+#: ../schema/system/edir.php:44
+msgid "Simple Auth"
+msgstr "Autenticazioni Semplici"
+
+#: ../schema/system/edir.php:45
+msgid "Anonymous"
+msgstr "Anonimo"
+
+#: ../schema/system/edir.php:46 ../schema/system/edir.php:80
+msgid "Security Errors"
+msgstr "Errori di Sicurezza"
+
+#: ../schema/system/edir.php:49
+msgid "Data Transfer"
+msgstr "Trasferimento Dati"
+
+#: ../schema/system/edir.php:51
+msgid "Bytes Out"
+msgstr "Byte Su"
+
+#: ../schema/system/edir.php:52
+msgid "Bytes In"
+msgstr "Byte In"
+
+#: ../schema/system/edir.php:55
+msgid "Ops Processed"
+msgstr "Operazioni che sono Stati Elaborati"
+
+#: ../schema/system/edir.php:57
+msgid "Extended"
+msgstr "Estesa"
+
+#: ../schema/system/edir.php:58
+msgid "Abandoned"
+msgstr "Abbandonato"
+
+#: ../schema/system/edir.php:59
+msgid "Subtree Search"
+msgstr "Ricerca nella Sottostruttura"
+
+#: ../schema/system/edir.php:60
+msgid "Single Level Search"
+msgstr "Ricerca Piano Unico"
+
+#: ../schema/system/edir.php:61
+msgid "Search"
+msgstr "Ricerca"
+
+#: ../schema/system/edir.php:62
+msgid "List"
+msgstr "Elencare"
+
+#: ../schema/system/edir.php:63
+msgid "Modify RDN"
+msgstr "Modificare RDN"
+
+#: ../schema/system/edir.php:64
+msgid "Remove Entry"
+msgstr "Rimuovere Registrazione"
+
+#: ../schema/system/edir.php:65
+msgid "Add Entry"
+msgstr "Aggiungere Registrazione"
+
+#: ../schema/system/edir.php:66
+msgid "Compare"
+msgstr "Confrontare"
+
+#: ../schema/system/edir.php:67
+msgid "Read"
+msgstr "Leggi"
+
+#: ../schema/system/edir.php:68
+msgid "Total In"
+msgstr "Totale In"
+
+#: ../schema/system/edir.php:71
+msgid "LDAP Referral Processed"
+msgstr "Riferimenti LDAP che sono Stati Elaborati"
+
+#: ../schema/system/edir.php:73
+msgid "Outbound Referrals Sent"
+msgstr "Referenti in Uscita Inviati"
+
+#: ../schema/system/edir.php:74
+msgid "Inbound Referrals Returned"
+msgstr "Entrata Referenti Restituito"
+
+#: ../schema/system/edir.php:77
+msgid "Miscellaneous"
+msgstr "Miscellaneo"
+
+#: ../schema/system/edir.php:79
+msgid "Errors"
+msgstr "Errori"
+
+#: ../schema/system/edir.php:88
+msgid "Supported Controls"
+msgstr "Controlli Supportati"
+
+#: ../schema/system/edir.php:93
+msgid "Supported Features"
+msgstr "Caratteristiche Supportate"
+
+#: ../schema/system/edir.php:98
+msgid "Supported SASL Mechanisms"
+msgstr "SASL Meccanismi che sono Supportati"
+
+#: ../schema/system/edir.php:103
+msgid "Supported Extensions"
+msgstr "Estensioni Supportate"
+
+#: ../schema/system/edir.php:111
+msgid "Object Class Definitions"
+msgstr "Definizioni di Classi di Oggetti"
+
+#: ../schema/system/edir.php:116
+msgid "Attribute Type Definitions"
+msgstr "Definizioni di Tipi di Attributi"
+
+#: ../schema/system/edir.php:121
+msgid "LDAP Syntax Definitions"
+msgstr "Definizioni di LDAP Sintassi"

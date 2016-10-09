@@ -1,0 +1,142 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-09 13:04+0100\n"
+"PO-Revision-Date: 2016-10-09 13:04+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/system/ad.php:9 ../schema/system/ad.php:74
+msgid "Supported Capabilities"
+msgstr "Funzionalità Supportate"
+
+#: ../schema/system/ad.php:10
+msgid "Configuration Context"
+msgstr "Contesto di Configurazione"
+
+#: ../schema/system/ad.php:11
+msgid "Default Naming Context"
+msgstr "Contesto dei Nomi di Default"
+
+#: ../schema/system/ad.php:12
+msgid "Schema Naming Context"
+msgstr "Schema Contesto dei Nomi"
+
+#: ../schema/system/ad.php:13
+msgid "Root Domain Naming Context"
+msgstr "Contesto dei Nomi di Dominio Radice"
+
+#: ../schema/system/ad.php:14
+msgid "Configuration Naming Context"
+msgstr "Contesto dei Nomi di Configurazione"
+
+#: ../schema/system/ad.php:15
+msgid "Directory Service Name"
+msgstr "Nome Servizio di Direttorio"
+
+#: ../schema/system/ad.php:16
+msgid "Current Time"
+msgstr "Ora Attuale"
+
+#: ../schema/system/ad.php:17 ../schema/system/ad.php:56
+msgid "Server Functional Level"
+msgstr "Livello Funzionale di Server"
+
+#: ../schema/system/ad.php:18 ../schema/system/ad.php:57
+msgid "Domain Functional Level"
+msgstr "Livello Funzionale di Dominio"
+
+#: ../schema/system/ad.php:19 ../schema/system/ad.php:58
+msgid "Forest Functional Level"
+msgstr "Livello Funzionale di Foresta"
+
+#: ../schema/system/ad.php:20 ../schema/system/ad.php:53
+msgid "Is Synchronized"
+msgstr "È Sincronizzato"
+
+#: ../schema/system/ad.php:25
+msgid "Root DSE"
+msgstr "RootDSE"
+
+#: ../schema/system/ad.php:43
+msgid "Active Directory Domain Controller"
+msgstr "Controller di Dominio Active Directory"
+
+#: ../schema/system/ad.php:45
+msgid "Server Name"
+msgstr "Nome del Server"
+
+#: ../schema/system/ad.php:46
+msgid "Vendor Name"
+msgstr "Nome del Fornitore"
+
+#: ../schema/system/ad.php:47
+msgid "DNS Host Name"
+msgstr "Nome Ospite DNS"
+
+#: ../schema/system/ad.php:48
+msgid "Directory Service"
+msgstr "Servizio Direttorio"
+
+#: ../schema/system/ad.php:49
+msgid "Supported LDAP Versions"
+msgstr "Versioni LDAP Supportati"
+
+#: ../schema/system/ad.php:50
+msgid "LDAP Service Name"
+msgstr "Nome del servizio LDAP"
+
+#: ../schema/system/ad.php:51
+msgid "Naming Contexts"
+msgstr "Contesti di Denominazione"
+
+#: ../schema/system/ad.php:52
+msgid "Subschema Subentry"
+msgstr "Engresso Subordinato per lo Schema Subordinato"
+
+#: ../schema/system/ad.php:54
+msgid "Current Time at Server"
+msgstr "Ora Corrente a Server"
+
+#: ../schema/system/ad.php:55
+msgid "Highest Committed USN"
+msgstr "USN Massimo che è Stato Commesso"
+
+#: ../schema/system/ad.php:61
+msgid "Well-Known Naming Contexts"
+msgstr "Contesti di Nomi Ben Noti"
+
+#: ../schema/system/ad.php:63
+msgid "Default (Domain)"
+msgstr "Predefinito (Dominio)"
+
+#: ../schema/system/ad.php:64
+msgid "Configuration"
+msgstr "Configurazione"
+
+#: ../schema/system/ad.php:65
+msgid "Forest Root Domain"
+msgstr "Dominio Radice della Foresta"
+
+#: ../schema/system/ad.php:66
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/system/ad.php:69
+msgid "Supported Controls"
+msgstr "Controlli Supportati"
+
+#: ../schema/system/ad.php:79
+msgid "Supported SASL Mechanisms"
+msgstr "SASL Meccanismi che sono Supportati"
