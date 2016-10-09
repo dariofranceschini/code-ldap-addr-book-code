@@ -1,5 +1,5 @@
 <?php
-/** system schema - OpenLDAP specific items (partial) */
+/** system schema - eDirectory specific items (partial) */
 
 class system_edir_schema extends ldap_schema
 {
