@@ -1,0 +1,150 @@
+# Italian translations for LDAP Address package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-26 11:01+0100\n"
+"PO-Revision-Date: 2016-06-26 11:01+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/microsoft/exchange.php:10
+msgid "Query-based Distribution Group"
+msgstr "Basato su Interrogativo Gruppo di Distribuzione"
+
+#: ../schema/microsoft/exchange.php:11
+msgid "Exchange Organization"
+msgstr "Organizzazione di Exchange"
+
+#: ../schema/microsoft/exchange.php:12
+msgid "Offline Address List"
+msgstr "Rubrica Non in Linea"
+
+#: ../schema/microsoft/exchange.php:41
+msgid "Public Folder"
+msgstr "Cartella Pubblica"
+
+#: ../schema/microsoft/exchange.php:42
+msgid "Address Type"
+msgstr "Tipo di Indirizzo"
+
+#: ../schema/microsoft/exchange.php:43
+msgid "Administrative Group"
+msgstr "Gruppo Amministrativo"
+
+#: ../schema/microsoft/exchange.php:44
+msgid "Routing Group"
+msgstr "Gruppo Navigazione"
+
+#: ../schema/microsoft/exchange.php:45
+msgid "SMTP Connector"
+msgstr "Connettore SMTP"
+
+#: ../schema/microsoft/exchange.php:46
+msgid "Internet Message Formats"
+msgstr "Formati Messaggi Internet"
+
+#: ../schema/microsoft/exchange.php:47
+msgid "Wireless Carriers"
+msgstr "Operatori Senza Fili"
+
+#: ../schema/microsoft/exchange.php:48
+msgid "Message Delivery Configuration"
+msgstr "Configurazione di Recapito dei Messaggi"
+
+#: ../schema/microsoft/exchange.php:49
+msgid "Instant Messaging Global Settings"
+msgstr "Impostazioni Globali per la Messaggistica Istantanea"
+
+#: ../schema/microsoft/exchange.php:50
+msgid "Advanced Security"
+msgstr "Sicurezza Avanzato"
+
+#: ../schema/microsoft/exchange.php:52
+msgid "Exchange Server"
+msgstr "Exchange Server"
+
+#: ../schema/microsoft/exchange.php:53
+msgid "Recipient Policy"
+msgstr "Criterio Destinatario"
+
+#: ../schema/microsoft/exchange.php:54
+msgid "System Policy"
+msgstr "Criteri di Sistema"
+
+#: ../schema/microsoft/exchange.php:55
+msgid "Address Template"
+msgstr "Modello per Indirizzo"
+
+#: ../schema/microsoft/exchange.php:56
+msgid "Display Template"
+msgstr "Modello per Visualizzazione"
+
+#: ../schema/microsoft/exchange.php:57
+msgid "Message Transfer Agent"
+msgstr "Agente di Trasferimento Messaggi"
+
+#: ../schema/microsoft/exchange.php:58
+msgid "System Attendant"
+msgstr "Supervisore Sistema"
+
+#: ../schema/microsoft/exchange.php:59
+msgid "Site Addressing"
+msgstr "Indirizzamento Sito"
+
+#: ../schema/microsoft/exchange.php:60
+msgid "Public Folder Top Level Hierarchy"
+msgstr "Primo Livello di Gerarchia di Cartelle Pubbliche"
+
+#: ../schema/microsoft/exchange.php:61
+msgid "IMAP Virtual Server"
+msgstr "IMAP Server Virtuale"
+
+#: ../schema/microsoft/exchange.php:62
+msgid "POP Virtual Server"
+msgstr "POP Server Virtuale"
+
+#: ../schema/microsoft/exchange.php:63
+msgid "SMTP Virtual Server"
+msgstr "SMTP Server Virtuale"
+
+#: ../schema/microsoft/exchange.php:64
+msgid "SMTP Domains"
+msgstr "Domini SMTP"
+
+#: ../schema/microsoft/exchange.php:65
+msgid "SMTP Routing Sources"
+msgstr "Fonti di Navigazione SMTP"
+
+#: ../schema/microsoft/exchange.php:66
+msgid "SMTP Sessions"
+msgstr "Sessioni SMTP"
+
+#: ../schema/microsoft/exchange.php:67
+msgid "Encryption Configuration"
+msgstr "Configurazione Crittografia"
+
+#: ../schema/microsoft/exchange.php:68
+msgid "Information Store"
+msgstr "Archivio Informazioni"
+
+#: ../schema/microsoft/exchange.php:69
+msgid "Private Information Store"
+msgstr "Archivio Informazioni Privato"
+
+#: ../schema/microsoft/exchange.php:70
+msgid "Public Information Store"
+msgstr "Archivio Informazioni Pubblico"
+
+#: ../schema/microsoft/exchange.php:71
+msgid "Storage Group"
+msgstr "Gruppo di Archiviazione"

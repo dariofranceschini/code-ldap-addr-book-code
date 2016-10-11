@@ -1,0 +1,126 @@
+# Italian translations for LDAP Address package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-05 11:45+0100\n"
+"PO-Revision-Date: 2016-06-05 11:45+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/microsoft/std.php:10
+msgid "Country Code"
+msgstr "Prefisso Internazionale"
+
+#: ../schema/microsoft/std.php:11
+msgid "Common Name/Full Name"
+msgstr "Nome Comune/Nome e Cognome"
+
+#: ../schema/microsoft/std.php:12 ../schema/microsoft/std.php:47
+msgid "Description"
+msgstr "Descrizione"
+
+#: ../schema/microsoft/std.php:13
+msgid "Fax Number"
+msgstr "Numero di Fax"
+
+#: ../schema/microsoft/std.php:14
+msgid "Given Name"
+msgstr "Nome di Battesimo"
+
+#: ../schema/microsoft/std.php:15
+msgid "Home Telephone Number"
+msgstr "Numero di Telefono di Casa"
+
+#: ../schema/microsoft/std.php:16
+msgid "Locality (e.g. Town/City)"
+msgstr "Località (ad esempio Località / Città)"
+
+#: ../schema/microsoft/std.php:17
+msgid "Members"
+msgstr "Membri"
+
+#: ../schema/microsoft/std.php:18
+msgid "E-mail Address"
+msgstr "Indirizzo Email"
+
+#: ../schema/microsoft/std.php:19
+msgid "Mobile/Cell Telephone Number"
+msgstr "Mumero di Cellulare"
+
+#: ../schema/microsoft/std.php:20
+msgid "Organizational Unit Name"
+msgstr "Nome Unità Organizzativa"
+
+#: ../schema/microsoft/std.php:21
+msgid "Pager Telephone Number"
+msgstr "Numero di Cercapersone"
+
+#: ../schema/microsoft/std.php:22
+msgid "Office"
+msgstr "Ufficio"
+
+#: ../schema/microsoft/std.php:23
+msgid "Postal Code"
+msgstr "Codice Postale"
+
+#: ../schema/microsoft/std.php:24
+msgid "Surname"
+msgstr "Cognome"
+
+#: ../schema/microsoft/std.php:25
+msgid "State (or Province/County)"
+msgstr "Stato (o Provincia / Contea)"
+
+#: ../schema/microsoft/std.php:26
+msgid "Street Address"
+msgstr "Indirizzo"
+
+#: ../schema/microsoft/std.php:27
+msgid "Telephone Number"
+msgstr "Numero di Telefono"
+
+#: ../schema/microsoft/std.php:28
+msgid "Thumbnail Logo"
+msgstr "Logo Miniature"
+
+#: ../schema/microsoft/std.php:29
+msgid "Thumbnail Photograph"
+msgstr "Fotografia Miniatura"
+
+#: ../schema/microsoft/std.php:30
+msgid "Job Title"
+msgstr "Titolo di Lavoro"
+
+#: ../schema/microsoft/std.php:33
+msgid "Photograph"
+msgstr "Fotografia"
+
+#: ../schema/microsoft/std.php:38
+msgid "Organizational Unit"
+msgstr "Unità Organizzativa"
+
+#: ../schema/microsoft/std.php:39
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/microsoft/std.php:46
+msgid "OU Name"
+msgstr "Nome OU"
+
+#: ../schema/microsoft/std.php:48
+msgid "Postal Address"
+msgstr "Indirizzo Postale"
+
+#: ../schema/microsoft/std.php:50
+msgid "Country"
+msgstr "Nazione"
