@@ -1,0 +1,137 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/ndspki.php:9
+msgid "Valid From Date"
+msgstr "Data Valido dal"
+
+#: ../schema/novell/ndspki.php:10
+msgid "Valid To Date"
+msgstr "Data Valido Fino al"
+
+#: ../schema/novell/ndspki.php:11
+msgid "Key Material DN List"
+msgstr "Elenco dei DN per Materiale Chiave"
+
+#: ../schema/novell/ndspki.php:12
+msgid "Issued Certificates Container DN"
+msgstr "DN di Dontenitore per i Certificati Emessi"
+
+#: ../schema/novell/ndspki.php:13
+msgid "CRL Container DN"
+msgstr "DN di contenitore per CRL"
+
+#: ../schema/novell/ndspki.php:14
+msgid "CRL Configuration DN List"
+msgstr "Elenco dei DNs per Configurazione CRL"
+
+#: ../schema/novell/ndspki.php:15 ../schema/novell/ndspki.php:62
+msgid "CA Certificate"
+msgstr "Certificato CA"
+
+#: ../schema/novell/ndspki.php:16 ../schema/novell/ndspki.php:39
+#: ../schema/novell/ndspki.php:57
+msgid "Certificate Chain"
+msgstr "Catena di Certificati"
+
+#: ../schema/novell/ndspki.php:17 ../schema/novell/ndspki.php:40
+#: ../schema/novell/ndspki.php:58
+msgid "Public Key Certificate"
+msgstr "Certificato di Chiave Pubblica"
+
+#: ../schema/novell/ndspki.php:18
+msgid "Private Key"
+msgstr "Chiave Privata"
+
+#: ../schema/novell/ndspki.php:19 ../schema/novell/ndspki.php:42
+#: ../schema/novell/ndspki.php:60
+msgid "Public Key"
+msgstr "Chiave Pubblica"
+
+#: ../schema/novell/ndspki.php:24
+msgid "Key Material"
+msgstr "Materiale Chiave"
+
+#: ../schema/novell/ndspki.php:25
+msgid "Security Domain Key Access Partition"
+msgstr "Partizione Chiave di Accesso per il Dominio di Sicurezza"
+
+#: ../schema/novell/ndspki.php:26
+msgid "Security Domain Key List"
+msgstr "Lista chiave per Protezione del Dominio"
+
+#: ../schema/novell/ndspki.php:27 ../schema/novell/ndspki.php:48
+msgid "Certificate Authority"
+msgstr "Autorità di Certificazione"
+
+#: ../schema/novell/ndspki.php:32
+msgid "Certificate Information"
+msgstr "Informazioni sul Certificato"
+
+#: ../schema/novell/ndspki.php:34
+msgid "Distinguished Name"
+msgstr "Nome Distinto"
+
+#: ../schema/novell/ndspki.php:35
+msgid "Certificate for Server"
+msgstr "Certificato per Server"
+
+#: ../schema/novell/ndspki.php:36
+msgid "Subject Name"
+msgstr "Nome del Soggetto"
+
+#: ../schema/novell/ndspki.php:37
+msgid "Valid From"
+msgstr "Valido dal"
+
+#: ../schema/novell/ndspki.php:38
+msgid "Valid To"
+msgstr "Valido Fino al"
+
+#: ../schema/novell/ndspki.php:50
+msgid "Object Name"
+msgstr "Nome Oggetto"
+
+#: ../schema/novell/ndspki.php:51
+msgid "CA Subject Name"
+msgstr "Nome del Soggetto per Autorità di Certificazione"
+
+#: ../schema/novell/ndspki.php:52
+msgid "Parent CA"
+msgstr "Genitore Autorità di Certificazione"
+
+#: ../schema/novell/ndspki.php:53
+msgid "Host Server"
+msgstr "Server Host"
+
+#: ../schema/novell/ndspki.php:54
+msgid "Issued Certificate Container"
+msgstr "Contenitore per i Certificati Emessi"
+
+#: ../schema/novell/ndspki.php:55
+msgid "CRL Container"
+msgstr "Contenitore per CRL"
+
+#: ../schema/novell/ndspki.php:56
+msgid "CRL Configuration DNs"
+msgstr "Elenco dei DNs per configurazione CRL"
+
+#: ../schema/novell/ndspki.php:61
+msgid "Cross Certificate Pair"
+msgstr "Coppia di Certificati Incrociati"

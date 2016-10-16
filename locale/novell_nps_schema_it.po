@@ -1,0 +1,150 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/nps.php:9
+msgid "Portal Gadget List"
+msgstr "Elenco dei Aggeggio per il Portal"
+
+#: ../schema/novell/nps.php:10
+msgid "Portal GUID List"
+msgstr "Elenco dei UID per il Portale"
+
+#: ../schema/novell/nps.php:11
+msgid "Portal Module List"
+msgstr "Elenco dei Moduli per il Portale"
+
+#: ../schema/novell/nps.php:12
+msgid "Parent Module List"
+msgstr "Elenco dei Moduli Padre"
+
+#: ../schema/novell/nps.php:13 ../schema/novell/nps.php:64
+#: ../schema/novell/nps.php:136 ../schema/novell/nps.php:161
+#: ../schema/novell/nps.php:186
+msgid "Portal DN"
+msgstr "DN di Portal"
+
+#: ../schema/novell/nps.php:14
+msgid "Portal Object List"
+msgstr "Elenco dei Oggetti per il Portale"
+
+#: ../schema/novell/nps.php:15
+msgid "Portal Page List"
+msgstr "Elenco di Pagine per il Portale"
+
+#: ../schema/novell/nps.php:16
+msgid "Portal Page Set List"
+msgstr "Elenco dei Gruppi di Pagine per il Portale"
+
+#: ../schema/novell/nps.php:17
+msgid "Portal Theme List"
+msgstr "Elenco dei temi per il Portal"
+
+#: ../schema/novell/nps.php:18 ../schema/novell/nps.php:96
+msgid "Community Container"
+msgstr "Contenitore Comunità"
+
+#: ../schema/novell/nps.php:21
+msgid "Portal Configuration"
+msgstr "Configurazione di Portal"
+
+#: ../schema/novell/nps.php:36 ../schema/novell/nps.php:58
+msgid "Portal Gadget"
+msgstr "Aggeggio per il Portal"
+
+#: ../schema/novell/nps.php:38 ../schema/novell/nps.php:60
+#: ../schema/novell/nps.php:92 ../schema/novell/nps.php:134
+#: ../schema/novell/nps.php:159 ../schema/novell/nps.php:184
+msgid "Name"
+msgstr "Nome"
+
+#: ../schema/novell/nps.php:39 ../schema/novell/nps.php:61
+#: ../schema/novell/nps.php:93
+msgid "Location"
+msgstr "Luogo"
+
+#: ../schema/novell/nps.php:40 ../schema/novell/nps.php:62
+#: ../schema/novell/nps.php:94
+msgid "Version"
+msgstr "Versione"
+
+#: ../schema/novell/nps.php:41 ../schema/novell/nps.php:63
+#: ../schema/novell/nps.php:95 ../schema/novell/nps.php:135
+#: ../schema/novell/nps.php:160 ../schema/novell/nps.php:185
+msgid "Object GUID"
+msgstr "GUID Oggetto"
+
+#: ../schema/novell/nps.php:42
+msgid "Instance Class Name"
+msgstr "Nome Classe per l'Istanza"
+
+#: ../schema/novell/nps.php:45 ../schema/novell/nps.php:67
+#: ../schema/novell/nps.php:99 ../schema/novell/nps.php:139
+#: ../schema/novell/nps.php:164 ../schema/novell/nps.php:189
+msgid "Configuration"
+msgstr "Configurazione"
+
+#: ../schema/novell/nps.php:50 ../schema/novell/nps.php:124
+#: ../schema/novell/nps.php:149 ../schema/novell/nps.php:174
+msgid "Other Objects"
+msgstr "Altri Oggetti"
+
+#: ../schema/novell/nps.php:72
+msgid "Gadgets"
+msgstr "Aggeggio"
+
+#: ../schema/novell/nps.php:77 ../schema/novell/nps.php:114
+msgid "Page Sets"
+msgstr "Gruppi di Pagine"
+
+#: ../schema/novell/nps.php:82 ../schema/novell/nps.php:119
+msgid "Themes"
+msgstr "Temi"
+
+#: ../schema/novell/nps.php:90
+msgid "Portal"
+msgstr "Portale"
+
+#: ../schema/novell/nps.php:104
+msgid "Modules"
+msgstr "Moduli"
+
+#: ../schema/novell/nps.php:109
+msgid "Pages"
+msgstr "Pagine"
+
+#: ../schema/novell/nps.php:132
+msgid "Portal Page"
+msgstr "Pagina per il Portale"
+
+#: ../schema/novell/nps.php:144 ../schema/novell/nps.php:169
+#: ../schema/novell/nps.php:194
+msgid "Parent Modules"
+msgstr "Moduli per il Portale"
+
+#: ../schema/novell/nps.php:157
+msgid "Portal Theme"
+msgstr "Tema per il Portale"
+
+#: ../schema/novell/nps.php:182
+msgid "Portal Page Set"
+msgstr "Gruppo di Pagine per il Portale"
+
+#: ../schema/novell/nps.php:199
+msgid "GUIDs"
+msgstr "GUID"

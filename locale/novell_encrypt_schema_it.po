@@ -1,0 +1,42 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/encrypt.php:9
+msgid "Encryption Policy DN"
+msgstr "DN di Crittografia del Criterio"
+
+#: ../schema/novell/encrypt.php:10 ../schema/novell/encrypt.php:23
+msgid "Encrypted Attributes"
+msgstr "Attributi Crittografati"
+
+#: ../schema/novell/encrypt.php:11
+msgid "Require Secure Channel to Access Attribute"
+msgstr "Richiedi un Canale Sicuro per Accedere Attributo"
+
+#: ../schema/novell/encrypt.php:17
+msgid "Encrypted Attributes Policy"
+msgstr "Criteri per gli Attributi Crittografati"
+
+#: ../schema/novell/encrypt.php:28
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: ../schema/novell/encrypt.php:30
+msgid "Always require secure channel for client access"
+msgstr "Richiedono Sempre un Canale Protetto per l'Accesso Cliente"

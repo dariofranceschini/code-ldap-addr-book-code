@@ -1,0 +1,70 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/uam.php:9
+msgid "UAM POSIX Workstation Contexts"
+msgstr "Contesti per computer POSIX par UAM"
+
+#: ../schema/novell/uam.php:10 ../schema/novell/uam.php:32
+msgid "Reuse UID Numbers"
+msgstr "Numeri Riutilizzo UID"
+
+#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:41
+msgid "Reuse GID Numbers"
+msgstr "Numeri Riutilizzo GID"
+
+#: ../schema/novell/uam.php:22
+msgid "Workstation Contexts for Unix Account Management"
+msgstr "Contesti Workstation per la Gestione Conto UNIX"
+
+#: ../schema/novell/uam.php:27
+msgid "User ID Mapping"
+msgstr "Mappatura ID Utente"
+
+#: ../schema/novell/uam.php:29
+msgid "Starting UID"
+msgstr "UID Partire"
+
+#: ../schema/novell/uam.php:30
+msgid "End UID"
+msgstr "Fine UID"
+
+#: ../schema/novell/uam.php:31
+msgid "Last Assigned UID"
+msgstr "Ultima UID Assegnato"
+
+#: ../schema/novell/uam.php:36
+msgid "Group ID Mapping"
+msgstr "Mappatura ID Gruppo"
+
+#: ../schema/novell/uam.php:38
+msgid "Starting GID"
+msgstr "GID Partire"
+
+#: ../schema/novell/uam.php:39
+msgid "End GID"
+msgstr "Fine GID"
+
+#: ../schema/novell/uam.php:40
+msgid "Last Assigned GID"
+msgstr "Ultima GID Assegnato"
+
+#: ../schema/novell/uam.php:48
+msgid "Groups with access to LUM-enabled Services"
+msgstr "gruppi con Accesso a Servizi LUM Abilitati"

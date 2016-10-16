@@ -1,0 +1,58 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/sas.php:9
+msgid "SAS Service DN"
+msgstr "DN di Servizio SAS"
+
+#: ../schema/novell/sas.php:14
+msgid "SAS:Service"
+msgstr "SAS:Servizio"
+
+#: ../schema/novell/sas.php:15
+msgid "Security Container"
+msgstr "Contenitore per la Sicurezza"
+
+#: ../schema/novell/sas.php:16
+msgid "Login Method Container"
+msgstr "Contenitore per i Metodi per l'Accesso"
+
+#: ../schema/novell/sas.php:17
+msgid "Post-Login Method Container"
+msgstr "Contenitore per la Metodi Post-Login"
+
+#: ../schema/novell/sas.php:18
+msgid "Login Method"
+msgstr "Metodo di Accesso"
+
+#: ../schema/novell/sas.php:23
+msgid "Secure Authentication Services"
+msgstr "Servizi per l'Autenticazione Sicura"
+
+#: ../schema/novell/sas.php:25
+msgid "Server"
+msgstr "Server"
+
+#: ../schema/novell/sas.php:26
+msgid "Certificate Objects"
+msgstr "Oggetti Certificato"
+
+#: ../schema/novell/sas.php:29
+msgid "KMO Export Information"
+msgstr "Informazioni per l'Esportazione KMO"
