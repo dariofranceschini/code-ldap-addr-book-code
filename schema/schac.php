@@ -34,6 +34,18 @@ class schac_schema extends ldap_schema
 
 		// No structural object classes for this schema (auxillary classes only)
 
+		// The auxiliary classes defined in this schema are:
+		//
+		//	schacContactLocation
+		//	schacEmployeeInfo
+		//	schacEntryConfidentiality
+		//	schacEntryMetadata
+		//	schacExperimentalOC
+		//	schacGroupMembership
+		//	schacLinkageIdentifiers
+		//	schacPersonalCharacteristics
+		//	schacUserEntitlements
+
 		parent::__construct($ldap_server);
 	}
 }
