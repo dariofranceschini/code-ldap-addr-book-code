@@ -27,27 +27,27 @@ msgstr "Contextos de Nomenclatura"
 
 #: ../schema/system.php:12
 msgid "Subschema Subentry"
-msgstr "Subordinada entrada para el esquema subordinado"
+msgstr "Subordinada Entrada para el Esquema Subordinado"
 
 #: ../schema/system.php:13
 msgid "Supported Controls"
-msgstr "Controles que son compatibles"
+msgstr "Controles que son Compatibles"
 
 #: ../schema/system.php:14
 msgid "Supported Extended Operations"
-msgstr "Operaciones extendidas que son compatibles"
+msgstr "Operaciones Extendidas que son Compatibles"
 
 #: ../schema/system.php:15
 msgid "Supported Features"
-msgstr "Características que son compatibles"
+msgstr "Características que son Compatibles"
 
 #: ../schema/system.php:16
 msgid "Supported LDAP Versions"
-msgstr "Versiones LDAP que son compatibles"
+msgstr "Versiones LDAP que son Compatibles"
 
 #: ../schema/system.php:17
 msgid "Supported SASL Mechanisms"
-msgstr "Mecanismos SASL que son compatibles"
+msgstr "Mecanismos SASL que son Compatibles"
 
 #: ../schema/system.php:20
 msgid "Object Classes"

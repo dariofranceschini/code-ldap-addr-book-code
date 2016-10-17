@@ -35,7 +35,7 @@ msgstr "Controlli Supportati"
 
 #: ../schema/system.php:14
 msgid "Supported Extended Operations"
-msgstr "operazioni Estese Supportate"
+msgstr "Operazioni Estese Supportate"
 
 #: ../schema/system.php:15
 msgid "Supported Features"
