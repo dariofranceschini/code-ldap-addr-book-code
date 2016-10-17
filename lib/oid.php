@@ -98,9 +98,9 @@ $oid_name=array(
 	"1.3.6.1.4.1.4203.1.5.5"		=>"Language Range Options",			// RFC3866
 	"2.16.840.1.113719.1.27.99.1"		=>"Superior References",			// Novell
 
-	// LDAP Extensions
+	// LDAP Extended Operations
 
-	"1.3.6.1.1.8"				=>"Cancel Operation",				// RFC3909
+	"1.3.6.1.1.8"				=>"Cancel",					// RFC3909
 	"1.3.6.1.4.1.1466.20037"		=>"Start TLS",					// RFC4511, RFC4513
 	"1.3.6.1.4.1.4203.1.11.1"		=>"Modify Password",				// RFC3062
 	"1.3.6.1.4.1.4203.1.11.3"		=>"Who Am I?",					// RFC4532

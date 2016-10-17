@@ -41,7 +41,7 @@ class system_openldap_schema extends ldap_schema
 					array("supportedSASLMechanisms")
 					)
 				),
-			array("section_name"=>gettext("Supported Extensions"),"new_row"=>true,
+			array("section_name"=>gettext("Supported Extended Operations"),"new_row"=>true,
 				"attributes"=>array(
 					array("supportedExtension")
 					)

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-10 10:30+0100\n"
-"PO-Revision-Date: 2016-09-10 10:30+0100\n"
+"POT-Creation-Date: 2016-10-17 08:24+0100\n"
+"PO-Revision-Date: 2016-10-17 08:24+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -58,8 +58,8 @@ msgid "Supported SASL Mechanisms"
 msgstr "Supported SASL Mechanisms"
 
 #: ../schema/system/openldap.php:44
-msgid "Supported Extensions"
-msgstr "Supported Extensions"
+msgid "Supported Extended Operations"
+msgstr "Supported Extended Operations"
 
 #: ../schema/system/openldap.php:52
 msgid "Object Class Definitions"

@@ -100,7 +100,7 @@ class system_edir_schema extends ldap_schema
 					array("supportedSASLMechanisms")
 					)
 				),
-			array("section_name"=>gettext("Supported Extensions"),"new_row"=>true,"colspan"=>6,
+			array("section_name"=>gettext("Supported Extended Operations"),"new_row"=>true,"colspan"=>6,
 				"attributes"=>array(
 					array("supportedExtension")
 					)
