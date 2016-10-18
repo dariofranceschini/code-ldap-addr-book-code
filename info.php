@@ -113,13 +113,13 @@ if(prereq_components_ok())
 			}
 		}
 		else
-			show_error_message(gettext("Record being accessed:") . " <code>" . htmlentities($dn)
-				. "</code>\n</p>\n"
+			show_error_message(gettext("Record being accessed:")
+				. " <code>" . htmlentities($dn,ENT_COMPAT,"UTF-8") . "</code>\n</p>\n"
 				. "<p>\n  " . gettext("This record is outside the part of the directory "
 				. "which stores the address book. You do not "
 				. "have permission to display it.") . "\n</p>\n"
-				. "<p>\n  " . gettext("The address book is stored at:") . " <code>"
-				. htmlentities($ldap_base_dn) . "</code>");
+				. "<p>\n  " . gettext("The address book is stored at:")
+				. " <code>" . htmlentities($ldap_base_dn,ENT_COMPAT,"UTF-8") . "</code>");
 	}
 	else
 	{

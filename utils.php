@@ -1433,9 +1433,9 @@ class ldap_attribute
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 					if(isset($oid_name[$value]))
-						echo "<li>" . htmlentities($oid_name[$value] . " (" . $value . ")") . "</li>";
+						echo "<li>" . htmlentities($oid_name[$value] . " (" . $value . ")",ENT_COMPAT,"UTF-8") . "</li>";
 					else
-						echo "<li>" . htmlentities($value) . "</li>";
+						echo "<li>" . htmlentities($value,ENT_COMPAT,"UTF-8") . "</li>";
 			echo "</ul>";
 		}
 	}
@@ -2590,7 +2590,7 @@ class ldap_entry_list
 				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
 				echo "<td colspan=" . count($this->search_result_columns)
 					. "><a href=\"?dn=" . urlencode($ldap_entry["dn"])
-					. "\">" . htmlentities($dn_elements[0]["value"]) . "</a></td>";
+					. "\">" . htmlentities($dn_elements[0]["value"],ENT_COMPAT,"UTF-8") . "</a></td>";
 			}
 		}
 		else
