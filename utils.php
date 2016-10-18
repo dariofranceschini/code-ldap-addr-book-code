@@ -774,7 +774,7 @@ class ldap_entry_viewer_attrib
 						. $this->icon . "\">";
 				echo "</th>\n          "
 					. "<th>"
-					. $this->caption . "</th>\n";
+					. htmlentities($this->caption,ENT_COMPAT,"UTF-8") . "</th>\n";
 
 				echo "          <td class=\""
 					. ldap_attribute_to_css_class($this->ldap_attribute)
