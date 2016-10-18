@@ -253,9 +253,15 @@ function show_ldap_path($base,$leaf_icon = "")
 				$alt_text = $object_class;
 
 			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
-					&& get_user_setting("allow_browse"))
-				echo "<a href=\"" . current_page_folder_url()
-					. "?dn=" . urlencode($object_dn) . "\">";
+				&& get_user_setting("allow_browse"))
+			{
+		                if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
+					echo "<a href=\"" . current_page_folder_url()
+						. "?dn=" . urlencode($object_dn) . "\">";
+				else
+					echo "<a href=\"" . current_page_folder_url()
+						. "info.php?dn=" . urlencode($object_dn) . "\">";
+			}
 
 			echo "<img alt=\""
 				. $alt_text . "\" title=\"" . $alt_text . "\" src=\""
