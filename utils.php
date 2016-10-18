@@ -230,7 +230,7 @@ function show_ldap_path($base,$leaf_icon = "")
 			{
 				$ldap_entry = ldap_get_entries($ldap_server->connection,$search_resource);
 				$icon = $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
-				$alt_text = $ldap_server->get_object_class($ldap_entry[0]);
+				$object_class = $ldap_server->get_object_class($ldap_entry[0]);
 			}
 			else
 			{
@@ -239,16 +239,21 @@ function show_ldap_path($base,$leaf_icon = "")
 				if($i==1)
 				{
 					$icon = empty($leaf_icon) ? "schema/generic24.png" : $leaf_icon;
-					$alt_text=gettext("Address Book Entry");
+					$object_class=gettext("Address Book Entry");
 				}
 				else
 				{
 					$icon="schema/folder-unreadable.png";
-					$alt_text=gettext("Unreadable Folder");
+					$object_class="__UNREADABLE_FOLDER__";
 				}
 			}
+			if($object_class == "__UNREADABLE_FOLDER__")
+				$alt_text = gettext("Unreadable Folder");
+			else
+				$alt_text = $object_class;
 
-			if($i>1 && get_user_setting("allow_browse"))
+			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
+					&& get_user_setting("allow_browse"))
 				echo "<a href=\"" . current_page_folder_url()
 					. "?dn=" . urlencode($object_dn) . "\">";
 
@@ -257,7 +262,8 @@ function show_ldap_path($base,$leaf_icon = "")
 				. $icon . "\"> "
 				. $rdn_list[$i-1]["value"];
 
-			if($i>1 && get_user_setting("allow_browse"))
+			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
+					&& get_user_setting("allow_browse"))
 				echo "</a>";
 
 			echo "</li>";
