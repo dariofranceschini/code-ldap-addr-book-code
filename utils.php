@@ -138,8 +138,7 @@ function show_search_box($initial_value)
 	echo "      <th>" . gettext("Search for:") . "</th>\n";
 	echo "      <td><input type=\"text\" id=\"filter\" name=\"filter\"";
 	if(!empty($initial_value))
-		echo " value=\"" . htmlentities($initial_value,
-			ENT_COMPAT,"UTF-8") . "\"";
+		echo " value=\"" . htmlentities($initial_value,ENT_COMPAT,"UTF-8") . "\"";
 	echo "></td>\n";
 	echo "      <td><input type=\"submit\" value=\"" . gettext("Search") . "\"></td>\n";
 	echo "    </tr>\n";
