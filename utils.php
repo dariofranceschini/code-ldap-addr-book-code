@@ -3632,13 +3632,12 @@ class ldap_server
 	{
 		foreach($this->group_map as $group_map_entry)
 		{
-
 			// check group membership
-                        $search_resource
-                                = @ldap_read($this->connection,
-                                $group_map_entry["group_name"],
-                                "member=" . $_SESSION["LOGIN_BIND_DN"],
-                                array("member"));
+			$search_resource
+				= @ldap_read($this->connection,
+				$group_map_entry["group_name"],
+				"member=" . $_SESSION["LOGIN_BIND_DN"],
+				array("member"));
 
 			$is_group_member = false;
 			if(ldap_count_entries($this->connection,
@@ -3679,8 +3678,8 @@ class ldap_server
 						}
 					}
 				}
-                        }
-                }
+			}
+		}
 	}
 
 	/** Return whether a DN is within the specified base of the DIT
