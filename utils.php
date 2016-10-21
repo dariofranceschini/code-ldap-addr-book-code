@@ -3640,36 +3640,42 @@ class ldap_server
                                 "member=" . $_SESSION["LOGIN_BIND_DN"],
                                 array("member"));
 
-                        if(is_resource($search_resource))
-                        {
-                                $entry = ldap_get_entries(
-                                        $this->connection,
-                                        $search_resource);
+			$is_group_member = false;
+			if(ldap_count_entries($this->connection,
+				$search_resource))
+			{
+				$entry = ldap_get_entries($this->connection,
+					$search_resource);
 
-                                if($entry["count"]>0)
+				foreach($entry[0]["member"] as $index=>$member)
+					if(!($index === "count") && !strcasecmp($member,$_SESSION["LOGIN_BIND_DN"]))
+						$is_group_member = true;
+			}
+
+			// merge in the group's settings if the user is a member
+			if($is_group_member)
+			{
+				foreach($group_map_entry as $setting=>$value)
 				{
-					foreach($group_map_entry as $setting=>$value)
+					if($setting != "group_name")
 					{
-						if($setting != "group_name")
+						$previous_value = get_user_setting($setting);
+						$merge_method = get_user_setting_merge_method($setting);
+						switch($merge_method)
 						{
-							$previous_value = get_user_setting($setting);
-							$merge_method = get_user_setting_merge_method($setting);
-							switch($merge_method)
-							{
-								case "boolean":
-									// Don't override if already explicitly set to false
-									if($previous_value = true || !user_setting_exists($attrib))
-										assign_cached_user_setting($setting,$value);
-									break;
-								case "string":
-									if(!user_setting_exists($attrib))
-										assign_cached_user_setting($setting,$value);
-									break;
-								default:
-									show_error_message(gettext("Error") . ": "
-										. sprintf(gettext("Unsupported setting merge method: %s"),
-										$merge_method));
-							}
+							case "boolean":
+								// Don't override if already explicitly set to false
+								if($previous_value = true || !user_setting_exists($attrib))
+									assign_cached_user_setting($setting,$value);
+								break;
+							case "string":
+								if(!user_setting_exists($attrib))
+									assign_cached_user_setting($setting,$value);
+								break;
+							default:
+								show_error_message(gettext("Error") . ": "
+									. sprintf(gettext("Unsupported setting merge method: %s"),
+									$merge_method));
 						}
 					}
 				}
