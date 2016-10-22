@@ -4153,6 +4153,23 @@ class ldap_server
                         if(strtolower($this->attribute_schema[$attrib_index]["name"]) == strtolower($attrib))
                                 $this->attribute_schema[$attrib_index][$setting] = $value;
         }
+
+        /** Modify a setting of an object schema
+
+            @param string $object
+                Object class to be modified
+            @param string $setting
+                Object class setting to be modified
+            @param string $value
+                Value to be assigned to the cobject class's setting
+        */
+
+        function modify_object_schema($object_class,$setting,$value)
+        {
+                foreach($this->object_schema as $object_index=>$object_settings)
+                        if(strtolower($this->object_schema[$object_index]["name"]) == strtolower($object_class))
+                                $this->object_schema[$object_index][$setting] = $value;
+        }
 }
 
 /** Bind to LDAP directory, recording failures to server error log
