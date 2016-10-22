@@ -53,7 +53,7 @@ class microsoft_exchange_schema extends ldap_schema
 			array("name"=>"msExchRecipientPolicy",			"icon"=>"microsoft/recipient-policy.png",	"is_folder"=>false,"display_name"=>gettext("Recipient Policy")),
 			array("name"=>"msExchSystemPolicy",			"icon"=>"microsoft/policy.png",			"is_folder"=>false,"display_name"=>gettext("System Policy")),
 			array("name"=>"addressTemplate",			"icon"=>"microsoft/addr-template.png",		"is_folder"=>false,"display_name"=>gettext("Address Template")),
-			array("name"=>"displayTemplate",			"icon"=>"microsoft/display-template.png",	"is_folder"=>false,"display_name"=>gettext("Display Template")),
+			array("name"=>"displayTemplate",			"icon"=>"config-file.png",			"is_folder"=>false,"display_name"=>gettext("Display Template")),
 			array("name"=>"mTA",					"icon"=>"microsoft/mta.png",			"is_folder"=>false,"display_name"=>gettext("Message Transfer Agent")),
 			array("name"=>"exchangeAdminService",			"icon"=>"microsoft/exchange-admin-service.png",	"is_folder"=>false,"display_name"=>gettext("System Attendant")),
 			array("name"=>"siteAddressing",				"icon"=>"microsoft/policy.png",			"is_folder"=>false,"display_name"=>gettext("Site Addressing")),
