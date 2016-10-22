@@ -3613,7 +3613,8 @@ class ldap_server
 			// sufficient access to the directory to enumerate the group's
 			// membership then allow_login will evaluate to false.
 			$result = get_user_setting("allow_login");
-			$this->assign_group_permissions();
+			foreach($this->group_map as $group_map_entry)
+				$this->assign_group_permissions($group_map_entry);
 		}
 
 		return $result;
@@ -3622,60 +3623,60 @@ class ldap_server
 	/** Assign permissions to the currently logged in user based on their
 	    group membership.
 
+	    @param array $group_map_entry
+		Group permission entry to be merged in
+
 	    @todo
 		Allow permissions to be assigned based on appearance of the
 		user's DN in roleOccupant or uniqueMember attributes in
 		addition to member.
 	*/
 
-	function assign_group_permissions()
+	function assign_group_permissions($group_map_entry)
 	{
-		foreach($this->group_map as $group_map_entry)
+		// check group membership
+		$search_resource
+			= @ldap_read($this->connection,
+			$group_map_entry["group_name"],
+			"member=" . $_SESSION["LOGIN_BIND_DN"],
+			array("member"));
+
+		$is_group_member = false;
+		if(ldap_count_entries($this->connection,
+			$search_resource))
 		{
-			// check group membership
-			$search_resource
-				= @ldap_read($this->connection,
-				$group_map_entry["group_name"],
-				"member=" . $_SESSION["LOGIN_BIND_DN"],
-				array("member"));
+			$entry = ldap_get_entries($this->connection,
+				$search_resource);
 
-			$is_group_member = false;
-			if(ldap_count_entries($this->connection,
-				$search_resource))
+			foreach($entry[0]["member"] as $index=>$member)
+				if(!($index === "count") && !strcasecmp($member,$_SESSION["LOGIN_BIND_DN"]))
+					$is_group_member = true;
+		}
+
+		// merge in the group's settings if the user is a member
+		if($is_group_member)
+		{
+			foreach($group_map_entry as $setting=>$value)
 			{
-				$entry = ldap_get_entries($this->connection,
-					$search_resource);
-
-				foreach($entry[0]["member"] as $index=>$member)
-					if(!($index === "count") && !strcasecmp($member,$_SESSION["LOGIN_BIND_DN"]))
-						$is_group_member = true;
-			}
-
-			// merge in the group's settings if the user is a member
-			if($is_group_member)
-			{
-				foreach($group_map_entry as $setting=>$value)
+				if($setting != "group_name")
 				{
-					if($setting != "group_name")
+					$previous_value = get_user_setting($setting);
+					$merge_method = get_user_setting_merge_method($setting);
+					switch($merge_method)
 					{
-						$previous_value = get_user_setting($setting);
-						$merge_method = get_user_setting_merge_method($setting);
-						switch($merge_method)
-						{
-							case "boolean":
-								// Don't override if already explicitly set to false
-								if($previous_value = true || !user_setting_exists($attrib))
-									assign_cached_user_setting($setting,$value);
-								break;
-							case "string":
-								if(!user_setting_exists($attrib))
-									assign_cached_user_setting($setting,$value);
-								break;
-							default:
-								show_error_message(gettext("Error") . ": "
-									. sprintf(gettext("Unsupported setting merge method: %s"),
-									$merge_method));
-						}
+						case "boolean":
+							// Don't override if already explicitly set to false
+							if($previous_value = true || !user_setting_exists($attrib))
+								assign_cached_user_setting($setting,$value);
+							break;
+						case "string":
+							if(!user_setting_exists($attrib))
+								assign_cached_user_setting($setting,$value);
+							break;
+						default:
+							show_error_message(gettext("Error") . ": "
+								. sprintf(gettext("Unsupported setting merge method: %s"),
+								$merge_method));
 					}
 				}
 			}
