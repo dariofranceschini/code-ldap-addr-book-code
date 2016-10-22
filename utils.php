@@ -693,7 +693,7 @@ class ldap_entry_viewer_section
 
 		$cell_attrib = "";
 		if($this->colspan != 1)
-			$cell_attrib.=" colspan=" . $this->colspan;
+			$cell_attrib.=" colspan=\"" . $this->colspan . "\"";
 
 		if($this->width != "")
 			$cell_attrib.=" style=\"width:" . $this->width . "\"";
@@ -702,7 +702,7 @@ class ldap_entry_viewer_section
 			. ">\n      <table class=\"ldap_entry_viewer_section\">\n";
 
 		if(!empty($this->text))
-			echo "        <tr>\n          <th colspan=3 class=\"column_header\">"
+			echo "        <tr>\n          <th colspan=\"3\" class=\"column_header\">"
 				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
@@ -774,7 +774,7 @@ class ldap_entry_viewer_attrib
 
 			// Use full width if attribute has no icon or caption text
 			if($this->icon == "" && $this->caption == "")
-				echo "          <td colspan=3 class=\""
+				echo "          <td colspan=\"3\" class=\""
 						. ldap_attribute_to_css_class($this->ldap_attribute)
 						. "\">\n            ";
 			else
@@ -2490,9 +2490,9 @@ class ldap_entry_list
 				if(!$header_shown)
 				{
 					if($objects_to_show == ENTRY_LIST_SHOW_FOLDER_OBJECTS)
-						echo "<th class=\"column_header\" colspan="
+						echo "<th class=\"column_header\" colspan=\""
 							. (count($this->search_result_columns)+1)
-							. ">" . gettext("Folders") . "</th>";
+							. "\">" . gettext("Folders") . "</th>";
 					else
 						$this->show_column_headings();
 					$header_shown = true;
@@ -2506,7 +2506,7 @@ class ldap_entry_list
 
 	function show_column_headings()
 	{
-		$colspan="colspan=2 ";
+		$colspan="colspan=\"2\" ";
 		foreach($this->search_result_columns as $column)
 		{
 			echo "    <th " . $colspan
@@ -2599,8 +2599,8 @@ class ldap_entry_list
 				/** @todo ability to delete - not currently implemented for objects with multi-attribute RDNs */
 
 				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
-				echo "<td colspan=" . count($this->search_result_columns)
-					. "><a href=\"?dn=" . urlencode($ldap_entry["dn"])
+				echo "<td colspan=\"" . count($this->search_result_columns)
+					. "\"><a href=\"?dn=" . urlencode($ldap_entry["dn"])
 					. "\">" . htmlentities($dn_elements[0]["value"],ENT_COMPAT,"UTF-8") . "</a></td>";
 			}
 		}
