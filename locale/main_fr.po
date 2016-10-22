@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-22 11:34+0100\n"
-"PO-Revision-Date: 2016-09-10 09:57+0100\n"
+"POT-Creation-Date: 2016-10-22 11:41+0100\n"
+"PO-Revision-Date: 2016-10-22 11:41+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -235,6 +235,318 @@ msgstr ""
 #: ../info.php:121
 msgid "The address book is stored at:"
 msgstr "Te carnet d'adresses est stocké à:"
+
+#: ../lib/ldap_result.php:41
+msgid "Success"
+msgstr "Succès"
+
+#: ../lib/ldap_result.php:42
+msgid "Operations error"
+msgstr "Erreur d'opérations"
+
+#: ../lib/ldap_result.php:43
+msgid "Protocol error"
+msgstr "Erreur de protocole"
+
+#: ../lib/ldap_result.php:44
+msgid "Time limit exceeded"
+msgstr "Délai dépassé"
+
+#: ../lib/ldap_result.php:45
+msgid "Size limit exceeded"
+msgstr "Limite de taille dépassée"
+
+#: ../lib/ldap_result.php:46
+msgid "Compare False"
+msgstr "Comparer Faux"
+
+#: ../lib/ldap_result.php:47
+msgid "Compare True"
+msgstr "Comparer Vrai"
+
+#: ../lib/ldap_result.php:48
+msgid "Authentication method not supported"
+msgstr "Méthode d'authentification non prise en charge"
+
+#: ../lib/ldap_result.php:49
+msgid "Strong(er) authentication required"
+msgstr "Méthode d'authentification ne sont prise en charge"
+
+#: ../lib/ldap_result.php:50
+msgid "Partial results and referral received"
+msgstr "Résultats partiels et renvoi reçus"
+
+#: ../lib/ldap_result.php:51
+msgid "Referral"
+msgstr "Référence"
+
+#: ../lib/ldap_result.php:52
+msgid "Administrative limit exceeded"
+msgstr "Limite administrative dépassée"
+
+#: ../lib/ldap_result.php:53
+msgid "Critical extension is unavailable"
+msgstr "Extension critique est indisponible"
+
+#: ../lib/ldap_result.php:54
+msgid "Confidentiality required"
+msgstr "Confidentialité requise"
+
+#: ../lib/ldap_result.php:55
+msgid "SASL bind in progress"
+msgstr "SASL bind en cours"
+
+#: ../lib/ldap_result.php:57
+msgid "No such attribute"
+msgstr "Aucun tel attribut"
+
+#: ../lib/ldap_result.php:58
+msgid "Undefined attribute type"
+msgstr "Type d'attribut est indéfini"
+
+#: ../lib/ldap_result.php:59
+msgid "Inappropriate matching"
+msgstr "Correspondance inappropriée"
+
+#: ../lib/ldap_result.php:60
+msgid "Constraint violation"
+msgstr "Violation de contrainte"
+
+#: ../lib/ldap_result.php:61
+msgid "Type or value exists"
+msgstr "Tapez ou valeur existe"
+
+#: ../lib/ldap_result.php:62
+msgid "Invalid syntax"
+msgstr "Syntaxe invalide"
+
+#: ../lib/ldap_result.php:64
+msgid "No such object"
+msgstr "Aucun tel objet"
+
+#: ../lib/ldap_result.php:65
+msgid "Alias problem"
+msgstr "Problème alias"
+
+#: ../lib/ldap_result.php:66
+msgid "Invalid DN syntax"
+msgstr "Syntaxe DN non valide"
+
+#: ../lib/ldap_result.php:67
+msgid "Entry is a leaf"
+msgstr "Entrée est une feuille"
+
+#: ../lib/ldap_result.php:68
+msgid "Alias dereferencing problem"
+msgstr "problème de déréférencement alias"
+
+#: ../lib/ldap_result.php:70
+msgid "Proxy Authorization Failure (X)"
+msgstr "Échec autorisation proxy"
+
+#: ../lib/ldap_result.php:71
+msgid "Inappropriate authentication"
+msgstr "Authentification inappropriée"
+
+#: ../lib/ldap_result.php:72
+msgid "Invalid credentials"
+msgstr "Pouvoirs non valides"
+
+#: ../lib/ldap_result.php:73
+msgid "Insufficient access"
+msgstr "Accès insuffisant"
+
+#: ../lib/ldap_result.php:74
+msgid "Server is busy"
+msgstr "Serveur est occupé"
+
+#: ../lib/ldap_result.php:75
+msgid "Server is unavailable"
+msgstr "Serveur est indisponible"
+
+#: ../lib/ldap_result.php:76
+msgid "Server is unwilling to perform"
+msgstr "Serveur ne veut pas effectuer"
+
+#: ../lib/ldap_result.php:77
+msgid "Loop detected"
+msgstr "Boucle détectée"
+
+#: ../lib/ldap_result.php:79
+msgid "Naming violation"
+msgstr "Violation de dénomination"
+
+#: ../lib/ldap_result.php:80
+msgid "Object class violation"
+msgstr "Violation de la classe d'objet"
+
+#: ../lib/ldap_result.php:81
+msgid "Operation not allowed on non-leaf"
+msgstr "Opération non autorisée sur la non-feuille"
+
+#: ../lib/ldap_result.php:82
+msgid "Operation not allowed on RDN"
+msgstr "Opération non autorisée sur RDN"
+
+#: ../lib/ldap_result.php:83
+msgid "Already exists"
+msgstr "Existe déjà"
+
+#: ../lib/ldap_result.php:84
+msgid "Cannot modify object class"
+msgstr "Classe d'objet ne peut pas être modifié"
+
+#: ../lib/ldap_result.php:85
+msgid "Results too large"
+msgstr "Résultats trop grands"
+
+#: ../lib/ldap_result.php:86
+msgid "Operation affects multiple DSAs"
+msgstr "Opération affecte plusieurs DSA"
+
+#: ../lib/ldap_result.php:88
+msgid "Virtual List View error"
+msgstr "Erreur de Virtual List View"
+
+#: ../lib/ldap_result.php:90
+msgid "Other (e.g., implementation specific) error"
+msgstr "Autres error (par exemple, la mise en œuvre spécifique)"
+
+#: ../lib/ldap_result.php:91
+msgid "Can't contact LDAP server"
+msgstr "Impossible de contacter le serveur LDAP"
+
+#: ../lib/ldap_result.php:92
+msgid "Local error"
+msgstr "Erreur locale"
+
+#: ../lib/ldap_result.php:93
+msgid "Encoding error"
+msgstr "Erreur de codage"
+
+#: ../lib/ldap_result.php:94
+msgid "Decoding error"
+msgstr "Erreur de décodage"
+
+#: ../lib/ldap_result.php:95
+msgid "Timed out"
+msgstr "Fin du temps"
+
+#: ../lib/ldap_result.php:96
+msgid "Unknown authentication method"
+msgstr "Méthode d'authentification inconnue"
+
+#: ../lib/ldap_result.php:97
+msgid "Bad search filter"
+msgstr "Bad filtre de recherche"
+
+#: ../lib/ldap_result.php:98
+msgid "User cancelled operation"
+msgstr "Utilisateur a annulé l'opération"
+
+#: ../lib/ldap_result.php:99
+msgid "Bad parameter to an LDAP routine"
+msgstr "Bad paramètre à une routine LDAP"
+
+#: ../lib/ldap_result.php:100
+msgid "Out of memory"
+msgstr "Mémoire insuffisante"
+
+#: ../lib/ldap_result.php:101
+msgid "Connect error"
+msgstr "Erreur de connexion"
+
+#: ../lib/ldap_result.php:102
+msgid "Not Supported"
+msgstr "Non Supporté"
+
+#: ../lib/ldap_result.php:103
+msgid "Control not found"
+msgstr "Contrôle non trouvé"
+
+#: ../lib/ldap_result.php:104
+msgid "No results returned"
+msgstr "Aucun résultat renvoyé"
+
+#: ../lib/ldap_result.php:105
+msgid "More results to return"
+msgstr "Plus de résultats pour revenir"
+
+#: ../lib/ldap_result.php:106
+msgid "Client Loop"
+msgstr "Client en boucle"
+
+#: ../lib/ldap_result.php:107
+msgid "Referral Limit Exceeded"
+msgstr "Limite d'orientation dépassé"
+
+#: ../lib/ldap_result.php:109
+msgid "LCUP Resources Exhausted"
+msgstr "Ressources LCUP Épuisés"
+
+#: ../lib/ldap_result.php:110
+msgid "LCUP Security Violation"
+msgstr "Violation LCUP sécurité"
+
+#: ../lib/ldap_result.php:111
+msgid "LCUP Invalid Data"
+msgstr "LCUP données non valide"
+
+#: ../lib/ldap_result.php:112
+msgid "LCUP Unsupported Scheme"
+msgstr "Schéma LCUP non supporté"
+
+#: ../lib/ldap_result.php:113
+msgid "LCUP Reload Required"
+msgstr "LCUP Recharger requis"
+
+#: ../lib/ldap_result.php:114
+msgid "Cancelled"
+msgstr "Annulé"
+
+#: ../lib/ldap_result.php:115
+msgid "No Operation to Cancel"
+msgstr "Aucune opération pour annuler"
+
+#: ../lib/ldap_result.php:116
+msgid "Too Late to Cancel"
+msgstr "Trop tard pour annuler"
+
+#: ../lib/ldap_result.php:117
+msgid "Cannot Cancel"
+msgstr "Impossible d'Annuler"
+
+#: ../lib/ldap_result.php:118
+msgid "Assertion Failed"
+msgstr "Assertion échouée"
+
+#: ../lib/ldap_result.php:119
+msgid "Proxied Authorization Denied"
+msgstr "Autorisation refusée approximé"
+
+#: ../lib/ldap_result.php:121
+msgid "Content Sync Refresh Required"
+msgstr "Mise à jour requise pour synchroniser le contenu"
+
+#: ../lib/ldap_result.php:124
+msgid "Content Sync Refresh Required (X)"
+msgstr "Mise à jour requise pour synchroniser le contenu (X)"
+
+#: ../lib/ldap_result.php:125
+msgid "No Operation (X)"
+msgstr "Pas d'opération"
+
+#: ../lib/ldap_result.php:126
+msgid "Assertion Failed (X)"
+msgstr "Assertion échouée (X)"
+
+#: ../lib/ldap_result.php:127
+msgid "TXN specify okay"
+msgstr "TXN spécifier était correct"
+
+#: ../lib/ldap_result.php:128
+msgid "TXN ID is invalid"
+msgstr "TXN ID est invalide"
 
 #: ../update.php:64
 msgid "Unable to create - A record already exists with this name."
