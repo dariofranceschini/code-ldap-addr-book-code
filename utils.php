@@ -2425,7 +2425,7 @@ class ldap_entry_list
 	{
 		global $display_folders_separately;
 
-		echo "<table class=\"search_results_viewer\">\n  <tr>\n";
+		echo "<table class=\"search_results_viewer\">\n";
 
 		if(isset($display_folders_separately) && $display_folders_separately)
 		{
@@ -2490,9 +2490,9 @@ class ldap_entry_list
 				if(!$header_shown)
 				{
 					if($objects_to_show == ENTRY_LIST_SHOW_FOLDER_OBJECTS)
-						echo "<th class=\"column_header\" colspan=\""
+						echo "  <tr>\n    <th class=\"column_header\" colspan=\""
 							. (count($this->search_result_columns)+1)
-							. "\">" . gettext("Folders") . "</th>";
+							. "\">" . gettext("Folders") . "</th>\n  </tr>\n";
 					else
 						$this->show_column_headings();
 					$header_shown = true;
@@ -2506,6 +2506,8 @@ class ldap_entry_list
 
 	function show_column_headings()
 	{
+		echo "  <tr>\n";
+
 		$colspan="colspan=\"2\" ";
 		foreach($this->search_result_columns as $column)
 		{
