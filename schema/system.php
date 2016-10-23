@@ -32,7 +32,7 @@ class system_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"subschema",			"icon"=>"system/schema.png",	"is_folder"=>false,"display_name"=>gettext("Schema")),
+			array("name"=>"subschema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema")),
 			);
 
 		parent::__construct($ldap_server);
