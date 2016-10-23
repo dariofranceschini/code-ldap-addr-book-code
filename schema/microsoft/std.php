@@ -44,7 +44,7 @@ class microsoft_std_schema extends ldap_schema
 			array("section_name"=>"Folder Details",
 				"attributes"=>array(
 					array("ou",			gettext("OU Name"),		"folder.png"),
-					array("description",		gettext("Description"),		"microsoft/description24.png"),
+					array("description",		gettext("Description"),		"description.png"),
 					array("street:l:st:postalCode",	gettext("Postal Address"),	"address.png"),
 					// Country attribute of OU class is Microsoft-specific addition
 					array("c",			gettext("Country"),		"country.png")

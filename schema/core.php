@@ -114,7 +114,7 @@ class core_schema extends ldap_schema
 			array("section_name"=>gettext("Folder Details"),
 				"attributes"=>array(
 					array("ou",				gettext("OU Name"),		"folder.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 					// array("businessCategory",		gettext("Business Category"),	"company.png"),
 					// array("physicalDeliveryOfficeName",	gettext("Office Name"),		"office.png"),
 
@@ -149,7 +149,7 @@ class core_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("cn",				gettext("Group Name"),		"group24.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 
 					// array("ou",				gettext("Department"),		"org.png"),
 					// array("o",				gettext("Organization"),	"company.png"),
@@ -169,7 +169,7 @@ class core_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("cn",				gettext("Group Name"),		"group24.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 
 					// array("ou",				gettext("Department"),		"org.png"),
 					// array("o",				gettext("Organization"),	"company.png"),
@@ -189,7 +189,7 @@ class core_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("l",				gettext("Locality Name"),	"locality.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 					array("street:st",			gettext("Address"),		"address.png")
 					// array("seeAlso",			gettext("See Also"),		"alias.png"),
 					)
@@ -200,7 +200,7 @@ class core_schema extends ldap_schema
 			array("section_name"=>gettext("Organization Details"),
 				"attributes"=>array(
 					array("o",				gettext("Organization Name"),	"org.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 					// array("businessCategory",		gettext("Business Category"),	"company.png"),
 					// array("physicalDeliveryOfficeName",	gettext("Office Name"),		"office.png"),
 
@@ -235,7 +235,7 @@ class core_schema extends ldap_schema
 			array("section_name"=>gettext("Organizational Role"),
 				"attributes"=>array(
 					array("cn",				gettext("Role Name"),		"org-role.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 					array("ou",				gettext("Department"),		"org.png"),
 
 					// array("physicalDeliveryOfficeName",	gettext("Office Name"),		"office.png"),
@@ -275,7 +275,7 @@ class core_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("c",				gettext("Country Code"),	"country.png"),
-					array("description",			gettext("Description"),		"microsoft/description24.png"),
+					array("description",			gettext("Description"),		"description.png"),
 					)
 				)
 			));

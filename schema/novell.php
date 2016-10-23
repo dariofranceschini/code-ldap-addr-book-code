@@ -114,7 +114,7 @@ class novell_schema extends ldap_schema
 			array("section_name"=>gettext("Folder Details"),
 				"attributes"=>array(
 					array("ou",				gettext("OU Name"),			"folder.png"),
-					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					array("description",			gettext("Description"),			"description.png"),
 					array("street:physicalDeliveryOfficeName:st:postalCode",
 										gettext("Postal Address"),		"address.png"),
 					)
@@ -125,7 +125,7 @@ class novell_schema extends ldap_schema
 			array("section_name"=>gettext("Folder Details"),
 				"attributes"=>array(
 					array("c",				gettext("Country Code"),		"country.png"),
-					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					array("description",			gettext("Description"),			"description.png"),
 					)
 				)
 			));
@@ -241,7 +241,7 @@ class novell_schema extends ldap_schema
 					array("ou",				gettext("Department"),			"org.png"),
 					array("telephoneNumber",		gettext("Phone"),			"landline-phone.png"),
 					array("facsimileTelephoneNumber",	gettext("Fax"),				"fax.png"),
-					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					array("description",			gettext("Description"),			"description.png"),
 
 					array("street:postOfficeBox:physicalDeliveryOfficeName:st:postalCode",
 										gettext("Postal Address"),		"address.png"),

@@ -140,7 +140,7 @@ class microsoft_schema extends ldap_schema
 				"attributes"=>array(
 					array("cn",				gettext("Group Name (Active Directory)"),	"contact24.png",true),
 					array("sAMAccountName",			gettext("Group Name (pre-Windows 2000)"),	"contact24.png"),
-					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("description",			gettext("Description"),				"description.png"),
 					array("mail",				gettext("E-mail"),				"mail.png"),
 					array("groupType",			gettext("Type/Scope"),				"generic24.png")
 					)
@@ -174,7 +174,7 @@ class microsoft_schema extends ldap_schema
 			array("section_name"=>gettext("Folder Details"),
 				"attributes"=>array(
 					array("cn",				gettext("Name"),				"folder.png"),
-					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("description",			gettext("Description"),				"description.png"),
 					)
 				)
 			));
@@ -186,7 +186,7 @@ class microsoft_schema extends ldap_schema
 					array("printerName",			gettext("Printer Name"),			"microsoft/printer24.png"),
 					array("driverName",			gettext("Driver"),				"app.png"),
 					array("location",			gettext("Location"),				"address.png"),
-					array("description",			gettext("Description"),				"microsoft/description24.png")
+					array("description",			gettext("Description"),				"description.png")
 					)
 				),
 			array("section_name"=>gettext("Capabilities"),"width"=>"50%",
@@ -226,7 +226,7 @@ class microsoft_schema extends ldap_schema
 					array("cn",				gettext("Computer Name (Active Directory)"),	"generic24.png"),
 					array("sAMAccountName",			gettext("Computer Name (pre-Windows 2000)"),	"generic24.png"),
 					array("dNSHostName",			gettext("DNS Name"),				"generic24.png"),
-					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("description",			gettext("Description"),				"description.png"),
 					array("managedBy",			gettext("Managed By"),				"alias.png"),
 					array("location",			gettext("Location"),				"address.png"),
 					array("msDS-AllowedToDelegateTo",	gettext("Delegation Service List"),		"generic24.png"),
@@ -256,7 +256,7 @@ class microsoft_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("cn",				gettext("Name"),				"contact24.png",true),
-					array("description",			gettext("Description"),				"microsoft/description24.png"),
+					array("description",			gettext("Description"),				"description.png"),
 					)
 				),
 			array("section_name"=>gettext("Group Membership"),"new_row"=>true,"colspan"=>2,

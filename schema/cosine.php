@@ -108,7 +108,7 @@ class cosine_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("dc",				gettext("Domain Name Component"),	"microsoft/domain24.png"),
-					array("description",			gettext("Description"),			"microsoft/description24.png"),
+					array("description",			gettext("Description"),			"description.png"),
 					// array("o",				gettext("Organization"),		"company.png"),
 					// array("businessCategory",		gettext("Business Category"),		"company.png"),
 					// array("physicalDeliveryOfficeName",	gettext("Office Name"),			"office.png"),
