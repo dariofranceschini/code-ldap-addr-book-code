@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-28 09:35+0100\n"
-"PO-Revision-Date: 2016-07-28 09:35+0100\n"
+"POT-Creation-Date: 2016-10-30 17:24+0000\n"
+"PO-Revision-Date: 2016-10-30 17:24+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -18,9 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/novell/nis.php:17
+msgid "IP Network"
+msgstr "Red IP"
+
+#: ../schema/novell/nis.php:18
+msgid "IP Protocol"
+msgstr "Protocolo IP"
+
+#: ../schema/novell/nis.php:19
+msgid "IP Service"
+msgstr "Servicio IP"
+
+#: ../schema/novell/nis.php:20
+msgid "NIS Map"
+msgstr "Mapa NIS"
+
+#: ../schema/novell/nis.php:21
+msgid "Netgroup"
+msgstr "Netgroup"
+
+#: ../schema/novell/nis.php:22
+msgid "NIS Map Entry"
+msgstr "Entrada dentro del Mapa NIS"
+
+#: ../schema/novell/nis.php:23
+msgid "ONC RPC Binding"
+msgstr "Encuadernación RPC de ONC"
+
+#: ../schema/novell/nis.php:39
 msgid "NIS Server"
 msgstr "Servidor NIS"
 
-#: ../schema/novell/nis.php:19
+#: ../schema/novell/nis.php:41
 msgid "IP Address"
 msgstr "Dirección IP"
