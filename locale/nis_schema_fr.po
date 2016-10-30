@@ -1,0 +1,150 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-30 13:06+0000\n"
+"PO-Revision-Date: 2016-10-30 13:06+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/nis.php:16
+msgid "Boot Image File Name"
+msgstr "Nom de Fichier de l'Image de Démarrage"
+
+#: ../schema/nis.php:17
+msgid "Boot Parameter"
+msgstr "Paramètre de Démarrage"
+
+#: ../schema/nis.php:18
+msgid "GECOS Field"
+msgstr "Champ de GECOS"
+
+#: ../schema/nis.php:19
+msgid "Group ID Number"
+msgstr "Numéro d'Identification du Groupe"
+
+#: ../schema/nis.php:20
+msgid "Home Directory Path"
+msgstr "Emplacement du Répertoire d'Accueil"
+
+#: ../schema/nis.php:21
+msgid "IPv4 Address"
+msgstr "Adresse IPv4"
+
+#: ../schema/nis.php:22
+msgid "IPv4 Subnet Mask"
+msgstr "Masque de Sous-Réseau IPv4"
+
+#: ../schema/nis.php:23
+msgid "IPv4 Network Address"
+msgstr "Adresse Réseau IPv4"
+
+#: ../schema/nis.php:24
+msgid "IP Protocol Number"
+msgstr "Numéro de Protocole IP"
+
+#: ../schema/nis.php:25
+msgid "Port Number"
+msgstr "Numéro de Port"
+
+#: ../schema/nis.php:26
+msgid "IP Protocol Name"
+msgstr "Nom du Protocole IP"
+
+#: ../schema/nis.php:27
+msgid "Login Shell Path"
+msgstr "Chemin d'Accès au Shell de Connexion"
+
+#: ../schema/nis.php:28
+msgid "MAC Address"
+msgstr "Adresse MAC"
+
+#: ../schema/nis.php:29
+msgid "Member Netgroup"
+msgstr "Netgroup Membre"
+
+#: ../schema/nis.php:30
+msgid "Member User ID"
+msgstr "Identificateur d'Utilisateur du Membre"
+
+#: ../schema/nis.php:31 ../schema/nis.php:52
+msgid "NIS Map Entry"
+msgstr "Entrée de la Carte NIS"
+
+#: ../schema/nis.php:32
+msgid "NIS Map Name"
+msgstr "Nom de la Carte NIS"
+
+#: ../schema/nis.php:33
+msgid "Host/User/Domain Triple"
+msgstr "Hôte / Utilisateur / Domaine Triple"
+
+#: ../schema/nis.php:34
+msgid "ONC RPC Number"
+msgstr "Numéro de ONC RPC"
+
+#: ../schema/nis.php:35
+msgid "Expiry Date"
+msgstr "Date d'Expiration"
+
+#: ../schema/nis.php:37
+msgid "Time Until Account Inactive (Days)"
+msgstr "Heure Jusqu'au Compte Inactif (Jours)"
+
+#: ../schema/nis.php:38
+msgid "Date of Last Password Change"
+msgstr "Date du Dernier Changement de Mot de Passe"
+
+#: ../schema/nis.php:39
+msgid "Maximum Password Age (Days)"
+msgstr "Âge Maximum de Mot de Passe (Jours)"
+
+#: ../schema/nis.php:40
+msgid "Minimum Password Age (Days)"
+msgstr "Âge Minimum de Mots de Passe (Jours)"
+
+#: ../schema/nis.php:41
+msgid "Warning Period Before Expiration (Days)"
+msgstr "Période d'Avertissement avant l'Expiration (jours)"
+
+#: ../schema/nis.php:42
+msgid "User ID Number"
+msgstr "Numéro d'Identification de l'Utilisateur"
+
+#: ../schema/nis.php:47
+msgid "IP Network"
+msgstr "Réseau IP"
+
+#: ../schema/nis.php:48
+msgid "IP Protocol"
+msgstr "Protocole IP"
+
+#: ../schema/nis.php:49
+msgid "IP Service"
+msgstr "Service IP"
+
+#: ../schema/nis.php:50
+msgid "NIS Map"
+msgstr "Carte NIS"
+
+#: ../schema/nis.php:51
+msgid "Netgroup"
+msgstr "Netgroup"
+
+#: ../schema/nis.php:53
+msgid "ONC RPC Binding"
+msgstr "Reliure pour ONC RPC"
+
+#: ../schema/nis.php:54
+msgid "POSIX Group"
+msgstr "Groupe POSIX"
