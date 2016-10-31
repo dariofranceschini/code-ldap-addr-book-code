@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-30 11:27+0100\n"
-"PO-Revision-Date: 2016-07-30 11:27+0100\n"
+"POT-Creation-Date: 2016-10-30 13:06+0000\n"
+"PO-Revision-Date: 2016-10-30 13:06+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,50 +21,54 @@ msgstr ""
 msgid "UAM POSIX Workstation Contexts"
 msgstr "UAM POSIX Workstation Contexts"
 
-#: ../schema/novell/uam.php:10 ../schema/novell/uam.php:32
+#: ../schema/novell/uam.php:10 ../schema/novell/uam.php:33
 msgid "Reuse UID Numbers"
 msgstr "Reuse UID Numbers"
 
-#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:41
+#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:42
 msgid "Reuse GID Numbers"
 msgstr "Reuse GID Numbers"
 
-#: ../schema/novell/uam.php:22
+#: ../schema/novell/uam.php:16
+msgid "POSIX Group"
+msgstr "POSIX Group"
+
+#: ../schema/novell/uam.php:23
 msgid "Workstation Contexts for Unix Account Management"
 msgstr "Workstation Contexts for Unix Account Management"
 
-#: ../schema/novell/uam.php:27
+#: ../schema/novell/uam.php:28
 msgid "User ID Mapping"
 msgstr "User ID Mapping"
 
-#: ../schema/novell/uam.php:29
+#: ../schema/novell/uam.php:30
 msgid "Starting UID"
 msgstr "Starting UID"
 
-#: ../schema/novell/uam.php:30
+#: ../schema/novell/uam.php:31
 msgid "End UID"
 msgstr "End UID"
 
-#: ../schema/novell/uam.php:31
+#: ../schema/novell/uam.php:32
 msgid "Last Assigned UID"
 msgstr "Last Assigned UID"
 
-#: ../schema/novell/uam.php:36
+#: ../schema/novell/uam.php:37
 msgid "Group ID Mapping"
 msgstr "Group ID Mapping"
 
-#: ../schema/novell/uam.php:38
+#: ../schema/novell/uam.php:39
 msgid "Starting GID"
 msgstr "Starting GID"
 
-#: ../schema/novell/uam.php:39
+#: ../schema/novell/uam.php:40
 msgid "End GID"
 msgstr "End GID"
 
-#: ../schema/novell/uam.php:40
+#: ../schema/novell/uam.php:41
 msgid "Last Assigned GID"
 msgstr "Last Assigned GID"
 
-#: ../schema/novell/uam.php:48
+#: ../schema/novell/uam.php:49
 msgid "Groups with access to LUM-enabled Services"
 msgstr "Groups with access to LUM-enabled Services"
