@@ -552,7 +552,7 @@ msgstr "Impossibile creare - Un record esiste già con questo nome."
 
 #: ../update.php:116
 msgid "Unable to create LDAP record: "
-msgstr "Impossibile creare record di LDAP"
+msgstr "Impossibile creare record di LDAP: "
 
 #: ../update.php:123
 msgid "Unable to create this type of object."
