@@ -42,13 +42,13 @@ class nis_schema extends ldap_schema
 			array("name"=>"nisMapName",		"data_type"=>"text",		"display_name"=>gettext("NIS Map Name")),
 			array("name"=>"nisNetgroupTriple",	"data_type"=>"text_list",	"display_name"=>gettext("Host/User/Domain Triple")),
 			array("name"=>"oncRpcNumber",		"data_type"=>"text",		"display_name"=>gettext("ONC RPC Number")),
-			array("name"=>"shadowExpire",		"data_type"=>"text"		"display_name"=>gettext("Expiry Date")),
+			array("name"=>"shadowExpire",		"data_type"=>"text",		"display_name"=>gettext("Expiry Date")),
 			array("name"=>"shadowFlag",		"data_type"=>"text"),		// attribute reserved for future use
-			array("name"=>"shadowInactive",		"data_type"=>"text"		"display_name"=>gettext("Time Until Account Inactive (Days)")),
-			array("name"=>"shadowLastChange",	"data_type"=>"text"		"display_name"=>gettext("Date of Last Password Change")),
+			array("name"=>"shadowInactive",		"data_type"=>"text",		"display_name"=>gettext("Time Until Account Inactive (Days)")),
+			array("name"=>"shadowLastChange",	"data_type"=>"text",		"display_name"=>gettext("Date of Last Password Change")),
 			array("name"=>"shadowMax",		"data_type"=>"text",		"display_name"=>gettext("Maximum Password Age (Days)")),
 			array("name"=>"shadowMin",		"data_type"=>"text",		"display_name"=>gettext("Minimum Password Age (Days)")),
-			array("name"=>"shadowWarning",		"data_type"=>"text"		"display_name"=>gettext("Warning Period Before Expiration (Days)")),
+			array("name"=>"shadowWarning",		"data_type"=>"text",		"display_name"=>gettext("Warning Period Before Expiration (Days)")),
 			array("name"=>"uidNumber",		"data_type"=>"text",		"display_name"=>gettext("User ID Number"))
 			);
 
