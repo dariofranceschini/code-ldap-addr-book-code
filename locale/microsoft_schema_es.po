@@ -119,7 +119,7 @@ msgstr "Fecha de Creación"
 
 #: ../schema/microsoft.php:40
 msgid "Last Modification Date"
-msgstr "última Fecha de Modificación"
+msgstr "Última Fecha de Modificación"
 
 #: ../schema/microsoft.php:41
 msgid "WWW Home Page"
