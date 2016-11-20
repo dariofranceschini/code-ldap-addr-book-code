@@ -1,0 +1,78 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/openldap/back_monitor.php:10
+msgid "Start Time"
+msgstr "Heure de Départ"
+
+#: ../schema/openldap/back_monitor.php:11
+msgid "Activity Time"
+msgstr "Temps Actif"
+
+#: ../schema/openldap/back_monitor.php:12
+msgid "Monitoring Naming Context"
+msgstr "Contexte de Nommage pour la Surveillance"
+
+#: ../schema/openldap/back_monitor.php:13
+msgid "Database is Shadow/Slave"
+msgstr "Base de Données est Ombre / Esclave"
+
+#: ../schema/openldap/back_monitor.php:14
+msgid "Runtime Configuration Allowed"
+msgstr "Configuration à l'Exécution est Autorisée"
+
+#: ../schema/openldap/back_monitor.php:15
+msgid "Time Stamp"
+msgstr "Horodatage"
+
+#: ../schema/openldap/back_monitor.php:16
+msgid "Read Only"
+msgstr "Lecture Seulement"
+
+#: ../schema/openldap/back_monitor.php:21
+msgid "Monitoring Database"
+msgstr "Base de Données pour la Surveillance"
+
+#: ../schema/openldap/back_monitor.php:23
+msgid "Monitored Server"
+msgstr "Serveur Surveillé"
+
+#: ../schema/openldap/back_monitor.php:24
+msgid "Monitoring Container"
+msgstr "Conteneur de Surveillance"
+
+#: ../schema/openldap/back_monitor.php:25
+msgid "Monitored Entity"
+msgstr "Entité Surveillée"
+
+#: ../schema/openldap/back_monitor.php:26
+msgid "Monitored Connection"
+msgstr "Connexion Surveillée"
+
+#: ../schema/openldap/back_monitor.php:27
+msgid "Monitored Counter Object"
+msgstr "Compteur Objet Surveillée"
+
+#: ../schema/openldap/back_monitor.php:28
+msgid "Monitored Operation"
+msgstr "Opération Surveillée"
+
+#: ../schema/openldap/back_monitor.php:31
+msgid "Managed Entity"
+msgstr "Entité Gérée"

@@ -1,0 +1,91 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/back_sql.php:10
+msgid "ODBC Data Source Name"
+msgstr "Nombre de Origen de Datos ODBC"
+
+#: ../schema/openldap/back_sql.php:11
+msgid "Allow Orphan Entries to be Added"
+msgstr "Permitir que se Agreguen Registros Huérfanos"
+
+#: ../schema/openldap/back_sql.php:12
+msgid "Quote Character Surrounding Alias"
+msgstr "Carácter de Cotización Alias Circundante"
+
+#: ../schema/openldap/back_sql.php:13
+msgid "Automatically Commit Data"
+msgstr "Confirmar Datos Automáticamente"
+
+#: ../schema/openldap/back_sql.php:14
+msgid "Base Object LDIF File Name"
+msgstr "Nombre de Archivo LDIF de Objeto Base"
+
+#: ../schema/openldap/back_sql.php:15
+msgid "Check Adherence to LDAP Schema after Modifications"
+msgstr "Comprobar Adherencia al Esquema LDAP Después de Modificaciones"
+
+#: ../schema/openldap/back_sql.php:16
+msgid ""
+"Get Unique ID of Newly Created Entries using a Query instead of a Stored "
+"Procedure"
+msgstr ""
+"Obtener Identificador Único de Entradas Creadas Recientemente utilizando una "
+"Consulta en lugar de un Procedimiento Almacenado"
+
+#: ../schema/openldap/back_sql.php:17
+msgid "Report Failure when Writing Attributes with no Mapping"
+msgstr "Error de Informe al Escribir Atributos sin Mapeado"
+
+#: ../schema/openldap/back_sql.php:18
+msgid "Force All Attributes to be Returned"
+msgstr "Forzar Todos los Atributos a Devolver"
+
+#: ../schema/openldap/back_sql.php:19
+msgid "List of Attributes Always Fetched"
+msgstr "Lista de Atributos que Siempre se Obtienen"
+
+#: ../schema/openldap/back_sql.php:20
+msgid "Store Reversed, Upper Case Version of Each LDAP Entry DN"
+msgstr ""
+"Almacene la Versión de Mayúsculas Invertida de cada DN de Entrada de LDAP"
+
+#: ../schema/openldap/back_sql.php:21
+msgid "SQL Helper Layers"
+msgstr "Capas Auxiliares de SQL"
+
+#: ../schema/openldap/back_sql.php:22
+msgid "Cast-to-String Function"
+msgstr "Función de Cast-to-String"
+
+#: ../schema/openldap/back_sql.php:23
+msgid "Values to be Upper Cased Should be Cast as VARCHAR(<max DN length>)"
+msgstr ""
+"Valores que se Deben Superponer deben ser Cast como VARCHAR(<longitud máxima "
+"del DN>)"
+
+#: ../schema/openldap/back_sql.php:24
+msgid "Don't Use for Subtree Search Scoping from Naming Context Root"
+msgstr ""
+"No Utilizar para el Escaneo de Búsqueda de Subárbol desde la Raíz de "
+"Contexto de Nomenclatura"
+
+#: ../schema/openldap/back_sql.php:29
+msgid "SQL (ODBC) Database"
+msgstr "Base de Datos ODBC (SQL)"

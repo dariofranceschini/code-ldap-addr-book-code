@@ -78,7 +78,46 @@ class system_openldap_schema extends ldap_schema
 
 		// OpenLDAP module schemas
 
+		$ldap_server->add_schema("openldap/accesslog");
+		$ldap_server->add_schema("openldap/autogroup");
+		$ldap_server->add_schema("openldap/auditlog");
+		$ldap_server->add_schema("openldap/back_asyncmeta");
+		$ldap_server->add_schema("openldap/back_bdb");
+		$ldap_server->add_schema("openldap/back_config");
+		$ldap_server->add_schema("openldap/back_hdb");
+		$ldap_server->add_schema("openldap/back_ldap");
+		$ldap_server->add_schema("openldap/back_ldif");
+		$ldap_server->add_schema("openldap/back_mdb");
+		$ldap_server->add_schema("openldap/back_meta");
+		$ldap_server->add_schema("openldap/back_monitor");
+		$ldap_server->add_schema("openldap/back_ndb");
+		$ldap_server->add_schema("openldap/back_null");
+		$ldap_server->add_schema("openldap/back_passwd");
+		$ldap_server->add_schema("openldap/back_perl");
+		$ldap_server->add_schema("openldap/back_relay");
+		$ldap_server->add_schema("openldap/back_shell");
+		$ldap_server->add_schema("openldap/back_sock");
+		$ldap_server->add_schema("openldap/back_sql");
+		$ldap_server->add_schema("openldap/back_wt");
+		$ldap_server->add_schema("openldap/collect");
+		$ldap_server->add_schema("openldap/constraint");
+		$ldap_server->add_schema("openldap/dds");
+		$ldap_server->add_schema("openldap/dyngroup");
+		$ldap_server->add_schema("openldap/dynlist");
+		$ldap_server->add_schema("openldap/lastbind");
 		$ldap_server->add_schema("openldap/memberof");
+		$ldap_server->add_schema("openldap/nssov");
+		$ldap_server->add_schema("openldap/pcache");
+		$ldap_server->add_schema("openldap/ppolicy");
+		$ldap_server->add_schema("openldap/refint");
+		$ldap_server->add_schema("openldap/retcode");
+		$ldap_server->add_schema("openldap/rwm");
+		$ldap_server->add_schema("openldap/smbk5pwd");
+		$ldap_server->add_schema("openldap/sssvlv");
+		$ldap_server->add_schema("openldap/syncprov");
+		$ldap_server->add_schema("openldap/translucent");
+		$ldap_server->add_schema("openldap/unique");
+		$ldap_server->add_schema("openldap/valsort");
 
 		parent::__construct($ldap_server);
 	}

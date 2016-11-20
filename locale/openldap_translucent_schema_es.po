@@ -1,0 +1,47 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/translucent.php:9
+msgid "Use Local Bind Credentials if Remote Bind Fails"
+msgstr ""
+"Utilizar Credenciales de Acceso Local si Falla el Inicio de Sesión Remoto"
+
+#: ../schema/openldap/translucent.php:10
+msgid "Attribute List for Local Searching"
+msgstr "Lista de Atributos para Búsqueda Local"
+
+#: ../schema/openldap/translucent.php:11
+msgid "Don't Create 'Glue' Records for Add or ModRDN Operations"
+msgstr "No Cree Registros 'Pegados' para las Operaciones Añadir o Modificar RDN"
+
+#: ../schema/openldap/translucent.php:12
+msgid "Local Password Modify Extended Operations"
+msgstr "Modificación de Contraseña Operaciones Extendidas Localmente"
+
+#: ../schema/openldap/translucent.php:13
+msgid "Attribute List for Remote Searching"
+msgstr "Lista de Atributos para la Búsqueda Remota"
+
+#: ../schema/openldap/translucent.php:14
+msgid "Deleting Attribute Triggers Constraint Violation Error"
+msgstr "Eliminar el Atributo Desencadena un Error de Violación de Restricción"
+
+#: ../schema/openldap/translucent.php:19
+msgid "Translucent Proxy Overlay"
+msgstr "Superposición de Apoderado Translúcido"

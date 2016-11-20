@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
-"PO-Revision-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -18,5 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/openldap/memberof.php:9
+msgid "Membership Attribute Modifier DN"
+msgstr "Modifier DN per l'Attributo Membro"
+
+#: ../schema/openldap/memberof.php:10
+msgid "Maintain Referential Integrity"
+msgstr "Mantenere l'Integrità Referenziale"
+
+#: ../schema/openldap/memberof.php:11
+msgid "Group Object Class"
+msgstr "Classe di Oggetti per i Gruppi"
+
+#: ../schema/openldap/memberof.php:12
+msgid "Group Member Attribute"
+msgstr "Attributo per Membro del Gruppo"
+
+#: ../schema/openldap/memberof.php:13
+msgid "Member Of Attribute"
+msgstr "Attributo per Membro Di"
+
+#: ../schema/openldap/memberof.php:14
+msgid "Dangling Reference Handling Behaviour"
+msgstr "Movimentazione Rotto Riferimento Comportamento"
+
+#: ../schema/openldap/memberof.php:15
+msgid "Dangling Reference Error Code"
+msgstr "Codice per fare Riferimento a Errore"
+
+#: ../schema/openldap/memberof.php:17
 msgid "Member Of"
 msgstr "Membro Di"
+
+#: ../schema/openldap/memberof.php:22
+msgid "MemberOf Overlay"
+msgstr "Copertura per Membro Di"

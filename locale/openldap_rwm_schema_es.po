@@ -1,0 +1,42 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/rwm.php:9
+msgid "Drop Attributes Not Explicitly Requested"
+msgstr "Atributos de Gota No Explícitamente Solicitados"
+
+#: ../schema/openldap/rwm.php:10
+msgid "Attribute/Object Class Mapping Rules"
+msgstr "Reglas de Asignación de Clases de Atributo / Objeto"
+
+#: ../schema/openldap/rwm.php:11
+msgid "Normalise Mapped Attribute/Object Classes"
+msgstr "Normalizar Clases de Atributo / Objeto Asignadas"
+
+#: ../schema/openldap/rwm.php:12
+msgid "String Rewriting Rule"
+msgstr "Regla de Reescritura de Cadena"
+
+#: ../schema/openldap/rwm.php:13
+msgid "True/False Filter Support"
+msgstr "Soporte para Filtros Cierto / Falso"
+
+#: ../schema/openldap/rwm.php:18
+msgid "Rewrite/Remap Overlay"
+msgstr "Superposición de Remapear / Reescribir"

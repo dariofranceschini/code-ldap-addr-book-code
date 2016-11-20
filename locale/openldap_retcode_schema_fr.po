@@ -1,0 +1,74 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/openldap/retcode.php:9
+msgid "Use Error Information from errAbsObject Attributes"
+msgstr "Utiliser les Informations d'Erreur à partir des Attributs errAbsObject"
+
+#: ../schema/openldap/retcode.php:10
+msgid "Dynamically Generated Entries"
+msgstr "Enregistrements Générées Dynamiquement"
+
+#: ../schema/openldap/retcode.php:11
+msgid "Parent DN for Dynamically Generated Entries"
+msgstr "DN Origine pour les Enregistrements Générés Gynamiquement"
+
+#: ../schema/openldap/retcode.php:12
+msgid "Response Delay"
+msgstr "Retard de Réponse"
+
+#: ../schema/openldap/retcode.php:14
+msgid "LDAP Error Code"
+msgstr "Code d'Erreur LDAP"
+
+#: ../schema/openldap/retcode.php:15
+msgid "Disconnect Without Notice"
+msgstr "Déconnexion sans Préavis"
+
+#: ../schema/openldap/retcode.php:16
+msgid "Matched DN"
+msgstr "DN Apparié"
+
+#: ../schema/openldap/retcode.php:17
+msgid "Operation Type(s) Which Trigger Error"
+msgstr "Types d'Opération qui Déclenchent l'Erreur"
+
+#: ../schema/openldap/retcode.php:18
+msgid "Error Response Delay"
+msgstr "Retard de Réponse aux Erreurs"
+
+#: ../schema/openldap/retcode.php:19
+msgid "Diagnostic Message"
+msgstr "Message Diagnostique"
+
+#: ../schema/openldap/retcode.php:20
+msgid "OID to Return within Unsolicited Response"
+msgstr "OID retournera au sein d'une réponse non sollicitée"
+
+#: ../schema/openldap/retcode.php:21
+msgid "Data to Return within Unsolicited Response"
+msgstr "Données à retourner dans les réponses non sollicitées"
+
+#: ../schema/openldap/retcode.php:26
+msgid "Return Code Overlay"
+msgstr "Superposition de Code de Retour"
+
+#: ../schema/openldap/retcode.php:27
+msgid "Error Debugging Object"
+msgstr "Objet pour le Débogage d'Erreurs"

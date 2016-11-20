@@ -1,0 +1,62 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/pcache.php:9
+msgid "Cache Parameters"
+msgstr "Cache Parameters"
+
+#: ../schema/openldap/pcache.php:10
+msgid "Cached Attribute Set"
+msgstr "Cached Attribute Set"
+
+#: ../schema/openldap/pcache.php:11
+msgid "Caching Template for Bind Credentials"
+msgstr "Caching Template for Bind Credentials"
+
+#: ../schema/openldap/pcache.php:12
+msgid "Maximum Number of Cached Queries"
+msgstr "Maximum Number of Cached Queries"
+
+#: ../schema/openldap/pcache.php:13
+msgid "Offline Mode"
+msgstr "Offline Mode"
+
+#: ../schema/openldap/pcache.php:14
+msgid "Keep Cached Queries When Proxy Restarts"
+msgstr "Keep Cached Queries When Proxy Restarts"
+
+#: ../schema/openldap/pcache.php:15
+msgid "Proxy Cache Callback Priority"
+msgstr "Proxy Cache Callback Priority"
+
+#: ../schema/openldap/pcache.php:16
+msgid "Caching Template for Queries"
+msgstr "Caching Template for Queries"
+
+#: ../schema/openldap/pcache.php:17
+msgid "Validate Entries Against Proxy DSA's Schema Before Caching"
+msgstr "Validate Entries Against Proxy DSA's Schema Before Caching"
+
+#: ../schema/openldap/pcache.php:19
+msgid "Cached Query URI"
+msgstr "Cached Query URI"
+
+#: ../schema/openldap/pcache.php:24
+msgid "Proxy Cache Engine Overlay"
+msgstr "Proxy Cache Engine Overlay"

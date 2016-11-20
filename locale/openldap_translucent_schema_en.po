@@ -1,0 +1,46 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/translucent.php:9
+msgid "Use Local Bind Credentials if Remote Bind Fails"
+msgstr "Use Local Bind Credentials if Remote Bind Fails"
+
+#: ../schema/openldap/translucent.php:10
+msgid "Attribute List for Local Searching"
+msgstr "Attribute List for Local Searching"
+
+#: ../schema/openldap/translucent.php:11
+msgid "Don't Create 'Glue' Records for Add or ModRDN Operations"
+msgstr "Don't Create 'Glue' Records for Add or ModRDN Operations"
+
+#: ../schema/openldap/translucent.php:12
+msgid "Local Password Modify Extended Operations"
+msgstr "Local Password Modify Extended Operations"
+
+#: ../schema/openldap/translucent.php:13
+msgid "Attribute List for Remote Searching"
+msgstr "Attribute List for Remote Searching"
+
+#: ../schema/openldap/translucent.php:14
+msgid "Deleting Attribute Triggers Constraint Violation Error"
+msgstr "Deleting Attribute Triggers Constraint Violation Error"
+
+#: ../schema/openldap/translucent.php:19
+msgid "Translucent Proxy Overlay"
+msgstr "Translucent Proxy Overlay"

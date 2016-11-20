@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
-"PO-Revision-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -18,5 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../schema/openldap/memberof.php:9
+msgid "Membership Attribute Modifier DN"
+msgstr "Modificateur DN pour l'Attribut Membre"
+
+#: ../schema/openldap/memberof.php:10
+msgid "Maintain Referential Integrity"
+msgstr "Maintenir l'Intégrité Référentielle"
+
+#: ../schema/openldap/memberof.php:11
+msgid "Group Object Class"
+msgstr "Classe d'Objets pour les Groupes"
+
+#: ../schema/openldap/memberof.php:12
+msgid "Group Member Attribute"
+msgstr "Attribut pour Membre du Groupe"
+
+#: ../schema/openldap/memberof.php:13
+msgid "Member Of Attribute"
+msgstr "Attribut pour Membre De"
+
+#: ../schema/openldap/memberof.php:14
+msgid "Dangling Reference Handling Behaviour"
+msgstr "Comportement de Manipulation de Référencement Brisé"
+
+#: ../schema/openldap/memberof.php:15
+msgid "Dangling Reference Error Code"
+msgstr "Code d'Erreur de Référencement"
+
+#: ../schema/openldap/memberof.php:17
 msgid "Member Of"
 msgstr "Membre De"
+
+#: ../schema/openldap/memberof.php:22
+msgid "MemberOf Overlay"
+msgstr "Superposition de Membre De"

@@ -1,0 +1,138 @@
+# English translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/accesslog.php:9
+msgid "Access Log Database Naming Context DN"
+msgstr "Access Log Database Naming Context DN"
+
+#: ../schema/openldap/accesslog.php:10
+msgid "Subtree-Specific Access Logging Options"
+msgstr "Subtree-Specific Access Logging Options"
+
+#: ../schema/openldap/accesslog.php:11
+msgid "Object Modification Logging Filter"
+msgstr "Object Modification Logging Filter"
+
+#: ../schema/openldap/accesslog.php:12
+msgid "Attributes to Always Log"
+msgstr "Attributes to Always Log"
+
+#: ../schema/openldap/accesslog.php:13
+msgid "Operation Types to be Logged"
+msgstr "Operation Types to be Logged"
+
+#: ../schema/openldap/accesslog.php:14
+msgid "Old Log Entry Removal Settings"
+msgstr "Old Log Entry Removal Settings"
+
+#: ../schema/openldap/accesslog.php:15
+msgid "Only Record Successful Operations"
+msgstr "Only Record Successful Operations"
+
+#: ../schema/openldap/accesslog.php:17
+msgid "Return Attribute Type Names Only"
+msgstr "Return Attribute Type Names Only"
+
+#: ../schema/openldap/accesslog.php:18
+msgid "Authorization ID of Requestor"
+msgstr "Authorization ID of Requestor"
+
+#: ../schema/openldap/accesslog.php:19
+msgid "Delete Old RDN"
+msgstr "Delete Old RDN"
+
+#: ../schema/openldap/accesslog.php:20
+msgid "Request Target DN"
+msgstr "Request Target DN"
+
+#: ../schema/openldap/accesslog.php:21
+msgid "Request End Time"
+msgstr "Request End Time"
+
+#: ../schema/openldap/accesslog.php:22
+msgid "Modification Data"
+msgstr "Modification Data"
+
+#: ../schema/openldap/accesslog.php:23
+msgid "Old Values from Before Request Processed"
+msgstr "Old Values from Before Request Processed"
+
+#: ../schema/openldap/accesslog.php:24
+msgid "LDAP Result Code"
+msgstr "LDAP Result Code"
+
+#: ../schema/openldap/accesslog.php:25
+msgid "Request Start Time"
+msgstr "Request Start Time"
+
+#: ../schema/openldap/accesslog.php:30
+msgid "Access Logging Overlay"
+msgstr "Access Logging Overlay"
+
+#: ../schema/openldap/accesslog.php:32
+msgid "AuditLog Container"
+msgstr "AuditLog Container"
+
+#: ../schema/openldap/accesslog.php:33
+msgid "Auditing Event"
+msgstr "Auditing Event"
+
+#: ../schema/openldap/accesslog.php:34
+msgid "Auditing Read Event"
+msgstr "Auditing Read Event"
+
+#: ../schema/openldap/accesslog.php:35
+msgid "Auditing Write Event"
+msgstr "Auditing Write Event"
+
+#: ../schema/openldap/accesslog.php:36
+msgid "Abandoned Operation Event"
+msgstr "Abandoned Operation Event"
+
+#: ../schema/openldap/accesslog.php:37
+msgid "Record Added Event"
+msgstr "Record Added Event"
+
+#: ../schema/openldap/accesslog.php:38
+msgid "User Authenticated Event"
+msgstr "User Authenticated Event"
+
+#: ../schema/openldap/accesslog.php:39
+msgid "Records Compared Event"
+msgstr "Records Compared Event"
+
+#: ../schema/openldap/accesslog.php:40
+msgid "Record Deleted Event"
+msgstr "Record Deleted Event"
+
+#: ../schema/openldap/accesslog.php:41
+msgid "Attributes Modified Event"
+msgstr "Attributes Modified Event"
+
+#: ../schema/openldap/accesslog.php:42
+msgid "Record Moved/Renamed Event"
+msgstr "Record Moved/Renamed Event"
+
+#: ../schema/openldap/accesslog.php:43
+msgid "Records Searched Event"
+msgstr "Records Searched Event"
+
+#: ../schema/openldap/accesslog.php:44
+msgid "Extended Operation Event"
+msgstr "Extended Operation Event"
