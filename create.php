@@ -83,8 +83,6 @@ if($ldap_server->log_on())
 			)
 			$create_list[] = $object_class["name"];
 
-
-
 	natcasesort($create_list);
 
 	foreach($create_list as $object_class)
@@ -92,8 +90,7 @@ if($ldap_server->log_on())
 		$display_name = $ldap_server->get_object_schema_setting($object_class,
 			"display_name");
 		$icon = $ldap_server->get_object_schema_setting($object_class,
-                        "icon");
-
+			"icon");
 
 		echo "    <option value=\"" . $object_class
 			. "\" style=\"background-image:url(schema/"
