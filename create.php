@@ -32,6 +32,8 @@ if($ldap_server->log_on())
 	{
 		$container_entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
+		fix_missing_object_classes($ldap_server,$container_entry[0]);
+
 		$contain_list = array("*");
 		foreach($container_entry[0]["objectclass"] as $class_index=>$container_class)
 		{

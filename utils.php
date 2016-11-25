@@ -4499,4 +4499,47 @@ function can_be_contained_by($object_class,$container_object)
 
 	return $can_create;
 }
+
+/** Update the objectClass values of the specified LDAP entry to
+    include any parent classes that are specified in the schema but
+    not in the entry itself.
+
+    @param string $ldap_server
+	LDAP server object containing schema definitions that the entry's
+	objectClass values will be checked against.
+    @param array &$entry
+	LDAP entry which is to be checked/fixed.
+*/
+
+function fix_missing_object_classes($ldap_server,&$entry)
+{
+	$objclass_index = 0;
+
+	while($objclass_index < $entry["objectclass"]["count"])
+	{
+		$container_class = $entry["objectclass"][$objclass_index];
+
+		$container_parent = explode(",",
+			$ldap_server->get_object_schema_setting(
+			$container_class,"parent_class"));
+
+		foreach($container_parent as $parent_class)
+		{
+			$already_listed = false;
+			foreach($entry["objectclass"] as $container_class2)
+			{
+				if($container_class2 == $parent_class)
+					$already_listed = true;
+			}
+
+			if(!$already_listed)
+			{
+				$entry["objectclass"][] = $parent_class;
+				$entry["objectclass"]["count"]++;
+			}
+		}
+
+		$objclass_index++;
+	}
+}
 ?>
