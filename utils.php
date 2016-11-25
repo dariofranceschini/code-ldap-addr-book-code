@@ -3303,6 +3303,7 @@ class ldap_server
 			if($setting_name == "can_contain") $setting_value = "*";
 			if($setting_name == "contained_by") $setting_value = "*";
 			if($setting_name == "display_name") $setting_value = $class;
+			if($setting_name == "parent_class") $setting_value = "top";
 		}
 		return $setting_value;
 	}
