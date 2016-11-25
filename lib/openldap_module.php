@@ -49,6 +49,7 @@ $openldap_overlay_module=array(
 	"retcode"	=> "Return Code Overlay",
 	"rwm"		=> "Rewrite/Remap Overlay",
 	"seqmod"	=> "Serialize Concurrent Writes Overlay",
+	"smbk5pwd"	=> "Samba/Kerberos Password Management Overlay",
 	"sssvlv"	=> "Server Side Sorting and Virtual List View Overlay",
 	"syncprov"	=> "Synchronisation Provider Overlay",
 	"translucent"	=> "Translucent Proxy Overlay",
