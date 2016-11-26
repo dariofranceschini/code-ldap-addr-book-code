@@ -923,6 +923,10 @@ class ldap_attribute
 			if(!empty($this->ldap_entry["olcsuffix"][0]))
 				$attrib_value .= " " . sprintf(gettext("for '%s'"),$this->ldap_entry["olcsuffix"][0]);
 
+			// Append OpenLDAP database directory location
+			if(!empty($this->ldap_entry["olcdbdirectory"][0]))
+				$attrib_value .= " " . sprintf(gettext("at '%s'"),$this->ldap_entry["olcdbdirectory"][0]);
+
 			// Append OpenLDAP module names to be loaded
 			if(!empty($this->ldap_entry["olcmoduleload"][0]))
 			{
@@ -1624,6 +1628,7 @@ class ldap_attribute
 						}
 						else
 							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
+
 						echo "<br>";
 					}
 				}
