@@ -927,6 +927,10 @@ class ldap_attribute
 			if(!empty($this->ldap_entry["olcdbdirectory"][0]))
 				$attrib_value .= " " . sprintf(gettext("at '%s'"),$this->ldap_entry["olcdbdirectory"][0]);
 
+			// Append OpenLDAP database URI
+			if(!empty($this->ldap_entry["olcdburi"][0]))
+				$attrib_value .= " " . sprintf(gettext("from '%s'"),$this->ldap_entry["olcdburi"][0]);
+
 			// Append OpenLDAP module names to be loaded
 			if(!empty($this->ldap_entry["olcmoduleload"][0]))
 			{
@@ -1628,6 +1632,10 @@ class ldap_attribute
 						}
 						else
 							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
+
+						// append database URI if set (e.g. for OpenLDAP metadirectory targets)
+						if(!empty($child_entry["olcdburi"][0]))
+							echo " - '" . $child_entry["olcdburi"][0] . "'";
 
 						echo "<br>";
 					}
