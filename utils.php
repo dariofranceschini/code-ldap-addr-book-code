@@ -1117,24 +1117,50 @@ class ldap_attribute
 			);
 	}
 
-	/** Show first value of olcModuleList attribute (data type "openldap_module")
+	/** Show olcModuleList attribute (data type "openldap_module")
 
-	    @todo support use of attributes whith more than one assigned value
+	    @todo support editing when attribute has more than one assigned value
 	*/
 
 	function show_openldap_module()
 	{
 		global $openldap_overlay_module,$openldap_backend_module;
 
-		foreach($openldap_overlay_module as $name => $description)
-			$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]["count"]))
+		{
+			if($this->ldap_entry[strtolower($this->attribute)]["count"] > 1)
+			{
+	                        echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
 
-		foreach($openldap_backend_module as $name => $description)
-			$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+        	                foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+                	                if(empty($key) || $key != "count")
+					{
+						$value = substr($value,strpos($value,"}")+1);
+						echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
 
-		asort($codes);
+						if(isset($openldap_overlay_module[$value]))
+							echo " - " . $openldap_overlay_module[$value];
 
-		$this->show_enum($codes);
+						if(isset($openldap_backend_module[$value]))
+							echo " - " . $openldap_backend_module[$value];
+
+						echo "</li>";
+					}
+	                        echo "</ul>";
+			}
+			else
+			{
+				foreach($openldap_overlay_module as $name => $description)
+					$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+
+				foreach($openldap_backend_module as $name => $description)
+					$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+
+				asort($codes);
+
+				$this->show_enum($codes);
+			}
+		}
 	}
 
 	/** Show LDAP result code attribute (data type "ldap_result") */
