@@ -921,7 +921,7 @@ class ldap_attribute
 
 			// Append OpenLDAP database naming context
 			if(!empty($this->ldap_entry["olcsuffix"][0]))
-				$attrib_value .= " for '" . $this->ldap_entry["olcsuffix"][0] . "'";
+				$attrib_value .= " " . sprintf(gettext("for '%s'"),$this->ldap_entry["olcsuffix"][0]);
 
 			// Append OpenLDAP module names to be loaded
 			if(!empty($this->ldap_entry["olcmoduleload"][0]))
