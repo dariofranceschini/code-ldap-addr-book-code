@@ -1016,6 +1016,7 @@ class ldap_attribute
 			case "phone_number":	$this->show_phone_number();	break;
 			case "olc_dangling":	$this->show_olc_dangling();	break;
 			case "ldap_result":	$this->show_ldap_result();	break;
+			case "oid_macro_list":	$this->show_oid_macro_list();	break;
 			case "openldap_module":	$this->show_openldap_module();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1456,6 +1457,41 @@ class ldap_attribute
 				if(empty($key) || $key != "count")
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
 			echo "</ul>";
+		}
+	}
+
+	/** Show OID macro definition list attribute (data type "oid_macro_list")
+
+	    @todo
+		Support editing
+	*/
+
+	function show_oid_macro_list()
+	{
+		if(empty($this->ldap_entry[strtolower($this->attribute)]))
+			echo "(" . gettext("none") . ")";
+		else
+		{
+			echo "<table>\n              <thead>\n                <tr>\n"
+				. "                  <th style=\"width:1px;padding-right:1em;background-color:#e0e0e0;font-weight:bold\">"
+				. gettext("Macro Name") . "</th>\n"
+				. "                  <th style=\"background-color:#e0e0e0;font-weight:bold\">"
+				. gettext("Definition") . "</th>\n"
+				. "                </tr>\n              </thead>\n"
+				. "              <tbody>\n";
+
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					$oid_mapping = explode(" ",$value);
+					echo "                <tr>\n";
+					echo "                  <td style=\"width:1px;padding-right:1em\">"
+						. htmlentities($oid_mapping[0],ENT_COMPAT,"UTF-8") . "</td>\n";
+					echo "                  <td>"
+						. htmlentities($oid_mapping[1],ENT_COMPAT,"UTF-8") . "</td>\n";
+					echo "                </tr>\n";
+				}
+			echo "              </tbody>\n            </table>";
 		}
 	}
 
