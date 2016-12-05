@@ -71,7 +71,7 @@ if($ldap_server->log_on())
 				if($ldap_server->get_object_schema_setting($entry["objectclass"],
 					"can_create") || get_user_setting("allow_system_admin"))
 				{
-					if($ldap_server->get_object_schema_setting($entry["objectclass"],"atomic_create",false))
+					if($ldap_server->get_object_schema_setting($entry["objectclass"],"create_method","normal")=="atomic")
 					{
 						// Include every attribute which appears in the display layout
 						$required_attribs=array();
