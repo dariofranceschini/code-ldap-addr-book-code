@@ -47,6 +47,40 @@ class openldap_back_config_schema extends ldap_schema
 
 		// abstract class 'olcConfig' is also defined in this schema
 
+		// Display layouts
+		$ldap_server->add_display_layout("olcSchemaConfig",array(
+			array("section_name"=>"Schema Name","colspan"=>6,
+				"attributes"=>array(
+					array("cn"),
+					)
+				),
+			array("section_name"=>"Object Identifier Macro Definitions","new_row"=>true,
+				"attributes"=>array(
+					array("olcObjectIdentifier")
+					),
+				),
+			array("section_name"=>"Object Class Definitions","new_row"=>true,
+				"attributes"=>array(
+					array("olcObjectClasses")
+					),
+				),
+			array("section_name"=>"Attribute Type Definitions","new_row"=>true,
+				"attributes"=>array(
+					array("olcAttributeTypes")
+					),
+				),
+			array("section_name"=>"LDAP Syntaxes","new_row"=>true,
+				"attributes"=>array(
+					array("olcLdapSyntaxes")
+					),
+				),
+			array("section_name"=>"Child Objects","new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
