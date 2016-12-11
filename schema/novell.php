@@ -295,6 +295,9 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/uam");
 		$ldap_server->add_schema("novell/wanman");
 		$ldap_server->add_schema("novell/xtier");
+
+		// DirXML
+		$ldap_server->add_schema("novell/vrschema");
 	}
 }
 ?>
