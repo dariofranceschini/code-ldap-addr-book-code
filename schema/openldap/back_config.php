@@ -8,13 +8,13 @@ class openldap_back_config_schema extends ldap_schema
 		$this->attribute_schema = array(
 			// online config attributes
 			array("name"=>"olcAccess",			"data_type"=>"text_list",	"display_name"=>gettext("Access Control")),
-			array("name"=>"olcAttributeTypes",		"data_type"=>"text_list",	"display_name"=>gettext("Attribute Types")),
+			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"olcBackend",			"data_type"=>"text_list",	"display_name"=>gettext("Back End Name")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
-			array("name"=>"olcLdapSyntaxes",		"data_type"=>"text_list",	"display_name"=>gettext("LDAP Syntaxes")),
+			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
-			array("name"=>"olcObjectClasses",		"data_type"=>"text_list",	"display_name"=>gettext("Object Classes")),
+			array("name"=>"olcObjectClasses",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
 			array("name"=>"olcObjectIdentifier",		"data_type"=>"oid_macro_list",	"display_name"=>gettext("Object Identifier")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
 			array("name"=>"olcSuffix",			"data_type"=>"dn",		"display_name"=>gettext("Naming Context")),

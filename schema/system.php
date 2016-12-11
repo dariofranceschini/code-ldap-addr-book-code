@@ -17,11 +17,11 @@ class system_schema extends ldap_schema
 			array("name"=>"supportedSASLMechanisms",	"data_type"=>"text_list",	"display_name"=>gettext("Supported SASL Mechanisms")),
 
 			// Schema definition attributes
-			array("name"=>"objectClasses",			"data_type"=>"text_list",	"display_name"=>gettext("Object Classes")),
-			array("name"=>"attributeTypes",			"data_type"=>"text_list",	"display_name"=>gettext("Attribute Types")),
-			array("name"=>"ldapSyntaxes",			"data_type"=>"text_list",	"display_name"=>gettext("LDAP Syntaxes")),
-			array("name"=>"matchingRules",			"data_type"=>"text_list",	"display_name"=>gettext("Matching Rules")),
-			array("name"=>"matchingRuleUse",		"data_type"=>"text_list",	"display_name"=>gettext("Matching Rule Use")),
+			array("name"=>"objectClasses",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
+			array("name"=>"attributeTypes",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
+			array("name"=>"ldapSyntaxes",			"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
+			array("name"=>"matchingRules",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Matching Rules")),
+			array("name"=>"matchingRuleUse",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Matching Rule Use")),
 
 			// Operational attributes
 			array("name"=>"createTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Created")),

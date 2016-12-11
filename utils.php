@@ -18,6 +18,7 @@
 
 include "lib/country.php";
 include "lib/ldap_result.php";
+include "lib/ldap_schema.php";
 include "lib/oid.php";
 include "lib/openldap_module.php";
 
@@ -1012,6 +1013,7 @@ class ldap_attribute
 			case "download_list":	$this->show_download_list();	break;
 			case "child_objects":	$this->show_child_objects();	break;
 			case "text_list":	$this->show_text_list();	break;
+			case "ldap_schema":	$this->show_ldap_schema();	break;
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
 			case "olc_dangling":	$this->show_olc_dangling();	break;
@@ -1492,6 +1494,300 @@ class ldap_attribute
 					echo "                </tr>\n";
 				}
 			echo "              </tbody>\n            </table>";
+		}
+	}
+
+	/** Show LDAP schema attribute (data type "ldap_schema")
+
+	    @todo
+		Support editing
+	*/
+
+	function show_ldap_schema()
+	{
+		global $ldap_server;
+		if(empty($this->ldap_entry[strtolower($this->attribute)]))
+			echo "(" . gettext("none") . ")";
+		else
+		{
+			echo "<table>\n";
+
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					if(strpos($value,"{")===0)
+						$value = substr($value,strpos($value,"}")+1);
+
+					$schema_entry = parse_ldap_schema_entry($value);
+
+					switch($this->attribute)
+					{
+						case "objectClasses":
+						case "olcObjectClasses":
+							$definition_type = "object";
+							break;
+						case "attributeTypes":
+						case "olcAttributeTypes":
+							$definition_type = "attribute";	break;
+						default:
+							$definition_type = "unknown";
+					}
+
+					echo "              <tr>"
+						. "\n                <td style=\"width:1px\">\n"
+						. "                  ";
+
+					switch($definition_type)
+					{
+						case "object":
+							echo "<img alt=\""
+								. gettext("Object Definition")
+								. "\" src=\"schema/object.png\">";
+							break;
+						case "attribute":
+							echo "<img alt=\""
+								. gettext("Attribute Definition")
+								. "\" src=\"schema/attribute.png\">";
+							break;
+						default:
+							echo "<img alt=\""
+								. gettext("Schema Definition")
+								. "\" src=\"schema/generic24.png\">";
+					}
+					echo "\n                </td>\n"
+						. "                <td colspan=2>\n"
+						. "                  <span style=\"font-weight:bold\">"
+						. htmlentities($schema_entry["name"],ENT_COMPAT,"UTF-8")
+						. "</span>";
+
+					$extra_info = "";
+
+					if(isset($schema_entry["abstract"]))
+						$extra_info = gettext("abstract class");
+
+					if(isset($schema_entry["auxiliary"]))
+						$extra_info = gettext("auxiliary class");
+
+					if(isset($schema_entry["single-value"]))
+						$extra_info = gettext("single valued attribute");
+
+					if(isset($schema_entry["no-user-modification"]))
+					{
+						if(!empty($extra_info)) $extra_info .= ", ";
+						$extra_info .= gettext("no user modification");
+					}
+
+					if(isset($schema_entry["obsolete"]))
+					{
+						if(!empty($extra_info)) $extra_info .= ", ";
+						$extra_info .= gettext("obsolete definition");
+					}
+
+					if(count($schema_entry["aliases"])>0)
+					{
+						if(!empty($extra_info)) $extra_info .= ", ";
+						$extra_info .= gettext("also named") . ": ";
+						$first_entry = true;
+						foreach($schema_entry["aliases"] as $alias)
+						{
+							if(!$first_entry) echo ", ";
+							$extra_info .= $alias;
+							$first_entry = false;
+						}
+					}
+
+					if(!empty($extra_info))
+						echo " (" . $extra_info . ")";
+
+					echo "\n                </td>\n";
+					echo "              </tr>\n";
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Description"),"DESC");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Subclass Of"),"SUP");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("OID"),"OID");
+					if($definition_type == "object")
+					{
+						$this->show_ldap_schema_setting($schema_entry,
+							gettext("Required Attributes"),"MUST");
+						$this->show_ldap_schema_setting($schema_entry,
+							gettext("Optional Attributes"),"MAY");
+					}
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Syntax"),"SYNTAX");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Equality Matching"),"EQUALITY");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Substring Matching"),"SUBSTR");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Usage"),"USAGE");
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Applies To"),"APPLIES");
+
+					/** OpenLDAP specific settings
+
+					    Ordered entries/values settings (X-ORDERED) are described in the
+					    following Internet draft:
+
+					    @see https://tools.ietf.org/html/draft-chu-ldap-xordered-00
+
+					    The other settings are not published/standardised at this time.
+					*/
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Ordering Rule"),"X-ORDERED");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Not Human Readable"),"X-NOT-HUMAN-READABLE");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Binary Transfer Required"),"X-BINARY-TRANSFER-REQUIRED");
+
+					/** NDS/eDirectory specific settings
+
+					    As described in the following Internet draft:
+					    @see https://tools.ietf.org/html/draft-sermersheim-nds-ldap-schema-03
+
+					    The setting 'X-NDS_READ_FILTERED' is not described in the draft.
+					    (Implemented at a later time?)
+
+					    The setting 'X-NDS_NON_REMOVABLE' has an undercore after "NON" in
+					    draft-sermersheim-nds-ldap-schema-03 but not in schema definitions
+					    returned by implementation OES11 eDirectory. This function will
+					    display either/both spellings.
+					*/
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Legacy NDS Name"),"X-NDS_NAME");
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Non-Removable"),"X-NDS_NON_REMOVABLE");	// spelt as per draft
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Non-Removable"),"X-NDS_NONREMOVABLE");		// spelt as per OES11
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("ACL Templates"),"X-NDS_ACL_TEMPLATES");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Naming Attributes"),"X-NDS_NAMING");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Can be Contained In"),"X-NDS_CONTAINMENT");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Not a Container"),"X-NDS_NOT_CONTAINER");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Lower Bound"),"X-NDS_LOWER_BOUND");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Upper Bound"),"X-NDS_UPPER_BOUND");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Readable by Public"),"X-NDS_PUBLIC_READ");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Readable by Server Objects"),"X-NDS_SERVER_READ");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Name Value Access (Write Managed)"),"X-NDS_NAME_VALUE_ACCESS");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Name Value Access (Both Managed)"),"X-NDS_BOTH_MANAGED");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Never Synchronise to Replicas"),"X-NDS_NEVER_SYNC");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Don't Schedule Synchronisation when Updated"),"X-NDS_SYNC_SCHED_NEVER");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Don't Immediately Synchronise to Replicas"),"X-NDS_NOT_SCHED_SYNC_IMMEDIATE");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Encrypt when Synchronising to Replicas"),"X-NDS_ENCRYPTED_SYNC");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Required on Filtered Replicas"),"X-NDS_FILTERED_REQUIRED");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Required for External References on Filtered Replicas"),"X-NDS_FILTERED_OPTIONAL");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Hidden from User Operations"),"X-NDS_HIDDEN");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Legacy NDS Syntax"),"X-NDS_SYNTAX");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Read Filtered"),"X-NDS_READ_FILTERED");
+
+					if($definition_type == "object")
+						$schema_settings = $ldap_server->get_object_schema_settings($schema_entry["name"]);
+					else if($definition_type == "attribute")
+					{
+						$schema_settings = $ldap_server->get_attribute_schema_settings($schema_entry["name"]);
+						if(empty($schema_settings))
+							$schema_settings = $ldap_server->get_attribute_schema_settings($schema_entry["name"] . ";binary");
+					}
+					else
+						$schema_settings = array();
+
+					if(count($schema_settings)>0)
+					{
+						echo "<tr style=\"height:26px\"><td style=\"width:1px\"></td><td colspan=2 style=\"padding-left:2em;font-weight:bold\">"
+							. gettext("Address Book schema settings:") . "</td></tr>";
+
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Localised Display Name"),"display_name");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Class Aliases"),"alias_names");
+
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Display as a Folder"),"is_folder");
+
+						if($definition_type == "object")
+							echo "<tr><td style=\"width:1px\"></td><td style=\"width:1px;padding-left:2em;padding-right:1em;vertical-align:top;white-space:nowrap\">"
+								. gettext("Naming Attributes") . "</td><td>"
+								. $ldap_server->get_object_schema_setting($schema_entry["name"],"rdn_attrib")
+								. "</td></tr>";
+
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Users Can Create"),"can_create");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Create Method"),"create_method");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Other Required Attributes"),"required_attribs");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Can Create Within"),"contained_by");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Can Contain"),"can_contain");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Parent Class"),"parent_class");
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Icon"),"icon");
+
+						// specific to attributes
+						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Data Type Handler"),"data_type");
+					}
+				}
+			echo "</table>";
+		}
+	}
+
+	function show_ldap_schema_setting($schema_entry,$label,$setting)
+	{
+		$setting = strtolower($setting);
+		if(!isset($schema_entry[$setting]) && in_array($setting,array("must","may")))
+			$schema_entry[$setting] = "(" . gettext("none") . ")";
+
+		if(isset($schema_entry[$setting]))
+		{
+			if($setting == "icon")
+				$schema_entry[$setting] = "<img src=\"schema/" . $schema_entry[$setting] . "\"> " . $schema_entry[$setting];
+
+			if($setting == "is_folder" || $setting == "can_create")
+				$schema_entry[$setting] = $schema_entry[$setting] == 1 ? "TRUE" : "FALSE";
+
+			echo "              <tr>\n                <td style=\"width:1px\"></td>"
+				. "\n                <td style=\"width:1px;padding-left:2em;padding-right:1em;vertical-align:top;white-space:nowrap\">\n                  ";
+			echo $label . "\n                </td>\n                <td>\n                  ";
+			if(is_array($schema_entry[$setting]))
+			{
+			$first_value = true;
+				foreach($schema_entry[$setting] as $value)
+				{
+					if(!$first_value) echo ", ";
+					echo $value;
+					$first_value = false;
+				}
+			}
+			else
+				echo $schema_entry[$setting];
+			echo "\n                </td>\n              </tr>\n";
 		}
 	}
 
@@ -3284,6 +3580,25 @@ class ldap_server
 			$this->add_schema($schema);
 	}
 
+	/** Return the schema settings for the specified LDAP attribute
+
+	    @param string $class
+		Attribute class for which the settings are required
+	    @return
+		Array of schema settings
+	*/
+
+	function get_attribute_schema_settings($class)
+	{
+		$settings=array();
+
+		foreach($this->attribute_schema as $schema_entry)
+			if($schema_entry["name"] == $class)
+				$settings = $schema_entry;
+
+		return $settings;
+	}
+
 	/** Return a schema setting for the specified LDAP attribute
 
 	    @param string $class
@@ -3342,6 +3657,25 @@ class ldap_server
 			}
 		}
 		return $primary_name;
+	}
+
+	/** Return the schema settings for the specified object class
+
+	    @param string $class
+		Object class for which the settings are required
+	    @return
+		Array of schema settings
+	*/
+
+	function get_object_schema_settings($class)
+	{
+		$settings = array();
+
+		foreach($this->object_schema as $object_class)
+			if(strtolower($object_class["name"]) == strtolower($class))
+				$settings = $object_class;
+
+		return $settings;
 	}
 
 	/** Return the value of a setting for the specified object class
