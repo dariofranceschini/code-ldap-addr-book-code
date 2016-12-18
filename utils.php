@@ -1020,6 +1020,7 @@ class ldap_attribute
 			case "ldap_result":	$this->show_ldap_result();	break;
 			case "oid_macro_list":	$this->show_oid_macro_list();	break;
 			case "openldap_module":	$this->show_openldap_module();	break;
+			case "openldap_backend":$this->show_openldap_backend();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1163,6 +1164,38 @@ class ldap_attribute
 
 				$this->show_enum($codes);
 			}
+		}
+	}
+
+	/** Show olcBackend attribute (data type "openldap_backend") */
+
+	function show_openldap_backend()
+	{
+		global $openldap_backend_module;
+
+		if(empty($this->ldap_entry[strtolower($this->attribute)]["count"]))
+			$this->ldap_entry[strtolower($this->attribute)]["count"]=0;
+
+		if($this->edit)
+		{
+			foreach($openldap_backend_module as $name => $description)
+			{
+				$name = substr($name,strpos($name,"back_")+5);
+				$codes[] = array("value"=>$name,
+					"display_name"=>$name . " - " . $description);
+			}
+
+			asort($codes);
+
+			$this->show_enum($codes);
+		}
+		else
+		{
+			if(isset($this->ldap_entry[strtolower($this->attribute)][0]))
+				echo htmlentities($this->ldap_entry[strtolower($this->attribute)][0],
+					ENT_COMPAT,"UTF-8");
+			else
+				echo "(" . gettext("none") . ")";
 		}
 	}
 
