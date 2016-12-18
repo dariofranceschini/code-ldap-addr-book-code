@@ -4731,7 +4731,6 @@ class ldap_server
 				$entry["dn"] .= "," . $search_dn;
 		}
 	}
-
 }
 
 /** Bind to LDAP directory, recording failures to server error log
