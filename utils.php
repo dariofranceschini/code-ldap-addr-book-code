@@ -4692,6 +4692,104 @@ class ldap_server
                                 $this->object_schema[$object_index][$setting] = $value;
         }
 
+	/** Load the specified OpenLDAP module if not already loaded
+
+	    @param string $module_name
+		Name of module to be loaded
+	*/
+
+	function ensure_openldap_module_loaded($module_name)
+	{
+		global $ldap_server,$openldap_module_path,$openldap_backend_module;
+
+		if(!isset($openldap_module_path))
+			$openldap_module_path = "/usr/lib/ldap";
+
+		$search_resource = @ldap_list($ldap_server->connection,"cn=config",
+			"(&(objectClass=olcModuleList)(olcModuleLoad=" . $module_name . "))",array("*","+"));
+
+		if(ldap_count_entries($ldap_server->connection,$search_resource)==0)
+		{
+			$module_object_name = $module_name;
+
+			// Add modules to existing "module{0}" object by default.
+			//
+			// An alternative approach would be append backend modules to "module{0}",
+			// create separate objects for other module types. This approach seems to
+			// cause stability problems as of OpenLDAP 2.4. To try it anyway, replace
+			// the following line with:
+			//
+			// $add_value_to_module0=array_key_exists($module_name,$openldap_backend_module);
+
+			$add_value_to_module0=true;
+
+			// auditlog overlay should be created after all databases except back_monitor
+			if($module_name == "auditlog")
+			{
+				$add_value_to_module0=false;
+				$module_object_name = "~auditlog";
+			}
+
+	                // create monitor database after other objects
+			if($module_name=="back_monitor")
+			{
+				$add_value_to_module0=false;
+				$module_object_name="~~back_monitor";
+			}
+
+			if($add_value_to_module0)
+			{
+				// find first olcModuleList object (numbered 0)
+
+				$search_resource = @ldap_list($ldap_server->connection,"cn=config",
+					"(&(objectClass=olcModuleList)(cn=*{0}))",array("dn"));
+
+				if(ldap_count_entries($ldap_server->connection,$search_resource)==0)
+				{
+					// no module{0} object exists - create new instead
+					$add_value_to_module0=false;
+					$module_object_name="module";
+				}
+				else
+				{
+					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+					$dn=$entry[0]["dn"];
+
+					$module_entry=array("olcModuleLoad"=>array($module_name));
+
+					$result = @ldap_mod_add($ldap_server->connection,$dn,$module_entry);
+
+		                        if(!$result)
+						show_error_message(sprintf("Unable to add '%s' to module list '%s': %s"
+							,"<code>" . $module_name . "</code>","<code>" . $dn . "</code>",
+							ldap_error($ldap_server->connection)));
+				}
+			}
+
+			if(!$add_value_to_module0)
+			{
+				$module_entry = array(
+					"objectclass"=>"olcModuleList",
+					"dn"=>"olcDatabase=module{xxx},cn=config",
+					"olcModulePath"=>$openldap_module_path,
+					"olcModuleLoad"=>array($module_name)
+					);
+
+				$this->assign_ordered_sequence_rdn($module_entry,
+					"olcModuleList",$module_object_name . "{%d}");
+
+				$dn = $module_entry["dn"];
+				unset($module_entry["dn"]);
+
+	                        $result = @ldap_add($ldap_server->connection,$dn,$module_entry);
+
+	                        if(!$result)
+					show_error_message("Failed to create module list object: "
+						. ldap_error($ldap_server->connection));
+			}
+		}
+	}
+
 	/** Assign the RDN attribute for the next object in an ordered sequence
 
 	    @param array $entry
