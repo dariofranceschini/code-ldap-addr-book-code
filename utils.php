@@ -4380,6 +4380,49 @@ class ldap_server
 	{
 		$object_class_index = $this->get_object_class_index($name);
 
+		// if a previous object class of this name already exists then remove it
+		// from any other object class's child_class attributes.
+
+		if(!is_null($object_class_index))
+		{
+                        foreach($this->object_schema as $object_class)
+                                if(isset($object_class["child_class"]))
+				{
+					$old_child_class_list = explode(",",$object_class["child_class"]);
+
+					$new_child_class_list = "";
+					foreach($old_child_class_list as $child_class)
+						if($child_class != $name)
+						{
+							if(!empty($new_child_class_list))
+								$new_child_class_list .= ",";
+							$new_child_class_list .= $child_class;
+						}
+				}
+		}
+
+		// add this class to the child_class list for each of its parent classes
+
+		if(isset($settings["parent_class"]))
+		{
+			$parent_classes = explode(",",$settings["parent_class"]);
+
+			foreach($parent_classes as $parent_class)
+				if(!is_null($this->get_object_class_index($parent_class)))
+				{
+					$parent_child_class_list = $this->get_object_schema_setting($parent_class,"child_class","");
+
+					if($parent_child_class_list == "")
+						$this->modify_object_schema($parent_class,"child_class",$name);
+					else
+						$this->modify_object_schema($parent_class,"child_class",
+							$parent_child_class_list . "," . $name);
+				}
+		}
+
+		// create new object class definition, or append/replace settings on an
+		// existing definition of the same name
+
 		if(is_null($object_class_index))
 		{
 			$new_object_class = array_merge(array("name"=>$name),$settings);
@@ -4391,6 +4434,25 @@ class ldap_server
 			foreach($settings as $setting=>$value)
 				$this->object_schema[$object_class_index][$setting] = $value;
 		}
+
+		// populate the object class's child_class list with any existing classes
+		// that have it listed as their parent
+
+		$child_class_list = "";
+
+		foreach($this->object_schema as $object_class)
+			if(isset($object_class["parent_class"]))
+			{
+				$object_parents = explode(",",$object_class["parent_class"]);
+				if(in_array($name,$object_parents))
+				{
+					if(!empty($child_class_list)) $child_class_list .= ",";
+					$child_class_list .= $object_class["name"];
+				}
+			}
+
+		if(!empty($child_class_list))
+			$this->modify_object_schema($name,"child_class",$child_class_list);
 	}
 
 	/** Delete the specified object class from the schema
