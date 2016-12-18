@@ -4729,6 +4729,9 @@ class ldap_server
 			$entry["dn"] = $rdn_attrib . "=" . $rdn_value;
 			if(!empty($search_dn))
 				$entry["dn"] .= "," . $search_dn;
+
+			// update posted attribute values to reflect new RDN
+			$_POST["ldap_attribute_" . $rdn_attrib] = $rdn_value;
 		}
 	}
 }
