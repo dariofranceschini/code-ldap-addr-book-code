@@ -3739,8 +3739,22 @@ class ldap_server
 				$entry_object_class)
 				&& $object_data_found == false)
 			{
-				$item_object_class = $object_class["name"];
-				$object_data_found = true;
+				$more_specific_class_exists = false;
+				if(isset($object_class["child_class"]))
+				{
+					$child_class_list = explode(",",$object_class["child_class"]);
+
+					foreach($child_class_list as $child_class)
+						if(!$more_specific_class_exists
+								&& in_array(strtolower($child_class),$entry_object_class))
+							$more_specific_class_exists=true;
+				}
+
+				if(!$more_specific_class_exists)
+				{
+					$item_object_class = $object_class["name"];
+					$object_data_found = true;
+				}
 			}
 
 		return $item_object_class;
@@ -4366,9 +4380,6 @@ class ldap_server
 	    If the object class is already defined then its previous definition
 	    will be replaced. The index position of the object in the schema
 	    (used to indicate inheritance) will be unchanged.
-
-	    Remove and re-add classes in the correct order if you need to change
-	    the inheritance relationship of existing classes.
 
 	    @param string $name
 		Class name
