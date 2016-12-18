@@ -1774,6 +1774,9 @@ class ldap_attribute
 			if($setting == "is_folder" || $setting == "can_create")
 				$schema_entry[$setting] = $schema_entry[$setting] == 1 ? "TRUE" : "FALSE";
 
+			if(in_array($setting,array("child_class","parent_class","can_contain","contained_by")))
+				$schema_entry[$setting] = str_replace(",",", ",$schema_entry[$setting]);
+
 			echo "              <tr>\n                <td style=\"width:1px\"></td>"
 				. "\n                <td style=\"width:1px;padding-left:2em;padding-right:1em;vertical-align:top;white-space:nowrap\">\n                  ";
 			echo $label . "\n                </td>\n                <td>\n                  ";
