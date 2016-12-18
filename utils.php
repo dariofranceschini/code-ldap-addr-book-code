@@ -1747,6 +1747,8 @@ class ldap_attribute
 						$this->show_ldap_schema_setting($schema_settings,
 							gettext("Parent Class"),"parent_class");
 						$this->show_ldap_schema_setting($schema_settings,
+							gettext("Child Classes"),"child_class");
+						$this->show_ldap_schema_setting($schema_settings,
 							gettext("Icon"),"icon");
 
 						// specific to attributes
