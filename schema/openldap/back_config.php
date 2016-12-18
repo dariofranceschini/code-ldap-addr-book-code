@@ -40,7 +40,7 @@ class openldap_back_config_schema extends ldap_schema
 			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End")),	// aux class
 			array("name"=>"olcOverlayConfig",		"icon"=>"openldap/overlay.png",	"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("OpenLDAP Overlay"),"contained_by"=>"olcDatabaseConfig"),
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
-			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal"),
+			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>true,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
 			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"contained_by"=>"olcGlobal")
 			);
@@ -48,6 +48,15 @@ class openldap_back_config_schema extends ldap_schema
 		// abstract class 'olcConfig' is also defined in this schema
 
 		// Display layouts
+		$ldap_server->add_display_layout("olcIncludeFile",array(
+			array("section_name"=>"OpenLDAP Configuration Include File",
+				"attributes"=>array(
+					array("cn",			"Object Name",				"generic24.png"),
+					array("olcInclude",		"File Name",				"generic24.png")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("olcSchemaConfig",array(
 			array("section_name"=>"Schema Name","colspan"=>6,
 				"attributes"=>array(
