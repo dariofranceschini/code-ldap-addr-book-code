@@ -9,7 +9,7 @@ class openldap_back_config_schema extends ldap_schema
 			// online config attributes
 			array("name"=>"olcAccess",			"data_type"=>"text_list",	"display_name"=>gettext("Access Control")),
 			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
-			array("name"=>"olcBackend",			"data_type"=>"text_list",	"display_name"=>gettext("Back End Name")),
+			array("name"=>"olcBackend",			"data_type"=>"openldap_backend","display_name"=>gettext("Back End Name")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
@@ -36,7 +36,7 @@ class openldap_back_config_schema extends ldap_schema
 		// Structural object classes
 		$this->object_schema = array(
 			array("name"=>"olcSchemaConfig",		"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("OpenLDAP Schema Configuration")),
-			array("name"=>"olcBackendConfig",		"icon"=>"openldap/backend.png",	"is_folder"=>false,"rdn_attrib"=>"olcBackend","display_name"=>gettext("OpenLDAP Back End")),
+			array("name"=>"olcBackendConfig",		"icon"=>"openldap/backend.png",	"is_folder"=>false,"rdn_attrib"=>"olcBackend","display_name"=>gettext("OpenLDAP Back End Configuration"),"can_create"=>true),
 			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End")),	// aux class
 			array("name"=>"olcOverlayConfig",		"icon"=>"openldap/overlay.png",	"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("OpenLDAP Overlay"),"contained_by"=>"olcDatabaseConfig"),
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
@@ -81,7 +81,25 @@ class openldap_back_config_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("olcBackendConfig",array(
+			array("section_name"=>"Back End Configuration",
+				"attributes"=>array(
+					array("olcBackend",		"Back End Module",	"openldap/module.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
+	}
+
+	function before_create_olcBackendConfig(&$ldap_server,&$entry)
+	{
+		$backend_name = ldap_explode_dn2($entry["dn"]);
+		$backend_name = $backend_name[0]["value"];
+
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcBackendConfig",$backend_name);
+
+		$ldap_server->ensure_openldap_module_loaded("back_" . $backend_name);
 	}
 }
 ?>
