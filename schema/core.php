@@ -87,18 +87,18 @@ class core_schema extends ldap_schema
 		// Structural object classes
 		$this->object_schema = array(
 			array("name"=>"alias",				"icon"=>"alias.png",		"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
-			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
+			array("name"=>"applicationProcess",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Process")),
+			array("name"=>"country",			"icon"=>"country.png",		"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
+			array("name"=>"device",				"icon"=>"device.png",		"is_folder"=>false,"display_name"=>gettext("Device")),
 			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member","can_create"=>true),
 			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
-			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
-			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
-			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
-			array("name"=>"applicationProcess",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Process")),
-			array("name"=>"device",				"icon"=>"device.png",		"is_folder"=>false,"display_name"=>gettext("Device")),
-			array("name"=>"organizationalRole",		"icon"=>"org-role.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
-			array("name"=>"country",			"icon"=>"country.png",		"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
 			array("name"=>"locality",			"icon"=>"locality.png",		"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality"),"can_create"=>true),
 			array("name"=>"organization",			"icon"=>"org.png",		"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true),
+			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
+			array("name"=>"organizationalRole",		"icon"=>"org-role.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
+			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
+			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
+			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
 
 			// LDAP PKI (RFC 4523)
 			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false,"display_name"=>gettext("Certificate Revocation List Distribution Point")),
