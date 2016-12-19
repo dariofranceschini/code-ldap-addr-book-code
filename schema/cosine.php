@@ -95,11 +95,11 @@ class cosine_schema extends ldap_schema
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
 
 			// Legacy attributes not carried forward from predecessors of RFC 4524
-			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"),
-			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"), // alias of pilotPerson
-			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
 			array("name"=>"dNSDomain",			"icon"=>"microsoft/domain24.png","is_folder"=>false,"display_name"=>gettext("DNS Domain"),"parent_class"=>"domain"),
 			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"),"parent_class"=>"dSA")
+			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
+			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"),
+			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"), // alias of pilotPerson
 			);
 
 		// Display layouts
