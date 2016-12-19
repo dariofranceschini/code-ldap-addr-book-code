@@ -91,8 +91,8 @@ class core_schema extends ldap_schema
 			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member","can_create"=>true),
 			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
 			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
-			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person")),
-			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person")),
+			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
+			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
 			array("name"=>"applicationProcess",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Process")),
 			array("name"=>"device",				"icon"=>"device.png",		"is_folder"=>false,"display_name"=>gettext("Device")),
 			array("name"=>"organizationalRole",		"icon"=>"org-role.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
@@ -106,7 +106,7 @@ class core_schema extends ldap_schema
 			// legacy object classes not carried forward from predecessors of RFC 4519
 			array("name"=>"applicationEntity",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Entity")),
 			array("name"=>"dmd",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Directory Management Domain")),
-			array("name"=>"dSA",				"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent")),
+			array("name"=>"dSA",				"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent"),"parent_class"=>"applicationEntity"),
 			);
 
 		// Display layouts
