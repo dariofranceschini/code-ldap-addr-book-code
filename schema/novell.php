@@ -65,6 +65,9 @@ class novell_schema extends ldap_schema
 			array("name"=>"aliasObject",			"icon"=>"alias.png",			"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			);
 
+		// abstract class 'Resource' is also defined in this schema
+		// abstract class 'Server' is also defined in this schema
+
 		// Display layouts
 		$ldap_server->add_display_layout("directoryMap",array(
 			array("section_name"=>gettext("Directory Map Target"),
