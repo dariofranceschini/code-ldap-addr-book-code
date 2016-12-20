@@ -499,7 +499,7 @@ class ldap_entry_viewer
 	function save_vcard()
 	{
 		$rdn_attrib = $this->ldap_server->get_object_schema_setting(
-			$this->ldap_server->get_object_class($this->entry[0])
+			$this->ldap_server->get_object_class($this->ldap_entry[0])
 			,"rdn_attrib");
 
 		$rdn_list = explode(",",$rdn_attrib);
@@ -509,10 +509,10 @@ class ldap_entry_viewer
 		{
 			if($filename != "") $filename .= "_";
 
-			if(isset($entry[0][strtolower($rdn)][0]))
-				$filename .= $entry[0][strtolower($rdn)][0];
+			if(isset($this->ldap_entry[0][strtolower($rdn)][0]))
+				$filename .= $this->ldap_entry[0][strtolower($rdn)][0];
 			else
-				$filename .= $entry[0][strtolower($rdn)];
+				$filename .= $this->ldap_entry[0][strtolower($rdn)];
 		}
 
 		header("Content-Type: text/vcard");
@@ -3274,7 +3274,7 @@ class vcard
 		// RFC-compliant LDAP schemas implement "street" and "streetAddress"
 		// as aliases of the same underlying attribute.
 
-		if($ldap_server->type == "ad" && isset($entry["street"][0]))
+		if($ldap_server->server_type == "ad" && isset($entry["street"][0]))
 		{
 			if(!empty($streetaddress)) $streetaddress .= ", ";
 			$streetaddress .= $entry["street"][0];
