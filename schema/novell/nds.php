@@ -31,6 +31,9 @@ class novell_nds_schema extends ldap_schema
 			array("name"=>"treeRoot",			"icon"=>"novell/tree-root.png",		"is_folder"=>true,"display_name"=>gettext("Tree Root"),"rdn_attrib"=>"directoryTreeName")
 			);
 
+		// abstract class 'ndsContainerLoginProperties' is also defined in this schema
+		// abstract class 'ndsLoginProperties' is also defined in this schema
+
 		// Display layouts
 		$ldap_server->add_display_layout("ndsPredicateStats",array(
 			array("section_name"=>gettext("NDS Predicate Statistics"),"new_row"=>true,
