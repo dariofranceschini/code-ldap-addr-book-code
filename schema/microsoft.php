@@ -125,7 +125,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msDFSR-Content",			"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDFSR-Topology",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDFSR-LocalSettings",		"icon"=>"folder.png",			"is_folder"=>true),
-			array("name"=>"msDFSR-Subsriber",		"icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"msDFSR-Subscriber",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDFS-NamespaceAnchor",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDFS-Namespacev2",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"dnsZone",			"icon"=>"microsoft/dns-zone.png",	"is_folder"=>true,"rdn_attrib"=>"dc"),
