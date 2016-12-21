@@ -38,30 +38,30 @@ class novell_schema extends ldap_schema
 		$this->object_schema = array(
 			// matches core.schema
 			// (Class names for organization, country, locality are capitalised in their Novell versions)
-			array("name"=>"organizationalUnit",		"icon"=>"folder.png",			"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
-			array("name"=>"Organization",			"icon"=>"org.png",			"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true),
+			array("name"=>"organizationalUnit",		"icon"=>"folder.png",			"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true,"parent_class"=>"ndsLoginProperties,ndsContainerLoginProperties"),
+			array("name"=>"Organization",			"icon"=>"org.png",			"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true,"parent_class"=>"ndsLoginProperties,ndsContainerLoginProperties"),
 			array("name"=>"Country",			"icon"=>"country.png",			"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
 			array("name"=>"Locality",			"icon"=>"locality.png",			"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality"),"can_create"=>true),
-			array("name"=>"groupOfNames",			"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("Group"),"can_create"=>true),
+			array("name"=>"groupOfNames",			"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("Group"),"can_create"=>true,"parent_class"=>"ndsLoginProperties"),
 			array("name"=>"organizationalRole",		"icon"=>"org-role.png",			"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
 
 			// matches inetorgperson.schema other than addition of display_name "User"
 			// (inetOrgPerson LDAP class maps to eDirectory User class)
-			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"required_attribs"=>"sn","can_create"=>true),
+			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"organizationalPerson,ndsLoginProperties"),
 
 			// base schema - equivalents to core.schema classes
 			//
 			// (Person should be listed after inetOrgPerson but before externalEntity
 			// for correct inheritence behaviour)
-			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true),
+			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"ndsLoginProperties"),
 
 			// Novell proprietary classes
 			array("name"=>"externalEntity",			"icon"=>"novell/external-entity24.png",	"is_folder"=>false,"display_name"=>gettext("External Entity"),"can_create"=>true),
 			array("name"=>"Profile",			"icon"=>"novell/profile.png",		"is_folder"=>false,"display_name"=>gettext("Profile")),
-			array("name"=>"Volume",				"icon"=>"novell/volume.png",		"is_folder"=>false,"display_name"=>gettext("Volume")),
-			array("name"=>"Queue",				"icon"=>"novell/queue.png",		"is_folder"=>false,"display_name"=>gettext("Queue")),
-			array("name"=>"directoryMap",			"icon"=>"novell/directory-map.png",	"is_folder"=>false,"display_name"=>gettext("Directory Map")),
-			array("name"=>"ncpServer",			"icon"=>"server.png",			"is_folder"=>false,"display_name"=>gettext("NCP Server")),
+			array("name"=>"Volume",				"icon"=>"novell/volume.png",		"is_folder"=>false,"display_name"=>gettext("Volume"),"parent_class"=>"Resource"),
+			array("name"=>"Queue",				"icon"=>"novell/queue.png",		"is_folder"=>false,"display_name"=>gettext("Queue"),"parent_class"=>"Resource"),
+			array("name"=>"directoryMap",			"icon"=>"novell/directory-map.png",	"is_folder"=>false,"display_name"=>gettext("Directory Map"),"parent_class"=>"Resource"),
+			array("name"=>"ncpServer",			"icon"=>"server.png",			"is_folder"=>false,"display_name"=>gettext("NCP Server"),"parent_class"=>"Server"),
 			array("name"=>"aliasObject",			"icon"=>"alias.png",			"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			);
 
