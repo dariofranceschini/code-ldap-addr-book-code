@@ -54,11 +54,6 @@ class microsoft_schema extends ldap_schema
 			// Added for Windows Server 2008 R2
 			array("name"=>"msDS-ManagedServiceAccount",	"icon"=>"microsoft/service.png",	"is_folder"=>false,"display_name"=>gettext("Managed Service Account"),"parent_class"=>"computer"),
 
-			// Proprietary implementation of InetOrgPerson:
-			//	- Subclass of proprietary "user" (so listed before it in schema definition)
-			//	- Attribute "sn" is not mandatory
-			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true,"parent_class"=>"user"),
-
 			array("name"=>"groupPolicyContainer",		"icon"=>"microsoft/policy.png",		"is_folder"=>true,"parent_class"=>"container"),
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services"),"parent_class"=>"container"),
 			array("name"=>"container",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Container")),

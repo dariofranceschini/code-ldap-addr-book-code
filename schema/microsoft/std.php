@@ -35,6 +35,11 @@ class microsoft_std_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
+			// Non-standard implementation of InetOrgPerson (RFC 2798):
+			//	- Subclass of proprietary "user" (so listed before it in schema definition)
+			//	- Attribute "sn" is not mandatory
+			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true,"parent_class"=>"user"),
+
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"subSchema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema"))
                         );
