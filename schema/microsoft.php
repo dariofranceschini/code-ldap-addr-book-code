@@ -104,8 +104,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"linkTrackVolumeTable",		"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"fileLinkTracking"),
 			array("name"=>"fileLinkTracking",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"physicalLocation",		"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"locality"),
-			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png",	"is_folder"=>false),
-			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",		"is_folder"=>false),
 			array("name"=>"dfsConfiguration",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msDS-PasswordSettingsContainer",	"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msImaging-PSPs",			"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"container"),

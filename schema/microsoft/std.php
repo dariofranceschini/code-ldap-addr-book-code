@@ -57,6 +57,10 @@ class microsoft_std_schema extends ldap_schema
 			// LDAP Core Schema for User Applications (RFC 2256)
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 
+			// LDAP PKI (RFC 4523)
+			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"is_folder"=>false), // type 88 class
+			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false),
+
 			// System Schema
 			array("name"=>"subSchema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema"))
 			);
