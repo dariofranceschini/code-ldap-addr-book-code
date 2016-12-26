@@ -6,9 +6,12 @@ class system_openldap_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
+			array("name"=>"attributeTypes",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"configContext",			"data_type"=>"dn",		"display_name"=>gettext("Configuration Context")),
 			array("name"=>"dITContentRules",		"data_type"=>"text_list",	"display_name"=>gettext("DIT Content Rules")),
 			array("name"=>"monitorContext",			"data_type"=>"dn",		"display_name"=>gettext("Monitoring Context")),
+			array("name"=>"objectClasses",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
+			array("name"=>"subschemaSubentry",		"data_type"=>"dn",		"display_name"=>gettext("Subschema Subentry")),
 			);
 
 		// Structural object classes

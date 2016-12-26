@@ -39,7 +39,10 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"pager",				"data_type"=>"text",		"display_name"=>gettext("Pager Telephone Number")),
 
 			// Directory Information Models (RFC 4512)
+			array("name"=>"attributeTypes",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"dITContentRules",                "data_type"=>"text_list",       "display_name"=>gettext("DIT Content Rules")),
+			array("name"=>"objectClasses",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
+			array("name"=>"subschemaSubentry",              "data_type"=>"dn",              "display_name"=>gettext("Subschema Subentry")),
 
 			// Active Directory uses non-standard OIDs for these attributes instead
 			// of those referenced by the ASID working group. Microsoft use OIDs from
