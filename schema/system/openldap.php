@@ -7,6 +7,7 @@ class system_openldap_schema extends ldap_schema
 	{
 		$this->attribute_schema = array(
 			array("name"=>"configContext",			"data_type"=>"dn",		"display_name"=>gettext("Configuration Context")),
+			array("name"=>"dITContentRules",		"data_type"=>"text_list",	"display_name"=>gettext("DIT Content Rules")),
 			array("name"=>"monitorContext",			"data_type"=>"dn",		"display_name"=>gettext("Monitoring Context")),
 			);
 

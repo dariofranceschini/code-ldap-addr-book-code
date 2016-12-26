@@ -38,6 +38,9 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"mobile",				"data_type"=>"phone_number",	"display_name"=>gettext("Mobile/Cell Telephone Number")),
 			array("name"=>"pager",				"data_type"=>"text",		"display_name"=>gettext("Pager Telephone Number")),
 
+			// Directory Information Models (RFC 4512)
+			array("name"=>"dITContentRules",                "data_type"=>"text_list",       "display_name"=>gettext("DIT Content Rules")),
+
 			// Active Directory uses non-standard OIDs for these attributes instead
 			// of those referenced by the ASID working group. Microsoft use OIDs from
 			// ranges that have been registered to Netscape. The comment after each
