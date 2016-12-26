@@ -29,7 +29,11 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>gettext("Postal Code")),
 			array("name"=>"sn",				"data_type"=>"text",		"display_name"=>gettext("Surname")),
 			array("name"=>"st",				"data_type"=>"text",		"display_name"=>gettext("State (or Province/County)")),
+
+			// Standard definition of "street" has "streetAddress" as an alias. Microsoft
+			// define proprietary "streetAddress" as a separate class.
 			array("name"=>"street",				"data_type"=>"text_area",	"display_name"=>gettext("Street Address")),
+
 			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
