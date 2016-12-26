@@ -74,7 +74,7 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"is_folder"=>false), // type 88 class
 			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false),
 
-			// System Schema
+			// Directory Information Models (RFC 4512)
 			array("name"=>"subSchema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema"))
 			);
 
