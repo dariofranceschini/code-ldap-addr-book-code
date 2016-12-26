@@ -21,9 +21,7 @@ class system_schema extends ldap_schema
 			array("name"=>"matchingRuleUse",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Matching Rule Use")),
 
 			// Operational attributes
-			array("name"=>"createTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Created")),
 			array("name"=>"creatorsName",			"data_type"=>"dn",		"display_name"=>gettext("Created By")),
-			array("name"=>"modifyTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Last Modified")),
 			array("name"=>"modifiersName",			"data_type"=>"dn",		"display_name"=>gettext("Last Modified By")),
 			);
 

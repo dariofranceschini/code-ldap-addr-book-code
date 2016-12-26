@@ -44,6 +44,10 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"objectClasses",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
 			array("name"=>"subschemaSubentry",              "data_type"=>"dn",              "display_name"=>gettext("Subschema Subentry")),
 
+			// Operational attributes
+			array("name"=>"createTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Created")),
+			array("name"=>"modifyTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Last Modified")),
+
 			// Active Directory uses non-standard OIDs for these attributes instead
 			// of those referenced by the ASID working group. Microsoft use OIDs from
 			// ranges that have been registered to Netscape. The comment after each
