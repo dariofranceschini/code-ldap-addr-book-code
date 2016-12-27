@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 11:45+0100\n"
-"PO-Revision-Date: 2016-06-05 11:45+0100\n"
+"POT-Creation-Date: 2016-12-26 15:14+0000\n"
+"PO-Revision-Date: 2016-12-26 15:14+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -17,110 +17,318 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/microsoft/std.php:10
+#: ../schema/microsoft/std.php:19
+msgid "Business Category"
+msgstr "Categoria Affari"
+
+#: ../schema/microsoft/std.php:20
 msgid "Country Code"
 msgstr "Prefisso Internazionale"
 
-#: ../schema/microsoft/std.php:11
+#: ../schema/microsoft/std.php:21
 msgid "Common Name/Full Name"
 msgstr "Nome Comune/Nome e Cognome"
 
-#: ../schema/microsoft/std.php:12 ../schema/microsoft/std.php:47
+#: ../schema/microsoft/std.php:22
+msgid "Domain Component Name"
+msgstr "Nome del Componente di Dominio"
+
+#: ../schema/microsoft/std.php:23 ../schema/microsoft/std.php:151
 msgid "Description"
 msgstr "Descrizione"
 
-#: ../schema/microsoft/std.php:13
+#: ../schema/microsoft/std.php:24
+msgid "Telegram Destination Indicator"
+msgstr "Telegramma Indicatore Destinazione"
+
+#: ../schema/microsoft/std.php:25
+msgid "Distinguished Name"
+msgstr "Nome Distinto"
+
+#: ../schema/microsoft/std.php:26
 msgid "Fax Number"
 msgstr "Numero di Fax"
 
-#: ../schema/microsoft/std.php:14
+#: ../schema/microsoft/std.php:27
+msgid "Generation Qualifier"
+msgstr "Qualificativo di Generazione"
+
+#: ../schema/microsoft/std.php:28
 msgid "Given Name"
 msgstr "Nome di Battesimo"
 
-#: ../schema/microsoft/std.php:15
-msgid "Home Telephone Number"
-msgstr "Numero di Telefono di Casa"
+#: ../schema/microsoft/std.php:29
+msgid "Initials"
+msgstr "Iniziali"
 
-#: ../schema/microsoft/std.php:16
+#: ../schema/microsoft/std.php:30
+msgid "ISDN Number"
+msgstr "Numero ISDN"
+
+#: ../schema/microsoft/std.php:31
 msgid "Locality (e.g. Town/City)"
 msgstr "Località (ad esempio Località / Città)"
 
-#: ../schema/microsoft/std.php:17
-msgid "Members"
-msgstr "Membri"
-
-#: ../schema/microsoft/std.php:18
+#: ../schema/microsoft/std.php:32
 msgid "E-mail Address"
 msgstr "Indirizzo Email"
 
-#: ../schema/microsoft/std.php:19
-msgid "Mobile/Cell Telephone Number"
-msgstr "Mumero di Cellulare"
+#: ../schema/microsoft/std.php:33
+msgid "Members"
+msgstr "Membri"
 
-#: ../schema/microsoft/std.php:20
+#: ../schema/microsoft/std.php:34
+msgid "Organization Name"
+msgstr "Nome dell'Organizzazione"
+
+#: ../schema/microsoft/std.php:35
+msgid "Object Class"
+msgstr "Classe di Oggetti"
+
+#: ../schema/microsoft/std.php:36
 msgid "Organizational Unit Name"
 msgstr "Nome Unità Organizzativa"
 
-#: ../schema/microsoft/std.php:21
-msgid "Pager Telephone Number"
-msgstr "Numero di Cercapersone"
+#: ../schema/microsoft/std.php:37
+msgid "Owner"
+msgstr "Proprietario"
 
-#: ../schema/microsoft/std.php:22
+#: ../schema/microsoft/std.php:38
 msgid "Office"
 msgstr "Ufficio"
 
-#: ../schema/microsoft/std.php:23
-msgid "Postal Code"
-msgstr "Codice Postale"
-
-#: ../schema/microsoft/std.php:24
-msgid "Surname"
-msgstr "Cognome"
-
-#: ../schema/microsoft/std.php:25
-msgid "State (or Province/County)"
-msgstr "Stato (o Provincia / Contea)"
-
-#: ../schema/microsoft/std.php:26
-msgid "Street Address"
-msgstr "Indirizzo"
-
-#: ../schema/microsoft/std.php:27
-msgid "Telephone Number"
-msgstr "Numero di Telefono"
-
-#: ../schema/microsoft/std.php:28
-msgid "Thumbnail Logo"
-msgstr "Logo Miniature"
-
-#: ../schema/microsoft/std.php:29
-msgid "Thumbnail Photograph"
-msgstr "Fotografia Miniatura"
-
-#: ../schema/microsoft/std.php:30
-msgid "Job Title"
-msgstr "Titolo di Lavoro"
-
-#: ../schema/microsoft/std.php:33
-msgid "Photograph"
-msgstr "Fotografia"
-
-#: ../schema/microsoft/std.php:38
-msgid "Organizational Unit"
-msgstr "Unità Organizzativa"
-
-#: ../schema/microsoft/std.php:39
-msgid "Schema"
-msgstr "Schema"
-
-#: ../schema/microsoft/std.php:46
-msgid "OU Name"
-msgstr "Nome OU"
-
-#: ../schema/microsoft/std.php:48
+#: ../schema/microsoft/std.php:39 ../schema/microsoft/std.php:152
 msgid "Postal Address"
 msgstr "Indirizzo Postale"
 
-#: ../schema/microsoft/std.php:50
+#: ../schema/microsoft/std.php:40
+msgid "Postal Code"
+msgstr "Codice Postale"
+
+#: ../schema/microsoft/std.php:41
+msgid "Post Office Box"
+msgstr "Casella Postale"
+
+#: ../schema/microsoft/std.php:42
+msgid "Preferred Delivery Method"
+msgstr "Consegna Metodo che è Preferito"
+
+#: ../schema/microsoft/std.php:43
+msgid "Registered Address"
+msgstr "Indirizzo Registrato"
+
+#: ../schema/microsoft/std.php:44
+msgid "Role Occupant"
+msgstr "Occupante di Ruolo"
+
+#: ../schema/microsoft/std.php:45
+msgid "Search Guide"
+msgstr "Guida Ricerca"
+
+#: ../schema/microsoft/std.php:46
+msgid "See Also"
+msgstr "Guarda Anche"
+
+#: ../schema/microsoft/std.php:47
+msgid "Serial Number"
+msgstr "Numero di Serie"
+
+#: ../schema/microsoft/std.php:48
+msgid "Surname"
+msgstr "Cognome"
+
+#: ../schema/microsoft/std.php:49
+msgid "State (or Province/County)"
+msgstr "Stato (o Provincia / Contea)"
+
+#: ../schema/microsoft/std.php:53
+msgid "Street Address"
+msgstr "Indirizzo"
+
+#: ../schema/microsoft/std.php:55
+msgid "Telephone Number"
+msgstr "Numero di Telefono"
+
+#: ../schema/microsoft/std.php:56
+msgid "Teletex Terminal Identifier"
+msgstr "Identifier di Televideo Terminal"
+
+#: ../schema/microsoft/std.php:57
+msgid "Telex Number"
+msgstr "Numero di Telex"
+
+#: ../schema/microsoft/std.php:58
+msgid "Job Title"
+msgstr "Titolo di Lavoro"
+
+#: ../schema/microsoft/std.php:59
+msgid "User Password"
+msgstr "Password Utente"
+
+#: ../schema/microsoft/std.php:60
+msgid "X.121 Network Address"
+msgstr "Indirizzo di Rete per X.121"
+
+#: ../schema/microsoft/std.php:63
+msgid "Certification Authority Revocation List"
+msgstr "Elenco delle Autorità Certificato Revocato"
+
+#: ../schema/microsoft/std.php:64
+msgid "Certification Authority Certificate"
+msgstr "Certificato d'Autorità di Certificazione"
+
+#: ../schema/microsoft/std.php:65
+msgid "Certificate Revocation List"
+msgstr "Elenco dei Certificati Revocati"
+
+#: ../schema/microsoft/std.php:66
+msgid "Cross Certificate Pair"
+msgstr "Coppia di Certificati Incrociati"
+
+#: ../schema/microsoft/std.php:67
+msgid "Delta Revocation List"
+msgstr "Modifiche di Elenco di Certificati Revocati"
+
+#: ../schema/microsoft/std.php:68
+msgid "User Certificate"
+msgstr "Certificato per l'Utente"
+
+#: ../schema/microsoft/std.php:71
+msgid "Knowledge Information"
+msgstr "Informazioni sulla Conoscenza"
+
+#: ../schema/microsoft/std.php:72
+msgid "OSI Presentation Address"
+msgstr "OSI Presentazione Indirizzo"
+
+#: ../schema/microsoft/std.php:73
+msgid "Supported OSI Application Contexts"
+msgstr "OSI Applicazione Contesti che sono Supportati"
+
+#: ../schema/microsoft/std.php:76
+msgid "Home Telephone Number"
+msgstr "Numero di Telefono di Casa"
+
+#: ../schema/microsoft/std.php:77
+msgid "Manager"
+msgstr "Manager"
+
+#: ../schema/microsoft/std.php:78
+msgid "Mobile/Cell Telephone Number"
+msgstr "Mumero di Cellulare"
+
+#: ../schema/microsoft/std.php:79
+msgid "Pager Telephone Number"
+msgstr "Numero di Cercapersone"
+
+#: ../schema/microsoft/std.php:82
+msgid "Text Encoded O/R Address"
+msgstr "O / R Indirizzo Codificato come Testo"
+
+#: ../schema/microsoft/std.php:85
+msgid "Attribute Types"
+msgstr "Tipi di Attributi"
+
+#: ../schema/microsoft/std.php:86
+msgid "DIT Content Rules"
+msgstr "Regole Contenuti per DIT"
+
+#: ../schema/microsoft/std.php:87
+msgid "Object Classes"
+msgstr "Classi di Oggetti"
+
+#: ../schema/microsoft/std.php:88
+msgid "Subschema Subentry"
+msgstr "Engresso Subordinato per lo Schema Subordinato"
+
+#: ../schema/microsoft/std.php:91
+msgid "Created"
+msgstr "Creato"
+
+#: ../schema/microsoft/std.php:92
+msgid "Last Modified"
+msgstr "Ultima Volta che Modifica"
+
+#: ../schema/microsoft/std.php:99
+msgid "Middle Name"
+msgstr "Secondo Nome"
+
+#: ../schema/microsoft/std.php:100
+msgid "Thumbnail Logo"
+msgstr "Logo Miniature"
+
+#: ../schema/microsoft/std.php:101
+msgid "Thumbnail Photograph"
+msgstr "Fotografia Miniatura"
+
+#: ../schema/microsoft/std.php:108
+msgid "S/MIME Certificate"
+msgstr "S/MIME Certificato"
+
+#: ../schema/microsoft/std.php:111
+msgid "Photograph"
+msgstr "Fotografia"
+
+#: ../schema/microsoft/std.php:119
+msgid "InetOrgPerson"
+msgstr "InetOrgPerson"
+
+#: ../schema/microsoft/std.php:122
+msgid "Application Entity"
+msgstr "Entità di Applicazione"
+
+#: ../schema/microsoft/std.php:123
+msgid "Application Process"
+msgstr "Processo di Applicazione"
+
+#: ../schema/microsoft/std.php:124 ../schema/microsoft/std.php:154
 msgid "Country"
 msgstr "Nazione"
+
+#: ../schema/microsoft/std.php:125
+msgid "Device"
+msgstr "Dispositivo"
+
+#: ../schema/microsoft/std.php:126
+msgid "Directory System Agent"
+msgstr "Agente di Sistema Direttorio"
+
+#: ../schema/microsoft/std.php:127
+msgid "Group"
+msgstr "Gruppo"
+
+#: ../schema/microsoft/std.php:128
+msgid "Locality"
+msgstr "Località"
+
+#: ../schema/microsoft/std.php:129
+msgid "Organization"
+msgstr "Organizzazione"
+
+#: ../schema/microsoft/std.php:130
+msgid "Organizational Person"
+msgstr "Persona Organizzativa"
+
+#: ../schema/microsoft/std.php:131
+msgid "Organizational Role"
+msgstr "Ruolo all'Interno dell'Organizzazione"
+
+#: ../schema/microsoft/std.php:132
+msgid "Organizational Unit"
+msgstr "Unità Organizzativa"
+
+#: ../schema/microsoft/std.php:133
+msgid "Person"
+msgstr "Persona"
+
+#: ../schema/microsoft/std.php:134
+msgid "Residential Person"
+msgstr "Persona Residenziale"
+
+#: ../schema/microsoft/std.php:141
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/microsoft/std.php:150
+msgid "OU Name"
+msgstr "Nome OU"
