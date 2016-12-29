@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-10-09 10:29+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
@@ -269,52 +269,52 @@ msgid "Alias"
 msgstr "Alias"
 
 #: ../schema/core.php:90
-msgid "Organizational Unit"
-msgstr "Unità Organizzativa"
-
-#: ../schema/core.php:91
-msgid "Group"
-msgstr "Gruppo"
-
-#: ../schema/core.php:92
-msgid "Group (Unique Names)"
-msgstr "Gruppo (Nomi Unici)"
-
-#: ../schema/core.php:93
-msgid "Person"
-msgstr "Persona"
-
-#: ../schema/core.php:94
-msgid "Organizational Person"
-msgstr "Persona Organizzativa"
-
-#: ../schema/core.php:95
-msgid "Residential Person"
-msgstr "Persona Residenziale"
-
-#: ../schema/core.php:96
 msgid "Application Process"
 msgstr "Processo di Applicazione"
 
-#: ../schema/core.php:97
+#: ../schema/core.php:91
+msgid "Country"
+msgstr "Nazione"
+
+#: ../schema/core.php:92
 msgid "Device"
 msgstr "Dispositivo"
+
+#: ../schema/core.php:93
+msgid "Group"
+msgstr "Gruppo"
+
+#: ../schema/core.php:94
+msgid "Group (Unique Names)"
+msgstr "Gruppo (Nomi Unici)"
+
+#: ../schema/core.php:95
+msgid "Locality"
+msgstr "Località"
+
+#: ../schema/core.php:96
+msgid "Organization"
+msgstr "Organizzazione"
+
+#: ../schema/core.php:97
+msgid "Organizational Person"
+msgstr "Persona Organizzativa"
 
 #: ../schema/core.php:98 ../schema/core.php:235
 msgid "Organizational Role"
 msgstr "Ruolo all'Interno dell'Organizzazione"
 
 #: ../schema/core.php:99
-msgid "Country"
-msgstr "Nazione"
+msgid "Organizational Unit"
+msgstr "Unità Organizzativa"
 
 #: ../schema/core.php:100
-msgid "Locality"
-msgstr "Località"
+msgid "Person"
+msgstr "Persona"
 
 #: ../schema/core.php:101
-msgid "Organization"
-msgstr "Organizzazione"
+msgid "Residential Person"
+msgstr "Persona Residenziale"
 
 #: ../schema/core.php:104
 msgid "Certificate Revocation List Distribution Point"

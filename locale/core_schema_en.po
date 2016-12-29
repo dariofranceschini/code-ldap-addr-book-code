@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-10-09 10:29+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -269,52 +269,52 @@ msgid "Alias"
 msgstr "Alias"
 
 #: ../schema/core.php:90
-msgid "Organizational Unit"
-msgstr "Organizational Unit"
-
-#: ../schema/core.php:91
-msgid "Group"
-msgstr "Group"
-
-#: ../schema/core.php:92
-msgid "Group (Unique Names)"
-msgstr "Group (Unique Names)"
-
-#: ../schema/core.php:93
-msgid "Person"
-msgstr "Person"
-
-#: ../schema/core.php:94
-msgid "Organizational Person"
-msgstr "Organizational Person"
-
-#: ../schema/core.php:95
-msgid "Residential Person"
-msgstr "Residential Person"
-
-#: ../schema/core.php:96
 msgid "Application Process"
 msgstr "Application Process"
 
-#: ../schema/core.php:97
+#: ../schema/core.php:91
+msgid "Country"
+msgstr "Country"
+
+#: ../schema/core.php:92
 msgid "Device"
 msgstr "Device"
+
+#: ../schema/core.php:93
+msgid "Group"
+msgstr "Group"
+
+#: ../schema/core.php:94
+msgid "Group (Unique Names)"
+msgstr "Group (Unique Names)"
+
+#: ../schema/core.php:95
+msgid "Locality"
+msgstr "Locality"
+
+#: ../schema/core.php:96
+msgid "Organization"
+msgstr "Organization"
+
+#: ../schema/core.php:97
+msgid "Organizational Person"
+msgstr "Organizational Person"
 
 #: ../schema/core.php:98 ../schema/core.php:235
 msgid "Organizational Role"
 msgstr "Organizational Role"
 
 #: ../schema/core.php:99
-msgid "Country"
-msgstr "Country"
+msgid "Organizational Unit"
+msgstr "Organizational Unit"
 
 #: ../schema/core.php:100
-msgid "Locality"
-msgstr "Locality"
+msgid "Person"
+msgstr "Person"
 
 #: ../schema/core.php:101
-msgid "Organization"
-msgstr "Organization"
+msgid "Residential Person"
+msgstr "Residential Person"
 
 #: ../schema/core.php:104
 msgid "Certificate Revocation List Distribution Point"

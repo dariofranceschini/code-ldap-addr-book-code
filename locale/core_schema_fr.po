@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-10-09 10:29+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../schema/core.php:16
 msgid "Aliased Object"
-msgstr "Objet alias"
+msgstr "Objet Alias"
 
 #: ../schema/core.php:18
 msgid "Business Category"
@@ -31,11 +31,11 @@ msgstr "Abréviation du Pays"
 
 #: ../schema/core.php:20
 msgid "Common Name/Full Name"
-msgstr "Nom commun/Nom complet"
+msgstr "Nom Commun/Nom Complet"
 
 #: ../schema/core.php:21
 msgid "Domain Component Name"
-msgstr "Nom du composant de domaine"
+msgstr "Nom du Composant de Domaine"
 
 #: ../schema/core.php:22 ../schema/core.php:117 ../schema/core.php:152
 #: ../schema/core.php:172 ../schema/core.php:192 ../schema/core.php:203
@@ -49,7 +49,7 @@ msgstr "Telegram Indicateur de Destination"
 
 #: ../schema/core.php:24
 msgid "Distinguished Name"
-msgstr "Nom distingué"
+msgstr "Nom Distingué"
 
 #: ../schema/core.php:25
 msgid "DN Qualifier"
@@ -65,7 +65,7 @@ msgstr "Numéro de Télécopieur"
 
 #: ../schema/core.php:28
 msgid "Generation Qualifier"
-msgstr "Qualificateur de génération"
+msgstr "Qualificateur de Génération"
 
 #: ../schema/core.php:29
 msgid "Given Name"
@@ -109,11 +109,11 @@ msgstr "Nom de l'Organisation"
 
 #: ../schema/core.php:39
 msgid "Object Class"
-msgstr "Classe d'objet"
+msgstr "Classe d'Objet"
 
 #: ../schema/core.php:40
 msgid "Organizational Unit Name"
-msgstr "Nom de l'unité organisationnelle"
+msgstr "Nom de l'Unité Organisationnelle"
 
 #: ../schema/core.php:41
 msgid "Owner"
@@ -134,31 +134,31 @@ msgstr "Code Postal"
 
 #: ../schema/core.php:45
 msgid "Post Office Box"
-msgstr "Boîte postale"
+msgstr "Boîte Postale"
 
 #: ../schema/core.php:46
 msgid "Preferred Delivery Method"
-msgstr "Méthode de livraison qui est préféré"
+msgstr "Méthode de Livraison qui est Préféré"
 
 #: ../schema/core.php:47
 msgid "Registered Address"
-msgstr "Adresse pour le courrier recommandé"
+msgstr "Adresse pour le Courrier Recommandé"
 
 #: ../schema/core.php:48
 msgid "Role Occupant"
-msgstr "Occupant du rôle"
+msgstr "Occupant du Rôle"
 
 #: ../schema/core.php:49
 msgid "Search Guide"
-msgstr "Guide de recherche"
+msgstr "Guide de Recherche"
 
 #: ../schema/core.php:50
 msgid "See Also"
-msgstr "Voir également"
+msgstr "Voir Également"
 
 #: ../schema/core.php:51
 msgid "Serial Number"
-msgstr "Numéro de série"
+msgstr "Numéro de Série"
 
 #: ../schema/core.php:52
 msgid "Surname"
@@ -178,7 +178,7 @@ msgstr "Numéro de Téléphone"
 
 #: ../schema/core.php:56
 msgid "Teletex Terminal Identifier"
-msgstr "Identificateur de terminal Teletex"
+msgstr "Identificateur de Terminal Teletex"
 
 #: ../schema/core.php:57
 msgid "Telex Number"
@@ -198,35 +198,35 @@ msgstr "Unique membre"
 
 #: ../schema/core.php:62
 msgid "User Password"
-msgstr "Mot de passe de l'utilisateur"
+msgstr "Mot de Passe de l'Utilisateur"
 
 #: ../schema/core.php:63
 msgid "X.121 Network Address"
-msgstr "Adresse réseau pour X.121"
+msgstr "Adresse Réseau pour X.121"
 
 #: ../schema/core.php:64
 msgid "X.500 Unique Identifier"
-msgstr "Identifiant unique pour X.500"
+msgstr "Identifiant Unique pour X.500"
 
 #: ../schema/core.php:68
 msgid "Certification Authority Revocation List"
-msgstr "Liste des autorités de certification révoqués"
+msgstr "Liste des Autorités de Certification Révoqués"
 
 #: ../schema/core.php:69
 msgid "Certification Authority Certificate"
-msgstr "Certificat d'autorité de certification"
+msgstr "Certificat d'Autorité de Certification"
 
 #: ../schema/core.php:70
 msgid "Certificate Revocation List"
-msgstr "Liste des certificats révoqués"
+msgstr "Liste des Certificats Révoqués"
 
 #: ../schema/core.php:71
 msgid "Cross Certificate Pair"
-msgstr "Paire de certificats croisés"
+msgstr "Paire de Certificats Croisés"
 
 #: ../schema/core.php:72
 msgid "Delta Revocation List"
-msgstr "Modifications de liste des certificats révoqués"
+msgstr "Modifications de Liste des Certificats Révoqués"
 
 #: ../schema/core.php:73
 msgid "PKCS #9 E-mail Address"
@@ -242,7 +242,7 @@ msgstr "Les algorithmes qui sont pris en charge"
 
 #: ../schema/core.php:76
 msgid "User Certificate"
-msgstr "Certificat pour l'utilisateur"
+msgstr "Certificat pour l'Utilisateur"
 
 #: ../schema/core.php:80
 msgid "Directory Management Domain Name"
@@ -250,7 +250,7 @@ msgstr "Nom d'administrateur d'annuaire pour le domaine"
 
 #: ../schema/core.php:81
 msgid "Knowledge Information"
-msgstr "Informations sur la connaissance"
+msgstr "Informations sur la Connaissance"
 
 #: ../schema/core.php:82
 msgid "OSI Presentation Address"
@@ -258,63 +258,63 @@ msgstr "OSI Présentation Adresse"
 
 #: ../schema/core.php:83
 msgid "Protocol Information"
-msgstr "Informations de protocole"
+msgstr "Informations de Protocole"
 
 #: ../schema/core.php:84
 msgid "Supported OSI Application Contexts"
-msgstr "Contextes d'application OSI qui sont prises en charge"
+msgstr "Contextes d'Application OSI qui sont Prises en Charge"
 
 #: ../schema/core.php:89
 msgid "Alias"
 msgstr "Alias"
 
 #: ../schema/core.php:90
-msgid "Organizational Unit"
-msgstr "Unité d'Organisation"
+msgid "Application Process"
+msgstr "Application en Cours d'Exécution"
 
 #: ../schema/core.php:91
-msgid "Group"
-msgstr "Groupe"
-
-#: ../schema/core.php:92
-msgid "Group (Unique Names)"
-msgstr "Groupe (Noms Uniques)"
-
-#: ../schema/core.php:93
-msgid "Person"
-msgstr "Personne"
-
-#: ../schema/core.php:94
-msgid "Organizational Person"
-msgstr "Personne au sein de l'organisation"
-
-#: ../schema/core.php:95
-msgid "Residential Person"
-msgstr "Personne au sein de la résidence"
-
-#: ../schema/core.php:96
-msgid "Application Process"
-msgstr "L'application en cours d'exécution"
-
-#: ../schema/core.php:97
-msgid "Device"
-msgstr "Appareil"
-
-#: ../schema/core.php:98 ../schema/core.php:235
-msgid "Organizational Role"
-msgstr "Rôle au sein de l'Organisation"
-
-#: ../schema/core.php:99
 msgid "Country"
 msgstr "Pays"
 
-#: ../schema/core.php:100
+#: ../schema/core.php:92
+msgid "Device"
+msgstr "Appareil"
+
+#: ../schema/core.php:93
+msgid "Group"
+msgstr "Groupe"
+
+#: ../schema/core.php:94
+msgid "Group (Unique Names)"
+msgstr "Groupe (Noms Uniques)"
+
+#: ../schema/core.php:95
 msgid "Locality"
 msgstr "Localité"
 
-#: ../schema/core.php:101
+#: ../schema/core.php:96
 msgid "Organization"
 msgstr "Organisation"
+
+#: ../schema/core.php:97
+msgid "Organizational Person"
+msgstr "Personne au Sein de l'Organisation"
+
+#: ../schema/core.php:98 ../schema/core.php:235
+msgid "Organizational Role"
+msgstr "Rôle au Sein de l'Organisation"
+
+#: ../schema/core.php:99
+msgid "Organizational Unit"
+msgstr "Unité d'Organisation"
+
+#: ../schema/core.php:100
+msgid "Person"
+msgstr "Personne"
+
+#: ../schema/core.php:101
+msgid "Residential Person"
+msgstr "Personne au Sein de la Résidence"
 
 #: ../schema/core.php:104
 msgid "Certificate Revocation List Distribution Point"
@@ -330,7 +330,7 @@ msgstr "Administrateur d'annuaire pour le domaine"
 
 #: ../schema/core.php:109
 msgid "Directory System Agent"
-msgstr "Agent de système d'annuaire"
+msgstr "Agent de Système d'Annuaire"
 
 #: ../schema/core.php:114
 msgid "Folder Details"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-10-09 10:29+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
@@ -45,7 +45,7 @@ msgstr "Descripción"
 
 #: ../schema/core.php:23
 msgid "Telegram Destination Indicator"
-msgstr "Indicador de destino de telegramas"
+msgstr "Indicador de Destino de Telegramas"
 
 #: ../schema/core.php:24
 msgid "Distinguished Name"
@@ -138,7 +138,7 @@ msgstr "Taquillas Postal"
 
 #: ../schema/core.php:46
 msgid "Preferred Delivery Method"
-msgstr "Método preferido de entrega"
+msgstr "Método Preferido de Entrega"
 
 #: ../schema/core.php:47
 msgid "Registered Address"
@@ -262,59 +262,59 @@ msgstr "Información de Protocolo"
 
 #: ../schema/core.php:84
 msgid "Supported OSI Application Contexts"
-msgstr "Contextos de aplicación OSI que son compatibles"
+msgstr "Contextos de Aplicación OSI que son Compatibles"
 
 #: ../schema/core.php:89
 msgid "Alias"
 msgstr "Alias"
 
 #: ../schema/core.php:90
-msgid "Organizational Unit"
-msgstr "Unidad Organizacional"
-
-#: ../schema/core.php:91
-msgid "Group"
-msgstr "Grupo"
-
-#: ../schema/core.php:92
-msgid "Group (Unique Names)"
-msgstr "Grupo (Nombres Individuales)"
-
-#: ../schema/core.php:93
-msgid "Person"
-msgstr "Persona"
-
-#: ../schema/core.php:94
-msgid "Organizational Person"
-msgstr "Persona de la Organización"
-
-#: ../schema/core.php:95
-msgid "Residential Person"
-msgstr "Persona Residencial"
-
-#: ../schema/core.php:96
 msgid "Application Process"
 msgstr "Aplicación que se Ejecuta"
 
-#: ../schema/core.php:97
+#: ../schema/core.php:91
+msgid "Country"
+msgstr "País"
+
+#: ../schema/core.php:92
 msgid "Device"
 msgstr "Aparato"
+
+#: ../schema/core.php:93
+msgid "Group"
+msgstr "Grupo"
+
+#: ../schema/core.php:94
+msgid "Group (Unique Names)"
+msgstr "Grupo (Nombres Individuales)"
+
+#: ../schema/core.php:95
+msgid "Locality"
+msgstr "Localidad"
+
+#: ../schema/core.php:96
+msgid "Organization"
+msgstr "Organización"
+
+#: ../schema/core.php:97
+msgid "Organizational Person"
+msgstr "Persona de la Organización"
 
 #: ../schema/core.php:98 ../schema/core.php:235
 msgid "Organizational Role"
 msgstr "Papel en la Organización"
 
 #: ../schema/core.php:99
-msgid "Country"
-msgstr "País"
+msgid "Organizational Unit"
+msgstr "Unidad Organizacional"
 
 #: ../schema/core.php:100
-msgid "Locality"
-msgstr "Localidad"
+msgid "Person"
+msgstr "Persona"
 
 #: ../schema/core.php:101
-msgid "Organization"
-msgstr "Organización"
+msgid "Residential Person"
+msgstr "Persona Residencial"
 
 #: ../schema/core.php:104
 msgid "Certificate Revocation List Distribution Point"
@@ -330,7 +330,7 @@ msgstr "Administración de directorios de dominio"
 
 #: ../schema/core.php:109
 msgid "Directory System Agent"
-msgstr "Agente de sistema de directorio"
+msgstr "Agente de Sistema de Directorio"
 
 #: ../schema/core.php:114
 msgid "Folder Details"
