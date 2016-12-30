@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 09:35+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-07-05 09:35+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
@@ -221,21 +221,21 @@ msgstr "RFC 822 Parte Locale"
 msgid "Room"
 msgstr "Camera"
 
-#: ../schema/cosine.php:98 ../schema/cosine.php:99
-msgid "Person (COSINE Pilot)"
-msgstr "Persona (COSINE Sperimentale)"
+#: ../schema/cosine.php:98
+msgid "DNS Domain"
+msgstr "Dominio DNS"
+
+#: ../schema/cosine.php:99
+msgid "DSA (COSINE Pilot)"
+msgstr "DSA (COSINE Sperimentale)"
 
 #: ../schema/cosine.php:100
 msgid "Organization (COSINE Pilot)"
 msgstr "Organizzazione (COSINE Sperimentale)"
 
-#: ../schema/cosine.php:101
-msgid "DNS Domain"
-msgstr "Dominio DNS"
-
-#: ../schema/cosine.php:102
-msgid "DSA (COSINE Pilot)"
-msgstr "DSA (COSINE Sperimentale)"
+#: ../schema/cosine.php:101 ../schema/cosine.php:102
+msgid "Person (COSINE Pilot)"
+msgstr "Persona (COSINE Sperimentale)"
 
 #: ../schema/cosine.php:110
 msgid "Domain Name Component"
