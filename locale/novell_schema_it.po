@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 11:22+0100\n"
+"POT-Creation-Date: 2016-12-25 12:08+0000\n"
 "PO-Revision-Date: 2016-10-16 11:22+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell.php:10 ../schema/novell.php:127
+#: ../schema/novell.php:10 ../schema/novell.php:130
 msgid "Country Code"
 msgstr "Prefisso Internazionale"
 
@@ -25,9 +25,9 @@ msgstr "Prefisso Internazionale"
 msgid "Common Name/Full Name"
 msgstr "Nome Comune/Nome e Cognome"
 
-#: ../schema/novell.php:12 ../schema/novell.php:81 ../schema/novell.php:117
-#: ../schema/novell.php:128 ../schema/novell.php:144 ../schema/novell.php:230
-#: ../schema/novell.php:244
+#: ../schema/novell.php:12 ../schema/novell.php:84 ../schema/novell.php:120
+#: ../schema/novell.php:131 ../schema/novell.php:147 ../schema/novell.php:233
+#: ../schema/novell.php:247
 msgid "Description"
 msgstr "Descrizione"
 
@@ -51,7 +51,7 @@ msgstr "Indirizzo Email"
 msgid "Member"
 msgstr "Membro"
 
-#: ../schema/novell.php:18 ../schema/novell.php:108
+#: ../schema/novell.php:18 ../schema/novell.php:111
 msgid "Organization Name"
 msgstr "Nome dell'Organizzazione"
 
@@ -99,11 +99,11 @@ msgstr "Job Title"
 msgid "Group Membership"
 msgstr "Appartenenza al Gruppo"
 
-#: ../schema/novell.php:32 ../schema/novell.php:72 ../schema/novell.php:224
+#: ../schema/novell.php:32 ../schema/novell.php:75 ../schema/novell.php:227
 msgid "Host Server"
 msgstr "Server Host"
 
-#: ../schema/novell.php:33 ../schema/novell.php:134
+#: ../schema/novell.php:33 ../schema/novell.php:137
 msgid "Login Script"
 msgstr "Script di Accesso"
 
@@ -112,29 +112,29 @@ msgid "Cross Certificate Pair (NDS)"
 msgstr "Coppia di Certificati Incrociati (NDS)"
 
 #: ../schema/novell.php:41
-msgid "Organizational Unit"
-msgstr "Unità Organizzativa"
-
-#: ../schema/novell.php:42 ../schema/novell.php:80 ../schema/novell.php:143
-#: ../schema/novell.php:229
-msgid "Organization"
-msgstr "Organizzazione"
-
-#: ../schema/novell.php:43
 msgid "Country"
 msgstr "Nazione"
 
-#: ../schema/novell.php:44
-msgid "Locality"
-msgstr "Località"
-
-#: ../schema/novell.php:45
+#: ../schema/novell.php:42
 msgid "Group"
 msgstr "Gruppo"
 
-#: ../schema/novell.php:46 ../schema/novell.php:237
+#: ../schema/novell.php:43
+msgid "Locality"
+msgstr "Località"
+
+#: ../schema/novell.php:44 ../schema/novell.php:83 ../schema/novell.php:146
+#: ../schema/novell.php:232
+msgid "Organization"
+msgstr "Organizzazione"
+
+#: ../schema/novell.php:45 ../schema/novell.php:240
 msgid "Organizational Role"
 msgstr "Ruolo all'Interno dell'Organizzazione"
+
+#: ../schema/novell.php:46
+msgid "Organizational Unit"
+msgstr "Unità Organizzativa"
 
 #: ../schema/novell.php:50
 msgid "User"
@@ -144,261 +144,261 @@ msgstr "Utente"
 msgid "Person"
 msgstr "Persona"
 
-#: ../schema/novell.php:59
-msgid "External Entity"
-msgstr "Entità Esterna"
-
-#: ../schema/novell.php:60
-msgid "Profile"
-msgstr "Sagoma"
-
-#: ../schema/novell.php:61
-msgid "Volume"
-msgstr "Tomo"
-
-#: ../schema/novell.php:62
-msgid "Queue"
-msgstr "Fila"
-
-#: ../schema/novell.php:63
-msgid "Directory Map"
-msgstr "Mappa di Direttorio"
-
-#: ../schema/novell.php:64
-msgid "NCP Server"
-msgstr "Server NCP"
-
-#: ../schema/novell.php:65 ../schema/novell.php:213
+#: ../schema/novell.php:59 ../schema/novell.php:216
 msgid "Alias"
 msgstr "Alias"
 
-#: ../schema/novell.php:70
+#: ../schema/novell.php:60
+msgid "Directory Map"
+msgstr "Mappa di Direttorio"
+
+#: ../schema/novell.php:61
+msgid "External Entity"
+msgstr "Entità Esterna"
+
+#: ../schema/novell.php:62
+msgid "NCP Server"
+msgstr "Server NCP"
+
+#: ../schema/novell.php:63
+msgid "Profile"
+msgstr "Sagoma"
+
+#: ../schema/novell.php:64
+msgid "Queue"
+msgstr "Fila"
+
+#: ../schema/novell.php:65
+msgid "Volume"
+msgstr "Tomo"
+
+#: ../schema/novell.php:73
 msgid "Directory Map Target"
 msgstr "Obiettivo della Mappa di Direttorio"
 
-#: ../schema/novell.php:73
+#: ../schema/novell.php:76
 msgid "Volume and Path"
 msgstr "Tomo e Percorso"
 
-#: ../schema/novell.php:76 ../schema/novell.php:139
+#: ../schema/novell.php:79 ../schema/novell.php:142
 msgid "Other Information"
 msgstr "Altre Informazioni"
 
-#: ../schema/novell.php:78 ../schema/novell.php:141 ../schema/novell.php:227
-#: ../schema/novell.php:240
+#: ../schema/novell.php:81 ../schema/novell.php:144 ../schema/novell.php:230
+#: ../schema/novell.php:243
 msgid "Location"
 msgstr "Posizione"
 
-#: ../schema/novell.php:79 ../schema/novell.php:142 ../schema/novell.php:228
-#: ../schema/novell.php:241
+#: ../schema/novell.php:82 ../schema/novell.php:145 ../schema/novell.php:231
+#: ../schema/novell.php:244
 msgid "Department"
 msgstr "Dipartimento"
 
-#: ../schema/novell.php:82 ../schema/novell.php:145 ../schema/novell.php:161
-#: ../schema/novell.php:254
+#: ../schema/novell.php:85 ../schema/novell.php:148 ../schema/novell.php:164
+#: ../schema/novell.php:257
 msgid "See Also"
 msgstr "Guarda Anche"
 
-#: ../schema/novell.php:90
+#: ../schema/novell.php:93
 msgid "Group Name"
 msgstr "Nome del Gruppo"
 
-#: ../schema/novell.php:93
+#: ../schema/novell.php:96
 msgid "Group Members"
 msgstr "Membri del Gruppo"
 
-#: ../schema/novell.php:98
+#: ../schema/novell.php:101
 msgid "Additional Notes"
 msgstr "Note Aggiuntive"
 
-#: ../schema/novell.php:106 ../schema/novell.php:114 ../schema/novell.php:125
+#: ../schema/novell.php:109 ../schema/novell.php:117 ../schema/novell.php:128
 msgid "Folder Details"
 msgstr "Dettagli Cartella"
 
-#: ../schema/novell.php:116
+#: ../schema/novell.php:119
 msgid "OU Name"
 msgstr "Nome OU"
 
-#: ../schema/novell.php:119 ../schema/novell.php:247
+#: ../schema/novell.php:122 ../schema/novell.php:250
 msgid "Postal Address"
 msgstr "Indirizzo Postale"
 
-#: ../schema/novell.php:151
+#: ../schema/novell.php:154
 msgid "Server Information"
 msgstr "Informazioni su Server"
 
-#: ../schema/novell.php:153
+#: ../schema/novell.php:156
 msgid "Server Name"
 msgstr "Nome del Server"
 
-#: ../schema/novell.php:155
+#: ../schema/novell.php:158
 msgid "Status"
 msgstr "Stato"
 
-#: ../schema/novell.php:156
+#: ../schema/novell.php:159
 msgid "Version"
 msgstr "Versione"
 
-#: ../schema/novell.php:157
+#: ../schema/novell.php:160
 msgid "Language ID"
 msgstr "Lingua ID"
 
-#: ../schema/novell.php:158
+#: ../schema/novell.php:161
 msgid "Server Certificate"
 msgstr "Certificato per Server"
 
-#: ../schema/novell.php:159
+#: ../schema/novell.php:162
 msgid "DNS Server Version"
 msgstr "Versione Server DNS"
 
-#: ../schema/novell.php:160
+#: ../schema/novell.php:163
 msgid "DS Revision"
 msgstr "DS Revisione"
 
-#: ../schema/novell.php:164
+#: ../schema/novell.php:167
 msgid "Associated Service Objects"
 msgstr "Oggetti Servizio Associato"
 
-#: ../schema/novell.php:166
+#: ../schema/novell.php:169
 msgid "DNS/DHCP Locator"
 msgstr "Localizzatore DNS / DHCP"
 
-#: ../schema/novell.php:167
+#: ../schema/novell.php:170
 msgid "SNMP Group"
 msgstr "Gruppo SNMP"
 
-#: ../schema/novell.php:168
+#: ../schema/novell.php:171
 msgid "SAS Service"
 msgstr "Servizio SAS"
 
-#: ../schema/novell.php:169
+#: ../schema/novell.php:172
 msgid "HTTP Server (iMonitor)"
 msgstr "Server HTTP (iMonitor)"
 
-#: ../schema/novell.php:170
+#: ../schema/novell.php:173
 msgid "LDAP Server"
 msgstr "Server LDAP"
 
-#: ../schema/novell.php:171
+#: ../schema/novell.php:174
 msgid "Predicate Stats"
 msgstr "Predicato Statistiche"
 
-#: ../schema/novell.php:172
+#: ../schema/novell.php:175
 msgid "Encryption Policy"
 msgstr "Politica di Crittografia"
 
-#: ../schema/novell.php:175
+#: ../schema/novell.php:178
 msgid "Directory Index Definitions"
 msgstr "Definizioni Indice di Direttorio"
 
-#: ../schema/novell.php:180
+#: ../schema/novell.php:183
 msgid "NMAS Cached Attributes on External References (CAER)"
 msgstr "NMAS Attributi Cache su Riferimenti Esterni (CAER)"
 
-#: ../schema/novell.php:185
+#: ../schema/novell.php:188
 msgid "CIFS Native File Access Package"
 msgstr "Pacchetto per l'Accesso ai File in Modalità CIFS Nativa"
 
-#: ../schema/novell.php:187
+#: ../schema/novell.php:190
 msgid "CIFS Server Name"
 msgstr "Nome CIFS Server"
 
-#: ../schema/novell.php:188
+#: ../schema/novell.php:191
 msgid "Workgroup"
 msgstr "Gruppo di Lavoro"
 
-#: ../schema/novell.php:189
+#: ../schema/novell.php:192
 msgid "Comment"
 msgstr "Commento"
 
-#: ../schema/novell.php:190
+#: ../schema/novell.php:193
 msgid "Shares"
 msgstr "Azioni"
 
-#: ../schema/novell.php:191
+#: ../schema/novell.php:194
 msgid "Share Volumes by Default"
 msgstr "Condividi Tomi Automaticamente"
 
-#: ../schema/novell.php:192
+#: ../schema/novell.php:195
 msgid "DFS"
 msgstr "DFS"
 
-#: ../schema/novell.php:193
+#: ../schema/novell.php:196
 msgid "SMB/CIFS Dialect"
 msgstr "Dialetto di SMB / CIFS"
 
-#: ../schema/novell.php:194
+#: ../schema/novell.php:197
 msgid "Unicode Support"
 msgstr "Supporto Unicode"
 
-#: ../schema/novell.php:195
+#: ../schema/novell.php:198
 msgid "OpLocks Support"
 msgstr "Supporto Oplock"
 
-#: ../schema/novell.php:196
+#: ../schema/novell.php:199
 msgid "Authentication"
 msgstr "Autenticazione"
 
-#: ../schema/novell.php:197
+#: ../schema/novell.php:200
 msgid "Signatures"
 msgstr "Firme"
 
-#: ../schema/novell.php:198
+#: ../schema/novell.php:201
 msgid "PDC Enabled"
 msgstr "PDC è Ebilitato"
 
-#: ../schema/novell.php:199
+#: ../schema/novell.php:202
 msgid "PDC Name"
 msgstr "Nome PDC"
 
-#: ../schema/novell.php:200
+#: ../schema/novell.php:203
 msgid "PDC Address"
 msgstr "Indirizzo PDC"
 
-#: ../schema/novell.php:201
+#: ../schema/novell.php:204
 msgid "User Context"
 msgstr "Contesto Utente"
 
-#: ../schema/novell.php:202
+#: ../schema/novell.php:205
 msgid "WINS Address"
 msgstr "Indirizzo WINS"
 
-#: ../schema/novell.php:205
+#: ../schema/novell.php:208
 msgid "eDirectory Management Toolbox (eMBox) Configuration"
 msgstr "Configurazione di eMBox"
 
-#: ../schema/novell.php:215
+#: ../schema/novell.php:218
 msgid "Name"
 msgstr "Nome"
 
-#: ../schema/novell.php:216
+#: ../schema/novell.php:219
 msgid "Aliased Object"
 msgstr "Oggetto che viene Alias"
 
-#: ../schema/novell.php:222
+#: ../schema/novell.php:225
 msgid "Volume Information"
 msgstr "Informazioni sul Tomo"
 
-#: ../schema/novell.php:226
+#: ../schema/novell.php:229
 msgid "Host Resource Name"
 msgstr "Nome della Risorsa Ospite"
 
-#: ../schema/novell.php:231
+#: ../schema/novell.php:234
 msgid "Linux NCP Mount Point"
 msgstr "NCP Punto di montaggio per Linux"
 
-#: ../schema/novell.php:239
+#: ../schema/novell.php:242
 msgid "Role Name"
 msgstr "Nome di Ruolo"
 
-#: ../schema/novell.php:242
+#: ../schema/novell.php:245
 msgid "Phone"
 msgstr "Telefono"
 
-#: ../schema/novell.php:243
+#: ../schema/novell.php:246
 msgid "Fax"
 msgstr "Fax"
 
-#: ../schema/novell.php:257
+#: ../schema/novell.php:260
 msgid "Role Occupants"
 msgstr "Gli Occupanti di Ruolo"
