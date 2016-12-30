@@ -183,7 +183,7 @@ msgstr "Autre Email"
 
 #: ../schema/cosine.php:77
 msgid "Text Encoded O/R Address"
-msgstr "O/R Adresse codée sous Forme de Texte"
+msgstr "O/R Adresse Codée sous forme de Texte"
 
 #: ../schema/cosine.php:83
 msgid "Signature (G3 Fax Format)"
