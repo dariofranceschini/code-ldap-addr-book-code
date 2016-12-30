@@ -309,6 +309,46 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("packageRegistration",array(
+			array("section_name"=>gettext("Product Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("packageName",			gettext("Name"),				"generic24.png"),
+					array("versionNumberHi",		gettext("Major Version Number"),		"generic24.png"),
+					array("versionNumberLo",		gettext("Minor Version Number"),		"generic24.png"),
+					array("localeID",			gettext("Language"),				"generic24.png"),
+					array("machineArchitecture",		gettext("Platform"),				"generic24.png"),
+					array("url",				gettext("Support URL"),				"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Deployment Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("msiFileList",			gettext("Deployment source"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Diagnostic Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("productCode",			gettext("Product Code"),			"generic24.png"),
+					array("msiScriptPath",			gettext("Script Name"),				"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Package Upgrade Relationships"),"new_row"=>true,
+				"attributes"=>array(
+					array("canUpgradeScript")
+					)
+				),
+			array("section_name"=>gettext("Category GUIDs"),"new_row"=>true,
+				"attributes"=>array(
+					array("categories")
+					)
+				),
+			array("section_name"=>gettext("Other"),"new_row"=>true,
+				"attributes"=>array(
+					array("packageFlags",			gettext("Package Flags"),			"generic24.png"),
+					array("packageType",			gettext("Package Type"),			"generic24.png")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
