@@ -148,6 +148,13 @@ if(prereq_components_ok())
 	else
 		show_ldap_bind_error();
 
+	if($ldap_server->server_type == "openldap" && strcasecmp($dn,"cn=config")==0)
+	{
+		$search_result_columns = array(
+			array("caption"=>gettext("OpenLDAP Server Configuration"),
+			"attrib"=>"sortableName","link_type"=>"object"));
+	}
+
 	// Display search resource info if successfully fetched
 	if(is_resource($search_resource))
 	{
