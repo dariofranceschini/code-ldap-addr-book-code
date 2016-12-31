@@ -48,6 +48,8 @@ class openldap_back_config_schema extends ldap_schema
 
 		// abstract class 'olcConfig' is also defined in this schema
 
+		// auxiliary class 'olmBDBDatabase' shared by back_bdb, back_hdb
+
 		// Display layouts
 		$ldap_server->add_display_layout("olcIncludeFile",array(
 			array("section_name"=>"OpenLDAP Configuration Include File",
