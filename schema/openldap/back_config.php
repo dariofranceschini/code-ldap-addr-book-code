@@ -51,6 +51,24 @@ class openldap_back_config_schema extends ldap_schema
 		// auxiliary class 'olmBDBDatabase' shared by back_bdb, back_hdb
 
 		// Display layouts
+		$ldap_server->add_display_layout("olcGlobal",array(
+			array("section_name"=>gettext("OpenLDAP Server Global Settings"),
+				"attributes"=>array(
+					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
+					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
+					array("olcLogLevel",		gettext("Log Level"),				"generic24.png"),
+					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png")
+					)
+				),
+                        array("section_name"=>gettext("TLS Settings"),"new_row"=>true,
+                                "attributes"=>array(
+                                        array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
+                                        array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
+                                        array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png")
+                                        )
+                                )
+			));
+
 		$ldap_server->add_display_layout("olcIncludeFile",array(
 			array("section_name"=>"OpenLDAP Configuration Include File",
 				"attributes"=>array(
