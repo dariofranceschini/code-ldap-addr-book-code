@@ -30,7 +30,8 @@ class openldap_back_config_schema extends ldap_schema
 
 			// Attributes used by back_ldap and back_meta
 			array("name"=>"olcDbChaseReferrals",		"data_type"=>"yes_no",		"display_name"=>gettext("Referal Chasing Enabled")),
-			array("name"=>"olcDbIDAssertBind",		"data_type"=>"text_area",	"display_name"=>gettext("Remote Identity Assertion Settings"))
+			array("name"=>"olcDbIDAssertBind",		"data_type"=>"text_area",	"display_name"=>gettext("Remote Identity Assertion Settings")),
+			array("name"=>"olcDbRebindAsUser",		"data_type"=>"yes_no",		"display_name"=>gettext("Rebind as User"))
 			);
 
 		// Structural object classes
