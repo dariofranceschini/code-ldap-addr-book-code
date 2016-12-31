@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 11:32+0100\n"
-"PO-Revision-Date: 2016-04-27 10:33+0100\n"
+"POT-Creation-Date: 2016-12-26 15:14+0000\n"
+"PO-Revision-Date: 2016-12-26 15:14+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -26,65 +26,45 @@ msgid "Naming Contexts"
 msgstr "Contextes de Nommage"
 
 #: ../schema/system.php:12
-msgid "Subschema Subentry"
-msgstr "Entrée Subordonnée pour le Schéma Subordonné"
-
-#: ../schema/system.php:13
 msgid "Supported Controls"
 msgstr "Contrôles pris sont Supportées"
 
-#: ../schema/system.php:14
+#: ../schema/system.php:13
 msgid "Supported Extended Operations"
 msgstr "Opérations Étendues qui sont Supportées"
 
-#: ../schema/system.php:15
+#: ../schema/system.php:14
 msgid "Supported Features"
 msgstr "Caractéristiques qui sont Supportées"
 
-#: ../schema/system.php:16
+#: ../schema/system.php:15
 msgid "Supported LDAP Versions"
 msgstr "Versions LDAP qui sont Supportées"
 
-#: ../schema/system.php:17
+#: ../schema/system.php:16
 msgid "Supported SASL Mechanisms"
 msgstr "Mécanismes SASL qui sont Supportées"
 
-#: ../schema/system.php:20
-msgid "Object Classes"
-msgstr "Classes d'objets"
-
-#: ../schema/system.php:21
-msgid "Attribute Types"
-msgstr "Types d'Attributs"
-
-#: ../schema/system.php:22
+#: ../schema/system.php:19
 msgid "LDAP Syntaxes"
 msgstr "Syntaxes LDAP"
 
-#: ../schema/system.php:23
+#: ../schema/system.php:20
 msgid "Matching Rules"
 msgstr "Règles de Correspondance"
 
-#: ../schema/system.php:24
+#: ../schema/system.php:21
 msgid "Matching Rule Use"
 msgstr "Utilisation de Règles de Correspondance"
 
-#: ../schema/system.php:27
-msgid "Created"
-msgstr "Créé à"
-
-#: ../schema/system.php:28
+#: ../schema/system.php:24
 msgid "Created By"
 msgstr "Créé par"
 
-#: ../schema/system.php:29
-msgid "Last Modified"
-msgstr "Dernière Modification à"
-
-#: ../schema/system.php:30
+#: ../schema/system.php:25
 msgid "Last Modified By"
 msgstr "Dernière Modification par"
 
-#: ../schema/system.php:35
+#: ../schema/system.php:30
 msgid "Schema"
 msgstr "Schéma"
