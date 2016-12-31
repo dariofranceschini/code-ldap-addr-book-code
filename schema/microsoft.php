@@ -318,7 +318,7 @@ class microsoft_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Deployment Information"),"new_row"=>true,
 				"attributes"=>array(
-					array("msiFileList",			gettext("Deployment source"),			"generic24.png")
+					array("msiFileList",			gettext("Deployment Source"),			"generic24.png")
 					)
 				),
 			array("section_name"=>gettext("Diagnostic Information"),"new_row"=>true,
