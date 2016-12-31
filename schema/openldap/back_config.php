@@ -124,6 +124,24 @@ class openldap_back_config_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("olcFrontendConfig",array(
+			array("section_name"=>gettext("Front End Settings"),
+				"attributes"=>array(
+					array("olcSizeLimit",		gettext("Size Limit")),
+					),
+				),
+			array("section_name"=>gettext("Access Controls"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcAccess")
+					),
+				),
+			array("section_name"=>gettext("Global Overlays"),"new_row"=>true,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("olcBackendConfig",array(
 			array("section_name"=>"Back End Configuration",
 				"attributes"=>array(
