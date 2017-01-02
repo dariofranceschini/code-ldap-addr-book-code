@@ -1130,40 +1130,41 @@ class ldap_attribute
 	{
 		global $openldap_overlay_module,$openldap_backend_module;
 
-		if(!empty($this->ldap_entry[strtolower($this->attribute)]["count"]))
+		if(!isset($this->ldap_entry[strtolower($this->attribute)]["count"]))
+			$this->ldap_entry[strtolower($this->attribute)]["count"]
+				= (isset($this->ldap_entry[strtolower($this->attribute)]) ? 1 : 0);
+
+		if($this->ldap_entry[strtolower($this->attribute)]["count"] > 1)
 		{
-			if($this->ldap_entry[strtolower($this->attribute)]["count"] > 1)
-			{
-	                        echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
 
-        	                foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
-                	                if(empty($key) || $key != "count")
-					{
-						$value = substr($value,strpos($value,"}")+1);
-						echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					$value = substr($value,strpos($value,"}")+1);
+					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
 
-						if(isset($openldap_overlay_module[$value]))
-							echo " - " . $openldap_overlay_module[$value];
+					if(isset($openldap_overlay_module[$value]))
+						echo " - " . $openldap_overlay_module[$value];
 
-						if(isset($openldap_backend_module[$value]))
-							echo " - " . $openldap_backend_module[$value];
+					if(isset($openldap_backend_module[$value]))
+						echo " - " . $openldap_backend_module[$value];
 
-						echo "</li>";
-					}
-	                        echo "</ul>";
-			}
-			else
-			{
-				foreach($openldap_overlay_module as $name => $description)
-					$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+					echo "</li>";
+				}
+			echo "</ul>";
+		}
+		else
+		{
+			foreach($openldap_overlay_module as $name => $description)
+				$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
 
-				foreach($openldap_backend_module as $name => $description)
-					$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
+			foreach($openldap_backend_module as $name => $description)
+				$codes[] = array("value"=>"{0}" . $name,"display_name"=>$name . " - " . $description);
 
-				asort($codes);
+			asort($codes);
 
-				$this->show_enum($codes);
-			}
+			$this->show_enum($codes);
 		}
 	}
 
