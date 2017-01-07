@@ -43,7 +43,7 @@ class openldap_back_config_schema extends ldap_schema
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
 			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>true,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
-			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"contained_by"=>"olcGlobal")
+			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"can_create"=>true,"create_method"=>"atomic","contained_by"=>"olcGlobal")
 			);
 
 		// abstract class 'olcConfig' is also defined in this schema
@@ -111,6 +111,15 @@ class openldap_back_config_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("olcModuleList",array(
+			array("section_name"=>gettext("OpenLDAP Module List"),
+				"attributes"=>array(
+					array("olcModuleLoad",		gettext("Modules"),				"openldap/module.png"),
+					array("olcModulePath",		gettext("Path"),				"folder.png"),
+					),
+				)
+			));
+
 		$ldap_server->add_display_layout("olcDatabaseConfig",array(
 			array("section_name"=>gettext("Access Controls"),"new_row"=>true,
 				"attributes"=>array(
@@ -151,6 +160,46 @@ class openldap_back_config_schema extends ldap_schema
 			));
 
 		parent::__construct($ldap_server);
+	}
+
+	/** Assign default value for olcModulePath
+
+	   If the config file doesn't define a default module path
+	   then use /usr/lib/ldap
+
+	*/
+
+	function populate_for_create_olcModuleList(&$ldap_server,&$entry)
+	{
+		global $openldap_module_path;
+
+		if(!isset($openldap_module_path))
+			$openldap_module_path = "/usr/lib/ldap";
+
+		$this->add_attrib_value($ldap_server,$entry,"olcModulePath",$openldap_module_path);
+	}
+
+	/** Assign object name for olcModuleList based on the module to be loaded.
+
+	    Module list objects are processed in code point order of object name as OpenLDAP
+	    starts up. The module name for back_monitor gets modified to start with a tilde
+	    (ASCII 126) to ensure that it gets loaded last.
+	*/
+
+	function before_create_olcModuleList(&$ldap_server,&$entry)
+	{
+		$module_name = explode("}",$entry["olcModuleLoad"]);
+		$module_name = $module_name[1];
+
+		// create after all standard databases, but before monitor database
+		if($module_name == "auditlog")
+			$module_name = "~auditlog";
+
+		// create after other objects
+		if($module_name == "back_monitor")
+			$module_name = "~~back_monitor";
+
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcModuleList",$module_name . "{%d}");
 	}
 
 	function before_create_olcBackendConfig(&$ldap_server,&$entry)
