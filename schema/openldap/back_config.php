@@ -70,41 +70,41 @@ class openldap_back_config_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("olcIncludeFile",array(
-			array("section_name"=>"OpenLDAP Configuration Include File",
+			array("section_name"=>gettext("OpenLDAP Configuration Include File"),
 				"attributes"=>array(
-					array("cn",			"Object Name",				"generic24.png"),
-					array("olcInclude",		"File Name",				"generic24.png")
+					array("cn",			gettext("Object Name"),				"generic24.png"),
+					array("olcInclude",		gettext("File Name"),				"generic24.png")
 					)
 				)
 			));
 
 		$ldap_server->add_display_layout("olcSchemaConfig",array(
-			array("section_name"=>"Schema Name","colspan"=>6,
+			array("section_name"=>gettext("Schema Name"),"colspan"=>6,
 				"attributes"=>array(
 					array("cn"),
 					)
 				),
-			array("section_name"=>"Object Identifier Macro Definitions","new_row"=>true,
+			array("section_name"=>gettext("Object Identifier Macro Definitions"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcObjectIdentifier")
 					),
 				),
-			array("section_name"=>"Object Class Definitions","new_row"=>true,
+			array("section_name"=>gettext("Object Class Definitions"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcObjectClasses")
 					),
 				),
-			array("section_name"=>"Attribute Type Definitions","new_row"=>true,
+			array("section_name"=>gettext("Attribute Type Definitions"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcAttributeTypes")
 					),
 				),
-			array("section_name"=>"LDAP Syntaxes","new_row"=>true,
+			array("section_name"=>gettext("LDAP Syntaxes"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcLdapSyntaxes")
 					),
 				),
-			array("section_name"=>"Child Objects","new_row"=>true,"colspan"=>2,
+			array("section_name"=>gettext("Child Objects"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("__CHILD_OBJECTS__")
 					)
@@ -152,9 +152,9 @@ class openldap_back_config_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("olcBackendConfig",array(
-			array("section_name"=>"Back End Configuration",
+			array("section_name"=>gettext("Back End Configuration"),
 				"attributes"=>array(
-					array("olcBackend",		"Back End Module",	"openldap/module.png"),
+					array("olcBackend",		gettext("Back End Module"),	"openldap/module.png"),
 					)
 				)
 			));
