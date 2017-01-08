@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-08 13:36+0000\n"
+"PO-Revision-Date: 2017-01-08 13:36+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -24,3 +24,11 @@ msgstr "Base de Données Fondé de Pouvoir LDAP"
 #: ../schema/openldap/back_ldap.php:11
 msgid "Chain Overlay"
 msgstr "Superposition de Chaîne"
+
+#: ../schema/openldap/back_ldap.php:12
+msgid "Distributed Procedure Overlay"
+msgstr "Superposition de Procédure Distribuée"
+
+#: ../schema/openldap/back_ldap.php:13
+msgid "Monitored LDAP Proxy Connection"
+msgstr "Connexion Surveillée Fondé de Pouvoir LDAP"

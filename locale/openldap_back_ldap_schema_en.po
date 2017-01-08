@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-08 13:36+0000\n"
+"PO-Revision-Date: 2017-01-08 13:36+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -24,3 +24,11 @@ msgstr "LDAP Proxy Database"
 #: ../schema/openldap/back_ldap.php:11
 msgid "Chain Overlay"
 msgstr "Chain Overlay"
+
+#: ../schema/openldap/back_ldap.php:12
+msgid "Distributed Procedure Overlay"
+msgstr "Distributed Procedure Overlay"
+
+#: ../schema/openldap/back_ldap.php:13
+msgid "Monitored LDAP Proxy Connection"
+msgstr "Monitored LDAP Proxy Connection"
