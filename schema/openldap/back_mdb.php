@@ -15,6 +15,8 @@ class openldap_back_mdb_schema extends ldap_schema
 			array("name"=>"olcMdbConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("MDB Database"),"required_attribs"=>"olcSuffix,olcDbDirectory","parent_class"=>"olcDatabaseConfig")
 			);
 
+		// abstract class 'olmMDBDatabase' is also defined in this schema
+
 		parent::__construct($ldap_server);
 	}
 }
