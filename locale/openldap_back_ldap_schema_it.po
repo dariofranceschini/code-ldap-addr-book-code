@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 13:36+0000\n"
-"PO-Revision-Date: 2017-01-08 13:36+0000\n"
+"POT-Creation-Date: 2017-01-08 14:14+0000\n"
+"PO-Revision-Date: 2017-01-08 14:14+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -32,3 +32,43 @@ msgstr "Copertura per Procedure Distribuito"
 #: ../schema/openldap/back_ldap.php:13
 msgid "Monitored LDAP Proxy Connection"
 msgstr "Monitorato Connessione per Delega LDAP"
+
+#: ../schema/openldap/back_ldap.php:20
+msgid "LDAP Proxy Database Settings"
+msgstr "Impostazioni Banca Dati Delega LDAP"
+
+#: ../schema/openldap/back_ldap.php:22
+msgid "Remote LDAP Directory URI"
+msgstr "URI di Direttorio LDAP Remoto"
+
+#: ../schema/openldap/back_ldap.php:23
+msgid "Naming Context"
+msgstr "Contesto dei Nomi"
+
+#: ../schema/openldap/back_ldap.php:24
+msgid "Chase Referrals"
+msgstr "Seguire i Rinvii"
+
+#: ../schema/openldap/back_ldap.php:25
+msgid "Rebind as User"
+msgstr "Ripetere Legano come Utente"
+
+#: ../schema/openldap/back_ldap.php:29
+msgid "Remote Identity Assertion"
+msgstr "Asserzione di Identità a Distanza"
+
+#: ../schema/openldap/back_ldap.php:31
+msgid "Authorise From"
+msgstr "Autorizzare da"
+
+#: ../schema/openldap/back_ldap.php:34
+msgid "Bind Configuration"
+msgstr "Configurazione Accesso"
+
+#: ../schema/openldap/back_ldap.php:37
+msgid "Access Controls"
+msgstr "Controlli di Accesso"
+
+#: ../schema/openldap/back_ldap.php:42
+msgid "Overlays"
+msgstr "Coperture"

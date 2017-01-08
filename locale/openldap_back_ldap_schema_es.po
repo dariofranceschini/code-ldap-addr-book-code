@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 13:36+0000\n"
-"PO-Revision-Date: 2017-01-08 13:36+0000\n"
+"POT-Creation-Date: 2017-01-08 14:14+0000\n"
+"PO-Revision-Date: 2017-01-08 14:14+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -32,3 +32,43 @@ msgstr "Superposición de Procedimientos Distribuidos"
 #: ../schema/openldap/back_ldap.php:13
 msgid "Monitored LDAP Proxy Connection"
 msgstr "Conexión de Apoderado LDAP Supervisada"
+
+#: ../schema/openldap/back_ldap.php:20
+msgid "LDAP Proxy Database Settings"
+msgstr "Configuración de la Base de Datos Apoderado LDAP"
+
+#: ../schema/openldap/back_ldap.php:22
+msgid "Remote LDAP Directory URI"
+msgstr "URI del Directorio LDAP Remoto"
+
+#: ../schema/openldap/back_ldap.php:23
+msgid "Naming Context"
+msgstr "Contexto de Denominación"
+
+#: ../schema/openldap/back_ldap.php:24
+msgid "Chase Referrals"
+msgstr "Seguir Referencias"
+
+#: ../schema/openldap/back_ldap.php:25
+msgid "Rebind as User"
+msgstr "Repetir Enlace como Usuario"
+
+#: ../schema/openldap/back_ldap.php:29
+msgid "Remote Identity Assertion"
+msgstr "Aserción de Identidad Remota"
+
+#: ../schema/openldap/back_ldap.php:31
+msgid "Authorise From"
+msgstr "Autorizar de"
+
+#: ../schema/openldap/back_ldap.php:34
+msgid "Bind Configuration"
+msgstr "Configuración de Enlace"
+
+#: ../schema/openldap/back_ldap.php:37
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_ldap.php:42
+msgid "Overlays"
+msgstr "Superposiciones"
