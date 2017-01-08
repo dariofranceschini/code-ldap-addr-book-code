@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-08 12:51+0000\n"
+"PO-Revision-Date: 2017-01-08 12:51+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -20,3 +20,43 @@ msgstr ""
 #: ../schema/openldap/back_hdb.php:10
 msgid "HDB Database"
 msgstr "Base de Datos HDB"
+
+#: ../schema/openldap/back_hdb.php:15
+msgid "Database Settings"
+msgstr "Configuración de la Base de Datos"
+
+#: ../schema/openldap/back_hdb.php:17
+msgid "Database Directory"
+msgstr "Directorio de Bases de Datos"
+
+#: ../schema/openldap/back_hdb.php:18
+msgid "Naming Context"
+msgstr "Contexto de Denominación"
+
+#: ../schema/openldap/back_hdb.php:19
+msgid "Maintain Last Modification Info"
+msgstr "Mantener Información de Última Modificación"
+
+#: ../schema/openldap/back_hdb.php:20
+msgid "Root User"
+msgstr "Usuario Root"
+
+#: ../schema/openldap/back_hdb.php:22
+msgid "Checkpoint Intervals (KB, minutes)"
+msgstr "Intervalos de Punto de Control (KB, Minutos)"
+
+#: ../schema/openldap/back_hdb.php:25
+msgid "Berkeley DB Configuration File (DB_CONFIG)"
+msgstr "Archivo de Configuración de Berkeley DB (DB_CONFIG)"
+
+#: ../schema/openldap/back_hdb.php:30
+msgid "Database Indexes"
+msgstr "Índices de la Base de Datos"
+
+#: ../schema/openldap/back_hdb.php:35
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_hdb.php:40
+msgid "Overlays"
+msgstr "Superposiciones"
