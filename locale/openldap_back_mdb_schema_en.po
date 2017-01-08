@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 12:08+0000\n"
-"PO-Revision-Date: 2017-01-08 12:08+0000\n"
+"POT-Creation-Date: 2017-01-08 12:19+0000\n"
+"PO-Revision-Date: 2017-01-08 12:19+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -24,3 +24,43 @@ msgstr "Maximum Database Size"
 #: ../schema/openldap/back_mdb.php:15
 msgid "MDB Database"
 msgstr "MDB Database"
+
+#: ../schema/openldap/back_mdb.php:22
+msgid "Database Settings"
+msgstr "Database Settings"
+
+#: ../schema/openldap/back_mdb.php:24
+msgid "Database Directory"
+msgstr "Database Directory"
+
+#: ../schema/openldap/back_mdb.php:25
+msgid "Naming Context"
+msgstr "Naming Context"
+
+#: ../schema/openldap/back_mdb.php:26
+msgid "Maintain Last Modification Info"
+msgstr "Maintain Last Modification Info"
+
+#: ../schema/openldap/back_mdb.php:27
+msgid "Root User"
+msgstr "Root User"
+
+#: ../schema/openldap/back_mdb.php:29
+msgid "Checkpoint Intervals (KB, minutes)"
+msgstr "Checkpoint Intervals (KB, minutes)"
+
+#: ../schema/openldap/back_mdb.php:30
+msgid "Maximum Size"
+msgstr "Maximum Size"
+
+#: ../schema/openldap/back_mdb.php:33
+msgid "Database Indexes"
+msgstr "Database Indexes"
+
+#: ../schema/openldap/back_mdb.php:38
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_mdb.php:43
+msgid "Overlays"
+msgstr "Overlays"
