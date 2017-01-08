@@ -40,7 +40,7 @@ class openldap_back_mdb_schema extends ldap_schema
 					array("olcAccess")
 					)
 				),
-			array("section_name"=>gettext("Overlays"),"new_row"=>true,"colspan"=>2,
+			array("section_name"=>gettext("Overlays"),"new_row"=>true,
 				"attributes"=>array(
 					array("__CHILD_OBJECTS__")
 					)
