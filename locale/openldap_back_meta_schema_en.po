@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-08 23:27+0000\n"
+"PO-Revision-Date: 2017-01-08 23:27+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,10 +21,54 @@ msgstr ""
 msgid "String Rewriting Rule"
 msgstr "String Rewriting Rule"
 
-#: ../schema/openldap/back_meta.php:14
+#: ../schema/openldap/back_meta.php:14 ../schema/openldap/back_meta.php:20
 msgid "Metadirectory Database"
 msgstr "Metadirectory Database"
 
-#: ../schema/openldap/back_meta.php:15
+#: ../schema/openldap/back_meta.php:15 ../schema/openldap/back_meta.php:53
 msgid "Metadirectory Target Server"
 msgstr "Metadirectory Target Server"
+
+#: ../schema/openldap/back_meta.php:22
+msgid "Naming Context"
+msgstr "Naming Context"
+
+#: ../schema/openldap/back_meta.php:23 ../schema/openldap/back_meta.php:56
+msgid "Chase Referrals"
+msgstr "Chase Referrals"
+
+#: ../schema/openldap/back_meta.php:25
+msgid "Root User"
+msgstr "Root User"
+
+#: ../schema/openldap/back_meta.php:29
+msgid "Remote Identity Assertion"
+msgstr "Remote Identity Assertion"
+
+#: ../schema/openldap/back_meta.php:31
+msgid "Authorise From"
+msgstr "Authorise From"
+
+#: ../schema/openldap/back_meta.php:32
+msgid "Bind Configuration"
+msgstr "Bind Configuration"
+
+#: ../schema/openldap/back_meta.php:35 ../schema/openldap/back_meta.php:59
+msgid "String Rewriting Rules"
+msgstr "String Rewriting Rules"
+
+#: ../schema/openldap/back_meta.php:40
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_meta.php:45
+msgid "Target LDAP Servers and Overlays"
+msgstr "Target LDAP Servers and Overlays"
+
+#: ../schema/openldap/back_meta.php:55
+msgid "Remote LDAP Directory URI"
+msgstr "Remote LDAP Directory URI"
+
+#: ../schema/openldap/back_meta.php:102
+msgid "target1"
+msgstr "target1"
