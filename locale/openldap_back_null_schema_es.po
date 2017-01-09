@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-09 09:49+0000\n"
+"PO-Revision-Date: 2017-01-09 09:49+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,10 +17,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/back_null.php:9
+#: ../schema/openldap/back_null.php:9 ../schema/openldap/back_null.php:22
 msgid "Allow Binds To This Database"
 msgstr "Permitir Inicio de Sesión a esta Base de Datos"
 
 #: ../schema/openldap/back_null.php:14
 msgid "Null Database"
 msgstr "Base de Datos Nula"
+
+#: ../schema/openldap/back_null.php:19
+msgid "Database Settings"
+msgstr "Configuración de la Base de Datos"
+
+#: ../schema/openldap/back_null.php:21
+msgid "Naming Context"
+msgstr "Contexto de Denominación"
+
+#: ../schema/openldap/back_null.php:23
+msgid "Maintain Last Modification Info"
+msgstr "Mantener Información de Última Modificación"
+
+#: ../schema/openldap/back_null.php:24
+msgid "Root User"
+msgstr "Usuario Root"
+
+#: ../schema/openldap/back_null.php:28
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_null.php:33
+msgid "Overlays"
+msgstr "Superposiciones"
