@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-11 08:37+0000\n"
+"PO-Revision-Date: 2017-01-11 08:37+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -24,3 +24,31 @@ msgstr "Relay Naming Context DN"
 #: ../schema/openldap/back_relay.php:14
 msgid "Relay Database"
 msgstr "Relay Database"
+
+#: ../schema/openldap/back_relay.php:19
+msgid "Relay Database Settings"
+msgstr "Relay Database Settings"
+
+#: ../schema/openldap/back_relay.php:21
+msgid "Naming Context for this Database"
+msgstr "Naming Context for this Database"
+
+#: ../schema/openldap/back_relay.php:22
+msgid "Naming Context to be Relayed"
+msgstr "Naming Context to be Relayed"
+
+#: ../schema/openldap/back_relay.php:23
+msgid "Maintain Last Modification Info"
+msgstr "Maintain Last Modification Info"
+
+#: ../schema/openldap/back_relay.php:24
+msgid "Root User"
+msgstr "Root User"
+
+#: ../schema/openldap/back_relay.php:28
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_relay.php:33
+msgid "Overlays"
+msgstr "Overlays"

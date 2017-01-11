@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-11 08:37+0000\n"
+"PO-Revision-Date: 2017-01-11 08:37+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -24,3 +24,31 @@ msgstr "DN du Contexte de Nommage de Relais"
 #: ../schema/openldap/back_relay.php:14
 msgid "Relay Database"
 msgstr "Base de Données Relais"
+
+#: ../schema/openldap/back_relay.php:19
+msgid "Relay Database Settings"
+msgstr "Paramètres de la Base de Données Relais"
+
+#: ../schema/openldap/back_relay.php:21
+msgid "Naming Context for this Database"
+msgstr "Contexte de Nommage pour cette Base de Données"
+
+#: ../schema/openldap/back_relay.php:22
+msgid "Naming Context to be Relayed"
+msgstr "Contexte de Nommage à Retransmettre"
+
+#: ../schema/openldap/back_relay.php:23
+msgid "Maintain Last Modification Info"
+msgstr "Conserver les Informations de Dernière Modification"
+
+#: ../schema/openldap/back_relay.php:24
+msgid "Root User"
+msgstr "Utilisateur Root"
+
+#: ../schema/openldap/back_relay.php:28
+msgid "Access Controls"
+msgstr "Contrôle d'Accès"
+
+#: ../schema/openldap/back_relay.php:33
+msgid "Overlays"
+msgstr "Superpositions"
