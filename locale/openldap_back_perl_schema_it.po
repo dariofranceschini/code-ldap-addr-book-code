@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-10 08:43+0000\n"
+"PO-Revision-Date: 2017-01-10 08:43+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/back_perl.php:9
+#: ../schema/openldap/back_perl.php:9 ../schema/openldap/back_perl.php:28
 msgid "Filter Search Results within OpenLDAP"
 msgstr "Filtrare i Risultati di Ricerca all'Interno di OpenLDAP"
 
@@ -36,3 +36,39 @@ msgstr "Percorso di Perl Module"
 #: ../schema/openldap/back_perl.php:17
 msgid "Perl Module Database"
 msgstr "Banca Dati del Modulo Perl"
+
+#: ../schema/openldap/back_perl.php:22
+msgid "Perl Database Settings"
+msgstr "Impostazioni Database Perl"
+
+#: ../schema/openldap/back_perl.php:24
+msgid "Naming Context"
+msgstr "Contesto dei Nomi"
+
+#: ../schema/openldap/back_perl.php:25
+msgid "Module Name"
+msgstr "Nome del Modulo"
+
+#: ../schema/openldap/back_perl.php:26
+msgid "Module Path"
+msgstr "Percorso di Module"
+
+#: ../schema/openldap/back_perl.php:27
+msgid "Module Config Directives"
+msgstr "Direttive di Configurazione Modulo"
+
+#: ../schema/openldap/back_perl.php:29
+msgid "Maintain Last Modification Info"
+msgstr "Mantenere Ultima Modifica Informazioni"
+
+#: ../schema/openldap/back_perl.php:30
+msgid "Root User"
+msgstr "Utente Root"
+
+#: ../schema/openldap/back_perl.php:34
+msgid "Access Controls"
+msgstr "Controlli di Accesso"
+
+#: ../schema/openldap/back_perl.php:39
+msgid "Overlays"
+msgstr "Coperture"
