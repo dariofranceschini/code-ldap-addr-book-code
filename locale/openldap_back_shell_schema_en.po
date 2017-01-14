@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-14 11:57+0000\n"
+"PO-Revision-Date: 2017-01-14 11:57+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -52,3 +52,63 @@ msgstr "LDAP Unbind Command and Arguments"
 #: ../schema/openldap/back_shell.php:21
 msgid "Shell Database"
 msgstr "Shell Database"
+
+#: ../schema/openldap/back_shell.php:26
+msgid "Shell Database Settings"
+msgstr "Shell Database Settings"
+
+#: ../schema/openldap/back_shell.php:28
+msgid "Naming Context"
+msgstr "Naming Context"
+
+#: ../schema/openldap/back_shell.php:29
+msgid "Maintain Last Modification Info"
+msgstr "Maintain Last Modification Info"
+
+#: ../schema/openldap/back_shell.php:30
+msgid "Root User"
+msgstr "Root User"
+
+#: ../schema/openldap/back_shell.php:35
+msgid "Shell Commands to Run for each LDAP Operation"
+msgstr "Shell Commands to Run for each LDAP Operation"
+
+#: ../schema/openldap/back_shell.php:37
+msgid "Bind (Log On)"
+msgstr "Bind (Log On)"
+
+#: ../schema/openldap/back_shell.php:38
+msgid "Unbind (Log Off)"
+msgstr "Unbind (Log Off)"
+
+#: ../schema/openldap/back_shell.php:39
+msgid "Search Records"
+msgstr "Search Records"
+
+#: ../schema/openldap/back_shell.php:40
+msgid "Compare Records"
+msgstr "Compare Records"
+
+#: ../schema/openldap/back_shell.php:41
+msgid "Add Record"
+msgstr "Add Record"
+
+#: ../schema/openldap/back_shell.php:42
+msgid "Modify Attributes"
+msgstr "Modify Attributes"
+
+#: ../schema/openldap/back_shell.php:43
+msgid "Modify RDN (Move/Rename)"
+msgstr "Modify RDN (Move/Rename)"
+
+#: ../schema/openldap/back_shell.php:44
+msgid "Delete Record"
+msgstr "Delete Record"
+
+#: ../schema/openldap/back_shell.php:48
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_shell.php:53
+msgid "Overlays"
+msgstr "Overlays"

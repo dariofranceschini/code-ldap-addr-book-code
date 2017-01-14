@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-14 11:57+0000\n"
+"PO-Revision-Date: 2017-01-14 11:57+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -52,3 +52,63 @@ msgstr "Comando y argumentos para Desconectar LDAP"
 #: ../schema/openldap/back_shell.php:21
 msgid "Shell Database"
 msgstr "Base de Datos Shell"
+
+#: ../schema/openldap/back_shell.php:26
+msgid "Shell Database Settings"
+msgstr "Configuración de la Base de Datos Shell"
+
+#: ../schema/openldap/back_shell.php:28
+msgid "Naming Context"
+msgstr "Contexto de Denominación"
+
+#: ../schema/openldap/back_shell.php:29
+msgid "Maintain Last Modification Info"
+msgstr "Mantener Información de Última Modificación"
+
+#: ../schema/openldap/back_shell.php:30
+msgid "Root User"
+msgstr "Usuario Root"
+
+#: ../schema/openldap/back_shell.php:35
+msgid "Shell Commands to Run for each LDAP Operation"
+msgstr "Comandos de Shell para Ejecutarse para cada Operación LDAP"
+
+#: ../schema/openldap/back_shell.php:37
+msgid "Bind (Log On)"
+msgstr "Enlazar (Iniciar Sesión)"
+
+#: ../schema/openldap/back_shell.php:38
+msgid "Unbind (Log Off)"
+msgstr "Desatar (Finalizar la Sesión)"
+
+#: ../schema/openldap/back_shell.php:39
+msgid "Search Records"
+msgstr "Buscar en los Registros"
+
+#: ../schema/openldap/back_shell.php:40
+msgid "Compare Records"
+msgstr "Comparar Registros"
+
+#: ../schema/openldap/back_shell.php:41
+msgid "Add Record"
+msgstr "Añadir Registro"
+
+#: ../schema/openldap/back_shell.php:42
+msgid "Modify Attributes"
+msgstr "Modificar Atributos"
+
+#: ../schema/openldap/back_shell.php:43
+msgid "Modify RDN (Move/Rename)"
+msgstr "Modificar RDN (Mover / Cambiar Nombre)"
+
+#: ../schema/openldap/back_shell.php:44
+msgid "Delete Record"
+msgstr "Eliminar Registro"
+
+#: ../schema/openldap/back_shell.php:48
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_shell.php:53
+msgid "Overlays"
+msgstr "Superposiciones"

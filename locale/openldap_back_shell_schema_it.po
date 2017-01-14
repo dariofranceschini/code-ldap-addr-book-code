@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-14 11:57+0000\n"
+"PO-Revision-Date: 2017-01-14 11:57+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -52,3 +52,63 @@ msgstr "Comando e Argomenti per la Disconnessione LDAP"
 #: ../schema/openldap/back_shell.php:21
 msgid "Shell Database"
 msgstr "Banca Dati Shell"
+
+#: ../schema/openldap/back_shell.php:26
+msgid "Shell Database Settings"
+msgstr "Impostazioni Banca Dati Shell"
+
+#: ../schema/openldap/back_shell.php:28
+msgid "Naming Context"
+msgstr "Contesto dei Nomi"
+
+#: ../schema/openldap/back_shell.php:29
+msgid "Maintain Last Modification Info"
+msgstr "Mantenere Ultima Modifica Informazioni"
+
+#: ../schema/openldap/back_shell.php:30
+msgid "Root User"
+msgstr "Utente Root"
+
+#: ../schema/openldap/back_shell.php:35
+msgid "Shell Commands to Run for each LDAP Operation"
+msgstr "Comandi Shell da Eseguire per ogni Operazione LDAP"
+
+#: ../schema/openldap/back_shell.php:37
+msgid "Bind (Log On)"
+msgstr "Legare (Accesso)"
+
+#: ../schema/openldap/back_shell.php:38
+msgid "Unbind (Log Off)"
+msgstr "Sciogliere (Disconnettersi)"
+
+#: ../schema/openldap/back_shell.php:39
+msgid "Search Records"
+msgstr "Ricerca Records"
+
+#: ../schema/openldap/back_shell.php:40
+msgid "Compare Records"
+msgstr "Confronta Records"
+
+#: ../schema/openldap/back_shell.php:41
+msgid "Add Record"
+msgstr "Aggiungere Record"
+
+#: ../schema/openldap/back_shell.php:42
+msgid "Modify Attributes"
+msgstr "Modificare gli Attributi"
+
+#: ../schema/openldap/back_shell.php:43
+msgid "Modify RDN (Move/Rename)"
+msgstr "Modificare RDN (Sposta / Rinomina)"
+
+#: ../schema/openldap/back_shell.php:44
+msgid "Delete Record"
+msgstr "Eliminare il Record"
+
+#: ../schema/openldap/back_shell.php:48
+msgid "Access Controls"
+msgstr "Controlli di Accesso"
+
+#: ../schema/openldap/back_shell.php:53
+msgid "Overlays"
+msgstr "Coperture"
