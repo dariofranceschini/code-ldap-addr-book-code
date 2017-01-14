@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-14 12:42+0000\n"
+"PO-Revision-Date: 2017-01-14 12:42+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -40,3 +40,51 @@ msgstr "Socket Database"
 #: ../schema/openldap/back_sock.php:18
 msgid "Socket Overlay"
 msgstr "Socket Overlay"
+
+#: ../schema/openldap/back_sock.php:23
+msgid "Socket Database Settings"
+msgstr "Socket Database Settings"
+
+#: ../schema/openldap/back_sock.php:25
+msgid "Naming Context"
+msgstr "Naming Context"
+
+#: ../schema/openldap/back_sock.php:26 ../schema/openldap/back_sock.php:49
+msgid "UNIX Domain Socket"
+msgstr "UNIX Domain Socket"
+
+#: ../schema/openldap/back_sock.php:27 ../schema/openldap/back_sock.php:50
+msgid "Additional Meta-Attributes Sent to Socket"
+msgstr "Additional Meta-Attributes Sent to Socket"
+
+#: ../schema/openldap/back_sock.php:28
+msgid "Maintain Last Modification Info"
+msgstr "Maintain Last Modification Info"
+
+#: ../schema/openldap/back_sock.php:29
+msgid "Root User"
+msgstr "Root User"
+
+#: ../schema/openldap/back_sock.php:33
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_sock.php:38
+msgid "Overlays"
+msgstr "Overlays"
+
+#: ../schema/openldap/back_sock.php:46
+msgid "Socket Overlay Settings"
+msgstr "Socket Overlay Settings"
+
+#: ../schema/openldap/back_sock.php:48
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/back_sock.php:51
+msgid "Operation Types Sent to Socket"
+msgstr "Operation Types Sent to Socket"
+
+#: ../schema/openldap/back_sock.php:52
+msgid "Response Tyes Sent to Socket"
+msgstr "Response Tyes Sent to Socket"
