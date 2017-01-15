@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-15 13:45+0000\n"
+"PO-Revision-Date: 2017-01-15 13:45+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -50,29 +50,33 @@ msgid "Monitoring Database"
 msgstr "Banca Dati di Monitoraggio"
 
 #: ../schema/openldap/back_monitor.php:23
+msgid "OpenLDAP Monitoring Object"
+msgstr "OpenLDAP Monitoraggio Oggetto"
+
+#: ../schema/openldap/back_monitor.php:24
 msgid "Monitored Server"
 msgstr "Server Monitorato"
 
-#: ../schema/openldap/back_monitor.php:24
+#: ../schema/openldap/back_monitor.php:25
 msgid "Monitoring Container"
 msgstr "Contenitore di Monitoraggio"
 
-#: ../schema/openldap/back_monitor.php:25
+#: ../schema/openldap/back_monitor.php:26
 msgid "Monitored Entity"
 msgstr "Entità Monitorato"
 
-#: ../schema/openldap/back_monitor.php:26
+#: ../schema/openldap/back_monitor.php:27
 msgid "Monitored Connection"
 msgstr "Collegamento Monitorato"
 
-#: ../schema/openldap/back_monitor.php:27
+#: ../schema/openldap/back_monitor.php:28
 msgid "Monitored Counter Object"
 msgstr "Oggetto Contatore Monitorato"
 
-#: ../schema/openldap/back_monitor.php:28
+#: ../schema/openldap/back_monitor.php:29
 msgid "Monitored Operation"
 msgstr "Operazione Monitorato"
 
-#: ../schema/openldap/back_monitor.php:31
+#: ../schema/openldap/back_monitor.php:32
 msgid "Managed Entity"
 msgstr "Entità Gestito"
