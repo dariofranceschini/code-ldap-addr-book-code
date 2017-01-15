@@ -46,6 +46,65 @@ class openldap_back_monitor_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("monitoredObject",array(
+			array("section_name"=>gettext("Values"),"new_row"=>true,
+				"attributes"=>array(
+					array("monitoredInfo",			gettext("Monitored Info")),	// potentially text_list data type?
+					array("description",			gettext("Description")),
+					array("monitorConnectionLocalAddress",	gettext("Connection Local Address")),
+					array("labeledURI",			gettext("URI (with Optional Label)")),
+					array("monitorRuntimeConfig",		gettext("Monitor Runtime Configuration")),
+					array("namingContexts",			gettext("Naming Contexts")),
+					array("supportedControl",		gettext("Supported Controls")),
+					array("monitorContext",			gettext("Monitoring Naming Context")),
+					array("monitorTimestamp",		gettext("Time Stamp")),
+					array("monitorIsShadow",		gettext("Database is Shadow/Slave")),
+					array("readOnly",			gettext("Read Only")),
+					array("seeAlso",			gettext("See Also"))
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("monitorCounterObject",array(
+			array("section_name"=>gettext("Count"),"new_row"=>true,
+				"attributes"=>array(
+					array("monitorCounter",			gettext("Counter Value"))
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("monitorOperation",array(
+			array("section_name"=>gettext("Operation"),"new_row"=>true,
+				"attributes"=>array(
+					array("monitorOpInitiated",		gettext("Initiated")),
+					array("monitorOpCompleted",		gettext("Completed"))
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("monitorConnection",array(
+			array("section_name"=>gettext("Connection"),"new_row"=>true,
+				"attributes"=>array(
+					array("monitorConnectionNumber",	gettext("Connection Number")),
+					array("monitorConnectionProtocol",	gettext("Protocol")),
+					array("monitorConnectionOpsReceived",	gettext("Operations Received")),
+					array("monitorConnectionOpsExecuting",	gettext("Operations Executing")),
+					array("monitorConnectionOpsPending",	gettext("Operations Pending")),
+					array("monitorConnectionOpsCompleted",	gettext("Operations Completed")),
+					array("monitorConnectionGet",		gettext("Get")),
+					array("monitorConnectionRead",		gettext("Read")),
+					array("monitorConnectionWrite",		gettext("Write")),
+					array("monitorConnectionMask",		gettext("Mask")),
+					array("monitorConnectionListener",	gettext("To Listener")),
+					array("monitorConnectionPeerDomain",	gettext("From Peer Domain")),
+					array("monitorConnectionPeerAddress",	gettext("From Peer Address")),
+					array("monitorConnectionLocalAddress",	gettext("To Local Address")),
+					array("monitorConnectionStartTime",	gettext("Start Time")),
+					array("monitorConnectionActivityTime",	gettext("Activity Time")),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 

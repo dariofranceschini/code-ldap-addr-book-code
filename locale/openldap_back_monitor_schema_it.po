@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-15 13:52+0000\n"
-"PO-Revision-Date: 2017-01-15 13:52+0000\n"
+"POT-Creation-Date: 2017-01-15 14:16+0000\n"
+"PO-Revision-Date: 2017-01-15 14:16+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -18,18 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/openldap/back_monitor.php:10
+#: ../schema/openldap/back_monitor.php:102
 msgid "Start Time"
 msgstr "Ora di Inizio"
 
 #: ../schema/openldap/back_monitor.php:11
+#: ../schema/openldap/back_monitor.php:103
 msgid "Activity Time"
 msgstr "Tempo Attivo"
 
 #: ../schema/openldap/back_monitor.php:12
+#: ../schema/openldap/back_monitor.php:59
 msgid "Monitoring Naming Context"
 msgstr "Contesto dei Nomi per il Monitoraggio"
 
 #: ../schema/openldap/back_monitor.php:13
+#: ../schema/openldap/back_monitor.php:61
 msgid "Database is Shadow/Slave"
 msgstr "Banca Dati Ombra / Schiavo"
 
@@ -38,10 +42,12 @@ msgid "Runtime Configuration Allowed"
 msgstr "Configurazione in Fase di Esecuzione è Ammessi"
 
 #: ../schema/openldap/back_monitor.php:15
+#: ../schema/openldap/back_monitor.php:60
 msgid "Time Stamp"
 msgstr "Bollo di Tempo"
 
 #: ../schema/openldap/back_monitor.php:16
+#: ../schema/openldap/back_monitor.php:62
 msgid "Read Only"
 msgstr "Sola Lettura"
 
@@ -88,3 +94,119 @@ msgstr "Controlli di Accesso"
 #: ../schema/openldap/back_monitor.php:42
 msgid "Overlays"
 msgstr "Coperture"
+
+#: ../schema/openldap/back_monitor.php:50
+msgid "Values"
+msgstr "Valori"
+
+#: ../schema/openldap/back_monitor.php:52
+msgid "Monitored Info"
+msgstr "Informazioni Monitorate"
+
+#: ../schema/openldap/back_monitor.php:53
+msgid "Description"
+msgstr "Descrizione"
+
+#: ../schema/openldap/back_monitor.php:54
+msgid "Connection Local Address"
+msgstr "Indirizzo Locale di Collegamento"
+
+#: ../schema/openldap/back_monitor.php:55
+msgid "URI (with Optional Label)"
+msgstr "URI (con Opzionale Cartellino)"
+
+#: ../schema/openldap/back_monitor.php:56
+msgid "Monitor Runtime Configuration"
+msgstr "Configurazione Tempo di Esecuzione di Monitoraggio"
+
+#: ../schema/openldap/back_monitor.php:57
+msgid "Naming Contexts"
+msgstr "Contesti di Denominazione"
+
+#: ../schema/openldap/back_monitor.php:58
+msgid "Supported Controls"
+msgstr "Controlli Supportati"
+
+#: ../schema/openldap/back_monitor.php:63
+msgid "See Also"
+msgstr "Guarda Anche"
+
+#: ../schema/openldap/back_monitor.php:69
+msgid "Count"
+msgstr "Conteggio"
+
+#: ../schema/openldap/back_monitor.php:71
+msgid "Counter Value"
+msgstr "Controvalore"
+
+#: ../schema/openldap/back_monitor.php:77
+msgid "Operation"
+msgstr "Operazione"
+
+#: ../schema/openldap/back_monitor.php:79
+msgid "Initiated"
+msgstr "Iniziato"
+
+#: ../schema/openldap/back_monitor.php:80
+msgid "Completed"
+msgstr "Completato"
+
+#: ../schema/openldap/back_monitor.php:86
+msgid "Connection"
+msgstr "Connessione"
+
+#: ../schema/openldap/back_monitor.php:88
+msgid "Connection Number"
+msgstr "Numero di Connessione"
+
+#: ../schema/openldap/back_monitor.php:89
+msgid "Protocol"
+msgstr "Protocollo"
+
+#: ../schema/openldap/back_monitor.php:90
+msgid "Operations Received"
+msgstr "Operazioni Ricevuti"
+
+#: ../schema/openldap/back_monitor.php:91
+msgid "Operations Executing"
+msgstr "Operazioni Esecuzione"
+
+#: ../schema/openldap/back_monitor.php:92
+msgid "Operations Pending"
+msgstr "Operazioni in Sospeso"
+
+#: ../schema/openldap/back_monitor.php:93
+msgid "Operations Completed"
+msgstr "Operazioni Completate"
+
+#: ../schema/openldap/back_monitor.php:94
+msgid "Get"
+msgstr "Ottenere"
+
+#: ../schema/openldap/back_monitor.php:95
+msgid "Read"
+msgstr "Leggere"
+
+#: ../schema/openldap/back_monitor.php:96
+msgid "Write"
+msgstr "Scrivi"
+
+#: ../schema/openldap/back_monitor.php:97
+msgid "Mask"
+msgstr "Maschera"
+
+#: ../schema/openldap/back_monitor.php:98
+msgid "To Listener"
+msgstr "Per Ascoltatore"
+
+#: ../schema/openldap/back_monitor.php:99
+msgid "From Peer Domain"
+msgstr "Da Dominio Pari"
+
+#: ../schema/openldap/back_monitor.php:100
+msgid "From Peer Address"
+msgstr "Da Indirizzo Pari"
+
+#: ../schema/openldap/back_monitor.php:101
+msgid "To Local Address"
+msgstr "Per Indirizzo Locale"
