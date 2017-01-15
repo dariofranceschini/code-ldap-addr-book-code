@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-15 13:45+0000\n"
-"PO-Revision-Date: 2017-01-15 13:45+0000\n"
+"POT-Creation-Date: 2017-01-15 13:52+0000\n"
+"PO-Revision-Date: 2017-01-15 13:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -80,3 +80,11 @@ msgstr "Monitored Operation"
 #: ../schema/openldap/back_monitor.php:32
 msgid "Managed Entity"
 msgstr "Managed Entity"
+
+#: ../schema/openldap/back_monitor.php:37
+msgid "Access Controls"
+msgstr "Access Controls"
+
+#: ../schema/openldap/back_monitor.php:42
+msgid "Overlays"
+msgstr "Overlays"

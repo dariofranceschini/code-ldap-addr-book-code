@@ -18,7 +18,7 @@ class openldap_back_monitor_schema extends ldap_schema
 
 		// Structural object classes
 		$this->object_schema = array(
-			array("name"=>"olcMonitorConfig",		"icon"=>"openldap/db.png",			"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Monitoring Database"),"required_attribs"=>"olcSuffix","parent_class"=>"olcDatabaseConfig"),
+			array("name"=>"olcMonitorConfig",		"icon"=>"openldap/db.png",			"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Monitoring Database"),"required_attribs"=>"olcSuffix","parent_class"=>"olcDatabaseConfig","can_create"=>true),
 
 			array("name"=>"monitor",			"icon"=>"generic24.png",			"is_folder"=>false,"display_name"=>gettext("OpenLDAP Monitoring Object")),
 			array("name"=>"monitorServer",			"icon"=>"openldap/monitor-server.png",		"is_folder"=>true,"display_name"=>gettext("Monitored Server"),"parent_class"=>"monitor"),
@@ -32,7 +32,34 @@ class openldap_back_monitor_schema extends ldap_schema
 			array("name"=>"managedObject",			"icon"=>"generic24.png",			"is_folder"=>false,"display_name"=>gettext("Managed Entity"),"parent_class"=>"monitor")
 			);
 
+		// Display layouts
+		$ldap_server->add_display_layout("olcMonitorConfig",array(
+			array("section_name"=>gettext("Access Controls"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcAccess")
+					)
+				),
+			array("section_name"=>gettext("Overlays"),"new_row"=>true,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
+	}
+
+	function before_create_olcMonitorConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->ensure_openldap_module_loaded("back_monitor");
+
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcDatabaseConfig","monitor",-1);
+
+		$this->add_attrib_single_value($ldap_server,$entry,"olcAccess",array(
+			"{0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth manage by * break",
+			"{1}to * by dn.base=\"" . $_SESSION["LOGIN_BIND_DN"] . "\" manage",
+			"{2}to * by * read")
+			);
 	}
 }
 ?>
