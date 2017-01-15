@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-14 13:27+0000\n"
+"PO-Revision-Date: 2017-01-14 13:27+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -29,7 +29,7 @@ msgstr "Permitir que se Agreguen Registros Huérfanos"
 msgid "Quote Character Surrounding Alias"
 msgstr "Carácter de Cotización Alias Circundante"
 
-#: ../schema/openldap/back_sql.php:13
+#: ../schema/openldap/back_sql.php:13 ../schema/openldap/back_sql.php:88
 msgid "Automatically Commit Data"
 msgstr "Confirmar Datos Automáticamente"
 
@@ -37,11 +37,11 @@ msgstr "Confirmar Datos Automáticamente"
 msgid "Base Object LDIF File Name"
 msgstr "Nombre de Archivo LDIF de Objeto Base"
 
-#: ../schema/openldap/back_sql.php:15
-msgid "Check Adherence to LDAP Schema after Modifications"
+#: ../schema/openldap/back_sql.php:15 ../schema/openldap/back_sql.php:95
+msgid "Check Adherence to LDAP Schema After Modifications"
 msgstr "Comprobar Adherencia al Esquema LDAP Después de Modificaciones"
 
-#: ../schema/openldap/back_sql.php:16
+#: ../schema/openldap/back_sql.php:16 ../schema/openldap/back_sql.php:87
 msgid ""
 "Get Unique ID of Newly Created Entries using a Query instead of a Stored "
 "Procedure"
@@ -49,11 +49,11 @@ msgstr ""
 "Obtener Identificador Único de Entradas Creadas Recientemente utilizando una "
 "Consulta en lugar de un Procedimiento Almacenado"
 
-#: ../schema/openldap/back_sql.php:17
+#: ../schema/openldap/back_sql.php:17 ../schema/openldap/back_sql.php:65
 msgid "Report Failure when Writing Attributes with no Mapping"
 msgstr "Error de Informe al Escribir Atributos sin Mapeado"
 
-#: ../schema/openldap/back_sql.php:18
+#: ../schema/openldap/back_sql.php:18 ../schema/openldap/back_sql.php:94
 msgid "Force All Attributes to be Returned"
 msgstr "Forzar Todos los Atributos a Devolver"
 
@@ -61,7 +61,7 @@ msgstr "Forzar Todos los Atributos a Devolver"
 msgid "List of Attributes Always Fetched"
 msgstr "Lista de Atributos que Siempre se Obtienen"
 
-#: ../schema/openldap/back_sql.php:20
+#: ../schema/openldap/back_sql.php:20 ../schema/openldap/back_sql.php:84
 msgid "Store Reversed, Upper Case Version of Each LDAP Entry DN"
 msgstr ""
 "Almacene la Versión de Mayúsculas Invertida de cada DN de Entrada de LDAP"
@@ -74,7 +74,7 @@ msgstr "Capas Auxiliares de SQL"
 msgid "Cast-to-String Function"
 msgstr "Función de Cast-to-String"
 
-#: ../schema/openldap/back_sql.php:23
+#: ../schema/openldap/back_sql.php:23 ../schema/openldap/back_sql.php:75
 msgid "Values to be Upper Cased Should be Cast as VARCHAR(<max DN length>)"
 msgstr ""
 "Valores que se Deben Superponer deben ser Cast como VARCHAR(<longitud máxima "
@@ -89,3 +89,137 @@ msgstr ""
 #: ../schema/openldap/back_sql.php:29
 msgid "SQL (ODBC) Database"
 msgstr "Base de Datos ODBC (SQL)"
+
+#: ../schema/openldap/back_sql.php:34
+msgid "SQL Database Settings"
+msgstr "Configuración de la Base de Datos SQL"
+
+#: ../schema/openldap/back_sql.php:36
+msgid "Naming Context"
+msgstr "Contexto de Denominación"
+
+#: ../schema/openldap/back_sql.php:37
+msgid "ODBC Data Source"
+msgstr "Origen de Datos ODBC"
+
+#: ../schema/openldap/back_sql.php:38
+msgid "Maintain Last Modification Info"
+msgstr "Mantener Información de Última Modificación"
+
+#: ../schema/openldap/back_sql.php:39
+msgid "Root User"
+msgstr "Usuario Root"
+
+#: ../schema/openldap/back_sql.php:43
+msgid "Connection Info"
+msgstr "Información de Conexión"
+
+#: ../schema/openldap/back_sql.php:45
+msgid "Host Name"
+msgstr "Nombre de Host"
+
+#: ../schema/openldap/back_sql.php:46
+msgid "User Name"
+msgstr "Nombre de Usuario"
+
+#: ../schema/openldap/back_sql.php:47
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../schema/openldap/back_sql.php:50
+msgid "Subtree Search Scoping"
+msgstr "Escaneo de Búsqueda de Subárbol"
+
+#: ../schema/openldap/back_sql.php:52
+msgid "Subtree Search Condition"
+msgstr "Estado de Búsqueda de Subárbol"
+
+#: ../schema/openldap/back_sql.php:53
+msgid "Don't Use for Subtree Searches from Naming Context Root"
+msgstr ""
+"No Utilice para Búsquedas de Subárbol desde la Raíz de Contexto de "
+"Nomenclatura"
+
+#: ../schema/openldap/back_sql.php:56
+msgid "Child Search Scoping"
+msgstr "Alcance de la Búsqueda de Niños"
+
+#: ../schema/openldap/back_sql.php:58
+msgid "Child Search Condition"
+msgstr "Condición de Búsqueda de Niños"
+
+#: ../schema/openldap/back_sql.php:61
+msgid "SQL Statements"
+msgstr "Sentencias SQL"
+
+#: ../schema/openldap/back_sql.php:63
+msgid "Get Object Class Mappings"
+msgstr "Obtener Asignaciones de Clase de Objeto"
+
+#: ../schema/openldap/back_sql.php:64
+msgid "Get Attribute Type Mappings"
+msgstr "Obtener Asignaciones de Tipo de Atributo"
+
+#: ../schema/openldap/back_sql.php:67
+msgid "Insert LDAP Entry"
+msgstr "Insertar Entrada LDAP"
+
+#: ../schema/openldap/back_sql.php:68
+msgid "Delete LDAP Entry"
+msgstr "Eliminar Entrada de LDAP"
+
+#: ../schema/openldap/back_sql.php:69
+msgid "Delete LDAP Entry-to-objectClass Links"
+msgstr "Eliminar Vínculos Entre la Entrada de LDAP y la Clase de Objeto"
+
+#: ../schema/openldap/back_sql.php:72
+msgid "SQL Syntax"
+msgstr "Sintaxis de SQL"
+
+#: ../schema/openldap/back_sql.php:74
+msgid "Function to Convert Value to Upper Case"
+msgstr "Función para Convertir Valor en Mayúsculas"
+
+#: ../schema/openldap/back_sql.php:76
+msgid "Function to Convert Value to String"
+msgstr "Función para Convertir el Valor en Cadena"
+
+#: ../schema/openldap/back_sql.php:77
+msgid "String Concatenation Syntax"
+msgstr "Sintaxis de Concatenación de Cadena"
+
+#: ../schema/openldap/back_sql.php:78
+msgid "Keyword for Assigning Table/Field Aliases"
+msgstr "Palabra Clave para Asignar Alias de Tabla / Campo"
+
+#: ../schema/openldap/back_sql.php:79
+msgid "Quote Character to Use when Assigning Table/Field Aliases"
+msgstr "Carácter de Cita a Utilizar al Asignar Alias de Tabla / Campo"
+
+#: ../schema/openldap/back_sql.php:82
+msgid "Database Structure/Implementation Details"
+msgstr "Estructura de Base de Datos / Detalles de Implementación"
+
+#: ../schema/openldap/back_sql.php:85
+msgid "Allow Entries to be Added which have no Parent Object"
+msgstr "Permitir Agregar Entradas que no Tienen Ningún Objeto Principal"
+
+#: ../schema/openldap/back_sql.php:86
+msgid "LDIF File Describing the Database's Base Object"
+msgstr "Archivo LDIF Describiendo el Objeto Base de la Base de Datos"
+
+#: ../schema/openldap/back_sql.php:91
+msgid "Attribute Retrival and Update"
+msgstr "Recuperación y Actualización de Atributos"
+
+#: ../schema/openldap/back_sql.php:93
+msgid "Always Fetch the Following Attributes"
+msgstr "Buscar Siempre los Siguientes Atributos"
+
+#: ../schema/openldap/back_sql.php:108
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_sql.php:113
+msgid "Overlays"
+msgstr "Superposiciones"
