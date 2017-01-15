@@ -12,7 +12,7 @@ class openldap_back_sql_schema extends ldap_schema
 			array("name"=>"olcSqlAliasingQuote",		"data_type"=>"text",		"display_name"=>gettext("Quote Character Surrounding Alias")),
 			array("name"=>"olcSqlAutocommit",		"data_type"=>"yes_no",		"display_name"=>gettext("Automatically Commit Data")),
 			array("name"=>"olcSqlBaseObject",		"data_type"=>"text",		"display_name"=>gettext("Base Object LDIF File Name")),
-			array("name"=>"olcSqlCheckSchema",		"data_type"=>"yes_no",		"display_name"=>gettext("Check Adherence to LDAP Schema after Modifications")),
+			array("name"=>"olcSqlCheckSchema",		"data_type"=>"yes_no",		"display_name"=>gettext("Check Adherence to LDAP Schema After Modifications")),
 			array("name"=>"olcSqlCreateNeedsSelect",	"data_type"=>"yes_no",		"display_name"=>gettext("Get Unique ID of Newly Created Entries using a Query instead of a Stored Procedure")),
 			array("name"=>"olcSqlFailIfNoMapping",		"data_type"=>"yes_no",		"display_name"=>gettext("Report Failure when Writing Attributes with no Mapping")),
 			array("name"=>"olcSqlFetchAllAttrs",		"data_type"=>"yes_no",		"display_name"=>gettext("Force All Attributes to be Returned")),
