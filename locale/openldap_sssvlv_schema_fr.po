@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-16 14:08+0000\n"
-"PO-Revision-Date: 2017-01-16 14:08+0000\n"
+"POT-Creation-Date: 2017-01-16 14:34+0000\n"
+"PO-Revision-Date: 2017-01-16 14:34+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr "Demandes Maximales de Tri Simultanées"
 msgid "Maximum Keys per Sort Request"
 msgstr "Clés Maximum par Demande de Tri"
 
-#: ../schema/openldap/sssvlv.php:12
+#: ../schema/openldap/sssvlv.php:12 ../schema/openldap/sssvlv.php:27
 msgid "Maximum Concurrent Paged Search Requests per Connection"
 msgstr ""
 "Nombre Maximal de Requêtes de Recherche Paginées Simultanées par Connexion"
@@ -33,3 +33,21 @@ msgstr ""
 #: ../schema/openldap/sssvlv.php:17
 msgid "Server Side Sorting and Virtual List View Overlay"
 msgstr "Superposition de Tri du Serveur et Affichage de la Liste Virtuelle"
+
+#: ../schema/openldap/sssvlv.php:22
+msgid "Server Side Sorting and Virtual List View Overlay Settings"
+msgstr ""
+"Paramètres de Superposition de Tri du Serveur et Affichage de la Liste "
+"Virtuelle"
+
+#: ../schema/openldap/sssvlv.php:24
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
+
+#: ../schema/openldap/sssvlv.php:25
+msgid "Maximum Concurrent Sort Requests for All Connections"
+msgstr "Demandes Maximales Simultanées de Tri pour Toutes les Connexions"
+
+#: ../schema/openldap/sssvlv.php:26
+msgid "Maximum Number of Keys per Sort Request"
+msgstr "Nombre Maximum de Clés par Demande de Tri"

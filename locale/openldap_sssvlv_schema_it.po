@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-16 14:08+0000\n"
-"PO-Revision-Date: 2017-01-16 14:08+0000\n"
+"POT-Creation-Date: 2017-01-16 14:34+0000\n"
+"PO-Revision-Date: 2017-01-16 14:34+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -25,10 +25,27 @@ msgstr "Massimo Ordina Richieste Simultanee"
 msgid "Maximum Keys per Sort Request"
 msgstr "Chiavi Massime per Ordina Richiesta"
 
-#: ../schema/openldap/sssvlv.php:12
+#: ../schema/openldap/sssvlv.php:12 ../schema/openldap/sssvlv.php:27
 msgid "Maximum Concurrent Paged Search Requests per Connection"
 msgstr "Massimo Simultanee di Paging di Ricerca Richieste per la Connessione"
 
 #: ../schema/openldap/sssvlv.php:17
 msgid "Server Side Sorting and Virtual List View Overlay"
 msgstr "Copertura per Ordinamento lato server e Virtual List View"
+
+#: ../schema/openldap/sssvlv.php:22
+msgid "Server Side Sorting and Virtual List View Overlay Settings"
+msgstr ""
+"Impostazioni per Copertura per Ordinamento lato server e Virtual List View"
+
+#: ../schema/openldap/sssvlv.php:24
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/sssvlv.php:25
+msgid "Maximum Concurrent Sort Requests for All Connections"
+msgstr "Massimo Ordina Richieste Simultanee per Tutte le Connessioni"
+
+#: ../schema/openldap/sssvlv.php:26
+msgid "Maximum Number of Keys per Sort Request"
+msgstr "Numero Massimo di Tasti per Ogni Tipo Richiesta"

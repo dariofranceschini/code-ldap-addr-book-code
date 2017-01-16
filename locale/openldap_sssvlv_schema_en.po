@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-16 14:08+0000\n"
-"PO-Revision-Date: 2017-01-16 14:08+0000\n"
+"POT-Creation-Date: 2017-01-16 14:34+0000\n"
+"PO-Revision-Date: 2017-01-16 14:34+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -25,10 +25,26 @@ msgstr "Maximum Concurrent Sort Requests"
 msgid "Maximum Keys per Sort Request"
 msgstr "Maximum Keys per Sort Request"
 
-#: ../schema/openldap/sssvlv.php:12
+#: ../schema/openldap/sssvlv.php:12 ../schema/openldap/sssvlv.php:27
 msgid "Maximum Concurrent Paged Search Requests per Connection"
 msgstr "Maximum Concurrent Paged Search Requests per Connection"
 
 #: ../schema/openldap/sssvlv.php:17
 msgid "Server Side Sorting and Virtual List View Overlay"
 msgstr "Server Side Sorting and Virtual List View Overlay"
+
+#: ../schema/openldap/sssvlv.php:22
+msgid "Server Side Sorting and Virtual List View Overlay Settings"
+msgstr "Server Side Sorting and Virtual List View Overlay Settings"
+
+#: ../schema/openldap/sssvlv.php:24
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/sssvlv.php:25
+msgid "Maximum Concurrent Sort Requests for All Connections"
+msgstr "Maximum Concurrent Sort Requests for All Connections"
+
+#: ../schema/openldap/sssvlv.php:26
+msgid "Maximum Number of Keys per Sort Request"
+msgstr "Maximum Number of Keys per Sort Request"
