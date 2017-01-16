@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-16 14:08+0000\n"
+"PO-Revision-Date: 2017-01-16 14:08+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -18,5 +18,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../schema/openldap/sssvlv.php:10
+msgid "Maximum Concurrent Sort Requests"
+msgstr "Demandes Maximales de Tri Simultanées"
+
+#: ../schema/openldap/sssvlv.php:11
+msgid "Maximum Keys per Sort Request"
+msgstr "Clés Maximum par Demande de Tri"
+
+#: ../schema/openldap/sssvlv.php:12
+msgid "Maximum Concurrent Paged Search Requests per Connection"
+msgstr ""
+"Nombre Maximal de Requêtes de Recherche Paginées Simultanées par Connexion"
+
+#: ../schema/openldap/sssvlv.php:17
 msgid "Server Side Sorting and Virtual List View Overlay"
 msgstr "Superposition de Tri du Serveur et Affichage de la Liste Virtuelle"
