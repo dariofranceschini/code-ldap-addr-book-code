@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 12:48+0000\n"
+"PO-Revision-Date: 2017-01-17 12:48+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Membership Attribute Modifier DN"
 msgstr "Membership Attribute Modifier DN"
 
-#: ../schema/openldap/memberof.php:10
+#: ../schema/openldap/memberof.php:10 ../schema/openldap/memberof.php:34
 msgid "Maintain Referential Integrity"
 msgstr "Maintain Referential Integrity"
 
-#: ../schema/openldap/memberof.php:11
+#: ../schema/openldap/memberof.php:11 ../schema/openldap/memberof.php:29
 msgid "Group Object Class"
 msgstr "Group Object Class"
 
-#: ../schema/openldap/memberof.php:12
+#: ../schema/openldap/memberof.php:12 ../schema/openldap/memberof.php:30
 msgid "Group Member Attribute"
 msgstr "Group Member Attribute"
 
@@ -37,7 +37,7 @@ msgstr "Group Member Attribute"
 msgid "Member Of Attribute"
 msgstr "Member Of Attribute"
 
-#: ../schema/openldap/memberof.php:14
+#: ../schema/openldap/memberof.php:14 ../schema/openldap/memberof.php:32
 msgid "Dangling Reference Handling Behaviour"
 msgstr "Dangling Reference Handling Behaviour"
 
@@ -52,3 +52,19 @@ msgstr "Member Of"
 #: ../schema/openldap/memberof.php:22
 msgid "MemberOf Overlay"
 msgstr "MemberOf Overlay"
+
+#: ../schema/openldap/memberof.php:26
+msgid "MemberOf Overlay Settings"
+msgstr "MemberOf Overlay Settings"
+
+#: ../schema/openldap/memberof.php:28
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/memberof.php:31
+msgid "Member Of (Back Reference) Attribute"
+msgstr "Member Of (Back Reference) Attribute"
+
+#: ../schema/openldap/memberof.php:33
+msgid "Dangling Reference Error Code (If Used)"
+msgstr "Dangling Reference Error Code (If Used)"

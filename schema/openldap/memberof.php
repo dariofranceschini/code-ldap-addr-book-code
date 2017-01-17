@@ -23,15 +23,15 @@ class openldap_memberof_schema extends ldap_schema
 			);
 
 		$ldap_server->add_display_layout("olcMemberOf",array(
-			array("section_name"=>"MemberOf Overlay Settings","new_row"=>true,
+			array("section_name"=>gettext("MemberOf Overlay Settings"),"new_row"=>true,
 				"attributes"=>array(
-					array("olcOverlay",			"Overlay Object Name",				"openldap/overlay.png"),
-					array("olcMemberOfGroupOC",		"Group Object Class",				"group24.png"),
-					array("olcMemberOfMemberAD",		"Group Member Attribute",			"user24.png"),
-					array("olcMemberOfMemberOfAD",		"Member Of (Back Reference) Attribute",		"user-alias24.png"),
-					array("olcMemberOfDangling",		"Dangling Reference Handling Behaviour",	"generic24.png"),
-					array("olcMemberOfDanglingError",	"Dangling Reference Error Code (If Used)",	"openldap/error.png"),
-					array("olcMemberOfRefInt",		"Maintain Referential Integrity",		"generic24.png")
+					array("olcOverlay",			gettext("Overlay Object Name"),				"openldap/overlay.png"),
+					array("olcMemberOfGroupOC",		gettext("Group Object Class"),				"group24.png"),
+					array("olcMemberOfMemberAD",		gettext("Group Member Attribute"),			"user24.png"),
+					array("olcMemberOfMemberOfAD",		gettext("Member Of (Back Reference) Attribute"),	"user-alias24.png"),
+					array("olcMemberOfDangling",		gettext("Dangling Reference Handling Behaviour"),	"generic24.png"),
+					array("olcMemberOfDanglingError",	gettext("Dangling Reference Error Code (If Used)"),	"openldap/error.png"),
+					array("olcMemberOfRefInt",		gettext("Maintain Referential Integrity"),		"generic24.png")
 					),
 				),
 			));

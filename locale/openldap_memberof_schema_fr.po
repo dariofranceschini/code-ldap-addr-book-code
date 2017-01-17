@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 12:48+0000\n"
 "PO-Revision-Date: 2016-11-06 16:07+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Membership Attribute Modifier DN"
 msgstr "Modificateur DN pour l'Attribut Membre"
 
-#: ../schema/openldap/memberof.php:10
+#: ../schema/openldap/memberof.php:10 ../schema/openldap/memberof.php:34
 msgid "Maintain Referential Integrity"
 msgstr "Maintenir l'Intégrité Référentielle"
 
-#: ../schema/openldap/memberof.php:11
+#: ../schema/openldap/memberof.php:11 ../schema/openldap/memberof.php:29
 msgid "Group Object Class"
 msgstr "Classe d'Objets pour les Groupes"
 
-#: ../schema/openldap/memberof.php:12
+#: ../schema/openldap/memberof.php:12 ../schema/openldap/memberof.php:30
 msgid "Group Member Attribute"
 msgstr "Attribut pour Membre du Groupe"
 
@@ -37,7 +37,7 @@ msgstr "Attribut pour Membre du Groupe"
 msgid "Member Of Attribute"
 msgstr "Attribut pour Membre De"
 
-#: ../schema/openldap/memberof.php:14
+#: ../schema/openldap/memberof.php:14 ../schema/openldap/memberof.php:32
 msgid "Dangling Reference Handling Behaviour"
 msgstr "Comportement de Manipulation de Référencement Brisé"
 
@@ -52,3 +52,19 @@ msgstr "Membre De"
 #: ../schema/openldap/memberof.php:22
 msgid "MemberOf Overlay"
 msgstr "Superposition de Membre De"
+
+#: ../schema/openldap/memberof.php:26
+msgid "MemberOf Overlay Settings"
+msgstr "Paramètres de Superposition de Membre De"
+
+#: ../schema/openldap/memberof.php:28
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
+
+#: ../schema/openldap/memberof.php:31
+msgid "Member Of (Back Reference) Attribute"
+msgstr "Attribut pour Membre De (Référence Arrière)"
+
+#: ../schema/openldap/memberof.php:33
+msgid "Dangling Reference Error Code (If Used)"
+msgstr "Code d'Erreur de Référencement (Si Utilisé)"
