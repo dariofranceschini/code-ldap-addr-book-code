@@ -18,6 +18,8 @@ class openldap_nssov_schema extends ldap_schema
 			array("name"=>"olcNssOvConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("NSS/PAM Lookup Overlay"),"parent_class"=>"olcOverlayConfig")
 			);
 
+		$ldap_server->add_schema("openldap/ldapns");
+
 		parent::__construct($ldap_server);
 	}
 }
