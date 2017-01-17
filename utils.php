@@ -1017,6 +1017,7 @@ class ldap_attribute
 			case "text_area":	$this->show_text_area();	break;
 			case "phone_number":	$this->show_phone_number();	break;
 			case "olc_dangling":	$this->show_olc_dangling();	break;
+			case "olc_pcachepos":	$this->show_olc_pcachepos();	break;
 			case "ldap_result":	$this->show_ldap_result();	break;
 			case "oid_macro_list":	$this->show_oid_macro_list();	break;
 			case "openldap_module":	$this->show_openldap_module();	break;
@@ -1117,6 +1118,18 @@ class ldap_attribute
 				array("value"=>"ignore","display_name"=>gettext("Leave the dangling reference in place (ignore)")),
 				array("value"=>"drop","display_name"=>gettext("Remove the dangling reference (drop)")),
 				array("value"=>"error","display_name"=>gettext("Generate an LDAP error"))
+				)
+			);
+	}
+
+	/** Show olcPcachePosition attribute (data type "olc_pcachepos") */
+
+	function show_olc_pcachepos()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"tail","display_name"=>gettext("Before Other Overlay Response Callbacks")),
+				array("value"=>"head","display_name"=>gettext("After Other Overlay Response Callbacks"))
 				)
 			);
 	}

@@ -12,7 +12,7 @@ class openldap_pcache_schema extends ldap_schema
 			array("name"=>"olcPcacheMaxQueries",		"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Cached Queries"),		"alias_names"=>"olcProxyCacheQueries"),
 			array("name"=>"olcPcacheOffline",		"data_type"=>"yes_no",		"display_name"=>gettext("Offline Mode")),
 			array("name"=>"olcPcachePersist",		"data_type"=>"yes_no",		"display_name"=>gettext("Keep Cached Queries When Proxy Restarts"),	"alias_names"=>"olcProxySaveQueries"),
-			array("name"=>"olcPcachePosition",		"data_type"=>"text",		"display_name"=>gettext("Proxy Cache Access Priority")),
+			array("name"=>"olcPcachePosition",		"data_type"=>"olc_pcachepos",	"display_name"=>gettext("Proxy Cache Access Priority")),
 			array("name"=>"olcPcacheTemplate",		"data_type"=>"text_list",	"display_name"=>gettext("Caching Template for Queries"),		"alias_names"=>"olcProxyCacheTemplate"),
 			array("name"=>"olcPcacheValidate",		"data_type"=>"yes_no",		"display_name"=>gettext("Validate Entries Against Proxy DSA's Schema Before Caching"),	"alias_names"=>"olcProxyCheckCacheability"),
 
