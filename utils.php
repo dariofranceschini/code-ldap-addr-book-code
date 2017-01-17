@@ -3962,7 +3962,7 @@ class ldap_server
 		// $login_name with the use name typed into the login box
 		// (if available)
 
-		if($login_name = "__DEFAULT__" && isset($_SESSION["LOGIN_USER"]))
+		if($login_name == "__DEFAULT__" && isset($_SESSION["LOGIN_USER"]))
 			$login_name = $_SESSION["LOGIN_USER"];
 
 		// Determine the LDAP DN corresponding to $login_name.
