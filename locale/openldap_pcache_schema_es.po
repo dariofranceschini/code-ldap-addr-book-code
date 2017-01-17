@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 12:18+0000\n"
+"PO-Revision-Date: 2017-01-17 12:18+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/pcache.php:9
+#: ../schema/openldap/pcache.php:9 ../schema/openldap/pcache.php:34
 msgid "Cache Parameters"
 msgstr "Parámetros de Caché"
 
@@ -29,29 +29,31 @@ msgstr "Conjunto de Atributos en Caché"
 msgid "Caching Template for Bind Credentials"
 msgstr "Plantilla para Almacenar en Caché las Credenciales de Enlace"
 
-#: ../schema/openldap/pcache.php:12
+#: ../schema/openldap/pcache.php:12 ../schema/openldap/pcache.php:35
 msgid "Maximum Number of Cached Queries"
 msgstr "Número Máximo de Consultas Almacenadas en Caché"
 
-#: ../schema/openldap/pcache.php:13
+#: ../schema/openldap/pcache.php:13 ../schema/openldap/pcache.php:36
 msgid "Offline Mode"
 msgstr "Modo Desconectado"
 
-#: ../schema/openldap/pcache.php:14
+#: ../schema/openldap/pcache.php:14 ../schema/openldap/pcache.php:37
 msgid "Keep Cached Queries When Proxy Restarts"
 msgstr "Mantener Consultas Almacenadas en Caché al Reiniciar Proxy"
 
-#: ../schema/openldap/pcache.php:15
-msgid "Proxy Cache Callback Priority"
-msgstr "Prioridad de Devolución de Llamada para Caché de Proxy"
+#: ../schema/openldap/pcache.php:15 ../schema/openldap/pcache.php:39
+msgid "Proxy Cache Access Priority"
+msgstr "Prioridad de Acceso a Caché de Proxy"
 
 #: ../schema/openldap/pcache.php:16
 msgid "Caching Template for Queries"
-msgstr "Plantilla para las Consultas de Almacenamiento en Caché"
+msgstr "Plantilla de Caché para Consultas"
 
-#: ../schema/openldap/pcache.php:17
+#: ../schema/openldap/pcache.php:17 ../schema/openldap/pcache.php:38
 msgid "Validate Entries Against Proxy DSA's Schema Before Caching"
-msgstr "Validar las Entradas Contra el Esquema de Proxy DSA Antes del Almacenamiento en Caché"
+msgstr ""
+"Validar las Entradas Contra el Esquema de Proxy DSA Antes del Almacenamiento "
+"en Caché"
 
 #: ../schema/openldap/pcache.php:19
 msgid "Cached Query URI"
@@ -60,3 +62,23 @@ msgstr "URI para Consultas en Caché"
 #: ../schema/openldap/pcache.php:24
 msgid "Proxy Cache Engine Overlay"
 msgstr "Superposición de Motor de Caché de Proxy Apoderado"
+
+#: ../schema/openldap/pcache.php:31
+msgid "Proxy Cache Engine Overlay Settings"
+msgstr "Configuración de Superposición de Motor de Caché de Proxy Apoderado"
+
+#: ../schema/openldap/pcache.php:33
+msgid "Overlay Object Name"
+msgstr "Nombre del Objeto Superposición"
+
+#: ../schema/openldap/pcache.php:42
+msgid "Cached Attribute Sets"
+msgstr "Conjuntos de Atributos en Caché"
+
+#: ../schema/openldap/pcache.php:47
+msgid "Caching Templates for Queries"
+msgstr "Plantillas de Caché para Consultas"
+
+#: ../schema/openldap/pcache.php:52
+msgid "Caching Templates for Bind Credentials"
+msgstr "Plantilla para Almacenar en Caché las Credenciales de Enlace"

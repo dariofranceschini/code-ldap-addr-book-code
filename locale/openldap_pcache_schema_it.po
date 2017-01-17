@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 12:18+0000\n"
+"PO-Revision-Date: 2017-01-17 12:18+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/pcache.php:9
+#: ../schema/openldap/pcache.php:9 ../schema/openldap/pcache.php:34
 msgid "Cache Parameters"
 msgstr "Parametri di Nascondiglio"
 
 #: ../schema/openldap/pcache.php:10
 msgid "Cached Attribute Set"
-msgstr "Attributo Impostato per la Nascondiglio"
+msgstr "Conjunto de Atributos en Caché"
 
 #: ../schema/openldap/pcache.php:11
 msgid "Caching Template for Bind Credentials"
 msgstr "Modello per la Memorizzazione nella Cache delle Credenziali Accesso"
 
-#: ../schema/openldap/pcache.php:12
+#: ../schema/openldap/pcache.php:12 ../schema/openldap/pcache.php:35
 msgid "Maximum Number of Cached Queries"
 msgstr "Numero Massimo di Interrogazioni Memorizzate nella Nascondiglio"
 
-#: ../schema/openldap/pcache.php:13
+#: ../schema/openldap/pcache.php:13 ../schema/openldap/pcache.php:36
 msgid "Offline Mode"
 msgstr "Modalità Disconnesso"
 
-#: ../schema/openldap/pcache.php:14
+#: ../schema/openldap/pcache.php:14 ../schema/openldap/pcache.php:37
 msgid "Keep Cached Queries When Proxy Restarts"
 msgstr "Mantenere Cache di Query al Riavvio Proxy"
 
-#: ../schema/openldap/pcache.php:15
-msgid "Proxy Cache Callback Priority"
-msgstr "Priorità richiamata per Delega Nascondiglio"
+#: ../schema/openldap/pcache.php:15 ../schema/openldap/pcache.php:39
+msgid "Proxy Cache Access Priority"
+msgstr "Priorità di Accesso al Delega Nascondiglio"
 
 #: ../schema/openldap/pcache.php:16
 msgid "Caching Template for Queries"
-msgstr "Modello per Interrogazioni il Caching"
+msgstr "Modello per Interrogazioni il Memorizzazione nella Cache"
 
-#: ../schema/openldap/pcache.php:17
+#: ../schema/openldap/pcache.php:17 ../schema/openldap/pcache.php:38
 msgid "Validate Entries Against Proxy DSA's Schema Before Caching"
 msgstr "Convalida Schema di Voci Contro Proxy DSA Prima Nascondiglio"
 
@@ -60,3 +60,23 @@ msgstr "URI per Nascondiglio di Interrogazioni"
 #: ../schema/openldap/pcache.php:24
 msgid "Proxy Cache Engine Overlay"
 msgstr "Copertura per Motore di Delega Nascondiglio"
+
+#: ../schema/openldap/pcache.php:31
+msgid "Proxy Cache Engine Overlay Settings"
+msgstr "Impostazioni per Copertura per Motore di Delega Nascondiglio"
+
+#: ../schema/openldap/pcache.php:33
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/pcache.php:42
+msgid "Cached Attribute Sets"
+msgstr "Conjuntos de Atributos en Caché"
+
+#: ../schema/openldap/pcache.php:47
+msgid "Caching Templates for Queries"
+msgstr "Modelli per Interrogazioni il Memorizzazione nella Cache"
+
+#: ../schema/openldap/pcache.php:52
+msgid "Caching Templates for Bind Credentials"
+msgstr "Modelli per la Memorizzazione nella Cache delle Credenziali Accesso"
