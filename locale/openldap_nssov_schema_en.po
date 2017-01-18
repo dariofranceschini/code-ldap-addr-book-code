@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 14:06+0000\n"
+"PO-Revision-Date: 2017-01-17 14:06+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -25,11 +25,11 @@ msgstr "NSS/PAM Group DN"
 msgid "Service Search Descriptor"
 msgstr "Service Search Descriptor"
 
-#: ../schema/openldap/nssov.php:11
+#: ../schema/openldap/nssov.php:11 ../schema/openldap/nssov.php:43
 msgid "Service Attribute Mappings"
 msgstr "Service Attribute Mappings"
 
-#: ../schema/openldap/nssov.php:12
+#: ../schema/openldap/nssov.php:12 ../schema/openldap/nssov.php:53
 msgid "PAM Authentication and Authorization Options"
 msgstr "PAM Authentication and Authorization Options"
 
@@ -40,3 +40,43 @@ msgstr "NSS/PAM Services with Session Logging"
 #: ../schema/openldap/nssov.php:18
 msgid "NSS/PAM Lookup Overlay"
 msgstr "NSS/PAM Lookup Overlay"
+
+#: ../schema/openldap/nssov.php:23
+msgid "NSS/PAM Lookup Overlay Settings"
+msgstr "NSS/PAM Lookup Overlay Settings"
+
+#: ../schema/openldap/nssov.php:25
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/nssov.php:26
+msgid "Default Host Name for Service Checks"
+msgstr "Default Host Name for Service Checks"
+
+#: ../schema/openldap/nssov.php:27
+msgid "Group of Users Allowed to Authenticate"
+msgstr "Group of Users Allowed to Authenticate"
+
+#: ../schema/openldap/nssov.php:28
+msgid "Group Member Attribute"
+msgstr "Group Member Attribute"
+
+#: ../schema/openldap/nssov.php:29 ../schema/openldap/nssov.php:30
+msgid "Minimum UID Value Allowed to Log In"
+msgstr "Minimum UID Value Allowed to Log In"
+
+#: ../schema/openldap/nssov.php:31
+msgid "Template Login Name Attribute"
+msgstr "Template Login Name Attribute"
+
+#: ../schema/openldap/nssov.php:32
+msgid "Login Name to Use if Template Attribute is Empty"
+msgstr "Login Name to Use if Template Attribute is Empty"
+
+#: ../schema/openldap/nssov.php:38
+msgid "Service Search Descriptors"
+msgstr "Service Search Descriptors"
+
+#: ../schema/openldap/nssov.php:48
+msgid "Services with Session Logging"
+msgstr "Services with Session Logging"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-17 14:06+0000\n"
+"PO-Revision-Date: 2017-01-17 14:06+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -25,11 +25,11 @@ msgstr "Groupe DN pour NSS / PAM"
 msgid "Service Search Descriptor"
 msgstr "Descripteur de la Recherche de Service"
 
-#: ../schema/openldap/nssov.php:11
+#: ../schema/openldap/nssov.php:11 ../schema/openldap/nssov.php:43
 msgid "Service Attribute Mappings"
 msgstr "Mappages des Attributs de Service"
 
-#: ../schema/openldap/nssov.php:12
+#: ../schema/openldap/nssov.php:12 ../schema/openldap/nssov.php:53
 msgid "PAM Authentication and Authorization Options"
 msgstr "Options d'Authentification et d'Autorisation PAM"
 
@@ -40,3 +40,43 @@ msgstr "Services NSS / PAM avec Journalisation des Sessions"
 #: ../schema/openldap/nssov.php:18
 msgid "NSS/PAM Lookup Overlay"
 msgstr "Superposition de Recherche dans NSS / PAM"
+
+#: ../schema/openldap/nssov.php:23
+msgid "NSS/PAM Lookup Overlay Settings"
+msgstr "Paramètres de Superposition de Recherche dans NSS / PAM"
+
+#: ../schema/openldap/nssov.php:25
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
+
+#: ../schema/openldap/nssov.php:26
+msgid "Default Host Name for Service Checks"
+msgstr "Nom d'Hôte par Défaut pour Vérification de Service"
+
+#: ../schema/openldap/nssov.php:27
+msgid "Group of Users Allowed to Authenticate"
+msgstr "Groupe d'Utilisateurs Autorisés à Authentifier"
+
+#: ../schema/openldap/nssov.php:28
+msgid "Group Member Attribute"
+msgstr "Attribut pour Membre du Groupe"
+
+#: ../schema/openldap/nssov.php:29 ../schema/openldap/nssov.php:30
+msgid "Minimum UID Value Allowed to Log In"
+msgstr "Valeur Minimale de l'UID Autorisée à se Connecter"
+
+#: ../schema/openldap/nssov.php:31
+msgid "Template Login Name Attribute"
+msgstr "Attribut pour le Modèle de Nom de Connexion"
+
+#: ../schema/openldap/nssov.php:32
+msgid "Login Name to Use if Template Attribute is Empty"
+msgstr "Nom de Connexion à Utiliser si l'Attribut de Modèle est Vide"
+
+#: ../schema/openldap/nssov.php:38
+msgid "Service Search Descriptors"
+msgstr "Descripteurs de la Recherche de Service"
+
+#: ../schema/openldap/nssov.php:48
+msgid "Services with Session Logging"
+msgstr "Services avec Journalisation des Sessions"
