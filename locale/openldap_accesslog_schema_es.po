@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-18 13:05+0000\n"
+"PO-Revision-Date: 2017-01-18 13:05+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -19,7 +19,8 @@ msgstr ""
 
 #: ../schema/openldap/accesslog.php:9
 msgid "Access Log Database Naming Context DN"
-msgstr "DN del Contexto de Nomenclatura para la Base de Datos de Registro de Acceso"
+msgstr ""
+"DN del Contexto de Nomenclatura para la Base de Datos de Registro de Acceso"
 
 #: ../schema/openldap/accesslog.php:10
 msgid "Subtree-Specific Access Logging Options"
@@ -41,7 +42,7 @@ msgstr "Tipos de Operaciones que se deben Registrar"
 msgid "Old Log Entry Removal Settings"
 msgstr "Configuración de la Eliminación de la Entrada del Registro Antiguo"
 
-#: ../schema/openldap/accesslog.php:15
+#: ../schema/openldap/accesslog.php:15 ../schema/openldap/accesslog.php:56
 msgid "Only Record Successful Operations"
 msgstr "Sólo Registrar Operaciones Exitosas"
 
@@ -136,3 +137,40 @@ msgstr "Evento para Búsqueda de Registros"
 #: ../schema/openldap/accesslog.php:44
 msgid "Extended Operation Event"
 msgstr "Evento de Operación Extendida"
+
+#: ../schema/openldap/accesslog.php:48
+msgid "Access Logging Overlay Settings"
+msgstr "Configuración de Superposición de Registro de Acceso"
+
+#: ../schema/openldap/accesslog.php:50
+msgid "Overlay Object Name"
+msgstr "Nombre del Objeto Superposición"
+
+#: ../schema/openldap/accesslog.php:54
+msgid "Database in Which to Store the Access Log"
+msgstr "Base de Datos en la que Guardar el Registro de Acceso"
+
+#: ../schema/openldap/accesslog.php:55
+msgid "Operation Types to be Logged (Space-Seperated)"
+msgstr "Tipos de Operaciones que se deben Registrar (Separado por Espacios)"
+
+#: ../schema/openldap/accesslog.php:57
+msgid "Remove Old Log Entries (Maximum Age, Cleanup Interval)"
+msgstr ""
+"Eliminar Entradas de Registro Antiguo (Edad Máxima, Intervalo de Limpieza)"
+
+#: ../schema/openldap/accesslog.php:60
+msgid "Subtree-Specific Logging Options"
+msgstr "Opciones de Registro Específicas de Subárbol"
+
+#: ../schema/openldap/accesslog.php:65
+msgid "Log Old Values When Attributes are Modified"
+msgstr "Registro de Valores Antiguos Cuando se Modifican Atributos"
+
+#: ../schema/openldap/accesslog.php:67
+msgid "Always Log for the Following Attributes"
+msgstr "Siempre Registre los Siguientes Atributos"
+
+#: ../schema/openldap/accesslog.php:68
+msgid "When Objects Matching this LDAP Filter are Modified"
+msgstr "Cuando se Modifican Objetos que Coinciden con este Filtro LDAP"

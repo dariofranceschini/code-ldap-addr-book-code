@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-18 13:05+0000\n"
+"PO-Revision-Date: 2017-01-18 13:05+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -41,7 +41,7 @@ msgstr "Operation Types to be Logged"
 msgid "Old Log Entry Removal Settings"
 msgstr "Old Log Entry Removal Settings"
 
-#: ../schema/openldap/accesslog.php:15
+#: ../schema/openldap/accesslog.php:15 ../schema/openldap/accesslog.php:56
 msgid "Only Record Successful Operations"
 msgstr "Only Record Successful Operations"
 
@@ -136,3 +136,39 @@ msgstr "Records Searched Event"
 #: ../schema/openldap/accesslog.php:44
 msgid "Extended Operation Event"
 msgstr "Extended Operation Event"
+
+#: ../schema/openldap/accesslog.php:48
+msgid "Access Logging Overlay Settings"
+msgstr "Access Logging Overlay Settings"
+
+#: ../schema/openldap/accesslog.php:50
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/accesslog.php:54
+msgid "Database in Which to Store the Access Log"
+msgstr "Database in Which to Store the Access Log"
+
+#: ../schema/openldap/accesslog.php:55
+msgid "Operation Types to be Logged (Space-Seperated)"
+msgstr "Operation Types to be Logged (Space-Seperated)"
+
+#: ../schema/openldap/accesslog.php:57
+msgid "Remove Old Log Entries (Maximum Age, Cleanup Interval)"
+msgstr "Remove Old Log Entries (Maximum Age, Cleanup Interval)"
+
+#: ../schema/openldap/accesslog.php:60
+msgid "Subtree-Specific Logging Options"
+msgstr "Subtree-Specific Logging Options"
+
+#: ../schema/openldap/accesslog.php:65
+msgid "Log Old Values When Attributes are Modified"
+msgstr "Log Old Values When Attributes are Modified"
+
+#: ../schema/openldap/accesslog.php:67
+msgid "Always Log for the Following Attributes"
+msgstr "Always Log for the Following Attributes"
+
+#: ../schema/openldap/accesslog.php:68
+msgid "When Objects Matching this LDAP Filter are Modified"
+msgstr "When Objects Matching this LDAP Filter are Modified"
