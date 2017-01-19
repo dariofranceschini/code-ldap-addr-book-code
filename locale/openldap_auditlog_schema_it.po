@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-19 11:57+0000\n"
+"PO-Revision-Date: 2017-01-19 11:57+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -24,3 +24,15 @@ msgstr "Nome del File di Registro di Controllo"
 #: ../schema/openldap/auditlog.php:14
 msgid "Audit Logging Overlay"
 msgstr "Copertura per Registrazione di Controllo"
+
+#: ../schema/openldap/auditlog.php:18
+msgid "Audit Logging Overlay Settings"
+msgstr "Impostazioni per Copertura per Registrazione di Controllo"
+
+#: ../schema/openldap/auditlog.php:20
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/auditlog.php:21
+msgid "Audit Log File"
+msgstr "File di Registro di Controllo"

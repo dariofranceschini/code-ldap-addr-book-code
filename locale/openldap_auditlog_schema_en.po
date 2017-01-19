@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-19 11:57+0000\n"
+"PO-Revision-Date: 2017-01-19 11:57+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -24,3 +24,15 @@ msgstr "Audit Log File Name"
 #: ../schema/openldap/auditlog.php:14
 msgid "Audit Logging Overlay"
 msgstr "Audit Logging Overlay"
+
+#: ../schema/openldap/auditlog.php:18
+msgid "Audit Logging Overlay Settings"
+msgstr "Audit Logging Overlay Settings"
+
+#: ../schema/openldap/auditlog.php:20
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/auditlog.php:21
+msgid "Audit Log File"
+msgstr "Audit Log File"
