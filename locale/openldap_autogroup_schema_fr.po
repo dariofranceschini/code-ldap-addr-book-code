@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-14 13:58+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-19 12:08+0000\n"
+"PO-Revision-Date: 2017-01-19 12:08+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -21,10 +21,25 @@ msgstr ""
 msgid "Attribute Set"
 msgstr "Ensemble d'Attributs"
 
-#: ../schema/openldap/autogroup.php:10
+#: ../schema/openldap/autogroup.php:10 ../schema/openldap/autogroup.php:22
 msgid "Member Of Attribute"
 msgstr "Membre De l'Attribut"
 
 #: ../schema/openldap/autogroup.php:15
 msgid "AutoGroup Overlay"
 msgstr "Superposition de AutoGroup"
+
+#: ../schema/openldap/autogroup.php:19
+msgid "AutoGroup Overlay Settings"
+msgstr "Paramètres de Superposition de AutoGroup"
+
+#: ../schema/openldap/autogroup.php:21
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
+
+#: ../schema/openldap/autogroup.php:25
+msgid "Attribute Sets"
+msgstr "Ensembles d'Attributs"
+
+#~ msgid "MemberOf Attribute"
+#~ msgstr "Attribut pour Membre De"

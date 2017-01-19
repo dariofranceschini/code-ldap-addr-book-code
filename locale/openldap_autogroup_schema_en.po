@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-19 12:08+0000\n"
+"PO-Revision-Date: 2017-01-19 12:08+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,10 +21,22 @@ msgstr ""
 msgid "Attribute Set"
 msgstr "Attribute Set"
 
-#: ../schema/openldap/autogroup.php:10
+#: ../schema/openldap/autogroup.php:10 ../schema/openldap/autogroup.php:22
 msgid "Member Of Attribute"
 msgstr "Member Of Attribute"
 
 #: ../schema/openldap/autogroup.php:15
 msgid "AutoGroup Overlay"
 msgstr "AutoGroup Overlay"
+
+#: ../schema/openldap/autogroup.php:19
+msgid "AutoGroup Overlay Settings"
+msgstr "AutoGroup Overlay Settings"
+
+#: ../schema/openldap/autogroup.php:21
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/autogroup.php:25
+msgid "Attribute Sets"
+msgstr "Attribute Sets"
