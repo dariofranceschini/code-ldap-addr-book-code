@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-25 12:08+0000\n"
-"PO-Revision-Date: 2016-10-09 10:29+0100\n"
+"POT-Creation-Date: 2017-01-19 11:57+0000\n"
+"PO-Revision-Date: 2017-01-19 11:57+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -89,7 +89,7 @@ msgstr "Localité (Ville ou Region)"
 
 #: ../schema/core.php:34
 msgid "URI (with Optional Label)"
-msgstr "URI (avec étiquette facultative)"
+msgstr "URI (avec Étiquette Facultative)"
 
 #: ../schema/core.php:35
 msgid "E-mail Address"
