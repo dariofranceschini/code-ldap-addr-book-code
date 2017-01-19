@@ -70,6 +70,219 @@ class openldap_accesslog_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("auditObject",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("DN"),							"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditAdd",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Add Entry Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Entry Added"),						"generic24.png"),
+					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
+					array("reqMod",			gettext("Data"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Add Entry Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditBind",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					// reqAuthzID is typically empty for this request type
+					array("reqDN",			gettext("User (Bind DN)"),					"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png"),
+					)
+				),
+			array("section_name"=>gettext("Bind Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqMethod",		gettext("Bind Method"),						"generic24.png"),
+					array("reqVersion",		gettext("LDAP Version"),					"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Bind Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditDelete",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Delete Entry Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Entry Deleted"),					"generic24.png"),
+					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
+					array("reqOld",			gettext("Data"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Delete Entry Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditModify",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Modify Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Object to be Modified"),				"generic24.png"),
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					)
+				),
+			array("section_name"=>gettext("Original Values"),"new_row"=>true,
+				"attributes"=>array(
+					array("reqOld")
+					)
+				),
+			array("section_name"=>gettext("Replacement Values"),
+				"attributes"=>array(
+					array("reqMod")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditModRDN",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Modify RDN (Move/Rename) Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Object to be Modified"),				"generic24.png"),
+					array("reqDeleteOldRDN",	gettext("Delete Old RDN"),					"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Original Values"),"new_row"=>true,
+				"attributes"=>array(
+					array("reqOld")
+					)
+				),
+			array("section_name"=>gettext("Replacement Values"),
+				"attributes"=>array(
+					array("reqMod")
+					)
+				),
+			array("section_name"=>gettext("Modify RDN Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png"),
+					array("reqNewRDN",		gettext("New RDN"),						"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditSearch",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Search Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Search Base"),						"generic24.png"),
+					array("reqScope",		gettext("Search Scope"),					"generic24.png"),
+					array("reqFilter",		gettext("Search Filter"),					"generic24.png"),
+					array("reqAttrsOnly",		gettext("Return Attribute Type Names Only"),			"generic24.png"),
+					array("reqDerefAliases",	gettext("Alias Dereferencing Behaviour"),			"generic24.png"),
+					array("reqSizeLimit",		gettext("Maximum Number of Entries to be Returned"),		"generic24.png"),
+					array("reqTimeLimit",		gettext("Maximum Search Time (s)"),				"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Search Result"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqResult",		gettext("Outcome"),						"openldap/error.png"),
+					array("reqEntries",		gettext("Number of Entries Returned"),				"generic24.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 
