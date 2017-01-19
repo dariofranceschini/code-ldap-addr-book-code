@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../schema/openldap/autogroup.php:9
 msgid "Attribute Set"
-msgstr "Set di Attributi"
+msgstr "Insieme di Attributi"
 
 #: ../schema/openldap/autogroup.php:10 ../schema/openldap/autogroup.php:22
 msgid "Member Of Attribute"
-msgstr "Membro Di Attributo"
+msgstr "Attributo per Membro Di"
 
 #: ../schema/openldap/autogroup.php:15
 msgid "AutoGroup Overlay"

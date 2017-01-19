@@ -19,7 +19,7 @@ class openldap_autogroup_schema extends ldap_schema
 			array("section_name"=>gettext("AutoGroup Overlay Settings"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcOverlay",			gettext("Overlay Object Name"),			"openldap/overlay.png"),
-					array("olcAGmemberOfAd",		gettext("MemberOf Attribute"),			"generic24.png"),
+					array("olcAGmemberOfAd",		gettext("Member Of Attribute"),			"generic24.png"),
 					),
 				),
 			array("section_name"=>gettext("Attribute Sets"),"new_row"=>true,

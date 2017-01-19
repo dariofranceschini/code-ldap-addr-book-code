@@ -23,7 +23,7 @@ msgstr "Ensemble d'Attributs"
 
 #: ../schema/openldap/autogroup.php:10 ../schema/openldap/autogroup.php:22
 msgid "Member Of Attribute"
-msgstr "Membre De l'Attribut"
+msgstr "Attribut pour Membre De"
 
 #: ../schema/openldap/autogroup.php:15
 msgid "AutoGroup Overlay"
