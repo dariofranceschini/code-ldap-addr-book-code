@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-20 12:37+0000\n"
+"PO-Revision-Date: 2017-01-20 12:37+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,10 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/dyngroup.php:9
+#: ../schema/openldap/dyngroup.php:9 ../schema/openldap/dyngroup.php:22
 msgid "Member/Member URL Attribute Pair"
 msgstr "Member/Member URL Attribute Pair"
 
 #: ../schema/openldap/dyngroup.php:14
 msgid "Dynamic Groups Overlay"
 msgstr "Dynamic Groups Overlay"
+
+#: ../schema/openldap/dyngroup.php:19
+msgid "Dynamic Groups Overlay Settings"
+msgstr "Dynamic Groups Overlay Settings"
+
+#: ../schema/openldap/dyngroup.php:21
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
