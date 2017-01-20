@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-20 12:44+0000\n"
+"PO-Revision-Date: 2017-01-20 12:44+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -24,3 +24,11 @@ msgstr "Attributi Connesso Membro e URL Membro"
 #: ../schema/openldap/dynlist.php:14
 msgid "Dynamic Lists Overlay"
 msgstr "Copertura per Elenchi Dinamici"
+
+#: ../schema/openldap/dynlist.php:19
+msgid "Dynamic Lists Overlay Settings"
+msgstr "Impostazioni per Copertura per Elenchi Dinamici"
+
+#: ../schema/openldap/dynlist.php:21
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
