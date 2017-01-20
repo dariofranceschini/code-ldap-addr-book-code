@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-20 12:12+0000\n"
+"PO-Revision-Date: 2017-01-20 12:12+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/dds.php:9
+#: ../schema/openldap/dds.php:9 ../schema/openldap/dds.php:27
 msgid "Enable Dynamic Directory Services"
 msgstr "Enable Dynamic Directory Services"
 
@@ -28,3 +28,39 @@ msgstr "Entry Expiry Time"
 #: ../schema/openldap/dds.php:16
 msgid "Dynamic Directory Services Overlay"
 msgstr "Dynamic Directory Services Overlay"
+
+#: ../schema/openldap/dds.php:21
+msgid "Dynamic Directory Services Overlay Settings"
+msgstr "Dynamic Directory Services Overlay Settings"
+
+#: ../schema/openldap/dds.php:23
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/dds.php:24
+msgid "Expiration Check Interval (s)"
+msgstr "Expiration Check Interval (s)"
+
+#: ../schema/openldap/dds.php:25
+msgid "Expiration Tolerence Time"
+msgstr "Expiration Tolerence Time"
+
+#: ../schema/openldap/dds.php:26
+msgid "Maxiumum Dynamic Objects in Naming Context"
+msgstr "Maxiumum Dynamic Objects in Naming Context"
+
+#: ../schema/openldap/dds.php:30
+msgid "Object Expiry Times (Time To Live/TTL Values) in Seconds"
+msgstr "Object Expiry Times (Time To Live/TTL Values) in Seconds"
+
+#: ../schema/openldap/dds.php:32
+msgid "Default for New Dynamic Objects"
+msgstr "Default for New Dynamic Objects"
+
+#: ../schema/openldap/dds.php:33
+msgid "Minimum Allowed"
+msgstr "Minimum Allowed"
+
+#: ../schema/openldap/dds.php:34
+msgid "Maximum Allowed"
+msgstr "Maximum Allowed"

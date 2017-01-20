@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-20 12:12+0000\n"
+"PO-Revision-Date: 2017-01-20 12:12+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/dds.php:9
+#: ../schema/openldap/dds.php:9 ../schema/openldap/dds.php:27
 msgid "Enable Dynamic Directory Services"
 msgstr "Habilitar Servicios de Directorio Dinámico"
 
@@ -28,3 +28,39 @@ msgstr "Tiempo de Caducidad de Registro"
 #: ../schema/openldap/dds.php:16
 msgid "Dynamic Directory Services Overlay"
 msgstr "Superposición de Servicios de Directorio Dinámico"
+
+#: ../schema/openldap/dds.php:21
+msgid "Dynamic Directory Services Overlay Settings"
+msgstr "Configuración de Superposición de Servicios de Directorio Dinámico"
+
+#: ../schema/openldap/dds.php:23
+msgid "Overlay Object Name"
+msgstr "Nombre del Objeto Superposición"
+
+#: ../schema/openldap/dds.php:24
+msgid "Expiration Check Interval (s)"
+msgstr "Intervalo de Comprobación de Vencimiento (s)"
+
+#: ../schema/openldap/dds.php:25
+msgid "Expiration Tolerence Time"
+msgstr "Tiempo de Tolerancia de Caducidad"
+
+#: ../schema/openldap/dds.php:26
+msgid "Maxiumum Dynamic Objects in Naming Context"
+msgstr "Objetos Dinámicos Máximos en el Contexto de Nomenclatura"
+
+#: ../schema/openldap/dds.php:30
+msgid "Object Expiry Times (Time To Live/TTL Values) in Seconds"
+msgstr "Tiempos de Expiración de Objetos (Valores de Tiempo de Vida / TTL) en Segundos"
+
+#: ../schema/openldap/dds.php:32
+msgid "Default for New Dynamic Objects"
+msgstr "Predeterminado para Nuevos Objetos Dinámicos"
+
+#: ../schema/openldap/dds.php:33
+msgid "Minimum Allowed"
+msgstr "Mínimo Permitido"
+
+#: ../schema/openldap/dds.php:34
+msgid "Maximum Allowed"
+msgstr "Máximo Permitido"
