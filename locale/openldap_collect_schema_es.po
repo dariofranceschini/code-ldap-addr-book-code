@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-19 12:27+0000\n"
+"PO-Revision-Date: 2017-01-19 12:27+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,10 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/collect.php:9
+#: ../schema/openldap/collect.php:9 ../schema/openldap/collect.php:22
 msgid "Ancestor DN/Collective Attributes"
 msgstr "Ancestral DN/Atributos Colectivos"
 
 #: ../schema/openldap/collect.php:14
 msgid "Collective Attributes Overlay"
 msgstr "Superposición de Atributos Colectivos"
+
+#: ../schema/openldap/collect.php:19
+msgid "Collective Attributes Overlay Settings"
+msgstr "Configuración de Superposición de Atributos Colectivos"
+
+#: ../schema/openldap/collect.php:21
+msgid "Overlay Object Name"
+msgstr "Nombre del Objeto Superposición"
