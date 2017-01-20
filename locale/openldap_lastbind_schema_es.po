@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-20 12:49+0000\n"
+"PO-Revision-Date: 2017-01-20 12:49+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -28,3 +28,15 @@ msgstr "Fecha / Hora de la Última Autenticación Correcta"
 #: ../schema/openldap/lastbind.php:16
 msgid "Last Bind Overlay"
 msgstr "Superposición de Último Acceso"
+
+#: ../schema/openldap/lastbind.php:21
+msgid "Last Bind Overlay Settings"
+msgstr "Configuración de Superposición de Último Acceso"
+
+#: ../schema/openldap/lastbind.php:23
+msgid "Overlay Object Name"
+msgstr "Nombre del Objeto Superposición"
+
+#: ../schema/openldap/lastbind.php:24
+msgid "Only Update Timestamps Older Than (seconds)"
+msgstr "Sólo Actualización de Marcas de Tiempo Viejo que (Segundos)"
