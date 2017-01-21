@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 14:12+0000\n"
+"PO-Revision-Date: 2017-01-21 14:12+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/unique.php:9
+#: ../schema/openldap/unique.php:9 ../schema/openldap/unique.php:28
 msgid "Attribute Uniqueness Configuration"
 msgstr "Attribute Uniqueness Configuration"
 
-#: ../schema/openldap/unique.php:12
+#: ../schema/openldap/unique.php:12 ../schema/openldap/unique.php:34
 msgid "Attributes that Must be Unique"
 msgstr "Attributes that Must be Unique"
 
-#: ../schema/openldap/unique.php:13
+#: ../schema/openldap/unique.php:13 ../schema/openldap/unique.php:33
 msgid "Base DN"
 msgstr "Base DN"
 
@@ -33,10 +33,26 @@ msgstr "Base DN"
 msgid "Ignored Attributes"
 msgstr "Ignored Attributes"
 
-#: ../schema/openldap/unique.php:15
+#: ../schema/openldap/unique.php:15 ../schema/openldap/unique.php:36
 msgid "Enforce Uniqueness for Null Values"
 msgstr "Enforce Uniqueness for Null Values"
 
 #: ../schema/openldap/unique.php:20
 msgid "Uniqueness Overlay"
 msgstr "Uniqueness Overlay"
+
+#: ../schema/openldap/unique.php:25
+msgid "Uniqueness Overlay Settings"
+msgstr "Uniqueness Overlay Settings"
+
+#: ../schema/openldap/unique.php:27
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/unique.php:31
+msgid "Legacy Configuration Settings"
+msgstr "Legacy Configuration Settings"
+
+#: ../schema/openldap/unique.php:35
+msgid "Attributes to Ignore"
+msgstr "Attributes to Ignore"
