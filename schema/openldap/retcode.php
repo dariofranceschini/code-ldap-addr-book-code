@@ -47,6 +47,27 @@ class openldap_retcode_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("errObject",array(
+			array("section_name"=>gettext("Error Debugging Object"),"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),						"openldap/overlay.png"),
+					array("description",			gettext("Description"),						"description.png"),
+					)
+				),
+			array("section_name"=>gettext("Error Behaviour"),"new_row"=>true,
+				"attributes"=>array(
+					array("errDisconnect",			gettext("Immediately Disconnect (Before Error)"),		"generic24.png"),
+					array("errCode",			gettext("LDAP Error Code"),					"openldap/error.png"),
+					array("errOp",				gettext("Operation Type(s) Which Trigger Error"),		"generic24.png"),
+					array("errText",			gettext("Diagnostic Message"),					"generic24.png"),
+					array("errSleepTime",			gettext("Response Delay (s)"),					"generic24.png"),
+					array("errMatchedDN",			gettext("Value to Return as Matched DN"),			"generic24.png"),
+					array("errUnsolicitedOID",		gettext("OID to Return within Unsolicited Response"),		"generic24.png"),
+					array("errUnsolicitedData",		gettext("Data to Return within Unsolicited Response"),		"generic24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 
@@ -58,6 +79,11 @@ class openldap_retcode_schema extends ldap_schema
 	function before_create_olcRetcodeConfig(&$ldap_server,&$entry)
 	{
 		$ldap_server->ensure_openldap_module_loaded("retcode");
+	}
+
+	function populate_for_create_errObject(&$ldap_server,&$entry)
+	{
+		$this->add_attrib_value($ldap_server,$entry,"errDisconnect","FALSE");
 	}
 }
 ?>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-21 13:17+0000\n"
-"PO-Revision-Date: 2017-01-21 13:17+0000\n"
+"POT-Creation-Date: 2017-01-21 13:23+0000\n"
+"PO-Revision-Date: 2017-01-21 13:23+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -33,7 +33,7 @@ msgstr "DN Genitore per Generato Dinamicamente Registrazioni"
 msgid "Response Delay"
 msgstr "Ritardo di Risposta"
 
-#: ../schema/openldap/retcode.php:14
+#: ../schema/openldap/retcode.php:14 ../schema/openldap/retcode.php:60
 msgid "LDAP Error Code"
 msgstr "Codice di Errore LDAP"
 
@@ -45,7 +45,7 @@ msgstr "Sconnettere Senza Preavviso"
 msgid "Matched DN"
 msgstr "DN Corrispondenza"
 
-#: ../schema/openldap/retcode.php:17
+#: ../schema/openldap/retcode.php:17 ../schema/openldap/retcode.php:61
 msgid "Operation Type(s) Which Trigger Error"
 msgstr "Tipi di Funzionamento che Innescano Errore"
 
@@ -53,15 +53,15 @@ msgstr "Tipi di Funzionamento che Innescano Errore"
 msgid "Error Response Delay"
 msgstr "Ritardo di Risposta Errore"
 
-#: ../schema/openldap/retcode.php:19
+#: ../schema/openldap/retcode.php:19 ../schema/openldap/retcode.php:62
 msgid "Diagnostic Message"
 msgstr "Messaggio di Diagnostica"
 
-#: ../schema/openldap/retcode.php:20
+#: ../schema/openldap/retcode.php:20 ../schema/openldap/retcode.php:65
 msgid "OID to Return within Unsolicited Response"
 msgstr "OID di Rimpatrio entro Risposta non Richieste"
 
-#: ../schema/openldap/retcode.php:21
+#: ../schema/openldap/retcode.php:21 ../schema/openldap/retcode.php:66
 msgid "Data to Return within Unsolicited Response"
 msgstr "Dati di Ritorno entro Risposta non Richieste"
 
@@ -69,7 +69,7 @@ msgstr "Dati di Ritorno entro Risposta non Richieste"
 msgid "Return Code Overlay"
 msgstr "Copertura per Codice di Ritorno"
 
-#: ../schema/openldap/retcode.php:27
+#: ../schema/openldap/retcode.php:27 ../schema/openldap/retcode.php:51
 msgid "Error Debugging Object"
 msgstr "Oggetto per il Debug Errore"
 
@@ -81,6 +81,26 @@ msgstr "Impostazioni per Copertura per Codice di Ritorno"
 msgid "Overlay Object Name"
 msgstr "Nome dell'Oggetto Copertura"
 
-#: ../schema/openldap/retcode.php:40
+#: ../schema/openldap/retcode.php:40 ../schema/openldap/retcode.php:63
 msgid "Response Delay (s)"
 msgstr "Ritardo di Risposta (s)"
+
+#: ../schema/openldap/retcode.php:53
+msgid "Object Name"
+msgstr "Nome dell'Oggetto"
+
+#: ../schema/openldap/retcode.php:54
+msgid "Description"
+msgstr "Descrizione"
+
+#: ../schema/openldap/retcode.php:57
+msgid "Error Behaviour"
+msgstr "Comportamento Errore"
+
+#: ../schema/openldap/retcode.php:59
+msgid "Immediately Disconnect (Before Error)"
+msgstr "Scollegare Immediatamente (Prima di Errore)"
+
+#: ../schema/openldap/retcode.php:64
+msgid "Value to Return as Matched DN"
+msgstr "Valore di Ritorno, la Corrispondenza DN"

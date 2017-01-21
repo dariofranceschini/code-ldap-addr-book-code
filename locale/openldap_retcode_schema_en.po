@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-21 13:17+0000\n"
-"PO-Revision-Date: 2017-01-21 13:17+0000\n"
+"POT-Creation-Date: 2017-01-21 13:23+0000\n"
+"PO-Revision-Date: 2017-01-21 13:23+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr "Parent DN for Dynamically Generated Entries"
 msgid "Response Delay"
 msgstr "Response Delay"
 
-#: ../schema/openldap/retcode.php:14
+#: ../schema/openldap/retcode.php:14 ../schema/openldap/retcode.php:60
 msgid "LDAP Error Code"
 msgstr "LDAP Error Code"
 
@@ -45,7 +45,7 @@ msgstr "Disconnect Without Notice"
 msgid "Matched DN"
 msgstr "Matched DN"
 
-#: ../schema/openldap/retcode.php:17
+#: ../schema/openldap/retcode.php:17 ../schema/openldap/retcode.php:61
 msgid "Operation Type(s) Which Trigger Error"
 msgstr "Operation Type(s) Which Trigger Error"
 
@@ -53,15 +53,15 @@ msgstr "Operation Type(s) Which Trigger Error"
 msgid "Error Response Delay"
 msgstr "Error Response Delay"
 
-#: ../schema/openldap/retcode.php:19
+#: ../schema/openldap/retcode.php:19 ../schema/openldap/retcode.php:62
 msgid "Diagnostic Message"
 msgstr "Diagnostic Message"
 
-#: ../schema/openldap/retcode.php:20
+#: ../schema/openldap/retcode.php:20 ../schema/openldap/retcode.php:65
 msgid "OID to Return within Unsolicited Response"
 msgstr "OID to Return within Unsolicited Response"
 
-#: ../schema/openldap/retcode.php:21
+#: ../schema/openldap/retcode.php:21 ../schema/openldap/retcode.php:66
 msgid "Data to Return within Unsolicited Response"
 msgstr "Data to Return within Unsolicited Response"
 
@@ -69,7 +69,7 @@ msgstr "Data to Return within Unsolicited Response"
 msgid "Return Code Overlay"
 msgstr "Return Code Overlay"
 
-#: ../schema/openldap/retcode.php:27
+#: ../schema/openldap/retcode.php:27 ../schema/openldap/retcode.php:51
 msgid "Error Debugging Object"
 msgstr "Error Debugging Object"
 
@@ -81,6 +81,26 @@ msgstr "Return Code Overlay Settings"
 msgid "Overlay Object Name"
 msgstr "Overlay Object Name"
 
-#: ../schema/openldap/retcode.php:40
+#: ../schema/openldap/retcode.php:40 ../schema/openldap/retcode.php:63
 msgid "Response Delay (s)"
 msgstr "Response Delay (s)"
+
+#: ../schema/openldap/retcode.php:53
+msgid "Object Name"
+msgstr "Object Name"
+
+#: ../schema/openldap/retcode.php:54
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/openldap/retcode.php:57
+msgid "Error Behaviour"
+msgstr "Error Behaviour"
+
+#: ../schema/openldap/retcode.php:59
+msgid "Immediately Disconnect (Before Error)"
+msgstr "Immediately Disconnect (Before Error)"
+
+#: ../schema/openldap/retcode.php:64
+msgid "Value to Return as Matched DN"
+msgstr "Value to Return as Matched DN"
