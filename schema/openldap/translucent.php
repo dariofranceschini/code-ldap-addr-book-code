@@ -21,7 +21,37 @@ class openldap_translucent_schema extends ldap_schema
 
 		// auxiliary class 'olcTranslucentConfig' is also defined in this schema
 
+		// Display layouts
+		$ldap_server->add_display_layout("olcTranslucentConfig",array(
+			array("section_name"=>gettext("Translucent Proxy Overlay Settings"),
+				"attributes"=>array(
+					array("olcOverlay",			gettext("Overlay Object Name"),						"openldap/overlay.png"),
+					array("olcTranslucentStrict",		gettext("Deleting Attribute Triggers Constraint Violation Error"),	"generic24.png"),
+					array("olcTranslucentNoGlue",		gettext("Don't Create 'Glue' Records for Add or ModRDN Operations"),	"generic24.png"),
+					array("olcTranslucentLocal",		gettext("Attribute List for Local Searching"),				"generic24.png"),
+					array("olcTranslucentRemote",		gettext("Attribute List for Remote Searching"),				"generic24.png"),
+					array("olcTranslucentBindLocal",	gettext("Use Local Bind Credentials if Remote Bind Fails"),		"generic24.png"),
+					array("olcTranslucentPwModLocal",	gettext("Local Password Modify Extended Operations"),			"generic24.png"),
+					),
+				),
+			array("section_name"=>gettext("Remote Translucent Database"),"new_row"=>true,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
+	}
+
+	function populate_for_create_olcTranslucentConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcOverlayConfig","translucent");
+	}
+
+	function before_create_olcTranslucentConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->ensure_openldap_module_loaded("translucent");
 	}
 }
 ?>

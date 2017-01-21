@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 14:02+0000\n"
+"PO-Revision-Date: 2017-01-21 14:02+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,30 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/translucent.php:9
+#: ../schema/openldap/translucent.php:9 ../schema/openldap/translucent.php:33
 msgid "Use Local Bind Credentials if Remote Bind Fails"
 msgstr "Use Local Bind Credentials if Remote Bind Fails"
 
-#: ../schema/openldap/translucent.php:10
+#: ../schema/openldap/translucent.php:10 ../schema/openldap/translucent.php:31
 msgid "Attribute List for Local Searching"
 msgstr "Attribute List for Local Searching"
 
-#: ../schema/openldap/translucent.php:11
+#: ../schema/openldap/translucent.php:11 ../schema/openldap/translucent.php:30
 msgid "Don't Create 'Glue' Records for Add or ModRDN Operations"
 msgstr "Don't Create 'Glue' Records for Add or ModRDN Operations"
 
-#: ../schema/openldap/translucent.php:12
+#: ../schema/openldap/translucent.php:12 ../schema/openldap/translucent.php:34
 msgid "Local Password Modify Extended Operations"
 msgstr "Local Password Modify Extended Operations"
 
-#: ../schema/openldap/translucent.php:13
+#: ../schema/openldap/translucent.php:13 ../schema/openldap/translucent.php:32
 msgid "Attribute List for Remote Searching"
 msgstr "Attribute List for Remote Searching"
 
-#: ../schema/openldap/translucent.php:14
+#: ../schema/openldap/translucent.php:14 ../schema/openldap/translucent.php:29
 msgid "Deleting Attribute Triggers Constraint Violation Error"
 msgstr "Deleting Attribute Triggers Constraint Violation Error"
 
 #: ../schema/openldap/translucent.php:19
 msgid "Translucent Proxy Overlay"
 msgstr "Translucent Proxy Overlay"
+
+#: ../schema/openldap/translucent.php:26
+msgid "Translucent Proxy Overlay Settings"
+msgstr "Translucent Proxy Overlay Settings"
+
+#: ../schema/openldap/translucent.php:28
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/translucent.php:37
+msgid "Remote Translucent Database"
+msgstr "Remote Translucent Database"
