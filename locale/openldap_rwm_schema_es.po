@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:38+0000\n"
+"PO-Revision-Date: 2017-01-21 13:38+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/rwm.php:9
+#: ../schema/openldap/rwm.php:9 ../schema/openldap/rwm.php:28
 msgid "Drop Attributes Not Explicitly Requested"
 msgstr "Atributos de Gota No Explícitamente Solicitados"
 
-#: ../schema/openldap/rwm.php:10
+#: ../schema/openldap/rwm.php:10 ../schema/openldap/rwm.php:31
 msgid "Attribute/Object Class Mapping Rules"
 msgstr "Reglas de Asignación de Clases de Atributo / Objeto"
 
-#: ../schema/openldap/rwm.php:11
+#: ../schema/openldap/rwm.php:11 ../schema/openldap/rwm.php:27
 msgid "Normalise Mapped Attribute/Object Classes"
 msgstr "Normalizar Clases de Atributo / Objeto Asignadas"
 
@@ -33,10 +33,22 @@ msgstr "Normalizar Clases de Atributo / Objeto Asignadas"
 msgid "String Rewriting Rule"
 msgstr "Regla de Reescritura de Cadena"
 
-#: ../schema/openldap/rwm.php:13
+#: ../schema/openldap/rwm.php:13 ../schema/openldap/rwm.php:26
 msgid "True/False Filter Support"
 msgstr "Soporte para Filtros Cierto / Falso"
 
 #: ../schema/openldap/rwm.php:18
 msgid "Rewrite/Remap Overlay"
 msgstr "Superposición de Remapear / Reescribir"
+
+#: ../schema/openldap/rwm.php:23
+msgid "Rewrite/Remap Overlay Settings"
+msgstr "Configuración de Superposición de Remapear / Reescribir"
+
+#: ../schema/openldap/rwm.php:25
+msgid "Overlay Object Name"
+msgstr "Configuración de "
+
+#: ../schema/openldap/rwm.php:36
+msgid "String Rewriting Rules"
+msgstr "Reglas de Reescritura de Cadenas"
