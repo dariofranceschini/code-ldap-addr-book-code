@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:53+0000\n"
+"PO-Revision-Date: 2017-01-21 13:53+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -25,14 +25,30 @@ msgstr "Checkpoint Intervals"
 msgid "In-memory Session Log Size"
 msgstr "In-memory Session Log Size"
 
-#: ../schema/openldap/syncprov.php:11
+#: ../schema/openldap/syncprov.php:11 ../schema/openldap/syncprov.php:27
 msgid "Skip 'Present' Phase of Sync Refresh"
 msgstr "Skip 'Present' Phase of Sync Refresh"
 
-#: ../schema/openldap/syncprov.php:12
+#: ../schema/openldap/syncprov.php:12 ../schema/openldap/syncprov.php:28
 msgid "Observe Reload Hint in Request Control"
 msgstr "Observe Reload Hint in Request Control"
 
 #: ../schema/openldap/syncprov.php:17
 msgid "Sync Provider Overlay"
 msgstr "Sync Provider Overlay"
+
+#: ../schema/openldap/syncprov.php:22
+msgid "Sync Provider Overlay Settings"
+msgstr "Sync Provider Overlay Settings"
+
+#: ../schema/openldap/syncprov.php:24
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/syncprov.php:25
+msgid "Checkpoint Interval (Operations, Minutes)"
+msgstr "Checkpoint Interval (Operations, Minutes)"
+
+#: ../schema/openldap/syncprov.php:26
+msgid "In-Memory Session Log Size (Operations)"
+msgstr "In-memory Session Log Size (Operations)"
