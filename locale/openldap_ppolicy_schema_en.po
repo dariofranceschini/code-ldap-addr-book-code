@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 12:57+0000\n"
+"PO-Revision-Date: 2017-01-21 12:57+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,18 +21,30 @@ msgstr ""
 msgid "Default Policy Object DN"
 msgstr "Default Policy Object DN"
 
-#: ../schema/openldap/ppolicy.php:19
+#: ../schema/openldap/ppolicy.php:19 ../schema/openldap/ppolicy.php:36
 msgid "Forward Proxy State Updates to Master"
 msgstr "Forward Proxy State Updates to Master"
 
-#: ../schema/openldap/ppolicy.php:20
+#: ../schema/openldap/ppolicy.php:20 ../schema/openldap/ppolicy.php:35
 msgid "Hash Passwords on Add/Modify"
 msgstr "Hash Passwords on Add/Modify"
 
-#: ../schema/openldap/ppolicy.php:21
+#: ../schema/openldap/ppolicy.php:21 ../schema/openldap/ppolicy.php:37
 msgid "Inform Clients when Account Locked Out"
 msgstr "Inform Clients when Account Locked Out"
 
 #: ../schema/openldap/ppolicy.php:26
 msgid "Password Policies Overlay"
 msgstr "Password Policies Overlay"
+
+#: ../schema/openldap/ppolicy.php:31
+msgid "Password Policies Overlay Settings"
+msgstr "Password Policies Overlay Settings"
+
+#: ../schema/openldap/ppolicy.php:33
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/ppolicy.php:34
+msgid "Default Policy Object"
+msgstr "Default Policy Object"
