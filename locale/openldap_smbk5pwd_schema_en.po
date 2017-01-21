@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:46+0000\n"
+"PO-Revision-Date: 2017-01-21 13:46+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,18 +17,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/smbk5pwd.php:9
+#: ../schema/openldap/smbk5pwd.php:9 ../schema/openldap/smbk5pwd.php:28
 msgid "Enabled Password Modifier Modules"
 msgstr "Enabled Password Modifier Modules"
 
-#: ../schema/openldap/smbk5pwd.php:10
+#: ../schema/openldap/smbk5pwd.php:10 ../schema/openldap/smbk5pwd.php:24
 msgid "Maximum Password Age (Seconds)"
 msgstr "Maximum Password Age (Seconds)"
 
-#: ../schema/openldap/smbk5pwd.php:11
+#: ../schema/openldap/smbk5pwd.php:11 ../schema/openldap/smbk5pwd.php:25
 msgid "Minimum Password Age (seconds)"
 msgstr "Minimum Password Age (seconds)"
 
 #: ../schema/openldap/smbk5pwd.php:16
 msgid "Samba/Kerberos Password Management Overlay"
 msgstr "Samba/Kerberos Password Management Overlay"
+
+#: ../schema/openldap/smbk5pwd.php:21
+msgid "Samba/Kerberos 5 Password Management Overlay Settings"
+msgstr "Samba/Kerberos Password Management Overlay Settings"
+
+#: ../schema/openldap/smbk5pwd.php:23
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"

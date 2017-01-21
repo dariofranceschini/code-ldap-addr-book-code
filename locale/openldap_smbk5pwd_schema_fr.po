@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:46+0000\n"
+"PO-Revision-Date: 2017-01-21 13:46+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,18 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/openldap/smbk5pwd.php:9
+#: ../schema/openldap/smbk5pwd.php:9 ../schema/openldap/smbk5pwd.php:28
 msgid "Enabled Password Modifier Modules"
 msgstr "Modificateurs de Mots de Passe Activés"
 
-#: ../schema/openldap/smbk5pwd.php:10
+#: ../schema/openldap/smbk5pwd.php:10 ../schema/openldap/smbk5pwd.php:24
 msgid "Maximum Password Age (Seconds)"
 msgstr "Maximum Password Age (Secondes)"
 
-#: ../schema/openldap/smbk5pwd.php:11
+#: ../schema/openldap/smbk5pwd.php:11 ../schema/openldap/smbk5pwd.php:25
 msgid "Minimum Password Age (seconds)"
 msgstr "Edad Mínima de Contraseñas (Secondes)"
 
 #: ../schema/openldap/smbk5pwd.php:16
 msgid "Samba/Kerberos Password Management Overlay"
 msgstr "Superposition de Gestion des mots de passe Samba / Kerberos"
+
+#: ../schema/openldap/smbk5pwd.php:21
+msgid "Samba/Kerberos 5 Password Management Overlay Settings"
+msgstr ""
+"Paramètres de Superposition de Gestion des mots de passe Samba / Kerberos"
+
+#: ../schema/openldap/smbk5pwd.php:23
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
