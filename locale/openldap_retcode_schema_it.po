@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:17+0000\n"
+"PO-Revision-Date: 2017-01-21 13:17+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/retcode.php:9
+#: ../schema/openldap/retcode.php:9 ../schema/openldap/retcode.php:39
 msgid "Use Error Information from errAbsObject Attributes"
 msgstr "Utilizzare Informazioni di Errore da errAbsObject Attributi"
 
-#: ../schema/openldap/retcode.php:10
+#: ../schema/openldap/retcode.php:10 ../schema/openldap/retcode.php:43
 msgid "Dynamically Generated Entries"
 msgstr "Registrazioni Dinamicamente Generati"
 
-#: ../schema/openldap/retcode.php:11
+#: ../schema/openldap/retcode.php:11 ../schema/openldap/retcode.php:38
 msgid "Parent DN for Dynamically Generated Entries"
 msgstr "DN Genitore per Generato Dinamicamente Registrazioni"
 
@@ -72,3 +72,15 @@ msgstr "Copertura per Codice di Ritorno"
 #: ../schema/openldap/retcode.php:27
 msgid "Error Debugging Object"
 msgstr "Oggetto per il Debug Errore"
+
+#: ../schema/openldap/retcode.php:35
+msgid "Return Code Overlay Settings"
+msgstr "Impostazioni per Copertura per Codice di Ritorno"
+
+#: ../schema/openldap/retcode.php:37
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/retcode.php:40
+msgid "Response Delay (s)"
+msgstr "Ritardo di Risposta (s)"

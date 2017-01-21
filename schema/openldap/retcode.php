@@ -30,7 +30,34 @@ class openldap_retcode_schema extends ldap_schema
 		// abstract class 'errAbsObject' is also defined in this schema
 		// auxiliary class 'errAuxObject' is also defined in this schema
 
+		// Display layouts
+		$ldap_server->add_display_layout("olcRetcodeConfig",array(
+			array("section_name"=>gettext("Return Code Overlay Settings"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcOverlay",			gettext("Overlay Object Name"),					"openldap/overlay.png"),
+					array("olcRetcodeParent",		gettext("Parent DN for Dynamically Generated Entries"),		"generic24.png"),
+					array("olcRetcodeInDir",		gettext("Use Error Information from errAbsObject Attributes"),	"generic24.png"),
+					array("olcRetcodeSleep",		gettext("Response Delay (s)"),					"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Dynamically Generated Entries"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcRetcodeItem")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
+	}
+
+	function populate_for_create_olcRetcodeConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcOverlayConfig","retcode");
+	}
+
+	function before_create_olcRetcodeConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->ensure_openldap_module_loaded("retcode");
 	}
 }
 ?>
