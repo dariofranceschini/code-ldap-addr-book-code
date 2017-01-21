@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 13:04+0000\n"
+"PO-Revision-Date: 2017-01-21 13:04+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Attributes with Referential Integrity"
 msgstr "Attributi con Integrità Referenziale"
 
-#: ../schema/openldap/refint.php:10
+#: ../schema/openldap/refint.php:10 ../schema/openldap/refint.php:25
 msgid "Placeholder Value for Empty Mandatory Attributes"
 msgstr "Segnaposto Rapporto Attributi Obbligatori Vuoti"
 
@@ -32,3 +32,19 @@ msgstr "DN di Modifier"
 #: ../schema/openldap/refint.php:16
 msgid "Referential Integrity Overlay"
 msgstr "Copertura per Integrità Referenziale"
+
+#: ../schema/openldap/refint.php:21
+msgid "Referential Integrity Overlay Settings"
+msgstr "Impostazioni per Copertura per Integrità Referenziale"
+
+#: ../schema/openldap/refint.php:23
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/refint.php:24
+msgid "Maintain Referential Integrity for These Attributes"
+msgstr "Mantenere l'Integrità Referenziale per Questi Attributi"
+
+#: ../schema/openldap/refint.php:26
+msgid "Modifier's Name to be Used"
+msgstr "Nome di Modifier da Usato"
