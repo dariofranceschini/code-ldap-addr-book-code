@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-06 16:07+0000\n"
-"PO-Revision-Date: 2016-11-06 16:07+0000\n"
+"POT-Creation-Date: 2017-01-21 14:27+0000\n"
+"PO-Revision-Date: 2017-01-21 14:27+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -38,6 +38,7 @@ msgid "Maintain Last Modification Info"
 msgstr "Mantener Información de Última Modificación"
 
 #: ../schema/openldap/back_config.php:15
+#: ../schema/openldap/back_config.php:102
 msgid "LDAP Syntaxes"
 msgstr "Sintaxis LDAP"
 
@@ -81,34 +82,143 @@ msgstr "Seguimiento de Referencias está Habilitado"
 msgid "Remote Identity Assertion Settings"
 msgstr "Configuración de Asignación Remota de Identidad"
 
-#: ../schema/openldap/back_config.php:38
+#: ../schema/openldap/back_config.php:34
+msgid "Rebind as User"
+msgstr "Repetir Enlace como Usuario"
+
+#: ../schema/openldap/back_config.php:39
 msgid "OpenLDAP Schema Configuration"
 msgstr "Configuración del Esquema de OpenLDAP"
 
-#: ../schema/openldap/back_config.php:39
-msgid "OpenLDAP Back End"
-msgstr "Posterior OpenLDAP"
-
 #: ../schema/openldap/back_config.php:40
+msgid "OpenLDAP Back End Configuration"
+msgstr "Configuración del Posterior de OpenLDAP"
+
+#: ../schema/openldap/back_config.php:41
 msgid "OpenLDAP Front End"
 msgstr "Interfaz OpenLDAP"
 
-#: ../schema/openldap/back_config.php:41
+#: ../schema/openldap/back_config.php:42
 msgid "OpenLDAP Overlay"
 msgstr "Superposición de OpenLDAP"
 
-#: ../schema/openldap/back_config.php:42
+#: ../schema/openldap/back_config.php:43
 msgid "OpenLDAP Database"
 msgstr "Base de Datos OpenLDAP"
 
-#: ../schema/openldap/back_config.php:43
+#: ../schema/openldap/back_config.php:44 ../schema/openldap/back_config.php:73
 msgid "OpenLDAP Configuration Include File"
 msgstr "Archivo de Inclusión para la Configuración de OpenLDAP"
 
-#: ../schema/openldap/back_config.php:44
+#: ../schema/openldap/back_config.php:45
 msgid "OpenLDAP Global Configuration"
 msgstr "Configuración Global de OpenLDAP"
 
-#: ../schema/openldap/back_config.php:45
+#: ../schema/openldap/back_config.php:46
 msgid "OpenLDAP Module"
 msgstr "Módulo OpenLDAP"
+
+#: ../schema/openldap/back_config.php:55
+msgid "OpenLDAP Server Global Settings"
+msgstr "Configuración Global del Servidor OpenLDAP"
+
+#: ../schema/openldap/back_config.php:57
+msgid "Command Line Arguments File"
+msgstr "Archivo de Argumentos de Línea de Comandos"
+
+#: ../schema/openldap/back_config.php:58
+msgid "Process Identifier (PID) File"
+msgstr "Archivo de Identificador de Proceso (PID)"
+
+#: ../schema/openldap/back_config.php:59
+msgid "Log Level"
+msgstr "Nivel de Registro"
+
+#: ../schema/openldap/back_config.php:60
+msgid "Number of Tool Threads"
+msgstr "Número de Hilos de Herramientas"
+
+#: ../schema/openldap/back_config.php:63
+msgid "TLS Settings"
+msgstr "Configuración TLS"
+
+#: ../schema/openldap/back_config.php:65
+msgid "CA Certificate File"
+msgstr "Archivo de Certificado de CA"
+
+#: ../schema/openldap/back_config.php:66
+msgid "Server Certificate File"
+msgstr "Archivo del Certificado del Servidor"
+
+#: ../schema/openldap/back_config.php:67
+msgid "Server Certificate Key File"
+msgstr "Archivo de Clave de Certificado de Servidor"
+
+#: ../schema/openldap/back_config.php:75
+msgid "Object Name"
+msgstr "Nombre del Objeto"
+
+#: ../schema/openldap/back_config.php:76
+msgid "File Name"
+msgstr "Nombre del Archivo"
+
+#: ../schema/openldap/back_config.php:82
+msgid "Schema Name"
+msgstr "Nombre del Esquema"
+
+#: ../schema/openldap/back_config.php:87
+msgid "Object Identifier Macro Definitions"
+msgstr "Definiciones de Macro de Identificador de Objeto"
+
+#: ../schema/openldap/back_config.php:92
+msgid "Object Class Definitions"
+msgstr "Definiciones de Clase de Objeto"
+
+#: ../schema/openldap/back_config.php:97
+msgid "Attribute Type Definitions"
+msgstr "Definiciones de Tipo de Atributo"
+
+#: ../schema/openldap/back_config.php:107
+msgid "Child Objects"
+msgstr "Objetos para Niños"
+
+#: ../schema/openldap/back_config.php:115
+msgid "OpenLDAP Module List"
+msgstr "Lista de Módulos de OpenLDAP"
+
+#: ../schema/openldap/back_config.php:117
+msgid "Modules"
+msgstr "Módulos"
+
+#: ../schema/openldap/back_config.php:118
+msgid "Path"
+msgstr "Camino"
+
+#: ../schema/openldap/back_config.php:124
+#: ../schema/openldap/back_config.php:142
+msgid "Access Controls"
+msgstr "Controles de Acceso"
+
+#: ../schema/openldap/back_config.php:129
+msgid "Overlays"
+msgstr "Superposiciones"
+
+#: ../schema/openldap/back_config.php:137
+msgid "Front End Settings"
+msgstr "Ajustes Frontales"
+
+#: ../schema/openldap/back_config.php:139
+msgid "Size Limit"
+msgstr "Límite de Tamaño"
+
+#: ../schema/openldap/back_config.php:147
+msgid "Global Overlays"
+msgstr "Superposiciones Globales"
+
+#: ../schema/openldap/back_config.php:155
+msgid "Back End Configuration"
+msgstr "Configuración del Posterior"
+
+#: ../schema/openldap/back_config.php:157
+msgid "Back End Module"
+msgstr "Módulo Posterior"
