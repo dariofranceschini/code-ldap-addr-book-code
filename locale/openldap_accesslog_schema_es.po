@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-19 11:51+0000\n"
-"PO-Revision-Date: 2017-01-19 11:51+0000\n"
+"POT-Creation-Date: 2017-02-06 08:19+0000\n"
+"PO-Revision-Date: 2017-02-06 08:19+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -67,8 +67,8 @@ msgid "Request End Time"
 msgstr "Hora de Finalización de la Solicitud"
 
 #: ../schema/openldap/accesslog.php:22
-msgid "Modification Data"
-msgstr "Datos para la Modificación"
+msgid "Modification Details"
+msgstr "Detalles de la Modificación"
 
 #: ../schema/openldap/accesslog.php:23
 msgid "Old Values from Before Request Processed"

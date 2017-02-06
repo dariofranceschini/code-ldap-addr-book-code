@@ -19,7 +19,7 @@ class openldap_accesslog_schema extends ldap_schema
 			array("name"=>"reqDeleteOldRDN",		"data_type"=>"yes_no",		"display_name"=>gettext("Delete Old RDN")),
 			array("name"=>"reqDN",				"data_type"=>"dn",		"display_name"=>gettext("Request Target DN")),
 			array("name"=>"reqEnd",				"data_type"=>"date_time",	"display_name"=>gettext("Request End Time")),
-			array("name"=>"reqMod",				"data_type"=>"text_list",	"display_name"=>gettext("Modification Data")),
+			array("name"=>"reqMod",				"data_type"=>"text_list",	"display_name"=>gettext("Modification Details")),
 			array("name"=>"reqOld",				"data_type"=>"text_list",	"display_name"=>gettext("Old Values from Before Request Processed")),
 			array("name"=>"reqResult",			"data_type"=>"ldap_result",	"display_name"=>gettext("LDAP Result Code")),
 			array("name"=>"reqStart",			"data_type"=>"date_time",	"display_name"=>gettext("Request Start Time"))
