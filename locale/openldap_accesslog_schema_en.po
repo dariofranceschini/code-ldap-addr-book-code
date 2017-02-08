@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 08:19+0000\n"
-"PO-Revision-Date: 2017-02-06 08:19+0000\n"
+"POT-Creation-Date: 2017-02-08 08:24+0000\n"
+"PO-Revision-Date: 2017-02-08 08:24+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -337,8 +337,8 @@ msgid "Search Filter"
 msgstr "Search Filter"
 
 #: ../schema/openldap/accesslog.php:273
-msgid "Alias Dereferencing Behaviour"
-msgstr "Alias Dereferencing Behaviour"
+msgid "Alias Dereferencing Behavior"
+msgstr "Alias Dereferencing Behavior"
 
 #: ../schema/openldap/accesslog.php:274
 msgid "Maximum Number of Entries to be Returned"

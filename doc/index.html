@@ -48,7 +48,7 @@
     <li>Grant permissions based on LDAP group membership
     <li>Grant access to the Address Book based on LDAP group membership
     <li>Deny access to the Address Book for a specific user
-    <li>Changing the user DN search behaviour
+    <li>Changing the user DN search behavior
     </ol>
 <li><a href="#customising">Customising the Address Book</a>
   <ol>
@@ -754,7 +754,7 @@ account from being (mis)used to browse the address book:
 <p>
 <code>$ldap_server-&gt;add_user("Administrator",array("allow_login"=&gt;false));</code>
 </p>
-<h3>Changing the user DN search behaviour</h3>
+<h3>Changing the user DN search behavior</h3>
 <p>
 The LDAP Address Book searches the directory in order to
 determine a user's DN during the login process.
@@ -1450,7 +1450,7 @@ Users will not be able to create new objects of this class.
 or saved after editing.)
 </ul>
 <p>
-This default behaviour can be modifed and extended by defining the object or
+This default behavior can be modifed and extended by defining the object or
 attribute class (or enabling a schema file that defines it).
 </p>
 <p>
@@ -1821,11 +1821,11 @@ $ldap_server-&gt;add_user("__DEFAULT__",
 <tr><td><code>$search_method</code></td>
     <td>Specifies the search result matching method to be used.
     This setting is optional, included to allow users to restore
-    legacy search behaviour should they wish. Allowed values
+    legacy search behavior should they wish. Allowed values
     are:
     <dl>
-    <dt>1</dt><dd>match anywhere in string (default search behaviour)</dd>
-    <dt>2</dt><dd>match start of string only (behaviour like versions 0.20 and earlier)</dd>
+    <dt>1</dt><dd>match anywhere in string (default search behavior)</dd>
+    <dt>2</dt><dd>match start of string only (behavior like versions 0.20 and earlier)</dd>
     </dl>
     <p>
     Example:<br>

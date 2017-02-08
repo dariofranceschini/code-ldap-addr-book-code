@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 08:19+0000\n"
-"PO-Revision-Date: 2017-02-06 08:19+0000\n"
+"POT-Creation-Date: 2017-02-08 08:24+0000\n"
+"PO-Revision-Date: 2017-02-08 08:24+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -341,7 +341,7 @@ msgid "Search Filter"
 msgstr "Filtre de Recherche"
 
 #: ../schema/openldap/accesslog.php:273
-msgid "Alias Dereferencing Behaviour"
+msgid "Alias Dereferencing Behavior"
 msgstr "Comportement de Déréférencement d'Alias"
 
 #: ../schema/openldap/accesslog.php:274

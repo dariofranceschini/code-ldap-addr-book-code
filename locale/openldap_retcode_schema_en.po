@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-21 13:23+0000\n"
-"PO-Revision-Date: 2017-01-21 13:23+0000\n"
+"POT-Creation-Date: 2017-02-08 08:24+0000\n"
+"PO-Revision-Date: 2017-02-08 08:24+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -94,8 +94,8 @@ msgid "Description"
 msgstr "Description"
 
 #: ../schema/openldap/retcode.php:57
-msgid "Error Behaviour"
-msgstr "Error Behaviour"
+msgid "Error Behavior"
+msgstr "Error Behavior"
 
 #: ../schema/openldap/retcode.php:59
 msgid "Immediately Disconnect (Before Error)"

@@ -54,7 +54,7 @@ class openldap_retcode_schema extends ldap_schema
 					array("description",			gettext("Description"),						"description.png"),
 					)
 				),
-			array("section_name"=>gettext("Error Behaviour"),"new_row"=>true,
+			array("section_name"=>gettext("Error Behavior"),"new_row"=>true,
 				"attributes"=>array(
 					array("errDisconnect",			gettext("Immediately Disconnect (Before Error)"),		"generic24.png"),
 					array("errCode",			gettext("LDAP Error Code"),					"openldap/error.png"),

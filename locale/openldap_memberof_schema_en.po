@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 12:48+0000\n"
-"PO-Revision-Date: 2017-01-17 12:48+0000\n"
+"POT-Creation-Date: 2017-02-08 08:24+0000\n"
+"PO-Revision-Date: 2017-02-08 08:24+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -38,8 +38,8 @@ msgid "Member Of Attribute"
 msgstr "Member Of Attribute"
 
 #: ../schema/openldap/memberof.php:14 ../schema/openldap/memberof.php:32
-msgid "Dangling Reference Handling Behaviour"
-msgstr "Dangling Reference Handling Behaviour"
+msgid "Dangling Reference Handling Behavior"
+msgstr "Dangling Reference Handling Behavior"
 
 #: ../schema/openldap/memberof.php:15
 msgid "Dangling Reference Error Code"

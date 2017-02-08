@@ -11,7 +11,7 @@ class openldap_memberof_schema extends ldap_schema
 			array("name"=>"olcMemberOfGroupOC",		"data_type"=>"text",		"display_name"=>gettext("Group Object Class")),
 			array("name"=>"olcMemberOfMemberAD",		"data_type"=>"text",		"display_name"=>gettext("Group Member Attribute")),
 			array("name"=>"olcMemberOfMemberOfAD",		"data_type"=>"text",		"display_name"=>gettext("Member Of Attribute")),
-			array("name"=>"olcMemberOfDangling",		"data_type"=>"olc_dangling",	"display_name"=>gettext("Dangling Reference Handling Behaviour")),
+			array("name"=>"olcMemberOfDangling",		"data_type"=>"olc_dangling",	"display_name"=>gettext("Dangling Reference Handling Behavior")),
 			array("name"=>"olcMemberOfDanglingError",	"data_type"=>"ldap_result",	"display_name"=>gettext("Dangling Reference Error Code")),
 
 			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of"))
@@ -29,7 +29,7 @@ class openldap_memberof_schema extends ldap_schema
 					array("olcMemberOfGroupOC",		gettext("Group Object Class"),				"group24.png"),
 					array("olcMemberOfMemberAD",		gettext("Group Member Attribute"),			"user24.png"),
 					array("olcMemberOfMemberOfAD",		gettext("Member Of (Back Reference) Attribute"),	"user-alias24.png"),
-					array("olcMemberOfDangling",		gettext("Dangling Reference Handling Behaviour"),	"generic24.png"),
+					array("olcMemberOfDangling",		gettext("Dangling Reference Handling Behavior"),	"generic24.png"),
 					array("olcMemberOfDanglingError",	gettext("Dangling Reference Error Code (If Used)"),	"openldap/error.png"),
 					array("olcMemberOfRefInt",		gettext("Maintain Referential Integrity"),		"generic24.png")
 					),

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-21 13:23+0000\n"
-"PO-Revision-Date: 2017-01-21 13:23+0000\n"
+"POT-Creation-Date: 2017-02-08 08:24+0000\n"
+"PO-Revision-Date: 2017-02-08 08:24+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -94,7 +94,7 @@ msgid "Description"
 msgstr "Descrizione"
 
 #: ../schema/openldap/retcode.php:57
-msgid "Error Behaviour"
+msgid "Error Behavior"
 msgstr "Comportamento Errore"
 
 #: ../schema/openldap/retcode.php:59

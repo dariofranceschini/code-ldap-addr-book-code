@@ -3020,7 +3020,7 @@ class ldap_entry_list
 				// doesn't correspond to a single attribute,
 				// e.g. object has compound RDN.
 
-				/** @todo support for add_dn_value link type behaviour for objects with multi-attribute RDNs */
+				/** @todo support for add_dn_value link type behavior for objects with multi-attribute RDNs */
 				/** @todo ability to delete - not currently implemented for objects with multi-attribute RDNs */
 
 				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
@@ -4566,7 +4566,7 @@ class ldap_server
 		Array of schema settings
 
 	    @todo
-		behaviour if attribute already present (should update existing)
+		behavior if attribute already present (should update existing)
 	*/
 
 	function add_attribute_class($name,$settings = array())
@@ -4834,7 +4834,7 @@ class ldap_server
 
 		if(gettype($entry["objectclass"])=="array")
 		{
-			// behaviour on populate_for_create
+			// behavior on populate_for_create
 			$object_class = $this->get_object_class($entry);
 			$search_dn = $entry["dn"];
 
@@ -4843,7 +4843,7 @@ class ldap_server
 		}
 		else
 		{
-			// behaviour on before_create
+			// behavior on before_create
 			$object_class = $entry["objectclass"];
 			$search_dn = get_parent_dn($entry["dn"]);
 

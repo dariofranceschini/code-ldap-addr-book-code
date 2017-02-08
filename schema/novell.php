@@ -52,7 +52,7 @@ class novell_schema extends ldap_schema
 			// base schema - equivalents to core.schema classes
 			//
 			// (Person should be listed after inetOrgPerson but before externalEntity
-			// for correct inheritence behaviour)
+			// for correct inheritence behavior)
 			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"ndsLoginProperties"),
 
 			// Novell proprietary classes
