@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 08:24+0000\n"
-"PO-Revision-Date: 2017-02-08 08:24+0000\n"
+"POT-Creation-Date: 2017-02-11 10:05+0000\n"
+"PO-Revision-Date: 2017-02-11 10:05+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -116,8 +116,8 @@ msgid "User Authenticated Event"
 msgstr "Événement pour l'Utilisateur Authentifié"
 
 #: ../schema/openldap/accesslog.php:39
-msgid "Records Compared Event"
-msgstr "Événement pour l'Enregistrements Comparés"
+msgid "Attribute Values Compared Event"
+msgstr "Événement pour les Valeurs d'Attribut Comparées"
 
 #: ../schema/openldap/accesslog.php:40
 msgid "Record Deleted Event"
