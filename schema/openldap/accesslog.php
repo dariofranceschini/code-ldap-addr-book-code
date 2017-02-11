@@ -80,13 +80,13 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
 			array("section_name"=>gettext("Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("DN"),							"generic24.png")
+					array("reqDN",			gettext("DN"),							"alias.png")
 					)
 				),
 			array("section_name"=>gettext("Result"),"new_row"=>true,"colspan"=>2,
@@ -106,13 +106,13 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
 			array("section_name"=>gettext("Add Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("Entry Added"),						"generic24.png"),
+					array("reqDN",			gettext("Entry Added"),						"alias.png"),
 					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
 					array("reqMod",			gettext("Data"),						"generic24.png")
 					)
@@ -162,13 +162,13 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
 			array("section_name"=>gettext("Delete Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("Entry Deleted"),					"generic24.png"),
+					array("reqDN",			gettext("Entry Deleted"),					"alias.png"),
 					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
 					array("reqOld",			gettext("Data"),						"generic24.png")
 					)
@@ -190,13 +190,13 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
 			array("section_name"=>gettext("Modify Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("Object to be Modified"),				"generic24.png"),
+					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
 					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
 					)
 				),
@@ -222,13 +222,13 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
 			array("section_name"=>gettext("Modify RDN (Move/Rename) Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("Object to be Modified"),				"generic24.png"),
+					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
 					array("reqDeleteOldRDN",	gettext("Delete Old RDN"),					"generic24.png")
 					)
 				),
@@ -260,7 +260,7 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
 				"attributes"=>array(
-					array("reqAuthzID",		gettext("User"),						"generic24.png"),
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
 					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
 					)
 				),
