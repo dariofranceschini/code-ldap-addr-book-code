@@ -86,12 +86,8 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqDN",			gettext("DN"),							"alias.png")
-					)
-				),
-			array("section_name"=>gettext("Result"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					array("reqDN",			gettext("DN"),							"alias.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png")
 					)
 				)
 			));
@@ -113,17 +109,13 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Add Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Added"),					"alias.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png"),
 					array("reqEntryUUID",		gettext("UUID Assigned"),					"generic24.png")
 					)
 				),
 			array("section_name"=>gettext("Data Added"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqMod")
-					)
-				),
-			array("section_name"=>gettext("Add Entry Result"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
 					)
 				)
 			));
@@ -146,12 +138,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Bind Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqMethod",		gettext("Bind Method"),						"generic24.png"),
-					array("reqVersion",		gettext("LDAP Version"),					"generic24.png")
-					)
-				),
-			array("section_name"=>gettext("Bind Result"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					array("reqVersion",		gettext("LDAP Version"),					"generic24.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png")
 					)
 				)
 			));
@@ -173,17 +161,13 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Delete Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Deleted"),				"alias.png"),
-					array("reqEntryUUID",		gettext("UUID"),						"generic24.png")
+					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png")
 					)
 				),
 			array("section_name"=>gettext("Data Deleted"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqOld")
-					)
-				),
-			array("section_name"=>gettext("Delete Entry Result"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
 					)
 				)
 			));
@@ -205,7 +189,7 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Modify Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png")
+					array("reqResult",		gettext("Result"),						"openldap/error.png"),
 					)
 				),
 			array("section_name"=>gettext("Original Values"),"new_row"=>true,
@@ -237,7 +221,9 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Modify RDN (Move/Rename) Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
-					array("reqDeleteOldRDN",	gettext("Delete Old RDN"),					"generic24.png")
+					array("reqNewRDN",		gettext("New RDN to be Assigned"),				"generic24.png"),
+					array("reqDeleteOldRDN",	gettext("Delete Old RDN"),					"generic24.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png"),
 					)
 				),
 			array("section_name"=>gettext("Original Values"),"new_row"=>true,
@@ -248,12 +234,6 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Replacement Values"),
 				"attributes"=>array(
 					array("reqMod")
-					)
-				),
-			array("section_name"=>gettext("Modify RDN Result"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png"),
-					array("reqNewRDN",		gettext("New RDN to be Assigned"),				"generic24.png")
 					)
 				)
 			));
@@ -285,7 +265,7 @@ class openldap_accesslog_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Search Result"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("reqResult",		gettext("Outcome"),						"openldap/error.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png"),
 					array("reqEntries",		gettext("Number of Entries Returned"),				"generic24.png")
 					)
 				)

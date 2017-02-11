@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 10:48+0000\n"
-"PO-Revision-Date: 2017-02-11 10:48+0000\n"
+"POT-Creation-Date: 2017-02-11 11:27+0000\n"
+"PO-Revision-Date: 2017-02-11 11:27+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -46,7 +46,7 @@ msgstr "Configuración de la Eliminación de la Entrada del Registro Antiguo"
 msgid "Only Record Successful Operations"
 msgstr "Sólo Registrar Operaciones Exitosas"
 
-#: ../schema/openldap/accesslog.php:17 ../schema/openldap/accesslog.php:272
+#: ../schema/openldap/accesslog.php:17 ../schema/openldap/accesslog.php:260
 msgid "Return Attribute Type Names Only"
 msgstr "Devolver Nombres de Tipo de Atributo Solamente"
 
@@ -54,7 +54,7 @@ msgstr "Devolver Nombres de Tipo de Atributo Solamente"
 msgid "Authorization ID of Requestor"
 msgstr "ID de Autorización del Solicitante"
 
-#: ../schema/openldap/accesslog.php:19 ../schema/openldap/accesslog.php:232
+#: ../schema/openldap/accesslog.php:19 ../schema/openldap/accesslog.php:225
 msgid "Delete Old RDN"
 msgstr "Eliminar RDN Antiguo"
 
@@ -175,51 +175,51 @@ msgstr "Siempre Registre los Siguientes Atributos"
 msgid "When Objects Matching this LDAP Filter are Modified"
 msgstr "Cuando se Modifican Objetos que Coinciden con este Filtro LDAP"
 
-#: ../schema/openldap/accesslog.php:74 ../schema/openldap/accesslog.php:100
-#: ../schema/openldap/accesslog.php:128 ../schema/openldap/accesslog.php:156
-#: ../schema/openldap/accesslog.php:184 ../schema/openldap/accesslog.php:216
-#: ../schema/openldap/accesslog.php:254
+#: ../schema/openldap/accesslog.php:74 ../schema/openldap/accesslog.php:96
+#: ../schema/openldap/accesslog.php:124 ../schema/openldap/accesslog.php:148
+#: ../schema/openldap/accesslog.php:176 ../schema/openldap/accesslog.php:208
+#: ../schema/openldap/accesslog.php:242
 msgid "Event Details"
 msgstr "Detalles del Evento"
 
-#: ../schema/openldap/accesslog.php:76 ../schema/openldap/accesslog.php:102
-#: ../schema/openldap/accesslog.php:130 ../schema/openldap/accesslog.php:158
-#: ../schema/openldap/accesslog.php:186 ../schema/openldap/accesslog.php:218
-#: ../schema/openldap/accesslog.php:256
+#: ../schema/openldap/accesslog.php:76 ../schema/openldap/accesslog.php:98
+#: ../schema/openldap/accesslog.php:126 ../schema/openldap/accesslog.php:150
+#: ../schema/openldap/accesslog.php:178 ../schema/openldap/accesslog.php:210
+#: ../schema/openldap/accesslog.php:244
 msgid "Operation Type"
 msgstr "Tipo de Operación"
 
-#: ../schema/openldap/accesslog.php:77 ../schema/openldap/accesslog.php:103
-#: ../schema/openldap/accesslog.php:131 ../schema/openldap/accesslog.php:159
-#: ../schema/openldap/accesslog.php:187 ../schema/openldap/accesslog.php:219
-#: ../schema/openldap/accesslog.php:257
+#: ../schema/openldap/accesslog.php:77 ../schema/openldap/accesslog.php:99
+#: ../schema/openldap/accesslog.php:127 ../schema/openldap/accesslog.php:151
+#: ../schema/openldap/accesslog.php:179 ../schema/openldap/accesslog.php:211
+#: ../schema/openldap/accesslog.php:245
 msgid "Started"
 msgstr "Empezado"
 
-#: ../schema/openldap/accesslog.php:78 ../schema/openldap/accesslog.php:104
-#: ../schema/openldap/accesslog.php:132 ../schema/openldap/accesslog.php:160
-#: ../schema/openldap/accesslog.php:188 ../schema/openldap/accesslog.php:220
-#: ../schema/openldap/accesslog.php:258
+#: ../schema/openldap/accesslog.php:78 ../schema/openldap/accesslog.php:100
+#: ../schema/openldap/accesslog.php:128 ../schema/openldap/accesslog.php:152
+#: ../schema/openldap/accesslog.php:180 ../schema/openldap/accesslog.php:212
+#: ../schema/openldap/accesslog.php:246
 msgid "Ended"
 msgstr "Terminado"
 
-#: ../schema/openldap/accesslog.php:81 ../schema/openldap/accesslog.php:107
-#: ../schema/openldap/accesslog.php:135 ../schema/openldap/accesslog.php:163
-#: ../schema/openldap/accesslog.php:191 ../schema/openldap/accesslog.php:223
-#: ../schema/openldap/accesslog.php:261
+#: ../schema/openldap/accesslog.php:81 ../schema/openldap/accesslog.php:103
+#: ../schema/openldap/accesslog.php:131 ../schema/openldap/accesslog.php:155
+#: ../schema/openldap/accesslog.php:183 ../schema/openldap/accesslog.php:215
+#: ../schema/openldap/accesslog.php:249
 msgid "Requested By"
 msgstr "Solicitado por"
 
-#: ../schema/openldap/accesslog.php:83 ../schema/openldap/accesslog.php:109
-#: ../schema/openldap/accesslog.php:165 ../schema/openldap/accesslog.php:193
-#: ../schema/openldap/accesslog.php:225 ../schema/openldap/accesslog.php:263
+#: ../schema/openldap/accesslog.php:83 ../schema/openldap/accesslog.php:105
+#: ../schema/openldap/accesslog.php:157 ../schema/openldap/accesslog.php:185
+#: ../schema/openldap/accesslog.php:217 ../schema/openldap/accesslog.php:251
 msgid "User"
 msgstr "Usuario"
 
-#: ../schema/openldap/accesslog.php:84 ../schema/openldap/accesslog.php:110
-#: ../schema/openldap/accesslog.php:139 ../schema/openldap/accesslog.php:166
-#: ../schema/openldap/accesslog.php:194 ../schema/openldap/accesslog.php:226
-#: ../schema/openldap/accesslog.php:264
+#: ../schema/openldap/accesslog.php:84 ../schema/openldap/accesslog.php:106
+#: ../schema/openldap/accesslog.php:135 ../schema/openldap/accesslog.php:158
+#: ../schema/openldap/accesslog.php:186 ../schema/openldap/accesslog.php:218
+#: ../schema/openldap/accesslog.php:252
 msgid "Session ID"
 msgstr "ID de Sesión"
 
@@ -231,137 +231,117 @@ msgstr "Solicitud"
 msgid "DN"
 msgstr "DN"
 
-#: ../schema/openldap/accesslog.php:92
+#: ../schema/openldap/accesslog.php:90 ../schema/openldap/accesslog.php:112
+#: ../schema/openldap/accesslog.php:142 ../schema/openldap/accesslog.php:165
+#: ../schema/openldap/accesslog.php:192 ../schema/openldap/accesslog.php:226
+#: ../schema/openldap/accesslog.php:268
 msgid "Result"
 msgstr "Resultado"
 
-#: ../schema/openldap/accesslog.php:94 ../schema/openldap/accesslog.php:122
-#: ../schema/openldap/accesslog.php:150 ../schema/openldap/accesslog.php:178
-#: ../schema/openldap/accesslog.php:200 ../schema/openldap/accesslog.php:247
-#: ../schema/openldap/accesslog.php:280
-msgid "Outcome"
-msgstr "Consecuencia"
-
-#: ../schema/openldap/accesslog.php:113
+#: ../schema/openldap/accesslog.php:109
 msgid "Add Entry Request"
 msgstr "Solicitud para Agregar Entrada"
 
-#: ../schema/openldap/accesslog.php:115
+#: ../schema/openldap/accesslog.php:111
 msgid "Object to be Added"
 msgstr "Objeto a Añadir"
 
-#: ../schema/openldap/accesslog.php:116
+#: ../schema/openldap/accesslog.php:113
 msgid "UUID Assigned"
 msgstr "UUID Asignado"
 
-#: ../schema/openldap/accesslog.php:117
+#: ../schema/openldap/accesslog.php:116
 msgid "Data Added"
 msgstr "Datos Agregados"
 
-#: ../schema/openldap/accesslog.php:120
-msgid "Add Entry Result"
-msgstr "Resultado de la Adición de Entrada"
-
-#: ../schema/openldap/accesslog.php:138
+#: ../schema/openldap/accesslog.php:134
 msgid "User (Bind DN)"
 msgstr "Usuario (Enlace DN)"
 
-#: ../schema/openldap/accesslog.php:142
+#: ../schema/openldap/accesslog.php:138
 msgid "Bind Request"
 msgstr "Solicitud de Enlace"
 
-#: ../schema/openldap/accesslog.php:144
+#: ../schema/openldap/accesslog.php:140
 msgid "Bind Method"
 msgstr "Método de Enlace"
 
-#: ../schema/openldap/accesslog.php:145
+#: ../schema/openldap/accesslog.php:141
 msgid "LDAP Version"
 msgstr "Versión LDAP"
 
-#: ../schema/openldap/accesslog.php:148
-msgid "Bind Result"
-msgstr "Resultado del Enlace"
-
-#: ../schema/openldap/accesslog.php:169
+#: ../schema/openldap/accesslog.php:161
 msgid "Delete Entry Request"
 msgstr "Solicitud para Eliminar Entrada"
 
-#: ../schema/openldap/accesslog.php:171
+#: ../schema/openldap/accesslog.php:163
 msgid "Object to be Deleted"
 msgstr "Objeto que se va a Eliminar"
 
-#: ../schema/openldap/accesslog.php:172
+#: ../schema/openldap/accesslog.php:164
 msgid "UUID"
 msgstr "UUID"
 
-#: ../schema/openldap/accesslog.php:173
+#: ../schema/openldap/accesslog.php:168
 msgid "Data Deleted"
 msgstr "Datos Eliminados"
 
-#: ../schema/openldap/accesslog.php:176
-msgid "Delete Entry Result"
-msgstr "Resultado de la Eliminación de la Entrada"
-
-#: ../schema/openldap/accesslog.php:197
+#: ../schema/openldap/accesslog.php:189
 msgid "Modify Request"
 msgstr "Modificar Solicitud"
 
-#: ../schema/openldap/accesslog.php:199 ../schema/openldap/accesslog.php:231
+#: ../schema/openldap/accesslog.php:191 ../schema/openldap/accesslog.php:223
 msgid "Object to be Modified"
 msgstr "Objeto a Modificar"
 
-#: ../schema/openldap/accesslog.php:203 ../schema/openldap/accesslog.php:235
+#: ../schema/openldap/accesslog.php:195 ../schema/openldap/accesslog.php:229
 msgid "Original Values"
 msgstr "Valores Originales"
 
-#: ../schema/openldap/accesslog.php:208 ../schema/openldap/accesslog.php:240
+#: ../schema/openldap/accesslog.php:200 ../schema/openldap/accesslog.php:234
 msgid "Replacement Values"
 msgstr "Valores de Reemplazo"
 
-#: ../schema/openldap/accesslog.php:229
+#: ../schema/openldap/accesslog.php:221
 msgid "Modify RDN (Move/Rename) Request"
 msgstr "Solicitud de Modificación de RDN (Mover / Renombrar)"
 
-#: ../schema/openldap/accesslog.php:245
-msgid "Modify RDN Result"
-msgstr "Resultado de la Modificación de RDN"
-
-#: ../schema/openldap/accesslog.php:248
+#: ../schema/openldap/accesslog.php:224
 msgid "New RDN to be Assigned"
 msgstr "Nuevo RDN a Asignar"
 
-#: ../schema/openldap/accesslog.php:267
+#: ../schema/openldap/accesslog.php:255
 msgid "Search Request"
 msgstr "Solicitud de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:269
+#: ../schema/openldap/accesslog.php:257
 msgid "Search Base"
 msgstr "Base de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:270
+#: ../schema/openldap/accesslog.php:258
 msgid "Search Scope"
 msgstr "Alcance de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:271
+#: ../schema/openldap/accesslog.php:259
 msgid "Search Filter"
 msgstr "Filtro de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:273
+#: ../schema/openldap/accesslog.php:261
 msgid "Alias Dereferencing Behavior"
 msgstr "Comportamiento de Desreferenciación de Alias"
 
-#: ../schema/openldap/accesslog.php:274
+#: ../schema/openldap/accesslog.php:262
 msgid "Maximum Number of Entries to be Returned"
 msgstr "Número Máximo de Entradas a Devolver"
 
-#: ../schema/openldap/accesslog.php:275
+#: ../schema/openldap/accesslog.php:263
 msgid "Maximum Search Time (s)"
 msgstr "Tiempo Máximo de Búsqueda (s)"
 
-#: ../schema/openldap/accesslog.php:278
+#: ../schema/openldap/accesslog.php:266
 msgid "Search Result"
 msgstr "Resultado de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:281
+#: ../schema/openldap/accesslog.php:269
 msgid "Number of Entries Returned"
 msgstr "Número de Entradas Devueltas"
