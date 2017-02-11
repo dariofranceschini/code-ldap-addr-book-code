@@ -31,17 +31,17 @@ class openldap_accesslog_schema extends ldap_schema
 
 			array("name"=>"auditContainer",			"icon"=>"openldap/audit-container.png",		"is_folder"=>true,"display_name"=>gettext("AuditLog Container")),
 			array("name"=>"auditObject",			"icon"=>"document.png",				"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Auditing Event"),"required_attribs"=>"reqType,reqSession"),
-			array("name"=>"auditReadObject",		"icon"=>"document.png",				"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Auditing Read Event"),"required_attribs"=>"reqType,reqSession"),
-			array("name"=>"auditWriteObject",		"icon"=>"document.png",				"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Auditing Write Event"),"required_attribs"=>"reqType,reqSession"),
-			array("name"=>"auditAbandon",			"icon"=>"openldap/audit-abandon.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Abandoned Operation Event"),"required_attribs"=>"reqType,reqSession,reqID"),
-			array("name"=>"auditAdd",			"icon"=>"openldap/audit-add.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Added Event"),"required_attribs"=>"reqType,reqSession,reqMod"),
-			array("name"=>"auditBind",			"icon"=>"openldap/audit-bind.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("User Authenticated Event"),"required_attribs"=>"reqType,reqSession,reqVersion,reqMethod"),
-			array("name"=>"auditCompare",			"icon"=>"openldap/audit-compare.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Attribute Values Compared Event"),"required_attribs"=>"reqType,reqSession,reqAssertion"),
-			array("name"=>"auditDelete",			"icon"=>"openldap/audit-delete.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Deleted Event"),"required_attribs"=>"reqType,reqSession"),
-			array("name"=>"auditModify",			"icon"=>"document-edit.png",			"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Attributes Modified Event"),"required_attribs"=>"reqType,reqSession,reqMod"),
-			array("name"=>"auditModRDN",			"icon"=>"openldap/audit-rename.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Moved/Renamed Event"),"required_attribs"=>"reqType,reqSession,reqNewRDN,reqDeleteOldRDN"),
-			array("name"=>"auditSearch",			"icon"=>"openldap/audit-search.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Records Searched Event"),"required_attribs"=>"reqType,reqSession,reqScope,reqDerefAliases,reqAttrsOnly"),
-			array("name"=>"auditExtended",			"icon"=>"config-file.png",			"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Extended Operation Event"),"required_attribs"=>"reqType,reqSession")
+			array("name"=>"auditReadObject",		"icon"=>"document.png",				"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Auditing Read Event"),"required_attribs"=>"reqType,reqSession","parent_class"=>"auditObject"),
+			array("name"=>"auditWriteObject",		"icon"=>"document.png",				"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Auditing Write Event"),"required_attribs"=>"reqType,reqSession","parent_class"=>"auditObject"),
+			array("name"=>"auditAbandon",			"icon"=>"openldap/audit-abandon.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Abandoned Operation Event"),"required_attribs"=>"reqType,reqSession,reqID","parent_class"=>"auditObject"),
+			array("name"=>"auditAdd",			"icon"=>"openldap/audit-add.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Added Event"),"required_attribs"=>"reqType,reqSession,reqMod","parent_class"=>"auditWriteObject"),
+			array("name"=>"auditBind",			"icon"=>"openldap/audit-bind.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("User Authenticated Event"),"required_attribs"=>"reqType,reqSession,reqVersion,reqMethod","parent_class"=>"auditObject"),
+			array("name"=>"auditCompare",			"icon"=>"openldap/audit-compare.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Attribute Values Compared Event"),"required_attribs"=>"reqType,reqSession,reqAssertion","parent_class"=>"auditReadObject"),
+			array("name"=>"auditDelete",			"icon"=>"openldap/audit-delete.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Deleted Event"),"required_attribs"=>"reqType,reqSession","parent_class"=>"auditWriteObject"),
+			array("name"=>"auditModify",			"icon"=>"document-edit.png",			"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Attributes Modified Event"),"required_attribs"=>"reqType,reqSession,reqMod","parent_class"=>"auditWriteObject"),
+			array("name"=>"auditModRDN",			"icon"=>"openldap/audit-rename.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Record Moved/Renamed Event"),"required_attribs"=>"reqType,reqSession,reqNewRDN,reqDeleteOldRDN","parent_class"=>"auditWriteObject"),
+			array("name"=>"auditSearch",			"icon"=>"openldap/audit-search.png",		"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Records Searched Event"),"required_attribs"=>"reqType,reqSession,reqScope,reqDerefAliases,reqAttrsOnly","parent_class"=>"auditReadObject"),
+			array("name"=>"auditExtended",			"icon"=>"config-file.png",			"is_folder"=>false,"rdn_attrib"=>"reqStart","display_name"=>gettext("Extended Operation Event"),"required_attribs"=>"reqType,reqSession","parent_class"=>"auditObject")
 			);
 
 		$ldap_server->add_display_layout("olcAccessLogConfig",array(
