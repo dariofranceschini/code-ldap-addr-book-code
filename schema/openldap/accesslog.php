@@ -293,7 +293,7 @@ class openldap_accesslog_schema extends ldap_schema
 		// override the schema-defined data type that the access log database's DN can be typed in
 		$ldap_server->modify_attribute_schema("olcAccessLogDB","data_type","text");
 
-		$this->add_attrib_value($ldap_server,$entry,"olcAccessLogOps","all");
+		$this->add_attrib_value($ldap_server,$entry,"olcAccessLogOps","writes");
 		$this->add_attrib_value($ldap_server,$entry,"olcAccessLogOld","(objectClass=*)");
 		$this->add_attrib_value($ldap_server,$entry,"olcAccessLogOldAttr","cn");
 		$this->add_attrib_value($ldap_server,$entry,"olcAccessLogPurge","30+00:00 1+00:00");	// 30 day log retention, housekeeping every 1 day
