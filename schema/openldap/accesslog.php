@@ -113,8 +113,12 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Add Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Added"),					"alias.png"),
-					array("reqEntryUUID",		gettext("UUID Assigned"),					"generic24.png"),
-					array("reqMod",			gettext("Data Added"),						"generic24.png"),
+					array("reqEntryUUID",		gettext("UUID Assigned"),					"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Data Added"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqMod")
 					)
 				),
 			array("section_name"=>gettext("Add Entry Result"),"new_row"=>true,"colspan"=>2,
@@ -169,8 +173,12 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Delete Entry Request"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Deleted"),				"alias.png"),
-					array("reqEntryUUID",		gettext("UUID"),						"generic24.png"),
-					array("reqOld",			gettext("Data Deleted"),					"generic24.png")
+					array("reqEntryUUID",		gettext("UUID"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Data Deleted"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqOld")
 					)
 				),
 			array("section_name"=>gettext("Delete Entry Result"),"new_row"=>true,"colspan"=>2,
