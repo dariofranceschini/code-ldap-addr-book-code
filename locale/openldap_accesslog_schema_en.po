@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 10:05+0000\n"
-"PO-Revision-Date: 2017-02-11 10:05+0000\n"
+"POT-Creation-Date: 2017-02-11 10:48+0000\n"
+"PO-Revision-Date: 2017-02-11 10:48+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -245,16 +245,16 @@ msgid "Add Entry Request"
 msgstr "Add Entry Request"
 
 #: ../schema/openldap/accesslog.php:115
-msgid "Entry Added"
-msgstr "Entry Added"
+msgid "Object to be Added"
+msgstr "Object to be Added"
 
-#: ../schema/openldap/accesslog.php:116 ../schema/openldap/accesslog.php:172
-msgid "UUID"
-msgstr "UUID"
+#: ../schema/openldap/accesslog.php:116
+msgid "UUID Assigned"
+msgstr "UUID Assigned"
 
-#: ../schema/openldap/accesslog.php:117 ../schema/openldap/accesslog.php:173
-msgid "Data"
-msgstr "Data"
+#: ../schema/openldap/accesslog.php:117
+msgid "Data Added"
+msgstr "Data Added"
 
 #: ../schema/openldap/accesslog.php:120
 msgid "Add Entry Result"
@@ -285,8 +285,16 @@ msgid "Delete Entry Request"
 msgstr "Delete Entry Request"
 
 #: ../schema/openldap/accesslog.php:171
-msgid "Entry Deleted"
-msgstr "Entry Deleted"
+msgid "Object to be Deleted"
+msgstr "Object to be Deleted"
+
+#: ../schema/openldap/accesslog.php:172
+msgid "UUID"
+msgstr "UUID"
+
+#: ../schema/openldap/accesslog.php:173
+msgid "Data Deleted"
+msgstr "Data Deleted"
 
 #: ../schema/openldap/accesslog.php:176
 msgid "Delete Entry Result"
@@ -317,8 +325,8 @@ msgid "Modify RDN Result"
 msgstr "Modify RDN Result"
 
 #: ../schema/openldap/accesslog.php:248
-msgid "New RDN"
-msgstr "New RDN"
+msgid "New RDN to be Assigned"
+msgstr "New RDN to be Assigned"
 
 #: ../schema/openldap/accesslog.php:267
 msgid "Search Request"

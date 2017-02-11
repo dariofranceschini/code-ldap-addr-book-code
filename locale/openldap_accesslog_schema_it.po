@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 10:05+0000\n"
-"PO-Revision-Date: 2017-02-11 10:05+0000\n"
+"POT-Creation-Date: 2017-02-11 10:48+0000\n"
+"PO-Revision-Date: 2017-02-11 10:48+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -246,16 +246,16 @@ msgid "Add Entry Request"
 msgstr "Richiesta a Aggiungi Voce"
 
 #: ../schema/openldap/accesslog.php:115
-msgid "Entry Added"
-msgstr "Registrazione Aggiunto"
+msgid "Object to be Added"
+msgstr "Oggetto da Aggiunto"
 
-#: ../schema/openldap/accesslog.php:116 ../schema/openldap/accesslog.php:172
-msgid "UUID"
-msgstr "UUID"
+#: ../schema/openldap/accesslog.php:116
+msgid "UUID Assigned"
+msgstr "UUID Assegnato"
 
-#: ../schema/openldap/accesslog.php:117 ../schema/openldap/accesslog.php:173
-msgid "Data"
-msgstr "Dati"
+#: ../schema/openldap/accesslog.php:117
+msgid "Data Added"
+msgstr "Dati Aggiunto"
 
 #: ../schema/openldap/accesslog.php:120
 msgid "Add Entry Result"
@@ -286,8 +286,16 @@ msgid "Delete Entry Request"
 msgstr "Richiesta a Elimina Voce"
 
 #: ../schema/openldap/accesslog.php:171
-msgid "Entry Deleted"
-msgstr "Voce Eliminata"
+msgid "Object to be Deleted"
+msgstr "Oggetto da Eliminare"
+
+#: ../schema/openldap/accesslog.php:172
+msgid "UUID"
+msgstr "UUID"
+
+#: ../schema/openldap/accesslog.php:173
+msgid "Data Deleted"
+msgstr "Dati Eliminato"
 
 #: ../schema/openldap/accesslog.php:176
 msgid "Delete Entry Result"
@@ -318,8 +326,8 @@ msgid "Modify RDN Result"
 msgstr "Risultato della Modifica RDN"
 
 #: ../schema/openldap/accesslog.php:248
-msgid "New RDN"
-msgstr "Nuovo RDN"
+msgid "New RDN to be Assigned"
+msgstr "Nuovo RDN da Assegnato"
 
 #: ../schema/openldap/accesslog.php:267
 msgid "Search Request"
