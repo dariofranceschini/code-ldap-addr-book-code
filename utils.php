@@ -1024,6 +1024,7 @@ class ldap_attribute
 			case "openldap_backend":$this->show_openldap_backend();	break;
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
+			case "alias_deref":	$this->show_alias_deref();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1272,6 +1273,20 @@ class ldap_attribute
 				array("value"=>"one","display_name"=>gettext("Single Level")),
 				array("value"=>"sub","display_name"=>gettext("Whole Subtree")),
 				array("value"=>"subord","display_name"=>gettext("Subordinate Subtree"))
+				)
+			);
+	}
+
+	/** Show alias dereferencing behaviour attribute (data type "alias_deref") */
+
+	function show_alias_deref()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"never","display_name"=>gettext("Never dereference aliases")),
+				array("value"=>"searching","display_name"=>gettext("Dereference aliases when searching")),
+				array("value"=>"finding","display_name"=>gettext("Dereference aliases to find the base object for the search")),
+				array("value"=>"always","display_name"=>gettext("Always dereference aliases"))
 				)
 			);
 	}
