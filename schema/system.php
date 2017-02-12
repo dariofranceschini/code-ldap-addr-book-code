@@ -12,7 +12,7 @@ class system_schema extends ldap_schema
 			array("name"=>"supportedControl",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Controls")),
 			array("name"=>"supportedExtension",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Extended Operations")),
 			array("name"=>"supportedFeatures",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Features")),
-			array("name"=>"supportedLDAPVersion",		"data_type"=>"text_list",	"display_name"=>gettext("Supported LDAP Versions")),
+			array("name"=>"supportedLDAPVersion",		"data_type"=>"ldap_version",	"display_name"=>gettext("Supported LDAP Versions")),
 			array("name"=>"supportedSASLMechanisms",	"data_type"=>"text_list",	"display_name"=>gettext("Supported SASL Mechanisms")),
 
 			// Schema definition attributes
