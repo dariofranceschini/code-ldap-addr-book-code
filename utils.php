@@ -1023,6 +1023,7 @@ class ldap_attribute
 			case "openldap_module":	$this->show_openldap_module();	break;
 			case "openldap_backend":$this->show_openldap_backend();	break;
 			case "ldap_version":	$this->show_ldap_version();	break;
+			case "search_scope":	$this->show_search_scope();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1255,6 +1256,24 @@ class ldap_attribute
 				}
 			echo "</ul>";
 		}
+	}
+
+	/** Show LDAP search scope attribute (data type "search_scope")
+
+	    @see http://www.ietf.org/rfc/rfc4516.txt
+	    @see https://tools.ietf.org/html/draft-sermersheim-ldap-subordinate-scope-02
+	*/
+
+	function show_search_scope()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"base","display_name"=>gettext("Base Object Only")),
+				array("value"=>"one","display_name"=>gettext("Single Level")),
+				array("value"=>"sub","display_name"=>gettext("Whole Subtree")),
+				array("value"=>"subord","display_name"=>gettext("Subordinate Subtree"))
+				)
+			);
 	}
 
 	/** Show mailPreferenceOption attribute (data type "use_html_mail")
