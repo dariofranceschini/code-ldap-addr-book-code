@@ -1022,6 +1022,7 @@ class ldap_attribute
 			case "oid_macro_list":	$this->show_oid_macro_list();	break;
 			case "openldap_module":	$this->show_openldap_module();	break;
 			case "openldap_backend":$this->show_openldap_backend();	break;
+			case "ldap_version":	$this->show_ldap_version();	break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1224,6 +1225,36 @@ class ldap_attribute
 			$codes[] = array("value"=>$code,"display_name"=>$name);
 
 		$this->show_enum($codes);
+	}
+
+	/** Show LDAP version attribute (data type "ldap_version")
+
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Support editing
+	*/
+
+	function show_ldap_version()
+	{
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+		{
+			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					switch($value)
+					{
+						case "1": $display_value = gettext("LDAP v1"); break;	// rarely used
+						case "2": $display_value = gettext("LDAP v2"); break;
+						case "3": $display_value = gettext("LDAP v3"); break;
+						default: $display_value = gettext("Unrecognised value:") . " " . $value;
+					}
+					echo "<li>" . urls_to_links(htmlentities($display_value,ENT_COMPAT,"UTF-8")) . "</li>";
+				}
+			echo "</ul>";
+		}
 	}
 
 	/** Show mailPreferenceOption attribute (data type "use_html_mail")
