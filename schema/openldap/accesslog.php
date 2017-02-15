@@ -249,6 +249,7 @@ class openldap_accesslog_schema extends ldap_schema
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
 					array("reqNewRDN",		gettext("New RDN to be Assigned"),				"generic24.png"),
+					array("reqNewSuperior",		gettext("New Location to be Assigned"),				"generic24.png"),
 					array("reqDeleteOldRDN",	gettext("Delete Old RDN"),					"generic24.png"),
 					array("reqResult",		gettext("Result"),						"openldap/error.png"),
 					)
