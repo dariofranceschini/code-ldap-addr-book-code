@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 13:43+0000\n"
-"PO-Revision-Date: 2017-02-15 13:43+0000\n"
+"POT-Creation-Date: 2017-02-15 13:51+0000\n"
+"PO-Revision-Date: 2017-02-15 13:51+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -431,3 +431,7 @@ msgstr "Received with Response"
 #: ../schema/openldap/accesslog.php:301
 msgid "Search Result"
 msgstr "Search Result"
+
+#: ../schema/openldap/accesslog.php:305
+msgid "Referral URLs"
+msgstr "Referral URLs"

@@ -301,7 +301,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Search Result"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqResult",		gettext("Result"),						"openldap/error.png"),
-					array("reqEntries",		gettext("Number of Entries Returned"),				"generic24.png")
+					array("reqEntries",		gettext("Number of Entries Returned"),				"generic24.png"),
+					array("reqReferral",		gettext("Referral URLs"),					"generic24.png")
 					)
 				)
 			));

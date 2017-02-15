@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 13:43+0000\n"
-"PO-Revision-Date: 2017-02-15 13:43+0000\n"
+"POT-Creation-Date: 2017-02-15 13:51+0000\n"
+"PO-Revision-Date: 2017-02-15 13:51+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -432,3 +432,7 @@ msgstr "Ricevuto con Risposta"
 #: ../schema/openldap/accesslog.php:301
 msgid "Search Result"
 msgstr "Risultato della Ricerca"
+
+#: ../schema/openldap/accesslog.php:305
+msgid "Referral URLs"
+msgstr "URL dei Referenti"
