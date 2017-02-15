@@ -285,6 +285,7 @@ class openldap_accesslog_schema extends ldap_schema
 					array("reqDN",			gettext("Search Base"),						"generic24.png"),
 					array("reqScope",		gettext("Search Scope"),					"generic24.png"),
 					array("reqFilter",		gettext("Search Filter"),					"generic24.png"),
+					array("reqAttr",		gettext("Requested Attributes List"),				"generic24.png"),
 					array("reqAttrsOnly",		gettext("Return Attribute Type Names Only"),			"generic24.png"),
 					array("reqDerefAliases",	gettext("Alias Dereferencing Behavior"),			"generic24.png"),
 					array("reqSizeLimit",		gettext("Maximum Number of Entries to be Returned"),		"generic24.png"),

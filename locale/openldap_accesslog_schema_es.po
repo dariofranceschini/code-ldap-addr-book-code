@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 13:29+0000\n"
-"PO-Revision-Date: 2017-02-15 13:29+0000\n"
+"POT-Creation-Date: 2017-02-15 13:37+0000\n"
+"PO-Revision-Date: 2017-02-15 13:37+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -58,7 +58,7 @@ msgstr "Aserción de Valor de Atributo"
 msgid "Requested Attribute"
 msgstr "Atributo Solicitado"
 
-#: ../schema/openldap/accesslog.php:24 ../schema/openldap/accesslog.php:288
+#: ../schema/openldap/accesslog.php:24 ../schema/openldap/accesslog.php:289
 msgid "Return Attribute Type Names Only"
 msgstr "Devolver Nombres de Tipo de Atributo Solamente"
 
@@ -78,7 +78,7 @@ msgstr "Datos de Solicitud Ampliada"
 msgid "Delete Old RDN"
 msgstr "Eliminar RDN Antiguo"
 
-#: ../schema/openldap/accesslog.php:29 ../schema/openldap/accesslog.php:289
+#: ../schema/openldap/accesslog.php:29 ../schema/openldap/accesslog.php:290
 msgid "Alias Dereferencing Behavior"
 msgstr "Comportamiento de Desreferenciación de Alias"
 
@@ -90,7 +90,7 @@ msgstr "DN Objetivo de la Solicitud"
 msgid "Request End Time"
 msgstr "Hora de Finalización de la Solicitud"
 
-#: ../schema/openldap/accesslog.php:32 ../schema/openldap/accesslog.php:297
+#: ../schema/openldap/accesslog.php:32 ../schema/openldap/accesslog.php:298
 msgid "Number of Entries Returned"
 msgstr "Número de Entradas Devueltas"
 
@@ -153,7 +153,7 @@ msgstr "Alcance de la Solicitud"
 msgid "Session ID"
 msgstr "ID de Sesión"
 
-#: ../schema/openldap/accesslog.php:47 ../schema/openldap/accesslog.php:290
+#: ../schema/openldap/accesslog.php:47 ../schema/openldap/accesslog.php:291
 msgid "Maximum Number of Entries to be Returned"
 msgstr "Número Máximo de Entradas a Devolver"
 
@@ -318,7 +318,7 @@ msgstr "DN"
 #: ../schema/openldap/accesslog.php:116 ../schema/openldap/accesslog.php:138
 #: ../schema/openldap/accesslog.php:168 ../schema/openldap/accesslog.php:191
 #: ../schema/openldap/accesslog.php:218 ../schema/openldap/accesslog.php:254
-#: ../schema/openldap/accesslog.php:296
+#: ../schema/openldap/accesslog.php:297
 msgid "Result"
 msgstr "Resultado"
 
@@ -410,10 +410,14 @@ msgstr "Alcance de Búsqueda"
 msgid "Search Filter"
 msgstr "Filtro de Búsqueda"
 
-#: ../schema/openldap/accesslog.php:291
+#: ../schema/openldap/accesslog.php:288
+msgid "Requested Attributes List"
+msgstr "Lista de Atributos Solicitados"
+
+#: ../schema/openldap/accesslog.php:292
 msgid "Maximum Search Time (s)"
 msgstr "Tiempo Máximo de Búsqueda (s)"
 
-#: ../schema/openldap/accesslog.php:294
+#: ../schema/openldap/accesslog.php:295
 msgid "Search Result"
 msgstr "Resultado de Búsqueda"
