@@ -96,6 +96,24 @@ class openldap_accesslog_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("auditContainer",array(
+			array("section_name"=>gettext("Access Log Name"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("cn")
+					)
+				),
+			array("section_name"=>gettext("Start"),"new_row"=>true,
+				"attributes"=>array(
+					array("reqStart")
+					)
+				),
+			array("section_name"=>gettext("End"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqEnd")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("auditObject",array(
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
@@ -327,6 +345,11 @@ class openldap_accesslog_schema extends ldap_schema
 	function before_create_olcAccessLogConfig(&$ldap_server,&$entry)
 	{
 		$ldap_server->ensure_openldap_module_loaded("accesslog");
+	}
+
+	function populate_for_create_auditContainer(&$ldap_server,&$entry)
+	{
+		$this->add_attrib_value($ldap_server,$entry,"reqStart",gmdate("YmdHis.u") . "Z");
 	}
 }
 ?>
