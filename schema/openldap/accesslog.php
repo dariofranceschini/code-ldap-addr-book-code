@@ -292,6 +292,12 @@ class openldap_accesslog_schema extends ldap_schema
 					array("reqTimeLimit",		gettext("Maximum Search Time (s)"),				"generic24.png")
 					)
 				),
+			array("section_name"=>gettext("Controls"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqControls",		gettext("Sent with Request"),					"generic24.png"),
+					array("reqRespControls",	gettext("Received with Response"),				"generic24.png")
+					)
+				),
 			array("section_name"=>gettext("Search Result"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqResult",		gettext("Result"),						"openldap/error.png"),

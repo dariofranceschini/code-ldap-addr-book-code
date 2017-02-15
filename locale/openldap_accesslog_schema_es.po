@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 13:37+0000\n"
-"PO-Revision-Date: 2017-02-15 13:37+0000\n"
+"POT-Creation-Date: 2017-02-15 13:43+0000\n"
+"PO-Revision-Date: 2017-02-15 13:43+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -90,7 +90,7 @@ msgstr "DN Objetivo de la Solicitud"
 msgid "Request End Time"
 msgstr "Hora de Finalización de la Solicitud"
 
-#: ../schema/openldap/accesslog.php:32 ../schema/openldap/accesslog.php:298
+#: ../schema/openldap/accesslog.php:32 ../schema/openldap/accesslog.php:304
 msgid "Number of Entries Returned"
 msgstr "Número de Entradas Devueltas"
 
@@ -318,7 +318,7 @@ msgstr "DN"
 #: ../schema/openldap/accesslog.php:116 ../schema/openldap/accesslog.php:138
 #: ../schema/openldap/accesslog.php:168 ../schema/openldap/accesslog.php:191
 #: ../schema/openldap/accesslog.php:218 ../schema/openldap/accesslog.php:254
-#: ../schema/openldap/accesslog.php:297
+#: ../schema/openldap/accesslog.php:303
 msgid "Result"
 msgstr "Resultado"
 
@@ -419,5 +419,17 @@ msgid "Maximum Search Time (s)"
 msgstr "Tiempo Máximo de Búsqueda (s)"
 
 #: ../schema/openldap/accesslog.php:295
+msgid "Controls"
+msgstr "Controles"
+
+#: ../schema/openldap/accesslog.php:297
+msgid "Sent with Request"
+msgstr "Enviada con Solicitud"
+
+#: ../schema/openldap/accesslog.php:298
+msgid "Received with Response"
+msgstr "Recibido con Respuesta"
+
+#: ../schema/openldap/accesslog.php:301
 msgid "Search Result"
 msgstr "Resultado de Búsqueda"
