@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Access Logging Overlay On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Access Logging Overlay On-Line Configuration (OLC) schema */
 
 class openldap_accesslog_schema extends ldap_schema
 {
@@ -14,15 +14,38 @@ class openldap_accesslog_schema extends ldap_schema
 			array("name"=>"olcAccessLogPurge",		"data_type"=>"text",		"display_name"=>gettext("Old Log Entry Removal Settings")),
 			array("name"=>"olcAccessLogSuccess",		"data_type"=>"yes_no",		"display_name"=>gettext("Only Record Successful Operations")),
 
+			array("name"=>"auditContext",			"data_type"=>"dn",		"display_name"=>gettext("Auditing Log Naming Context")),
+
+			array("name"=>"reqAssertion",			"data_type"=>"text_list",	"display_name"=>gettext("Attribute Value Assertion")),
+			array("name"=>"reqAttr",			"data_type"=>"text_list",	"display_name"=>gettext("Requested Attribute")),
 			array("name"=>"reqAttrsOnly",			"data_type"=>"yes_no",		"display_name"=>gettext("Return Attribute Type Names Only")),
 			array("name"=>"reqAuthzID",			"data_type"=>"dn",		"display_name"=>gettext("Authorization ID of Requestor")),
+			array("name"=>"reqControls",			"data_type"=>"text_list",	"display_name"=>gettext("Request Controls")),
+			array("name"=>"reqData",			"data_type"=>"download_list",	"display_name"=>gettext("Extended Request Data")),
 			array("name"=>"reqDeleteOldRDN",		"data_type"=>"yes_no",		"display_name"=>gettext("Delete Old RDN")),
+			array("name"=>"reqDerefAliases",		"data_type"=>"alias_deref",	"display_name"=>gettext("Alias Dereferencing Behavior")),
 			array("name"=>"reqDN",				"data_type"=>"dn",		"display_name"=>gettext("Request Target DN")),
 			array("name"=>"reqEnd",				"data_type"=>"date_time",	"display_name"=>gettext("Request End Time")),
+			array("name"=>"reqEntries",			"data_type"=>"text",		"display_name"=>gettext("Number of Entries Returned")),
+			array("name"=>"reqEntryUUID",			"data_type"=>"text",		"display_name"=>gettext("Universally Unique Identifier")),
+			array("name"=>"reqFilter",			"data_type"=>"text",		"display_name"=>gettext("Request Filter Expression")),
+			array("name"=>"reqID",				"data_type"=>"text",		"display_name"=>gettext("Request ID to be Abandoned")),
+			array("name"=>"reqMessage",			"data_type"=>"text",		"display_name"=>gettext("Error Details")),
+			array("name"=>"reqMethod",			"data_type"=>"text",		"display_name"=>gettext("Bind Method")),
 			array("name"=>"reqMod",				"data_type"=>"text_list",	"display_name"=>gettext("Modification Details")),
+			array("name"=>"reqNewRDN",			"data_type"=>"text",		"display_name"=>gettext("New RDN")),
+			array("name"=>"reqNewSuperior",			"data_type"=>"dn",		"display_name"=>gettext("New Containing Object")),
 			array("name"=>"reqOld",				"data_type"=>"text_list",	"display_name"=>gettext("Old Values from Before Request Processed")),
+			array("name"=>"reqReferral",			"data_type"=>"text_list",	"display_name"=>gettext("Referral URL")),
 			array("name"=>"reqResult",			"data_type"=>"ldap_result",	"display_name"=>gettext("LDAP Result Code")),
-			array("name"=>"reqStart",			"data_type"=>"date_time",	"display_name"=>gettext("Request Start Time"))
+			array("name"=>"reqRespControls",		"data_type"=>"text_list",	"display_name"=>gettext("Response Controls")),
+			array("name"=>"reqScope",			"data_type"=>"search_scope",	"display_name"=>gettext("Request Scope")),
+			array("name"=>"reqSession",			"data_type"=>"text",		"display_name"=>gettext("Session ID")),
+			array("name"=>"reqSizeLimit",			"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Entries to be Returned")),
+			array("name"=>"reqStart",			"data_type"=>"date_time",	"display_name"=>gettext("Request Start Time")),
+			array("name"=>"reqTimeLimit",			"data_type"=>"text",		"display_name"=>gettext("Maximum Processing Time")),
+			array("name"=>"reqType",			"data_type"=>"text",		"display_name"=>gettext("Request Operation Type")),
+			array("name"=>"reqVersion",			"data_type"=>"ldap_version",	"display_name"=>gettext("LDAP Protocol Version")),
 			);
 
 		// Structural object classes
