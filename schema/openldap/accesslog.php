@@ -216,6 +216,7 @@ class openldap_accesslog_schema extends ldap_schema
 				"attributes"=>array(
 					array("reqDN",			gettext("Object to be Modified"),				"alias.png"),
 					array("reqResult",		gettext("Result"),						"openldap/error.png"),
+					array("reqMessage",		gettext("Error Details"),					"openldap/error.png")
 					)
 				),
 			array("section_name"=>gettext("Original Values"),"new_row"=>true,
