@@ -136,6 +136,27 @@ class openldap_accesslog_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("auditAbandon",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Abandon Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqID",			gettext("Request ID to be Abandoned"),				"generic24.png")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("auditAdd",array(
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
@@ -188,6 +209,29 @@ class openldap_accesslog_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("auditCompare",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Compare Attribute Values Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqDN",			gettext("Object to be Tested"),					"generic24.png"),
+					array("reqAssertion",		gettext("Attribute Value Assertion"),				"generic24.png"),
+					array("reqResult",		gettext("Result"),						"openldap/error.png")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("auditDelete",array(
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
@@ -212,6 +256,27 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Data Deleted"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("reqOld")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("auditExtended",array(
+			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
+				"attributes"=>array(
+					array("reqType",		gettext("Operation Type"),					"generic24.png"),
+					array("reqStart",		gettext("Started"),						"generic24.png"),
+					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Requested By"),"width"=>"50%",
+				"attributes"=>array(
+					array("reqAuthzID",		gettext("User"),						"alias.png"),
+					array("reqSession",		gettext("Session ID"),						"openldap/connection.png")
+					)
+				),
+			array("section_name"=>gettext("Extended Operation Request"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("reqData",		gettext("Extended Request Data"),				"generic24.png.png")
 					)
 				)
 			));
