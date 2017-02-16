@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Return Code Overlay On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Return Code Overlay (partial) */
 
 class openldap_retcode_schema extends ldap_schema
 {

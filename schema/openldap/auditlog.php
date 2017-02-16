@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Audit Logging Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Audit Logging Overlay */
 
 class openldap_auditlog_schema extends ldap_schema
 {

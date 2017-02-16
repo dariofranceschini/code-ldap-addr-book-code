@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP MySQL NDB Cluster Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for MySQL Network Database (NDB) Cluster Backend (partial) */
 
 class openldap_back_ndb_schema extends ldap_schema
 {

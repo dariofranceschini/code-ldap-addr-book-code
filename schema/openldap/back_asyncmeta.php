@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Asynchronous Metadirectory Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Asynchronous Metadirectory Backend (partial) */
 
 class openldap_back_asyncmeta_schema extends ldap_schema
 {

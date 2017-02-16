@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Access Logging Overlay On-Line Configuration (OLC) schema
+/** OpenLDAP Configuration (OLC) Schema for Access Logging Overlay
 
     @see https://tools.ietf.org/html/draft-chu-ldap-logschema-00
 */

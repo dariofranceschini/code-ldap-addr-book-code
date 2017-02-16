@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Referential Integrity Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Referential Integrity Overlay */
 
 class openldap_refint_schema extends ldap_schema
 {

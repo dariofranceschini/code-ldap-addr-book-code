@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP HDB Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Berkley DB Backend with Hierarchical Database Layout (partial) */
 
 class openldap_back_hdb_schema extends ldap_schema
 {

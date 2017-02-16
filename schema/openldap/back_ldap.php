@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP LDAP Proxy Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for LDAP Proxy Backend (partial) */
 
 class openldap_back_ldap_schema extends ldap_schema
 {

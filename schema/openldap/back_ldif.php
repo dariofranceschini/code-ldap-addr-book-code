@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP LDIF Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for LDIF Backend (partial) */
 
 class openldap_back_ldif_schema extends ldap_schema
 {

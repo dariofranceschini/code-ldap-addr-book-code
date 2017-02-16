@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Monitoring Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Monitoring Backend (partial) */
 
 class openldap_back_monitor_schema extends ldap_schema
 {

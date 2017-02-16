@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Relay Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Relay Backend */
 
 class openldap_back_relay_schema extends ldap_schema
 {

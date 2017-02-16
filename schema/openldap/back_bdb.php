@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP BDB Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Berkley DB (BDB) Backend (partial) */
 
 class openldap_back_bdb_schema extends ldap_schema
 {

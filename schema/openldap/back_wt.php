@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP WiredTiger Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for WiredTiger Backend */
 
 class openldap_back_wt_schema extends ldap_schema
 {

@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Dynamic Directory Services Overlay On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Dynamic Directory Services Overlay (partial) */
 
 class openldap_dds_schema extends ldap_schema
 {

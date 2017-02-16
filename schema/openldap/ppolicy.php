@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Password Policies Overlay On-Line Configuration (OLC) schema
+/** OpenLDAP Configuration (OLC) Schema for Password Policies Overlay
 
     The "ppolicy" overlay implements various operational attributes for
     maintaining policy state information. These are defined in the

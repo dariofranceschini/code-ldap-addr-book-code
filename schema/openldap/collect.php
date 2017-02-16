@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Collective Attributes Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Collective Attributes Overlay */
 
 class openldap_collect_schema extends ldap_schema
 {

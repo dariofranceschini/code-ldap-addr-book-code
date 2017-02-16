@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Server Side Sorting and Virtual List View Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Server Side Sorting and Virtual List View Overlay */
 
 class openldap_sssvlv_schema extends ldap_schema
 {

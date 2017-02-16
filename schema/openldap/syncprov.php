@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Sync Provider Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Sync Provider Overlay */
 
 class openldap_syncprov_schema extends ldap_schema
 {

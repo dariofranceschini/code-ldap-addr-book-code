@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Samba/Kerberos Password Management Overlay Configuration schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Samba/Kerberos Password Management Overlay (partial) */
 
 class openldap_smbk5pwd_schema extends ldap_schema
 {

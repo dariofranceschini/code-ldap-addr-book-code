@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP SQL (ODBC) Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for SQL (ODBC) Backend (partial) */
 
 class openldap_back_sql_schema extends ldap_schema
 {

@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Password File Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Password File Backend */
 
 class openldap_back_passwd_schema extends ldap_schema
 {

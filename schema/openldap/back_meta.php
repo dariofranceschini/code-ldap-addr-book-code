@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Metadirectory Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Metadirectory Backend (partial) */
 
 class openldap_back_meta_schema extends ldap_schema
 {

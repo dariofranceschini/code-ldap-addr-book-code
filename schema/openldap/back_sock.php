@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Socket Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Socket Backend */
 
 class openldap_back_sock_schema extends ldap_schema
 {

@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Dynamic Lists Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Dynamic Lists Overlay */
 
 class openldap_dynlist_schema extends ldap_schema
 {

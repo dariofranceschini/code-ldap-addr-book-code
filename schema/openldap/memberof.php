@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP MemberOf Overlay Configuration schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for MemberOf Overlay (partial) */
 
 class openldap_memberof_schema extends ldap_schema
 {

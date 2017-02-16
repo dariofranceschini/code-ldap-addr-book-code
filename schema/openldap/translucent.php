@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Translucent Proxy Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Translucent Proxy Overlay */
 
 class openldap_translucent_schema extends ldap_schema
 {

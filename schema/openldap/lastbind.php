@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Last Bind Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Last Bind Overlay */
 
 class openldap_lastbind_schema extends ldap_schema
 {

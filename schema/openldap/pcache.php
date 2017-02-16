@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Proxy Cache Engine Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Proxy Cache Engine Overlay */
 
 class openldap_pcache_schema extends ldap_schema
 {

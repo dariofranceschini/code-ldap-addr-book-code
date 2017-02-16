@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Attribute Uniqueness Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Attribute Uniqueness Overlay */
 
 class openldap_unique_schema extends ldap_schema
 {

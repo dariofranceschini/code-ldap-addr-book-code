@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP MDB Backend On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for Memory-Mapped Database (MDB) Backend (partial) */
 
 class openldap_back_mdb_schema extends ldap_schema
 {

@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Rewrite/Remap Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Rewrite/Remap Overlay */
 
 class openldap_rwm_schema extends ldap_schema
 {

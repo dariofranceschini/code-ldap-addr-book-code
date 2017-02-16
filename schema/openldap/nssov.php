@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP NSS/PAM Lookup Overlay On-Line Configuration (OLC) schema (partial) */
+/** OpenLDAP Configuration (OLC) Schema for NSS/PAM Lookup Overlay (partial) */
 
 class openldap_nssov_schema extends ldap_schema
 {

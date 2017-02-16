@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Perl Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Perl Backend */
 
 class openldap_back_perl_schema extends ldap_schema
 {

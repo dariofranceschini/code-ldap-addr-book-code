@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP AutoGroup Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for AutoGroup Overlay */
 
 class openldap_autogroup_schema extends ldap_schema
 {

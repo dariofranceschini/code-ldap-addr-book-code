@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Value Sorting Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Value Sorting Overlay */
 
 class openldap_valsort_schema extends ldap_schema
 {

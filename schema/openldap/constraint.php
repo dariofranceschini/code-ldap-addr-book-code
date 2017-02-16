@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Constraints Overlay On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Constraints Overlay */
 
 class openldap_constraint_schema extends ldap_schema
 {

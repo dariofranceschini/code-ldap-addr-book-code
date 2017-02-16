@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Null Backend On-Line Configuration (OLC) schema */
+/** OpenLDAP Configuration (OLC) Schema for Null Backend (partial) */
 
 class openldap_back_null_schema extends ldap_schema
 {
