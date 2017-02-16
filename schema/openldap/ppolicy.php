@@ -6,8 +6,7 @@
     LDAP Address Book's "ppolicy" schema in order to allow for more
     general use.
 
-    @see:
-	https://tools.ietf.org/html/draft-behera-ldap-password-policy-10
+    @see https://tools.ietf.org/html/draft-behera-ldap-password-policy-10
 */
 
 class openldap_ppolicy_schema extends ldap_schema
