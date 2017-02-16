@@ -46,7 +46,9 @@ class microsoft_schema extends ldap_schema
 			// Added for Windows Server 2003
 			array("name"=>"adminMultiSelectPropertyPages",	"data_type"=>"text_list",	"display_name"=>gettext("Admin Multi Select Property Pages")),
 			array("name"=>"extraColumns",			"data_type"=>"text_list",	"display_name"=>gettext("Extra Columns")),
-			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To"))
+			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To")),
+			array("name"=>"msWMI-ChangeDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Last Modification Date")),
+			array("name"=>"msWMI-CreationDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Creation Date")),
 			);
 
 		// Structural object classes
@@ -102,6 +104,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"mSMQSettings",			"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Settings")),
 			array("name"=>"mSMQSiteLink",			"icon"=>"microsoft/msmq-site-link.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Routing Link")),
 			array("name"=>"msTPM-InformationObjectsContainer","icon"=>"folder.png",			"is_folder"=>true),
+			array("name"=>"msWMI-Som",			"icon"=>"microsoft/wmi-filter.png",	"is_folder"=>false,"required_attribs"=>"msWMI-ID,msWMI-Name"),
 			array("name"=>"nTDSConnection",			"icon"=>"microsoft/ntds-connection.png","is_folder"=>false,"display_name"=>gettext("Connection"),"parent_class"=>"leaf"),
 			array("name"=>"nTDSDSA",			"icon"=>"microsoft/ntds-settings.png",	"is_folder"=>true,"display_name"=>gettext("Domain Controller Settings"),"parent_class"=>"applicationSettings"),
 			array("name"=>"nTDSService",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Active Directory Domain Services")),
@@ -341,6 +344,26 @@ class microsoft_schema extends ldap_schema
 				"attributes"=>array(
 					array("packageFlags",			gettext("Package Flags"),			"generic24.png"),
 					array("packageType",			gettext("Package Type"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("msWMI-Som",array(
+			array("section_name"=>gettext("WMI Filter Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("msWMI-Name",			gettext("Name"),				"generic24.png"),
+					array("msWMI-ID",			gettext("Instance ID"),				"generic24.png"),
+					array("msWMI-Author",			gettext("Author"),				"generic24.png"),
+					array("msWMI-CreationDate",		gettext("Creation Date"),			"generic24.png"),
+					array("msWMI-ChangeDate",		gettext("Last Modified"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Parameters"),"new_row"=>true,
+				"attributes"=>array(
+					array("msWMI-Parm1",			gettext("Parameter 1"),				"generic24.png"), // description
+					array("msWMI-Parm2",			gettext("Parameter 2"),				"generic24.png"), // queries
+					array("msWMI-Parm3",			gettext("Parameter 3"),				"generic24.png"),
+					array("msWMI-Parm4",			gettext("Parameter 4"),				"generic24.png")
 					)
 				)
 			));
