@@ -94,7 +94,6 @@ class system_openldap_schema extends ldap_schema
 		$ldap_server->add_schema("openldap/auditlog");
 		$ldap_server->add_schema("openldap/back_asyncmeta");
 		$ldap_server->add_schema("openldap/back_bdb");
-		$ldap_server->add_schema("openldap/back_config");
 		$ldap_server->add_schema("openldap/back_hdb");
 		$ldap_server->add_schema("openldap/back_ldap");
 		$ldap_server->add_schema("openldap/back_ldif");
@@ -111,6 +110,7 @@ class system_openldap_schema extends ldap_schema
 		$ldap_server->add_schema("openldap/back_sql");
 		$ldap_server->add_schema("openldap/back_wt");
 		$ldap_server->add_schema("openldap/collect");
+		$ldap_server->add_schema("openldap/config");
 		$ldap_server->add_schema("openldap/constraint");
 		$ldap_server->add_schema("openldap/dds");
 		$ldap_server->add_schema("openldap/dyngroup");

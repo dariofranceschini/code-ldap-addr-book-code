@@ -1,7 +1,7 @@
 <?php
 /** OpenLDAP On-Line Configuration (OLC) Backend schema (partial) */
 
-class openldap_back_config_schema extends ldap_schema
+class openldap_config_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{

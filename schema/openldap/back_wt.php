@@ -6,7 +6,7 @@ class openldap_back_wt_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			// olcDbIndex, olcDbDirectory - defined in back_config
+			// olcDbIndex, olcDbDirectory - defined in common config schema
 			array("name"=>"olcWtConfig",			"data_type"=>"text",		"display_name"=>gettext("WiredTiger Configuration"))
 			);
 

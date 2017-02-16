@@ -6,7 +6,7 @@ class openldap_back_sql_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			/** @todo: some attributes are shared with back_ndb - move to common back_config */
+			/** @todo: some attributes are shared with back_ndb - move to common config schema */
 			array("name"=>"olcDbName",			"data_type"=>"text",		"display_name"=>gettext("ODBC Data Source Name")),
 			array("name"=>"olcSqlAllowOrphans",		"data_type"=>"yes_no",		"display_name"=>gettext("Allow Orphan Entries to be Added")),
 			array("name"=>"olcSqlAliasingQuote",		"data_type"=>"text",		"display_name"=>gettext("Quote Character Surrounding Alias")),
