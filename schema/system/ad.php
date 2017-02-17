@@ -83,6 +83,34 @@ class system_ad_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("subSchema",array(
+			array("section_name"=>gettext("Object Class Definitions"),"new_row"=>true,
+				"attributes"=>array(
+					array("objectClasses")
+					)
+				),
+			array("section_name"=>gettext("Attribute Type Definitions"),"new_row"=>true,
+				"attributes"=>array(
+					array("attributeTypes")
+					)
+				),
+			array("section_name"=>gettext("Extended Class Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("extendedClassInfo")
+					)
+				),
+			array("section_name"=>gettext("Extended Attribute Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("extendedAttributeInfo")
+					)
+				),
+			array("section_name"=>gettext("DIT Content Rules"),"new_row"=>true,
+				"attributes"=>array(
+					array("dITContentRules")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

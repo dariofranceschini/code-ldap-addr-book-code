@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-09 13:04+0100\n"
-"PO-Revision-Date: 2016-10-09 13:04+0100\n"
+"POT-Creation-Date: 2017-02-17 14:45+0000\n"
+"PO-Revision-Date: 2017-02-17 14:45+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,53 +17,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/system/ad.php:9 ../schema/system/ad.php:74
-msgid "Supported Capabilities"
-msgstr "Funzionalità Supportate"
-
-#: ../schema/system/ad.php:10
+#: ../schema/system/ad.php:9
 msgid "Configuration Context"
 msgstr "Contesto di Configurazione"
 
+#: ../schema/system/ad.php:10
+msgid "Configuration Naming Context"
+msgstr "Contesto dei Nomi di Configurazione"
+
 #: ../schema/system/ad.php:11
+msgid "Current Time"
+msgstr "Ora Attuale"
+
+#: ../schema/system/ad.php:12
 msgid "Default Naming Context"
 msgstr "Contesto dei Nomi di Default"
 
-#: ../schema/system/ad.php:12
-msgid "Schema Naming Context"
-msgstr "Schema Contesto dei Nomi"
+#: ../schema/system/ad.php:13 ../schema/system/ad.php:56
+msgid "Server Functional Level"
+msgstr "Livello Funzionale di Server"
 
-#: ../schema/system/ad.php:13
-msgid "Root Domain Naming Context"
-msgstr "Contesto dei Nomi di Dominio Radice"
-
-#: ../schema/system/ad.php:14
-msgid "Configuration Naming Context"
-msgstr "Contesto dei Nomi di Configurazione"
+#: ../schema/system/ad.php:14 ../schema/system/ad.php:57
+msgid "Domain Functional Level"
+msgstr "Livello Funzionale di Dominio"
 
 #: ../schema/system/ad.php:15
 msgid "Directory Service Name"
 msgstr "Nome Servizio di Direttorio"
 
-#: ../schema/system/ad.php:16
-msgid "Current Time"
-msgstr "Ora Attuale"
-
-#: ../schema/system/ad.php:17 ../schema/system/ad.php:56
-msgid "Server Functional Level"
-msgstr "Livello Funzionale di Server"
-
-#: ../schema/system/ad.php:18 ../schema/system/ad.php:57
-msgid "Domain Functional Level"
-msgstr "Livello Funzionale di Dominio"
-
-#: ../schema/system/ad.php:19 ../schema/system/ad.php:58
+#: ../schema/system/ad.php:16 ../schema/system/ad.php:58
 msgid "Forest Functional Level"
 msgstr "Livello Funzionale di Foresta"
 
-#: ../schema/system/ad.php:20 ../schema/system/ad.php:53
+#: ../schema/system/ad.php:17 ../schema/system/ad.php:53
 msgid "Is Synchronized"
 msgstr "È Sincronizzato"
+
+#: ../schema/system/ad.php:18
+msgid "Root Domain Naming Context"
+msgstr "Contesto dei Nomi di Dominio Radice"
+
+#: ../schema/system/ad.php:19
+msgid "Schema Naming Context"
+msgstr "Schema Contesto dei Nomi"
+
+#: ../schema/system/ad.php:20 ../schema/system/ad.php:74
+msgid "Supported Capabilities"
+msgstr "Funzionalità Supportate"
 
 #: ../schema/system/ad.php:25
 msgid "Root DSE"
@@ -140,3 +140,23 @@ msgstr "Controlli Supportati"
 #: ../schema/system/ad.php:79
 msgid "Supported SASL Mechanisms"
 msgstr "SASL Meccanismi che sono Supportati"
+
+#: ../schema/system/ad.php:87
+msgid "Object Class Definitions"
+msgstr "Definizioni di Classi di Oggetti"
+
+#: ../schema/system/ad.php:92
+msgid "Attribute Type Definitions"
+msgstr "Definizioni di Tipi di Attributi"
+
+#: ../schema/system/ad.php:97
+msgid "Extended Class Information"
+msgstr "Informazioni Estesa per le Classi"
+
+#: ../schema/system/ad.php:102
+msgid "Extended Attribute Information"
+msgstr "Informazioni Estesa per gli Attributi"
+
+#: ../schema/system/ad.php:107
+msgid "DIT Content Rules"
+msgstr "Regole Contenuti per DIT"

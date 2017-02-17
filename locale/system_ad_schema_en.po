@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 11:29+0100\n"
-"PO-Revision-Date: 2016-06-05 11:29+0100\n"
+"POT-Creation-Date: 2017-02-17 14:45+0000\n"
+"PO-Revision-Date: 2017-02-17 14:45+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,126 +17,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/system/ad.php:9 ../schema/system/ad.php:71
-msgid "Supported Capabilities"
-msgstr "Supported Capabilities"
-
-#: ../schema/system/ad.php:10
+#: ../schema/system/ad.php:9
 msgid "Configuration Context"
 msgstr "Configuration Context"
 
+#: ../schema/system/ad.php:10
+msgid "Configuration Naming Context"
+msgstr "Configuration Naming Context"
+
 #: ../schema/system/ad.php:11
+msgid "Current Time"
+msgstr "Current Time"
+
+#: ../schema/system/ad.php:12
 msgid "Default Naming Context"
 msgstr "Default Naming Context"
 
-#: ../schema/system/ad.php:12
-msgid "Schema Naming Context"
-msgstr "Schema Naming Context"
+#: ../schema/system/ad.php:13 ../schema/system/ad.php:56
+msgid "Server Functional Level"
+msgstr "Server Functional Level"
 
-#: ../schema/system/ad.php:13
-msgid "Root Domain Naming Context"
-msgstr "Root Domain Naming Context"
-
-#: ../schema/system/ad.php:14
-msgid "Configuration Naming Context"
-msgstr "Configuration Naming Context"
+#: ../schema/system/ad.php:14 ../schema/system/ad.php:57
+msgid "Domain Functional Level"
+msgstr "Domain Functional Level"
 
 #: ../schema/system/ad.php:15
 msgid "Directory Service Name"
 msgstr "Directory Service Name"
 
-#: ../schema/system/ad.php:16
-msgid "Current Time"
-msgstr "Current Time"
-
-#: ../schema/system/ad.php:17 ../schema/system/ad.php:50
-msgid "Is Synchronized"
-msgstr "Is Synchronized"
-
-#: ../schema/system/ad.php:22
-msgid "Root DSE"
-msgstr "Root DSE"
-
-#: ../schema/system/ad.php:40
-msgid "Active Directory Domain Controller"
-msgstr "Active Directory Domain Controller"
-
-#: ../schema/system/ad.php:42
-msgid "Server Name"
-msgstr "Server Name"
-
-#: ../schema/system/ad.php:43
-msgid "Vendor Name"
-msgstr "Vendor Name"
-
-#: ../schema/system/ad.php:44
-msgid "DNS Host Name"
-msgstr "DNS Host Name"
-
-#: ../schema/system/ad.php:45
-msgid "Directory Service"
-msgstr "Directory Service"
-
-#: ../schema/system/ad.php:46
-msgid "Supported LDAP Versions"
-msgstr "Supported LDAP Versions"
-
-#: ../schema/system/ad.php:47
-msgid "LDAP Service Name"
-msgstr "LDAP Service Name"
-
-#: ../schema/system/ad.php:48
-msgid "Naming Contexts"
-msgstr "Naming Contexts"
-
-#: ../schema/system/ad.php:49
-msgid "Subschema Subentry"
-msgstr "Subschema Subentry"
-
-#: ../schema/system/ad.php:51
-msgid "Current Time at Server"
-msgstr "Current Time at Server"
-
-#: ../schema/system/ad.php:52
-msgid "Highest Committed USN"
-msgstr "Highest Committed USN"
-
-#: ../schema/system/ad.php:53
-msgid "Server Functional Level"
-msgstr "Server Functional Level"
-
-#: ../schema/system/ad.php:54
-msgid "Domain Functional Level"
-msgstr "Domain Functional Level"
-
-#: ../schema/system/ad.php:55
+#: ../schema/system/ad.php:16 ../schema/system/ad.php:58
 msgid "Forest Functional Level"
 msgstr "Forest Functional Level"
 
-#: ../schema/system/ad.php:58
+#: ../schema/system/ad.php:17 ../schema/system/ad.php:53
+msgid "Is Synchronized"
+msgstr "Is Synchronized"
+
+#: ../schema/system/ad.php:18
+msgid "Root Domain Naming Context"
+msgstr "Root Domain Naming Context"
+
+#: ../schema/system/ad.php:19
+msgid "Schema Naming Context"
+msgstr "Schema Naming Context"
+
+#: ../schema/system/ad.php:20 ../schema/system/ad.php:74
+msgid "Supported Capabilities"
+msgstr "Supported Capabilities"
+
+#: ../schema/system/ad.php:25
+msgid "Root DSE"
+msgstr "Root DSE"
+
+#: ../schema/system/ad.php:43
+msgid "Active Directory Domain Controller"
+msgstr "Active Directory Domain Controller"
+
+#: ../schema/system/ad.php:45
+msgid "Server Name"
+msgstr "Server Name"
+
+#: ../schema/system/ad.php:46
+msgid "Vendor Name"
+msgstr "Vendor Name"
+
+#: ../schema/system/ad.php:47
+msgid "DNS Host Name"
+msgstr "DNS Host Name"
+
+#: ../schema/system/ad.php:48
+msgid "Directory Service"
+msgstr "Directory Service"
+
+#: ../schema/system/ad.php:49
+msgid "Supported LDAP Versions"
+msgstr "Supported LDAP Versions"
+
+#: ../schema/system/ad.php:50
+msgid "LDAP Service Name"
+msgstr "LDAP Service Name"
+
+#: ../schema/system/ad.php:51
+msgid "Naming Contexts"
+msgstr "Naming Contexts"
+
+#: ../schema/system/ad.php:52
+msgid "Subschema Subentry"
+msgstr "Subschema Subentry"
+
+#: ../schema/system/ad.php:54
+msgid "Current Time at Server"
+msgstr "Current Time at Server"
+
+#: ../schema/system/ad.php:55
+msgid "Highest Committed USN"
+msgstr "Highest Committed USN"
+
+#: ../schema/system/ad.php:61
 msgid "Well-Known Naming Contexts"
 msgstr "Well-Known Naming Contexts"
 
-#: ../schema/system/ad.php:60
+#: ../schema/system/ad.php:63
 msgid "Default (Domain)"
 msgstr "Default (Domain)"
 
-#: ../schema/system/ad.php:61
+#: ../schema/system/ad.php:64
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../schema/system/ad.php:62
+#: ../schema/system/ad.php:65
 msgid "Forest Root Domain"
 msgstr "Forest Root Domain"
 
-#: ../schema/system/ad.php:63
+#: ../schema/system/ad.php:66
 msgid "Schema"
 msgstr "Schema"
 
-#: ../schema/system/ad.php:66
+#: ../schema/system/ad.php:69
 msgid "Supported Controls"
 msgstr "Supported Controls"
 
-#: ../schema/system/ad.php:76
+#: ../schema/system/ad.php:79
 msgid "Supported SASL Mechanisms"
 msgstr "Supported SASL Mechanisms"
+
+#: ../schema/system/ad.php:87
+msgid "Object Class Definitions"
+msgstr "Object Class Definitions"
+
+#: ../schema/system/ad.php:92
+msgid "Attribute Type Definitions"
+msgstr "Attribute Type Definitions"
+
+#: ../schema/system/ad.php:97
+msgid "Extended Class Information"
+msgstr "Extended Class Information"
+
+#: ../schema/system/ad.php:102
+msgid "Extended Attribute Information"
+msgstr "Extended Attribute Information"
+
+#: ../schema/system/ad.php:107
+msgid "DIT Content Rules"
+msgstr "DIT Content Rules"
