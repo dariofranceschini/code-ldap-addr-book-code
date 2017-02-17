@@ -29,3 +29,16 @@
         font-family:monospace;
         word-break:break-all;
 }
+
+/* Display eDirectory Management Toolbox (eMBox) configuration
+   with more appropriate formatting. This attribute typically
+   contains XML data. */
+
+.ldap_attribute_emboxConfig {
+    font-family:monospace;
+    white-space:pre;
+}
+
+.ldap_attribute_emboxConfig br {
+    display: none;
+}
