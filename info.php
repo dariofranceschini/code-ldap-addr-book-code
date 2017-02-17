@@ -65,6 +65,8 @@ if(prereq_components_ok())
 
 					if($entry["count"]>0)
 					{
+						$object_class = $ldap_server->get_object_class($entry[0]);
+
 						// assign an object class to the root DSE object, if the directory doesn't
 						// report one itself
 
@@ -91,7 +93,7 @@ if(prereq_components_ok())
 						}
 
 						$ldap_server->call_schema_function("before_show_"
-							. $ldap_server->get_object_class($entry[0]),$entry[0]);
+							. $object_class,$entry[0]);
 
 						$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
