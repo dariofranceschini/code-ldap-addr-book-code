@@ -64,12 +64,13 @@ function &parse_ldap_schema_entry($value)
 	// tokens that have no value associated
 	$noValue = array(
 		"single-value",
-		 "obsolete",
-		 "collective",
-		 "no-user-modification",
-		 "abstract",
-		 "structural",
-		 "auxiliary");
+		"obsolete",
+		"collective",
+		"no-user-modification",
+		"abstract",
+		"structural",
+		"auxiliary"
+);
 
 	// tokens that can have multiple values
 	$multiValue = array("must","may","sup");
