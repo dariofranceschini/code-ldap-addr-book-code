@@ -13,7 +13,7 @@ class system_openldap_schema extends ldap_schema
 
 			// Schema definition attributes
 			array("name"=>"attributeTypes",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
-			array("name"=>"dITContentRules",		"data_type"=>"text_list",	"display_name"=>gettext("DIT Content Rules")),
+			array("name"=>"dITContentRules",		"data_type"=>"ldap_schema",	"display_name"=>gettext("DIT Content Rules")),
 			array("name"=>"objectClasses",			"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
 
 			// Operational attributes

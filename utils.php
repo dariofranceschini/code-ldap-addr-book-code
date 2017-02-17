@@ -1638,6 +1638,9 @@ class ldap_attribute
 						case "olcObjectClasses":
 							$definition_type = "object";
 							break;
+						case "dITContentRules":
+							$definition_type = "content_rule";
+							break;
 						case "attributeTypes":
 						case "olcAttributeTypes":
 							$definition_type = "attribute";	break;
@@ -1719,13 +1722,23 @@ class ldap_attribute
 						gettext("Subclass Of"),"SUP");
 					$this->show_ldap_schema_setting($schema_entry,
 						gettext("OID"),"OID");
-					if($definition_type == "object")
+					if($definition_type == "object" || $definition_type == "content_rule")
 					{
 						$this->show_ldap_schema_setting($schema_entry,
 							gettext("Required Attributes"),"MUST");
 						$this->show_ldap_schema_setting($schema_entry,
 							gettext("Optional Attributes"),"MAY");
 					}
+
+					if($definition_type == "content_rule")
+					{
+						if($ldap_server->server_type != "ad")
+							$this->show_ldap_schema_setting($schema_entry,
+								gettext("Disallowed Attributes"),"NOT");
+						$this->show_ldap_schema_setting($schema_entry,
+							gettext("Permitted Auxiliary Classes"),"AUX");
+					}
+
 					$this->show_ldap_schema_setting($schema_entry,
 						gettext("Syntax"),"SYNTAX");
 					$this->show_ldap_schema_setting($schema_entry,
@@ -1877,7 +1890,7 @@ class ldap_attribute
 		global $oid_name;
 
 		$setting = strtolower($setting);
-		if(!isset($schema_entry[$setting]) && in_array($setting,array("must","may")))
+		if(!isset($schema_entry[$setting]) && in_array($setting,array("must","may","not")))
 			$schema_entry[$setting] = "(" . gettext("none") . ")";
 
 		if(isset($schema_entry[$setting]))
