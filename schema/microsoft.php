@@ -16,6 +16,8 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"createWizardExt",		"data_type"=>"text_list",	"display_name"=>gettext("Object Creation Wizard Extensions")),
 			array("name"=>"department",			"data_type"=>"text",		"display_name"=>gettext("Department")),
 			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
+			array("name"=>"extendedAttributeInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Attribute Information")),
+			array("name"=>"extendedClassInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Class Information")),
 			array("name"=>"groupType",			"data_type"=>"ad_group_type",	"display_name"=>gettext("Group Type/Scope")),
 			array("name"=>"info",				"data_type"=>"text_area",	"display_name"=>gettext("General Information")),
 			array("name"=>"managedBy",			"data_type"=>"dn",		"display_name"=>gettext("Managed By")),

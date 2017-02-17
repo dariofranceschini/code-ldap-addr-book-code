@@ -1698,6 +1698,18 @@ class ldap_attribute
 						$extra_info .= gettext("obsolete definition");
 					}
 
+					if(isset($schema_entry["system-only"]))	// AD specific
+					{
+						if(!empty($extra_info)) $extra_info .= ", ";
+						$extra_info .= gettext("system only");
+					}
+
+					if(isset($schema_entry["indexed"]))	// AD specific
+					{
+						if(!empty($extra_info)) $extra_info .= ", ";
+						$extra_info .= gettext("indexed");
+					}
+
 					if(count($schema_entry["aliases"])>0)
 					{
 						if(!empty($extra_info)) $extra_info .= ", ";
@@ -1828,6 +1840,19 @@ class ldap_attribute
 						gettext("Legacy NDS Syntax"),"X-NDS_SYNTAX");
 					$this->show_ldap_schema_setting($schema_entry,
 						gettext("Read Filtered"),"X-NDS_READ_FILTERED");
+
+					/** Active Directory specific settings */
+
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Object Class GUID"),"CLASS-GUID");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Lower Bound"),"RANGE-LOWER");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Upper Bound"),"RANGE-UPPER");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Attribute Class GUID"),"PROPERTY-GUID");
+					$this->show_ldap_schema_setting($schema_entry,
+						gettext("Property Set GUID"),"PROPERTY-SET-GUID");
 
 					if($definition_type == "object")
 						$schema_settings = $ldap_server->get_object_schema_settings($schema_entry["name"]);
