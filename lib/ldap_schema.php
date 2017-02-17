@@ -69,7 +69,9 @@ function &parse_ldap_schema_entry($value)
 		"no-user-modification",
 		"abstract",
 		"structural",
-		"auxiliary"
+		"auxiliary",
+		"indexed",		// AD specific
+		"system-only"		// AD specific
 );
 
 	// tokens that can have multiple values
