@@ -1874,6 +1874,8 @@ class ldap_attribute
 
 	function show_ldap_schema_setting($schema_entry,$label,$setting)
 	{
+		global $oid_name;
+
 		$setting = strtolower($setting);
 		if(!isset($schema_entry[$setting]) && in_array($setting,array("must","may")))
 			$schema_entry[$setting] = "(" . gettext("none") . ")";
@@ -1888,6 +1890,27 @@ class ldap_attribute
 
 			if(in_array($setting,array("child_class","parent_class","can_contain","contained_by")))
 				$schema_entry[$setting] = str_replace(",",", ",$schema_entry[$setting]);
+
+			if($setting == "syntax" && is_numeric($schema_entry[$setting][0]))
+			{
+				if(strpos($schema_entry[$setting],"{"))
+				{
+					$oid_number=substr($schema_entry[$setting],
+						0,strpos($schema_entry[$setting],"{"));
+					$max_length=substr($schema_entry[$setting],
+						strpos($schema_entry[$setting],"{")+1,-1);
+				}
+				else
+				{
+					$oid_number=$schema_entry[$setting];
+					$max_length=false;
+				}
+
+				if(isset($oid_name[$oid_number]))
+					$schema_entry[$setting] = $oid_name[$oid_number]
+						. ($max_length ? " (maximum length "
+						. $max_length . ")" : "");
+			}
 
 			echo "              <tr>\n                <td style=\"width:1px\"></td>"
 				. "\n                <td style=\"width:1px;padding-left:2em;padding-right:1em;vertical-align:top;white-space:nowrap\">\n                  ";
