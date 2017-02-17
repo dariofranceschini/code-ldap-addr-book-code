@@ -25,7 +25,7 @@
     @see http://search.cpan.org/dist/perl-ldap-0.57/lib/Net/LDAP/Constant.pm
     @see https://docs.ldap.com/ldap-sdk/docs/specs/internet-drafts.html
     @see https://github.com/cannatag/ldap3/blob/master/ldap3/protocol/oid.py
-
+    @see https://tools.ietf.org/html/draft-armijo-ldap-syntax-00
 */
 
 $oid_name=array(
