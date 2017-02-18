@@ -65,23 +65,6 @@ if(prereq_components_ok())
 
 					if($entry["count"]>0)
 					{
-						$object_class = $ldap_server->get_object_class($entry[0]);
-
-						// Attribute values for Active Directory subSchema objects are only
-						// returned if requested individually by name (non-standard behaviour)
-						if($ldap_server->server_type == "ad"
-							&& $object_class=="subSchema")
-						{
-							$search_resource = @ldap_read($ldap_server->connection,$dn,
-								$browse_ldap_filter,array("objectClass","extendedClassInfo",
-									"extendedAttributeInfo","dITContentRules",
-									"attributeTypes","objectClasses","modifyTimeStamp"));
-
-							// This assumes the entry can be retrieved (unsafe?)
-							$entry = ldap_get_entries($ldap_server->connection,
-								$search_resource);
-						}
-
 						// assign an object class to the root DSE object, if the directory doesn't
 						// report one itself
 
@@ -105,6 +88,23 @@ if(prereq_components_ok())
 								default:
 									// no change made for other server types
 							}
+						}
+
+						$object_class = $ldap_server->get_object_class($entry[0]);
+
+						// Attribute values for Active Directory subSchema objects are only
+						// returned if requested individually by name (non-standard behaviour)
+						if($ldap_server->server_type == "ad"
+							&& $object_class=="subSchema")
+						{
+							$search_resource = @ldap_read($ldap_server->connection,$dn,
+								$browse_ldap_filter,array("objectClass","extendedClassInfo",
+									"extendedAttributeInfo","dITContentRules",
+									"attributeTypes","objectClasses","modifyTimeStamp"));
+
+							// This assumes the entry can be retrieved (unsafe?)
+							$entry = ldap_get_entries($ldap_server->connection,
+								$search_resource);
 						}
 
 						$ldap_server->call_schema_function("before_show_"
