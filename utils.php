@@ -354,10 +354,46 @@ function ldap_explode_dn2($dn)
 			$dn[$i]["attrib"].=($j==0?"":"+") . substr($rdn[$j],0,strpos($rdn[$j],"="));
 			$dn[$i]["value"].=($j==0?"":" + ") . substr($rdn[$j],strpos($rdn[$j],"=")+1);
 		}
+
+		$dn[$i]["value"]=ldap_unescape_dn_string($dn[$i]["value"]);
 	}
 	$dn = array("count"=>count($dn)) + $dn;
 
 	return $dn;
+}
+
+/** Convert a DN string containing escaped characters back to its original form
+
+    @param string $text
+	Text which is to be converted
+
+    @see https://www.ietf.org/rfc/rfc4514.txt
+*/
+
+function ldap_unescape_dn_string($text)
+{
+	$text_out="";
+	for($i=0;$i<mb_strlen($text,"UTF-8");$i++)
+	{
+		if(mb_substr($text,$i,1,"UTF-8") == "\\")
+		{
+			if(in_array(mb_substr($text,$i+1,1,"UTF-8"),str_split(" \"#+,;<=>\\")))
+			{
+				$text_out.=mb_substr($text,$i+1,1,"UTF-8");
+				$i++;
+			}
+			else if(ctype_xdigit(mb_substr($text,$i+1,2,"UTF-8")))
+			{
+				$text_out.=chr(hexdec(mb_substr($text,$i+1,2,"UTF-8")));
+				$i+=2;
+			}
+			else
+				$text_out.=mb_substr($text,$i,1,"UTF-8");
+		}
+		else
+			$text_out.=mb_substr($text,$i,1,"UTF-8");
+	}
+	return $text_out;
 }
 
 /** Return URL of folder containing the currently running script
