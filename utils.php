@@ -341,7 +341,8 @@ function ldap_explode_dn2($dn)
 		for($j=$i;$j<count($dn);$j++)
 			$component_dn .= ($j>$i?",":"") . $dn[$j];
 
-		$rdn = explode("+",$dn[$i]);
+		// explode $dn[$i] on "+", except when escaped as "\+")
+		$rdn = preg_split("~(?<!\\\)" . preg_quote("+","~") . "~",$dn[$i]);
 
 		$dn[$i] = array(
 			"attrib"=>"",
