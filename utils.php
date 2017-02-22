@@ -467,12 +467,10 @@ class ldap_entry_viewer
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
 		{
-			$this->add_section(
-				isset($section["section_name"]) ? $section["section_name"] : "",
-				isset($section["new_row"]) ? $section["new_row"] : $first_section,
-				isset($section["colspan"]) ? $section["colspan"] : 1,
-				isset($section["width"]) ? $section["width"] : null
-				);
+			if(!isset($section["new_row"]))
+				$section["new_row"] = $first_section;
+
+			$this->add_section($section);
 
 			foreach($section["attributes"] as $attribute)
 				$this->add_to_section(
@@ -488,28 +486,23 @@ class ldap_entry_viewer
 
 	/** Add a section to the display
 
-	    @param string $text
-		Title text/section name
-	    @param bool $newrow
-		Should the section start on a new row?
-	    @param integer $colspan
-		Number of table columns to span
-	    @param string $width
-		Section width (defaults to evenly spaced/auto expand if missing)
+	    @param array $section
+		Details of section to add
 	*/
 
-	function add_section($text,$newrow=false,$colspan=1,$width="")
+	function add_section($section)
 	{
 		$heading = new ldap_entry_viewer_section();
-		$heading->text = $text;
-		$heading->colspan = $colspan;
-		$heading->newrow = $newrow;
-		$heading->width = $width;
+
+		$heading->text = isset($section["section_name"]) ? $section["section_name"] : "";
+		$heading->colspan = isset($section["colspan"]) ? $section["colspan"] : 1;
+		$heading->newrow = $section["new_row"];
+		$heading->width = isset($section["width"]) ? $section["width"] : null;
 		$heading->ldap_entry = $this->ldap_entry;
 
-		$this->section[$text] = $heading;
+		$this->section[$heading->text] = $heading;
 
-		$this->last_section_added = $text;
+		$this->last_section_added = $heading->text;
 	}
 
 	/** Add an attribute and its value to the display
