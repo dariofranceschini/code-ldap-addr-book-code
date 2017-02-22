@@ -320,21 +320,20 @@ function show_ldap_path($base,$leaf_icon = "")
     Correctly handles accented characters - in contrast to the
     built-in PHP function ldap_explode_dn().
 
-    @todo
-	Support for commas in RDN values could do with being
-	added; limitation may prove to be unacceptably limiting.
-
     @param string $dn
 	DN which is to be converted into an array
     @return
 	An array representing the DN, consisting of integer
 	value "count" indicating the number of RDNs,
 	followed by each RDN as an "attrib"+"value" pair
+
+    @see https://www.ietf.org/rfc/rfc4514.txt
 */
 
 function ldap_explode_dn2($dn)
 {
-	$dn = explode(",",$dn);
+	// explode $dn on ",", except when escaped as "\,")
+	$dn = preg_split("~(?<!\\\)" . preg_quote(",","~") . "~",$dn);
 
 	for($i=0;$i<count($dn);$i++)
 	{
