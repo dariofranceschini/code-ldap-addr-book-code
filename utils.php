@@ -435,12 +435,6 @@ class ldap_entry_viewer
 	/** LDAP object entry which is to be displayed */
 	var $ldap_entry;
 
-	/** Name of last section to which an attribute was added
-
-	    Used by add_to_section()
-	*/
-	var $last_section_added = "";
-
 	/** Display a viewer for editing a record (true/false) */
 	var $edit = false;
 
@@ -472,14 +466,6 @@ class ldap_entry_viewer
 
 			$this->add_section($section);
 
-			foreach($section["attributes"] as $attribute)
-				$this->add_to_section(
-					$attribute[0],			// LDAP attribute name
-					isset($attribute[1]) ? $attribute[1] : null,	// caption
-					isset($attribute[2]) ? $attribute[2] : null,	// icon
-					isset($attribute[3]) ? $attribute[3] : null	// hide unless editing
-					);
-
 			$first_section = false;
 		}
 	}
@@ -502,25 +488,13 @@ class ldap_entry_viewer
 
 		$this->section[$heading->text] = $heading;
 
-		$this->last_section_added = $heading->text;
-	}
-
-	/** Add an attribute and its value to the display
-
-	    @param string $attribute
-		LDAP attribute to be added to the layout section
-	    @param string $caption
-		"Friendly" caption to be used for the LDAP attribute
-	    @param string $icon
-		Icon image to display next to attribute
-	    @param bool $hide_unless_editing
-		Should the attribute be hidden except when editing
-	*/
-
-	function add_to_section($attribute,$caption="",$icon="",$hide_unless_editing=false)
-	{
-		$this->section[$this->last_section_added]->add_data(
-			$attribute,$caption,$icon,$hide_unless_editing);
+		foreach($section["attributes"] as $attribute)
+			$this->section[$heading->text]->add_data(
+				$attribute[0],			// LDAP attribute name
+				isset($attribute[1]) ? $attribute[1] : null,	// caption
+				isset($attribute[2]) ? $attribute[2] : null,	// icon
+				isset($attribute[3]) ? $attribute[3] : null	// hide unless editing
+				);
 	}
 
 	/** Output the object entry as vCard */
