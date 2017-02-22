@@ -49,8 +49,8 @@ if($ldap_server->log_on())
 
 			/** @todo enhance to support multi-value RDNs */
 			if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
-				$dn = $rdn_attrib . "=" . $_POST["ldap_attribute_"
-					. $rdn_attrib] . (empty($dn) ? "" : "," . $dn);
+				$dn = $rdn_attrib . "=" . ldap_escape($_POST["ldap_attribute_"
+					. $rdn_attrib],null,LDAP_ESCAPE_DN) . (empty($dn) ? "" : "," . $dn);
 			else
 				$dn = $rdn_attrib . "=" . (empty($dn) ? "" : "," . $dn);
 		}
@@ -198,7 +198,7 @@ if($ldap_server->log_on())
 
 					$rdn_list = ldap_explode_dn2($dn);
 					$dn = $rdn_attrib . "="
-						. $_POST["ldap_attribute_" . $rdn_attrib]
+						. ldap_escape($_POST["ldap_attribute_" . $rdn_attrib],null,LDAP_ESCAPE_DN)
 						. (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
 				}
 

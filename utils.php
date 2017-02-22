@@ -4436,7 +4436,8 @@ class ldap_server
 				else
 					if($is_rdn)
 						$result = @ldap_rename($this->connection,$dn,
-							$attrib . "=" . $new_val,null,true);
+							$attrib . "=" . ldap_escape($new_val,
+							null,LDAP_ESCAPE_DN),null,true);
 					else
 						$result = @ldap_mod_replace($this->connection,$dn,$changes);
 
