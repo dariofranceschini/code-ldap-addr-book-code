@@ -665,12 +665,7 @@ class ldap_entry_viewer_section
 
 	function add_data($attribute)
 	{
-		$this->attrib[] = new ldap_entry_viewer_attrib($this->ldap_entry,
-			$attribute[0],					// LDAP attribute name
-			isset($attribute[1]) ? $attribute[1] : null,    // caption
-			isset($attribute[2]) ? $attribute[2] : null,    // icon
-			isset($attribute[3]) ? $attribute[3] : null     // hide unless editing
-			);
+		$this->attrib[] = new ldap_entry_viewer_attrib($this->ldap_entry,$attribute);
 	}
 
 	/** Output this section of the object entry as HTML
@@ -733,23 +728,17 @@ class ldap_entry_viewer_attrib
 
 	    @param array $ldap_entry
 		LDAP entry whose attribute is to be displayed
-	    @param string $attribute
+	    @param array $attribute
 		LDAP attribute to display
-	    @param string $caption
-		Caption/label to be shown next to the LDAP attribute
-	    @param string $icon
-		Icon image to display next to attribute
-	    @param bool $hide_unless_editing
-		Whether this attribute should be hidden except when editing
 	*/
 
-	function __construct($ldap_entry,$attribute,$caption="",$icon="",$hide_unless_editing=false)
+	function __construct($ldap_entry,$attribute)
 	{
-		$this->caption = $caption;
-		$this->ldap_attribute = $attribute;
-		$this->icon = $icon;
+		$this->caption = isset($attribute[1]) ? $attribute[1] : null;
+		$this->ldap_attribute = $attribute[0];
+		$this->icon = isset($attribute[2]) ? $attribute[2] : null;
 		$this->ldap_entry = $ldap_entry;
-		$this->hide_unless_editing = $hide_unless_editing;
+		$this->hide_unless_editing = isset($attribute[3]) ? $attribute[3] : null;
 	}
 
 	/** Output this object attribute as HTML
