@@ -931,9 +931,9 @@ comma-separated list of arrays.
 $ldap_server->add_display_layout("*",array(
         array("section_name"=>"Personal",
                 "attributes"=>array(
-                        array("givenName",                      "Given Name",           "contact24.png",true),
-                        array("sn",                             "Surname",              "contact24.png",true),
-                        array("cn",                             "Full Name",            "contact24.png",true),
+                        array("givenName",                      "Given Name",           "contact24.png","allow_view"=>false),
+                        array("sn",                             "Surname",              "contact24.png","allow_view"=>false),
+                        array("cn",                             "Full Name",            "contact24.png","allow_view"=>false),
                         array("displayName",                    "Preferred Name",       "contact24.png"),
                         array("mail",                           "E-mail",               "mail.png"),
                         array("homePhone",                      "Home Phone",           "landline-phone.png"),
@@ -966,9 +966,7 @@ $ldap_server->add_display_layout("*",array(
 
 <p>
 The <code>givenName</code>, <code>sn</code> and <code>cn</code>
-fields are only visible while the record is being edited. (This
-behavior is enabled by setting the fouth attribute of each
-layout element to <code>true</code>.)
+fields will not be visible except while the record is being edited.
 </p>
 
 <p>

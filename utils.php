@@ -721,8 +721,12 @@ class ldap_entry_viewer_attrib
 	/** LDAP entry whose attribute is to be displayed */
 	var $ldap_entry;
 
-	/** Whether this attribute should be hidden except when editing */
-	var $hide_unless_editing = false;
+	/** Whether this attribute should be displayed when viewing the record.
+
+	    If this is set to false the attribute will be visible only
+	    when editing.
+	*/
+	var $allow_view;
 
 	/** Add an attribute and its value to the display
 
@@ -738,7 +742,7 @@ class ldap_entry_viewer_attrib
 		$this->ldap_attribute = $attribute[0];
 		$this->icon = isset($attribute[2]) ? $attribute[2] : null;
 		$this->ldap_entry = $ldap_entry;
-		$this->hide_unless_editing = isset($attribute[3]) ? $attribute[3] : null;
+		$this->allow_view = isset($attribute["allow_view"]) ? $attribute["allow_view"] : true;
 	}
 
 	/** Output this object attribute as HTML
@@ -754,7 +758,7 @@ class ldap_entry_viewer_attrib
 	{
 		global $ldap_server;
 
-		if($edit || !$this->hide_unless_editing)
+		if($edit || $this->allow_view)
 		{
 			echo "        <tr>\n";
 
