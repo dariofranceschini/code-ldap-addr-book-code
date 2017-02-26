@@ -1,5 +1,5 @@
 <?php
-/** OpenLDAP Configuration (OLC) Schema for NSS/PAM Lookup Overlay (partial) */
+/** OpenLDAP Configuration (OLC) Schema for NSS/PAM Lookup Overlay */
 
 class openldap_nssov_schema extends ldap_schema
 {
@@ -8,9 +8,19 @@ class openldap_nssov_schema extends ldap_schema
 		$this->attribute_schema = array(
 			array("name"=>"olcNssMap",			"data_type"=>"text_list",	"display_name"=>gettext("Service Attribute Mappings")),
 			array("name"=>"olcNssPam",			"data_type"=>"text_list",	"display_name"=>gettext("PAM Authentication and Authorization Options")),
+			array("name"=>"olcNssPamDefHost",		"data_type"=>"text",		"display_name"=>gettext("Default Host Name for Service Checks")),
+			array("name"=>"olcNssPamGroupAD",		"data_type"=>"text",		"display_name"=>gettext("NSS/PAM Group Member Attribute")),
 			array("name"=>"olcNssPamGroupDN",		"data_type"=>"dn",		"display_name"=>gettext("NSS/PAM Group DN")),
+			array("name"=>"olcNssPamMaxUid",		"data_type"=>"text",		"display_name"=>gettext("Minimum UID Value Allowed to Log In")),
+			array("name"=>"olcNssPamMinUid",		"data_type"=>"text",		"display_name"=>gettext("Maximum UID Value Allowed to Log In")),
+			array("name"=>"olcNssPamPwdProhibitMsg",	"data_type"=>"text",		"display_name"=>gettext("Error Message when Password Change Service is Disabled")),
 			array("name"=>"olcNssPamSession",		"data_type"=>"text_list",	"display_name"=>gettext("NSS/PAM Services with Session Logging")),
-			array("name"=>"olcNssSsd",			"data_type"=>"text_list",	"display_name"=>gettext("Service Search Descriptor"))
+			array("name"=>"olcNssPamTemplate",		"data_type"=>"text",		"display_name"=>gettext("Default Login Name")),
+			array("name"=>"olcNssPamTemplateAD",		"data_type"=>"text",		"display_name"=>gettext("Template Login Name Attribute")),
+			array("name"=>"olcNssSsd",			"data_type"=>"text_list",	"display_name"=>gettext("Service Search Descriptor")),
+
+			array("name"=>"olcPamPwdmgrDn",			"data_type"=>"dn",		"display_name"=>gettext("Password Manager DN")),
+			array("name"=>"olcPamPwdmgrPwd",		"data_type"=>"text",		"display_name"=>gettext("Password Manager PWD"))
 			);
 
 		// Structural object classes

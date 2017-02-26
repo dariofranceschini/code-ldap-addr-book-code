@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-26 13:32+0000\n"
-"PO-Revision-Date: 2017-02-26 13:32+0000\n"
+"POT-Creation-Date: 2017-02-26 14:46+0000\n"
+"PO-Revision-Date: 2017-02-26 14:46+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,70 +17,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/nssov.php:9 ../schema/openldap/nssov.php:43
+#: ../schema/openldap/nssov.php:9 ../schema/openldap/nssov.php:53
 msgid "Service Attribute Mappings"
 msgstr "Mapping Servizio Attributi"
 
-#: ../schema/openldap/nssov.php:10 ../schema/openldap/nssov.php:53
+#: ../schema/openldap/nssov.php:10 ../schema/openldap/nssov.php:63
 msgid "PAM Authentication and Authorization Options"
 msgstr "Autenticazione e Autorizzazione Opzioni per PAM"
 
-#: ../schema/openldap/nssov.php:11
-msgid "NSS/PAM Group DN"
-msgstr "Gruppo DN per NSS / PAM"
-
-#: ../schema/openldap/nssov.php:12
-msgid "NSS/PAM Services with Session Logging"
-msgstr "Servizi NSS / PAM con la Registrazione della Sessione"
-
-#: ../schema/openldap/nssov.php:13
-msgid "Service Search Descriptor"
-msgstr "Servizio Ricerca Descrittore"
-
-#: ../schema/openldap/nssov.php:18
-msgid "NSS/PAM Lookup Overlay"
-msgstr "Copertura per Ricerca in NSS / PAM"
-
-#: ../schema/openldap/nssov.php:23
-msgid "NSS/PAM Lookup Overlay Settings"
-msgstr "Impostazioni per Copertura per Ricerca in NSS / PAM"
-
-#: ../schema/openldap/nssov.php:25
-msgid "Overlay Object Name"
-msgstr "Nome dell'Oggetto Copertura"
-
-#: ../schema/openldap/nssov.php:26
+#: ../schema/openldap/nssov.php:11 ../schema/openldap/nssov.php:36
 msgid "Default Host Name for Service Checks"
 msgstr "Host Predefinito Nome per i Controlli di Servizio"
 
-#: ../schema/openldap/nssov.php:27
-msgid "Group of Users Allowed to Authenticate"
-msgstr "Gruppo di Utenti Autorizzati ad Autenticare"
+#: ../schema/openldap/nssov.php:12
+msgid "NSS/PAM Group Member Attribute"
+msgstr "Attributo per Membro del Gruppo per NSS / PAM"
 
-#: ../schema/openldap/nssov.php:28
-msgid "Group Member Attribute"
-msgstr "Attributo per Membro del Gruppo"
+#: ../schema/openldap/nssov.php:13
+msgid "NSS/PAM Group DN"
+msgstr "Gruppo DN per NSS / PAM"
 
-#: ../schema/openldap/nssov.php:29
+#: ../schema/openldap/nssov.php:14 ../schema/openldap/nssov.php:39
 msgid "Minimum UID Value Allowed to Log In"
 msgstr "Valore Minimo di UID che è Consentito di Accesso"
 
-#: ../schema/openldap/nssov.php:30
+#: ../schema/openldap/nssov.php:15 ../schema/openldap/nssov.php:40
 msgid "Maximum UID Value Allowed to Log In"
 msgstr "Valore Massimo di UID che è Consentito di Accesso"
 
-#: ../schema/openldap/nssov.php:31
+#: ../schema/openldap/nssov.php:16
+msgid "Error Message when Password Change Service is Disabled"
+msgstr ""
+"Messaggio di Errore quando si Modifica della Parola d'ordine Servizio è "
+"Disattivato"
+
+#: ../schema/openldap/nssov.php:17
+msgid "NSS/PAM Services with Session Logging"
+msgstr "Servizi NSS / PAM con la Registrazione della Sessione"
+
+#: ../schema/openldap/nssov.php:18
+msgid "Default Login Name"
+msgstr "Nome di Accesso Predefinito"
+
+#: ../schema/openldap/nssov.php:19 ../schema/openldap/nssov.php:41
 msgid "Template Login Name Attribute"
 msgstr "Attributo di Modello di Nome Accesso"
 
-#: ../schema/openldap/nssov.php:32
+#: ../schema/openldap/nssov.php:20
+msgid "Service Search Descriptor"
+msgstr "Servizio Ricerca Descrittore"
+
+#: ../schema/openldap/nssov.php:22
+msgid "Password Manager DN"
+msgstr "DN di Direttore di Parola d'Ordine"
+
+#: ../schema/openldap/nssov.php:23
+msgid "Password Manager PWD"
+msgstr "PWD di Direttore di Parola d'Ordine"
+
+#: ../schema/openldap/nssov.php:28
+msgid "NSS/PAM Lookup Overlay"
+msgstr "Copertura per Ricerca in NSS / PAM"
+
+#: ../schema/openldap/nssov.php:33
+msgid "NSS/PAM Lookup Overlay Settings"
+msgstr "Impostazioni per Copertura per Ricerca in NSS / PAM"
+
+#: ../schema/openldap/nssov.php:35
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/nssov.php:37
+msgid "Group of Users Allowed to Authenticate"
+msgstr "Gruppo di Utenti Autorizzati ad Autenticare"
+
+#: ../schema/openldap/nssov.php:38
+msgid "Group Member Attribute"
+msgstr "Attributo per Membro del Gruppo"
+
+#: ../schema/openldap/nssov.php:42
 msgid "Login Name to Use if Template Attribute is Empty"
 msgstr "Accedi nome da Utilizzare se l'Attributo Modello è Vuoto"
 
-#: ../schema/openldap/nssov.php:38
+#: ../schema/openldap/nssov.php:48
 msgid "Service Search Descriptors"
 msgstr "Servizio Ricerca Descrittori"
 
-#: ../schema/openldap/nssov.php:48
+#: ../schema/openldap/nssov.php:58
 msgid "Services with Session Logging"
 msgstr "Servizi con la Registrazione della Sessione"

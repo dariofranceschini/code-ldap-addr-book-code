@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-26 13:32+0000\n"
-"PO-Revision-Date: 2017-02-26 13:32+0000\n"
+"POT-Creation-Date: 2017-02-26 14:46+0000\n"
+"PO-Revision-Date: 2017-02-26 14:46+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,70 +17,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/openldap/nssov.php:9 ../schema/openldap/nssov.php:43
+#: ../schema/openldap/nssov.php:9 ../schema/openldap/nssov.php:53
 msgid "Service Attribute Mappings"
 msgstr "Service Attribute Mappings"
 
-#: ../schema/openldap/nssov.php:10 ../schema/openldap/nssov.php:53
+#: ../schema/openldap/nssov.php:10 ../schema/openldap/nssov.php:63
 msgid "PAM Authentication and Authorization Options"
 msgstr "PAM Authentication and Authorization Options"
 
-#: ../schema/openldap/nssov.php:11
-msgid "NSS/PAM Group DN"
-msgstr "NSS/PAM Group DN"
-
-#: ../schema/openldap/nssov.php:12
-msgid "NSS/PAM Services with Session Logging"
-msgstr "NSS/PAM Services with Session Logging"
-
-#: ../schema/openldap/nssov.php:13
-msgid "Service Search Descriptor"
-msgstr "Service Search Descriptor"
-
-#: ../schema/openldap/nssov.php:18
-msgid "NSS/PAM Lookup Overlay"
-msgstr "NSS/PAM Lookup Overlay"
-
-#: ../schema/openldap/nssov.php:23
-msgid "NSS/PAM Lookup Overlay Settings"
-msgstr "NSS/PAM Lookup Overlay Settings"
-
-#: ../schema/openldap/nssov.php:25
-msgid "Overlay Object Name"
-msgstr "Overlay Object Name"
-
-#: ../schema/openldap/nssov.php:26
+#: ../schema/openldap/nssov.php:11 ../schema/openldap/nssov.php:36
 msgid "Default Host Name for Service Checks"
 msgstr "Default Host Name for Service Checks"
 
-#: ../schema/openldap/nssov.php:27
-msgid "Group of Users Allowed to Authenticate"
-msgstr "Group of Users Allowed to Authenticate"
+#: ../schema/openldap/nssov.php:12
+msgid "NSS/PAM Group Member Attribute"
+msgstr "NSS/PAM Group Member Attribute"
 
-#: ../schema/openldap/nssov.php:28
-msgid "Group Member Attribute"
-msgstr "Group Member Attribute"
+#: ../schema/openldap/nssov.php:13
+msgid "NSS/PAM Group DN"
+msgstr "NSS/PAM Group DN"
 
-#: ../schema/openldap/nssov.php:29
+#: ../schema/openldap/nssov.php:14 ../schema/openldap/nssov.php:39
 msgid "Minimum UID Value Allowed to Log In"
 msgstr "Minimum UID Value Allowed to Log In"
 
-#: ../schema/openldap/nssov.php:30
+#: ../schema/openldap/nssov.php:15 ../schema/openldap/nssov.php:40
 msgid "Maximum UID Value Allowed to Log In"
 msgstr "Maximum UID Value Allowed to Log In"
 
-#: ../schema/openldap/nssov.php:31
+#: ../schema/openldap/nssov.php:16
+msgid "Error Message when Password Change Service is Disabled"
+msgstr "Error Message when Password Change Service is Disabled"
+
+#: ../schema/openldap/nssov.php:17
+msgid "NSS/PAM Services with Session Logging"
+msgstr "NSS/PAM Services with Session Logging"
+
+#: ../schema/openldap/nssov.php:18
+msgid "Default Login Name"
+msgstr "Default Login Name"
+
+#: ../schema/openldap/nssov.php:19 ../schema/openldap/nssov.php:41
 msgid "Template Login Name Attribute"
 msgstr "Template Login Name Attribute"
 
-#: ../schema/openldap/nssov.php:32
+#: ../schema/openldap/nssov.php:20
+msgid "Service Search Descriptor"
+msgstr "Service Search Descriptor"
+
+#: ../schema/openldap/nssov.php:22
+msgid "Password Manager DN"
+msgstr "Password Manager DN"
+
+#: ../schema/openldap/nssov.php:23
+msgid "Password Manager PWD"
+msgstr "Password Manager PWD"
+
+#: ../schema/openldap/nssov.php:28
+msgid "NSS/PAM Lookup Overlay"
+msgstr "NSS/PAM Lookup Overlay"
+
+#: ../schema/openldap/nssov.php:33
+msgid "NSS/PAM Lookup Overlay Settings"
+msgstr "NSS/PAM Lookup Overlay Settings"
+
+#: ../schema/openldap/nssov.php:35
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/nssov.php:37
+msgid "Group of Users Allowed to Authenticate"
+msgstr "Group of Users Allowed to Authenticate"
+
+#: ../schema/openldap/nssov.php:38
+msgid "Group Member Attribute"
+msgstr "Group Member Attribute"
+
+#: ../schema/openldap/nssov.php:42
 msgid "Login Name to Use if Template Attribute is Empty"
 msgstr "Login Name to Use if Template Attribute is Empty"
 
-#: ../schema/openldap/nssov.php:38
+#: ../schema/openldap/nssov.php:48
 msgid "Service Search Descriptors"
 msgstr "Service Search Descriptors"
 
-#: ../schema/openldap/nssov.php:48
+#: ../schema/openldap/nssov.php:58
 msgid "Services with Session Logging"
 msgstr "Services with Session Logging"
