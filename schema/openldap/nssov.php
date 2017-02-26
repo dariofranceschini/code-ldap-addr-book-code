@@ -6,11 +6,11 @@ class openldap_nssov_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			array("name"=>"olcNssPamGroupDN",		"data_type"=>"dn",		"display_name"=>gettext("NSS/PAM Group DN")),
-			array("name"=>"olcNssSsd",			"data_type"=>"text_list",	"display_name"=>gettext("Service Search Descriptor")),
 			array("name"=>"olcNssMap",			"data_type"=>"text_list",	"display_name"=>gettext("Service Attribute Mappings")),
 			array("name"=>"olcNssPam",			"data_type"=>"text_list",	"display_name"=>gettext("PAM Authentication and Authorization Options")),
-			array("name"=>"olcNssPamSession",		"data_type"=>"text_list",	"display_name"=>gettext("NSS/PAM Services with Session Logging"))
+			array("name"=>"olcNssPamGroupDN",		"data_type"=>"dn",		"display_name"=>gettext("NSS/PAM Group DN")),
+			array("name"=>"olcNssPamSession",		"data_type"=>"text_list",	"display_name"=>gettext("NSS/PAM Services with Session Logging")),
+			array("name"=>"olcNssSsd",			"data_type"=>"text_list",	"display_name"=>gettext("Service Search Descriptor"))
 			);
 
 		// Structural object classes
