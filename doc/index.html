@@ -919,16 +919,20 @@ the address book entries in three "sections":
 <img alt="Default address book layout, with personal, business/work and additional notes sections" src="layout.png">
 <p>
 This layout is created by the configuration shown
-below. The value "*" means that the layout should be
-applied for all types of record (unless overridden
-by another definition applying to a specific record
-type). The layout itself is described as a
-comma-separated list of arrays.
+below. The layout will be used when displaying
+<code>inetOrgPerson</code>, <code>user</code>
+or <code>contact</code> records.
+
+Specifying <code>*</code> instead of a list of object
+classes means that the layout should be applied for
+all types of record (unless overridden by another
+definition applying to a specific record type). The
+layout itself is described as a comma-separated list
+of arrays.
 </p>
 <pre>
 
-
-$ldap_server->add_display_layout("*",array(
+$ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
         array("section_name"=>"Personal",
                 "attributes"=>array(
                         array("givenName",                      "Given Name",           "contact24.png","allow_view"=>false),
