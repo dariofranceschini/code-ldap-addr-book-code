@@ -935,7 +935,7 @@ $ldap_server->add_display_layout("*",array(
                         array("sn",                             "Surname",              "contact24.png","allow_view"=>false),
                         array("cn",                             "Full Name",            "contact24.png","allow_view"=>false),
                         array("displayName",                    "Preferred Name",       "contact24.png"),
-                        array("mail",                           "E-mail",               "mail.png"),
+                        array("mail",                           "E-mail",               "mail.png","allow_edit"=>false),
                         array("homePhone",                      "Home Phone",           "landline-phone.png"),
                         array("mobile",                         "Mobile Phone",         "cell-phone.png"),
                         array("wWWHomePage",                    "Web Page",             "internet.png"),
@@ -967,6 +967,8 @@ $ldap_server->add_display_layout("*",array(
 <p>
 The <code>givenName</code>, <code>sn</code> and <code>cn</code>
 fields will not be visible except while the record is being edited.
+The <code>mail</code> field will be read only, and cannot be edited
+by end users.
 </p>
 
 <p>

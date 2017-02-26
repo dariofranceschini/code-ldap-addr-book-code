@@ -78,9 +78,10 @@ if($ldap_server->log_on())
 						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"]);
 						foreach($entry_layout as $section)
 							foreach($section["attributes"] as $attrib_spec)
-								foreach(explode(":",$attrib_spec[0]) as $attribute_line)
-									foreach(explode("+",$attribute_line) as $attrib)
-										$required_attribs[] = $attrib;
+								if(!isset($attrib_spec["allow_edit"]) || $attrib_spec["allow_edit"])
+									foreach(explode(":",$attrib_spec[0]) as $attribute_line)
+										foreach(explode("+",$attribute_line) as $attrib)
+											$required_attribs[] = $attrib;
 					}
 					else
 						$required_attribs = explode(",",

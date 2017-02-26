@@ -728,6 +728,9 @@ class ldap_entry_viewer_attrib
 	*/
 	var $allow_view;
 
+	/** Whether this attribute can be edited */
+	var $allow_edit;
+
 	/** Add an attribute and its value to the display
 
 	    @param array $ldap_entry
@@ -743,6 +746,7 @@ class ldap_entry_viewer_attrib
 		$this->icon = isset($attribute[2]) ? $attribute[2] : null;
 		$this->ldap_entry = $ldap_entry;
 		$this->allow_view = isset($attribute["allow_view"]) ? $attribute["allow_view"] : true;
+		$this->allow_edit = isset($attribute["allow_edit"]) ? $attribute["allow_edit"] : true;
 	}
 
 	/** Output this object attribute as HTML
@@ -757,6 +761,12 @@ class ldap_entry_viewer_attrib
 	function show($create,$edit)
 	{
 		global $ldap_server;
+
+		// Attribute should be visible whilst record is being edited
+		if($edit) $this->allow_view = true;
+
+		// Attribute should not be editable if allow_edit is not granted
+		if(!$this->allow_edit) $edit = false;
 
 		if($edit || $this->allow_view)
 		{
