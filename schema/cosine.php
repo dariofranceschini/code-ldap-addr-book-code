@@ -142,6 +142,18 @@ class cosine_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("room",array(
+			array("section_name"=>gettext("Room"),
+				"attributes"=>array(
+					array("cn",				gettext("Name"),			"room.png"),
+					array("roomNumber",			gettext("Room Number"),			"id.png"),
+					array("description",			gettext("Description"),			"description.png"),
+					array("telephoneNumber",		gettext("Telephone Number"),		"landline-phone.png"),
+					array("seeAlso",			gettext("See Also"),			"alias.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

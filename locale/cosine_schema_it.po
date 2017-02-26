@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-25 12:08+0000\n"
-"PO-Revision-Date: 2016-07-05 09:35+0100\n"
+"POT-Creation-Date: 2017-02-26 12:30+0000\n"
+"PO-Revision-Date: 2017-02-26 12:30+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -97,7 +97,7 @@ msgstr "Numero di Cercapersone"
 msgid "Personal Title"
 msgstr "Titolo Personale"
 
-#: ../schema/cosine.php:45
+#: ../schema/cosine.php:45 ../schema/cosine.php:149
 msgid "Room Number"
 msgstr "Numero di Camera"
 
@@ -217,7 +217,7 @@ msgstr "Paese (Nome Descrittivo)"
 msgid "RFC 822 Local Part"
 msgstr "RFC 822 Parte Locale"
 
-#: ../schema/cosine.php:95
+#: ../schema/cosine.php:95 ../schema/cosine.php:146
 msgid "Room"
 msgstr "Camera"
 
@@ -241,7 +241,7 @@ msgstr "Persona (COSINE Sperimentale)"
 msgid "Domain Name Component"
 msgstr "Componente di Nome di Nominio"
 
-#: ../schema/cosine.php:111
+#: ../schema/cosine.php:111 ../schema/cosine.php:150
 msgid "Description"
 msgstr "Descrizione"
 
@@ -260,3 +260,15 @@ msgstr "Fax"
 #: ../schema/cosine.php:138
 msgid "Associated Names"
 msgstr "Nomi Associati"
+
+#: ../schema/cosine.php:148
+msgid "Name"
+msgstr "Nome"
+
+#: ../schema/cosine.php:151
+msgid "Telephone Number"
+msgstr "Numero di Telefono"
+
+#: ../schema/cosine.php:152
+msgid "See Also"
+msgstr "Guarda Anche"
