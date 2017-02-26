@@ -1406,6 +1406,13 @@ result of the COSINE (Co-operation and Open Systems Interconnetion in Europe)
 initiative's PARADISE directory pilot project in the early 1990s. Described
 in IETF RFC 1124 (and its successors).</td></tr>
 
+<tr><td>dhcp</td>
+
+<td>Allows the Address Book to be used to manage the Internet Software
+Consortium DHCP Server (dhcpd). This also allows a pair of DHCP servers
+to be set up as a failover cluster, sharing configuration and IP address
+lease data through an LDAP directory.</td></tr>
+
 <tr><td>inetorgperson</td>
 
 <td>Enhanced object class for recording details of a person in an
@@ -1423,12 +1430,39 @@ differences) together with numerous Microsoft-specific classes.</td></tr>
 <td>Extends inetOrgPerson for storing additional attributes used by the
 address book feature of Mozilla Thunderbird and related products.</td></tr>
 
+<tr><td>nis</td>
+
+<td>Allows the Address Book to manage a Network Information Service (NIS)
+server that has been set up to store its configuration data in LDAP.
+This is typically used for centrally managing UNIX/Linux-type
+operating systems on a network.</td></tr>
+
 <tr><td>novell</td>
 
 <td>Objects and attributes used in Novell eDirectory (formerly called
-Novell Directory Services, NDS). These include redefinitions of Core, COSINE
-and inetOrgPerson (often with subtle differences) together with numerous
+Novell Directory Services, NDS). These include redefinitions of Core, COSINE,
+NIS and inetOrgPerson (often with subtle differences) together with numerous
 Novell-specific classes.</td></tr>
+
+<tr><td>openldap</td>
+
+<td>Versions of the organisation, OU and Internet/intranet organisational
+person objects with additional attributes, as used in the OpenLDAP Project's
+own directory schema.</td></tr>
+
+<tr><td>oracle</td>
+
+<td>Objects and attributes used to store information about Oracle databases
+and services in a central directory. Oracle clients can look up this
+information via LDAP instead of a locally-stored <code>tnsnames.ora</code> file
+on each machine.</td></tr>
+
+<tr><td>ppolicy</td>
+
+<td>Defines objects for storing an LDAP directory's password policy within
+the directory itself. Administrators of OpenLDAP servers can configure the
+<code>ppolicy</code> overlay module to read these records and apply the policy
+settings.</td></tr>
 
 <tr><td>schac</td>
 
