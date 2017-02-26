@@ -27,7 +27,7 @@ class openldap_nssov_schema extends ldap_schema
 					array("olcNssPamGroupDN",		gettext("Group of Users Allowed to Authenticate"),		"group24.png"),
 					array("olcNssPamGroupAD",		gettext("Group Member Attribute"),				"user24.png"),
 					array("olcNssPamMinUid",		gettext("Minimum UID Value Allowed to Log In"),			"generic24.png"),
-					array("olcNssPamMaxUid",		gettext("Minimum UID Value Allowed to Log In"),			"generic24.png"),
+					array("olcNssPamMaxUid",		gettext("Maximum UID Value Allowed to Log In"),			"generic24.png"),
 					array("olcNssPamTemplateAD",		gettext("Template Login Name Attribute"),			"generic24.png"),
 					array("olcNssPamTemplate",		gettext("Login Name to Use if Template Attribute is Empty"),	"generic24.png"),
 

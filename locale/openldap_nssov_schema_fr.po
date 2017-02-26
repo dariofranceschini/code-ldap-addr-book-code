@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:06+0000\n"
-"PO-Revision-Date: 2017-01-17 14:06+0000\n"
+"POT-Creation-Date: 2017-02-26 13:32+0000\n"
+"PO-Revision-Date: 2017-02-26 13:32+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/openldap/nssov.php:9
-msgid "NSS/PAM Group DN"
-msgstr "Groupe DN pour NSS / PAM"
-
-#: ../schema/openldap/nssov.php:10
-msgid "Service Search Descriptor"
-msgstr "Descripteur de la Recherche de Service"
-
-#: ../schema/openldap/nssov.php:11 ../schema/openldap/nssov.php:43
+#: ../schema/openldap/nssov.php:9 ../schema/openldap/nssov.php:43
 msgid "Service Attribute Mappings"
 msgstr "Mappages des Attributs de Service"
 
-#: ../schema/openldap/nssov.php:12 ../schema/openldap/nssov.php:53
+#: ../schema/openldap/nssov.php:10 ../schema/openldap/nssov.php:53
 msgid "PAM Authentication and Authorization Options"
 msgstr "Options d'Authentification et d'Autorisation PAM"
 
-#: ../schema/openldap/nssov.php:13
+#: ../schema/openldap/nssov.php:11
+msgid "NSS/PAM Group DN"
+msgstr "Groupe DN pour NSS / PAM"
+
+#: ../schema/openldap/nssov.php:12
 msgid "NSS/PAM Services with Session Logging"
 msgstr "Services NSS / PAM avec Journalisation des Sessions"
+
+#: ../schema/openldap/nssov.php:13
+msgid "Service Search Descriptor"
+msgstr "Descripteur de la Recherche de Service"
 
 #: ../schema/openldap/nssov.php:18
 msgid "NSS/PAM Lookup Overlay"
@@ -61,9 +61,13 @@ msgstr "Groupe d'Utilisateurs Autorisés à Authentifier"
 msgid "Group Member Attribute"
 msgstr "Attribut pour Membre du Groupe"
 
-#: ../schema/openldap/nssov.php:29 ../schema/openldap/nssov.php:30
+#: ../schema/openldap/nssov.php:29
 msgid "Minimum UID Value Allowed to Log In"
 msgstr "Valeur Minimale de l'UID Autorisée à se Connecter"
+
+#: ../schema/openldap/nssov.php:30
+msgid "Maximum UID Value Allowed to Log In"
+msgstr "Valeur Maximale de l'UID Autorisée à se Connecter"
 
 #: ../schema/openldap/nssov.php:31
 msgid "Template Login Name Attribute"
