@@ -54,6 +54,7 @@ class openldap_back_ldap_schema extends ldap_schema
 		// override the schema-defined data type that the new database's DN can be typed in
 		$ldap_server->modify_attribute_schema("olcSuffix","data_type","text");
 
+		$this->add_attrib_value($ldap_server,$entry,"olcDbURI","ldap://localhost/");
 		$this->add_attrib_value($ldap_server,$entry,"olcDbChaseReferrals","FALSE");
 	}
 
