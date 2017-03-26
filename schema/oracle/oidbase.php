@@ -6,7 +6,6 @@ class oracle_oidbase_schema extends ldap_schema
         function __construct(&$ldap_server)
         {
 		$this->attribute_schema = array(
-			//oidbase
                         array("name"=>"orclVersion",			"data_type"=>"text"),
                         array("name"=>"orclOracleHome",			"data_type"=>"text"),
                         array("name"=>"orclSystemName",			"data_type"=>"text"),
@@ -19,7 +18,6 @@ class oracle_oidbase_schema extends ldap_schema
 
                 // Structural object classes
                 $this->object_schema = array(
-			// oidbase
 			array("name"=>"orclContainer",			"icon"=>"oracle/oracle-container.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Container")),
 			array("name"=>"orclContext",			"icon"=>"oracle/oracle-container.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Context")),
 			array("name"=>"orclSchemaVersion",		"icon"=>"generic24.png",			"is_folder"=>false),
