@@ -60,7 +60,7 @@ if($ldap_server->log_on())
 
 	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
 
-	echo "<form method=\"get\" action=\"info.php\">\n";
+	echo "<form method=\"GET\" action=\"info.php\">\n";
 
 	echo "  <p>\n    " . gettext("What type of record would you like to create?") . "\n  </p>\n";
 

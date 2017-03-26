@@ -132,7 +132,7 @@ function show_site_footer()
 
 function show_search_box($initial_value)
 {
-	echo "<form action=\"" . current_page_folder_url() . "\" method=\"get\">\n";
+	echo "<form action=\"" . current_page_folder_url() . "\" method=\"GET\">\n";
 
 	echo "  <table class=\"search\">\n";
 	echo "    <tr>\n";
@@ -550,7 +550,7 @@ class ldap_entry_viewer
 				|| (get_user_setting("allow_edit_self")
                                 && !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
 
-				echo "<form method=\"post\" action=\"update.php?dn="
+				echo "<form method=\"POST\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
 
 			echo "<table class=\"ldap_entry_viewer\">\n";
@@ -593,7 +593,7 @@ class ldap_entry_viewer
 				}
 				else
 				{
-					echo "<form method=\"get\" action=\"info.php\" style=\"display:inline\">\n"
+					echo "<form method=\"GET\" action=\"info.php\" style=\"display:inline\">\n"
 						. "  <input type=\"hidden\" name=\"edit\" value=\"1\">\n"
 						. "  <input type=\"hidden\" name=\"dn\" value=\""
 						. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n"
