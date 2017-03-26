@@ -56,7 +56,7 @@ class ppolicy_schema extends ldap_schema
 			array("name"=>"pwdGraceUseTime",		"data_type"=>"text_list",	"display_name"=>gettext("Times of Grace Logins after Password Expiry")),	// ideally a list of date_time
 			array("name"=>"pwdHistory",			"data_type"=>"text_list",	"display_name"=>gettext("Password History")),
 			array("name"=>"pwdPolicySubentry",		"data_type"=>"dn",		"display_name"=>gettext("Policy Object DN")),
-			array("name"=>"pwdReset",			"data_type"=>"yes_no",		"display_name"=>gettext("Password Has Been Reset"))
+			array("name"=>"pwdReset",			"data_type"=>"yes_no",		"display_name"=>gettext("Password Has Been Reset")),
 
 			// The following attributes are described in draft-behera-ldap-password-policy-10
 			// but are not defined in the ppolicy.schema file or by the "ppolicy" overlay
