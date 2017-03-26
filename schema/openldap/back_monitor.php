@@ -5,15 +5,40 @@ class openldap_back_monitor_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// TODO: define attributes
+		// Attributes
 		$this->attribute_schema = array(
 			array("name"=>"monitorConnectionActivityTime",	"data_type"=>"date_time",	"display_name"=>gettext("Activity Time")),
+			array("name"=>"monitorConnectionAuthzDN",	"data_type"=>"dn",		"display_name"=>gettext("Connection Authorization DN")),
+			array("name"=>"monitorConnectionGet",		"data_type"=>"text",		"display_name"=>gettext("Number of connection_get() Calls")),
+			array("name"=>"monitorConnectionListener",	"data_type"=>"text",		"display_name"=>gettext("Listener for Connection")),
+			array("name"=>"monitorConnectionLocalAddress",	"data_type"=>"text",		"display_name"=>gettext("Connection Local Address")),
+			array("name"=>"monitorConnectionMask",		"data_type"=>"text",		"display_name"=>gettext("Connection Mask")),
+			array("name"=>"monitorConnectionNumber",	"data_type"=>"text",		"display_name"=>gettext("Connection Number")),
+			array("name"=>"monitorConnectionOpsCompleted",	"data_type"=>"text",		"display_name"=>gettext("Number of Operations Completed")),
+			array("name"=>"monitorConnectionOpsExecuting",	"data_type"=>"text",		"display_name"=>gettext("Number of Operations Executing")),
+			array("name"=>"monitorConnectionOpsPending",	"data_type"=>"text",		"display_name"=>gettext("Number of Operations Pending")),
+			array("name"=>"monitorConnectionOpsReceived",	"data_type"=>"text",		"display_name"=>gettext("Number of Operations Received")),
+			array("name"=>"monitorConnectionPeerAddress",	"data_type"=>"text",		"display_name"=>gettext("Connection Peer Address")),
+			array("name"=>"monitorConnectionPeerDomain",	"data_type"=>"text",		"display_name"=>gettext("Connection Peer Domain")),
+			array("name"=>"monitorConnectionProtocol",	"data_type"=>"ldap_version",	"display_name"=>gettext("Protocol Version")),
+			array("name"=>"monitorConnectionRead",		"data_type"=>"text",		"display_name"=>gettext("Number of connection_read() Calls")),
 			array("name"=>"monitorConnectionStartTime",	"data_type"=>"date_time",	"display_name"=>gettext("Start Time")),
+			array("name"=>"monitorConnectionWrite",		"data_type"=>"text",		"display_name"=>gettext("Number of connection_write() Calls")),
 			array("name"=>"monitorContext",			"data_type"=>"dn",		"display_name"=>gettext("Monitoring Naming Context")),
+			array("name"=>"monitorCounter",			"data_type"=>"text",		"display_name"=>gettext("Monitor Counter Value")),
 			array("name"=>"monitorIsShadow",		"data_type"=>"yes_no",		"display_name"=>gettext("Database is Shadow/Slave")),
+			array("name"=>"monitorOpCompleted",		"data_type"=>"text",		"display_name"=>gettext("Number of Operations Completed")),
+			array("name"=>"monitorOpInitiated",		"data_type"=>"text",		"display_name"=>gettext("Number of Operations Initiated")),
+			array("name"=>"monitorOverlay",			"data_type"=>"text_list",	"display_name"=>gettext("Database Overlays")),
 			array("name"=>"monitorRuntimeConfig",		"data_type"=>"yes_no",		"display_name"=>gettext("Runtime Configuration Allowed")),
+			array("name"=>"monitorSuperiorDN",		"data_type"=>"dn",		"display_name"=>gettext("Superior Object DN")),
 			array("name"=>"monitorTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Time Stamp")),
-			array("name"=>"readOnly",			"data_type"=>"yes_no",		"display_name"=>gettext("Read Only"))
+			array("name"=>"monitorUpdateRef",		"data_type"=>"text",		"display_name"=>gettext("Shadow Database Update Referral")),
+
+			array("name"=>"monitoredInfo",			"data_type"=>"text",		"display_name"=>gettext("Monitored Information")),
+			array("name"=>"managedInfo",			"data_type"=>"text",		"display_name"=>gettext("Managed Information")),
+			array("name"=>"readOnly",			"data_type"=>"yes_no",		"display_name"=>gettext("Read Only")),
+			array("name"=>"restrictedOperation",		"data_type"=>"text",		"display_name"=>gettext("Restricted Operation Name"))
 			);
 
 		// Structural object classes
