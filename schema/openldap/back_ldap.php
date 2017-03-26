@@ -10,6 +10,7 @@ class openldap_back_ldap_schema extends ldap_schema
 			array("name"=>"olcLDAPConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("LDAP Proxy Database"),"required_attribs"=>"olcSuffix","can_create"=>true,"create_method"=>"atomic","parent_class"=>"olcDatabaseConfig"),
 			array("name"=>"olcChainConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Chain Overlay"),"parent_class"=>"olcOverlayConfig"),
 			array("name"=>"olcDistProcConfig",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Distributed Procedure Overlay"),"parent_class"=>"olcOverlayConfig"),
+			array("name"=>"olcPBindConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("LDAP Proxy Bind Overlay"),"parent_class"=>"olcOverlayConfig","required_attribs"=>"olcDbURI","can_create"=>true),
 			array("name"=>"olmLDAPConnection",		"icon"=>"openldap/connection.png",	"is_folder"=>false,"display_name"=>gettext("Monitored LDAP Proxy Connection"),"parent_class"=>"monitorConnection")
 			);
 
@@ -46,6 +47,19 @@ class openldap_back_ldap_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("olcPBindConfig",array(
+			array("section_name"=>gettext("LDAP Bind Proxy Settings"),"new_row"=>true,
+				"attributes"=>array(
+                                        array("olcOverlay",		gettext("Overlay Object Name"),		"openldap/overlay.png"),
+
+					array("olcDbURI",		gettext("Remote LDAP Directory URI"),	"ldap-server.png"),
+					array("olcDbNetworkTimeout",	gettext("Network Timeout"),		"generic24.png"),
+					array("olcDbStartTLS",		gettext("StartTLS Behaviour"),		"generic24.png"),
+					array("olcDbQuarantine",	gettext("URI Quarantine Behaviour"),	"generic24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 
@@ -71,6 +85,18 @@ class openldap_back_ldap_schema extends ldap_schema
 		// The following must be removed rather than assigned with an empty value (triggers "Invalid syntax" error)
 		if(empty($entry["olcDbIDAssertAuthzFrom"])) unset($entry["olcDbIDAssertAuthzFrom"]);
 		if(empty($entry["olcDbIDAssertBind"])) unset($entry["olcDbIDAssertBind"]);
+	}
+
+	function populate_for_create_olcPBindConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->assign_ordered_sequence_rdn($entry,"olcOverlayConfig","pbind");
+
+		$this->add_attrib_value($ldap_server,$entry,"olcDbURI","ldap://localhost/");
+	}
+
+	function before_create_olcPBindConfig(&$ldap_server,&$entry)
+	{
+		$ldap_server->ensure_openldap_module_loaded("back_ldap");
 	}
 }
 ?>
