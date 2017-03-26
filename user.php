@@ -92,17 +92,6 @@ function show_try_again_message($message)
 	show_site_footer();
 }
 
-/** Log the user out (or discard details of any in-progress login sequence) */
-
-function reset_login_session()
-{
-	unset($_SESSION["LOGIN_SENT"]);
-	unset($_SESSION["LOGIN_USER"]);
-	unset($_SESSION["LOGIN_PASSWORD"]);
-	unset($_SESSION["LOGIN_BIND_DN"]);
-	unset($_SESSION["CACHED_PERMISSIONS"]);
-}
-
 /** Redirect user to their previous URL once login has been completed
 
     Previous URL is based on the HTTP "Referer" header field if

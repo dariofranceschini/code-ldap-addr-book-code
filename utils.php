@@ -5302,4 +5302,16 @@ function fix_missing_object_classes($ldap_server,&$entry)
 		$objclass_index++;
 	}
 }
+
+/** Log the user out (or discard details of any in-progress login sequence) */
+
+function reset_login_session()
+{
+        unset($_SESSION["LOGIN_SENT"]);
+        unset($_SESSION["LOGIN_USER"]);
+        unset($_SESSION["LOGIN_PASSWORD"]);
+        unset($_SESSION["LOGIN_BIND_DN"]);
+        unset($_SESSION["LOGIN_UID"]);
+        unset($_SESSION["CACHED_PERMISSIONS"]);
+}
 ?>
