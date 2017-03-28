@@ -482,7 +482,7 @@ class ldap_entry_viewer
 
 		$heading->text = isset($section["section_name"]) ? $section["section_name"] : "";
 		$heading->colspan = isset($section["colspan"]) ? $section["colspan"] : 1;
-		$heading->newrow = $section["new_row"];
+		$heading->new_row = $section["new_row"];
 		$heading->width = isset($section["width"]) ? $section["width"] : null;
 		$heading->ldap_entry = $this->ldap_entry;
 
@@ -642,7 +642,7 @@ class ldap_entry_viewer_section
 	    with narrow screen widths, with all sections placed below each other
 	    in their own rows. (equivalent of forcing 'true' for all sections)
 	*/
-	var $newrow=false;
+	var $new_row=false;
 
 	/** Attributes to display in section (array of ldap_entry_viewer_attribute) */
 	var $attrib=array();
@@ -681,7 +681,7 @@ class ldap_entry_viewer_section
 	{
 		echo "\n<!-- Section: " . $this->text . " -->\n\n";
 
-		if($this->newrow) echo "  <tr>\n";
+		if($this->new_row) echo "  <tr>\n";
 
 		$cell_attrib = "";
 		if($this->colspan != 1)
