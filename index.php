@@ -34,6 +34,12 @@ if(prereq_components_ok())
 	else
 		$dn = $ldap_base_dn;
 
+	// Default filter expression to use if none specified in config
+	// file: return only people in search results
+	if(empty($search_ldap_filter))
+		$search_ldap_filter
+			= "(&(objectClass=person)___search_criteria___)";
+
 	if(!empty($_GET["filter"]))
 	{
 		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
@@ -56,12 +62,6 @@ if(prereq_components_ok())
 			$search_criteria .= str_replace("___search_value___",$filter,
 				str_replace("___search_attrib___",$attrib,
 				$attribute_search_template));
-
-		// Default filter expression to use if none specified in config
-		// file: return only people in search results
-		if(empty($search_ldap_filter))
-			$search_ldap_filter
-				= "(&(objectClass=person)___search_criteria___)";
 
 		$filter = str_replace("___search_criteria___",
 			"(|" . $search_criteria . ")",$search_ldap_filter);
