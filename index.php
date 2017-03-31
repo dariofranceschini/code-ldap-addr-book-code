@@ -68,6 +68,12 @@ if(prereq_components_ok())
 
 		$search_type= "subtree";
 	}
+	else if(get_user_setting("display_all_records_by_default") && $dn == $ldap_base_dn)
+	{
+		$filter = str_replace("___search_criteria___",
+			"(objectClass=*)",$search_ldap_filter);
+		$search_type= "subtree";
+	}
 	else
 	{
 		if(empty($_GET["vcard"]))
