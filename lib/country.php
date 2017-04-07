@@ -67,7 +67,7 @@ $country_name=array(
 	"CF" => "Central African Republic",
 	"CG" => "Congo",
 	"CH" => "Switzerland",
-	"CI" => "Cote D'Ivoire",
+	"CI" => "Côte d'Ivoire",
 	"CK" => "Cook Islands",
 	"CL" => "Chile",
 	"CM" => "Cameroon",
@@ -274,4 +274,5 @@ $country_name=array(
 	"ZM" => "Zambia",
 	"ZW" => "Zimbabwe",
 	);
+}
 ?>
