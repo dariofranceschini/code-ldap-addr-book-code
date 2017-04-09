@@ -372,6 +372,7 @@ $short_date_time_format = "%d %b %Y %H:%M:%S";
 //      transitional    ISO 3166-1 Transitional Reservations
 //      indeterminate   ISO 3166-1 Indeterminate Reservations
 //      former          ISO 3166-3 Formerly Assigned Codes
+//      wipo            WIPO ST.3 Country Codes
 //
 // See "Changing the country code interpretation" in the manual for
 // more information about each standard.

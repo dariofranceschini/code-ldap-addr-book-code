@@ -1439,6 +1439,40 @@ code standards:
     no longer in existance.</p></td>
   </tr>
 </table>
+<p>
+The following alternative (non-standard) coding scheme is also
+supported if needed for specialist and/or legacy applications:
+</p>
+<table border=1>
+  <tr><th>Country Code Setting</th><th>Description</th></tr>
+  <tr>
+    <td><code>wipo</code></td>
+    <td>WIPO ST.3 Country Codes
+    <p>
+    Broadly similar to ISO 3166-1 alpha2 official assignments, but also
+    includes codes which represent intellectual property organisations
+    that participate in WIPO.
+    </p>
+    <p>
+    Several countries which appear in ISO 3166-1 (2013 ed.) are omitted
+    from WIPO ST.3 - most likely because they are not autonomous for
+    patent treaty purposes or otherwise not recognised by WIPO:
+    </p>
+    <p>
+    <code>AQ AS AX BL CC CX FM GF GP GU HM IO MF MH MQ<br>
+    NC NF NU PF PM PN PR PS RE SJ TF TK UM WF YT</code>
+    <p>
+    ISO has agreed not to assign country codes which conflict with the
+    WIPO participants, so the Address Book can use both ISO and WIPO
+    standards together, e.g. by setting the country code standard to
+    <code>official,wipo</code>.
+    </p>
+    <p>
+    (ISO have also agreed not to us "EF", which represented an older
+    European patent treaty area, now superceded by "EP".)
+    </p></td>
+  </tr>
+</table>
 
 <h3>Extending and modifying the schema</h3>
 <p>
