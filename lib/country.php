@@ -16,12 +16,7 @@
 
    ************************************************************************ */
 
-/** Officially assigned ISO 3166-1 alpha-2 country codes/names
-
-    @see
-	Code snippet from:
-	http://coding-talk.com/forum/main-forums/coding-forum/snippets-functions-and-classes/12262-iso-country-codes-to-country-names-country-form-select-options
-*/
+/** Officially assigned ISO 3166-1 alpha-2 country codes/names */
 
 $iso3166_1_official_country_name=array(
 	"AD" => "Andorra",
