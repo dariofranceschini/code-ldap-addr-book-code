@@ -359,6 +359,27 @@ $short_date_format = "%d %b %Y";
 $short_date_time_format = "%d %b %Y %H:%M:%S";
 
 // --------------------------------------------------------------------
+// Comma-separated list of country code standards, used to display
+// code attributes as human-readable country names and populate
+// drop-down lists of country names.
+//
+// Where more than one country code standard uses the same country
+// code, the standard which is listed first will take priority.
+//
+//      official        ISO 3166-1 Officially Assigned Codes
+//      user            ISO 3166-1 User-Assigned Codes
+//      exceptional     ISO 3166-1 Exceptional Reservations
+//      transitional    ISO 3166-1 Transitional Reservations
+//      indeterminate   ISO 3166-1 Indeterminate Reservations
+//      former          ISO 3166-3 Formerly Assigned Codes
+//
+// See "Changing the country code interpretation" in the manual for
+// more information about each standard.
+// --------------------------------------------------------------------
+
+$country_code_standard="official";
+
+// --------------------------------------------------------------------
 // Location of OpenLDAP modules (backends and overlays)
 //
 // This setting is used for loading extension modules when configuring

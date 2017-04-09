@@ -16,6 +16,14 @@
 
    ************************************************************************ */
 
+/** Country code standards/names
+
+    @see
+	http://www.iso.org/iso/country_codes
+	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+	https://en.wikipedia.org/wiki/ISO_3166-3
+*/
+
 /** Officially assigned ISO 3166-1 alpha-2 country codes/names */
 
 $iso3166_1_official_country_name=array(
@@ -270,10 +278,153 @@ $iso3166_1_official_country_name=array(
 	"ZW" => "Zimbabwe",
 	);
 
+/** User-assigned ISO 3166-1 alpha-2 country codes/names */
+
+$iso3166_1_user_assigned_country_name=array(
+	"AA" => "AA (Reserved)",
+	"QM" => "QM (Reserved)",
+	"QN" => "QN (Reserved)",
+	"QO" => "Outlying Oceana",					// Unicode CLDR
+	"QP" => "QP (Reserved)",
+	"QQ" => "QQ (Reserved)",
+	"QR" => "QR (Reserved)",
+	"QS" => "QS (Reserved)",
+	"QT" => "QT (Reserved)",
+	"QU" => "QU (Reserved)",
+	"QV" => "QV (Reserved)",
+	"QW" => "QW (Reserved)",
+	"QX" => "QX (Reserved)",
+	"QY" => "QY (Reserved)",
+	"QZ" => "Community Plant Variety Office (European Union)",	// WIPO
+	"XA" => "Canary Islands",					// Switzerland (duplicates "IC")
+	"XB" => "XB (Reserved)",
+	"XC" => "XC (Reserved)",
+	"XD" => "XD (Reserved)",
+	"XE" => "England",						// WhatsApp
+	"XF" => "XF (Reserved)",
+	"XG" => "XG (Reserved)",
+	"XH" => "XH (Reserved)",
+	"XI" => "XI (Reserved)",
+	"XJ" => "XJ (Reserved)",
+	"XK" => "Kosovo",						// various (temporary code)
+	"XL" => "XL (Reserved)",
+	"XM" => "XM (Reserved)",
+	"XN" => "Nordic Patent Institute",				// WIPO
+	"XO" => "XO (Reserved)",
+	"XP" => "XP (Reserved)",
+	"XQ" => "XQ (Reserved)",
+	"XR" => "XR (Reserved)",
+	"XS" => "Scotland",						// WhatsApp
+	"XT" => "XT (Reserved)",
+	"XU" => "International Union for the Protection of New Varieties of Plants",	// WIPO
+	"XV" => "Visegrad Patent Institute",				// WIPO
+	"XW" => "Wales",						// WhatsApp
+	"XX" => "XX (Reserved)",
+	"XY" => "XY (Reserved)",
+	"XZ" => "International Waters",					// UN/LOCODE
+	"ZZ" => "ZZ (Reserved)",
+	);
+
+/** Exceptionally reserved ISO 3166-1 alpha-2 country codes/names */
+
+$iso3166_1_exceptional_country_name=array(
+	"AC" =>	"Ascension Island",			// UPU: stamp issuing area
+	"CP" =>	"Clipperton Island",			// ITU: telecommunications installations
+	"DG" => "Diego Garcia",				// ITU: telecommunications installations
+	"EA" => "Ceuta, Melilla",			// WCO: customs area
+	"EU" => "European Union",			// ISO: european monetary unit (Euro)
+	"EZ" => "Eurozone",				// ISO: security numbers (ISINs)
+	"FX" => "France, Metropolitan",			// France (also appears in ISO 3166-3)
+	"IC" => "Canary Islands",			// WCO: customs area
+	"SU" => "Union of Soviet Socialist Republics",	// ISO (also appears in ISO 3166-3)
+	"TA" => "Tristan da Cunha",			// UPU: stamp issuing area
+	"UK" => "United Kingdom",			// United Kingdom
+	"UN" => "United Nations"			// ISO: reprents the United Nations
+	);
+
+/** Transitionally reserved ISO 3166-1 alpha-2 country codes/names */
+
+$iso3166_1_transitional_country_name=array(
+	"AN" => "Netherlands Antilles",
+	"BU" => "Burma",
+	"CS" => "Czechoslovakia",	// also used for "Serbia and Montenegro" (now RS and ME)
+	"NT" => "Neutral Zone",		// territory between Iraq (IQ) and Saudi Arabia (SA)
+	"TP" => "East Timor",
+	"YU" => "Yugoslavia",
+	"ZR" => "Zaire"
+	);
+
+/** Indeterminately reserved ISO 3166-1 alpha-2 country codes/names */
+
+$iso3166_1_indeterminate_country_name=array(
+	"DY" => "Benin",				// country formerly named Dahomey
+	"EW" => "Estonia",
+	"FL" => "Liechtenstein",
+	"JA" => "Jamaica",
+	"LF" => "Libya Fezzan",
+	"PI" => "Philippines",
+	"RA" => "Argentina",
+	"RB" => "Bolivia/Botswana",			// Double allocated country code
+	"RC" => "China",
+	"RH" => "Haiti",
+	"RI" => "Indonesia",
+	"RL" => "Lebanon",
+	"RM" => "Madagascar",
+	"RN" => "Niger",
+	"RP" => "Philipines",
+	"SF" => "Finland",				// was transitionally reserved between 1995-2012
+	"WG" => "Grenada",
+	"WL" => "Saint Lucia",
+	"WV" => "Saint Vincent",
+	"YV" => "Venezuela",
+	);
+
+/** ISO 3166-3 former country codes/names */
+
+$iso3166_3_former_country_name=array(
+	"AI" => "French Afar and Issas",		// reused for "Anguilla"
+	"AN" => "Netherlands Antilles",			// also ISO 3166-1 transitional reservation
+	"BQ" => "British Antarctic Territory",		// reused for "Bonaire, Sint Eustatius and Saba"
+	"BU" => "Burma",				// also ISO 3166-1 transitional reservation
+	"BY" => "Byelorussian SSR",			// name changed to "Belarus"
+	"CS" => "Czechoslovakia",			// also ISO 3166-1 transitional reservation (also used for "Serbia and Montenegro" for a time)
+	"CT" => "Canton and Enderbury Islands",
+	"DD" => "German Democratic Republic",		// a.k.a. East Germany
+	"DY" => "Dahomey",				// also ISO 3166-1 indeterminate reservation
+	"FQ" => "French Southern and Antarctic Territories",
+	"FX" => "France, Metropolitan",			// also ISO 3166-1 exceptional reservation
+	"GE" => "Gilbert and Ellice Islands",		// reused for "Georgia"
+	"HV" => "Upper Volta",
+	"JT" => "Johnson Island",
+	"MI" => "Midway Islands",
+	"NH" => "New Hebrides",
+	"NQ" => "Dronning Maud Land",			// part of Norwegian Antarctic Territory (former country)
+	"NT" => "Neutral Zone",				// also ISO 3166-1 transitional reservation - divided between Iraq (IQ) and Saudi Arabia (SA)
+	"PC" => "Pacific Islands, Trust Territory of the",
+	"PU" => "U.S. Miscellaneous Pacific Islands",	// former aggregate of various islands
+	"PZ" => "Panama Canal Zone",
+	"RH" => "Southern Rhodesia",			// also ISO 3166-1 indeterminate reservation; also formerly "Haiti"
+	"SU" => "Union of Soviet Socialist Republics",	// also ISO 3166-1 exceptional reservation
+	"SK" => "Sikkim",				// reused for Slovakia
+	"TP" => "East Timor",				// also ISO 3166-1 transitional and intermediate reservations
+	"VD" => "Viet-Nam, Democratic Republic of",	// a.k.a. North Vietnam (former country)
+	"WK" => "Wake Island",
+	"YD" => "Yemen, Democratic",			// a.k.a. South Yemen; former country
+	"YU" => "Yugoslavia",				// also ISO 3166-1 transitional reservation
+	"ZR" => "Zaire",				// also ISO 3166-1 transitional reservation
+	);
+
+$country_name=array();
+
 function init_country_names()
 {
 	global $country_code_standard,$country_name,
-		$iso3166_1_official_country_name;
+		$iso3166_1_official_country_name,
+		$iso3166_1_user_assigned_country_name,
+		$iso3166_1_exceptional_country_name,
+		$iso3166_1_transitional_country_name,
+		$iso3166_1_indeterminate_country_name,
+		$iso3166_3_former_country_name;
 
 	if(!isset($country_code_standard))
 		$country_code_standard="official";
@@ -285,6 +436,31 @@ function init_country_names()
 			case "official":
 				$country_name=array_merge(
 					$iso3166_1_official_country_name,
+					$country_name);
+				break;
+			case "user":
+				$country_name=array_merge(
+					$iso3166_1_user_assigned_country_name,
+					$country_name);
+				break;
+			case "exceptional":
+				$country_name=array_merge(
+					$iso3166_1_exceptional_country_name,
+					$country_name);
+				break;
+			case "transitional":
+				$country_name=array_merge(
+					$iso3166_1_transitional_country_name,
+					$country_name);
+				break;
+			case "indeterminate":
+				$country_name=array_merge(
+					$iso3166_1_indeterminate_country_name,
+					$country_name);
+				break;
+			case "former":
+				$country_name=array_merge(
+					$iso3166_3_former_country_name,
 					$country_name);
 				break;
 			default:

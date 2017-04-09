@@ -64,6 +64,7 @@
   <li>Setting up phone numbers to be dialed when clicked on
   <li>Changing the links shown in the page footer
   <li>Changing the look and formatting of the address book
+  <li>Changing the country code interpretation
   <li>Extending and modifying the schema
   </ol>
 <li><a href="#config_reference">Configuration Reference</a>
@@ -1361,6 +1362,84 @@ appropriately:
         word-break:break-all;
 }
 </pre>
+
+<h3>Changing the country code interpretation</h3>
+<p>
+Country codes in LDAP directories normally follow the
+ISO 3166 standard. The <code>$country_code_standard</code> setting
+in <code>config.php</code> contains a comma-separated
+list of which parts of the standard should be used by the
+Address Book. By default, only the ISO 3166-1 alpha2 officially
+assigned codes will be used:
+</p>
+<p>
+<code>$country_code_standard="official";</code>
+</p>
+<p>
+If your records use country codes for countries which have
+since been renamed or are no longer in existance, you may want
+to enable additional parts of ISO 3166, for example:
+</p>
+<p>
+<code>$country_code_standard="official,transitional,former";</code>
+</p>
+<p>
+This will enable the correct country names to be displayed,
+and for the older country codes to be selected from drop-down
+lists. The following table summarises the available country
+code standards:
+</p>
+<table border=1>
+  <tr><th>Country Code Setting</th><th>Description</th></tr>
+  <tr>
+    <td><code>official</code></td>
+    <td>ISO 3166-1 Officially Assigned Codes</td>
+  </tr>
+  <tr>
+    <td><code>user</code></td>
+    <td>ISO 3166-1 User-Assigned Codes
+    <p>
+    Country codes that have been reserved for organisations that
+    use ISO 3166 to add further codes to their in-house
+    implementations. Several of the more widely used/known
+    country codes are listed by name.</p></td>
+  </tr>
+  <tr>
+    <td><code>exceptional</code></td>
+    <td>ISO 3166-1 Exceptional Reservations
+    <p>
+    Reserved at the request of national ISO member bodies. Usage other
+    than for the specific purpose which justified the reservation is
+    discouraged. (See comments against each exceptional reservation
+    in file <code>lib/country.php</code> for individual
+    explanations.)</p></td>
+  </tr>
+  <tr>
+    <td><code>transitional</code></td>
+    <td>ISO 3166-1 Transitional Reservations
+    <p>
+    Former official ISO 3166-1 country codes, reserved against
+    reassignment (typically for 50 years) whilst existing historical
+    use are gradually phased out. These are also listed in ISO 3166-3
+    as former country codes.</p></td>
+  </tr>
+  <tr>
+    <td><code>indeterminate</code></td>
+    <td>ISO 3166-1 Indeterminate Reservations
+    <p>
+    International vehicle registration codes, reserved against reuse
+    in ISO 3166-1 for an indeterminate period until existing
+    historical uses have been sufficiently phased out.</p></td>
+  </tr>
+  <tr>
+    <td><code>former</code></td>
+    <td>ISO 3166-3 Formerly Assigned Codes<br>
+    <p>
+    Previously assigned ISO 3166-1 alpha2 codes for countries that are
+    no longer in existance.</p></td>
+  </tr>
+</table>
+
 <h3>Extending and modifying the schema</h3>
 <p>
 The <em>schema</em> is a set of information which the Address Book uses
