@@ -16,14 +16,14 @@
 
    ************************************************************************ */
 
-/** Array of ISO 3166-1 alpha-2 country codes/names
+/** Officially assigned ISO 3166-1 alpha-2 country codes/names
 
     @see
 	Code snippet from:
 	http://coding-talk.com/forum/main-forums/coding-forum/snippets-functions-and-classes/12262-iso-country-codes-to-country-names-country-form-select-options
 */
 
-$country_name=array(
+$iso3166_1_official_country_name=array(
 	"AD" => "Andorra",
 	"AE" => "United Arab Emirates",
 	"AF" => "Afghanistan",
@@ -274,5 +274,29 @@ $country_name=array(
 	"ZM" => "Zambia",
 	"ZW" => "Zimbabwe",
 	);
+
+function init_country_names()
+{
+	global $country_code_standard,$country_name,
+		$iso3166_1_official_country_name;
+
+	if(!isset($country_code_standard))
+		$country_code_standard="official";
+
+	foreach(array_reverse(explode(",",$country_code_standard)) as $standard)
+	{
+		switch($standard)
+		{
+			case "official":
+				$country_name=array_merge(
+					$iso3166_1_official_country_name,
+					$country_name);
+				break;
+			default:
+				echo "Unrecognised country code standard: "
+					. $standard . "\n";
+				exit (1);
+		}
+	}
 }
 ?>

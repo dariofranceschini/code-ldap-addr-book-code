@@ -2258,6 +2258,9 @@ class ldap_attribute
 	function show_country_code()
 	{
 		global $country_name;
+
+		if(empty($country_name)) init_country_names();
+
 		asort($country_name);
 
 		$countries = array(
