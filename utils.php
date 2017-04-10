@@ -4219,6 +4219,26 @@ class ldap_server
 			// sufficient access to the directory to enumerate the group's
 			// membership then allow_login will evaluate to false.
 			$result = get_user_setting("allow_login");
+
+			// Look up the user ID, which is needed to evaluate permissions
+			// based on membership of posixGroup objects. The attributes
+			// 'uid' and 'userid' are aliases (in a standards-compliant
+			// schema implementation), but not necessarily
+			// returned by all server types - accept a value being returned
+			// in either or both.
+			$search_resource = @ldap_read($this->connection,$user_bind_dn,
+				"objectClass=*",array("uid","userid"));
+
+			if($search_resource)
+			{
+				$entry = ldap_get_entries($this->connection,$search_resource);
+				if(isset($entry[0]["uid"][0]))
+					$_SESSION["LOGIN_UID"] = $entry[0]["uid"][0];
+				if(isset($entry[0]["userid"][0]))
+					$_SESSION["LOGIN_UID"] = $entry[0]["userid"][0];
+			}
+
+			// Assign any further permissions based on group memberships
 			foreach($this->group_map as $group_map_entry)
 				$this->assign_group_permissions($group_map_entry);
 		}
