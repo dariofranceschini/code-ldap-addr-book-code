@@ -72,6 +72,24 @@ class nis_schema extends ldap_schema
 		//	posixAccount
 		//	shadowAccount
 
+		// Display layouts
+		$ldap_server->add_display_layout("posixGroup",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Group Name"),			"group24.png"),
+					array("description",			gettext("Description"),			"description.png"),
+					array("gidNumber",			gettext("Group ID Number"),		"generic24.png")
+
+					// array("userPassword",		gettext("Password"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Group Members"),"new_row"=>true,
+				"attributes"=>array(
+					array("memberUid")
+					)
+				),
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
