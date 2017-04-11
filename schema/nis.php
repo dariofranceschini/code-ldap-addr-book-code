@@ -61,7 +61,7 @@ class nis_schema extends ldap_schema
 			array("name"=>"nisNetgroup",		"icon"=>"nis-netgroup.png",		"is_folder"=>false,"display_name"=>gettext("Netgroup")),
 			array("name"=>"nisObject",		"icon"=>"nis-object.png",		"is_folder"=>false,"display_name"=>gettext("NIS Map Entry")),
 			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding")),
-			array("name"=>"posixGroup",		"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group"))
+			array("name"=>"posixGroup",		"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group"),"required_attribs"=>"gidNumber")
 			);
 
 		// The auxiliary classes defined in this schema are:
