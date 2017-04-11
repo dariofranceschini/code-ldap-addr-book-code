@@ -103,6 +103,12 @@ $ldap_server->dn_search_password = "";
 // $ldap_server->dn_search_filter = "(uid=__USERNAME__)";
 
 // --------------------------------------------------------------------
+// Attributes that are checked when evaluating group membership
+// --------------------------------------------------------------------
+
+// $group_member_attributes = array("member","roleOccupant","memberUid");
+
+// --------------------------------------------------------------------
 // User names and passwords for logging on to the LDAP server
 // --------------------------------------------------------------------
 

@@ -4260,12 +4260,26 @@ class ldap_server
 
 	function assign_group_permissions($group_map_entry)
 	{
-		// check group membership
-		$search_resource
-			= @ldap_read($this->connection,
-			$group_map_entry["group_name"],
-			"member=" . $_SESSION["LOGIN_BIND_DN"],
-			array("member"));
+		global $group_member_attributes;
+
+		if(!isset($group_member_attributes))
+			$group_member_attributes = array("member","roleOccupant","memberUid");
+
+		$query = "";
+		foreach($group_member_attributes as $attrib)
+		{
+			if(strtolower($attrib) == "memberuid")
+			{
+				if(isset($_SESSION["LOGIN_UID"]))
+					$query .= "(" . $attrib . "=" . $_SESSION["LOGIN_UID"] . ")";
+			}
+			else
+				$query .= "(" . $attrib . "=" . $_SESSION["LOGIN_BIND_DN"] . ")";
+		}
+
+		$search_resource = @ldap_read($this->connection,
+			$group_map_entry["group_name"],"(|" . $query . ")",
+			$group_member_attributes);
 
 		$is_group_member = false;
 		if(ldap_count_entries($this->connection,
@@ -4274,9 +4288,20 @@ class ldap_server
 			$entry = ldap_get_entries($this->connection,
 				$search_resource);
 
-			foreach($entry[0]["member"] as $index=>$member)
-				if(!($index === "count") && !strcasecmp($member,$_SESSION["LOGIN_BIND_DN"]))
-					$is_group_member = true;
+			foreach($group_member_attributes as $attribute)
+			{
+				if(isset($entry[0][strtolower($attribute)]))
+				{
+					if(strtolower($attribute) == "memberuid")
+						$test_value = $_SESSION["LOGIN_UID"];
+					else
+						$test_value = $_SESSION["LOGIN_BIND_DN"];
+
+					foreach($entry[0][strtolower($attribute)] as $index=>$member)
+						if(!($index === "count") && !strcasecmp($member,$test_value))
+							$is_group_member = true;
+				}
+			}
 		}
 
 		// merge in the group's settings if the user is a member

@@ -732,6 +732,25 @@ Note:
   <li>Group memberships cannot be used to assign permissions for the
   <code>__ANONYMOUS__</code> user.</li>
 </ul>
+<p>
+The <code>$group_member_attributes</code> setting is used to define
+which attributes of a group are checked in order to determine whether
+the user is a member:
+</p>
+<p>
+<code>$group_member_attributes = array("member","roleOccupant","memberUid");</code>
+</p>
+<p>
+The various group membership attributes allows different types of
+object to be used to represent roles and permissions:
+</p>
+<table border=1>
+<tr><th>Group Member Attribute</th>   <th>Used to Check Membership Of</th></tr>
+<tr><td><code>member</code></td>      <td><code>groupOfNames</code>, <code>group</code> (Active Directory)</td></tr>
+<tr><td><code>roleOccupant</code></td><td><code>organizationalRole</code></td></tr>
+<tr><td><code>memberUid</code></td>   <td><code>posixGroup</code></td></tr>
+</table>
+
 <h3>Grant access to the Address Book based on LDAP group membership</h3>
 <p>
 The <code>allow_login</code> permission can be used to decide whether
