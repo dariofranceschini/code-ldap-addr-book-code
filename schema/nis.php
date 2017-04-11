@@ -20,9 +20,9 @@
 
 class nis_schema extends ldap_schema
 {
-        function __construct(&$ldap_server)
-        {
-                $this->attribute_schema = array(
+	function __construct(&$ldap_server)
+	{
+		$this->attribute_schema = array(
 			array("name"=>"bootFile",		"data_type"=>"text",		"display_name"=>gettext("Boot Image File Name")),
 			array("name"=>"bootParameter",		"data_type"=>"text_list",	"display_name"=>gettext("Boot Parameter")),
 			array("name"=>"gecos",			"data_type"=>"text",		"display_name"=>gettext("GECOS Field")),
