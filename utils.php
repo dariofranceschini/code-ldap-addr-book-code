@@ -553,12 +553,18 @@ class ldap_entry_viewer
 				echo "<form method=\"POST\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
 
-			echo "<table class=\"ldap_entry_viewer\">\n";
-
+			$first_section=true;
 			foreach($this->section as $section)
-				$section->show($this->create,$this->edit);
+			{
+				if($first_section)
+					$section->first_section=true;
+				$first_section=false;
 
-			echo "</table>\n\n";
+				$section->show($this->create,$this->edit);
+			}
+
+			// close last section in layout
+			echo "  </tr>\n</table>\n\n";
 
 			if($ldap_server->get_object_schema_setting(
 				$ldap_server->get_object_class($this->ldap_entry[0]),
@@ -644,6 +650,9 @@ class ldap_entry_viewer_section
 	*/
 	var $new_row=false;
 
+	/** Is this the first section in the display layout? */
+	var $first_section=false;
+
 	/** Attributes to display in section (array of ldap_entry_viewer_attribute) */
 	var $attrib=array();
 
@@ -679,9 +688,11 @@ class ldap_entry_viewer_section
 
 	function show($create,$edit)
 	{
+		if($this->new_row && !$this->first_section) echo "  </tr>\n</table>\n";
+
 		echo "\n<!-- Section: " . $this->text . " -->\n\n";
 
-		if($this->new_row) echo "  <tr>\n";
+		if($this->new_row) echo "<table class=\"ldap_entry_viewer\">\n  <tr>\n";
 
 		$cell_attrib = "";
 		if($this->colspan != 1)
