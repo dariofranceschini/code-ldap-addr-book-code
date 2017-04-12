@@ -71,17 +71,18 @@ if($ldap_server->log_on())
 
 	$create_list = array();
 	foreach($ldap_server->object_schema as $object_class)
-		if($show_all_object_classes ||
-				(
-					// object must be marked as creatable (in general)
-					$ldap_server->get_object_schema_setting($object_class["name"],"can_create")
-					// ...and the container/folder is "willing" to contain it
-					&& can_create_in_container($object_class,$contain_list)
-					// ...and the object is "willing" to be contained here
-					&& can_be_contained_by($object_class,$container_object)
+		if($ldap_server->get_object_schema_setting($object_class["name"],"class_type")=="structural")
+			if($show_all_object_classes ||
+					(
+						// object must be marked as creatable (in general)
+						$ldap_server->get_object_schema_setting($object_class["name"],"can_create")
+						// ...and the container/folder is "willing" to contain it
+						&& can_create_in_container($object_class,$contain_list)
+						// ...and the object is "willing" to be contained here
+						&& can_be_contained_by($object_class,$container_object)
+					)
 				)
-			)
-			$create_list[] = $object_class["name"];
+				$create_list[] = $object_class["name"];
 
 	natcasesort($create_list);
 
