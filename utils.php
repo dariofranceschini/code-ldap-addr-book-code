@@ -3898,6 +3898,7 @@ class ldap_server
 		{
 			if($setting_name == "icon") $setting_value = "generic24.png";
 			if($setting_name == "is_folder") $setting_value = false;
+			if($setting_name == "class_type") $setting_value = "structural";
 			if($setting_name == "rdn_attrib") $setting_value = "cn";
 			if($setting_name == "can_create") $setting_value = false;
 			if($setting_name == "can_contain") $setting_value = "*";
