@@ -86,13 +86,12 @@ function show_site_header()
 	if(file_exists("styles_local.css"))
 		echo "  <link rel=\"stylesheet\" href=\"styles_local.css\" type=\"text/css\">\n";
 
+	echo "  <link rel=\"stylesheet\" href=\"lib/jquery-ui-themes-1.11.4/smoothness.css\" type=\"text/css\">\n";
+	echo "  <script src=\"lib/jquery-1.11.2/jquery-1.11.2.js\"></script>\n";
+	echo "  <script src=\"lib/jquery-ui-1.11.4/jquery-ui-1.11.4.js\"></script>\n";
+
 	if(isset($enable_search_suggestions) && $enable_search_suggestions)
-	{
-		echo "  <link rel=\"stylesheet\" href=\"lib/jquery-ui-themes-1.11.4/smoothness.css\" type=\"text/css\">\n";
-		echo "  <script src=\"lib/jquery-1.11.2/jquery-1.11.2.js\"></script>\n";
-		echo "  <script src=\"lib/jquery-ui-1.11.4/jquery-ui-1.11.4.js\"></script>\n";
 		echo "  <script src=\"suggest.js\"></script>\n";
-	}
 
 	echo "</head>\n\n";
 	echo "<body>\n\n";
