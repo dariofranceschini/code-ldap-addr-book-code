@@ -67,7 +67,7 @@ if($ldap_server->log_on())
 	echo "  <input type=\"hidden\" name=\"dn\" value=\""
 		. htmlentities($dn,ENT_COMPAT,"UTF-8") . "\">\n";
 
-	echo "  <select name=\"create\" style=\"width:300px\">\n";
+	echo "  <select name=\"create\" style=\"width:300px\" id=\"object_class_selector\">\n";
 
 	$create_list = array();
 	foreach($ldap_server->object_schema as $object_class)
@@ -93,10 +93,7 @@ if($ldap_server->log_on())
 		$icon = $ldap_server->get_object_schema_setting($object_class,
 			"icon");
 
-		echo "    <option value=\"" . $object_class
-			. "\" style=\"background-image:url(schema/"
-			. $icon
-			. ");background-repeat:no-repeat;height:24px;padding-left:24px;padding-top:3px\"";
+		echo "    <option value=\"" . $object_class . "\" icon=\"schema/" . $icon . "\"";
 
 		if($object_class == $ldap_server->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";

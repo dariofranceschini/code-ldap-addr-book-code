@@ -89,6 +89,7 @@ function show_site_header()
 	echo "  <link rel=\"stylesheet\" href=\"lib/jquery-ui-themes-1.11.4/smoothness.css\" type=\"text/css\">\n";
 	echo "  <script src=\"lib/jquery-1.11.2/jquery-1.11.2.js\"></script>\n";
 	echo "  <script src=\"lib/jquery-ui-1.11.4/jquery-ui-1.11.4.js\"></script>\n";
+	echo "  <script src=\"select_object_class.js\"></script>\n";
 
 	if(isset($enable_search_suggestions) && $enable_search_suggestions)
 		echo "  <script src=\"suggest.js\"></script>\n";
