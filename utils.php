@@ -1888,7 +1888,7 @@ class ldap_attribute
 						$this->show_ldap_schema_setting($schema_settings,
 							gettext("Display as a Folder"),"is_folder");
 
-						if($definition_type == "object")
+						if($definition_type == "object" && isset($schema_entry["structural"]))
 							echo "<tr><td style=\"width:1px\"></td><td style=\"width:1px;padding-left:2em;padding-right:1em;vertical-align:top;white-space:nowrap\">"
 								. gettext("Naming Attributes") . "</td><td>"
 								. $ldap_server->get_object_schema_setting($schema_entry["name"],"rdn_attrib")
