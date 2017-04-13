@@ -3927,9 +3927,13 @@ class ldap_server
 		$entry_object_class = array_map("strtolower",$entry["objectclass"]);
 
 		foreach($this->object_schema as $object_class)
+		{
+			if(!isset($object_class["class_type"]))
+				$object_class["class_type"] = "structural";
+
 			if(in_array(strtolower($object_class["name"]),
 				$entry_object_class)
-				&& $object_data_found == false)
+				&& $object_data_found == false && $object_class["class_type"] == "structural")
 			{
 				$more_specific_class_exists = false;
 				if(isset($object_class["child_class"]))
@@ -3948,6 +3952,7 @@ class ldap_server
 					$object_data_found = true;
 				}
 			}
+		}
 
 		return $item_object_class;
 	}
