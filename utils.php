@@ -5325,9 +5325,12 @@ function can_be_contained_by($object_class,$container_object)
 	return $can_create;
 }
 
-/** Update the objectClass values of the specified LDAP entry to
+/** Fix missing objectClass values in the specified LDAP entry
+
+    Update the objectClass values of the specified LDAP entry to
     include any parent classes that are specified in the schema but
-    not in the entry itself.
+    not in the entry itself. Also adds the object class "count"
+    value if this was missing.
 
     @param string $ldap_server
 	LDAP server object containing schema definitions that the entry's
@@ -5339,6 +5342,10 @@ function can_be_contained_by($object_class,$container_object)
 function fix_missing_object_classes($ldap_server,&$entry)
 {
 	$objclass_index = 0;
+
+	// fix missing object class count
+	if(!isset($entry["objectclass"]["count"]))
+		$entry["objectclass"]["count"] = count($entry["objectclass"]);
 
 	while($objclass_index < $entry["objectclass"]["count"])
 	{
