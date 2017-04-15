@@ -38,10 +38,10 @@ if($ldap_server->log_on())
 		// when creating a new entry.
 		if(!empty($_POST["create"]))
 		{
-			$entry["objectclass"] = $_POST["create"];
+			$entry["objectclass"][0] = $_POST["create"];
 
 			$rdn_attrib = $ldap_server->get_object_schema_setting(
-				$entry["objectclass"],
+				$entry["objectclass"][0],
 				"rdn_attrib");
 
 			// Allow for blank RDN attribute - e.g. if populated
@@ -68,14 +68,15 @@ if($ldap_server->log_on())
 			{
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
-				if($ldap_server->get_object_schema_setting($entry["objectclass"],
+				if($ldap_server->get_object_schema_setting($entry["objectclass"][0],
 					"can_create") || get_user_setting("allow_system_admin"))
 				{
-					if($ldap_server->get_object_schema_setting($entry["objectclass"],"create_method","normal")=="atomic")
+					if($ldap_server->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
 					{
 						// Include every attribute which appears in the display layout
 						$required_attribs=array();
-						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"]);
+						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"][0]);
+
 						foreach($entry_layout as $section)
 							foreach($section["attributes"] as $attrib_spec)
 								if(!isset($attrib_spec["allow_edit"]) || $attrib_spec["allow_edit"])
@@ -86,7 +87,7 @@ if($ldap_server->log_on())
 					else
 						$required_attribs = explode(",",
 							$ldap_server->get_object_schema_setting(
-							$entry["objectclass"],
+							$entry["objectclass"][0],
 							"required_attribs"));
 
 					// TODO: guard against nasties in attribute value
