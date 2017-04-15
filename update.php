@@ -71,6 +71,8 @@ if($ldap_server->log_on())
 				if($ldap_server->get_object_schema_setting($entry["objectclass"][0],
 					"can_create") || get_user_setting("allow_system_admin"))
 				{
+					fix_missing_object_classes($ldap_server,$entry);
+
 					if($ldap_server->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
 					{
 						// Include every attribute which appears in the display layout
@@ -105,7 +107,7 @@ if($ldap_server->log_on())
 
 					// Update the DN to be created (if modified by the schema function)
 					$dn = $entry["dn"];
-					unset($entry["dn"]);
+					unset($entry["dn"],$entry["objectclass"]["count"]);
 
 					$name_of_object_created = ldap_explode_dn2($dn);
 					$name_of_object_created = $name_of_object_created[0]["value"];
