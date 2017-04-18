@@ -23,6 +23,9 @@ if($ldap_server->log_on())
 {
 	show_site_header();
 
+	if(!get_user_setting("allow_create"))
+		show_error_message(gettext("You do not have permission to create new records."));
+
 	// TODO: guard against nasties in the DN
 	$dn = $_GET["dn"];
 
