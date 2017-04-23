@@ -174,7 +174,7 @@ if($ldap_server->log_on())
 								if($attrib != $rdn_attrib)
 								{
 									$change_description
-										= $ldap_server->update_attribute($entry,$attrib);
+										= $ldap_server->update_attribute($entry[0],$attrib);
 									if(!empty($change_description))
 										$change_list .= "  <li>"
 											. $change_description
@@ -188,7 +188,7 @@ if($ldap_server->log_on())
 				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
 				{
 					// TODO: guard against nasties in the new RDN value
-					$change_description = $ldap_server->update_attribute($entry,
+					$change_description = $ldap_server->update_attribute($entry[0],
 						$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
 
 					if(!empty($change_description))

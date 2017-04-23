@@ -4407,7 +4407,7 @@ class ldap_server
 
 	function update_attribute($entry,$attrib,$is_rdn=false)
 	{
-		$dn = $entry[0]["dn"];
+		$dn = $entry["dn"];
 
 		$new_val_set = isset($_POST["ldap_attribute_" . $attrib]);
 
@@ -4419,8 +4419,8 @@ class ldap_server
 
 		if($new_val_set)
 		{
-			if(isset($entry[0][strtolower($attrib)][0]))
-				$old_val = $entry[0][strtolower($attrib)][0];
+			if(isset($entry[strtolower($attrib)][0]))
+				$old_val = $entry[strtolower($attrib)][0];
 			else
 				$old_val = "";
 
