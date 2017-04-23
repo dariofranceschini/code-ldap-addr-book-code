@@ -4856,7 +4856,7 @@ class ldap_server
 
 		if(!$found)
 			$selected_layout = array(
-				array("section_name"=>gettext("The Address Book is not able to display this record"),
+				array("section_name"=>sprintf(gettext("The Address Book is not able to display '%s' records"),$object_class),
 					"attributes"=>array()));
 
 		return $selected_layout;
