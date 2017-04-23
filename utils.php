@@ -4405,7 +4405,7 @@ class ldap_server
 		Textual description of the result (e.g. error if it failed)
 	*/
 
-	function update_attribute($entry,$attrib,$is_rdn=false)
+	function update_attribute(&$entry,$attrib,$is_rdn=false)
 	{
 		$dn = $entry["dn"];
 
@@ -4463,9 +4463,17 @@ class ldap_server
 					$result = @ldap_mod_del($this->connection,$dn,$changes);
 				else
 					if($is_rdn)
+					{
 						$result = @ldap_rename($this->connection,$dn,
 							$attrib . "=" . ldap_escape($new_val,
 							null,LDAP_ESCAPE_DN),null,true);
+
+						if($result)
+							if(is_array($entry[strtolower($attrib)]))
+								$entry[strtolower($attrib)][0] = $new_val;
+							else
+								$entry[strtolower($attrib)] = $new_val;
+					}
 					else
 						$result = @ldap_mod_replace($this->connection,$dn,$changes);
 
