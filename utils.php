@@ -5393,4 +5393,56 @@ function reset_login_session()
         unset($_SESSION["LOGIN_UID"]);
         unset($_SESSION["CACHED_PERMISSIONS"]);
 }
+
+/** Get a list of required attributes for the specified LDAP entry
+
+    Returns an array of all attributes listed in the required_attribs
+    and (for structural classes) rdn_attrib schema settings of all the
+    object classes used in the entry.
+
+    Missing parent objectClass entries which should have been present
+    according to the schema will not be taken into account. If this
+    is required, call fix_missing_object_classes() first to add any
+    missing objectClass entries.
+
+    @param array $ldap_entry
+	Array containing LDAP object for which the
+	list of required attributes is to be returned
+    @return
+	Array of required attribute names
+*/
+
+function get_required_attribs($ldap_entry)
+{
+	global $ldap_server;
+
+	if(isset($ldap_entry["objectclass"]["count"]))
+		unset($ldap_entry["objectclass"]["count"]);
+
+	$required_attribs = array();
+        foreach($ldap_entry["objectclass"] as $object_class)
+	{
+		$required_attribs_for_class = explode(",",
+			$ldap_server->get_object_schema_setting($object_class,"required_attribs"));
+
+		if($required_attribs_for_class[0] != "")
+			$required_attribs = array_merge($required_attribs_for_class,
+				$required_attribs);
+
+                if($ldap_server->get_object_schema_setting($object_class,"class_type")
+			== "structural")
+		{
+			$rdn_attribs_for_class = explode(",",
+				$ldap_server->get_object_schema_setting($object_class,"rdn_attrib"));
+
+			if($rdn_attribs_for_class[0] != "")
+				$required_attribs = array_merge($rdn_attribs_for_class,
+					$required_attribs);
+		}
+	}
+
+	$required_attribs = array_unique($required_attribs);
+
+	return $required_attribs;
+}
 ?>

@@ -87,10 +87,7 @@ if($ldap_server->log_on())
 											$required_attribs[] = $attrib;
 					}
 					else
-						$required_attribs = explode(",",
-							$ldap_server->get_object_schema_setting(
-							$entry["objectclass"][0],
-							"required_attribs"));
+						$required_attribs = get_required_attribs($entry);
 
 					// TODO: guard against nasties in attribute value
 					foreach($required_attribs as $attrib)
