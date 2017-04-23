@@ -4834,7 +4834,6 @@ class ldap_server
 
 	function get_display_layout($object_class)
 	{
-		$object_class = strtolower($object_class);
 		$found = false;
 		$selected_layout = array();
 
@@ -4844,7 +4843,7 @@ class ldap_server
 			{
 				$layout_object_classes = array_map("strtolower",$layout["object_classes"]);
 
-				if(in_array($object_class,$layout_object_classes)
+				if(in_array(strtolower($object_class),$layout_object_classes)
 					|| in_array("*",$layout_object_classes))
 				{
 					$found = true;
