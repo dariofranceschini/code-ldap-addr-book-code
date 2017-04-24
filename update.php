@@ -40,19 +40,23 @@ if($ldap_server->log_on())
 		{
 			$entry["objectclass"][0] = $_POST["create"];
 
-			$rdn_attrib = $ldap_server->get_object_schema_setting(
-				$entry["objectclass"][0],
-				"rdn_attrib");
+			/** @todo support entry-specific RDNs that deviate from schema default */
+			$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
+				$entry["objectclass"][0],"rdn_attrib"));
 
 			// Allow for blank RDN attribute - e.g. if populated
 			// programatically by schema-specific function (called below)
 
-			/** @todo enhance to support multi-value RDNs */
-			if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
-				$dn = $rdn_attrib . "=" . ldap_escape($_POST["ldap_attribute_"
-					. $rdn_attrib],null,LDAP_ESCAPE_DN) . (empty($dn) ? "" : "," . $dn);
-			else
-				$dn = $rdn_attrib . "=" . (empty($dn) ? "" : "," . $dn);
+			$rdn="";
+			foreach($rdn_attribs as $rdn_attrib)
+			{
+				if(!empty($rdn)) $rdn .= "+";
+
+				$rdn .= $rdn_attrib . "=";
+				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
+					$rdn .= ldap_escape($_POST["ldap_attribute_" . $rdn_attrib],null,LDAP_ESCAPE_DN);
+			}
+			$dn = $rdn . (empty($dn) ? "" : "," . $dn);
 		}
 
 		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
