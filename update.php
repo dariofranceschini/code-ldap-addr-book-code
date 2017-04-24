@@ -148,11 +148,12 @@ if($ldap_server->log_on())
 						. $ldap_server->get_object_class($entry[0]),$entry[0]);
 				}
 
-				/** @todo enhance to support multi-value RDNs - comma-separated list */
+				/** @todo enhance to support entries with RDN attributes other than the
+				    Address Book schema default for that class */
 
-				$rdn_attrib = $ldap_server->get_object_schema_setting(
-					$ldap_server->get_object_class($entry[0]),
-					"rdn_attrib");
+				$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
+					$entry[0]["objectclass"][0],
+					"rdn_attrib"));
 
 				$entry_layout = $ldap_server->get_display_layout(
 					$ldap_server->get_object_class($entry[0]));
@@ -166,9 +167,7 @@ if($ldap_server->log_on())
 								// changed last as modifying it renames
 								// the object
 
-								/** @todo enhance to support multi-value RDNs - comma-separated list */
-
-								if($attrib != $rdn_attrib)
+								if(!in_array($attrib,$rdn_attribs))
 								{
 									$change_description
 										= $ldap_server->update_attribute($entry[0],$attrib);
@@ -179,28 +178,42 @@ if($ldap_server->log_on())
 								}
 							}
 
-				// update the RDN attribute after all others (if present in form data)
-				/** @todo enhance to support multi-value RDNs - comma-separated list */
+				// update the RDN attributes after all others (if present in form data)
 
-				if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
+				foreach($rdn_attribs as $rdn_attrib)
 				{
-					// TODO: guard against nasties in the new RDN value
-					$change_description = $ldap_server->update_attribute($entry[0],
-						$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
+					if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
+					{
+						// TODO: guard against nasties in the new RDN value
+						$change_description = $ldap_server->update_attribute($entry[0],
+							$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
 
-					if(!empty($change_description))
-						$change_list .= "  <li>"
-							. $change_description
-							. "</li>\n";
+						if(!empty($change_description))
+							$change_list .= "  <li>"
+								. $change_description
+								. "</li>\n";
 
-					// update the value of $dn to reflect object's new
-					// name (used for breadcrumb navigation and
-					// "Back to record" link)
+						// update the value of $dn to reflect object's new
+						// name (used for breadcrumb navigation and
+						// "Back to record" link)
 
-					$rdn_list = ldap_explode_dn2($dn);
-					$dn = $rdn_attrib . "="
-						. ldap_escape($_POST["ldap_attribute_" . $rdn_attrib],null,LDAP_ESCAPE_DN)
-						. (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
+						$dn="";
+						foreach($rdn_attribs as $rdn_attrib2)
+						{
+							if(!empty($dn)) $dn .= "+";
+							// TODO: figure out new RDN attribute value
+							// perhaps update_attribute() should receive $entry by
+							// reference and update it when successful
+							$dn .= $rdn_attrib2 . "=";
+
+							if(is_array($entry[0][strtolower($rdn_attrib2)]))
+								$dn .= $entry[0][strtolower($rdn_attrib2)][0];
+							else
+								$dn .= $entry[0][strtolower($rdn_attrib2)];
+						}
+						$rdn_list = ldap_explode_dn2($dn);
+						$dn .= (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
+					}
 				}
 
 				show_ldap_path($dn);
