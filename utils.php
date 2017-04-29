@@ -441,6 +441,9 @@ class ldap_entry_viewer
 	/** Display a viewer for creating a new record (true/false) */
 	var $create = false;
 
+	/** Mequired/mandatory attributes for the record being viewed */
+	var $required_attribs = array();
+
 	/** Constructor
 
 	    @param object $ldap_server
@@ -457,6 +460,8 @@ class ldap_entry_viewer
 
 		$entry_viewer_layout = $ldap_server->get_display_layout(
 			$ldap_server->get_object_class($ldap_entry[0]));
+
+		$this->required_attribs = get_required_attribs($ldap_entry[0]);
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
@@ -822,6 +827,8 @@ class ldap_entry_viewer_attrib
 
 					$attrib->edit = $edit;
 					$attrib->create = $create;
+					$attrib->required = in_array($attribute,$this->viewer->required_attribs);
+
 					$attrib->show();
 				}
 			}
@@ -888,11 +895,6 @@ class ldap_attribute
 
 		if($this->display_name!=$this->attribute)
 			$this->display_name .= " (" . $this->attribute . ")";
-
-		// determine whether this is a required attribute
-
-		$this->required = $ldap_server->check_object_requires_attribute(
-			$ldap_server->get_object_class($ldap_entry),$this->attribute);
 	}
 
 	/** Gets the attribute's value (or first value if multi-valued)
@@ -3954,50 +3956,6 @@ class ldap_server
 		}
 
 		return $item_object_class;
-	}
-
-	/** Return whether the specified attribute is mandatory
-
-	    Return 'true' if the specified attribute must always
-	    have a non-empty value in the specified object class.
-
-	    @param string $object_class
-		Object class to be queried
-	    @param string $attribute_name
-		Attribute to return whether mandatory or not
-	    @return
-		Whether the attribute is mandatory or not (true/false)
-	*/
-
-	function check_object_requires_attribute($object_class,$attribute_name)
-	{
-		$required = false;
-
-		// is it required due to being the class's RDN?
-
-		$rdn_attrib = explode(",",
-			$this->get_object_schema_setting($object_class,
-			"rdn_attrib"));
-
-		foreach($rdn_attrib as $attrib)
-			if($attrib == $attribute_name)
-				$required = true;
-
-		// if not required due to being the class's RDN attribute,
-		// check whether it is listed in required_attribs
-
-		if(!$required)
-		{
-			$required_attribs = explode(",",
-				$this->get_object_schema_setting($object_class,
-					"required_attribs"));
-
-			foreach($required_attribs as $attrib)
-				if($attrib == $attribute_name)
-					$required = true;
-		}
-
-		return $required;
 	}
 
 	/** Retrieve icon/photo thumbnail URL for the specified LDAP entry.
