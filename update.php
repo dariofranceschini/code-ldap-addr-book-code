@@ -201,22 +201,22 @@ if($ldap_server->log_on())
 						// name (used for breadcrumb navigation and
 						// "Back to record" link)
 
-						$dn="";
+						$rdn="";
 						foreach($rdn_attribs as $rdn_attrib2)
 						{
-							if(!empty($dn)) $dn .= "+";
+							if(!empty($rdn)) $rdn .= "+";
 							// TODO: figure out new RDN attribute value
 							// perhaps update_attribute() should receive $entry by
 							// reference and update it when successful
-							$dn .= $rdn_attrib2 . "=";
+							$rdn .= $rdn_attrib2 . "=";
 
 							if(is_array($entry[0][strtolower($rdn_attrib2)]))
-								$dn .= $entry[0][strtolower($rdn_attrib2)][0];
+								$rdn .= $entry[0][strtolower($rdn_attrib2)][0];
 							else
-								$dn .= $entry[0][strtolower($rdn_attrib2)];
+								$rdn .= $entry[0][strtolower($rdn_attrib2)];
 						}
 						$rdn_list = ldap_explode_dn2($dn);
-						$dn .= (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
+						$dn = $rdn . (empty($rdn_list[1]["dn"]) ? "" : "," . $rdn_list[1]["dn"]);
 					}
 				}
 
