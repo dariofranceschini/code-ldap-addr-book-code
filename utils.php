@@ -850,7 +850,7 @@ class ldap_attribute
 	var $display_name;
 
 	/** Whether attribute is mandatory (either marked as such or the RDN) */
-	var $required;
+	var $required = false;
 
 	/** Whether the attribute is for a new record that is being created */
 	var $create = false;
