@@ -484,7 +484,7 @@ class ldap_entry_viewer
 		$heading->colspan = isset($section["colspan"]) ? $section["colspan"] : 1;
 		$heading->new_row = $section["new_row"];
 		$heading->width = isset($section["width"]) ? $section["width"] : null;
-		$heading->ldap_entry = $this->ldap_entry;
+		$heading->viewer = $this;
 
 		$this->section[$heading->text] = $heading;
 
@@ -650,6 +650,9 @@ class ldap_entry_viewer_section
 	*/
 	var $new_row=false;
 
+	/** Reference to ldap_entry_viewer object that contains this section */
+	var $viewer;
+
 	/** Is this the first section in the display layout? */
 	var $first_section=false;
 
@@ -663,9 +666,6 @@ class ldap_entry_viewer_section
 	*/
 	var $width="";
 
-	/** LDAP object entry which is to be displayed */
-	var $ldap_entry;
-
 	/** Add an attribute and its value to the display
 
 	    @param array $attribute
@@ -674,7 +674,7 @@ class ldap_entry_viewer_section
 
 	function add_data($attribute)
 	{
-		$this->attrib[] = new ldap_entry_viewer_attrib($this->ldap_entry,$attribute);
+		$this->attrib[] = new ldap_entry_viewer_attrib($this->viewer->ldap_entry,$attribute);
 	}
 
 	/** Output this section of the object entry as HTML
