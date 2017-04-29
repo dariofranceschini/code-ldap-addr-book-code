@@ -4464,10 +4464,28 @@ class ldap_server
 				else
 					if($is_rdn)
 					{
-						$result = @ldap_rename($this->connection,$dn,
-							$attrib . "=" . ldap_escape($new_val,
-							null,LDAP_ESCAPE_DN),null,true);
+						$rdn_attribs = explode(",",
+							$this->get_object_schema_setting(
+							$this->get_object_class($entry),"rdn_attrib"));
 
+						$new_rdn="";
+						foreach($rdn_attribs as $rdn_attrib)
+						{
+							if(!empty($new_rdn)) $new_rdn .= "+";
+							$new_rdn .= $rdn_attrib . "=";
+
+							if($rdn_attrib == $attrib)
+								$new_rdn_val = $new_val;
+							else if(is_array($entry[strtolower($rdn_attrib)]))
+								$new_rdn_val = $entry[strtolower($rdn_attrib)][0];
+							else
+								$new_rdn_val = $entry[strtolower($rdn_attrib)];
+
+							$new_rdn .= ldap_escape($new_rdn_val,null,LDAP_ESCAPE_DN);
+						}
+
+						$result = @ldap_rename($this->connection,$dn,
+							$new_rdn,null,true);
 						if($result)
 							if(is_array($entry[strtolower($attrib)]))
 								$entry[strtolower($attrib)][0] = $new_val;
