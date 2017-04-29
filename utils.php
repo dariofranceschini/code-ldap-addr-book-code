@@ -2420,7 +2420,6 @@ function ldap_attribute_to_css_class($attrib)
 	return "ldap_attribute_" . $attrib;
 }
 
-
 /** Turn any URLs and e-mail addresses appearing in the text into HTML links.
 
     @param string $text
