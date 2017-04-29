@@ -674,7 +674,7 @@ class ldap_entry_viewer_section
 
 	function add_data($attribute)
 	{
-		$this->attrib[] = new ldap_entry_viewer_attrib($this->viewer->ldap_entry,$attribute);
+		$this->attrib[] = new ldap_entry_viewer_attrib($this->viewer,$attribute);
 	}
 
 	/** Output this section of the object entry as HTML
@@ -729,8 +729,8 @@ class ldap_entry_viewer_attrib
 	/** Icon image to display next to attribute */
 	var $icon;
 
-	/** LDAP entry whose attribute is to be displayed */
-	var $ldap_entry;
+	/** Reference to ldap_entry_viewer object that contains this attribute */
+	var $viewer;
 
 	/** Whether this attribute should be displayed when viewing the record.
 
@@ -744,18 +744,18 @@ class ldap_entry_viewer_attrib
 
 	/** Add an attribute and its value to the display
 
-	    @param array $ldap_entry
-		LDAP entry whose attribute is to be displayed
+	    @param array $viewer
+		ldap_entry_viewer object containing the attribute
 	    @param array $attribute
 		LDAP attribute to display
 	*/
 
-	function __construct($ldap_entry,$attribute)
+	function __construct($viewer,$attribute)
 	{
 		$this->caption = isset($attribute[1]) ? $attribute[1] : null;
 		$this->ldap_attribute = $attribute[0];
 		$this->icon = isset($attribute[2]) ? $attribute[2] : null;
-		$this->ldap_entry = $ldap_entry;
+		$this->viewer = $viewer;
 		$this->allow_view = isset($attribute["allow_view"]) ? $attribute["allow_view"] : true;
 		$this->allow_edit = isset($attribute["allow_edit"]) ? $attribute["allow_edit"] : true;
 	}
@@ -818,7 +818,7 @@ class ldap_entry_viewer_attrib
 					if($space_before_attribute) echo " ";
 					$space_before_attribute = true;
 
-					$attrib = new ldap_attribute($this->ldap_entry[0],$attribute);
+					$attrib = new ldap_attribute($this->viewer->ldap_entry[0],$attribute);
 
 					$attrib->edit = $edit;
 					$attrib->create = $create;
