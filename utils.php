@@ -565,7 +565,7 @@ class ldap_entry_viewer
 					$section->first_section=true;
 				$first_section=false;
 
-				$section->show($this->create,$this->edit);
+				$section->show();
 			}
 
 			// close last section in layout
@@ -682,16 +682,9 @@ class ldap_entry_viewer_section
 		$this->attrib[] = new ldap_entry_viewer_attrib($this->viewer,$attribute);
 	}
 
-	/** Output this section of the object entry as HTML
+	/** Output this section of the object entry as HTML */
 
-	    @param bool $create
-		Whether the section should be rendered as for a new object
-		which is being created
-	    @param bool $edit
-		Whether the section should be rendered with editing enabled
-	*/
-
-	function show($create,$edit)
+	function show()
 	{
 		if($this->new_row && !$this->first_section) echo "  </tr>\n</table>\n";
 
@@ -714,7 +707,7 @@ class ldap_entry_viewer_section
 				. $this->text . "</th>\n        </tr>\n";
 
 		foreach($this->attrib as $attrib)
-			$attrib->show($create,$edit);
+			$attrib->show($this->viewer->create,$this->viewer->edit);
 
 		echo "      </table>\n";
 		echo "    </td>\n";
