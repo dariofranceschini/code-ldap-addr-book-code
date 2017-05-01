@@ -41,7 +41,8 @@ if($ldap_server->log_on())
 			// TODO: guard against nasties in the object class list
 			$entry["objectclass"] = explode(",",$_POST["create"]);
 
-			/** @todo support entry-specific RDNs that deviate from schema default */
+			/** @todo take into account RDN attributes of all object classes
+			    and support entry-specific RDNs that deviate from schema default */
 			$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
 				$entry["objectclass"][0],"rdn_attrib"));
 
