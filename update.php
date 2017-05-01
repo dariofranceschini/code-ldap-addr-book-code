@@ -41,6 +41,8 @@ if($ldap_server->log_on())
 			// TODO: guard against nasties in the object class list
 			$entry["objectclass"] = explode(",",$_POST["create"]);
 
+			fix_missing_object_classes($ldap_server,$entry);
+
 			/** @todo take into account RDN attributes of all object classes
 			    and support entry-specific RDNs that deviate from schema default */
 			$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
@@ -77,8 +79,6 @@ if($ldap_server->log_on())
 				if($ldap_server->get_object_schema_setting($entry["objectclass"][0],
 					"can_create") || get_user_setting("allow_system_admin"))
 				{
-					fix_missing_object_classes($ldap_server,$entry);
-
 					if($ldap_server->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
 					{
 						// Include every attribute which appears in the display layout
