@@ -38,7 +38,8 @@ if($ldap_server->log_on())
 		// when creating a new entry.
 		if(!empty($_POST["create"]))
 		{
-			$entry["objectclass"][0] = $_POST["create"];
+			// TODO: guard against nasties in the object class list
+			$entry["objectclass"] = explode(",",$_POST["create"]);
 
 			/** @todo support entry-specific RDNs that deviate from schema default */
 			$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
