@@ -282,7 +282,7 @@ $ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
 	//		array("thumbnailLogo",			"Logo",			"logo24.png"),
 			array("telephoneNumber",		"Office Phone",		"landline-phone.png"),
 			array("facsimileTelephoneNumber",	"Office Fax",		"fax.png"),
-			array("title",				"Job Title",		"id.png"),
+			array("title",				"Job Title",		"org-role.png"),
 			array("department",			"Department",		"org.png"),
 			array("physicalDeliveryOfficeName",	"Office",		"office.png")
 			)
