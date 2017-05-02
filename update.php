@@ -67,6 +67,9 @@ if($ldap_server->log_on())
 
 		if(!empty($_POST["create"]))
 		{
+		        if(!get_user_setting("allow_create"))
+                		show_error_message(gettext("You do not have permission to create new records."));
+
 			if($search_resource)
 			{
 				show_error_message(gettext("Unable to create - A record already exists with this name."));
