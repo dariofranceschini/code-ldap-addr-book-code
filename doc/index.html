@@ -66,6 +66,7 @@
   <li>Changing the look and formatting of the address book
   <li>Changing the country code interpretation
   <li>Extending and modifying the schema
+  <li>Using auxiliary object classes
   </ol>
 <li><a href="#config_reference">Configuration Reference</a>
 </ol>
@@ -1729,6 +1730,32 @@ in order to indicate the type of data and how it should be displayed/edited:
 <tr><td>yes_no</td><td>Boolean, presented as a yes/no choice</td></tr>
 </table>
 
+<h3>Using auxiliary object classes</h3>
+<p>
+<em>Auxiliary object classes</em> can added to an LDAP record in order to
+extend its capabilities. For example, the <code>simpleSecurityObject</code>
+auxiliary class can be added to a contact object. This adds a new attribute
+for storing a password, allowing the record to be used as a <em>user account</em>
+for logging into the LDAP directory or an LDAP-enabled applications.
+</p>
+<p>
+Display layouts can be defined for auxiliary classes in the same way as
+"normal" object classes. Adding the following setting to the configuration file
+(<code>config.php</code>) will cause the LDAP Address Book to show auxiliary class
+layouts automatically whenever it displays an object that uses them:
+</p>
+<p>
+<code>$append_auxiliary_layouts = true;</code>
+</p>
+<p>
+Auxiliary class layouts are shown after the object's main display layout. A
+warning message will be displayed if LDAP Address Book encounters an auxiliary
+class that does not have any display layout defined.
+</p>
+<p>
+Current versions of the LDAP Address Book cannot add or remove auxiliary classes
+from a record.
+</p>
 <hr>
 <a name="config_reference"></a>
 <h2>Configuration Reference</h2>

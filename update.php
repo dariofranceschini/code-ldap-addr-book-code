@@ -85,6 +85,10 @@ if($ldap_server->log_on())
 						$required_attribs=array();
 						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"][0]);
 
+						// Include attributes from each auxiliary class display layout
+						// TODO: only do it if auto-add aux layout setting is configured
+						add_auxiliary_layouts($entry,$entry_layout);
+
 						foreach($entry_layout as $section)
 							foreach($section["attributes"] as $attrib_spec)
 								if(!isset($attrib_spec["allow_edit"]) || $attrib_spec["allow_edit"])
@@ -163,6 +167,10 @@ if($ldap_server->log_on())
 
 				$entry_layout = $ldap_server->get_display_layout(
 					$ldap_server->get_object_class($entry[0]));
+
+				// Include attributes from each auxiliary class display layout
+				// TODO: only do it if auto-add aux layout setting is configured
+				add_auxiliary_layouts($entry[0],$entry_layout);
 
 				foreach($entry_layout as $section)
 					foreach($section["attributes"] as $attrib_spec)

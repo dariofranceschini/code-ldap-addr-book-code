@@ -295,6 +295,11 @@ $ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
 		)
 	));
 
+// Automatically include attributes for each auxiliary class which is
+// used to extend the record being displayed.
+
+// $append_auxiliary_layouts = true;
+
 // --------------------------------------------------------------------
 // Photo/Image Display Settings
 // --------------------------------------------------------------------

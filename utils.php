@@ -461,6 +461,8 @@ class ldap_entry_viewer
 		$entry_viewer_layout = $ldap_server->get_display_layout(
 			$ldap_server->get_object_class($ldap_entry[0]));
 
+		add_auxiliary_layouts($ldap_entry[0],$entry_viewer_layout);
+
 		$this->required_attribs = get_required_attribs($ldap_entry[0]);
 
 		$first_section = true;
@@ -5412,5 +5414,60 @@ function get_required_attribs($ldap_entry)
 	$required_attribs = array_unique($required_attribs);
 
 	return $required_attribs;
+}
+
+/** Return list of auxiliary classes for the specified entry
+
+    @param object $ldap_server
+	LDAP server containing the record
+    @param array $ldap_entry
+	Array containing LDAP object for which the
+	list of auxiliary object classes is to be
+	returned
+    @return
+	Array of auxiliary object classes
+*/
+
+function get_auxiliary_classes($ldap_server,$ldap_entry)
+{
+	global $ldap_server;
+
+	unset($ldap_entry["objectclass"]["count"]);
+
+	$auxiliary_class_list = array();
+	foreach($ldap_entry["objectclass"] as $object_class)
+		if($ldap_server->get_object_schema_setting($object_class,"class_type") == "auxiliary")
+			$auxiliary_class_list[]=$object_class;
+
+	return $auxiliary_class_list;
+}
+
+/** Extend the specified display layout to show/edit auxiliary class attributes
+
+    @param array $ldap_entry
+	Array containing LDAP object for which the
+	display layout is to be extended to include
+	auxiliary class attributes
+
+    @param array &$entry_viewer_layout
+	Entry viewer layout to be extended
+*/
+
+function add_auxiliary_layouts($ldap_entry,&$entry_viewer_layout)
+{
+	global $ldap_server,$append_auxiliary_layouts;
+
+	if(!isset($append_auxiliary_layouts) || $append_auxiliary_layouts)
+	{
+		unset($ldap_entry["objectclass"]["count"]);
+
+		foreach(get_auxiliary_classes($ldap_server,$ldap_entry) as $object_class)
+		{
+			$aux_layout = $ldap_server->get_display_layout($object_class);
+
+			$aux_layout[0]["new_row"]=true;
+			$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
+		}
+	}
 }
 ?>
