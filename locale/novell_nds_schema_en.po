@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-28 09:44+0100\n"
-"PO-Revision-Date: 2016-07-28 09:44+0100\n"
+"POT-Creation-Date: 2017-05-03 10:00+0100\n"
+"PO-Revision-Date: 2017-05-03 10:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -42,37 +42,41 @@ msgid "Cached Attributes On External References"
 msgstr "Cached Attributes On External References"
 
 #: ../schema/novell/nds.php:19
+msgid "Excluded Member"
+msgstr "Excluded Member"
+
+#: ../schema/novell/nds.php:20
 msgid "Index Definition List"
 msgstr "Index Definition List"
 
-#: ../schema/novell/nds.php:25
+#: ../schema/novell/nds.php:26
 msgid "Domain"
 msgstr "Domain"
 
-#: ../schema/novell/nds.php:31
+#: ../schema/novell/nds.php:32
 msgid "Tree Root"
 msgstr "Tree Root"
 
-#: ../schema/novell/nds.php:36
+#: ../schema/novell/nds.php:40
 msgid "NDS Predicate Statistics"
 msgstr "NDS Predicate Statistics"
 
-#: ../schema/novell/nds.php:38
+#: ../schema/novell/nds.php:42
 msgid "Predicate"
 msgstr "Predicate"
 
-#: ../schema/novell/nds.php:39
+#: ../schema/novell/nds.php:43
 msgid "Flush"
 msgstr "Flush"
 
-#: ../schema/novell/nds.php:40
+#: ../schema/novell/nds.php:44
 msgid "State"
 msgstr "State"
 
-#: ../schema/novell/nds.php:41
+#: ../schema/novell/nds.php:45
 msgid "Timeout"
 msgstr "Timeout"
 
-#: ../schema/novell/nds.php:42
+#: ../schema/novell/nds.php:46
 msgid "Use Values"
 msgstr "Use Values"

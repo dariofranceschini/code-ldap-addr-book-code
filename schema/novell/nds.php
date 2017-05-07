@@ -16,6 +16,7 @@ class novell_nds_schema extends ldap_schema
 			array("name"=>"ndsPredicateUseValues",	"data_type"=>"yes_no",		"display_name"=>gettext("NDS Predicate Use Values")),
 
 			array("name"=>"CachedAttrsOnExtRefs",	"data_type"=>"text_list",	"display_name"=>gettext("Cached Attributes On External References")),
+			array("name"=>"excludedMember",		"data_type"=>"dn_list",		"display_name"=>gettext("Excluded Member")),
 			array("name"=>"indexDefinition",	"data_type"=>"text_list",	"display_name"=>gettext("Index Definition List"))
 			);
 
