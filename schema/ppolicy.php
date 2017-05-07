@@ -64,7 +64,7 @@ class ppolicy_schema extends ldap_schema
 
 			array("name"=>"pwdEndTime",			"data_type"=>"date_time",	"display_name"=>gettext("End of Password Validity Period")),
 			array("name"=>"pwdLastSuccess",			"data_type"=>"date_time",	"display_name"=>gettext("Time of Last Successful Login")),
-			array("name"=>"pwdStartTime",			"data_type"=>"date_time",	"display_name"=>gettext("Start of Password Validity Period")),
+			array("name"=>"pwdStartTime",			"data_type"=>"date_time",	"display_name"=>gettext("Start of Password Validity Period"))
 			);
 
 		// Auxiliary object class 'pwdPolicyChecker' is also defined in this schema
