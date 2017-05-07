@@ -99,7 +99,9 @@ class cosine_schema extends ldap_schema
 			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"),"parent_class"=>"dSA"),
 			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
 			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"),
-			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person") // alias of pilotPerson
+
+			/** @todo implement object class aliases, make newPilotPerson an alias of pilotPerson instead of a separate class */
+			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person")
 			);
 
 		// Display layouts
