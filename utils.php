@@ -1032,6 +1032,7 @@ class ldap_attribute
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
+			case "nested_config":	show_nested_config();		break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1115,6 +1116,27 @@ class ldap_attribute
 			array(
 				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
+				)
+			);
+	}
+
+	/** Show nestedConfig attribute (data type "nested_config")
+
+	    This attribute indicates whether eDirectory group nesting should
+	    be enforced/enabled
+
+		- 0 - local server nesting
+		- 1 - no nesting
+
+	    The attribute is defined in the "novell/nestgrp" schema.
+	*/
+
+	function show_nested_config()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("Local Server Nesting")),
+				array("value"=>"1","display_name"=>gettext("No Nesting"))
 				)
 			);
 	}

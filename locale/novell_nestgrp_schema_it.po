@@ -1,0 +1,26 @@
+# Italian translations for LDAP Address Book package.
+# Copyright (C) 2017 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-08 09:33+0100\n"
+"PO-Revision-Date: 2017-05-08 09:33+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/nestgrp.php:10
+msgid "Group Membership (Nested Groups)"
+msgstr "Appartenenza al Gruppo (Gruppi Nidificati)"
+
+#: ../schema/novell/nestgrp.php:11
+msgid "Nested Group Enforcement"
+msgstr "Effetto del Gruppo Nidificato"
