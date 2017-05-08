@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 14:44+0000\n"
-"PO-Revision-Date: 2017-02-17 14:44+0000\n"
+"POT-Creation-Date: 2017-05-08 09:16+0100\n"
+"PO-Revision-Date: 2017-05-08 09:16+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -34,7 +34,7 @@ msgstr "Nessun attributo specificato"
 msgid "Unable to access LDAP object."
 msgstr "Impossibile accedere all'oggetto LDAP."
 
-#: ../add_dn_value.php:88 ../utils.php:4442
+#: ../add_dn_value.php:88 ../utils.php:4464
 msgid "Error whilst setting attribute"
 msgstr "Errore mentre l'attributo impostando"
 
@@ -43,7 +43,7 @@ msgstr "Errore mentre l'attributo impostando"
 msgid "Return to the Address Book"
 msgstr "Ritorna alla Rubrica"
 
-#: ../add_dn_value.php:97 ../delete_dn_value.php:100 ../update.php:226
+#: ../add_dn_value.php:97 ../delete_dn_value.php:100 ../update.php:257
 msgid "You do not have permission to change this record"
 msgstr "Non hai il permesso di cambiare questo registrare"
 
@@ -78,7 +78,7 @@ msgstr "Salire di un livello alla radice della direttorio"
 msgid "Go up a level to the '%s' folder"
 msgstr "Salire di un livello nella cartella '%s'"
 
-#: ../add_dn_value.php:172 ../utils.php:594
+#: ../add_dn_value.php:172 ../utils.php:605
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -88,28 +88,32 @@ msgstr ""
 "Non sei concesso il permesso di sfogliare la direttorio per selezionare un "
 "oggetto"
 
-#: ../config.php:25 ../utils.php:37 ../utils.php:189 ../utils.php:194
+#: ../config.php:26 ../utils.php:37 ../utils.php:189 ../utils.php:194
 #: ../utils.php:195
 msgid "Address Book"
 msgstr "Rubrica"
 
-#: ../config.php:41
+#: ../config.php:42
 msgid "User Guide"
 msgstr "Guida Utente"
 
-#: ../config.php:43
+#: ../config.php:44
 msgid "Get Source Code"
 msgstr "Ottenere il Codice Sorgente"
 
-#: ../create.php:61 ../index.php:206
+#: ../create.php:27 ../update.php:71
+msgid "You do not have permission to create new records."
+msgstr "Non hai l'autorizzazione a creare nuovi registrare."
+
+#: ../create.php:64 ../index.php:210
 msgid "New Record"
 msgstr "Nuovo Registrare"
 
-#: ../create.php:65
+#: ../create.php:68
 msgid "What type of record would you like to create?"
 msgstr "Che Tipo di Registrare Vorresti Creare?"
 
-#: ../create.php:107
+#: ../create.php:108
 msgid ""
 "This list contains all object classes that are recognised by the Address "
 "Book."
@@ -117,7 +121,7 @@ msgstr ""
 "Questa lista contiene tutte le classi di oggetti che sono riconosciuti dalla "
 "Rubrica."
 
-#: ../create.php:110
+#: ../create.php:111
 msgid ""
 "This list contains only those object classes that end users are allowed to "
 "create."
@@ -125,11 +129,11 @@ msgstr ""
 "Questo elenco contiene solo i classi di oggetti che gli utenti finali "
 "possono creare."
 
-#: ../create.php:112
+#: ../create.php:113
 msgid "Choose from all recognised object classes"
 msgstr "Scegli tra tutte le classi di oggetti riconosciuti"
 
-#: ../create.php:114
+#: ../create.php:115
 msgid "Next"
 msgstr "Prossimo"
 
@@ -162,11 +166,11 @@ msgstr "Errore mentre l'eliminazione di valore da attributo '%s': %s"
 msgid "Are you sure you want to delete this record?"
 msgstr "Sei sicuro di voler eliminare questo record?"
 
-#: ../delete.php:59 ../utils.php:1326
+#: ../delete.php:59 ../utils.php:1333
 msgid "Yes"
 msgstr "Sì"
 
-#: ../delete.php:62 ../utils.php:1327
+#: ../delete.php:62 ../utils.php:1334
 msgid "No"
 msgstr "No"
 
@@ -182,43 +186,43 @@ msgstr "Non si dispone dell'autorizzazione per eliminare questo record"
 msgid "Unable to locate LDAP record"
 msgstr "Impossibile individuare record di LDAP"
 
-#: ../index.php:117
+#: ../index.php:121
 msgid "You do not have permission to search the directory"
 msgstr "Non si dispone di permessi di ricerca nella direttorio"
 
-#: ../index.php:130
+#: ../index.php:134
 msgid "Please enter the text you want to look up in the Address Book."
 msgstr "Si prega di inserire il testo che si desidera cercare nella Rubrica."
 
-#: ../index.php:131 ../utils.php:3006
+#: ../index.php:135 ../utils.php:3007
 msgid "You can search for text in any of the following fields:"
 msgstr "È possibile cercare testo in qualsiasi dei seguenti attributi:"
 
-#: ../index.php:139 ../utils.php:2455
+#: ../index.php:143 ../utils.php:2462
 msgid "Please log in to use the address book."
 msgstr "Effettua il login per utilizzare la rubrica."
 
-#: ../index.php:141
+#: ../index.php:145
 msgid "You do not have permission to access the directory"
 msgstr "Non si dispone dell'autorizzazione per accedere alla direttorio"
 
-#: ../index.php:145
+#: ../index.php:149
 msgid "You do not have permission to browse the directory"
 msgstr "Non è necessario il permesso di sfogliare la direttorio"
 
-#: ../index.php:154
+#: ../index.php:158
 msgid "OpenLDAP Server Configuration"
 msgstr "Configurazione del Server OpenLDAP"
 
-#: ../index.php:201
+#: ../index.php:205
 msgid "Folder Details"
 msgstr "Dettagli di Cartella"
 
-#: ../index.php:211
+#: ../index.php:215
 msgid "Export Records"
 msgstr "Esportare i Registrare"
 
-#: ../info.php:126 ../info.php:129 ../update.php:222
+#: ../info.php:126 ../info.php:129 ../update.php:253
 msgid "Unable to locate LDAP record."
 msgstr "Impossibile trovare record di LDAP."
 
@@ -550,32 +554,32 @@ msgstr "TXN specificare bene"
 msgid "TXN ID is invalid"
 msgstr "TXN ID non è valido"
 
-#: ../update.php:64
+#: ../update.php:75
 msgid "Unable to create - A record already exists with this name."
 msgstr "Impossibile creare - Un record esiste già con questo nome."
 
-#: ../update.php:116
+#: ../update.php:130
 msgid "Unable to create LDAP record: "
 msgstr "Impossibile creare record di LDAP: "
 
-#: ../update.php:123
+#: ../update.php:137
 msgid "Unable to create this type of object."
 msgstr "Impossibile creare questo tipo di oggetto."
 
-#: ../update.php:141
+#: ../update.php:155
 #, php-format
 msgid "New '%s' record created: '%s'"
 msgstr "Nuovo record '%s' creato: '%s'"
 
-#: ../update.php:211
+#: ../update.php:242
 msgid "No changes were made to this record"
 msgstr "Non sono state apportate a questo record"
 
-#: ../update.php:213
+#: ../update.php:244
 msgid "Changes made to this record:"
 msgstr "Le modifiche apportate a questo record:"
 
-#: ../update.php:218
+#: ../update.php:249
 msgid "Back to record"
 msgstr "Torna a Registrare"
 
@@ -632,546 +636,546 @@ msgstr "Disconnettersi"
 msgid "Log in"
 msgstr "Accesso"
 
-#: ../utils.php:536
+#: ../utils.php:541
 #, php-format
 msgid "New %s"
 msgstr "Nuovo %s"
 
-#: ../utils.php:570
+#: ../utils.php:581
 msgid "This record is a folder that can contain other objects."
 msgstr "Questo record è una cartella che può contenere altri oggetti."
 
-#: ../utils.php:575
+#: ../utils.php:586
 msgid "Show Contents"
 msgstr "Mostra Contenuto"
 
-#: ../utils.php:586
+#: ../utils.php:597
 msgid "Create record"
 msgstr "Crea registrare"
 
-#: ../utils.php:589
+#: ../utils.php:600
 msgid "Save changes"
 msgstr "Salva I Cambiamenti"
 
-#: ../utils.php:602
+#: ../utils.php:613
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../utils.php:608
+#: ../utils.php:619
 msgid "Move"
 msgstr "Mossa"
 
-#: ../utils.php:613 ../utils.php:3190
+#: ../utils.php:624 ../utils.php:3191
 msgid "Delete"
 msgstr "Cancellare"
 
-#: ../utils.php:618
+#: ../utils.php:629
 msgid "Save as vCard"
 msgstr "Salva come vCard"
 
-#: ../utils.php:621
+#: ../utils.php:632
 msgid "You do not have permission to view this record"
 msgstr "Non hai il permesso di vedere questo record"
 
-#: ../utils.php:925
+#: ../utils.php:932
 #, php-format
 msgid "for '%s'"
 msgstr "per '%s'"
 
-#: ../utils.php:929
+#: ../utils.php:936
 #, php-format
 msgid "at '%s'"
 msgstr "a '%s'"
 
-#: ../utils.php:933
+#: ../utils.php:940
 #, php-format
 msgid "from '%s'"
 msgstr "da '%s'"
 
-#: ../utils.php:1029
+#: ../utils.php:1036
 msgid "Unsupported data type:"
 msgstr "Non supportato tipo di dati:"
 
-#: ../utils.php:1082
+#: ../utils.php:1089
 msgid "Security group"
 msgstr "Gruppo di protezione"
 
-#: ../utils.php:1082
+#: ../utils.php:1089
 msgid "Distribution group"
 msgstr "Gruppo di distribuzione"
 
-#: ../utils.php:1083
+#: ../utils.php:1090
 msgid "System generated"
 msgstr "Generato da System"
 
-#: ../utils.php:1086
+#: ../utils.php:1093
 msgid "Windows Authorization Manager APP_BASIC group"
 msgstr "Gruppo di Windows Authorization Manager APP_BASIC"
 
-#: ../utils.php:1087
+#: ../utils.php:1094
 msgid "Windows Authorization Manager APP_QUERY group"
 msgstr "Gruppo di Windows Authorization Manager APP_QUERY"
 
-#: ../utils.php:1088
+#: ../utils.php:1095
 msgid "Global scope"
 msgstr "Portata globale"
 
-#: ../utils.php:1089
+#: ../utils.php:1096
 msgid "Domain local scope"
 msgstr "Portata locale di dominio"
 
-#: ../utils.php:1090
+#: ../utils.php:1097
 msgid "Universal scope"
 msgstr "Portata universale"
 
-#: ../utils.php:1109
+#: ../utils.php:1116
 msgid "Plain Text"
 msgstr "Testo Normale"
 
-#: ../utils.php:1110
+#: ../utils.php:1117
 msgid "HTML"
 msgstr "HTML"
 
-#: ../utils.php:1121
+#: ../utils.php:1128
 msgid "Leave the dangling reference in place (ignore)"
 msgstr "Lasciare il riferimento penzoloni sul posto (ignorare)"
 
-#: ../utils.php:1122
+#: ../utils.php:1129
 msgid "Remove the dangling reference (drop)"
 msgstr "Rimuovere il riferimento penzoloni (eliminare)"
 
-#: ../utils.php:1123
+#: ../utils.php:1130
 msgid "Generate an LDAP error"
 msgstr "Genera un errore LDAP"
 
-#: ../utils.php:1134
+#: ../utils.php:1141
 msgid "Before Other Overlay Response Callbacks"
 msgstr "Prima Altri Copertura Risposta Richiama"
 
-#: ../utils.php:1135
+#: ../utils.php:1142
 msgid "After Other Overlay Response Callbacks"
 msgstr "Dopo Altri Copertura Risposta Richiama"
 
-#: ../utils.php:1215 ../utils.php:1423 ../utils.php:1586 ../utils.php:1622
-#: ../utils.php:1921 ../utils.php:2116 ../utils.php:2182 ../utils.php:2185
+#: ../utils.php:1222 ../utils.php:1430 ../utils.php:1593 ../utils.php:1629
+#: ../utils.php:1926 ../utils.php:2121 ../utils.php:2187 ../utils.php:2190
 msgid "none"
 msgstr "nessuna"
 
-#: ../utils.php:1251
+#: ../utils.php:1258
 msgid "LDAP v1"
 msgstr "LDAP v1"
 
-#: ../utils.php:1252
+#: ../utils.php:1259
 msgid "LDAP v2"
 msgstr "LDAP v2"
 
-#: ../utils.php:1253
+#: ../utils.php:1260
 msgid "LDAP v3"
 msgstr "LDAP v3"
 
-#: ../utils.php:1254 ../utils.php:1422
+#: ../utils.php:1261 ../utils.php:1429
 msgid "Unrecognised value:"
 msgstr "Valore non riconosciuta:"
 
-#: ../utils.php:1272
+#: ../utils.php:1279
 msgid "Base Object Only"
 msgstr "Solo Oggetto di Base"
 
-#: ../utils.php:1273
+#: ../utils.php:1280
 msgid "Single Level"
 msgstr "Piano Unico"
 
-#: ../utils.php:1274
+#: ../utils.php:1281
 msgid "Whole Subtree"
 msgstr "Tutta la Sottostruttura"
 
-#: ../utils.php:1275
+#: ../utils.php:1282
 msgid "Subordinate Subtree"
 msgstr "Sottostruttura Subordinato"
 
-#: ../utils.php:1286
+#: ../utils.php:1293
 msgid "Never dereference aliases"
 msgstr "Mai guardare in alto alias"
 
-#: ../utils.php:1287
+#: ../utils.php:1294
 msgid "Dereference aliases when searching"
 msgstr "Cercare alias durante la ricerca"
 
-#: ../utils.php:1288
+#: ../utils.php:1295
 msgid "Dereference aliases to find the base object for the search"
 msgstr "Seguire alias per trovare l'oggetto di base per la ricerca"
 
-#: ../utils.php:1289
+#: ../utils.php:1296
 msgid "Always dereference aliases"
 msgstr "Sempre cercare alias"
 
-#: ../utils.php:1312 ../utils.php:1367
+#: ../utils.php:1319 ../utils.php:1374
 msgid "Not known"
 msgstr "Non conosciuto"
 
-#: ../utils.php:1313
+#: ../utils.php:1320
 msgid "Don't include in mailing lists"
 msgstr "Non includere nelle liste di distribuzione e-mail"
 
-#: ../utils.php:1314
+#: ../utils.php:1321
 msgid "Include in any mailing lists"
 msgstr "Includere in un liste di distribuzione e-mail"
 
-#: ../utils.php:1315
+#: ../utils.php:1322
 msgid "Include in professional mailing lists only"
 msgstr "Includere in soli liste di distribuzione e-mail professionale"
 
-#: ../utils.php:1343
+#: ../utils.php:1350
 msgid "Windows 2000"
 msgstr "Windows 2000"
 
-#: ../utils.php:1344
+#: ../utils.php:1351
 msgid "Windows Server 2003 Interrim"
 msgstr "Windows Server 2003 Interrim"
 
-#: ../utils.php:1345
+#: ../utils.php:1352
 msgid "Windows Server 2003"
 msgstr "Windows Server 2003"
 
-#: ../utils.php:1346
+#: ../utils.php:1353
 msgid "Windows Server 2008"
 msgstr "Windows Server 2008"
 
-#: ../utils.php:1347
+#: ../utils.php:1354
 msgid "Windows Server 2008 R2"
 msgstr "Windows Server 2008 R2"
 
-#: ../utils.php:1348
+#: ../utils.php:1355
 msgid "Windows Server 2012"
 msgstr "Windows Server 2012"
 
-#: ../utils.php:1349
+#: ../utils.php:1356
 msgid "Windows Server 2012 R2"
 msgstr "Windows Server 2012 R2"
 
-#: ../utils.php:1350
+#: ../utils.php:1357
 msgid "Windows Server 2016"
 msgstr "Windows Server 2016"
 
-#: ../utils.php:1368
+#: ../utils.php:1375
 msgid "Male"
 msgstr "Maschio"
 
-#: ../utils.php:1369
+#: ../utils.php:1376
 msgid "Female"
 msgstr "Femmina"
 
-#: ../utils.php:1370
+#: ../utils.php:1377
 msgid "Not specified"
 msgstr "Non specificato"
 
-#: ../utils.php:1402
+#: ../utils.php:1409
 msgid "blank"
 msgstr "vuoto"
 
-#: ../utils.php:1591
+#: ../utils.php:1598
 msgid "Macro Name"
 msgstr "Nome Macro"
 
-#: ../utils.php:1593
+#: ../utils.php:1600
 msgid "Definition"
 msgstr "Definizione"
 
-#: ../utils.php:1661
+#: ../utils.php:1666
 msgid "Object Definition"
 msgstr "Definizione di Oggetti"
 
-#: ../utils.php:1666
+#: ../utils.php:1671
 msgid "Attribute Definition"
 msgstr "Definizione di Attributo"
 
-#: ../utils.php:1671
+#: ../utils.php:1676
 msgid "Schema Definition"
 msgstr "Definizione dello Schema"
 
-#: ../utils.php:1683
+#: ../utils.php:1688
 msgid "abstract class"
 msgstr "classe astratta"
 
-#: ../utils.php:1686
+#: ../utils.php:1691
 msgid "auxiliary class"
 msgstr "classe ausiliaria"
 
-#: ../utils.php:1689
+#: ../utils.php:1694
 msgid "single valued attribute"
 msgstr "attributo singolo valore"
 
-#: ../utils.php:1694
+#: ../utils.php:1699
 msgid "no user modification"
 msgstr "nessuna modifica utente"
 
-#: ../utils.php:1700
+#: ../utils.php:1705
 msgid "obsolete definition"
 msgstr "definizione obsoleto"
 
-#: ../utils.php:1706
+#: ../utils.php:1711
 msgid "system only"
 msgstr "unico sistema"
 
-#: ../utils.php:1712
+#: ../utils.php:1717
 msgid "indexed"
 msgstr "indicizzati"
 
-#: ../utils.php:1718
+#: ../utils.php:1723
 msgid "also named"
 msgstr "anche il nome"
 
-#: ../utils.php:1734
+#: ../utils.php:1739
 msgid "Description"
 msgstr "Descrizione"
 
-#: ../utils.php:1736
+#: ../utils.php:1741
 msgid "Subclass Of"
 msgstr "Sottoclasse Di"
 
-#: ../utils.php:1738
+#: ../utils.php:1743
 msgid "OID"
 msgstr "OID"
 
-#: ../utils.php:1742
+#: ../utils.php:1747
 msgid "Required Attributes"
 msgstr "Attributi Richiesti"
 
-#: ../utils.php:1744
+#: ../utils.php:1749
 msgid "Optional Attributes"
 msgstr "Attributi Opzionali"
 
-#: ../utils.php:1751
+#: ../utils.php:1756
 msgid "Disallowed Attributes"
 msgstr "Attributi non Consentiti"
 
-#: ../utils.php:1753
+#: ../utils.php:1758
 msgid "Permitted Auxiliary Classes"
 msgstr "Classi Ausiliarie Ammesse"
 
-#: ../utils.php:1757
+#: ../utils.php:1762
 msgid "Syntax"
 msgstr "Sintassi"
 
-#: ../utils.php:1759
+#: ../utils.php:1764
 msgid "Equality Matching"
 msgstr "Parità di Corrispondenza"
 
-#: ../utils.php:1761
+#: ../utils.php:1766
 msgid "Substring Matching"
 msgstr "Sottostringa Corrispondente"
 
-#: ../utils.php:1763
+#: ../utils.php:1768
 msgid "Usage"
 msgstr "Uso"
 
-#: ../utils.php:1766
+#: ../utils.php:1771
 msgid "Applies To"
 msgstr "Si Applica a"
 
-#: ../utils.php:1779
+#: ../utils.php:1784
 msgid "Ordering Rule"
 msgstr "Norma Imperativa"
 
-#: ../utils.php:1781
+#: ../utils.php:1786
 msgid "Not Human Readable"
 msgstr "Non Leggibile"
 
-#: ../utils.php:1783
+#: ../utils.php:1788
 msgid "Binary Transfer Required"
 msgstr "Trasferimento Binari Necessari"
 
-#: ../utils.php:1800
+#: ../utils.php:1805
 msgid "Legacy NDS Name"
 msgstr "Eredità Nome NDS"
 
-#: ../utils.php:1803 ../utils.php:1805
+#: ../utils.php:1808 ../utils.php:1810
 msgid "Non-Removable"
 msgstr "Non Rimovibile"
 
-#: ../utils.php:1808
+#: ../utils.php:1813
 msgid "ACL Templates"
 msgstr "Modelli di ACL"
 
-#: ../utils.php:1810 ../utils.php:1885
+#: ../utils.php:1815 ../utils.php:1890
 msgid "Naming Attributes"
 msgstr "Attributi per la Denominazione"
 
-#: ../utils.php:1812
+#: ../utils.php:1817
 msgid "Can be Contained In"
 msgstr "Può Essere Contenuto in"
 
-#: ../utils.php:1814
+#: ../utils.php:1819
 msgid "Not a Container"
 msgstr "Non un Contenitore"
 
-#: ../utils.php:1816 ../utils.php:1851
+#: ../utils.php:1821 ../utils.php:1856
 msgid "Lower Bound"
 msgstr "Limite Inferiore"
 
-#: ../utils.php:1818 ../utils.php:1853
+#: ../utils.php:1823 ../utils.php:1858
 msgid "Upper Bound"
 msgstr "Limite Superiore"
 
-#: ../utils.php:1820
+#: ../utils.php:1825
 msgid "Readable by Public"
 msgstr "Leggibile da Pubblico"
 
-#: ../utils.php:1822
+#: ../utils.php:1827
 msgid "Readable by Server Objects"
 msgstr "Leggibile da Oggetti Server"
 
-#: ../utils.php:1824
+#: ../utils.php:1829
 msgid "Name Value Access (Write Managed)"
 msgstr "Nome valore Accesso (Scrittura viene Gestito)"
 
-#: ../utils.php:1826
+#: ../utils.php:1831
 msgid "Name Value Access (Both Managed)"
 msgstr "Nome valore Accesso (Entrambi Gestiti)"
 
-#: ../utils.php:1828
+#: ../utils.php:1833
 msgid "Never Synchronise to Replicas"
 msgstr "Mai Sincronizzazione di Repliche"
 
-#: ../utils.php:1830
+#: ../utils.php:1835
 msgid "Don't Schedule Synchronisation when Updated"
 msgstr "Non Pianificare la Sincronizzazione dopo l'Aggiornamento"
 
-#: ../utils.php:1832
+#: ../utils.php:1837
 msgid "Don't Immediately Synchronise to Replicas"
 msgstr "Non Sincronizza Immediatamente alle Repliche"
 
-#: ../utils.php:1834
+#: ../utils.php:1839
 msgid "Encrypt when Synchronising to Replicas"
 msgstr "Cifrare quando Sincronizzazione di Repliche"
 
-#: ../utils.php:1836
+#: ../utils.php:1841
 msgid "Required on Filtered Replicas"
 msgstr "Richiesto su Filtrati Repliche"
 
-#: ../utils.php:1838
+#: ../utils.php:1843
 msgid "Required for External References on Filtered Replicas"
 msgstr "Richiesto per Riferimenti Esterni su Filtrati Repliche"
 
-#: ../utils.php:1840
+#: ../utils.php:1845
 msgid "Hidden from User Operations"
 msgstr "Nascosto da Operazioni Utente"
 
-#: ../utils.php:1842
+#: ../utils.php:1847
 msgid "Legacy NDS Syntax"
 msgstr "NDS Sintassi Eredità"
 
-#: ../utils.php:1844
+#: ../utils.php:1849
 msgid "Read Filtered"
 msgstr "Leggi Filtrato"
 
-#: ../utils.php:1849
+#: ../utils.php:1854
 msgid "Object Class GUID"
 msgstr "GUID della Classe di Oggetti"
 
-#: ../utils.php:1855
+#: ../utils.php:1860
 msgid "Attribute Class GUID"
 msgstr "GUID della Classe di Attributi"
 
-#: ../utils.php:1857
+#: ../utils.php:1862
 msgid "Property Set GUID"
 msgstr "GUID di Insieme di Proprietà"
 
-#: ../utils.php:1873
+#: ../utils.php:1878
 msgid "Address Book schema settings:"
 msgstr "impostazioni dello Schema per la Rubrica:"
 
-#: ../utils.php:1876
+#: ../utils.php:1881
 msgid "Localised Display Name"
 msgstr "Localizzato Nome visualizzato"
 
-#: ../utils.php:1878
+#: ../utils.php:1883
 msgid "Class Aliases"
 msgstr "Classe Alias"
 
-#: ../utils.php:1881
+#: ../utils.php:1886
 msgid "Display as a Folder"
 msgstr "Visualizza come una Cartella"
 
-#: ../utils.php:1890
+#: ../utils.php:1895
 msgid "Users Can Create"
 msgstr "Utenti Possono Creare"
 
-#: ../utils.php:1892
+#: ../utils.php:1897
 msgid "Create Method"
 msgstr "Metodo per la Creazione"
 
-#: ../utils.php:1894
+#: ../utils.php:1899
 msgid "Other Required Attributes"
 msgstr "Altri Attributi Richiesti"
 
-#: ../utils.php:1896
+#: ../utils.php:1901
 msgid "Can Create Within"
 msgstr "Può Creare all'Interno"
 
-#: ../utils.php:1898
+#: ../utils.php:1903
 msgid "Can Contain"
 msgstr "Può Contenere"
 
-#: ../utils.php:1900
+#: ../utils.php:1905
 msgid "Parent Class"
 msgstr "Classe Padre"
 
-#: ../utils.php:1902
+#: ../utils.php:1907
 msgid "Child Classes"
 msgstr "Classi Figlie"
 
-#: ../utils.php:1904
+#: ../utils.php:1909
 msgid "Icon"
 msgstr "Icona"
 
-#: ../utils.php:1908
+#: ../utils.php:1913
 msgid "Data Type Handler"
 msgstr "Manipolazione per Tipo di Dati"
 
-#: ../utils.php:2031
+#: ../utils.php:2036
 msgid "Change"
 msgstr "Cambiamento"
 
-#: ../utils.php:2031 ../utils.php:2033 ../utils.php:2190
+#: ../utils.php:2036 ../utils.php:2038 ../utils.php:2195
 msgid "Add"
 msgstr "Aggiungere"
 
-#: ../utils.php:2112
+#: ../utils.php:2117
 msgid "Remove"
 msgstr "Rimuovere"
 
-#: ../utils.php:2309
+#: ../utils.php:2317
 msgid "View map"
 msgstr "Esaminare Mappa"
 
-#: ../utils.php:2341
+#: ../utils.php:2349
 msgid "Clear Image"
 msgstr "Cancella Immagine"
 
-#: ../utils.php:2375 ../utils.php:2390
+#: ../utils.php:2383 ../utils.php:2398
 msgid "Download"
 msgstr "Scaricare"
 
-#: ../utils.php:2377
+#: ../utils.php:2385
 #, php-format
 msgid "Download Item %s"
 msgstr "Scarica Articolo %s"
 
-#: ../utils.php:2449
+#: ../utils.php:2456
 msgid "You do not have permission to log in to the address book directory."
 msgstr "Non hai il permesso di accedere alla direttorio rubrica."
 
-#: ../utils.php:2452
+#: ../utils.php:2459
 msgid "Log in as a different user"
 msgstr "Login come utente diverso"
 
-#: ../utils.php:2460
+#: ../utils.php:2467
 msgid "Unable to connect to address book directory. (LDAP bind failed)"
 msgstr ""
 "Impossibile connettersi alla direttorio rubrica. (Binding LDAP non riuscita)"
 
-#: ../utils.php:2466
+#: ../utils.php:2473
 #, php-format
 msgid ""
 "If you have not already done so, please\n"
@@ -1182,47 +1186,47 @@ msgstr ""
 "Se non lo avete ancora fatto, per favore %sleggere il manuale%s per le "
 "istruzioni su come configurare l'accesso alla direttorio."
 
-#: ../utils.php:3000
+#: ../utils.php:3001
 msgid "Your search did not match any records in the Address Book."
 msgstr "La ricerca non ha prodotto risultati in nessun record nella Rubrica."
 
-#: ../utils.php:3001
+#: ../utils.php:3002
 msgid "Suggestions:"
 msgstr "Suggerimenti:"
 
-#: ../utils.php:3003
+#: ../utils.php:3004
 msgid "Make sure that all words are spelled correctly"
 msgstr "Assicurarsi che tutte le parole siano scritte correttamente"
 
-#: ../utils.php:3004
+#: ../utils.php:3005
 msgid "Search for different or more general keywords"
 msgstr "Ricerca per parole chiave diversa o meno"
 
-#: ../utils.php:3011
+#: ../utils.php:3012
 msgid "This is an empty folder"
 msgstr "Si tratta di una Cartella Vuota"
 
-#: ../utils.php:3052
+#: ../utils.php:3053
 msgid "Folders"
 msgstr "Cartelle"
 
-#: ../utils.php:3122 ../utils.php:3919
+#: ../utils.php:3123 ../utils.php:3921
 msgid "unrecognised"
 msgstr "non riconosciuto"
 
-#: ../utils.php:3319
+#: ../utils.php:3320
 msgid "GD Support"
 msgstr "Supporto per GD"
 
-#: ../utils.php:3320
+#: ../utils.php:3321
 msgid "Internationalization Support"
 msgstr "Supporto per l'Internazionalizzazione"
 
-#: ../utils.php:3321
+#: ../utils.php:3322
 msgid "LDAP Support"
 msgstr "Supporto per LDAP"
 
-#: ../utils.php:3334
+#: ../utils.php:3335
 msgid ""
 "The following PHP extension modules must be installed and enabled in order "
 "to use the address book:"
@@ -1230,7 +1234,7 @@ msgstr ""
 "I seguenti moduli di estensione PHP devono essere installati e attivati al "
 "fine di utilizzare la rubrica:"
 
-#: ../utils.php:3340
+#: ../utils.php:3341
 msgid ""
 "Please see <em>Installation and Basic Setup</em> in the User Guide for more "
 "information."
@@ -1238,51 +1242,52 @@ msgstr ""
 "Si prega di consultare la sezione <em>Installazione e configurazione di "
 "base</em> nella Guida per l'utente per ulteriori informazioni."
 
-#: ../utils.php:4178
+#: ../utils.php:4141
 msgid "Unable connect to the directory to look up the user name."
 msgstr "Impossibile connettersi alla direttorio per cercare il nome utente."
 
-#: ../utils.php:4180
+#: ../utils.php:4143
 #, php-format
 msgid "Please check the %s and %s settings in the Address Book configuration."
 msgstr ""
 "Si prega di verificare le impostazioni per %s e %s nella configurazione "
 "Rubrica."
 
-#: ../utils.php:4302
+#: ../utils.php:4297
 msgid "Error"
 msgstr "Errore"
 
-#: ../utils.php:4303
+#: ../utils.php:4298
 #, php-format
 msgid "Unsupported setting merge method: %s"
 msgstr "Metodo non supportato di fondere impostazioni:"
 
-#: ../utils.php:4433
+#: ../utils.php:4455
 #, php-format
 msgid "Clear attribute '%s'"
 msgstr "Cancella attributo '%s'"
 
-#: ../utils.php:4435
+#: ../utils.php:4457
 #, php-format
 msgid "Set attribute '%s' to the contents of '%s'"
 msgstr "Impostare il '%s' attributo per il contenuto di '%s'"
 
-#: ../utils.php:4438
+#: ../utils.php:4460
 #, php-format
 msgid "Set attribute '%s' to '%s'"
 msgstr "Impostare l'attributo '%s' a '%s'"
 
-#: ../utils.php:4816
-msgid "The Address Book is not able to display this record"
-msgstr "La Rubrica non è in grado di visualizzare questo record"
+#: ../utils.php:4837
+#, php-format
+msgid "The Address Book is not able to display '%s' records"
+msgstr "La rubrica non è in grado di visualizzare i registrare '%s'"
 
-#: ../utils.php:5161
+#: ../utils.php:5182
 #, php-format
 msgid "The Address Book's configuration file (%sconfig.php%s) is missing."
 msgstr "Il file di configurazione della Rubrica (%sconfig.php%s) è mancante."
 
-#: ../utils.php:5163
+#: ../utils.php:5184
 #, php-format
 msgid ""
 "Please read %sInstallation and Basic Setup%s in the User Guide for "
