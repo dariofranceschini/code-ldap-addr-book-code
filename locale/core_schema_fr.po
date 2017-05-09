@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 09:37+0100\n"
-"PO-Revision-Date: 2017-05-03 09:37+0100\n"
+"POT-Creation-Date: 2017-05-09 09:27+0100\n"
+"PO-Revision-Date: 2017-05-09 09:27+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -39,7 +39,7 @@ msgstr "Nom du Composant de Domaine"
 
 #: ../schema/core.php:22 ../schema/core.php:117 ../schema/core.php:152
 #: ../schema/core.php:172 ../schema/core.php:192 ../schema/core.php:203
-#: ../schema/core.php:238 ../schema/core.php:278
+#: ../schema/core.php:238 ../schema/core.php:278 ../schema/core.php:295
 msgid "Description"
 msgstr "Description"
 
@@ -115,7 +115,7 @@ msgstr "Classe d'Objet"
 msgid "Organizational Unit Name"
 msgstr "Nom de l'Unité Organisationnelle"
 
-#: ../schema/core.php:41
+#: ../schema/core.php:41 ../schema/core.php:297
 msgid "Owner"
 msgstr "Propriétaire"
 
@@ -152,11 +152,11 @@ msgstr "Occupant du Rôle"
 msgid "Search Guide"
 msgstr "Guide de Recherche"
 
-#: ../schema/core.php:50
+#: ../schema/core.php:50 ../schema/core.php:301
 msgid "See Also"
 msgstr "Voir Également"
 
-#: ../schema/core.php:51
+#: ../schema/core.php:51 ../schema/core.php:296
 msgid "Serial Number"
 msgstr "Numéro de Série"
 
@@ -292,7 +292,7 @@ msgstr "Groupe (Noms Uniques)"
 msgid "Locality"
 msgstr "Localité"
 
-#: ../schema/core.php:96
+#: ../schema/core.php:96 ../schema/core.php:299
 msgid "Organization"
 msgstr "Organisation"
 
@@ -372,10 +372,22 @@ msgstr "Détails d'Organisation"
 msgid "Role Name"
 msgstr "Nom de Rôle"
 
-#: ../schema/core.php:239
+#: ../schema/core.php:239 ../schema/core.php:298
 msgid "Department"
 msgstr "Département"
 
 #: ../schema/core.php:267
 msgid "Role Occupants"
 msgstr "Occupants de Rôle"
+
+#: ../schema/core.php:292
+msgid "Device Information"
+msgstr "Informations sur l'Appareil"
+
+#: ../schema/core.php:294
+msgid "Device Name"
+msgstr "Nom de l'appareil"
+
+#: ../schema/core.php:300
+msgid "Location"
+msgstr "Emplacement"

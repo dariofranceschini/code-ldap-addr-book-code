@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 09:37+0100\n"
-"PO-Revision-Date: 2017-05-03 09:37+0100\n"
+"POT-Creation-Date: 2017-05-09 09:27+0100\n"
+"PO-Revision-Date: 2017-05-09 09:27+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr "Nombre de Componente de Dominio"
 
 #: ../schema/core.php:22 ../schema/core.php:117 ../schema/core.php:152
 #: ../schema/core.php:172 ../schema/core.php:192 ../schema/core.php:203
-#: ../schema/core.php:238 ../schema/core.php:278
+#: ../schema/core.php:238 ../schema/core.php:278 ../schema/core.php:295
 msgid "Description"
 msgstr "Descripción"
 
@@ -115,7 +115,7 @@ msgstr "Clase de Objeto"
 msgid "Organizational Unit Name"
 msgstr "Nombre de Unidad Organizativa"
 
-#: ../schema/core.php:41
+#: ../schema/core.php:41 ../schema/core.php:297
 msgid "Owner"
 msgstr "Propietario"
 
@@ -152,11 +152,11 @@ msgstr "Ocupante de Papel"
 msgid "Search Guide"
 msgstr "Guía de Búsqueda"
 
-#: ../schema/core.php:50
+#: ../schema/core.php:50 ../schema/core.php:301
 msgid "See Also"
 msgstr "Ver También"
 
-#: ../schema/core.php:51
+#: ../schema/core.php:51 ../schema/core.php:296
 msgid "Serial Number"
 msgstr "Número de Serie"
 
@@ -292,7 +292,7 @@ msgstr "Grupo (Nombres Individuales)"
 msgid "Locality"
 msgstr "Localidad"
 
-#: ../schema/core.php:96
+#: ../schema/core.php:96 ../schema/core.php:299
 msgid "Organization"
 msgstr "Organización"
 
@@ -372,10 +372,22 @@ msgstr "Detalles de la organización"
 msgid "Role Name"
 msgstr "Nombre de Rol"
 
-#: ../schema/core.php:239
+#: ../schema/core.php:239 ../schema/core.php:298
 msgid "Department"
 msgstr "Departamento"
 
 #: ../schema/core.php:267
 msgid "Role Occupants"
 msgstr "Ocupantes de Papel"
+
+#: ../schema/core.php:292
+msgid "Device Information"
+msgstr "Información del Dispositivo"
+
+#: ../schema/core.php:294
+msgid "Device Name"
+msgstr "Nombre del Dispositivo"
+
+#: ../schema/core.php:300
+msgid "Location"
+msgstr "Ubicación"

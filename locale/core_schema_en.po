@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 09:37+0100\n"
-"PO-Revision-Date: 2017-05-03 09:37+0100\n"
+"POT-Creation-Date: 2017-05-09 09:27+0100\n"
+"PO-Revision-Date: 2017-05-09 09:27+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -39,7 +39,7 @@ msgstr "Domain Component Name"
 
 #: ../schema/core.php:22 ../schema/core.php:117 ../schema/core.php:152
 #: ../schema/core.php:172 ../schema/core.php:192 ../schema/core.php:203
-#: ../schema/core.php:238 ../schema/core.php:278
+#: ../schema/core.php:238 ../schema/core.php:278 ../schema/core.php:295
 msgid "Description"
 msgstr "Description"
 
@@ -115,7 +115,7 @@ msgstr "Object Class"
 msgid "Organizational Unit Name"
 msgstr "Organizational Unit Name"
 
-#: ../schema/core.php:41
+#: ../schema/core.php:41 ../schema/core.php:297
 msgid "Owner"
 msgstr "Owner"
 
@@ -152,11 +152,11 @@ msgstr "Role Occupant"
 msgid "Search Guide"
 msgstr "Search Guide"
 
-#: ../schema/core.php:50
+#: ../schema/core.php:50 ../schema/core.php:301
 msgid "See Also"
 msgstr "See Also"
 
-#: ../schema/core.php:51
+#: ../schema/core.php:51 ../schema/core.php:296
 msgid "Serial Number"
 msgstr "Serial Number"
 
@@ -292,7 +292,7 @@ msgstr "Group (Unique Names)"
 msgid "Locality"
 msgstr "Locality"
 
-#: ../schema/core.php:96
+#: ../schema/core.php:96 ../schema/core.php:299
 msgid "Organization"
 msgstr "Organization"
 
@@ -372,10 +372,22 @@ msgstr "Organization Details"
 msgid "Role Name"
 msgstr "Role Name"
 
-#: ../schema/core.php:239
+#: ../schema/core.php:239 ../schema/core.php:298
 msgid "Department"
 msgstr "Department"
 
 #: ../schema/core.php:267
 msgid "Role Occupants"
 msgstr "Role Occupants"
+
+#: ../schema/core.php:292
+msgid "Device Information"
+msgstr "Device Information"
+
+#: ../schema/core.php:294
+msgid "Device Name"
+msgstr "Device Name"
+
+#: ../schema/core.php:300
+msgid "Location"
+msgstr "Location"
