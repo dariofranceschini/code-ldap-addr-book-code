@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 08:36+0100\n"
-"PO-Revision-Date: 2016-10-04 08:36+0100\n"
+"POT-Creation-Date: 2017-05-09 09:46+0100\n"
+"PO-Revision-Date: 2017-05-09 09:46+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -59,7 +59,9 @@ msgstr "Età Massima dei Passwords (Scadenza Tempo)"
 
 #: ../schema/ppolicy.php:32
 msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
-msgstr "Numero di Accessi Non Riusciti Consecutivi Prima Politica per Bloccare si Applica"
+msgstr ""
+"Numero di Accessi Non Riusciti Consecutivi Prima Politica per Bloccare si "
+"Applica"
 
 #: ../schema/ppolicy.php:33
 msgid "Minimum Password Age"
@@ -71,7 +73,8 @@ msgstr "Lunghezza Minima Accettabile di una Password"
 
 #: ../schema/ppolicy.php:35
 msgid "Users Must Change Password at Next Logon After Reset"
-msgstr "Utenti Devono Cambiare la Password all'Accesso Successivo Dopo il Ripristino"
+msgstr ""
+"Utenti Devono Cambiare la Password all'Accesso Successivo Dopo il Ripristino"
 
 #: ../schema/ppolicy.php:36
 msgid "Users Must Send Old and New Passwords When Changing"
