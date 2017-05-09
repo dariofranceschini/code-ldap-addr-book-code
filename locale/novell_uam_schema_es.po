@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 13:06+0000\n"
-"PO-Revision-Date: 2016-10-30 13:06+0000\n"
+"POT-Creation-Date: 2017-05-08 09:55+0100\n"
+"PO-Revision-Date: 2017-05-08 09:55+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -21,54 +21,54 @@ msgstr ""
 msgid "UAM POSIX Workstation Contexts"
 msgstr "Contextos para ordenadores UAM POSIX"
 
-#: ../schema/novell/uam.php:10 ../schema/novell/uam.php:33
-msgid "Reuse UID Numbers"
-msgstr "Reutilizar número UID"
-
-#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:42
-msgid "Reuse GID Numbers"
-msgstr "Reutilizar número GID"
-
-#: ../schema/novell/uam.php:16
+#: ../schema/novell/uam.php:14
 msgid "POSIX Group"
 msgstr "Grupo POSIX"
 
-#: ../schema/novell/uam.php:23
+#: ../schema/novell/uam.php:21
 msgid "Workstation Contexts for Unix Account Management"
 msgstr "Contextos de Estaciones de Trabajo de Gestión de la Cuenta Unix"
 
-#: ../schema/novell/uam.php:28
+#: ../schema/novell/uam.php:26
 msgid "User ID Mapping"
 msgstr "Mapeo de ID de Usuario"
 
-#: ../schema/novell/uam.php:30
+#: ../schema/novell/uam.php:28
 msgid "Starting UID"
 msgstr "Comience UID"
 
-#: ../schema/novell/uam.php:31
+#: ../schema/novell/uam.php:29
 msgid "End UID"
 msgstr "UID Fin"
 
-#: ../schema/novell/uam.php:32
+#: ../schema/novell/uam.php:30
 msgid "Last Assigned UID"
 msgstr "Última UID Asignado"
 
-#: ../schema/novell/uam.php:37
+#: ../schema/novell/uam.php:31
+msgid "Reuse UID Numbers"
+msgstr "Reutilizar Número UID"
+
+#: ../schema/novell/uam.php:35
 msgid "Group ID Mapping"
 msgstr "Mapeo de ID de Grupo"
 
-#: ../schema/novell/uam.php:39
+#: ../schema/novell/uam.php:37
 msgid "Starting GID"
 msgstr "Comience GID"
 
-#: ../schema/novell/uam.php:40
+#: ../schema/novell/uam.php:38
 msgid "End GID"
 msgstr "GID Fin"
 
-#: ../schema/novell/uam.php:41
+#: ../schema/novell/uam.php:39
 msgid "Last Assigned GID"
 msgstr "Última GID Asignado"
 
-#: ../schema/novell/uam.php:49
+#: ../schema/novell/uam.php:40
+msgid "Reuse GID Numbers"
+msgstr "Reutilizar Número GID"
+
+#: ../schema/novell/uam.php:47
 msgid "Groups with access to LUM-enabled Services"
 msgstr "Los grupos con acceso a servicios habilitados para LUM"

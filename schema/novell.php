@@ -275,6 +275,7 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_schema("novell/httpstk");
 		$ldap_server->add_schema("novell/ldap");
 		$ldap_server->add_schema("novell/masv");
+		$ldap_server->add_schema("novell/namid");
 		$ldap_server->add_schema("novell/ncs");
 		$ldap_server->add_schema("novell/nds");
 		$ldap_server->add_schema("novell/ndscomm");
