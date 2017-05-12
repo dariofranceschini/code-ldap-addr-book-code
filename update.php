@@ -113,7 +113,7 @@ if($ldap_server->log_on())
 					// Allow schema function to see/modify the DN to be created
 					$entry["dn"] = $dn;
 
-					$ldap_server->call_schema_function("before_create_" . $entry["objectclass"],$entry);
+					$ldap_server->call_schema_function("before_create_" . $entry["objectclass"][0],$entry);
 
 					// Update the DN to be created (if modified by the schema function)
 					$dn = $entry["dn"];
