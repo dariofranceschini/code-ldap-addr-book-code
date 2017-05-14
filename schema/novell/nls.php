@@ -59,7 +59,7 @@ class novell_nls_schema extends ldap_schema
 		$this->object_schema = array(
 			array("name"=>"nLSLicenseCertificate",		"icon"=>"novell/license-cert.png",	"is_folder"=>false,"rdn_attrib"=>"nLSLicenseID","required_attribs"=>"nLSLicenseID,nLSCommonCertificate,nLSRevision","display_name"=>gettext("License Certificate")),
 			array("name"=>"nLSLicenseServer",		"icon"=>"novell/license-server.png",	"is_folder"=>false,"required_attribs"=>"nLSLicenseDatabase,nLSTransactionDatabase,hostServer,nLSLSPRevision","display_name"=>gettext("License Service Provider")),
-			array("name"=>"nLSProductContainer",		"icon"=>"novell/license-container.png",	"is_folder"=>true,"rdn_attrib"=>"nLSPublisher,nLSProduct,nLSVersion","required_attribs"=>"nLSRevision","display_name"=>gettext("License Product Container"))
+			array("name"=>"nLSProductContainer",		"icon"=>"novell/license-container.png",	"is_folder"=>false,"rdn_attrib"=>"nLSPublisher,nLSProduct,nLSVersion","required_attribs"=>"nLSRevision","display_name"=>gettext("License Product Container"))
 			);
 
 		// Display layouts
@@ -72,7 +72,12 @@ class novell_nls_schema extends ldap_schema
 					array("nLSVersion",		gettext("Version"),			"generic24.png"),
 					array("nLSPublisher",		gettext("Publisher"),			"generic24.png")
 					)
-				)
+				),
+                        array("section_name"=>gettext("License Certificates"),"new_row"=>true,
+                                "attributes"=>array(
+                                        array("__CHILD_OBJECTS__")
+                                        )
+                                )
 			));
 
 		parent::__construct($ldap_server);

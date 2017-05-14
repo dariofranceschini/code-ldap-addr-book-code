@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 08:05+0100\n"
+"POT-Creation-Date: 2017-05-14 15:57+0100\n"
 "PO-Revision-Date: 2017-05-13 08:05+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
@@ -224,3 +224,7 @@ msgstr "Versione"
 #: ../schema/novell/nls.php:73
 msgid "Publisher"
 msgstr "Editore"
+
+#: ../schema/novell/nls.php:76
+msgid "License Certificates"
+msgstr "Certificati di Licenza"
