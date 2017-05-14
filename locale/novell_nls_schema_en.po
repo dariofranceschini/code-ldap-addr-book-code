@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 16:24+0100\n"
-"PO-Revision-Date: 2017-05-14 16:24+0100\n"
+"POT-Creation-Date: 2017-05-14 16:30+0100\n"
+"PO-Revision-Date: 2017-05-14 16:30+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -109,7 +109,7 @@ msgstr "Installer"
 msgid "Last Installation Time"
 msgstr "Last Installation Time"
 
-#: ../schema/novell/nls.php:34
+#: ../schema/novell/nls.php:34 ../schema/novell/nls.php:122
 msgid "License Database"
 msgstr "License Database"
 
@@ -118,6 +118,7 @@ msgid "License ID"
 msgstr "License ID"
 
 #: ../schema/novell/nls.php:36 ../schema/novell/nls.php:63
+#: ../schema/novell/nls.php:116
 msgid "License Service Provider"
 msgstr "License Service Provider"
 
@@ -163,6 +164,7 @@ msgstr "Publisher Name"
 
 #: ../schema/novell/nls.php:47 ../schema/novell/nls.php:85
 #: ../schema/novell/nls.php:93 ../schema/novell/nls.php:110
+#: ../schema/novell/nls.php:120
 msgid "Data Version"
 msgstr "Data Version"
 
@@ -261,3 +263,15 @@ msgstr "License Certificates"
 #: ../schema/novell/nls.php:107
 msgid "License Information"
 msgstr "License Information"
+
+#: ../schema/novell/nls.php:118
+msgid "Name"
+msgstr "Name"
+
+#: ../schema/novell/nls.php:119
+msgid "Enable Transaction Logging"
+msgstr "Enable Transaction Logging"
+
+#: ../schema/novell/nls.php:121
+msgid "Host Server"
+msgstr "Host Server"

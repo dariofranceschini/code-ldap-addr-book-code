@@ -112,6 +112,18 @@ class novell_nls_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("nLSLicenseServer",array(
+			array("section_name"=>gettext("License Service Provider"),
+				"attributes"=>array(
+					array("cn",			gettext("Name"),			"generic24.png"),
+					array("nLSTransactionDatabase",	gettext("Enable Transaction Logging"),	"generic24.png"),
+					array("nLSLSPRevision",		gettext("Data Version"),		"generic24.png"),
+					array("hostServer",		gettext("Host Server"),			"generic24.png"),
+					array("nLSLicenseDatabase",	gettext("License Database"),		"generic24.png"),
+					)
+				),
+			));
+
 		parent::__construct($ldap_server);
 	}
 
@@ -137,5 +149,13 @@ class novell_nls_schema extends ldap_schema
 	{
 		$this->add_attrib_single_value($ldap_server,$entry,"nLSCommonCertificate","");
 	}
+
+        /** Assign default values for nLSLicenseServer attributes */
+
+        function populate_for_create_nLSLicenseServer(&$ldap_server,&$entry)
+        {
+                $this->add_attrib_value($ldap_server,$entry,"cn","NLS_LSP_");
+                $this->add_attrib_value($ldap_server,$entry,"nLSLSPRevision",$this->data_version);
+        }
 }
 ?>
