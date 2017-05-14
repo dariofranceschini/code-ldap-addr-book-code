@@ -3,6 +3,8 @@
 
 class novell_nls_schema extends ldap_schema
 {
+	var $data_version = 50;
+
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
@@ -97,5 +99,13 @@ class novell_nls_schema extends ldap_schema
 
 		parent::__construct($ldap_server);
 	}
+
+        /** Assign default values for nLSProductContainer attributes */
+
+        function populate_for_create_nLSProductContainer(&$ldap_server,&$entry)
+        {
+                $this->add_attrib_value($ldap_server,$entry,"nlsRevision",$this->data_version);
+                $this->add_attrib_value($ldap_server,$entry,"nlsSummaryVersion",$this->data_version);
+        }
 }
 ?>
