@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 16:04+0100\n"
-"PO-Revision-Date: 2017-05-14 16:04+0100\n"
+"POT-Creation-Date: 2017-05-14 16:24+0100\n"
+"PO-Revision-Date: 2017-05-14 16:24+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -61,7 +61,7 @@ msgstr "Certificat pour le Pool d'Installations de Pointe"
 msgid "Cert Peak Used Pool"
 msgstr "Certificat pour un Pool d'Utilisation de Pointe"
 
-#: ../schema/novell/nls.php:22
+#: ../schema/novell/nls.php:22 ../schema/novell/nls.php:104
 msgid "Common Certificate"
 msgstr "Certificat Commun"
 
@@ -101,7 +101,7 @@ msgstr "Début de la Période d'Évaluation"
 msgid "Maximum License History Size (bytes)"
 msgstr "Taille Maximale de l'Historique des Licences (octets)"
 
-#: ../schema/novell/nls.php:32
+#: ../schema/novell/nls.php:32 ../schema/novell/nls.php:109
 msgid "Installer"
 msgstr "Installateur"
 
@@ -113,7 +113,7 @@ msgstr "Dernier Temps d'Installation"
 msgid "License Database"
 msgstr "Base de Données de Licence"
 
-#: ../schema/novell/nls.php:35
+#: ../schema/novell/nls.php:35 ../schema/novell/nls.php:103
 msgid "License ID"
 msgstr "ID de Licence"
 
@@ -162,7 +162,7 @@ msgid "Publisher Name"
 msgstr "Nom de l'Éditeur"
 
 #: ../schema/novell/nls.php:47 ../schema/novell/nls.php:85
-#: ../schema/novell/nls.php:93
+#: ../schema/novell/nls.php:93 ../schema/novell/nls.php:110
 msgid "Data Version"
 msgstr "Version des Données"
 
@@ -202,7 +202,7 @@ msgstr "Taille Maximale du Fichier de Journal des Transactions"
 msgid "Product Version Number"
 msgstr "Numéro de la Version du Produit"
 
-#: ../schema/novell/nls.php:62
+#: ../schema/novell/nls.php:62 ../schema/novell/nls.php:101
 msgid "License Certificate"
 msgstr "Certificat de Licence"
 
@@ -257,3 +257,7 @@ msgstr "Notifications Activées"
 #: ../schema/novell/nls.php:88
 msgid "License Certificates"
 msgstr "Certificats de Licence"
+
+#: ../schema/novell/nls.php:107
+msgid "License Information"
+msgstr "Informations sur la Licence"

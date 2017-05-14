@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 16:04+0100\n"
-"PO-Revision-Date: 2017-05-14 16:04+0100\n"
+"POT-Creation-Date: 2017-05-14 16:24+0100\n"
+"PO-Revision-Date: 2017-05-14 16:24+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -61,7 +61,7 @@ msgstr "Cert Peak Installed Pool"
 msgid "Cert Peak Used Pool"
 msgstr "Cert Peak Used Pool"
 
-#: ../schema/novell/nls.php:22
+#: ../schema/novell/nls.php:22 ../schema/novell/nls.php:104
 msgid "Common Certificate"
 msgstr "Common Certificate"
 
@@ -101,7 +101,7 @@ msgstr "Start of Evaluation Period"
 msgid "Maximum License History Size (bytes)"
 msgstr "Maximum License History Size (bytes)"
 
-#: ../schema/novell/nls.php:32
+#: ../schema/novell/nls.php:32 ../schema/novell/nls.php:109
 msgid "Installer"
 msgstr "Installer"
 
@@ -113,7 +113,7 @@ msgstr "Last Installation Time"
 msgid "License Database"
 msgstr "License Database"
 
-#: ../schema/novell/nls.php:35
+#: ../schema/novell/nls.php:35 ../schema/novell/nls.php:103
 msgid "License ID"
 msgstr "License ID"
 
@@ -162,7 +162,7 @@ msgid "Publisher Name"
 msgstr "Publisher Name"
 
 #: ../schema/novell/nls.php:47 ../schema/novell/nls.php:85
-#: ../schema/novell/nls.php:93
+#: ../schema/novell/nls.php:93 ../schema/novell/nls.php:110
 msgid "Data Version"
 msgstr "Data Version"
 
@@ -202,7 +202,7 @@ msgstr "Maximum Transaction Log File Size"
 msgid "Product Version Number"
 msgstr "Product Version Number"
 
-#: ../schema/novell/nls.php:62
+#: ../schema/novell/nls.php:62 ../schema/novell/nls.php:101
 msgid "License Certificate"
 msgstr "License Certificate"
 
@@ -257,3 +257,7 @@ msgstr "Notifications Enabled"
 #: ../schema/novell/nls.php:88
 msgid "License Certificates"
 msgstr "License Certificates"
+
+#: ../schema/novell/nls.php:107
+msgid "License Information"
+msgstr "License Information"

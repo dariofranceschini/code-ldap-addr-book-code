@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 16:04+0100\n"
-"PO-Revision-Date: 2017-05-14 16:04+0100\n"
+"POT-Creation-Date: 2017-05-14 16:24+0100\n"
+"PO-Revision-Date: 2017-05-14 16:24+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -61,7 +61,7 @@ msgstr "Certificato per la Piscina di Impianti di Picco"
 msgid "Cert Peak Used Pool"
 msgstr "Certificato per la Piscina di Utilizzo di Picco"
 
-#: ../schema/novell/nls.php:22
+#: ../schema/novell/nls.php:22 ../schema/novell/nls.php:104
 msgid "Common Certificate"
 msgstr "Certificato Comune"
 
@@ -101,7 +101,7 @@ msgstr "Inizio del Periodo di Valutazione"
 msgid "Maximum License History Size (bytes)"
 msgstr "Dimensione Massima della Cronologia delle Licenze (byte)"
 
-#: ../schema/novell/nls.php:32
+#: ../schema/novell/nls.php:32 ../schema/novell/nls.php:109
 msgid "Installer"
 msgstr "Installer"
 
@@ -113,7 +113,7 @@ msgstr "Ultimo tempo di installazione"
 msgid "License Database"
 msgstr "Banca Dati di Licenza"
 
-#: ../schema/novell/nls.php:35
+#: ../schema/novell/nls.php:35 ../schema/novell/nls.php:103
 msgid "License ID"
 msgstr "ID Licenza"
 
@@ -162,7 +162,7 @@ msgid "Publisher Name"
 msgstr "Nome dell'Editore"
 
 #: ../schema/novell/nls.php:47 ../schema/novell/nls.php:85
-#: ../schema/novell/nls.php:93
+#: ../schema/novell/nls.php:93 ../schema/novell/nls.php:110
 msgid "Data Version"
 msgstr "Versione Dati"
 
@@ -202,7 +202,7 @@ msgstr "Dimensione Massima dei File di Log di Transazione"
 msgid "Product Version Number"
 msgstr "Numero di Versione del Prodotto"
 
-#: ../schema/novell/nls.php:62
+#: ../schema/novell/nls.php:62 ../schema/novell/nls.php:101
 msgid "License Certificate"
 msgstr "Certificato di Licenza"
 
@@ -257,3 +257,7 @@ msgstr "Notifiche Abilitate"
 #: ../schema/novell/nls.php:88
 msgid "License Certificates"
 msgstr "Certificati di Licenza"
+
+#: ../schema/novell/nls.php:107
+msgid "License Information"
+msgstr "Informazioni sulla Licenza"

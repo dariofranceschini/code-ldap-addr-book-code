@@ -97,6 +97,21 @@ class novell_nls_schema extends ldap_schema
 				),
 			));
 
+		$ldap_server->add_display_layout("nLSLicenseCertificate",array(
+			array("section_name"=>gettext("License Certificate"),
+				"attributes"=>array(
+					array("nLSLicenseID",		gettext("License ID"),			"novell/license-cert.png"),
+					array("nLSCommonCertificate",	gettext("Common Certificate"),		"microsoft/cert.png")
+					)
+				),
+			array("section_name"=>gettext("License Information"),"new_row"=>true,
+				"attributes"=>array(
+					array("nLSInstaller",		gettext("Installer"),			"user24.png"),
+					array("nLSRevision",		gettext("Data Version"),		"generic24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 
@@ -107,5 +122,20 @@ class novell_nls_schema extends ldap_schema
                 $this->add_attrib_value($ldap_server,$entry,"nlsRevision",$this->data_version);
                 $this->add_attrib_value($ldap_server,$entry,"nlsSummaryVersion",$this->data_version);
         }
+
+        /** Assign default values for nLSLicenseCertificate attributes */
+
+        function populate_for_create_nLSLicenseCertificate(&$ldap_server,&$entry)
+        {
+                $this->add_attrib_value($ldap_server,$entry,"nLSLicenseID","SN:");
+                $this->add_attrib_value($ldap_server,$entry,"nlsRevision",$this->data_version);
+        }
+
+	/** Add placeholder nLSCommonCertificate to new nLSLicenseCertificate objects */
+
+	function before_create_nLSLicenseCertificate(&$ldap_server,&$entry)
+	{
+		$this->add_attrib_single_value($ldap_server,$entry,"nLSCommonCertificate","");
+	}
 }
 ?>
