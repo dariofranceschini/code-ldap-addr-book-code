@@ -65,19 +65,34 @@ class novell_nls_schema extends ldap_schema
 		// Display layouts
 
 		$ldap_server->add_display_layout("nLSProductContainer",array(
-			array("section_name"=>gettext("License Product Container"),
+			array("section_name"=>gettext("Product Information"),
 				"attributes"=>array(
+					array("nLSPublisher",		gettext("Publisher"),			"generic24.png"),
 					array("nLSProduct",		gettext("Product"),			"generic24.png"),
-					array("nLSRevision",		gettext("Revision"),			"generic24.png"),
 					array("nLSVersion",		gettext("Version"),			"generic24.png"),
-					array("nLSPublisher",		gettext("Publisher"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("License Summary"),"new_row"=>true,
+				"attributes"=>array(
+					array("nLSCurrentInstalled",	gettext("Units Installed"),		"generic24.png"),
+					array("nLSCurrentUsed",		gettext("Units In Use"),		"generic24.png"),
+					array("nLSCurrentPeakInstalled",gettext("Units Available"),		"generic24.png"),
+					array("nLSCurrentPeakUsed",	gettext("Highest Units Used"),		"generic24.png"),
+					array("nLSSummaryUpdateTime",	" - " . gettext("As Of"),		"generic24.png"),
+					array("nLSNotificationEnabled",	gettext("Notifications Enabled"),	"generic24.png"),
+					array("nLSSummaryVersion",	gettext("Data Version"),		"generic24.png")
 					)
 				),
                         array("section_name"=>gettext("License Certificates"),"new_row"=>true,
                                 "attributes"=>array(
                                         array("__CHILD_OBJECTS__")
                                         )
-                                )
+                                ),
+			array("section_name"=>gettext("Data Version"),"new_row"=>true,
+				"attributes"=>array(
+					array("nLSRevision")
+					)
+				),
 			));
 
 		parent::__construct($ldap_server);

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 15:57+0100\n"
-"PO-Revision-Date: 2017-05-13 08:05+0100\n"
+"POT-Creation-Date: 2017-05-14 16:04+0100\n"
+"PO-Revision-Date: 2017-05-14 16:04+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,214 +17,243 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/nls.php:9
+#: ../schema/novell/nls.php:11
 msgid "ACL Check"
 msgstr "Controllo ACL"
 
-#: ../schema/novell/nls.php:10
+#: ../schema/novell/nls.php:12
 msgid "Assigned Certificates"
 msgstr "Certificati Assegnati"
 
-#: ../schema/novell/nls.php:11
+#: ../schema/novell/nls.php:13
 msgid "Broadcast Notify"
 msgstr "Trasmissione di Notifica"
 
-#: ../schema/novell/nls.php:12
+#: ../schema/novell/nls.php:14
 msgid "Cert Current Installed"
 msgstr "Certificato per Attualmente Installato"
 
-#: ../schema/novell/nls.php:13
+#: ../schema/novell/nls.php:15
 msgid "Cert Current Used"
 msgstr "Certificato per Attualmente Utilizza"
 
-#: ../schema/novell/nls.php:14
+#: ../schema/novell/nls.php:16
 msgid "Cert Peak Installed"
 msgstr "Certificato per Massimo Installato"
 
-#: ../schema/novell/nls.php:15
+#: ../schema/novell/nls.php:17
 msgid "Cert Peak Used"
 msgstr "Certificato per Massimo Utilizzo"
 
-#: ../schema/novell/nls.php:16
+#: ../schema/novell/nls.php:18
 msgid "Cert Last Peak Installed"
 msgstr "Certificato per le Ultime Installazioni di Picco"
 
-#: ../schema/novell/nls.php:17
+#: ../schema/novell/nls.php:19
 msgid "Cert Last Peak Used"
 msgstr "Certificato per l'Ultimo Utilizzo di Picco"
 
-#: ../schema/novell/nls.php:18
+#: ../schema/novell/nls.php:20
 msgid "Cert Peak Installed Pool"
 msgstr "Certificato per la Piscina di Impianti di Picco"
 
-#: ../schema/novell/nls.php:19
+#: ../schema/novell/nls.php:21
 msgid "Cert Peak Used Pool"
 msgstr "Certificato per la Piscina di Utilizzo di Picco"
 
-#: ../schema/novell/nls.php:20
+#: ../schema/novell/nls.php:22
 msgid "Common Certificate"
 msgstr "Certificato Comune"
 
-#: ../schema/novell/nls.php:21
+#: ../schema/novell/nls.php:23
 msgid "Number of License Units Installed"
 msgstr "Numero di Unità di Licenza Installate"
 
-#: ../schema/novell/nls.php:22
+#: ../schema/novell/nls.php:24
 msgid "Peak Number of License Units Installed"
 msgstr "Numero Massimo di Unità di Licenza Installate"
 
-#: ../schema/novell/nls.php:23
+#: ../schema/novell/nls.php:25
 msgid "Peak Number of License Units In Use"
 msgstr "Numero Massimo di Unità di Licenza in Uso"
 
-#: ../schema/novell/nls.php:24
+#: ../schema/novell/nls.php:26
 msgid "Number of License Units In Use"
 msgstr "Numero di Unità di Licenza in Uso"
 
-#: ../schema/novell/nls.php:25
+#: ../schema/novell/nls.php:27
 msgid "Deleted"
 msgstr "Eliminata"
 
-#: ../schema/novell/nls.php:26
+#: ../schema/novell/nls.php:28
 msgid "E-mail Notify"
 msgstr "Notifica per Email"
 
-#: ../schema/novell/nls.php:27
+#: ../schema/novell/nls.php:29
 msgid "E-mail Server Name"
 msgstr "Nome del Server di Posta Elettronica"
 
-#: ../schema/novell/nls.php:28
+#: ../schema/novell/nls.php:30
 msgid "Start of Evaluation Period"
 msgstr "Inizio del Periodo di Valutazione"
 
-#: ../schema/novell/nls.php:29
+#: ../schema/novell/nls.php:31
 msgid "Maximum License History Size (bytes)"
 msgstr "Dimensione Massima della Cronologia delle Licenze (byte)"
 
-#: ../schema/novell/nls.php:30
+#: ../schema/novell/nls.php:32
 msgid "Installer"
 msgstr "Installer"
 
-#: ../schema/novell/nls.php:31
+#: ../schema/novell/nls.php:33
 msgid "Last Installation Time"
 msgstr "Ultimo tempo di installazione"
 
-#: ../schema/novell/nls.php:32
+#: ../schema/novell/nls.php:34
 msgid "License Database"
 msgstr "Banca Dati di Licenza"
 
-#: ../schema/novell/nls.php:33
+#: ../schema/novell/nls.php:35
 msgid "License ID"
 msgstr "ID Licenza"
 
-#: ../schema/novell/nls.php:34 ../schema/novell/nls.php:61
+#: ../schema/novell/nls.php:36 ../schema/novell/nls.php:63
 msgid "License Service Provider"
 msgstr "Fornitore di Servizio di Licenza"
 
-#: ../schema/novell/nls.php:35
+#: ../schema/novell/nls.php:37
 msgid "Licenses Used"
 msgstr "Licenze Utilizzate"
 
-#: ../schema/novell/nls.php:36
+#: ../schema/novell/nls.php:38
 msgid "List of Handles"
 msgstr "Elenco delle Maniglie"
 
-#: ../schema/novell/nls.php:37
+#: ../schema/novell/nls.php:39
 msgid "License Service Provider Assignment"
 msgstr "Assegnazione del Licenziatario"
 
-#: ../schema/novell/nls.php:38
+#: ../schema/novell/nls.php:40
 msgid "LSP Revision"
 msgstr "Revisione di LSP"
 
-#: ../schema/novell/nls.php:39
+#: ../schema/novell/nls.php:41
 msgid "Owner"
 msgstr "Proprietario"
 
-#: ../schema/novell/nls.php:40
+#: ../schema/novell/nls.php:42
 msgid "Notification Enabled"
 msgstr "Notifica Abilitata"
 
-#: ../schema/novell/nls.php:41
+#: ../schema/novell/nls.php:43
 msgid "Peak Installed License Units History"
 msgstr "Storia delle Unità Licenze Installate Massime"
 
-#: ../schema/novell/nls.php:42
+#: ../schema/novell/nls.php:44
 msgid "Peak License Units in Use History"
 msgstr "Storia delle Unità di Licenza Massime in Uso"
 
-#: ../schema/novell/nls.php:43
+#: ../schema/novell/nls.php:45
 msgid "Product Name"
 msgstr "Nome del Prodotto"
 
-#: ../schema/novell/nls.php:44
+#: ../schema/novell/nls.php:46
 msgid "Publisher Name"
 msgstr "Nome dell'Editore"
 
-#: ../schema/novell/nls.php:45
+#: ../schema/novell/nls.php:47 ../schema/novell/nls.php:85
+#: ../schema/novell/nls.php:93
 msgid "Data Version"
 msgstr "Versione Dati"
 
-#: ../schema/novell/nls.php:46
+#: ../schema/novell/nls.php:48
 msgid "Search Type"
 msgstr "Tipo di Ricerca"
 
-#: ../schema/novell/nls.php:47
+#: ../schema/novell/nls.php:49
 msgid "Subcontainer List"
 msgstr "Elenco dei Sotto-Contenitori"
 
-#: ../schema/novell/nls.php:48
+#: ../schema/novell/nls.php:50
 msgid "License Summary Update Time"
 msgstr "Aggiorna il Tempo di Riepilogo delle Licenze"
 
-#: ../schema/novell/nls.php:49
+#: ../schema/novell/nls.php:51
 msgid "License Summary Data Version"
 msgstr "Versione Dati di Riepilogo delle Licenze"
 
-#: ../schema/novell/nls.php:50
+#: ../schema/novell/nls.php:52
 msgid "Transaction Logging Enabled"
 msgstr "Registrazione Transazioni Attivata"
 
-#: ../schema/novell/nls.php:51
+#: ../schema/novell/nls.php:53
 msgid "Transaction Executable"
 msgstr "Esecuzione di Transazioni"
 
-#: ../schema/novell/nls.php:52
+#: ../schema/novell/nls.php:54
 msgid "Transaction Log File Name"
 msgstr "Nome del File di Log di Transazione"
 
-#: ../schema/novell/nls.php:53
+#: ../schema/novell/nls.php:55
 msgid "Maximum Transaction Log File Size"
 msgstr "Dimensione Massima dei File di Log di Transazione"
 
-#: ../schema/novell/nls.php:54
+#: ../schema/novell/nls.php:56
 msgid "Product Version Number"
 msgstr "Numero di Versione del Prodotto"
 
-#: ../schema/novell/nls.php:60
+#: ../schema/novell/nls.php:62
 msgid "License Certificate"
 msgstr "Certificato di Licenza"
 
-#: ../schema/novell/nls.php:62 ../schema/novell/nls.php:68
+#: ../schema/novell/nls.php:64
 msgid "License Product Container"
 msgstr "Contenitore per Licenze di Prodotto"
 
 #: ../schema/novell/nls.php:70
-msgid "Product"
-msgstr "Prodotto"
-
-#: ../schema/novell/nls.php:71
-msgid "Revision"
-msgstr "Revisione"
+msgid "Product Information"
+msgstr "Informazioni sul Prodotto"
 
 #: ../schema/novell/nls.php:72
-msgid "Version"
-msgstr "Versione"
-
-#: ../schema/novell/nls.php:73
 msgid "Publisher"
 msgstr "Editore"
 
-#: ../schema/novell/nls.php:76
+#: ../schema/novell/nls.php:73
+msgid "Product"
+msgstr "Prodotto"
+
+#: ../schema/novell/nls.php:74
+msgid "Version"
+msgstr "Versione"
+
+#: ../schema/novell/nls.php:77
+msgid "License Summary"
+msgstr "Riepilogo delle Licenze"
+
+#: ../schema/novell/nls.php:79
+msgid "Units Installed"
+msgstr "Unità Installate"
+
+#: ../schema/novell/nls.php:80
+msgid "Units In Use"
+msgstr "Unità in Uso"
+
+#: ../schema/novell/nls.php:81
+msgid "Units Available"
+msgstr "Unità Disponibili"
+
+#: ../schema/novell/nls.php:82
+msgid "Highest Units Used"
+msgstr "Unità Più Alte Utilizzate"
+
+#: ../schema/novell/nls.php:83
+msgid "As Of"
+msgstr "Come Di"
+
+#: ../schema/novell/nls.php:84
+msgid "Notifications Enabled"
+msgstr "Notifiche Abilitate"
+
+#: ../schema/novell/nls.php:88
 msgid "License Certificates"
 msgstr "Certificati di Licenza"
