@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 11:22+0100\n"
-"PO-Revision-Date: 2016-10-16 11:22+0100\n"
+"POT-Creation-Date: 2017-05-15 05:55+0100\n"
+"PO-Revision-Date: 2017-05-15 05:55+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,10 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/xtier.php:15
+#: ../schema/novell/xtier.php:22
 msgid "xTier Storage Location"
 msgstr "Posizione di archiviazione per xTier"
 
-#: ../schema/novell/xtier.php:17
+#: ../schema/novell/xtier.php:24
+msgid "Display Name"
+msgstr "Nome Visualizzato"
+
+#: ../schema/novell/xtier.php:25
 msgid "URL"
 msgstr "URL"

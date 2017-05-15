@@ -21,6 +21,7 @@ class novell_xtier_schema extends ldap_schema
 		$ldap_server->add_display_layout("xTier-StorageLocation",array(
 			array("section_name"=>gettext("xTier Storage Location"),
 				"attributes"=>array(
+					array("displayName",				gettext("Display Name"),	"generic24.png"),
 					array("xTier-URL",				gettext("URL"),			"generic24.png")
 					)
 				)
