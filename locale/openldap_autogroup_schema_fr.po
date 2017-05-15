@@ -40,6 +40,3 @@ msgstr "Nom de l'Objet de Superposition"
 #: ../schema/openldap/autogroup.php:25
 msgid "Attribute Sets"
 msgstr "Ensembles d'Attributs"
-
-#~ msgid "MemberOf Attribute"
-#~ msgstr "Attribut pour Membre De"
