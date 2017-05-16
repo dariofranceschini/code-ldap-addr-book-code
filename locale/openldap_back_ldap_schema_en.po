@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 14:14+0000\n"
-"PO-Revision-Date: 2017-01-08 14:14+0000\n"
+"POT-Creation-Date: 2017-05-03 09:37+0100\n"
+"PO-Revision-Date: 2017-05-03 09:37+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -30,45 +30,69 @@ msgid "Distributed Procedure Overlay"
 msgstr "Distributed Procedure Overlay"
 
 #: ../schema/openldap/back_ldap.php:13
+msgid "LDAP Proxy Bind Overlay"
+msgstr "LDAP Proxy Bind Overlay"
+
+#: ../schema/openldap/back_ldap.php:14
 msgid "Monitored LDAP Proxy Connection"
 msgstr "Monitored LDAP Proxy Connection"
 
-#: ../schema/openldap/back_ldap.php:20
+#: ../schema/openldap/back_ldap.php:21
 msgid "LDAP Proxy Database Settings"
 msgstr "LDAP Proxy Database Settings"
 
-#: ../schema/openldap/back_ldap.php:22
+#: ../schema/openldap/back_ldap.php:23 ../schema/openldap/back_ldap.php:55
 msgid "Remote LDAP Directory URI"
 msgstr "Remote LDAP Directory URI"
 
-#: ../schema/openldap/back_ldap.php:23
+#: ../schema/openldap/back_ldap.php:24
 msgid "Naming Context"
 msgstr "Naming Context"
 
-#: ../schema/openldap/back_ldap.php:24
+#: ../schema/openldap/back_ldap.php:25
 msgid "Chase Referrals"
 msgstr "Chase Referrals"
 
-#: ../schema/openldap/back_ldap.php:25
+#: ../schema/openldap/back_ldap.php:26
 msgid "Rebind as User"
 msgstr "Rebind as User"
 
-#: ../schema/openldap/back_ldap.php:29
+#: ../schema/openldap/back_ldap.php:30
 msgid "Remote Identity Assertion"
 msgstr "Remote Identity Assertion"
 
-#: ../schema/openldap/back_ldap.php:31
+#: ../schema/openldap/back_ldap.php:32
 msgid "Authorise From"
 msgstr "Authorise From"
 
-#: ../schema/openldap/back_ldap.php:34
+#: ../schema/openldap/back_ldap.php:35
 msgid "Bind Configuration"
 msgstr "Bind Configuration"
 
-#: ../schema/openldap/back_ldap.php:37
+#: ../schema/openldap/back_ldap.php:38
 msgid "Access Controls"
 msgstr "Access Controls"
 
-#: ../schema/openldap/back_ldap.php:42
+#: ../schema/openldap/back_ldap.php:43
 msgid "Overlays"
 msgstr "Overlays"
+
+#: ../schema/openldap/back_ldap.php:51
+msgid "LDAP Bind Proxy Settings"
+msgstr "LDAP Bind Proxy Settings"
+
+#: ../schema/openldap/back_ldap.php:53
+msgid "Overlay Object Name"
+msgstr "Overlay Object Name"
+
+#: ../schema/openldap/back_ldap.php:56
+msgid "Network Timeout"
+msgstr "Network Timeout"
+
+#: ../schema/openldap/back_ldap.php:57
+msgid "StartTLS Behaviour"
+msgstr "StartTLS Behaviour"
+
+#: ../schema/openldap/back_ldap.php:58
+msgid "URI Quarantine Behaviour"
+msgstr "URI Quarantine Behaviour"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 14:14+0000\n"
-"PO-Revision-Date: 2017-01-08 14:14+0000\n"
+"POT-Creation-Date: 2017-05-03 09:37+0100\n"
+"PO-Revision-Date: 2017-05-03 09:37+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -30,45 +30,69 @@ msgid "Distributed Procedure Overlay"
 msgstr "Superposition de Procédure Distribuée"
 
 #: ../schema/openldap/back_ldap.php:13
+msgid "LDAP Proxy Bind Overlay"
+msgstr "Superposition de Fondé de Pouvoir pour la Connexion LDAP"
+
+#: ../schema/openldap/back_ldap.php:14
 msgid "Monitored LDAP Proxy Connection"
 msgstr "Connexion Surveillée Fondé de Pouvoir LDAP"
 
-#: ../schema/openldap/back_ldap.php:20
+#: ../schema/openldap/back_ldap.php:21
 msgid "LDAP Proxy Database Settings"
 msgstr "Paramètres de la Base de Données Fondé de Pouvoir LDAP"
 
-#: ../schema/openldap/back_ldap.php:22
+#: ../schema/openldap/back_ldap.php:23 ../schema/openldap/back_ldap.php:55
 msgid "Remote LDAP Directory URI"
 msgstr "URI de l'Annuaire LDAP Distant"
 
-#: ../schema/openldap/back_ldap.php:23
+#: ../schema/openldap/back_ldap.php:24
 msgid "Naming Context"
 msgstr "Contexte de Nommage"
 
-#: ../schema/openldap/back_ldap.php:24
+#: ../schema/openldap/back_ldap.php:25
 msgid "Chase Referrals"
 msgstr "Suivre les Références"
 
-#: ../schema/openldap/back_ldap.php:25
+#: ../schema/openldap/back_ldap.php:26
 msgid "Rebind as User"
 msgstr "Répéter la Liaison en tant qu'Utilisateur"
 
-#: ../schema/openldap/back_ldap.php:29
+#: ../schema/openldap/back_ldap.php:30
 msgid "Remote Identity Assertion"
 msgstr "Assertion de l'Identité à Distance"
 
-#: ../schema/openldap/back_ldap.php:31
+#: ../schema/openldap/back_ldap.php:32
 msgid "Authorise From"
 msgstr "Autoriser de"
 
-#: ../schema/openldap/back_ldap.php:34
+#: ../schema/openldap/back_ldap.php:35
 msgid "Bind Configuration"
 msgstr "Configuration de Liaison"
 
-#: ../schema/openldap/back_ldap.php:37
+#: ../schema/openldap/back_ldap.php:38
 msgid "Access Controls"
 msgstr "Contrôle d'Accès"
 
-#: ../schema/openldap/back_ldap.php:42
+#: ../schema/openldap/back_ldap.php:43
 msgid "Overlays"
 msgstr "Superpositions"
+
+#: ../schema/openldap/back_ldap.php:51
+msgid "LDAP Bind Proxy Settings"
+msgstr "Paramètres pour Fondé de Pouvoir pour la Connexion LDAP"
+
+#: ../schema/openldap/back_ldap.php:53
+msgid "Overlay Object Name"
+msgstr "Nom de l'Objet de Superposition"
+
+#: ../schema/openldap/back_ldap.php:56
+msgid "Network Timeout"
+msgstr "Timeout du Réseau"
+
+#: ../schema/openldap/back_ldap.php:57
+msgid "StartTLS Behaviour"
+msgstr "Comportement StartTLS"
+
+#: ../schema/openldap/back_ldap.php:58
+msgid "URI Quarantine Behaviour"
+msgstr "Comportement pour la Quarantaine des URL"
