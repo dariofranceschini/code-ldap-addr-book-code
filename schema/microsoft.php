@@ -70,7 +70,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"dMD",				"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Directory Management Domain")),
 			array("name"=>"dnsNode",			"icon"=>"generic24.png",		"is_folder"=>false,"rdn_attrib"=>"dc"),
 			array("name"=>"dnsZone",			"icon"=>"microsoft/dns-zone.png",	"is_folder"=>true,"rdn_attrib"=>"dc"),
-			array("name"=>"domainDNS",			"icon"=>"microsoft/domain24.png",	"is_folder"=>true,"display_name"=>gettext("Domain"),"parent_class"=>"domain"),
+			array("name"=>"domainDNS",			"icon"=>"domain24.png",			"is_folder"=>true,"display_name"=>gettext("Domain"),"parent_class"=>"domain"),
 			array("name"=>"domainPolicy",			"icon"=>"microsoft/domain_policy24.png","is_folder"=>true,"display_name"=>gettext("Domain Policy"),"parent_class"=>"leaf"),
 			array("name"=>"fileLinkTracking",		"icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"foreignSecurityPrincipal",	"icon"=>"user-alias24.png",		"is_folder"=>false,"display_name"=>gettext("Foreign Security Principal")),
@@ -162,7 +162,7 @@ class microsoft_schema extends ldap_schema
 		$ldap_server->add_display_layout("domainDNS",array(
 			array("section_name"=>gettext("Active Directory Domain Details"),
 				"attributes"=>array(
-					array("distinguishedName",		gettext("Domain Name"),				"microsoft/domain24.png")
+					array("distinguishedName",		gettext("Domain Name"),				"domain24.png")
 					)
 				)
 			));

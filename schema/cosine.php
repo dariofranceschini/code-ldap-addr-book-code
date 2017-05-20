@@ -89,13 +89,13 @@ class cosine_schema extends ldap_schema
 			array("name"=>"account",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Account"),"rdn_attrib"=>"uid"),
 			array("name"=>"document",			"icon"=>"document.png",		"is_folder"=>false,"display_name"=>gettext("Document")),
 			array("name"=>"documentSeries",			"icon"=>"document-series.png",	"is_folder"=>false,"display_name"=>gettext("Document Series")),
-			array("name"=>"domain",				"icon"=>"microsoft/domain24.png","is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc","can_create"=>true),
+			array("name"=>"domain",				"icon"=>"domain24.png",		"is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc","can_create"=>true),
 			array("name"=>"friendlyCountry",		"icon"=>"country.png",		"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)"),"parent_class"=>"country"),
 			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc","parent_class"=>"domain"),
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
 
 			// Legacy attributes not carried forward from predecessors of RFC 4524
-			array("name"=>"dNSDomain",			"icon"=>"microsoft/domain24.png","is_folder"=>false,"display_name"=>gettext("DNS Domain"),"parent_class"=>"domain"),
+			array("name"=>"dNSDomain",			"icon"=>"domain24.png",		"is_folder"=>false,"display_name"=>gettext("DNS Domain"),"parent_class"=>"domain"),
 			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"),"parent_class"=>"dSA"),
 			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
 			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"),
@@ -109,7 +109,7 @@ class cosine_schema extends ldap_schema
 		$ldap_server->add_display_layout("domain",array(
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
-					array("dc",				gettext("Domain Name Component"),	"microsoft/domain24.png"),
+					array("dc",				gettext("Domain Name Component"),	"domain24.png"),
 					array("description",			gettext("Description"),			"description.png"),
 					// array("o",				gettext("Organization"),		"company.png"),
 					// array("businessCategory",		gettext("Business Category"),		"company.png"),
