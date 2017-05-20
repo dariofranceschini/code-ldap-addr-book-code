@@ -2603,6 +2603,8 @@ function get_user_setting($attrib,$user_name = "")
 			// for the specified user
 			switch($attrib)
 			{
+				case "login_name";
+					$attrib_value = "__ANONYMOUS__"; break;
 				case "ldap_dn":
 					$attrib_value = "__SEARCH__"; break;
 				case "allow_browse":
