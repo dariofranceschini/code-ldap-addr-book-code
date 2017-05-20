@@ -78,7 +78,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"groupPolicyContainer",		"icon"=>"microsoft/policy.png",		"is_folder"=>true,"parent_class"=>"container"),
 			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
 			array("name"=>"interSiteTransportContainer",	"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transports Container")),
-			array("name"=>"licensingSiteSettings",		"icon"=>"microsoft/cert.png",		"is_folder"=>false,"display_name"=>gettext("Licensing Site Settings"),"parent_class"=>"applicationSiteSettings"),
+			array("name"=>"licensingSiteSettings",		"icon"=>"cert.png",			"is_folder"=>false,"display_name"=>gettext("Licensing Site Settings"),"parent_class"=>"applicationSiteSettings"),
 			array("name"=>"linkTrackObjectMoveTable",	"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"fileLinkTracking"),
 			array("name"=>"linkTrackVolumeTable",		"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"fileLinkTracking"),
 			array("name"=>"lostAndFound",			"icon"=>"folder.png",			"is_folder"=>true),

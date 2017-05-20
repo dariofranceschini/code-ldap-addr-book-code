@@ -101,7 +101,7 @@ class novell_nls_schema extends ldap_schema
 			array("section_name"=>gettext("License Certificate"),
 				"attributes"=>array(
 					array("nLSLicenseID",		gettext("License ID"),			"novell/license-cert.png"),
-					array("nLSCommonCertificate",	gettext("Common Certificate"),		"microsoft/cert.png")
+					array("nLSCommonCertificate",	gettext("Common Certificate"),		"cert.png")
 					)
 				),
 			array("section_name"=>gettext("License Information"),"new_row"=>true,
