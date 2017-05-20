@@ -4238,8 +4238,9 @@ class ldap_server
 			}
 
 			// Assign any further permissions based on group memberships
-			foreach($this->group_map as $group_map_entry)
-				$this->assign_group_permissions($group_map_entry);
+			if(!empty($_SESSION["LOGIN_BIND_DN"]))
+				foreach($this->group_map as $group_map_entry)
+					$this->assign_group_permissions($group_map_entry);
 		}
 
 		return $result;
