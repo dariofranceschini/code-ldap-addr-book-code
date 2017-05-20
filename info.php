@@ -139,10 +139,7 @@ if(prereq_components_ok())
 				. " <code>" . htmlentities($ldap_base_dn,ENT_COMPAT,"UTF-8") . "</code>");
 	}
 	else
-	{
-		show_ldap_path("");
 		show_ldap_bind_error();
-	}
 
 	echo "\n\n";
 }

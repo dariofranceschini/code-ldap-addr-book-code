@@ -2472,6 +2472,7 @@ function show_ldap_bind_error()
 {
 	global $ldap_server;
 
+	show_ldap_path("");
 	if($ldap_server->per_user_login_enabled())
 	{
 		if(isset($_SESSION["LOGIN_USER"]))
