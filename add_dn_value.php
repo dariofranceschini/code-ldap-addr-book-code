@@ -44,7 +44,6 @@ if(prereq_components_ok())
 		$attrib = $_GET["attrib"];
 	else
 	{
-		$attrib = "(none)";
 		show_site_header();
 		show_error_message(sprintf(gettext("Unable to add DN value to attribute: %s"),
 			gettext("No attribute specified")));
