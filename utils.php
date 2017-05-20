@@ -4109,6 +4109,11 @@ class ldap_server
 
 			$user_bind_dn = get_user_setting("ldap_dn");
 
+			// use anonymous bind when user is __ANONYMOUS__ and
+			// no ldap_dn is specified
+			if($login_name == "__ANONYMOUS__" && $user_bind_dn == "__SEARCH__")
+				$user_bind_dn = "";
+
 			// Determine the LDAP filter for searching the directory to
 			// find the user's actual DN, handling Active Directory login
 			// by UPN as a special case.
