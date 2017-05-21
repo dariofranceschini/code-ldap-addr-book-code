@@ -13,7 +13,6 @@ class novell_snmp_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			// SNMP
 			array("name"=>"snmpGroup",				"icon"=>"novell/snmp-group.png",	"is_folder"=>false),
 			);
 

@@ -7,8 +7,6 @@ class novell_ncs_schema extends ldap_schema
 	{
 		// Object classes
 		$this->object_schema = array(
-			// Novell Cluster Services (NCS)
-
 			array("name"=>"nCSNetWareCluster",	"icon"=>"novell/cluster.png",			"is_folder"=>true,"display_name"=>gettext("NCS:NetWare Cluster")),
 			array("name"=>"nCSClusterResource",	"icon"=>"novell/cluster-resource.png",		"is_folder"=>false,"display_name"=>gettext("NCS:Cluster Resource")),
 			array("name"=>"nCSResourceTemplate",	"icon"=>"novell/cluster-resource-template.png",	"is_folder"=>false,"display_name"=>gettext("NCS:Resource Template")),
