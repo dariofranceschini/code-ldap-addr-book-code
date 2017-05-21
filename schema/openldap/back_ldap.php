@@ -50,7 +50,7 @@ class openldap_back_ldap_schema extends ldap_schema
 		$ldap_server->add_display_layout("olcPBindConfig",array(
 			array("section_name"=>gettext("LDAP Bind Proxy Settings"),"new_row"=>true,
 				"attributes"=>array(
-                                        array("olcOverlay",		gettext("Overlay Object Name"),		"openldap/overlay.png"),
+					array("olcOverlay",		gettext("Overlay Object Name"),		"openldap/overlay.png"),
 
 					array("olcDbURI",		gettext("Remote LDAP Directory URI"),	"ldap-server.png"),
 					array("olcDbNetworkTimeout",	gettext("Network Timeout"),		"generic24.png"),
