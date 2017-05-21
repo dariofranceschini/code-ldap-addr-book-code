@@ -1,7 +1,7 @@
 <?php
 /** Novell Network Information Service (NIS) schema (object classes only)
 
-    The abstract object classes "posixAccount" and "shadowAccount" in RFC2307
+    The auxiliary object classes "posixAccount" and "shadowAccount" in RFC2307
     are defined in Novell's User Account Management (UAM) schema rather than
     the NIS schema.
 */
@@ -23,7 +23,7 @@ class novell_nis_schema extends ldap_schema
 			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding")),
 			// "posixGroup" (from RFC2307) is defined in UAM schema instead
 
-			// Abstract classes in RFC2307 which Novell implements as structural classes instead
+			// Auxiliary classes in RFC2307 which Novell implements as structural classes instead
 			array("name"=>"bootableDevice",		"icon"=>"novell/bootable-device.png",	"is_folder"=>false,"parent_class"=>"device"),
 			array("name"=>"ieee802Device",		"icon"=>"novell/ieee802-device.png",	"is_folder"=>false,"parent_class"=>"device"),
 			array("name"=>"ipHost",			"icon"=>"novell/ip-host.png",		"is_folder"=>false,"parent_class"=>"device"),
