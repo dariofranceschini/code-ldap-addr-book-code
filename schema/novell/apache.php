@@ -9,7 +9,7 @@ class novell_apache_schema extends ldap_schema
 			array("name"=>"apchadmn-ConfigurationInfo",	"data_type"=>"text_area",	"display_name"=>gettext("Apache HTTP Server Configuration Info")),
 			);
 
-		// Structural object classes
+		// Object classes
 
 		$this->object_schema = array(
 			array("name"=>"apchadmnConfigurationBlock",	"icon"=>"novell/apache-config-block.png",	"is_folder"=>true),

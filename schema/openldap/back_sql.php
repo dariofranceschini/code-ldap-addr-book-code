@@ -24,7 +24,7 @@ class openldap_back_sql_schema extends ldap_schema
 			array("name"=>"olcSqlUseSubtreeShortcut",	"data_type"=>"yes_no",		"display_name"=>gettext("Don't Use for Subtree Search Scoping from Naming Context Root"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcSqlConfig",		"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("SQL (ODBC) Database"),"required_attribs"=>"olcSuffix,olcDbName","parent_class"=>"olcDatabaseConfig")
 			);

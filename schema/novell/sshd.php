@@ -9,7 +9,7 @@ class novell_sshd_schema extends ldap_schema
 			array("name"=>"sshadmn-ConfigurationInfo",	"data_type"=>"text_area",	"display_name"=>gettext("SSHD Configuration Info"))
 			);
 
-		// Structural object classes
+		// Object classes
 
 		$this->object_schema = array(
 			array("name"=>"sshadmnServer",		"icon"=>"novell/sshd-server.png",	"is_folder"=>true),

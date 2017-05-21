@@ -10,7 +10,7 @@ class novell_nis_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// Structural object classes
+		// Object classes
 
 		$this->object_schema = array(
 			// standard object classes defined in RFC2307

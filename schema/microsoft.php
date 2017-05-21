@@ -53,7 +53,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msWMI-CreationDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Creation Date")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"addressBookContainer",		"icon"=>"microsoft/addr-book.png",	"is_folder"=>true,"display_name"=>gettext("Address List")),
 			array("name"=>"attributeSchema",		"icon"=>"attribute.png",		"is_folder"=>false),

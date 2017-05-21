@@ -9,7 +9,7 @@ class novell_wanman_schema extends ldap_schema
 			array("name"=>"wANMANWANPolicy","data_type"=>"text_list","display_name"=>gettext("WAN Traffic Manager Policy List")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"wANMANLANArea",		"icon"=>"novell/wanman-lan-area.png",	"is_folder"=>false,"display_name"=>gettext("WAN Traffic Manager LAN Area")),
 			);

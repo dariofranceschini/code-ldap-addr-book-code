@@ -9,7 +9,7 @@ class openldap_back_meta_schema extends ldap_schema
 			array("name"=>"olcDbRewrite",			"data_type"=>"text_list",	"display_name"=>gettext("String Rewriting Rule"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcMetaConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Metadirectory Database"),"required_attribs"=>"olcSuffix","parent_class"=>"olcDatabaseConfig","can_create"=>true),
 			array("name"=>"olcMetaTargetConfig",		"icon"=>"openldap/meta-target.png",	"is_folder"=>false,"rdn_attrib"=>"olcMetaSub","display_name"=>gettext("Metadirectory Target Server"),"required_attribs"=>"olcDbURI","contained_by"=>"olcMetaConfig","can_create"=>true)

@@ -9,7 +9,7 @@ class oracle_alias_schema extends ldap_schema
 			array("name"=>"orclNetServiceAlias",		"data_type"=>"text"),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"orclNetServiceAlias",		"icon"=>"oracle/oracle-netservice-alias.png",		"is_folder"=>false),
 			);

@@ -21,7 +21,7 @@ class openldap_retcode_schema extends ldap_schema
 			array("name"=>"errUnsolicitedOID",		"data_type"=>"text",		"display_name"=>gettext("Data to Return within Unsolicited Response"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcRetcodeConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Return Code Overlay"),"parent_class"=>"olcOverlayConfig"),
 			array("name"=>"errObject",				"icon"=>"openldap/error.png",		"is_folder"=>false,"display_name"=>gettext("Error Debugging Object"),"required_attribs"=>"errCode")

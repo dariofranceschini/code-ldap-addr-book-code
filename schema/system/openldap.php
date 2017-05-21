@@ -21,7 +21,7 @@ class system_openldap_schema extends ldap_schema
 			array("name"=>"modifyTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Last Modified")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"OpenLDAProotDSE",		"icon"=>"org.png",			"is_folder"=>true,"display_name"=>gettext("OpenLDAP Root DSE"),"alias_names"=>"LDAProotDSE"),
 			);

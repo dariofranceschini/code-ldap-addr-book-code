@@ -18,7 +18,7 @@ class oracle_oidrdbms_schema extends ldap_schema
                         array("name"=>"orclDBGlobalName",		"data_type"=>"text"),
 			);
 
-                // Structural object classes
+                // Object classes
                 $this->object_schema = array(
 			array("name"=>"orclDBServer",			"icon"=>"oracle/oracle-dbserver.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Database"),"can_create"=>true),
 			array("name"=>"orclDBEnterpriseDomain",		"icon"=>"oracle/oracle-enterprise-domain.png",	"is_folder"=>true,"display_name"=>gettext("Oracle Database Enterprise Domain"),"can_create"=>true),

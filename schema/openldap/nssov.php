@@ -23,7 +23,7 @@ class openldap_nssov_schema extends ldap_schema
 			array("name"=>"olcPamPwdmgrPwd",		"data_type"=>"text",		"display_name"=>gettext("Password Manager PWD"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcNssOvConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("NSS/PAM Lookup Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

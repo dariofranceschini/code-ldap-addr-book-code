@@ -41,7 +41,7 @@ class openldap_back_monitor_schema extends ldap_schema
 			array("name"=>"restrictedOperation",		"data_type"=>"text",		"display_name"=>gettext("Restricted Operation Name"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcMonitorConfig",		"icon"=>"openldap/db.png",			"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Monitoring Database"),"required_attribs"=>"olcSuffix","parent_class"=>"olcDatabaseConfig","can_create"=>true),
 

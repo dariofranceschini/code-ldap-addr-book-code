@@ -16,7 +16,7 @@ class oracle_oidbase_schema extends ldap_schema
                         array("name"=>"orclNetDescString",		"data_type"=>"text_area"),
 			);
 
-                // Structural object classes
+                // Object classes
                 $this->object_schema = array(
 			array("name"=>"orclContainer",			"icon"=>"oracle/oracle-container.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Container")),
 			array("name"=>"orclContext",			"icon"=>"oracle/oracle-container.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Context")),

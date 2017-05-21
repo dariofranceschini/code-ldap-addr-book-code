@@ -11,7 +11,7 @@ class openldap_refint_schema extends ldap_schema
 			array("name"=>"olcRefintModifiersName",		"data_type"=>"dn",		"display_name"=>gettext("Modifier's DN"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcRefintConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Referential Integrity Overlay"),"parent_class"=>"olcOverlayConfig","can_create"=>true)
 			);

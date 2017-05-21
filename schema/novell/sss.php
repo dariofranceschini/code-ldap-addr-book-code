@@ -5,7 +5,7 @@ class novell_sss_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"sssServerPolicies",			"icon"=>"novell/secretstore-policies.png",		"is_folder"=>true),
 			);

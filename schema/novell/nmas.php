@@ -9,7 +9,7 @@ class novell_nmas_schema extends ldap_schema
 			array("name"=>"sasLoginSequence","data_type"=>"text_list","display_name"=>gettext("SAS Login Sequence")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"sASLoginPolicy",			"icon"=>"novell/login-policy.png",	"is_folder"=>false,"display_name"=>gettext("Login Policy")),
 			);

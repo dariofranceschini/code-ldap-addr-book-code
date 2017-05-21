@@ -51,7 +51,7 @@ class openldap_accesslog_schema extends ldap_schema
 			array("name"=>"reqVersion",			"data_type"=>"ldap_version",	"display_name"=>gettext("LDAP Protocol Version")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcAccessLogConfig",		"icon"=>"openldap/overlay.png",			"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Access Logging Overlay"),"can_create"=>true,"create_method"=>"atomic","parent_class"=>"olcOverlayConfig"),
 

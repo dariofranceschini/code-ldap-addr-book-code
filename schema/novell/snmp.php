@@ -11,7 +11,7 @@ class novell_snmp_schema extends ldap_schema
 			array("name"=>"snmpGroupDN",		"data_type"=>"dn",		"display_name"=>gettext("SNMP Group DN")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// SNMP
 			array("name"=>"snmpGroup",				"icon"=>"novell/snmp-group.png",	"is_folder"=>false),

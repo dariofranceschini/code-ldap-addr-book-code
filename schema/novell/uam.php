@@ -9,7 +9,7 @@ class novell_uam_schema extends ldap_schema
 			array("name"=>"uamPosixWorkstationContexts",	"data_type"=>"dn_list",	"display_name"=>gettext("UAM POSIX Workstation Contexts"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"posixGroup",			"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group")),
 			array("name"=>"uamPosixWorkstation",		"icon"=>"novell/unix-workstation.png",	"is_folder"=>false),

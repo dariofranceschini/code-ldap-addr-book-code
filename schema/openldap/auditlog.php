@@ -9,7 +9,7 @@ class openldap_auditlog_schema extends ldap_schema
 			array("name"=>"olcAuditlogFile",		"data_type"=>"text",		"display_name"=>gettext("Audit Log File Name"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcAuditlogConfig",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Audit Logging Overlay"),"can_create"=>true,"create_method"=>"atomic","parent_class"=>"olcOverlayConfig")
 			);

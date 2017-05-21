@@ -56,7 +56,7 @@ class novell_nls_schema extends ldap_schema
 			array("name"=>"nLSVersion",			"data_type"=>"text",		"display_name"=>gettext("Product Version Number"))
 			);
 
-		// Structural object classes
+		// Object classes
 
 		$this->object_schema = array(
 			array("name"=>"nLSLicenseCertificate",		"icon"=>"novell/license-cert.png",	"is_folder"=>false,"rdn_attrib"=>"nLSLicenseID","required_attribs"=>"nLSLicenseID,nLSCommonCertificate,nLSRevision","display_name"=>gettext("License Certificate")),

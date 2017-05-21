@@ -11,7 +11,7 @@ class novell_httpstk_schema extends ldap_schema
 			array("name"=>"httpServerDN",			"data_type"=>"dn_list",		"display_name"=>gettext("HTTP Server (iMonitor) DN"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"httpServer",			"icon"=>"novell/http-server.png",	"is_folder"=>false),
 			);

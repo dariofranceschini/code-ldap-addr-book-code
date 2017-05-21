@@ -5,7 +5,7 @@ class openldap_back_ldap_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcLDAPConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("LDAP Proxy Database"),"required_attribs"=>"olcSuffix","can_create"=>true,"create_method"=>"atomic","parent_class"=>"olcDatabaseConfig"),
 			array("name"=>"olcChainConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Chain Overlay"),"parent_class"=>"olcOverlayConfig"),

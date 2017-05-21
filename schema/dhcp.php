@@ -14,7 +14,7 @@ class dhcp_schema extends ldap_schema
 			array("name"=>"dhcpKeyDN",			"data_type"=>"dn_list",		"display_name"=>gettext("DHCP TSIG Key DN"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"dhcpFailOverPeer",		"icon"=>"dhcp/dhcp-failover-peer.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Failover Peer")),
 			array("name"=>"dhcpDnsZone",			"icon"=>"dhcp/dhcp-dns-zone.png",	"is_folder"=>false,"display_name"=>gettext("DHCP DNS Zone")),

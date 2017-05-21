@@ -28,7 +28,7 @@ class novell_dnip_schema extends ldap_schema
 			array("name"=>"dnipSecondaryZone",		"data_type"=>"yes_no",		"display_name"=>gettext("DNS Secondary Zone")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"dNIPLocator",			"icon"=>"dhcp/dhcp-locator.png",		"is_folder"=>false,"display_name"=>gettext("Locator")),
 			array("name"=>"dNIPDNSZone",			"icon"=>"novell/dnip-dns-zone.png",		"is_folder"=>true,"display_name"=>gettext("DNS Zone")),

@@ -20,7 +20,7 @@ class openldap_ppolicy_schema extends ldap_schema
 			array("name"=>"olcPPolicyUseLockout",		"data_type"=>"yes_no",		"display_name"=>gettext("Inform Clients when Account Locked Out"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcPPolicyConfig",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Password Policies Overlay"),"can_create"=>true,"parent_class"=>"olcOverlayConfig")
 			);

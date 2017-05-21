@@ -9,7 +9,7 @@ class openldap_back_null_schema extends ldap_schema
 			array("name"=>"olcDbBindAllowed",		"data_type"=>"yes_no",		"display_name"=>gettext("Allow Binds To This Database"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcNullConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Null Database"),"required_attribs"=>"olcSuffix","can_create"=>true,"parent_class"=>"olcDatabaseConfig")
 			);

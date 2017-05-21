@@ -14,7 +14,7 @@ class openldap_translucent_schema extends ldap_schema
 			array("name"=>"olcTranslucentStrict",		"data_type"=>"yes_no",		"display_name"=>gettext("Deleting Attribute Triggers Constraint Violation Error"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcTranslucentConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Translucent Proxy Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

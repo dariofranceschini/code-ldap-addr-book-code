@@ -12,7 +12,7 @@ class openldap_syncprov_schema extends ldap_schema
 			array("name"=>"olcSpReloadHint",		"data_type"=>"yes_no",		"display_name"=>gettext("Observe Reload Hint in Request Control"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcSyncProvConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Sync Provider Overlay"),"parent_class"=>"olcOverlayConfig","can_create"=>true,"create_method"=>"atomic")
 			);

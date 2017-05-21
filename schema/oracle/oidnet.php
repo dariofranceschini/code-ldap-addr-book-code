@@ -30,7 +30,7 @@ class oracle_oidnet_schema extends ldap_schema
 			array("name"=>"orclNetAuthenticationService",	"data_type"=>"text"),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// Oracle schema for Active Directory specifier (incorrectly) defines orclNetService as container object
 			array("name"=>"orclNetService",			"icon"=>"oracle/oracle-netservice.png",		"is_folder"=>false,"display_name"=>gettext("Oracle NetService"),"can_create"=>true),

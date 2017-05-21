@@ -34,7 +34,7 @@ class novell_schema extends ldap_schema
 			array("name"=>"ndsCrossCertificatePair",	"data_type"=>"download",	"display_name"=>gettext("Cross Certificate Pair (NDS)")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// matches core.schema
 			// (Class names for organization, country, locality are capitalised in their Novell versions)

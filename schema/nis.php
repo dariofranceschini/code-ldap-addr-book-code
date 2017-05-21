@@ -52,7 +52,7 @@ class nis_schema extends ldap_schema
 			array("name"=>"uidNumber",		"data_type"=>"text",		"display_name"=>gettext("User ID Number"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"ipNetwork",		"icon"=>"ip-network.png",		"is_folder"=>false,"display_name"=>gettext("IP Network")),
 			array("name"=>"ipProtocol",		"icon"=>"ip-protocol.png",		"is_folder"=>false,"display_name"=>gettext("IP Protocol")),

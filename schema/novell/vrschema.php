@@ -5,7 +5,7 @@ class novell_vrschema_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"DirXML-Driver",				"icon"=>"novell/dirxml-driver.png",	"is_folder"=>true),
 			array("name"=>"DirXML-DriverSet",			"icon"=>"novell/dirxml-driverset.png",	"is_folder"=>true),

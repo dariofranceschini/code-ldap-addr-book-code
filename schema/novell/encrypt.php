@@ -11,7 +11,7 @@ class novell_encrypt_schema extends ldap_schema
 			array("name"=>"attrEncryptionRequiresSecure",	"data_type"=>"text",		"display_name"=>gettext("Require Secure Channel to Access Attribute"))	// 1= yes, 0=no
 			);
 
-		// Structural object classes
+		// Object classes
 
 		$this->object_schema = array(
 			array("name"=>"encryptionPolicy",		"icon"=>"novell/encryption-policy.png",	"is_folder"=>false,"display_name"=>gettext("Encrypted Attributes Policy")),

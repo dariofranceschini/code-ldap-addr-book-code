@@ -12,7 +12,7 @@ class openldap_sssvlv_schema extends ldap_schema
 			array("name"=>"olcSssVlvMaxPerConn",		"data_type"=>"text",		"display_name"=>gettext("Maximum Concurrent Paged Search Requests per Connection"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcSssVlvConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Server Side Sorting and Virtual List View Overlay"),"can_create"=>true,"parent_class"=>"olcOverlayConfig")
 			);

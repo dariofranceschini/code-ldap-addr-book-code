@@ -84,7 +84,7 @@ class cosine_schema extends ldap_schema
 			array("name"=>"photo",				"data_type"=>"image",		"display_name"=>gettext("Photo (G3 Fax Format)"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"account",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Account"),"rdn_attrib"=>"uid"),
 			array("name"=>"document",			"icon"=>"document.png",		"is_folder"=>false,"display_name"=>gettext("Document")),

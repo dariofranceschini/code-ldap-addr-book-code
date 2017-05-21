@@ -17,7 +17,7 @@ class openldap_memberof_schema extends ldap_schema
 			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcMemberOf",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("MemberOf Overlay"),"can_create"=>true,"create_method"=>"atomic","parent_class"=>"olcOverlayConfig")
 			);

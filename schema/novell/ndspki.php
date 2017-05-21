@@ -19,7 +19,7 @@ class novell_ndspki_schema extends ldap_schema
 			array("name"=>"ndspkiPublicKey",		"data_type"=>"download",	"display_name"=>gettext("Public Key"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png",	"is_folder"=>false,"display_name"=>gettext("Key Material")),
 			array("name"=>"nDSPKISDKeyAccessPartition",	"icon"=>"novell/sd-key-access-partition.png","is_folder"=>true,"display_name"=>gettext("Security Domain Key Access Partition")),

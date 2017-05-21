@@ -15,7 +15,7 @@ class openldap_unique_schema extends ldap_schema
 			array("name"=>"olcUniqueStrict",		"data_type"=>"yes_no",		"display_name"=>gettext("Enforce Uniqueness for Null Values"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcUniqueConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Uniqueness Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

@@ -9,7 +9,7 @@ class novell_pki_schema extends ldap_schema
 			array("name"=>"ndspkiKMOExport","data_type"=>"text_list","display_name"=>gettext("KMO Export"))		// key material object
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"ndspkiContainer",		"icon"=>"novell/pki-container.png",	"is_folder"=>true),
 			array("name"=>"ndspkiCRLConfiguration",		"icon"=>"novell/pki-crl-config.png",	"is_folder"=>true),

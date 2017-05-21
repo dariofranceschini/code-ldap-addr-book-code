@@ -9,7 +9,7 @@ class novell_sas_schema extends ldap_schema
 			array("name"=>"sasServiceDN",		"data_type"=>"dn",		"display_name"=>gettext("SAS Service DN")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"sASService",			"icon"=>"novell/security.png",		"is_folder"=>false,"display_name"=>gettext("SAS:Service")),
 			array("name"=>"sASSecurity",			"icon"=>"novell/security-container.png","is_folder"=>true,"display_name"=>gettext("Security Container")),

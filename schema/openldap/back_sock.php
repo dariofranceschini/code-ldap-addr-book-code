@@ -12,7 +12,7 @@ class openldap_back_sock_schema extends ldap_schema
 			array("name"=>"olcOvSocketResps",		"data_type"=>"text",		"display_name"=>gettext("Socket Response Types"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcDbSocketConfig",		"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Socket Database"),"required_attribs"=>"olcSuffix,olcDbSocketPath","can_create"=>true,"parent_class"=>"olcDatabaseConfig"),
 			array("name"=>"olcOvSocketConfig",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Socket Overlay"),"can_create"=>true,"parent_class"=>"olcOverlayConfig")

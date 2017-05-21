@@ -20,7 +20,7 @@ class novell_nds_schema extends ldap_schema
 			array("name"=>"indexDefinition",	"data_type"=>"text_list",	"display_name"=>gettext("Index Definition List"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// Equivalents to cosine.schema classes
 			array("name"=>"domain",				"icon"=>"novell/domain.png",		"is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc"),

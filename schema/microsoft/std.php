@@ -111,7 +111,7 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"jpegPhoto",			"data_type"=>"image",		"display_name"=>gettext("Photograph")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// Non-standard implementation of InetOrgPerson (RFC 2798):
 			//	- Subclass of proprietary "user"

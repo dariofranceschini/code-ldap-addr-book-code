@@ -19,7 +19,7 @@ class openldap_pcache_schema extends ldap_schema
 			array("name"=>"pcacheQueryURL",			"data_type"=>"text",		"display_name"=>gettext("Cached Query URI"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcPcacheConfig",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","required_attribs"=>"olcPcache,olcPcacheAttrset,olcPcacheTemplate","display_name"=>gettext("Proxy Cache Engine Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

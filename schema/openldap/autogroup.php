@@ -10,7 +10,7 @@ class openldap_autogroup_schema extends ldap_schema
 			array("name"=>"olcAGmemberOfAd",		"data_type"=>"text",		"display_name"=>gettext("Member Of Attribute"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcAutomaticGroups",		"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("AutoGroup Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

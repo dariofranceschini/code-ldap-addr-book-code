@@ -5,7 +5,7 @@ class novell_ncs_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			// Novell Cluster Services (NCS)
 

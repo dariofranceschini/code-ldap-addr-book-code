@@ -11,7 +11,7 @@ class openldap_dds_schema extends ldap_schema
 			array("name"=>"entryExpireTimestamp",		"data_type"=>"date_time",	"display_name"=>gettext("Entry Expiry Time"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcDDSConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Dynamic Directory Services Overlay"),"can_create"=>true,"parent_class"=>"olcOverlayConfig")
 			);

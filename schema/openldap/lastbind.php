@@ -11,7 +11,7 @@ class openldap_lastbind_schema extends ldap_schema
 			array("name"=>"authTimestamp",			"data_type"=>"text",		"display_name"=>gettext("Date/Time of Last Successful Authentication"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcLastBindConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Last Bind Overlay"),"parent_class"=>"olcOverlayConfig","can_create"=>true)
 			);

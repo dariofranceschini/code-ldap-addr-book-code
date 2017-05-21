@@ -5,7 +5,7 @@ class microsoft_exchange_schema extends ldap_schema
 {
         function __construct(&$ldap_server)
         {
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"msExchDynamicDistributionList",		"icon"=>"microsoft/dynamic-group24.png",	"is_folder"=>false,"display_name"=>gettext("Query-based Distribution Group"),"can_create"=>true),
 			array("name"=>"msExchOrganizationContainer",		"icon"=>"microsoft/exchange-org.png",		"is_folder"=>true,"display_name"=>gettext("Exchange Organization")),

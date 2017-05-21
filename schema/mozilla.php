@@ -33,7 +33,7 @@ class mozilla_schema extends ldap_schema
 			array("name"=>"mozillaHomeFriendlyCountryName",	"data_type"=>"text",		"display_name"=>gettext("Country"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"mozillaAbPersonAlpha",		"icon"=>"contact24.png",	"is_folder"=>false,"can_create"=>true),
 			array("name"=>"mozillaOrgPerson",		"icon"=>"contact24.png",	"is_folder"=>false,"can_create"=>true)

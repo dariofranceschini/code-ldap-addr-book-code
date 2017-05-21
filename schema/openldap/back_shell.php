@@ -16,7 +16,7 @@ class openldap_back_shell_schema extends ldap_schema
 			array("name"=>"olcShellUnbind",			"data_type"=>"text",		"display_name"=>gettext("LDAP Unbind Command and Arguments"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcShellConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Shell Database"),"required_attribs"=>"olcSuffix","can_create"=>true,"parent_class"=>"olcDatabaseConfig")
 			);

@@ -20,7 +20,7 @@ class system_ad_schema extends ldap_schema
 			array("name"=>"supportedCapabilities",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Capabilities")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"rootDSE",			"icon"=>"generic24.png",	"is_folder"=>true,"display_name"=>gettext("Root DSE")),
 			);

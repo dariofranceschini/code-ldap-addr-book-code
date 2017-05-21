@@ -13,7 +13,7 @@ class openldap_rwm_schema extends ldap_schema
 			array("name"=>"olcRwmTFSupport",		"data_type"=>"text",		"display_name"=>gettext("True/False Filter Support"))		// rfc4526
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcRwmConfig",			"icon"=>"openldap/overlay.png",		"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("Rewrite/Remap Overlay"),"parent_class"=>"olcOverlayConfig")
 			);

@@ -12,7 +12,7 @@ class openldap_back_perl_schema extends ldap_schema
 			array("name"=>"olcPerlModulePath",		"data_type"=>"text",		"display_name"=>gettext("Perl Module Path"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcDbPerlConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Perl Module Database"),"required_attribs"=>"olcSuffix","can_create"=>true,"parent_class"=>"olcDatabaseConfig")
 			);

@@ -21,7 +21,7 @@ class novell_nps_schema extends ldap_schema
 			array("name"=>"bhConfig",				"data_type"=>"text_area","display_name"=>gettext("Portal Configuration")),
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"bhGadget",	"icon"=>"novell/bhgadget.png",	"is_folder"=>false),
 			array("name"=>"bhModule",	"icon"=>"novell/bhmodule.png",	"is_folder"=>false),

@@ -9,7 +9,7 @@ class openldap_back_relay_schema extends ldap_schema
 			array("name"=>"olcRelay",			"data_type"=>"dn",		"display_name"=>gettext("Relay Naming Context DN"))
 			);
 
-		// Structural object classes
+		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcRelayConfig",			"icon"=>"openldap/db.png",		"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("Relay Database"),"required_attribs"=>"olcSuffix,olcRelay","can_create"=>true,"parent_class"=>"olcDatabaseConfig")
 			);
