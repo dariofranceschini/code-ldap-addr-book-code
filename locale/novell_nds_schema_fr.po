@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 10:00+0100\n"
-"PO-Revision-Date: 2017-05-03 10:00+0100\n"
+"POT-Creation-Date: 2017-05-22 09:28+0100\n"
+"PO-Revision-Date: 2017-05-22 09:28+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -80,3 +80,171 @@ msgstr "Temps Mort"
 #: ../schema/novell/nds.php:46
 msgid "Use Values"
 msgstr "Utilisez Valeurs"
+
+#: ../schema/novell/nds.php:52
+msgid "eDirectory Tree"
+msgstr "Arbre d'eDirectory"
+
+#: ../schema/novell/nds.php:57
+msgid "Server Details"
+msgstr "Détails du Serveur"
+
+#: ../schema/novell/nds.php:59
+msgid "LDAP Server"
+msgstr "Serveur LDAP"
+
+#: ../schema/novell/nds.php:60
+msgid "Product Version"
+msgstr "Version du Produit"
+
+#: ../schema/novell/nds.php:61
+msgid "Vendor"
+msgstr "Vendeur"
+
+#: ../schema/novell/nds.php:62
+msgid "Supported LDAP Versions"
+msgstr "Versions Prises en Charge LDAP"
+
+#: ../schema/novell/nds.php:63
+msgid "Naming Contexts"
+msgstr "Contextes des Nommage"
+
+#: ../schema/novell/nds.php:64
+msgid "Subschema Subentry"
+msgstr "Entrée Subordonnée pour le Schéma Subordonné"
+
+#: ../schema/novell/nds.php:67
+msgid "Replication"
+msgstr "Réplication"
+
+#: ../schema/novell/nds.php:69
+msgid "Updates Out"
+msgstr "Mises à Jour Sortant"
+
+#: ../schema/novell/nds.php:70
+msgid "Updates In"
+msgstr "Mises à Jour Vers l'Intérieur"
+
+#: ../schema/novell/nds.php:73
+msgid "LDAP Binds"
+msgstr "Lié LDAP"
+
+#: ../schema/novell/nds.php:75
+msgid "Strong Auth"
+msgstr "Auth Forte"
+
+#: ../schema/novell/nds.php:76
+msgid "Simple Auth"
+msgstr "Auth Simple"
+
+#: ../schema/novell/nds.php:77
+msgid "Anonymous"
+msgstr "Anonyme"
+
+#: ../schema/novell/nds.php:78 ../schema/novell/nds.php:112
+msgid "Security Errors"
+msgstr "Erreurs de Sécurité"
+
+#: ../schema/novell/nds.php:81
+msgid "Data Transfer"
+msgstr "Transfert de Données"
+
+#: ../schema/novell/nds.php:83
+msgid "Bytes Out"
+msgstr "Octets Sortie"
+
+#: ../schema/novell/nds.php:84
+msgid "Bytes In"
+msgstr "Octets d'Entrée"
+
+#: ../schema/novell/nds.php:87
+msgid "Ops Processed"
+msgstr "Processus Ops"
+
+#: ../schema/novell/nds.php:89
+msgid "Extended"
+msgstr "Avec l'Extension"
+
+#: ../schema/novell/nds.php:90
+msgid "Abandoned"
+msgstr "Abandonné"
+
+#: ../schema/novell/nds.php:91
+msgid "Subtree Search"
+msgstr "Chercher l'Arbre"
+
+#: ../schema/novell/nds.php:92
+msgid "Single Level Search"
+msgstr "Rechercher un Seul Niveau"
+
+#: ../schema/novell/nds.php:93
+msgid "Search"
+msgstr "Chercher"
+
+#: ../schema/novell/nds.php:94
+msgid "List"
+msgstr "Liste"
+
+#: ../schema/novell/nds.php:95
+msgid "Modify RDN"
+msgstr "Modifier RDN"
+
+#: ../schema/novell/nds.php:96
+msgid "Remove Entry"
+msgstr "Retirer l'Entrée"
+
+#: ../schema/novell/nds.php:97
+msgid "Add Entry"
+msgstr "Ajouter Entrée"
+
+#: ../schema/novell/nds.php:98
+msgid "Compare"
+msgstr "Comparer"
+
+#: ../schema/novell/nds.php:99
+msgid "Read"
+msgstr "Lire"
+
+#: ../schema/novell/nds.php:100
+msgid "Total In"
+msgstr "Entrée Totale"
+
+#: ../schema/novell/nds.php:103
+msgid "LDAP Referral Processed"
+msgstr "Processus LDAP Referral"
+
+#: ../schema/novell/nds.php:105
+msgid "Outbound Referrals Sent"
+msgstr "Parrainages Sortants Envoyés"
+
+#: ../schema/novell/nds.php:106
+msgid "Inbound Referrals Returned"
+msgstr "Parrainages Entrants Desservis"
+
+#: ../schema/novell/nds.php:109
+msgid "Miscellaneous"
+msgstr "Divers"
+
+#: ../schema/novell/nds.php:111
+msgid "Errors"
+msgstr "Erreurs"
+
+#: ../schema/novell/nds.php:115
+msgid "Supported Grouping Types"
+msgstr "Types de Regroupement Pris en Charge"
+
+#: ../schema/novell/nds.php:120
+msgid "Supported Controls"
+msgstr "Commandes Prises en Charge"
+
+#: ../schema/novell/nds.php:125
+msgid "Supported Features"
+msgstr "Fonctionnalités Prises en Charge"
+
+#: ../schema/novell/nds.php:130
+msgid "Supported SASL Mechanisms"
+msgstr "Mécanismes SASL Pris en Charge"
+
+#: ../schema/novell/nds.php:135
+msgid "Supported Extended Operations"
+msgstr "Opérations Étendues qui sont Supportées"

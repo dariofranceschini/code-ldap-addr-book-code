@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 10:00+0100\n"
-"PO-Revision-Date: 2017-05-03 10:00+0100\n"
+"POT-Creation-Date: 2017-05-22 09:28+0100\n"
+"PO-Revision-Date: 2017-05-22 09:28+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -80,3 +80,171 @@ msgstr "Timeout"
 #: ../schema/novell/nds.php:46
 msgid "Use Values"
 msgstr "Use Values"
+
+#: ../schema/novell/nds.php:52
+msgid "eDirectory Tree"
+msgstr "eDirectory Tree"
+
+#: ../schema/novell/nds.php:57
+msgid "Server Details"
+msgstr "Server Details"
+
+#: ../schema/novell/nds.php:59
+msgid "LDAP Server"
+msgstr "LDAP Server"
+
+#: ../schema/novell/nds.php:60
+msgid "Product Version"
+msgstr "Product Version"
+
+#: ../schema/novell/nds.php:61
+msgid "Vendor"
+msgstr "Vendor"
+
+#: ../schema/novell/nds.php:62
+msgid "Supported LDAP Versions"
+msgstr "Supported LDAP Versions"
+
+#: ../schema/novell/nds.php:63
+msgid "Naming Contexts"
+msgstr "Naming Contexts"
+
+#: ../schema/novell/nds.php:64
+msgid "Subschema Subentry"
+msgstr "Subschema Subentry"
+
+#: ../schema/novell/nds.php:67
+msgid "Replication"
+msgstr "Replication"
+
+#: ../schema/novell/nds.php:69
+msgid "Updates Out"
+msgstr "Updates Out"
+
+#: ../schema/novell/nds.php:70
+msgid "Updates In"
+msgstr "Updates In"
+
+#: ../schema/novell/nds.php:73
+msgid "LDAP Binds"
+msgstr "LDAP Binds"
+
+#: ../schema/novell/nds.php:75
+msgid "Strong Auth"
+msgstr "Strong Auth"
+
+#: ../schema/novell/nds.php:76
+msgid "Simple Auth"
+msgstr "Simple Auth"
+
+#: ../schema/novell/nds.php:77
+msgid "Anonymous"
+msgstr "Anonymous"
+
+#: ../schema/novell/nds.php:78 ../schema/novell/nds.php:112
+msgid "Security Errors"
+msgstr "Security Errors"
+
+#: ../schema/novell/nds.php:81
+msgid "Data Transfer"
+msgstr "Data Transfer"
+
+#: ../schema/novell/nds.php:83
+msgid "Bytes Out"
+msgstr "Bytes Out"
+
+#: ../schema/novell/nds.php:84
+msgid "Bytes In"
+msgstr "Bytes In"
+
+#: ../schema/novell/nds.php:87
+msgid "Ops Processed"
+msgstr "Ops Processed"
+
+#: ../schema/novell/nds.php:89
+msgid "Extended"
+msgstr "Extended"
+
+#: ../schema/novell/nds.php:90
+msgid "Abandoned"
+msgstr "Abandoned"
+
+#: ../schema/novell/nds.php:91
+msgid "Subtree Search"
+msgstr "Subtree Search"
+
+#: ../schema/novell/nds.php:92
+msgid "Single Level Search"
+msgstr "Single Level Search"
+
+#: ../schema/novell/nds.php:93
+msgid "Search"
+msgstr "Search"
+
+#: ../schema/novell/nds.php:94
+msgid "List"
+msgstr "List"
+
+#: ../schema/novell/nds.php:95
+msgid "Modify RDN"
+msgstr "Modify RDN"
+
+#: ../schema/novell/nds.php:96
+msgid "Remove Entry"
+msgstr "Remove Entry"
+
+#: ../schema/novell/nds.php:97
+msgid "Add Entry"
+msgstr "Add Entry"
+
+#: ../schema/novell/nds.php:98
+msgid "Compare"
+msgstr "Compare"
+
+#: ../schema/novell/nds.php:99
+msgid "Read"
+msgstr "Read"
+
+#: ../schema/novell/nds.php:100
+msgid "Total In"
+msgstr "Total In"
+
+#: ../schema/novell/nds.php:103
+msgid "LDAP Referral Processed"
+msgstr "LDAP Referral Processed"
+
+#: ../schema/novell/nds.php:105
+msgid "Outbound Referrals Sent"
+msgstr "Outbound Referrals Sent"
+
+#: ../schema/novell/nds.php:106
+msgid "Inbound Referrals Returned"
+msgstr "Inbound Referrals Returned"
+
+#: ../schema/novell/nds.php:109
+msgid "Miscellaneous"
+msgstr "Miscellaneous"
+
+#: ../schema/novell/nds.php:111
+msgid "Errors"
+msgstr "Errors"
+
+#: ../schema/novell/nds.php:115
+msgid "Supported Grouping Types"
+msgstr "Supported Grouping Types"
+
+#: ../schema/novell/nds.php:120
+msgid "Supported Controls"
+msgstr "Supported Controls"
+
+#: ../schema/novell/nds.php:125
+msgid "Supported Features"
+msgstr "Supported Features"
+
+#: ../schema/novell/nds.php:130
+msgid "Supported SASL Mechanisms"
+msgstr "Supported SASL Mechanisms"
+
+#: ../schema/novell/nds.php:135
+msgid "Supported Extended Operations"
+msgstr "Supported Extended Operations"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-26 15:14+0000\n"
-"PO-Revision-Date: 2016-12-26 15:14+0000\n"
+"POT-Creation-Date: 2017-05-22 09:31+0100\n"
+"PO-Revision-Date: 2017-05-22 09:31+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -37,182 +37,22 @@ msgstr "Last Modified"
 msgid "Object Classes"
 msgstr "Object Classes"
 
-#: ../schema/system/edir.php:14 ../schema/system/edir.php:38
+#: ../schema/system/edir.php:14
 msgid "Subschema Subentry"
 msgstr "Subschema Subentry"
 
-#: ../schema/system/edir.php:17 ../schema/system/edir.php:89
+#: ../schema/system/edir.php:17
 msgid "Supported Grouping Types"
 msgstr "Supported Grouping Types"
 
-#: ../schema/system/edir.php:26
-msgid "eDirectory Tree"
-msgstr "eDirectory Tree"
-
-#: ../schema/system/edir.php:31
-msgid "Server Details"
-msgstr "Server Details"
-
-#: ../schema/system/edir.php:33
-msgid "LDAP Server"
-msgstr "LDAP Server"
-
-#: ../schema/system/edir.php:34
-msgid "Product Version"
-msgstr "Product Version"
-
-#: ../schema/system/edir.php:35
-msgid "Vendor"
-msgstr "Vendor"
-
-#: ../schema/system/edir.php:36
-msgid "Supported LDAP Versions"
-msgstr "Supported LDAP Versions"
-
-#: ../schema/system/edir.php:37
-msgid "Naming Contexts"
-msgstr "Naming Contexts"
-
-#: ../schema/system/edir.php:41
-msgid "Replication"
-msgstr "Replication"
-
-#: ../schema/system/edir.php:43
-msgid "Updates Out"
-msgstr "Updates Out"
-
-#: ../schema/system/edir.php:44
-msgid "Updates In"
-msgstr "Updates In"
-
-#: ../schema/system/edir.php:47
-msgid "LDAP Binds"
-msgstr "LDAP Binds"
-
-#: ../schema/system/edir.php:49
-msgid "Strong Auth"
-msgstr "Strong Auth"
-
-#: ../schema/system/edir.php:50
-msgid "Simple Auth"
-msgstr "Simple Auth"
-
-#: ../schema/system/edir.php:51
-msgid "Anonymous"
-msgstr "Anonymous"
-
-#: ../schema/system/edir.php:52 ../schema/system/edir.php:86
-msgid "Security Errors"
-msgstr "Security Errors"
-
-#: ../schema/system/edir.php:55
-msgid "Data Transfer"
-msgstr "Data Transfer"
-
-#: ../schema/system/edir.php:57
-msgid "Bytes Out"
-msgstr "Bytes Out"
-
-#: ../schema/system/edir.php:58
-msgid "Bytes In"
-msgstr "Bytes In"
-
-#: ../schema/system/edir.php:61
-msgid "Ops Processed"
-msgstr "Ops Processed"
-
-#: ../schema/system/edir.php:63
-msgid "Extended"
-msgstr "Extended"
-
-#: ../schema/system/edir.php:64
-msgid "Abandoned"
-msgstr "Abandoned"
-
-#: ../schema/system/edir.php:65
-msgid "Subtree Search"
-msgstr "Subtree Search"
-
-#: ../schema/system/edir.php:66
-msgid "Single Level Search"
-msgstr "Single Level Search"
-
-#: ../schema/system/edir.php:67
-msgid "Search"
-msgstr "Search"
-
-#: ../schema/system/edir.php:68
-msgid "List"
-msgstr "List"
-
-#: ../schema/system/edir.php:69
-msgid "Modify RDN"
-msgstr "Modify RDN"
-
-#: ../schema/system/edir.php:70
-msgid "Remove Entry"
-msgstr "Remove Entry"
-
-#: ../schema/system/edir.php:71
-msgid "Add Entry"
-msgstr "Add Entry"
-
-#: ../schema/system/edir.php:72
-msgid "Compare"
-msgstr "Compare"
-
-#: ../schema/system/edir.php:73
-msgid "Read"
-msgstr "Read"
-
-#: ../schema/system/edir.php:74
-msgid "Total In"
-msgstr "Total In"
-
-#: ../schema/system/edir.php:77
-msgid "LDAP Referral Processed"
-msgstr "LDAP Referral Processed"
-
-#: ../schema/system/edir.php:79
-msgid "Outbound Referrals Sent"
-msgstr "Outbound Referrals Sent"
-
-#: ../schema/system/edir.php:80
-msgid "Inbound Referrals Returned"
-msgstr "Inbound Referrals Returned"
-
-#: ../schema/system/edir.php:83
-msgid "Miscellaneous"
-msgstr "Miscellaneous"
-
-#: ../schema/system/edir.php:85
-msgid "Errors"
-msgstr "Errors"
-
-#: ../schema/system/edir.php:94
-msgid "Supported Controls"
-msgstr "Supported Controls"
-
-#: ../schema/system/edir.php:99
-msgid "Supported Features"
-msgstr "Supported Features"
-
-#: ../schema/system/edir.php:104
-msgid "Supported SASL Mechanisms"
-msgstr "Supported SASL Mechanisms"
-
-#: ../schema/system/edir.php:109
-msgid "Supported Extended Operations"
-msgstr "Supported Extended Operations"
-
-#: ../schema/system/edir.php:117
+#: ../schema/system/edir.php:24
 msgid "Object Class Definitions"
 msgstr "Object Class Definitions"
 
-#: ../schema/system/edir.php:122
+#: ../schema/system/edir.php:29
 msgid "Attribute Type Definitions"
 msgstr "Attribute Type Definitions"
 
-#: ../schema/system/edir.php:127
+#: ../schema/system/edir.php:34
 msgid "LDAP Syntax Definitions"
 msgstr "LDAP Syntax Definitions"
