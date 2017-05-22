@@ -1,7 +1,7 @@
 <?php
 /** system schema - Active Directory specific items (partial) */
 
-class system_ad_schema extends ldap_schema
+class microsoft_system_schema extends ldap_schema
 {
 	function __construct(&$ldap_server)
 	{
@@ -15,28 +15,19 @@ class system_ad_schema extends ldap_schema
 			array("name"=>"dSServiceName",			"data_type"=>"dn",		"display_name"=>gettext("Directory Service Name")),
 			array("name"=>"forestFunctionality",		"data_type"=>"ad_func_level",	"display_name"=>gettext("Forest Functional Level")),
 			array("name"=>"isSynchronized",			"data_type"=>"yes_no",		"display_name"=>gettext("Is Synchronized")),
+			array("name"=>"namingContexts",			"data_type"=>"dn_list",		"display_name"=>gettext("Naming Contexts")),
 			array("name"=>"rootDomainNamingContext",	"data_type"=>"dn",		"display_name"=>gettext("Root Domain Naming Context")),
 			array("name"=>"schemaNamingContext",		"data_type"=>"dn",		"display_name"=>gettext("Schema Naming Context")),
 			array("name"=>"supportedCapabilities",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Capabilities")),
+			array("name"=>"supportedControl",		"data_type"=>"oid_list",	"display_name"=>gettext("Supported Controls")),
+			array("name"=>"supportedLDAPVersion",		"data_type"=>"ldap_version",	"display_name"=>gettext("Supported LDAP Versions")),
+			array("name"=>"supportedSASLMechanisms",	"data_type"=>"text_list",	"display_name"=>gettext("Supported SASL Mechanisms")),
 			);
 
 		// Object classes
 		$this->object_schema = array(
 			array("name"=>"rootDSE",			"icon"=>"generic24.png",	"is_folder"=>true,"display_name"=>gettext("Root DSE")),
 			);
-
-		// remove various "RFC standard" items that are not implemented in Active Directory
-		$ldap_server->delete_attribute_class("altServer");
-		$ldap_server->delete_attribute_class("supportedExtension");
-		$ldap_server->delete_attribute_class("supportedFeatures");
-		$ldap_server->delete_attribute_class("ldapSyntaxes");
-		$ldap_server->delete_attribute_class("matchingRules");
-		$ldap_server->delete_attribute_class("matchingRuleUse");
-		$ldap_server->delete_attribute_class("creatorsName");
-		$ldap_server->delete_attribute_class("modifiersName");
-
-		// capitalised as "subSchema" in microsoft.std.schema
-		$ldap_server->delete_object_class("subschema");
 
 		// Display layouts
 		$ldap_server->add_display_layout("rootDSE",array(

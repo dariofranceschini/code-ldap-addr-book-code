@@ -374,6 +374,7 @@ class microsoft_schema extends ldap_schema
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
 		$ldap_server->add_schema("microsoft/sms");
+		$ldap_server->add_schema("microsoft/system");
 
 		parent::__construct($ldap_server);
 

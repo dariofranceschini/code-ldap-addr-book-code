@@ -3711,7 +3711,7 @@ class ldap_server
 	var $server_types = array(
 		array("name"=>"ad",
 			"default_create_class"=>"contact",
-			"schema_list"=>"system,microsoft",
+			"schema_list"=>"microsoft",
 			"dn_search_filter"=>"(sAMAccountName=__USERNAME__)"),
 
 		array("name"=>"edir",
