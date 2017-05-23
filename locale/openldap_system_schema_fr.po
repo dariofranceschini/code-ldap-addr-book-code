@@ -1,0 +1,122 @@
+# French translations for LDAP Address Book package.
+# Copyright (C) 2016 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-23 08:29+0100\n"
+"PO-Revision-Date: 2017-05-23 08:29+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../schema/openldap/system.php:10
+msgid "Alternative Servers"
+msgstr "Serveurs Alternatifs"
+
+#: ../schema/openldap/system.php:11 ../schema/openldap/system.php:48
+msgid "Configuration Context"
+msgstr "Contexte de Configuration"
+
+#: ../schema/openldap/system.php:12 ../schema/openldap/system.php:49
+msgid "Monitoring Context"
+msgstr "Contexte de la Surveillance"
+
+#: ../schema/openldap/system.php:13 ../schema/openldap/system.php:47
+msgid "Naming Contexts"
+msgstr "Contextes des Nommage"
+
+#: ../schema/openldap/system.php:14 ../schema/openldap/system.php:50
+msgid "Subschema Subentry"
+msgstr "Entrée Subordonnée pour le Schéma Subordonné"
+
+#: ../schema/openldap/system.php:15 ../schema/openldap/system.php:53
+msgid "Supported Controls"
+msgstr "Commandes Prises en Charge"
+
+#: ../schema/openldap/system.php:16 ../schema/openldap/system.php:68
+msgid "Supported Extended Operations"
+msgstr "Opérations Étendues qui sont Supportées"
+
+#: ../schema/openldap/system.php:17 ../schema/openldap/system.php:58
+msgid "Supported Features"
+msgstr "Fonctionnalités Prises en Charge"
+
+#: ../schema/openldap/system.php:18 ../schema/openldap/system.php:46
+msgid "Supported LDAP Versions"
+msgstr "Versions Prises en Charge LDAP"
+
+#: ../schema/openldap/system.php:19 ../schema/openldap/system.php:63
+msgid "Supported SASL Mechanisms"
+msgstr "Mécanismes SASL Pris en Charge"
+
+#: ../schema/openldap/system.php:22
+msgid "Attribute Types"
+msgstr "Types d'Attributs"
+
+#: ../schema/openldap/system.php:23
+msgid "DIT Content Rules"
+msgstr "Règles de Contenu pour DIT"
+
+#: ../schema/openldap/system.php:24
+msgid "LDAP Syntaxes"
+msgstr "Syntaxes LDAP"
+
+#: ../schema/openldap/system.php:25 ../schema/openldap/system.php:91
+msgid "Matching Rules"
+msgstr "Règles de Correspondance"
+
+#: ../schema/openldap/system.php:26 ../schema/openldap/system.php:96
+msgid "Matching Rule Use"
+msgstr "Utilisation des Règles de Correspondance"
+
+#: ../schema/openldap/system.php:27
+msgid "Object Classes"
+msgstr "Classes d'Objets"
+
+#: ../schema/openldap/system.php:30
+msgid "Created"
+msgstr "Créé à"
+
+#: ../schema/openldap/system.php:31
+msgid "Created By"
+msgstr "Créé par"
+
+#: ../schema/openldap/system.php:32
+msgid "Last Modified By"
+msgstr "Dernière Modification par"
+
+#: ../schema/openldap/system.php:33
+msgid "Last Modified"
+msgstr "Dernière Modification à"
+
+#: ../schema/openldap/system.php:38
+msgid "OpenLDAP Root DSE"
+msgstr "RootDSE OpenLDAP"
+
+#: ../schema/openldap/system.php:39
+msgid "Schema"
+msgstr "Schéma"
+
+#: ../schema/openldap/system.php:44
+msgid "OpenLDAP Server"
+msgstr "Serveur OpenLDAP"
+
+#: ../schema/openldap/system.php:76
+msgid "Object Class Definitions"
+msgstr "Définitions des Classes d'Objets"
+
+#: ../schema/openldap/system.php:81
+msgid "Attribute Type Definitions"
+msgstr "Définitions des Types d'Attributs"
+
+#: ../schema/openldap/system.php:86
+msgid "LDAP Syntax Definitions"
+msgstr "Définitions de LDAP Syntaxe"

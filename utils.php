@@ -3738,7 +3738,7 @@ class ldap_server
 
 		array("name"=>"openldap",
 			"default_create_class"=>"inetOrgPerson",
-			"schema_list"=>"system,core,cosine,nis,inetorgperson"),
+			"schema_list"=>"openldap/system,core,cosine,nis,inetorgperson"),
 
 		array("name"=>"custom",
 			"default_create_class"=>"person",
