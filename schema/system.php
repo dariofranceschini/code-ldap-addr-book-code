@@ -35,7 +35,6 @@ class system_schema extends ldap_schema
 		// component schema
 		switch($ldap_server->server_type)
 		{
-			case "edir":		$ldap_server->add_schema("system/edir");	break;
 			case "openldap":	$ldap_server->add_schema("system/openldap");	break;
 
 			default:		// no change made for other server types

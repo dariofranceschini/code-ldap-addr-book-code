@@ -3716,7 +3716,7 @@ class ldap_server
 
 		array("name"=>"edir",
 			"default_create_class"=>"inetOrgPerson",
-			"schema_list"=>"system,novell",
+			"schema_list"=>"novell",
 
 			/**
 			    Novell eDirectory does not appear to support
