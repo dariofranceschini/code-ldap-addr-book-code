@@ -8,7 +8,7 @@ class novell_system_schema extends ldap_schema
                 $this->attribute_schema = array(
                         // Root DSE attributes
                         array("name"=>"altServer",                      "data_type"=>"text_list",       "display_name"=>gettext("Alternative Servers")),
-			array("name"=>"dSAName",			"data_type"=>"dn_list",		"display_name"=>gettext("DSA Name")),
+			array("name"=>"dSAName",			"data_type"=>"dn",		"display_name"=>gettext("DSA Name")),
                         array("name"=>"namingContexts",                 "data_type"=>"dn_list",         "display_name"=>gettext("Naming Contexts")),
 			array("name"=>"subschemaSubentry",		"data_type"=>"dn",		"display_name"=>gettext("Subschema Subentry")),
                         array("name"=>"supportedControl",               "data_type"=>"oid_list",        "display_name"=>gettext("Supported Controls")),
