@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 09:37+0100\n"
-"PO-Revision-Date: 2017-05-03 09:37+0100\n"
+"POT-Creation-Date: 2017-05-26 09:34+0100\n"
+"PO-Revision-Date: 2017-05-26 09:34+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -18,81 +18,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/openldap/back_ldap.php:10
+msgid "Remote LDAP Directory URI List"
+msgstr "Lista de los URI de los Directorios LDAP Remotos"
+
+#: ../schema/openldap/back_ldap.php:15
 msgid "LDAP Proxy Database"
 msgstr "Base de Datos Apoderado LDAP"
 
-#: ../schema/openldap/back_ldap.php:11
+#: ../schema/openldap/back_ldap.php:16
 msgid "Chain Overlay"
 msgstr "Superposición de Cadena"
 
-#: ../schema/openldap/back_ldap.php:12
+#: ../schema/openldap/back_ldap.php:17
 msgid "Distributed Procedure Overlay"
 msgstr "Superposición de Procedimientos Distribuidos"
 
-#: ../schema/openldap/back_ldap.php:13
+#: ../schema/openldap/back_ldap.php:18
 msgid "LDAP Proxy Bind Overlay"
 msgstr "Superposición de Apoderado para Acceso a LDAP"
 
-#: ../schema/openldap/back_ldap.php:14
+#: ../schema/openldap/back_ldap.php:19
 msgid "Monitored LDAP Proxy Connection"
 msgstr "Conexión de Apoderado LDAP Supervisada"
 
-#: ../schema/openldap/back_ldap.php:21
+#: ../schema/openldap/back_ldap.php:26
 msgid "LDAP Proxy Database Settings"
 msgstr "Configuración de la Base de Datos Apoderado LDAP"
 
-#: ../schema/openldap/back_ldap.php:23 ../schema/openldap/back_ldap.php:55
+#: ../schema/openldap/back_ldap.php:28 ../schema/openldap/back_ldap.php:60
 msgid "Remote LDAP Directory URI"
 msgstr "URI del Directorio LDAP Remoto"
 
-#: ../schema/openldap/back_ldap.php:24
+#: ../schema/openldap/back_ldap.php:29
 msgid "Naming Context"
 msgstr "Contexto de Denominación"
 
-#: ../schema/openldap/back_ldap.php:25
+#: ../schema/openldap/back_ldap.php:30
 msgid "Chase Referrals"
 msgstr "Seguir Referencias"
 
-#: ../schema/openldap/back_ldap.php:26
+#: ../schema/openldap/back_ldap.php:31
 msgid "Rebind as User"
 msgstr "Repetir Enlace como Usuario"
 
-#: ../schema/openldap/back_ldap.php:30
+#: ../schema/openldap/back_ldap.php:35
 msgid "Remote Identity Assertion"
 msgstr "Aserción de Identidad Remota"
 
-#: ../schema/openldap/back_ldap.php:32
+#: ../schema/openldap/back_ldap.php:37
 msgid "Authorise From"
 msgstr "Autorizar de"
 
-#: ../schema/openldap/back_ldap.php:35
+#: ../schema/openldap/back_ldap.php:40
 msgid "Bind Configuration"
 msgstr "Configuración de Enlace"
 
-#: ../schema/openldap/back_ldap.php:38
+#: ../schema/openldap/back_ldap.php:43
 msgid "Access Controls"
 msgstr "Controles de Acceso"
 
-#: ../schema/openldap/back_ldap.php:43
+#: ../schema/openldap/back_ldap.php:48
 msgid "Overlays"
 msgstr "Superposiciones"
 
-#: ../schema/openldap/back_ldap.php:51
+#: ../schema/openldap/back_ldap.php:56
 msgid "LDAP Bind Proxy Settings"
 msgstr "Configuración de Apoderado para Acceso a LDAP"
 
-#: ../schema/openldap/back_ldap.php:53
+#: ../schema/openldap/back_ldap.php:58
 msgid "Overlay Object Name"
 msgstr "Nombre del Objeto Superposición"
 
-#: ../schema/openldap/back_ldap.php:56
+#: ../schema/openldap/back_ldap.php:61
 msgid "Network Timeout"
 msgstr "Tiempo de Espera de Red"
 
-#: ../schema/openldap/back_ldap.php:57
+#: ../schema/openldap/back_ldap.php:62
 msgid "StartTLS Behaviour"
 msgstr "Comportamiento StartTLS"
 
-#: ../schema/openldap/back_ldap.php:58
+#: ../schema/openldap/back_ldap.php:63
 msgid "URI Quarantine Behaviour"
 msgstr "Comportamiento de la Cuarentena de URL"
