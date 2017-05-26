@@ -2641,8 +2641,8 @@ function get_user_setting($attrib,$user_name = "")
 				$search_resource
 					= @ldap_read($ldap_server->connection,
 					$attrib_value,
-					"member=" . $_SESSION["LOGIN_BIND_DN"],
-					array("member"));
+					"member=" . ldap_escape($_SESSION["LOGIN_BIND_DN"],
+					null,LDAP_ESCAPE_FILTER),array("member"));
 
 				if(is_resource($search_resource))
 				{
