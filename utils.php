@@ -4271,10 +4271,14 @@ class ldap_server
 			if(strtolower($attrib) == "memberuid")
 			{
 				if(isset($_SESSION["LOGIN_UID"]))
-					$query .= "(" . $attrib . "=" . $_SESSION["LOGIN_UID"] . ")";
+					$query .= "(" . $attrib . "="
+						. ldap_escape($_SESSION["LOGIN_UID"],
+						null,LDAP_ESCAPE_FILTER) . ")";
 			}
 			else
-				$query .= "(" . $attrib . "=" . $_SESSION["LOGIN_BIND_DN"] . ")";
+				$query .= "(" . $attrib . "="
+					. ldap_escape($_SESSION["LOGIN_BIND_DN"],
+					null,LDAP_ESCAPE_FILTER) . ")";
 		}
 
 		$search_resource = @ldap_read($this->connection,
