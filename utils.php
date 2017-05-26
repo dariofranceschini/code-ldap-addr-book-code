@@ -4286,7 +4286,7 @@ class ldap_server
 			$group_member_attributes);
 
 		$is_group_member = false;
-		if(ldap_count_entries($this->connection,
+		if($search_resource && ldap_count_entries($this->connection,
 			$search_resource))
 		{
 			$entry = ldap_get_entries($this->connection,
