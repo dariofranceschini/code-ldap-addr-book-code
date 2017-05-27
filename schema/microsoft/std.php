@@ -113,9 +113,8 @@ class microsoft_std_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			// Non-standard implementation of InetOrgPerson (RFC 2798):
-			//	- Subclass of proprietary "user"
-			//	- Attribute "sn" is not mandatory
+			// Internet/Intranet Organizational Person Schema (RFC 2798)
+			// Non-standard implementation: Subclass of "user", attribute "sn" not mandatory
 			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("InetOrgPerson"),"can_create"=>true,"parent_class"=>"user"),
 
 			// LDAP Core Schema for User Applications (RFC 2256)
