@@ -4270,11 +4270,6 @@ class ldap_server
 
 	    @param array $group_map_entry
 		Group permission entry to be merged in
-
-	    @todo
-		Allow permissions to be assigned based on appearance of the
-		user's DN in roleOccupant or uniqueMember attributes in
-		addition to member.
 	*/
 
 	function assign_group_permissions($group_map_entry)
