@@ -256,7 +256,7 @@ function show_ldap_path($base,$leaf_icon = "")
 			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
 				&& get_user_setting("allow_browse"))
 			{
-		                if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
+				if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
 					echo "<a href=\"" . current_page_folder_url()
 						. "?dn=" . urlencode($object_dn) . "\">";
 				else
@@ -540,8 +540,8 @@ class ldap_entry_viewer
 		if($this->create)
 			show_ldap_path("CN=" . sprintf(gettext("New %s"),
 				$ldap_server->get_object_schema_setting(
-                                $ldap_server->get_object_class($this->ldap_entry[0]),
-                                "display_name")) .  (empty($dn) ? "" : "," . $dn),
+				$ldap_server->get_object_class($this->ldap_entry[0]),
+				"display_name")) . (empty($dn) ? "" : "," . $dn),
 				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
 			show_ldap_path($dn);
@@ -555,7 +555,7 @@ class ldap_entry_viewer
 		{
 			if($this->edit && (get_user_setting("allow_edit")
 				|| (get_user_setting("allow_edit_self")
-                                && !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
+				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
 
 				echo "<form method=\"POST\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
@@ -1422,8 +1422,8 @@ class ldap_attribute
 			else
 				$style = "width:98%;";
 
-                        echo "<select name=\"ldap_attribute_" . $this->attribute
-                                . "\" title=\"" . $this->display_name . "\" style=\"" . $style . "\">\n";
+			echo "<select name=\"ldap_attribute_" . $this->attribute
+				. "\" title=\"" . $this->display_name . "\" style=\"" . $style . "\">\n";
 
 			foreach($enum as $enum_entry)
 			{
@@ -2389,8 +2389,8 @@ class ldap_attribute
 
 	function show_download_list()
 	{
-                if(!empty($this->ldap_entry[strtolower($this->attribute)]))
-                {
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+		{
 			if(isset($this->ldap_entry[strtolower($this->attribute)]["count"]))
 			{
 				// multi-valued attributes
@@ -2416,9 +2416,9 @@ class ldap_attribute
 					echo "Not set";
 				else
 					echo "<a href=\"download.php?dn="
-                                                . urlencode($this->ldap_entry["dn"]) . "&attrib=" . $this->attribute
-                                                . "\"><button>" . gettext("Download") . "</button></a>\n";
-                }
+						. urlencode($this->ldap_entry["dn"]) . "&attrib=" . $this->attribute
+						. "\"><button>" . gettext("Download") . "</button></a>\n";
+		}
 	}
 }
 
@@ -3305,19 +3305,19 @@ class ldap_entry_list
 		else if($link_type == "add_dn_value")
 		{
 			if(isset($_GET["attrib"]))
-                		$attrib_name = $_GET["attrib"];
-		        else
+				$attrib_name = $_GET["attrib"];
+			else
 			{
 				echo "error: missing attribute name";
-		                $attrib_name = "";
+				$attrib_name = "";
 			}
 
 			if(isset($_GET["target_dn"]))
-                		$target_dn = $_GET["target_dn"];
-		        else
+				$target_dn = $_GET["target_dn"];
+			else
 			{
 				echo "error: missing target_dn";
-		                $target_dn = "";
+				$target_dn = "";
 			}
 
 			// Cell contains a link to the object
@@ -4174,7 +4174,7 @@ class ldap_server
 					// use resulting DN if exactly 1 found (i.e. unambiguous result)
 
 					if(is_resource($search_resource))
-				        {
+					{
 						$entries = ldap_get_entries($this->connection,$search_resource);
 
 						if($entries["count"]==1)
@@ -4671,8 +4671,8 @@ class ldap_server
 
 		if(!is_null($object_class_index))
 		{
-                        foreach($this->object_schema as $object_class)
-                                if(isset($object_class["child_class"]))
+			foreach($this->object_schema as $object_class)
+				if(isset($object_class["child_class"]))
 				{
 					$old_child_class_list = explode(",",$object_class["child_class"]);
 
@@ -4894,39 +4894,39 @@ class ldap_server
 		return $selected_layout;
 	}
 
-        /** Modify a setting of an attribute schema
+	/** Modify a setting of an attribute schema
 
-            @param string $attrib
-                Attribute to be modified
-            @param string $setting
-                Attribute setting to be modified
-            @param string $value
-                Value to be assigned to the attribute's setting
-        */
+	    @param string $attrib
+		Attribute to be modified
+	    @param string $setting
+		Attribute setting to be modified
+	    @param string $value
+		Value to be assigned to the attribute's setting
+	*/
 
-        function modify_attribute_schema($attrib,$setting,$value)
-        {
-                foreach($this->attribute_schema as $attrib_index=>$attrib_settings)
-                        if(strtolower($this->attribute_schema[$attrib_index]["name"]) == strtolower($attrib))
-                                $this->attribute_schema[$attrib_index][$setting] = $value;
-        }
+	function modify_attribute_schema($attrib,$setting,$value)
+	{
+		foreach($this->attribute_schema as $attrib_index=>$attrib_settings)
+			if(strtolower($this->attribute_schema[$attrib_index]["name"]) == strtolower($attrib))
+				$this->attribute_schema[$attrib_index][$setting] = $value;
+	}
 
-        /** Modify a setting of an object schema
+	/** Modify a setting of an object schema
 
-            @param string $object
-                Object class to be modified
-            @param string $setting
-                Object class setting to be modified
-            @param string $value
-                Value to be assigned to the cobject class's setting
-        */
+	    @param string $object
+		Object class to be modified
+	    @param string $setting
+		Object class setting to be modified
+	    @param string $value
+		Value to be assigned to the cobject class's setting
+	*/
 
-        function modify_object_schema($object_class,$setting,$value)
-        {
-                foreach($this->object_schema as $object_index=>$object_settings)
-                        if(strtolower($this->object_schema[$object_index]["name"]) == strtolower($object_class))
-                                $this->object_schema[$object_index][$setting] = $value;
-        }
+	function modify_object_schema($object_class,$setting,$value)
+	{
+		foreach($this->object_schema as $object_index=>$object_settings)
+			if(strtolower($this->object_schema[$object_index]["name"]) == strtolower($object_class))
+				$this->object_schema[$object_index][$setting] = $value;
+	}
 
 	/** Load the specified OpenLDAP module if not already loaded
 
@@ -4966,7 +4966,7 @@ class ldap_server
 				$module_object_name = "~auditlog";
 			}
 
-	                // create monitor database after other objects
+			// create monitor database after other objects
 			if($module_name=="back_monitor")
 			{
 				$add_value_to_module0=false;
@@ -5177,21 +5177,21 @@ abstract class ldap_schema
 		Value to be added
 	*/
 
-        function add_attrib_value(&$ldap_server,&$entry,$attribute,$value)
-        {
+	function add_attrib_value(&$ldap_server,&$entry,$attribute,$value)
+	{
 		if(isset($entry[strtolower($attribute)]["count"]))
 		{
 			// add additional value to existing attribute
-        	        $entry[strtolower($attribute)][$entry[strtolower($attribute)]["count"]]=$value;
-	                $entry[strtolower($attribute)]["count"]++;
+			$entry[strtolower($attribute)][$entry[strtolower($attribute)]["count"]]=$value;
+			$entry[strtolower($attribute)]["count"]++;
 		}
 		else
 		{
 			// add as a new attribute
-        	        $entry[strtolower($attribute)][0]=$value;
-	                $entry[strtolower($attribute)]["count"]=1;
+			$entry[strtolower($attribute)][0]=$value;
+			$entry[strtolower($attribute)]["count"]=1;
 		}
-        }
+	}
 
 	/** Add a value to a single-valued attribute of the specified LDAP entry
 
@@ -5205,10 +5205,10 @@ abstract class ldap_schema
 		Value to be added
 	*/
 
-        function add_attrib_single_value(&$ldap_server,&$entry,$attribute,$value)
-        {
-                $entry[strtolower($attribute)]=$value;
-        }
+	function add_attrib_single_value(&$ldap_server,&$entry,$attribute,$value)
+	{
+		$entry[strtolower($attribute)]=$value;
+	}
 }
 
 /** Show a list of the searchable attributes */
@@ -5410,12 +5410,12 @@ function fix_missing_object_classes($ldap_server,&$entry)
 
 function reset_login_session()
 {
-        unset($_SESSION["LOGIN_SENT"]);
-        unset($_SESSION["LOGIN_USER"]);
-        unset($_SESSION["LOGIN_PASSWORD"]);
-        unset($_SESSION["LOGIN_BIND_DN"]);
-        unset($_SESSION["LOGIN_UID"]);
-        unset($_SESSION["CACHED_PERMISSIONS"]);
+	unset($_SESSION["LOGIN_SENT"]);
+	unset($_SESSION["LOGIN_USER"]);
+	unset($_SESSION["LOGIN_PASSWORD"]);
+	unset($_SESSION["LOGIN_BIND_DN"]);
+	unset($_SESSION["LOGIN_UID"]);
+	unset($_SESSION["CACHED_PERMISSIONS"]);
 }
 
 /** Get a list of required attributes for the specified LDAP entry
@@ -5444,7 +5444,7 @@ function get_required_attribs($ldap_entry)
 		unset($ldap_entry["objectclass"]["count"]);
 
 	$required_attribs = array();
-        foreach($ldap_entry["objectclass"] as $object_class)
+	foreach($ldap_entry["objectclass"] as $object_class)
 	{
 		$required_attribs_for_class = explode(",",
 			$ldap_server->get_object_schema_setting($object_class,"required_attribs"));
@@ -5453,7 +5453,7 @@ function get_required_attribs($ldap_entry)
 			$required_attribs = array_merge($required_attribs_for_class,
 				$required_attribs);
 
-                if($ldap_server->get_object_schema_setting($object_class,"class_type")
+		if($ldap_server->get_object_schema_setting($object_class,"class_type")
 			== "structural")
 		{
 			$rdn_attribs_for_class = explode(",",
