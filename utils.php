@@ -2558,7 +2558,7 @@ function ldap_referral_rebind($ldap_link,$referral_uri)
 
 function get_user_setting($attrib,$user_name = "")
 {
-	global $ldap_server;
+	global $ldap_server,$group_member_attributes;
 
 	if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
 		$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$attrib];
@@ -2638,11 +2638,30 @@ function get_user_setting($attrib,$user_name = "")
 					= $_SESSION["CACHED_PERMISSIONS"][$attrib];
 			else
 			{
+				if(!isset($group_member_attributes))
+					$group_member_attributes = array("member","roleOccupant","memberUid");
+
+				$query = "";
+
+				foreach($group_member_attributes as $attrib)
+				{
+					if(strtolower($attrib) == "memberuid")
+					{
+						if(isset($_SESSION["LOGIN_UID"]))
+							$query .= "(" . $attrib . "="
+								. ldap_escape($_SESSION["LOGIN_UID"],
+								null,LDAP_ESCAPE_FILTER) . ")";
+					}
+					else
+						$query .= "(" . $attrib . "="
+							. ldap_escape($_SESSION["LOGIN_BIND_DN"],
+							null,LDAP_ESCAPE_FILTER) . ")";
+				}
+
 				$search_resource
 					= @ldap_read($ldap_server->connection,
-					$attrib_value,
-					"member=" . ldap_escape($_SESSION["LOGIN_BIND_DN"],
-					null,LDAP_ESCAPE_FILTER),array("member"));
+					$attrib_value,"(|" . $query . ")",
+					$group_member_attributes);
 
 				if(is_resource($search_resource))
 				{
