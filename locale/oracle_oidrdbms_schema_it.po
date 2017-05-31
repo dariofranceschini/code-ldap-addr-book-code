@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:42+0100\n"
-"PO-Revision-Date: 2016-10-16 12:42+0100\n"
+"POT-Creation-Date: 2017-05-22 08:40+0100\n"
+"PO-Revision-Date: 2017-05-22 08:40+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -36,3 +36,31 @@ msgstr "Mappatura a Livello di Entrata per Oracle Database"
 #: ../schema/oracle/oidrdbms.php:27
 msgid "Oracle Database Subtree Level Mapping"
 msgstr "Mappatura un Livello di Sottostruttura per Oracle Database"
+
+#: ../schema/oracle/oidrdbms.php:34
+msgid "Database Name"
+msgstr "Nome del Banca Dati"
+
+#: ../schema/oracle/oidrdbms.php:35
+msgid "Server Host Name"
+msgstr "Nome Host del Server"
+
+#: ../schema/oracle/oidrdbms.php:36
+msgid "Oracle Home"
+msgstr "Oracle Casa"
+
+#: ../schema/oracle/oidrdbms.php:37
+msgid "SID"
+msgstr "SID"
+
+#: ../schema/oracle/oidrdbms.php:38
+msgid "Global Name"
+msgstr "Nome Globale"
+
+#: ../schema/oracle/oidrdbms.php:39
+msgid "Net Service Name"
+msgstr "Nome del Servizio di Rete"
+
+#: ../schema/oracle/oidrdbms.php:42
+msgid "Connect Descriptor"
+msgstr "Descrittore per la Connessione"
