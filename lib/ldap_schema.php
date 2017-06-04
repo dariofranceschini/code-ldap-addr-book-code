@@ -72,7 +72,7 @@ function &parse_ldap_schema_entry($value)
 		"auxiliary",
 		"indexed",		// AD specific
 		"system-only"		// AD specific
-);
+		);
 
 	// tokens that can have multiple values
 	$multiValue = array("must","may","sup");
