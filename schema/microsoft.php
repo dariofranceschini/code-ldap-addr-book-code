@@ -116,7 +116,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"nTFRSSettings",			"icon"=>"microsoft/frs_settings24.png",	"is_folder"=>true,"display_name"=>gettext("FRS Settings"),"parent_class"=>"applicationSettings"),
 			array("name"=>"packageRegistration",		"icon"=>"app.png",			"is_folder"=>false),
 			array("name"=>"physicalLocation",		"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"locality"),
-			array("name"=>"pKICertificateTemplate",		"icon"=>"microsoft/cert-template.png",	"is_folder"=>false,"display_name"=>gettext("Certificate Template")),
+			array("name"=>"pKICertificateTemplate",		"icon"=>"cert-config.png",		"is_folder"=>false,"display_name"=>gettext("Certificate Template")),
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png",	"is_folder"=>false,"display_name"=>gettext("Printer"),"can_create"=>true,"parent_class"=>"connectionPoint"),
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services"),"parent_class"=>"container"),
 			array("name"=>"server",				"icon"=>"server.png",			"is_folder"=>true,"display_name"=>gettext("Server")),
