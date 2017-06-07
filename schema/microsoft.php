@@ -7,6 +7,7 @@ class microsoft_schema extends ldap_schema
 	{
 		$this->attribute_schema = array(
 			array("name"=>"adminContextMenu",		"data_type"=>"text_list",	"display_name"=>gettext("Admin Context Menu Entries")),
+			array("name"=>"adminMultiSelectPropertyPages",	"data_type"=>"text_list",	"display_name"=>gettext("Admin Multi Select Property Pages")),
 			array("name"=>"adminPropertyPages",		"data_type"=>"text_list",	"display_name"=>gettext("Admin Property Pages")),
 			array("name"=>"attributeDisplayNames",		"data_type"=>"text_list",	"display_name"=>gettext("Attribute Display Names")),
 			array("name"=>"canUpgradeScript",		"data_type"=>"text_list",	"display_name"=>gettext("Package Upgrade Relationships")),
@@ -18,11 +19,15 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
 			array("name"=>"extendedAttributeInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Attribute Information")),
 			array("name"=>"extendedClassInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Class Information")),
+			array("name"=>"extraColumns",			"data_type"=>"text_list",	"display_name"=>gettext("Extra Columns")),
 			array("name"=>"groupType",			"data_type"=>"ad_group_type",	"display_name"=>gettext("Group Type/Scope")),
 			array("name"=>"info",				"data_type"=>"text_area",	"display_name"=>gettext("General Information")),
 			array("name"=>"managedBy",			"data_type"=>"dn",		"display_name"=>gettext("Managed By")),
 			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of")),
+			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To")),
 			array("name"=>"msiFileList",			"data_type"=>"text_list",	"display_name"=>gettext("Package Deployment Source List")),
+			array("name"=>"msWMI-ChangeDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Last Modification Date")),
+			array("name"=>"msWMI-CreationDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Creation Date")),
 			array("name"=>"printColor",			"data_type"=>"yes_no",		"display_name"=>gettext("Color Printing Supported")),
 			array("name"=>"printDuplexSupported",		"data_type"=>"yes_no",		"display_name"=>gettext("Double-Sided Printing Supported")),
 			array("name"=>"printMediaReady",		"data_type"=>"text_list",	"display_name"=>gettext("Paper Available")),
@@ -44,13 +49,6 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"whenCreated",			"data_type"=>"date_time",	"display_name"=>gettext("Creation Date")),
 			array("name"=>"whenChanged",			"data_type"=>"date_time",	"display_name"=>gettext("Last Modification Date")),
 			array("name"=>"wWWHomePage",			"data_type"=>"text",		"display_name"=>gettext("WWW Home Page")),
-
-			// Added for Windows Server 2003
-			array("name"=>"adminMultiSelectPropertyPages",	"data_type"=>"text_list",	"display_name"=>gettext("Admin Multi Select Property Pages")),
-			array("name"=>"extraColumns",			"data_type"=>"text_list",	"display_name"=>gettext("Extra Columns")),
-			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To")),
-			array("name"=>"msWMI-ChangeDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Last Modification Date")),
-			array("name"=>"msWMI-CreationDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Creation Date")),
 			);
 
 		// Object classes
