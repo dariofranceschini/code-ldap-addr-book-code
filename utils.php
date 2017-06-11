@@ -2987,7 +2987,7 @@ class ldap_entry_list
 		$this->ldap_entries = ldap_sort_entries(
 			$this->ldap_entries,
 			$this->sort_order == "sortableName"
-			? array("sn","givenName","ou","cn")
+			? array("sn","givenName","ou","cn","reqStart")
 			: array($this->sort_order),
 			LDAP_SORT_ASCENDING);
 	}
