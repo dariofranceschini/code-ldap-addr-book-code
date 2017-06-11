@@ -558,7 +558,7 @@ class ldap_entry_viewer
 				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
 
 				echo "<form method=\"POST\" action=\"update.php?dn="
-					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">";
+					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">\n";
 
 			$first_section=true;
 			foreach($this->section as $section)
