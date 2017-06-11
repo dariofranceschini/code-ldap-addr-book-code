@@ -74,7 +74,7 @@ if($ldap_server->log_on())
 
 	$create_list = array();
 	foreach($ldap_server->object_schema as $object_class)
-		if($ldap_server->get_object_schema_setting($object_class["name"],"class_type")=="structural")
+		if(in_array($ldap_server->get_object_schema_setting($object_class["name"],"class_type"),array("structural","type88")))
 			if($show_all_object_classes ||
 					(
 						// object must be marked as creatable (in general)

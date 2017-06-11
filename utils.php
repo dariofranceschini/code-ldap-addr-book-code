@@ -3973,7 +3973,7 @@ class ldap_server
 
 			if(in_array(strtolower($object_class["name"]),
 				$entry_object_class)
-				&& $object_data_found == false && $object_class["class_type"] == "structural")
+				&& $object_data_found == false && in_array($object_class["class_type"],array("structural","type88")))
 			{
 				$more_specific_class_exists = false;
 				if(isset($object_class["child_class"]))
@@ -5448,8 +5448,8 @@ function get_required_attribs($ldap_entry)
 			$required_attribs = array_merge($required_attribs_for_class,
 				$required_attribs);
 
-		if($ldap_server->get_object_schema_setting($object_class,"class_type")
-			== "structural")
+		if(in_array($ldap_server->get_object_schema_setting($object_class,"class_type"),
+			array("structural","type88")))
 		{
 			$rdn_attribs_for_class = explode(",",
 				$ldap_server->get_object_schema_setting($object_class,"rdn_attrib"));
