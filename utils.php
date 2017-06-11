@@ -900,7 +900,7 @@ class ldap_attribute
 
 	function get_value()
 	{
-		global $openldap_overlay_module,$openldap_backend_module;
+		global $openldap_overlay_module,$openldap_backend_module,$ldap_server,$short_date_time_format;
 
 		if($this->attribute == "sortableName")
 		{
@@ -924,7 +924,30 @@ class ldap_attribute
 			if(trim($attrib_value) == "")
 			{
 				$dn_elements=ldap_explode_dn2($this->ldap_entry["dn"]);
-				$attrib_value = $dn_elements[0]["value"];
+
+				$data_type = $ldap_server->get_attribute_schema_setting(
+					$dn_elements[0]["attrib"],"data_type","text");
+
+				switch($data_type)
+				{
+					case "date_time":
+						if(empty($short_date_time_format))
+							$short_date_time_format="%d %b %Y %H:%M:%S";
+
+						$date = mktime(
+							substr($dn_elements[0]["value"],8,2),	// hour
+							substr($dn_elements[0]["value"],10,2),	// minute
+							substr($dn_elements[0]["value"],12,2),	// second
+							substr($dn_elements[0]["value"],4,2),	// month
+							substr($dn_elements[0]["value"],6,2),	// day
+							substr($dn_elements[0]["value"],0,4)	// year
+							);
+
+						$attrib_value = strftime($short_date_time_format,$date);
+						break;
+					default:
+						$attrib_value = $dn_elements[0]["value"];
+				}
 			}
 
 			// Append OpenLDAP database naming context
