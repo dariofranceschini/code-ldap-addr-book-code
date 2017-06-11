@@ -5506,6 +5506,8 @@ function add_auxiliary_layouts($ldap_entry,&$entry_viewer_layout)
 {
 	global $ldap_server,$append_auxiliary_layouts;
 
+	$layout_attributes = get_layout_attributes($entry_viewer_layout);
+
 	if(!isset($append_auxiliary_layouts) || $append_auxiliary_layouts)
 	{
 		unset($ldap_entry["objectclass"]["count"]);
@@ -5514,9 +5516,34 @@ function add_auxiliary_layouts($ldap_entry,&$entry_viewer_layout)
 		{
 			$aux_layout = $ldap_server->get_display_layout($object_class);
 
+			// remove duplicate attributes already present in the display layout
+			foreach($aux_layout as $aux_section_id=>$aux_section)
+				foreach($aux_section["attributes"] as $attribute_id=>$attribute)
+					if(in_array($attribute[0],$layout_attributes))
+						unset($aux_layout[$aux_section_id]["attributes"][$attribute_id]);
+
 			$aux_layout[0]["new_row"]=true;
 			$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
+			$layout_attributes = get_layout_attributes($entry_viewer_layout);
 		}
 	}
+}
+
+/** Return array of attribute class names used in the specified display layout
+
+    @param array $layout
+	Entry viewer layout for which attribute class names are to be returned
+    @return
+	Array of attribute class names
+*/
+
+function get_layout_attributes($layout)
+{
+	$layout_attributes = array();
+	foreach($layout as $aux_section)
+		foreach($aux_section["attributes"] as $attribute)
+			$layout_attributes[]=$attribute[0];
+
+	return $layout_attributes;
 }
 ?>
