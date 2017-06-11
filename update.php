@@ -34,6 +34,8 @@ if($ldap_server->log_on())
 	{
 		$create_failed = false;
 
+		$change_list = "";
+
 		// Add the RDN attribute to $dn (which refers to the container)
 		// when creating a new entry.
 		if(!empty($_POST["create"]))
@@ -107,6 +109,7 @@ if($ldap_server->log_on())
 						if(!empty($required_attribs[0])
 								&& isset($_POST["ldap_attribute_"
 								. $attrib]))
+
 							$entry[$attrib] = $_POST["ldap_attribute_"
 								. $attrib];
 
@@ -124,7 +127,13 @@ if($ldap_server->log_on())
 
 					$result = @ldap_add($ldap_server->connection,$dn,$entry);
 
-					if(!$result)
+					if($result)
+						$change_list = "  <li>"
+							. sprintf(gettext("New '%s' record created: '%s'"),
+							htmlentities($_POST["create"],ENT_COMPAT,"UTF-8"),
+							htmlentities($name_of_object_created,ENT_COMPAT,"UTF-8"))
+							. "</li>\n";
+					else
 					{
 						$create_failed = true;
 						show_error_message(gettext("Unable to create LDAP record: ")
@@ -147,16 +156,8 @@ if($ldap_server->log_on())
 			{
 				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
 
-				if(empty($_POST["create"]))
-					$change_list = "";
-				else
+				if(!empty($_POST["create"]))
 				{
-					$change_list = "  <li>"
-						. sprintf(gettext("New '%s' record created: '%s'"),
-						htmlentities($_POST["create"],ENT_COMPAT,"UTF-8"),
-						htmlentities($name_of_object_created,ENT_COMPAT,"UTF-8"))
-						. "</li>\n";
-
 					$ldap_server->call_schema_function("after_create_"
 						. $ldap_server->get_object_class($entry[0]),$entry[0]);
 				}
