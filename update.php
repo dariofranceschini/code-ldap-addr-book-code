@@ -104,14 +104,22 @@ if($ldap_server->log_on())
 					else
 						$required_attribs = get_required_attribs($entry);
 
+					$create_attrib_change_list = "";
 					// TODO: guard against nasties in attribute value
 					foreach($required_attribs as $attrib)
 						if(!empty($required_attribs[0])
 								&& isset($_POST["ldap_attribute_"
 								. $attrib]))
-
+					{
 							$entry[$attrib] = $_POST["ldap_attribute_"
 								. $attrib];
+
+							$create_attrib_change_list .= "  <li>"
+								. sprintf(gettext("Set attribute '%s' to '%s' %s(required attribute)%s"),
+								$attrib,htmlentities($_POST["ldap_attribute_" . $attrib],
+								ENT_COMPAT,"UTF-8"),"<span style=\"font-style:italic\">","</span>")
+								. "</li>\n";
+					}
 
 					// Allow schema function to see/modify the DN to be created
 					$entry["dn"] = $dn;
@@ -128,11 +136,16 @@ if($ldap_server->log_on())
 					$result = @ldap_add($ldap_server->connection,$dn,$entry);
 
 					if($result)
+					{
 						$change_list = "  <li>"
 							. sprintf(gettext("New '%s' record created: '%s'"),
 							htmlentities($_POST["create"],ENT_COMPAT,"UTF-8"),
 							htmlentities($name_of_object_created,ENT_COMPAT,"UTF-8"))
 							. "</li>\n";
+
+						if(!empty($create_attrib_change_list))
+							$change_list.=  $create_attrib_change_list;
+					}
 					else
 					{
 						$create_failed = true;
