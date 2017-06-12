@@ -144,7 +144,7 @@ if($ldap_server->log_on())
 							. "</li>\n";
 
 						if(!empty($create_attrib_change_list))
-							$change_list.=  $create_attrib_change_list;
+							$change_list .= $create_attrib_change_list;
 					}
 					else
 					{
