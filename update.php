@@ -65,12 +65,12 @@ if($ldap_server->log_on())
 			$dn = $rdn . (empty($dn) ? "" : "," . $dn);
 		}
 
-		$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
-
 		if(!empty($_POST["create"]))
 		{
 		        if(!get_user_setting("allow_create"))
                 		show_error_message(gettext("You do not have permission to create new records."));
+
+			$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
 
 			if($search_resource)
 			{
