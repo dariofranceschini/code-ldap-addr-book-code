@@ -1691,6 +1691,7 @@ The following settings can be used in object class definitions:
 <tr><td>can_create</td><td>false</td><td>Whether objects of this class can be created frmo within the address book</td></tr>
 <tr><td>rdn_attrib</td><td>cn</td><td>Attribute which should be used as the RDN</td></tr>
 <tr><td>required_attribs</td><td>(none)</td><td>Comma-separated list of attributes which are not permitted to be empty</td></tr>
+<tr><td>extensions</td><td>(none)</td><td>Comma-separated list of auxiliary classes which should be added to all new objects of this class</td></tr>
 </table>
 <p>
 The attribute used in the object's name (the RDN attribute) must always have a value
@@ -1741,19 +1742,30 @@ for logging into the LDAP directory or an LDAP-enabled applications.
 <p>
 Display layouts can be defined for auxiliary classes in the same way as
 "normal" object classes. Adding the following setting to the configuration file
-(<code>config.php</code>) will cause the LDAP Address Book to show auxiliary class
-layouts automatically whenever it displays an object that uses them:
+(<code>config.php</code>) will cause the LDAP Address Book to include the display
+layout of each auxiliary class whenever it displays an object that uses them:
 </p>
 <p>
 <code>$append_auxiliary_layouts = true;</code>
 </p>
 <p>
-Auxiliary class layouts are shown after the object's main display layout. A
-warning message will be displayed if LDAP Address Book encounters an auxiliary
-class that does not have any display layout defined.
+You can use the <code>extensions</code> schema setting to add auxiliary class
+automatically whenever new objects are created. As an example, adding the following
+settings to the configuration file will enable users to create <code>device</code>
+objects and add IP addresses for each device.
 </p>
 <p>
-Current versions of the LDAP Address Book cannot add or remove auxiliary classes
+<code>$ldap_server-&gt;modify_object_schema("device","can_create",true);<br>
+$ldap_server-&gt;modify_object_schema("device","extensions","ipHost");</code>
+</p>
+<p>
+When viewing these device records, the top part of the display layout
+(with heading "Device Information") is defined for the <code>device</code>,
+whilst the bottom part of the display layout (with heading IP Address Information)
+comes from the <code>ipHost</code> auxiliary class.)
+</p>
+<p>
+Current versions of the LDAP Address Book cannot remove auxiliary classes
 from a record.
 </p>
 <hr>

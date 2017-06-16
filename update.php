@@ -43,6 +43,20 @@ if($ldap_server->log_on())
 			// TODO: guard against nasties in the object class list
 			$entry["objectclass"] = explode(",",$_POST["create"]);
 
+			// Add schema-specified auxiliary classes
+			$auxiliary_classes_from_schema
+				= $ldap_server->get_object_schema_setting($entry["objectclass"][0],"extensions");
+
+			if(!empty($auxiliary_classes_from_schema))
+				$entry["objectclass"] = array_merge($entry["objectclass"],
+					explode(",",$auxiliary_classes_from_schema));
+
+			// Add user-specified auxiliary classes
+			// TODO: guard against nasties in the object class list
+			if(isset($_POST["add_aux_class"]) && get_user_setting("allow_extend"))
+				$entry["objectclass"] = array_merge($entry["objectclass"],
+					explode(",",$_POST["add_aux_class"]));
+
 			fix_missing_object_classes($ldap_server,$entry);
 
 			/** @todo take into account RDN attributes of all object classes

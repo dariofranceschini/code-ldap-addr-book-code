@@ -461,6 +461,13 @@ class ldap_entry_viewer
 		$entry_viewer_layout = $ldap_server->get_display_layout(
 			$ldap_server->get_object_class($ldap_entry[0]));
 
+		// include newly-added auxiliary classes in the display layout
+		// TODO: guard against nasties in add_aux_class
+		if(isset($_GET["add_aux_class"]))
+			$ldap_entry[0]["objectclass"] = array_merge(
+				$ldap_entry[0]["objectclass"],
+				explode(",",$_GET["add_aux_class"]));
+
 		add_auxiliary_layouts($ldap_entry[0],$entry_viewer_layout);
 
 		$this->required_attribs = get_required_attribs($ldap_entry[0]);
@@ -556,9 +563,14 @@ class ldap_entry_viewer
 			if($this->edit && (get_user_setting("allow_edit")
 				|| (get_user_setting("allow_edit_self")
 				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
-
+			{
 				echo "<form method=\"POST\" action=\"update.php?dn="
 					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">\n";
+				if(isset($_GET["add_aux_class"]))
+					echo "<input type=\"hidden\" name=\"add_aux_class\" value=\""
+						. htmlentities($_GET["add_aux_class"],
+						ENT_COMPAT,"UTF-8") . "\">\n";
+			}
 
 			$first_section=true;
 			foreach($this->section as $section)

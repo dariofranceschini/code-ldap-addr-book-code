@@ -47,6 +47,17 @@ if(prereq_components_ok())
 						)
 					);
 
+				$aux_class_list = $ldap_server->get_object_schema_setting($object_class,"extensions");
+
+				if(!empty($aux_class_list))
+				{
+					if(get_user_setting("allow_extend") && !empty($_GET["add_aux_class"]))
+						$_GET["add_aux_class"] = array_values(array_unique(array_merge($_GET["add_aux_class"],
+							explode(",",$aux_class_list))));
+					else
+						$_GET["add_aux_class"] = $aux_class_list;
+				}
+
 				$ldap_server->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
 
 				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
