@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 08:29+0100\n"
-"PO-Revision-Date: 2017-05-23 08:29+0100\n"
+"POT-Creation-Date: 2017-06-17 11:41+0100\n"
+"PO-Revision-Date: 2017-06-17 11:41+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -21,39 +21,39 @@ msgstr ""
 msgid "Alternative Servers"
 msgstr "Serveurs Alternatifs"
 
-#: ../schema/openldap/system.php:11 ../schema/openldap/system.php:48
+#: ../schema/openldap/system.php:11 ../schema/openldap/system.php:49
 msgid "Configuration Context"
 msgstr "Contexte de Configuration"
 
-#: ../schema/openldap/system.php:12 ../schema/openldap/system.php:49
+#: ../schema/openldap/system.php:12 ../schema/openldap/system.php:50
 msgid "Monitoring Context"
 msgstr "Contexte de la Surveillance"
 
-#: ../schema/openldap/system.php:13 ../schema/openldap/system.php:47
+#: ../schema/openldap/system.php:13 ../schema/openldap/system.php:48
 msgid "Naming Contexts"
 msgstr "Contextes des Nommage"
 
-#: ../schema/openldap/system.php:14 ../schema/openldap/system.php:50
+#: ../schema/openldap/system.php:14 ../schema/openldap/system.php:51
 msgid "Subschema Subentry"
 msgstr "Entrée Subordonnée pour le Schéma Subordonné"
 
-#: ../schema/openldap/system.php:15 ../schema/openldap/system.php:53
+#: ../schema/openldap/system.php:15 ../schema/openldap/system.php:54
 msgid "Supported Controls"
 msgstr "Commandes Prises en Charge"
 
-#: ../schema/openldap/system.php:16 ../schema/openldap/system.php:68
+#: ../schema/openldap/system.php:16 ../schema/openldap/system.php:69
 msgid "Supported Extended Operations"
 msgstr "Opérations Étendues qui sont Supportées"
 
-#: ../schema/openldap/system.php:17 ../schema/openldap/system.php:58
+#: ../schema/openldap/system.php:17 ../schema/openldap/system.php:59
 msgid "Supported Features"
 msgstr "Fonctionnalités Prises en Charge"
 
-#: ../schema/openldap/system.php:18 ../schema/openldap/system.php:46
+#: ../schema/openldap/system.php:18 ../schema/openldap/system.php:47
 msgid "Supported LDAP Versions"
 msgstr "Versions Prises en Charge LDAP"
 
-#: ../schema/openldap/system.php:19 ../schema/openldap/system.php:63
+#: ../schema/openldap/system.php:19 ../schema/openldap/system.php:64
 msgid "Supported SASL Mechanisms"
 msgstr "Mécanismes SASL Pris en Charge"
 
@@ -69,11 +69,11 @@ msgstr "Règles de Contenu pour DIT"
 msgid "LDAP Syntaxes"
 msgstr "Syntaxes LDAP"
 
-#: ../schema/openldap/system.php:25 ../schema/openldap/system.php:91
+#: ../schema/openldap/system.php:25 ../schema/openldap/system.php:101
 msgid "Matching Rules"
 msgstr "Règles de Correspondance"
 
-#: ../schema/openldap/system.php:26 ../schema/openldap/system.php:96
+#: ../schema/openldap/system.php:26 ../schema/openldap/system.php:106
 msgid "Matching Rule Use"
 msgstr "Utilisation des Règles de Correspondance"
 
@@ -101,22 +101,34 @@ msgstr "Dernière Modification à"
 msgid "OpenLDAP Root DSE"
 msgstr "RootDSE OpenLDAP"
 
-#: ../schema/openldap/system.php:39
+#: ../schema/openldap/system.php:39 ../schema/openldap/system.php:77
+msgid "Subentry"
+msgstr "Entrée Subordonnée"
+
+#: ../schema/openldap/system.php:40
 msgid "Schema"
 msgstr "Schéma"
 
-#: ../schema/openldap/system.php:44
+#: ../schema/openldap/system.php:45
 msgid "OpenLDAP Server"
 msgstr "Serveur OpenLDAP"
 
-#: ../schema/openldap/system.php:76
+#: ../schema/openldap/system.php:79
+msgid "Object Name"
+msgstr "Nom de l'Objet"
+
+#: ../schema/openldap/system.php:80
+msgid "Subtree Specification"
+msgstr "Spécification de la Sous-Arborescence"
+
+#: ../schema/openldap/system.php:86
 msgid "Object Class Definitions"
 msgstr "Définitions des Classes d'Objets"
 
-#: ../schema/openldap/system.php:81
+#: ../schema/openldap/system.php:91
 msgid "Attribute Type Definitions"
 msgstr "Définitions des Types d'Attributs"
 
-#: ../schema/openldap/system.php:86
+#: ../schema/openldap/system.php:96
 msgid "LDAP Syntax Definitions"
 msgstr "Définitions de LDAP Syntaxe"
