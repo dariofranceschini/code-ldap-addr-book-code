@@ -37,7 +37,7 @@ class openldap_system_schema extends ldap_schema
 		$this->object_schema = array(
 			array("name"=>"OpenLDAProotDSE",		"icon"=>"org.png",		"is_folder"=>true,"display_name"=>gettext("OpenLDAP Root DSE"),"alias_names"=>"LDAProotDSE"),
 			array("name"=>"subentry",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Subentry"),"required_attribs"=>"subtreeSpecification"),
-			array("name"=>"subschema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema")),
+			array("name"=>"subschema",			"icon"=>"schema.png",		"class_type"=>"auxiliary","display_name"=>gettext("Schema"))
 			);
 
 		// Display layouts
@@ -82,6 +82,7 @@ class openldap_system_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class display layouts
 		$ldap_server->add_display_layout("subschema",array(
 			array("section_name"=>gettext("Object Class Definitions"),"new_row"=>true,
 				"attributes"=>array(
