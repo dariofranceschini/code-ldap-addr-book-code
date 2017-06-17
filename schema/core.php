@@ -99,6 +99,7 @@ class core_schema extends ldap_schema
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
 			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
+			array("name"=>"top",				"icon"=>"generic24.png",	"class_type"=>"abstract","required_attribs"=>"objectClass"),
 
 			// LDAP PKI (RFC 4523)
 			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false,"display_name"=>gettext("Certificate Revocation List Distribution Point")),
