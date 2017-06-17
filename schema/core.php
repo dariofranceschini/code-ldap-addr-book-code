@@ -294,7 +294,7 @@ class core_schema extends ldap_schema
 					array("cn",				gettext("Device Name"),		"device.png"),
 					array("description",			gettext("Description"),		"description.png"),
 					array("serialNumber",			gettext("Serial Number"),	"generic24.png"),
-					array("owner",				gettext("Owner"),		"generic24.png"),
+					array("owner",				gettext("Owner"),		"alias.png"),
 					array("ou",				gettext("Department"),		"generic24.png"),
 					array("o",				gettext("Organization"),	"generic24.png"),
 					array("l",				gettext("Location"),		"generic24.png"),
