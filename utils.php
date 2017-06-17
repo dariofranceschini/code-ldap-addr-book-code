@@ -635,6 +635,11 @@ class ldap_entry_viewer
 					. urlencode($dn)
 					. "\"><button>" . gettext("Delete") . "</button></a>\n";
 
+			if(get_user_setting("allow_extend") && get_user_setting("allow_edit") && !$this->edit)
+				echo "<a href=\"extend.php?dn="
+					. urlencode($dn)
+					. "\"><button>" . gettext("Extend Record") . "</button></a>\n";
+
 			if(get_user_setting("allow_export") && !$this->edit)
 				echo "<a href=\"info.php?vcard=1&dn="
 					. urlencode($dn)

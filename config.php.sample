@@ -157,6 +157,7 @@ $ldap_server->add_user("admin",
 		"allow_create"=>true,
 		"allow_edit"=>true,
 		"allow_delete"=>true,
+		"allow_extend"=>true,
 		"allow_export"=>true,
 		"allow_export_bulk"=>true,
 		"allow_system_admin"=>true

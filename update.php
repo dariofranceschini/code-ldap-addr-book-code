@@ -78,6 +78,80 @@ if($ldap_server->log_on())
 			}
 			$dn = $rdn . (empty($dn) ? "" : "," . $dn);
 		}
+		else
+			// Add auxiliary classes to existing object
+
+			if(isset($_POST["add_aux_class"]) && get_user_setting("allow_extend"))
+			{
+				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+
+				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+
+				// TODO: guard against nasties!
+				$add_aux_class = explode(",",$_POST["add_aux_class"]);
+
+				if(isset($entry[0]["objectclass"]["count"]))
+					unset($entry[0]["objectclass"]["count"]);
+
+				$updates["objectclass"] = array_values(array_unique(array_merge(
+					$entry[0]["objectclass"],$add_aux_class)));
+
+				$required_attribs = get_required_attribs($updates);
+
+				// TODO: guard against nasties in each attribute values
+				// TODO: canonicalise attrib names to handle aliases (e.g. uid vs. userid)
+				$add_aux_change_list = "";
+				foreach($required_attribs as $attrib)
+				{
+					if(!empty($required_attribs[0])
+						&& isset($_POST["ldap_attribute_"
+						. $attrib]) && !isset($entry[0][$attrib]))
+					{
+						$updates[$attrib] = $_POST["ldap_attribute_"
+							. $attrib];
+						$add_aux_change_list .= "  <li>"
+							. sprintf(gettext("Set attribute '%s' to '%s' %s(required attribute)%s"),
+							$attrib,htmlentities($updates[$attrib],ENT_COMPAT,"UTF-8"),
+							"<span style=\"font-style:italic\">","</span>") . "</li>\n";
+					}
+				}
+
+				$result = @ldap_modify($ldap_server->connection,$dn,$updates);
+
+				$aux_class_list = "";
+				$aux_classes_listed = 0;
+
+				foreach($add_aux_class as $aux)
+				{
+					if($aux_classes_listed > 0)
+					{
+						if($aux_classes_listed == count($add_aux_class)-1)
+							$aux_class_list .= " " . gettext("and") . " ";
+						else
+							$aux_class_list .= ", ";
+					}
+
+					$aux_class_list .= "'" . $aux . "'";
+					$aux_classes_listed++;
+				}
+
+				if($result)
+				{
+					$change_list .= "  <li>"
+						. sprintf(ngettext("Added auxiliary class %s to the record",
+						"Added auxiliary classes %s to the record",count($add_aux_class)),
+						htmlentities($aux_class_list,ENT_COMPAT,"UTF-8")) . "</li>\n";
+
+					if(!empty($add_aux_change_list))
+						$change_list .= $add_aux_change_list;
+				}
+				else
+					$change_list .= "  <li>"
+						. sprintf(ngettext("Unable to add auxiliary class %s:",
+						"Unable to add auxiliary classes %s:",count($add_aux_class)),
+						htmlentities($aux_class_list,ENT_COMPAT,"UTF-8"))
+						. " " . ldap_error($ldap_server->connection) . "</li>\n";
+			}
 
 		if(!empty($_POST["create"]))
 		{

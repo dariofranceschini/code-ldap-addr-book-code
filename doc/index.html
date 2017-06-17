@@ -590,6 +590,11 @@ will also need to be granted within the back-end directory.
 <tr><td><code>allow_view</code></td><td>Allows the user to click on a record
     to see full details</td></tr>
 
+<tr><td><code>allow_extend</code></td><td>Allows the user to extend
+    records by adding auxiliary classes. They will also need to be granted
+    <code>allow_edit</code> in order to populate the newly-added
+    attributes and save their changes.</td></tr>
+
 <tr><td><code>allow_export</code></td><td>Allows the user to save/export
     (individual) records as vCard electronic business cards.</td></tr>
 
@@ -1763,6 +1768,10 @@ When viewing these device records, the top part of the display layout
 (with heading "Device Information") is defined for the <code>device</code>,
 whilst the bottom part of the display layout (with heading IP Address Information)
 comes from the <code>ipHost</code> auxiliary class.)
+</p>
+<p>
+Granting <code>allow_extend</code> permission will allow users to add other
+auxiliary classes to records.
 </p>
 <p>
 Current versions of the LDAP Address Book cannot remove auxiliary classes
