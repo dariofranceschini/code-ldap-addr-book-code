@@ -15,7 +15,7 @@ class novell_sas_schema extends ldap_schema
 			array("name"=>"sASSecurity",			"icon"=>"novell/security-container.png","is_folder"=>true,"display_name"=>gettext("Security Container")),
 			array("name"=>"sASLoginMethodContainer",	"icon"=>"novell/login-method-container.png",	"is_folder"=>true,"display_name"=>gettext("Login Method Container")),
 			array("name"=>"sasPostLoginMethodContainer",	"icon"=>"novell/login-method-container.png",	"is_folder"=>true,"display_name"=>gettext("Post-Login Method Container")),
-			array("name"=>"sASNMASLoginMethod",		"icon"=>"novell/login-method.png",	"is_folder"=>false,"display_name"=>gettext("Login Method")),
+			array("name"=>"sASNMASLoginMethod",		"icon"=>"password.png",			"is_folder"=>false,"display_name"=>gettext("Login Method")),
 			);
 
 		// Display layouts
