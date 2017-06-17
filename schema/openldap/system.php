@@ -35,7 +35,7 @@ class openldap_system_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"OpenLDAProotDSE",		"icon"=>"org.png",			"is_folder"=>true,"display_name"=>gettext("OpenLDAP Root DSE"),"alias_names"=>"LDAProotDSE"),
+			array("name"=>"OpenLDAProotDSE",		"icon"=>"org.png",		"is_folder"=>true,"display_name"=>gettext("OpenLDAP Root DSE"),"alias_names"=>"LDAProotDSE"),
 			array("name"=>"subschema",			"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("Schema")),
 			);
 
