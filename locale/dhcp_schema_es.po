@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-30 12:00+0100\n"
-"PO-Revision-Date: 2016-07-30 12:00+0100\n"
+"POT-Creation-Date: 2017-06-18 12:22+0100\n"
+"PO-Revision-Date: 2017-06-18 12:22+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -41,159 +41,165 @@ msgstr "Lista de opciones DHCP"
 msgid "DHCP TSIG Key DN"
 msgstr "DN del clave DHCP TSIG"
 
-#: ../schema/dhcp.php:19 ../schema/dhcp.php:65
-msgid "DHCP Failover Peer"
-msgstr "DHCP pares de conmutación por error"
+#: ../schema/dhcp.php:19
+msgid "DHCP Class"
+msgstr "Clase DHCP"
 
 #: ../schema/dhcp.php:20
 msgid "DHCP DNS Zone"
 msgstr "Zona DNS DHCP"
 
-#: ../schema/dhcp.php:21
-msgid "DHCP Class"
-msgstr "Clase DHCP"
+#: ../schema/dhcp.php:21 ../schema/dhcp.php:66
+msgid "DHCP Failover Peer"
+msgstr "DHCP pares de conmutación por error"
 
 #: ../schema/dhcp.php:22
-msgid "DHCP Service"
-msgstr "Servicio DHCP"
+msgid "DHCP Host/IP Address"
+msgstr "Anfitrión DHCP/Dirección IP"
 
 #: ../schema/dhcp.php:23
 msgid "DHCP Locator"
 msgstr "Localizador DHCP"
 
-#: ../schema/dhcp.php:24
-msgid "DHCP Host/IP Address"
-msgstr "Anfitrión DHCP/Dirección IP"
+#: ../schema/dhcp.php:24 ../schema/dhcp.php:39 ../schema/dhcp.php:136
+#: ../schema/dhcp.php:184 ../schema/dhcp.php:187
+msgid "DHCP Options"
+msgstr "Opciones de DHCP"
 
 #: ../schema/dhcp.php:25
 msgid "DHCP Server"
 msgstr "Servidor DHCP"
 
 #: ../schema/dhcp.php:26
-msgid "DHCP Subnet"
-msgstr "Subred DHCP"
+msgid "DHCP Service"
+msgstr "Servicio DHCP"
 
 #: ../schema/dhcp.php:27
 msgid "DHCP Shared Network"
 msgstr "DHCP de red compartida"
 
 #: ../schema/dhcp.php:28
+msgid "DHCP Subnet"
+msgstr "Subred DHCP"
+
+#: ../schema/dhcp.php:29
 msgid "DHCP TSIG Key"
 msgstr "Clave DHCP TSIG"
 
-#: ../schema/dhcp.php:33
+#: ../schema/dhcp.php:34
 msgid "DHCP Class Configuration"
 msgstr "Configuración de Clase DHCP"
 
-#: ../schema/dhcp.php:38 ../schema/dhcp.php:135
-msgid "DHCP Options"
-msgstr "Opciones de DHCP"
-
-#: ../schema/dhcp.php:43 ../schema/dhcp.php:57 ../schema/dhcp.php:86
-#: ../schema/dhcp.php:140 ../schema/dhcp.php:158 ../schema/dhcp.php:173
+#: ../schema/dhcp.php:44 ../schema/dhcp.php:58 ../schema/dhcp.php:87
+#: ../schema/dhcp.php:141 ../schema/dhcp.php:159 ../schema/dhcp.php:174
+#: ../schema/dhcp.php:188
 msgid "Comments"
 msgstr "Comentarios"
 
-#: ../schema/dhcp.php:51
+#: ../schema/dhcp.php:52
 msgid "DHCP Dynamic DNS Update Settings"
 msgstr "Configuración de Actualización de DNS Dinámico para DHCP"
 
-#: ../schema/dhcp.php:53
+#: ../schema/dhcp.php:54
 msgid "DNS Server"
 msgstr "Servidor DNS"
 
-#: ../schema/dhcp.php:54
+#: ../schema/dhcp.php:55
 msgid "TSIG Key"
 msgstr "Clave TSIG"
 
-#: ../schema/dhcp.php:67
+#: ../schema/dhcp.php:68
 msgid "Load Balance Time (s)"
 msgstr "Tiempo de Carga Equilibrio (s)"
 
-#: ../schema/dhcp.php:68
+#: ../schema/dhcp.php:69
 msgid "Split"
 msgstr "División"
 
-#: ../schema/dhcp.php:69
+#: ../schema/dhcp.php:70
 msgid "Maximum Client Lead Time (s)"
 msgstr "Cliente Máxima Tiempo de Entrega (s)"
 
-#: ../schema/dhcp.php:70
+#: ../schema/dhcp.php:71
 msgid "Response Delay (s)"
 msgstr "Retardo de Respuesta (s)"
 
-#: ../schema/dhcp.php:71
+#: ../schema/dhcp.php:72
 msgid "Unacknowledged Updates"
 msgstr "Actualizaciones sin Acuse de Recibo"
 
-#: ../schema/dhcp.php:74
+#: ../schema/dhcp.php:75
 msgid "Primary"
 msgstr "Primario"
 
-#: ../schema/dhcp.php:76 ../schema/dhcp.php:82
+#: ../schema/dhcp.php:77 ../schema/dhcp.php:83
 msgid "Server"
 msgstr "Servidor"
 
-#: ../schema/dhcp.php:77 ../schema/dhcp.php:83
+#: ../schema/dhcp.php:78 ../schema/dhcp.php:84
 msgid "Port"
 msgstr "Portilla"
 
-#: ../schema/dhcp.php:80
+#: ../schema/dhcp.php:81
 msgid "Secondary"
 msgstr "Secundario"
 
-#: ../schema/dhcp.php:94
+#: ../schema/dhcp.php:95
 msgid "Host Information"
 msgstr "Información de Host"
 
-#: ../schema/dhcp.php:96
+#: ../schema/dhcp.php:97
 msgid "Hardware Address"
 msgstr "Dirección de Hardware"
 
-#: ../schema/dhcp.php:99 ../schema/dhcp.php:122 ../schema/dhcp.php:153
+#: ../schema/dhcp.php:100 ../schema/dhcp.php:123 ../schema/dhcp.php:154
 msgid "DHCP Server Configuration"
 msgstr "Configuración del Servidor DHCP"
 
-#: ../schema/dhcp.php:107
+#: ../schema/dhcp.php:108
 msgid "DHCP Object Locations"
 msgstr "Ubicaciones de los Objetos DHCP"
 
-#: ../schema/dhcp.php:109
+#: ../schema/dhcp.php:110
 msgid "Server Objects"
 msgstr "Objetos de Servidor"
 
-#: ../schema/dhcp.php:110
+#: ../schema/dhcp.php:111
 msgid "Service Objects"
 msgstr "Objetos de Servicios"
 
-#: ../schema/dhcp.php:118
+#: ../schema/dhcp.php:119
 msgid "DHCP Locator Object"
 msgstr "Objeto para Localizador para DHCP"
 
-#: ../schema/dhcp.php:119
+#: ../schema/dhcp.php:120
 msgid "DHCP Service Object"
 msgstr "Objeto del Servicio DHCP"
 
-#: ../schema/dhcp.php:130
+#: ../schema/dhcp.php:131
 msgid "Shared Network Configuration"
 msgstr "Configuración de Red Compartida"
 
-#: ../schema/dhcp.php:148
+#: ../schema/dhcp.php:149
 msgid "Subnet Information"
 msgstr "Información de Subred"
 
-#: ../schema/dhcp.php:150
+#: ../schema/dhcp.php:151
 msgid "Netmask"
 msgstr "Máscara de Red"
 
-#: ../schema/dhcp.php:166
+#: ../schema/dhcp.php:167
 msgid "DHCP Transaction Signature (TSIG) Key"
 msgstr "Firma Transacción (TSIG) Clave para DHCP"
 
-#: ../schema/dhcp.php:169
+#: ../schema/dhcp.php:170
 msgid "Algorithm"
 msgstr "Algoritmo"
 
-#: ../schema/dhcp.php:170
+#: ../schema/dhcp.php:171
 msgid "Secret"
 msgstr "Secreto"
+
+#: ../schema/dhcp.php:186
+msgid "Object Name"
+msgstr "Nombre del Objeto"

@@ -178,6 +178,18 @@ class dhcp_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class display layouts
+
+		$ldap_server->add_display_layout("dhcpOptions",array(
+			array("section_name"=>gettext("DHCP Options"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),			"generic24.png"),
+					array("dhcpOption",			gettext("DHCP Options"),		"dhcp/dhcp-options.png"),
+					array("dhcpComments",			gettext("Comments"),			"description.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
