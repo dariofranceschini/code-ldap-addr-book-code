@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 10:30+0100\n"
-"PO-Revision-Date: 2017-06-18 10:30+0100\n"
+"POT-Creation-Date: 2017-06-18 10:54+0100\n"
+"PO-Revision-Date: 2017-06-18 10:54+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -33,7 +33,7 @@ msgstr "Prefisso Internazionale"
 msgid "Common Name/Full Name"
 msgstr "Nome Comune/Nome e Cognome"
 
-#: ../schema/core.php:21 ../schema/core.php:92
+#: ../schema/core.php:21 ../schema/core.php:92 ../schema/core.php:328
 msgid "Domain Component Name"
 msgstr "Nome del Componente di Dominio"
 
@@ -87,7 +87,7 @@ msgstr "Numero ISDN"
 msgid "Locality (e.g. Town/City)"
 msgstr "Località (ad esempio Località / Città)"
 
-#: ../schema/core.php:34
+#: ../schema/core.php:34 ../schema/core.php:344
 msgid "URI (with Optional Label)"
 msgstr "URI (con Opzionale Cartellino)"
 
@@ -188,7 +188,7 @@ msgstr "Numero di Telex"
 msgid "Job Title"
 msgstr "Titolo di Lavoro"
 
-#: ../schema/core.php:59
+#: ../schema/core.php:59 ../schema/core.php:336 ../schema/core.php:338
 msgid "User ID"
 msgstr "ID Utente"
 
@@ -216,11 +216,11 @@ msgstr "Elenco delle Autorità Certificato Revocato"
 msgid "Certification Authority Certificate"
 msgstr "Certificato d'Autorità di Certificazione"
 
-#: ../schema/core.php:70
+#: ../schema/core.php:70 ../schema/core.php:365
 msgid "Certificate Revocation List"
 msgstr "Elenco dei Certificati Revocati"
 
-#: ../schema/core.php:71
+#: ../schema/core.php:71 ../schema/core.php:363
 msgid "Cross Certificate Pair"
 msgstr "Coppia di Certificati Incrociati"
 
@@ -240,7 +240,7 @@ msgstr "Pseudonimo"
 msgid "Supported Algorithms"
 msgstr "Gli Algoritmi che sono Supportati"
 
-#: ../schema/core.php:76 ../schema/core.php:114
+#: ../schema/core.php:76 ../schema/core.php:114 ../schema/core.php:371
 msgid "User Certificate"
 msgstr "Certificato per l'Utente"
 
@@ -326,7 +326,9 @@ msgstr "Identificatore Utente (UID)"
 
 #: ../schema/core.php:109
 msgid "Certificate Authority Details (Legacy v1 - no Delta CRL Support)"
-msgstr "Dettagli dell'Autorità di Certificazione (Obsoleto v1 - nessun supporto Delta CRL)"
+msgstr ""
+"Dettagli dell'Autorità di Certificazione (Obsoleto v1 - nessun supporto "
+"Delta CRL)"
 
 #: ../schema/core.php:110
 msgid "Certificate Authority Details (Legacy v2)"
@@ -336,7 +338,7 @@ msgstr "Dettagli dell'Autorità di Certificazione (Obsoleto v2)"
 msgid "Certificate Revocation List Distribution Point"
 msgstr "Punto di Distribuzione per Elenco di Certificati Revocati"
 
-#: ../schema/core.php:112
+#: ../schema/core.php:112 ../schema/core.php:352
 msgid "Delta Certificate Revocation List"
 msgstr "Elenco dei Certificati Revocati Delta"
 
@@ -348,7 +350,7 @@ msgstr "Dettagli dell'Autorità di Certificazione"
 msgid "User Certificate (Legacy)"
 msgstr "Certificato per l'Utente (Obsoleto)"
 
-#: ../schema/core.php:116
+#: ../schema/core.php:116 ../schema/core.php:379
 msgid "Supported Cryptographic Algorithms"
 msgstr "Algoritmi Crittografati Supportati"
 
@@ -423,3 +425,31 @@ msgstr "Nome del Dispositivo"
 #: ../schema/core.php:312
 msgid "Location"
 msgstr "Posizione"
+
+#: ../schema/core.php:320
+msgid "Simple Security Object Information"
+msgstr "Informazioni sull'Oggetto di Sicurezza Semplice"
+
+#: ../schema/core.php:322
+msgid "Password"
+msgstr "Password"
+
+#: ../schema/core.php:330
+msgid "Domain Component"
+msgstr "Componente di Dominio"
+
+#: ../schema/core.php:346
+msgid "URI"
+msgstr "URI"
+
+#: ../schema/core.php:360
+msgid "Certificate Authority"
+msgstr "Autorità di Certificazione"
+
+#: ../schema/core.php:362
+msgid "CA Certificate"
+msgstr "Certificato CA"
+
+#: ../schema/core.php:364
+msgid "Authority Revocation List"
+msgstr "Elenco di Revoca dell'Autorità"

@@ -315,6 +315,74 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class display layouts
+		$ldap_server->add_display_layout("simpleSecurityObject",array(
+			array("section_name"=>gettext("Simple Security Object Information"),
+				"attributes"=>array(
+					array("userPassword",			gettext("Password"),		"password.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("dcObject",array(
+			array("section_name"=>gettext("Domain Component Name"),
+				"attributes"=>array(
+					array("dc",				gettext("Domain Component"),	"domain24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("uidObject",array(
+			array("section_name"=>gettext("User ID"),
+				"attributes"=>array(
+					array("uid",				gettext("User ID"),		"contact24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("labeledURIObject",array(
+			array("section_name"=>gettext("URI (with Optional Label)"),
+				"attributes"=>array(
+					array("labeledURI",			gettext("URI"),			"labeled-uri.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("deltaCRL",array(
+			array("section_name"=>gettext("Delta Certificate Revocation List"),
+				"attributes"=>array(
+					array("deltaRevocationList;binary")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("pkiCA",array(
+			array("section_name"=>gettext("Certificate Authority"),
+				"attributes"=>array(
+					array("cACertificate;binary",		gettext("CA Certificate"),		"cert.png"),
+					array("crossCertificatePair;binary",	gettext("Cross Certificate Pair"),	"generic24.png"),
+					array("authorityRevocationList;binary",	gettext("Authority Revocation List"),	"generic24.png"),
+					array("certificateRevocationList;binary",gettext("Certificate Revocation List"),"generic24.png"),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("pkiUser",array(
+			array("section_name"=>gettext("User Certificate"),
+				"attributes"=>array(
+					array("userCertificate;binary")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("userSecurityInformation",array(
+			array("section_name"=>gettext("Supported Cryptographic Algorithms"),
+				"attributes"=>array(
+					array("supportedAlgorithms;binary")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 
