@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 11:18+0100\n"
-"PO-Revision-Date: 2017-06-18 11:18+0100\n"
+"POT-Creation-Date: 2017-06-18 11:27+0100\n"
+"PO-Revision-Date: 2017-06-18 11:27+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -209,7 +209,7 @@ msgstr "Serie di Documenti"
 msgid "Domain"
 msgstr "Dominio"
 
-#: ../schema/cosine.php:93
+#: ../schema/cosine.php:93 ../schema/cosine.php:165
 msgid "Associated DNS Domain"
 msgstr "Dominio DNS Associato"
 
@@ -284,3 +284,7 @@ msgstr "Numero di Telefono"
 #: ../schema/cosine.php:157
 msgid "See Also"
 msgstr "Guarda Anche"
+
+#: ../schema/cosine.php:167
+msgid "DNS Domain Name"
+msgstr "Nome Dominio DNS"

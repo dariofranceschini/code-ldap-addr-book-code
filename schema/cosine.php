@@ -159,6 +159,16 @@ class cosine_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class display layouts
+
+		$ldap_server->add_display_layout("domainRelatedObject",array(
+			array("section_name"=>gettext("Associated DNS Domain"),
+				"attributes"=>array(
+					array("associatedDomain",		gettext("DNS Domain Name"),		"domain24.png"),
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
