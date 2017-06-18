@@ -94,7 +94,7 @@ class cosine_schema extends ldap_schema
 			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc","parent_class"=>"domain"),
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
 
-			// Legacy attributes not carried forward from predecessors of RFC 4524
+			// Legacy object classes not carried forward from predecessors of RFC 4524
 			array("name"=>"dNSDomain",			"icon"=>"domain24.png",		"is_folder"=>false,"display_name"=>gettext("DNS Domain"),"parent_class"=>"domain"),
 			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"),"parent_class"=>"dSA"),
 			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
