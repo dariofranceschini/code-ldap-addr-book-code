@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-26 12:30+0000\n"
-"PO-Revision-Date: 2017-02-26 12:30+0000\n"
+"POT-Creation-Date: 2017-06-18 11:18+0100\n"
+"PO-Revision-Date: 2017-06-18 11:18+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -97,7 +97,7 @@ msgstr "Numéro de Téléphone Bip"
 msgid "Personal Title"
 msgstr "Titre Personnel"
 
-#: ../schema/cosine.php:45 ../schema/cosine.php:149
+#: ../schema/cosine.php:45 ../schema/cosine.php:154
 msgid "Room Number"
 msgstr "Numéro de Bureau"
 
@@ -210,65 +210,77 @@ msgid "Domain"
 msgstr "Domaine"
 
 #: ../schema/cosine.php:93
+msgid "Associated DNS Domain"
+msgstr "Domaine DNS Associé"
+
+#: ../schema/cosine.php:94
 msgid "Country (Friendly Name)"
 msgstr "Pays (nom convivial)"
 
-#: ../schema/cosine.php:94
+#: ../schema/cosine.php:95
 msgid "RFC 822 Local Part"
 msgstr "RFC 822 Partie locale"
 
-#: ../schema/cosine.php:95 ../schema/cosine.php:146
+#: ../schema/cosine.php:96 ../schema/cosine.php:151
 msgid "Room"
 msgstr "Salle"
 
-#: ../schema/cosine.php:98
+#: ../schema/cosine.php:99
 msgid "DNS Domain"
 msgstr "Domaine DNS"
 
-#: ../schema/cosine.php:99
+#: ../schema/cosine.php:100
 msgid "DSA (COSINE Pilot)"
 msgstr "DSA (COSINE Pilot)"
 
-#: ../schema/cosine.php:100
+#: ../schema/cosine.php:101
 msgid "Organization (COSINE Pilot)"
 msgstr "Organisation (COSINE Pilot)"
 
-#: ../schema/cosine.php:101 ../schema/cosine.php:102
+#: ../schema/cosine.php:102
+msgid "COSINE Pilot Object"
+msgstr "Objet Pilote pour COSINE"
+
+#: ../schema/cosine.php:103 ../schema/cosine.php:107
 msgid "Person (COSINE Pilot)"
 msgstr "Personne (COSINE Pilot)"
 
-#: ../schema/cosine.php:110
+#: ../schema/cosine.php:104
+msgid "Data Quality Label"
+msgstr "Étiquette de Qualité des Données"
+
+#: ../schema/cosine.php:115
 msgid "Domain Name Component"
 msgstr "Composant de Nom de Domaine"
 
-#: ../schema/cosine.php:111 ../schema/cosine.php:150
+#: ../schema/cosine.php:116 ../schema/cosine.php:155
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/cosine.php:123
+#: ../schema/cosine.php:128
 msgid "Postal Address"
 msgstr "Adresse Postale"
 
-#: ../schema/cosine.php:132
+#: ../schema/cosine.php:137
 msgid "Phone"
 msgstr "Phone"
 
-#: ../schema/cosine.php:133
+#: ../schema/cosine.php:138
 msgid "Fax"
 msgstr "Fax"
 
-#: ../schema/cosine.php:138
+#: ../schema/cosine.php:143
 msgid "Associated Names"
 msgstr "Noms Associés"
 
-#: ../schema/cosine.php:148
+#: ../schema/cosine.php:153
 msgid "Name"
 msgstr "Nom"
 
-#: ../schema/cosine.php:151
+#: ../schema/cosine.php:156
 msgid "Telephone Number"
 msgstr "Numéro de Téléphone"
 
-#: ../schema/cosine.php:152
+#: ../schema/cosine.php:157
 msgid "See Also"
 msgstr "Voir Également"

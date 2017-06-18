@@ -90,6 +90,7 @@ class cosine_schema extends ldap_schema
 			array("name"=>"document",			"icon"=>"document.png",		"is_folder"=>false,"display_name"=>gettext("Document")),
 			array("name"=>"documentSeries",			"icon"=>"document-series.png",	"is_folder"=>false,"display_name"=>gettext("Document Series")),
 			array("name"=>"domain",				"icon"=>"domain24.png",		"is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc","can_create"=>true),
+			array("name"=>"domainRelatedObject",		"icon"=>"domain24.png",		"class_type"=>"auxiliary","display_name"=>gettext("Associated DNS Domain"),"required_attribs"=>"associatedDomain","can_create"=>true),
 			array("name"=>"friendlyCountry",		"icon"=>"country.png",		"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)"),"parent_class"=>"country"),
 			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc","parent_class"=>"domain"),
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
@@ -98,7 +99,9 @@ class cosine_schema extends ldap_schema
 			array("name"=>"dNSDomain",			"icon"=>"domain24.png",		"is_folder"=>false,"display_name"=>gettext("DNS Domain"),"parent_class"=>"domain"),
 			array("name"=>"pilotDSA",			"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("DSA (COSINE Pilot)"),"parent_class"=>"dSA"),
 			array("name"=>"pilotOrganization",		"icon"=>"org.png",		"is_folder"=>false,"display_name"=>gettext("Organization (COSINE Pilot)"),"parent_class"=>"organization,organizationalUnit"),
+			array("name"=>"pilotObject",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("COSINE Pilot Object")),
 			array("name"=>"pilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person"),
+			array("name"=>"qualityLabelledData",		"icon"=>"data-quality.png",	"class_type"=>"auxiliary","display_name"=>gettext("Data Quality Label")),
 
 			/** @todo implement object class aliases, make newPilotPerson an alias of pilotPerson instead of a separate class */
 			array("name"=>"newPilotPerson",			"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person (COSINE Pilot)"),"parent_class"=>"person")
