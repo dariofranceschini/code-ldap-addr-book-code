@@ -16,15 +16,15 @@ class dhcp_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"dhcpFailOverPeer",		"icon"=>"dhcp/dhcp-failover-peer.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Failover Peer")),
-			array("name"=>"dhcpDnsZone",			"icon"=>"dhcp/dhcp-dns-zone.png",	"is_folder"=>false,"display_name"=>gettext("DHCP DNS Zone")),
 			array("name"=>"dhcpClass",			"icon"=>"dhcp/dhcp-class.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Class")),
-			array("name"=>"dhcpService",			"icon"=>"dhcp/dhcp-service.png",	"is_folder"=>true,"display_name"=>gettext("DHCP Service")),
-			array("name"=>"dhcpLocator",			"icon"=>"dhcp/dhcp-locator.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Locator")),
+			array("name"=>"dhcpDnsZone",			"icon"=>"dhcp/dhcp-dns-zone.png",	"is_folder"=>false,"display_name"=>gettext("DHCP DNS Zone")),
+			array("name"=>"dhcpFailOverPeer",		"icon"=>"dhcp/dhcp-failover-peer.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Failover Peer")),
 			array("name"=>"dhcpHost",			"icon"=>"dhcp/dhcp-host.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Host/IP Address")),
+			array("name"=>"dhcpLocator",			"icon"=>"dhcp/dhcp-locator.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Locator")),
 			array("name"=>"dhcpServer",			"icon"=>"dhcp/dhcp-server.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Server")),
-			array("name"=>"dhcpSubnet",			"icon"=>"dhcp/dhcp-subnet.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Subnet")),
+			array("name"=>"dhcpService",			"icon"=>"dhcp/dhcp-service.png",	"is_folder"=>true,"display_name"=>gettext("DHCP Service")),
 			array("name"=>"dhcpSharedNetwork",		"icon"=>"dhcp/dhcp-shared-network.png",	"is_folder"=>true,"display_name"=>gettext("DHCP Shared Network")),
+			array("name"=>"dhcpSubnet",			"icon"=>"dhcp/dhcp-subnet.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Subnet")),
 			array("name"=>"dhcpTSigKey",			"icon"=>"dhcp/dhcp-dns-key.png",	"is_folder"=>false,"display_name"=>gettext("DHCP TSIG Key"))
 			);
 
