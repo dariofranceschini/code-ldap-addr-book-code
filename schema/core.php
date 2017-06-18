@@ -89,9 +89,11 @@ class core_schema extends ldap_schema
 			array("name"=>"alias",				"icon"=>"alias.png",		"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
 			array("name"=>"applicationProcess",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Process")),
 			array("name"=>"country",			"icon"=>"country.png",		"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
+			array("name"=>"dcObject",			"icon"=>"domain24.png",		"class_type"=>"auxiliary","display_name"=>gettext("Domain Component Name"),"required_attribs"=>"dc","can_create"=>true),
 			array("name"=>"device",				"icon"=>"device.png",		"is_folder"=>false,"display_name"=>gettext("Device")),
 			array("name"=>"groupOfNames",			"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member","can_create"=>true),
 			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
+			array("name"=>"labeledURIObject",		"icon"=>"labeled-uri.png",	"class_type"=>"auxiliary","display_name"=>gettext("Labeled URI"),"can_create"=>true),
 			array("name"=>"locality",			"icon"=>"locality.png",		"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality"),"can_create"=>true),
 			array("name"=>"organization",			"icon"=>"org.png",		"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true),
 			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
@@ -99,10 +101,19 @@ class core_schema extends ldap_schema
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")),
 			array("name"=>"residentialPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
+			array("name"=>"simpleSecurityObject",		"icon"=>"password.png",		"class_type"=>"auxiliary","display_name"=>gettext("User Password"),"required_attribs"=>"userPassword","can_create"=>true),
 			array("name"=>"top",				"icon"=>"generic24.png",	"class_type"=>"abstract","required_attribs"=>"objectClass"),
+			array("name"=>"uidObject",			"icon"=>"id.png",		"class_type"=>"auxiliary","display_name"=>gettext("User Identifier (UID)"),"required_attribs"=>"uid","can_create"=>true),
 
 			// LDAP PKI (RFC 4523)
+			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"class_type"=>"auxiliary","display_name"=>gettext("Certificate Authority Details (Legacy v1 - no Delta CRL Support)"),"required_attribs"=>"authorityRevocationList,certificateRevocationList,cACertificate"),
+			array("name"=>"certificationAuthority-V2",	"icon"=>"cert-authority.png",	"class_type"=>"auxiliary","display_name"=>gettext("Certificate Authority Details (Legacy v2)"),"required_attribs"=>"authorityRevocationList,certificateRevocationList,cACertificate"),
 			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false,"display_name"=>gettext("Certificate Revocation List Distribution Point")),
+			array("name"=>"deltaCRL",			"icon"=>"crl-distrib-point.png","class_type"=>"auxiliary","display_name"=>gettext("Delta Certificate Revocation List"),"can_create"=>true),
+			array("name"=>"pkiCA",				"icon"=>"cert-authority.png",	"class_type"=>"auxiliary","display_name"=>gettext("Certificate Authority Details"),"can_create"=>true),
+			array("name"=>"pkiUser",			"icon"=>"cert.png",		"class_type"=>"auxiliary","display_name"=>gettext("User Certificate"),"can_create"=>true),
+			array("name"=>"strongAuthenticationUser",	"icon"=>"cert.png",		"class_type"=>"auxiliary","display_name"=>gettext("User Certificate (Legacy)"),"required_attribs"=>"userCertificate"),
+			array("name"=>"userSecurityInformation",	"icon"=>"cert-config.png",	"class_type"=>"auxiliary","display_name"=>gettext("Supported Cryptographic Algorithms"),"can_create"=>true),
 
 			// legacy object classes not carried forward from predecessors of RFC 4519
 			array("name"=>"applicationEntity",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Entity")),
