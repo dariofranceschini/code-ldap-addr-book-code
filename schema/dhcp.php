@@ -21,6 +21,7 @@ class dhcp_schema extends ldap_schema
 			array("name"=>"dhcpFailOverPeer",		"icon"=>"dhcp/dhcp-failover-peer.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Failover Peer")),
 			array("name"=>"dhcpHost",			"icon"=>"dhcp/dhcp-host.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Host/IP Address")),
 			array("name"=>"dhcpLocator",			"icon"=>"dhcp/dhcp-locator.png",	"is_folder"=>false,"display_name"=>gettext("DHCP Locator")),
+			array("name"=>"dhcpOptions",			"icon"=>"dhcp/dhcp-options.png",	"class_type"=>"auxiliary","display_name"=>gettext("DHCP Options"),"required_attribs"=>"cn"),
 			array("name"=>"dhcpServer",			"icon"=>"dhcp/dhcp-server.png",		"is_folder"=>false,"display_name"=>gettext("DHCP Server")),
 			array("name"=>"dhcpService",			"icon"=>"dhcp/dhcp-service.png",	"is_folder"=>true,"display_name"=>gettext("DHCP Service")),
 			array("name"=>"dhcpSharedNetwork",		"icon"=>"dhcp/dhcp-shared-network.png",	"is_folder"=>true,"display_name"=>gettext("DHCP Shared Network")),
