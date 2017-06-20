@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-24 13:29+0100\n"
-"PO-Revision-Date: 2016-09-24 13:29+0100\n"
+"POT-Creation-Date: 2017-06-20 23:32+0100\n"
+"PO-Revision-Date: 2017-06-20 23:32+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -18,13 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/openldap.php:10
+msgid "OpenLDAP Displayable Object"
+msgstr "OpenLDAP Displayable Object"
+
+#: ../schema/openldap.php:11
 msgid "OpenLDAP Organization"
 msgstr "OpenLDAP Organization"
 
-#: ../schema/openldap.php:11
+#: ../schema/openldap.php:12
 msgid "OpenLDAP Organizational Unit"
 msgstr "OpenLDAP Organizational Unit"
 
-#: ../schema/openldap.php:12
+#: ../schema/openldap.php:13
 msgid "OpenLDAP Person"
 msgstr "OpenLDAP Person"
