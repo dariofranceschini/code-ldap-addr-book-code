@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-15 11:46+0100\n"
-"PO-Revision-Date: 2016-05-15 11:46+0100\n"
+"POT-Creation-Date: 2017-06-18 12:32+0100\n"
+"PO-Revision-Date: 2017-06-18 12:32+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Share Volumes By Default"
 msgstr "Share Volumes By Default"
 
-#: ../schema/novell/nfap.php:10
+#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:31
 msgid "DFS"
 msgstr "DFS"
 
-#: ../schema/novell/nfap.php:11
+#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:33
 msgid "Unicode Support"
 msgstr "Unicode Support"
 
@@ -33,6 +33,66 @@ msgstr "Unicode Support"
 msgid "PDC Enable"
 msgstr "PDC Enable"
 
-#: ../schema/novell/nfap.php:13
+#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:34
 msgid "OpLocks Support"
 msgstr "OpLocks Support"
+
+#: ../schema/novell/nfap.php:18
+msgid "CIFS Server Configuration"
+msgstr "CIFS Server Configuration"
+
+#: ../schema/novell/nfap.php:24
+msgid "CIFS Native File Access Package"
+msgstr "CIFS Native File Access Package"
+
+#: ../schema/novell/nfap.php:26
+msgid "CIFS Server Name"
+msgstr "CIFS Server Name"
+
+#: ../schema/novell/nfap.php:27
+msgid "Workgroup"
+msgstr "Workgroup"
+
+#: ../schema/novell/nfap.php:28
+msgid "Comment"
+msgstr "Comment"
+
+#: ../schema/novell/nfap.php:29
+msgid "Shares"
+msgstr "Shares"
+
+#: ../schema/novell/nfap.php:30
+msgid "Share Volumes by Default"
+msgstr "Share Volumes by Default"
+
+#: ../schema/novell/nfap.php:32
+msgid "SMB/CIFS Dialect"
+msgstr "SMB/CIFS Dialect"
+
+#: ../schema/novell/nfap.php:35
+msgid "Authentication"
+msgstr "Authentication"
+
+#: ../schema/novell/nfap.php:36
+msgid "Signatures"
+msgstr "Signatures"
+
+#: ../schema/novell/nfap.php:37
+msgid "PDC Enabled"
+msgstr "PDC Enabled"
+
+#: ../schema/novell/nfap.php:38
+msgid "PDC Name"
+msgstr "PDC Name"
+
+#: ../schema/novell/nfap.php:39
+msgid "PDC Address"
+msgstr "PDC Address"
+
+#: ../schema/novell/nfap.php:40
+msgid "User Context"
+msgstr "User Context"
+
+#: ../schema/novell/nfap.php:41
+msgid "WINS Address"
+msgstr "WINS Address"

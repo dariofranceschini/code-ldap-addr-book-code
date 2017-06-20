@@ -185,26 +185,6 @@ class novell_schema extends ldap_schema
 					array("CachedAttrsOnExtRefs"),
 					)
 				),
-			array("section_name"=>gettext("CIFS Native File Access Package"),"new_row"=>true,"colspan"=>2,
-				"attributes"=>array(
-					array("nfapCIFSServerName",		gettext("CIFS Server Name")),
-					array("nfapCIFSWorkGroup",		gettext("Workgroup")),
-					array("nfapCIFSComment",		gettext("Comment")),
-					array("nfapCIFSShares",			gettext("Shares")),
-					array("nfapCIFSShareVolsByDefault",	gettext("Share Volumes by Default")),
-					array("nfapCIFSDFS",			gettext("DFS")),
-					array("nfapCIFSDialect",		gettext("SMB/CIFS Dialect")),
-					array("nfapCIFSUnicode",		gettext("Unicode Support")),
-					array("nfapCIFSOpLocks",		gettext("OpLocks Support")),
-					array("nfapCIFSAuthent",		gettext("Authentication")),
-					array("nfapCIFSSignatures",		gettext("Signatures")),
-					array("nfapCIFSPDCEnable",		gettext("PDC Enabled")),
-					array("nfapCIFSPDCName",		gettext("PDC Name")),
-					array("nfapCIFSPDCAddr",		gettext("PDC Address")),
-					array("nfapCIFSUserContext",		gettext("User Context")),
-					array("nfapCIFSWINSAddr",		gettext("WINS Address")),
-					)
-				),
 			array("section_name"=>gettext("eDirectory Management Toolbox (eMBox) Configuration"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
 					array("emboxConfig"),
