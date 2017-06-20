@@ -77,8 +77,8 @@ class nis_schema extends ldap_schema
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("cn",				gettext("Group Name"),			"group24.png"),
-					array("description",			gettext("Description"),			"description.png"),
-					array("gidNumber",			gettext("Group ID Number"),		"generic24.png")
+					array("gidNumber",			gettext("Group ID Number"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
 
 					// array("userPassword",		gettext("Password"),			"generic24.png")
 					)
