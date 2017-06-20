@@ -13,6 +13,16 @@ class openldap_schema extends ldap_schema
 			array("name"=>"OpenLDAPperson",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("OpenLDAP Person"),"parent_class"=>"pilotPerson,inetOrgPerson")
 			);
 
+		// Auxiliary class display layouts
+
+		$ldap_server->add_display_layout("OpenLDAPdisplayableObject",array(
+			array("section_name"=>gettext("OpenLDAP Displayable Object"),
+				"attributes"=>array(
+					array("displayName",			gettext("Display Name"),			"contact24.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
