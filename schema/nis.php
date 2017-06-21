@@ -57,7 +57,7 @@ class nis_schema extends ldap_schema
 			array("name"=>"ipNetwork",		"icon"=>"ip-network.png",		"is_folder"=>false,"display_name"=>gettext("IP Network")),
 			array("name"=>"ipProtocol",		"icon"=>"ip-protocol.png",		"is_folder"=>false,"display_name"=>gettext("IP Protocol")),
 			array("name"=>"ipService",		"icon"=>"ip-service.png",		"is_folder"=>false,"display_name"=>gettext("IP Service")),
-			array("name"=>"nisMap",			"icon"=>"nis-map.png",			"is_folder"=>true,"display_name"=>gettext("NIS Map")),
+			array("name"=>"nisMap",			"icon"=>"nis-map.png",			"is_folder"=>true,"display_name"=>gettext("NIS Map"),"rdn_attrib"=>"nisMapName"),
 			array("name"=>"nisNetgroup",		"icon"=>"nis-netgroup.png",		"is_folder"=>false,"display_name"=>gettext("Netgroup")),
 			array("name"=>"nisObject",		"icon"=>"nis-object.png",		"is_folder"=>false,"display_name"=>gettext("NIS Map Entry")),
 			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding")),
