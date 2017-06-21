@@ -16,6 +16,12 @@
     @see http://www.ietf.org/rfc/rfc1057.txt
     @see http://www.ietf.org/rfc/rfc1831.txt
     @see http://www.ietf.org/rfc/rfc5531.txt
+
+    Note: Description attributes of ipProtocol and oncRPC are
+    listed as both optional AND required in RFC 2307 (corrected
+    to just optional in RFC 2307bis). LDAP Address Book needs to
+    handle them as required in order to create objects of these
+    classes in OpenLDAP.
 */
 
 class nis_schema extends ldap_schema
@@ -54,13 +60,13 @@ class nis_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"ipNetwork",		"icon"=>"ip-network.png",		"is_folder"=>false,"display_name"=>gettext("IP Network")),
-			array("name"=>"ipProtocol",		"icon"=>"ip-protocol.png",		"is_folder"=>false,"display_name"=>gettext("IP Protocol")),
-			array("name"=>"ipService",		"icon"=>"ip-service.png",		"is_folder"=>false,"display_name"=>gettext("IP Service")),
+			array("name"=>"ipNetwork",		"icon"=>"ip-network.png",		"is_folder"=>false,"display_name"=>gettext("IP Network"),"required_attribs"=>"ipNetworkNumber"),
+			array("name"=>"ipProtocol",		"icon"=>"ip-protocol.png",		"is_folder"=>false,"display_name"=>gettext("IP Protocol"),"required_attribs"=>"ipProtocolNumber,description"),
+			array("name"=>"ipService",		"icon"=>"ip-service.png",		"is_folder"=>false,"display_name"=>gettext("IP Service"),"required_attribs"=>"ipServicePort,ipServiceProtocol"),
 			array("name"=>"nisMap",			"icon"=>"nis-map.png",			"is_folder"=>true,"display_name"=>gettext("NIS Map"),"rdn_attrib"=>"nisMapName"),
 			array("name"=>"nisNetgroup",		"icon"=>"nis-netgroup.png",		"is_folder"=>false,"display_name"=>gettext("Netgroup")),
-			array("name"=>"nisObject",		"icon"=>"nis-object.png",		"is_folder"=>false,"display_name"=>gettext("NIS Map Entry")),
-			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding")),
+			array("name"=>"nisObject",		"icon"=>"nis-object.png",		"is_folder"=>false,"display_name"=>gettext("NIS Map Entry"),"required_attribs"=>"nisMapEntry,nisMapName"),
+			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding"),"required_attribs"=>"oncRpcNumber,description"),
 			array("name"=>"posixGroup",		"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group"),"required_attribs"=>"gidNumber")
 			);
 
