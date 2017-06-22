@@ -25,7 +25,7 @@ class novell_nis_schema extends ldap_schema
 
 			// Auxiliary classes in RFC2307 which Novell implements as structural classes instead
 			array("name"=>"bootableDevice",		"icon"=>"bootable-device.png",		"is_folder"=>false,"parent_class"=>"device"),
-			array("name"=>"ieee802Device",		"icon"=>"novell/ieee802-device.png",	"is_folder"=>false,"parent_class"=>"device"),
+			array("name"=>"ieee802Device",		"icon"=>"ieee802-device.png",		"is_folder"=>false,"parent_class"=>"device"),
 			array("name"=>"ipHost",			"icon"=>"novell/ip-host.png",		"is_folder"=>false,"parent_class"=>"device"),
 
 			// Novell proprietary object classes
