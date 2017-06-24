@@ -93,7 +93,7 @@ class nis_schema extends ldap_schema
 				"attributes"=>array(
 					array("memberUid")
 					)
-				),
+				)
 			));
 
 		parent::__construct($ldap_server);
