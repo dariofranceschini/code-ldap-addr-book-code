@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 10:43+0100\n"
-"PO-Revision-Date: 2017-06-24 10:43+0100\n"
+"POT-Creation-Date: 2017-06-24 11:04+0100\n"
+"PO-Revision-Date: 2017-06-24 11:04+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -29,7 +29,7 @@ msgstr "Parámetro de Inicio"
 msgid "GECOS Field"
 msgstr "Campo GECOS"
 
-#: ../schema/nis.php:35 ../schema/nis.php:162
+#: ../schema/nis.php:35 ../schema/nis.php:159
 msgid "Group ID Number"
 msgstr "Número de ID del Grupo"
 
@@ -53,7 +53,7 @@ msgstr "Dirección de Red IPv4"
 msgid "IP Protocol Number"
 msgstr "Número del Protocolo IP"
 
-#: ../schema/nis.php:41 ../schema/nis.php:110
+#: ../schema/nis.php:41 ../schema/nis.php:107
 msgid "Port Number"
 msgstr "Número de Puerto"
 
@@ -65,7 +65,7 @@ msgstr "Nombre del Protocolo IP"
 msgid "Login Shell Path"
 msgstr "Ruta de Acceso de Shell"
 
-#: ../schema/nis.php:44
+#: ../schema/nis.php:44 ../schema/nis.php:64
 msgid "MAC Address"
 msgstr "Dirección MAC"
 
@@ -77,12 +77,12 @@ msgstr "Miembro Netgroup"
 msgid "Member User ID"
 msgstr "ID de Usuario de Miembro"
 
-#: ../schema/nis.php:47 ../schema/nis.php:68 ../schema/nis.php:138
-#: ../schema/nis.php:141
+#: ../schema/nis.php:47 ../schema/nis.php:71 ../schema/nis.php:135
+#: ../schema/nis.php:138
 msgid "NIS Map Entry"
 msgstr "Entrada dentro del Mapa NIS"
 
-#: ../schema/nis.php:48 ../schema/nis.php:120 ../schema/nis.php:142
+#: ../schema/nis.php:48 ../schema/nis.php:117 ../schema/nis.php:139
 msgid "NIS Map Name"
 msgstr "Nombre del Mapa NIS"
 
@@ -90,7 +90,7 @@ msgstr "Nombre del Mapa NIS"
 msgid "Host/User/Domain Triple"
 msgstr "Host / Usuario / Dominio Triple"
 
-#: ../schema/nis.php:50 ../schema/nis.php:152
+#: ../schema/nis.php:50 ../schema/nis.php:149
 msgid "ONC RPC Number"
 msgstr "Número ONC RPC"
 
@@ -123,99 +123,115 @@ msgid "User ID Number"
 msgstr "Número de ID de Usuario"
 
 #: ../schema/nis.php:63
+msgid "Boot Configuration"
+msgstr "Configuración de Arranque"
+
+#: ../schema/nis.php:65
+msgid "IP Host Details"
+msgstr "Detalles del Host IP"
+
+#: ../schema/nis.php:66
 msgid "IP Network"
 msgstr "Red IP"
 
-#: ../schema/nis.php:64 ../schema/nis.php:97
+#: ../schema/nis.php:67 ../schema/nis.php:94
 msgid "IP Protocol"
 msgstr "Protocolo IP"
 
-#: ../schema/nis.php:65 ../schema/nis.php:107
+#: ../schema/nis.php:68 ../schema/nis.php:104
 msgid "IP Service"
 msgstr "Servicio IP"
 
-#: ../schema/nis.php:66 ../schema/nis.php:118
+#: ../schema/nis.php:69 ../schema/nis.php:115
 msgid "NIS Map"
 msgstr "Mapa NIS"
 
-#: ../schema/nis.php:67 ../schema/nis.php:127
+#: ../schema/nis.php:70 ../schema/nis.php:124
 msgid "Netgroup"
 msgstr "Netgroup"
 
-#: ../schema/nis.php:69 ../schema/nis.php:149
+#: ../schema/nis.php:72 ../schema/nis.php:146
 msgid "ONC RPC Binding"
 msgstr "Encuadernación RPC de ONC"
 
-#: ../schema/nis.php:70
+#: ../schema/nis.php:73
+msgid "POSIX Account Settings"
+msgstr "Configuración de la Cuenta POSIX"
+
+#: ../schema/nis.php:74
 msgid "POSIX Group"
 msgstr "Grupo POSIX"
 
-#: ../schema/nis.php:86
+#: ../schema/nis.php:75
+msgid "Shadow Password Settings"
+msgstr "Configuración de la Sombra de la Contraseña"
+
+#: ../schema/nis.php:83
 msgid "Network Name"
 msgstr "Nombre de Red"
 
-#: ../schema/nis.php:87
+#: ../schema/nis.php:84
 msgid "Network IP Address"
 msgstr "Dirección IP de Red"
 
-#: ../schema/nis.php:88
+#: ../schema/nis.php:85
 msgid "Subnet Mask"
 msgstr "Máscara de Subred"
 
-#: ../schema/nis.php:89 ../schema/nis.php:101 ../schema/nis.php:112
-#: ../schema/nis.php:121 ../schema/nis.php:132 ../schema/nis.php:143
-#: ../schema/nis.php:153 ../schema/nis.php:163
+#: ../schema/nis.php:86 ../schema/nis.php:98 ../schema/nis.php:109
+#: ../schema/nis.php:118 ../schema/nis.php:129 ../schema/nis.php:140
+#: ../schema/nis.php:150 ../schema/nis.php:160
 msgid "Description"
 msgstr "Descripción"
 
-#: ../schema/nis.php:90
+#: ../schema/nis.php:87
 msgid "Managed By"
 msgstr "Gestionado Por"
 
-#: ../schema/nis.php:91
+#: ../schema/nis.php:88
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../schema/nis.php:99
+#: ../schema/nis.php:96
 msgid "Protocol Name"
 msgstr "Nombre del Protocolo"
 
-#: ../schema/nis.php:100
+#: ../schema/nis.php:97
 msgid "Protocol Number"
 msgstr "Número del Protocolo"
 
-#: ../schema/nis.php:109
+#: ../schema/nis.php:106
 msgid "Service Name"
 msgstr "Nombre del Servicio"
 
-#: ../schema/nis.php:111
+#: ../schema/nis.php:108
 msgid "Protocol"
 msgstr "Protocolo"
 
-#: ../schema/nis.php:129
+#: ../schema/nis.php:126
 msgid "Netgroup Name"
 msgstr "Nombre del Netgroup"
 
-#: ../schema/nis.php:130
+#: ../schema/nis.php:127
 msgid "Members"
 msgstr "Miembros"
 
-#: ../schema/nis.php:131
+#: ../schema/nis.php:128
 msgid "Member Netgroups"
 msgstr "Miembro Netgroup"
 
-#: ../schema/nis.php:140
+#: ../schema/nis.php:137
 msgid "Entry Name"
 msgstr "Nombre de la Entrada"
 
-#: ../schema/nis.php:151
+#: ../schema/nis.php:148
 msgid "ONC RPC Binding Name"
 msgstr "Nombre de Encuadernación RPC de ONC"
 
-#: ../schema/nis.php:161
+#: ../schema/nis.php:158
 msgid "Group Name"
 msgstr "Nombre del Grupo"
 
-#: ../schema/nis.php:168
+#: ../schema/nis.php:165
 msgid "Group Members"
 msgstr "Miembros del Grupo"

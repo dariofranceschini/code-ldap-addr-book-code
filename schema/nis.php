@@ -60,6 +60,9 @@ class nis_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
+			array("name"=>"bootableDevice",		"icon"=>"bootable-device.png",		"class_type"=>"auxiliary","display_name"=>gettext("Boot Configuration"),"can_create"=>true),
+			array("name"=>"ieee802Device",		"icon"=>"ieee802-device.png",		"class_type"=>"auxiliary","display_name"=>gettext("MAC Address"),"can_create"=>true),
+			array("name"=>"ipHost",			"icon"=>"ip-host.png",			"class_type"=>"auxiliary","display_name"=>gettext("IP Host Details"),"required_attribs"=>"cn,ipHostNumber","can_create"=>true),
 			array("name"=>"ipNetwork",		"icon"=>"ip-network.png",		"is_folder"=>false,"display_name"=>gettext("IP Network"),"required_attribs"=>"ipNetworkNumber"),
 			array("name"=>"ipProtocol",		"icon"=>"ip-protocol.png",		"is_folder"=>false,"display_name"=>gettext("IP Protocol"),"required_attribs"=>"ipProtocolNumber,description"),
 			array("name"=>"ipService",		"icon"=>"ip-service.png",		"is_folder"=>false,"display_name"=>gettext("IP Service"),"required_attribs"=>"ipServicePort,ipServiceProtocol"),
@@ -67,16 +70,10 @@ class nis_schema extends ldap_schema
 			array("name"=>"nisNetgroup",		"icon"=>"nis-netgroup.png",		"is_folder"=>false,"display_name"=>gettext("Netgroup")),
 			array("name"=>"nisObject",		"icon"=>"nis-object.png",		"is_folder"=>false,"display_name"=>gettext("NIS Map Entry"),"required_attribs"=>"nisMapEntry,nisMapName"),
 			array("name"=>"oncRpc",			"icon"=>"onc-rpc.png",			"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding"),"required_attribs"=>"oncRpcNumber,description"),
-			array("name"=>"posixGroup",		"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group"),"required_attribs"=>"gidNumber")
+			array("name"=>"posixAccount",		"icon"=>"posix-account.png",		"class_type"=>"auxiliary","display_name"=>gettext("POSIX Account Settings"),"required_attribs"=>"cn,uid,uidNumber,gidNumber,homeDirectory","can_create"=>true),
+			array("name"=>"posixGroup",		"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("POSIX Group"),"required_attribs"=>"gidNumber"),
+			array("name"=>"shadowAccount",		"icon"=>"shadow-account.png",		"class_type"=>"auxiliary","display_name"=>gettext("Shadow Password Settings"),"required_attribs"=>"uid","can_create"=>true)
 			);
-
-		// The auxiliary classes defined in this schema are:
-		//
-		//	bootableDevice
-		//	ieee802Device
-		//	ipHost
-		//	posixAccount
-		//	shadowAccount
 
 		// Display layouts
 
