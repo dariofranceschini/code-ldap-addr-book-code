@@ -79,6 +79,82 @@ class nis_schema extends ldap_schema
 		//	shadowAccount
 
 		// Display layouts
+
+		$ldap_server->add_display_layout("ipNetwork",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Network Name"),		"generic24.png"),
+					array("ipNetworkNumber",		gettext("Network IP Address"),		"generic24.png"),
+					array("ipNetmaskNumber",		gettext("Subnet Mask"),			"generic24.png"),
+					array("description",			gettext("Description"),			"description.png"),
+					array("manager",			gettext("Managed By"),			"alias.png"),
+					array("l",				gettext("Location"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("ipProtocol",array(
+			array("section_name"=>gettext("IP Protocol"),"colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Protocol Name"),		"generic24.png"),
+					array("ipProtocolNumber",		gettext("Protocol Number"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("ipService",array(
+			array("section_name"=>gettext("IP Service"),"colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("cn",				gettext("Service Name"),		"generic24.png"),
+					array("ipServicePort",			gettext("Port Number"),			"generic24.png"),
+					array("ipServiceProtocol",		gettext("Protocol"),			"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nisMap",array(
+			array("section_name"=>gettext("NIS Map"),
+				"attributes"=>array(
+					array("nisMapName",			gettext("NIS Map Name"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nisNetgroup",array(
+			array("section_name"=>gettext("Netgroup"),
+				"attributes"=>array(
+					array("cn",				gettext("Netgroup Name"),		"generic24.png"),
+					array("nisNetgroupTriple",		gettext("Members"),			"generic24.png"),
+					array("memberNisNetgroup",		gettext("Member Netgroups"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nisObject",array(
+			array("section_name"=>gettext("NIS Map Entry"),
+				"attributes"=>array(
+					array("cn",				gettext("Entry Name"),			"generic24.png"),
+					array("nisMapEntry",			gettext("NIS Map Entry"),		"generic24.png"),
+					array("nisMapName",			gettext("NIS Map Name"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("oncRpc",array(
+			array("section_name"=>gettext("ONC RPC Binding"),
+				"attributes"=>array(
+					array("cn",				gettext("ONC RPC Binding Name"),	"generic24.png"),
+					array("oncRpcNumber",			gettext("ONC RPC Number"),		"generic24.png"),
+					array("description",			gettext("Description"),			"description.png")
+					)
+				)
+			));
+
 		$ldap_server->add_display_layout("posixGroup",array(
 			array("colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
