@@ -169,6 +169,70 @@ class nis_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class display layouts
+
+		$ldap_server->add_display_layout("posixAccount",array(
+			array("section_name"=>gettext("POSIX Account Settings"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),			"user24.png"),
+					array("uid",				gettext("User ID"),			"contact24.png"),
+					array("uidNumber",			gettext("User ID Number"),		"id.png"),
+					array("gidNumber",			gettext("Group ID Number"),		"id.png"),
+					array("homeDirectory",			gettext("Home Directory"),		"folder.png"),
+					// array("userPassword",		gettext("Password"),			"generic24.png"),
+					array("loginShell",			gettext("Login Shell"),			"shell24.png"),
+					array("gecos",				gettext("GECOS Field"),			"description.png"),
+					array("description",			gettext("Description"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("shadowAccount",array(
+			array("section_name"=>gettext("Shadow Password Settings"),
+				"attributes"=>array(
+					array("uid",				gettext("User ID"),			"contact24.png"),
+					// array("userPassword",		gettext("Password"),			"generic24.png"),
+					array("shadowLastChange",		gettext("Date of Last Password Change"),"generic24.png"),
+					array("shadowMin",			gettext("Minimum Password Age"),	"generic24.png"),
+					array("shadowMax",			gettext("Maximum Password Age"),	"generic24.png"),
+					array("shadowWarning",			gettext("Warning Period Before Expiration"),"generic24.png"),
+					array("shadowInactive",			gettext("Time Until Account Inactive"),"generic24.png"),
+					array("shadowExpire",			gettext("Expiry Date"),			"generic24.png"),
+					// array("shadowFlag",			????,					"generic24.png"),	// attribute reserved for future use
+					array("description",			gettext("Description"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("ipHost",array(
+			array("section_name"=>gettext("IP Address Information"),
+				"attributes"=>array(
+					array("cn",				gettext("Host Name"),			"generic24.png"),
+					array("ipHostNumber",			gettext("IP Address"),			"generic24.png"),
+					array("description",			gettext("Description"),			"generic24.png"),
+					array("manager",			gettext("Managed By"),			"alias.png"),
+					array("l",				gettext("Location"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("ieee802Device",array(
+			array("section_name"=>gettext("Network Hardware Address"),
+				"attributes"=>array(
+					array("macAddress",			gettext("MAC Address"),			"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("bootableDevice",array(
+			array("section_name"=>gettext("Boot Parameters"),
+				"attributes"=>array(
+					array("bootFile",			gettext("Boot File"),			"generic24.png"),
+					array("bootParameter",			gettext("Boot Parameters"),		"generic24.png")
+					)
+				)
+			));
+
 		parent::__construct($ldap_server);
 	}
 }

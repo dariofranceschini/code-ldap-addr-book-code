@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 11:04+0100\n"
-"PO-Revision-Date: 2017-06-24 11:04+0100\n"
+"POT-Creation-Date: 2017-06-24 11:21+0100\n"
+"PO-Revision-Date: 2017-06-24 11:21+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -25,11 +25,11 @@ msgstr "Nome file di Immagine di Avvio"
 msgid "Boot Parameter"
 msgstr "Parametro Avvio"
 
-#: ../schema/nis.php:34
+#: ../schema/nis.php:34 ../schema/nis.php:184
 msgid "GECOS Field"
 msgstr "Campo GECOS"
 
-#: ../schema/nis.php:35 ../schema/nis.php:159
+#: ../schema/nis.php:35 ../schema/nis.php:159 ../schema/nis.php:180
 msgid "Group ID Number"
 msgstr "Numero ID Gruppo"
 
@@ -65,7 +65,7 @@ msgstr "Nome Protocollo IP"
 msgid "Login Shell Path"
 msgstr "Percorso alla Login Shell"
 
-#: ../schema/nis.php:44 ../schema/nis.php:64
+#: ../schema/nis.php:44 ../schema/nis.php:64 ../schema/nis.php:222
 msgid "MAC Address"
 msgstr "Indirizzo MAC"
 
@@ -94,7 +94,7 @@ msgstr "Host / Utente / Dominio Triplo"
 msgid "ONC RPC Number"
 msgstr "Numero di ONC RPC"
 
-#: ../schema/nis.php:51
+#: ../schema/nis.php:51 ../schema/nis.php:200
 msgid "Expiry Date"
 msgstr "Data di Scadenza"
 
@@ -102,7 +102,7 @@ msgstr "Data di Scadenza"
 msgid "Time Until Account Inactive (Days)"
 msgstr "Tempo Fino Conto non Attivo (Giorni)"
 
-#: ../schema/nis.php:54
+#: ../schema/nis.php:54 ../schema/nis.php:195
 msgid "Date of Last Password Change"
 msgstr "Data Ultima Modifica della Password"
 
@@ -118,7 +118,7 @@ msgstr "Età Minima dei Passwords (Giorni)"
 msgid "Warning Period Before Expiration (Days)"
 msgstr "Attenzione Periodo prima della Scadenza (Giorni)"
 
-#: ../schema/nis.php:58
+#: ../schema/nis.php:58 ../schema/nis.php:179
 msgid "User ID Number"
 msgstr "Numero ID Utente"
 
@@ -154,7 +154,7 @@ msgstr "Netgroup"
 msgid "ONC RPC Binding"
 msgstr "Relazione per ONC RPC"
 
-#: ../schema/nis.php:73
+#: ../schema/nis.php:73 ../schema/nis.php:175
 msgid "POSIX Account Settings"
 msgstr "Impostazioni Account POSIX"
 
@@ -162,7 +162,7 @@ msgstr "Impostazioni Account POSIX"
 msgid "POSIX Group"
 msgstr "Gruppo POSIX"
 
-#: ../schema/nis.php:75
+#: ../schema/nis.php:75 ../schema/nis.php:191
 msgid "Shadow Password Settings"
 msgstr "Impostazioni per l'Ombra della Password"
 
@@ -180,15 +180,16 @@ msgstr "Maschera di Sottorete"
 
 #: ../schema/nis.php:86 ../schema/nis.php:98 ../schema/nis.php:109
 #: ../schema/nis.php:118 ../schema/nis.php:129 ../schema/nis.php:140
-#: ../schema/nis.php:150 ../schema/nis.php:160
+#: ../schema/nis.php:150 ../schema/nis.php:160 ../schema/nis.php:185
+#: ../schema/nis.php:202 ../schema/nis.php:212
 msgid "Description"
 msgstr "Descrizione"
 
-#: ../schema/nis.php:87
+#: ../schema/nis.php:87 ../schema/nis.php:213
 msgid "Managed By"
 msgstr "Gestito Da"
 
-#: ../schema/nis.php:88
+#: ../schema/nis.php:88 ../schema/nis.php:214
 msgid "Location"
 msgstr "Luogo"
 
@@ -235,3 +236,59 @@ msgstr "Nome del Gruppo"
 #: ../schema/nis.php:165
 msgid "Group Members"
 msgstr "Membri del Gruppo"
+
+#: ../schema/nis.php:177
+msgid "Object Name"
+msgstr "Nome Oggetto"
+
+#: ../schema/nis.php:178 ../schema/nis.php:193
+msgid "User ID"
+msgstr "ID Utente"
+
+#: ../schema/nis.php:181
+msgid "Home Directory"
+msgstr "Direttorio Utente"
+
+#: ../schema/nis.php:183
+msgid "Login Shell"
+msgstr "Login Shell"
+
+#: ../schema/nis.php:196
+msgid "Minimum Password Age"
+msgstr "Età Minima dei Passwords"
+
+#: ../schema/nis.php:197
+msgid "Maximum Password Age"
+msgstr "Età Massima dei Passwords"
+
+#: ../schema/nis.php:198
+msgid "Warning Period Before Expiration"
+msgstr "Attenzione Periodo prima della Scadenza"
+
+#: ../schema/nis.php:199
+msgid "Time Until Account Inactive"
+msgstr "Tempo Fino Conto non Attivo"
+
+#: ../schema/nis.php:208
+msgid "IP Address Information"
+msgstr "Informazioni sull'Indirizzo IP"
+
+#: ../schema/nis.php:210
+msgid "Host Name"
+msgstr "Nome Ospite"
+
+#: ../schema/nis.php:211
+msgid "IP Address"
+msgstr "Indirizzo IP"
+
+#: ../schema/nis.php:220
+msgid "Network Hardware Address"
+msgstr "Indirizzo dell'Attrezzi della Rete"
+
+#: ../schema/nis.php:228 ../schema/nis.php:231
+msgid "Boot Parameters"
+msgstr "Parametri di Avvio"
+
+#: ../schema/nis.php:230
+msgid "Boot File"
+msgstr "File di Avvio"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 11:04+0100\n"
-"PO-Revision-Date: 2017-06-24 11:04+0100\n"
+"POT-Creation-Date: 2017-06-24 11:21+0100\n"
+"PO-Revision-Date: 2017-06-24 11:21+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -25,11 +25,11 @@ msgstr "Boot Image File Name"
 msgid "Boot Parameter"
 msgstr "Boot Parameter"
 
-#: ../schema/nis.php:34
+#: ../schema/nis.php:34 ../schema/nis.php:184
 msgid "GECOS Field"
 msgstr "GECOS Field"
 
-#: ../schema/nis.php:35 ../schema/nis.php:159
+#: ../schema/nis.php:35 ../schema/nis.php:159 ../schema/nis.php:180
 msgid "Group ID Number"
 msgstr "Group ID Number"
 
@@ -65,7 +65,7 @@ msgstr "IP Protocol Name"
 msgid "Login Shell Path"
 msgstr "Login Shell Path"
 
-#: ../schema/nis.php:44 ../schema/nis.php:64
+#: ../schema/nis.php:44 ../schema/nis.php:64 ../schema/nis.php:222
 msgid "MAC Address"
 msgstr "MAC Address"
 
@@ -94,7 +94,7 @@ msgstr "Host/User/Domain Triple"
 msgid "ONC RPC Number"
 msgstr "ONC RPC Number"
 
-#: ../schema/nis.php:51
+#: ../schema/nis.php:51 ../schema/nis.php:200
 msgid "Expiry Date"
 msgstr "Expiry Date"
 
@@ -102,7 +102,7 @@ msgstr "Expiry Date"
 msgid "Time Until Account Inactive (Days)"
 msgstr "Time Until Account Inactive (Days)"
 
-#: ../schema/nis.php:54
+#: ../schema/nis.php:54 ../schema/nis.php:195
 msgid "Date of Last Password Change"
 msgstr "Date of Last Password Change"
 
@@ -118,7 +118,7 @@ msgstr "Minimum Password Age (Days)"
 msgid "Warning Period Before Expiration (Days)"
 msgstr "Warning Period Before Expiration (Days)"
 
-#: ../schema/nis.php:58
+#: ../schema/nis.php:58 ../schema/nis.php:179
 msgid "User ID Number"
 msgstr "User ID Number"
 
@@ -154,7 +154,7 @@ msgstr "Netgroup"
 msgid "ONC RPC Binding"
 msgstr "ONC RPC Binding"
 
-#: ../schema/nis.php:73
+#: ../schema/nis.php:73 ../schema/nis.php:175
 msgid "POSIX Account Settings"
 msgstr "POSIX Account Settings"
 
@@ -162,7 +162,7 @@ msgstr "POSIX Account Settings"
 msgid "POSIX Group"
 msgstr "POSIX Group"
 
-#: ../schema/nis.php:75
+#: ../schema/nis.php:75 ../schema/nis.php:191
 msgid "Shadow Password Settings"
 msgstr "Shadow Password Settings"
 
@@ -180,15 +180,16 @@ msgstr "Subnet Mask"
 
 #: ../schema/nis.php:86 ../schema/nis.php:98 ../schema/nis.php:109
 #: ../schema/nis.php:118 ../schema/nis.php:129 ../schema/nis.php:140
-#: ../schema/nis.php:150 ../schema/nis.php:160
+#: ../schema/nis.php:150 ../schema/nis.php:160 ../schema/nis.php:185
+#: ../schema/nis.php:202 ../schema/nis.php:212
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/nis.php:87
+#: ../schema/nis.php:87 ../schema/nis.php:213
 msgid "Managed By"
 msgstr "Managed By"
 
-#: ../schema/nis.php:88
+#: ../schema/nis.php:88 ../schema/nis.php:214
 msgid "Location"
 msgstr "Location"
 
@@ -235,3 +236,59 @@ msgstr "Group Name"
 #: ../schema/nis.php:165
 msgid "Group Members"
 msgstr "Group Members"
+
+#: ../schema/nis.php:177
+msgid "Object Name"
+msgstr "Object Name"
+
+#: ../schema/nis.php:178 ../schema/nis.php:193
+msgid "User ID"
+msgstr "User ID"
+
+#: ../schema/nis.php:181
+msgid "Home Directory"
+msgstr "Home Directory"
+
+#: ../schema/nis.php:183
+msgid "Login Shell"
+msgstr "Login Shell"
+
+#: ../schema/nis.php:196
+msgid "Minimum Password Age"
+msgstr "Minimum Password Age"
+
+#: ../schema/nis.php:197
+msgid "Maximum Password Age"
+msgstr "Maximum Password Age"
+
+#: ../schema/nis.php:198
+msgid "Warning Period Before Expiration"
+msgstr "Warning Period Before Expiration"
+
+#: ../schema/nis.php:199
+msgid "Time Until Account Inactive"
+msgstr "Time Until Account Inactive"
+
+#: ../schema/nis.php:208
+msgid "IP Address Information"
+msgstr "IP Address Information"
+
+#: ../schema/nis.php:210
+msgid "Host Name"
+msgstr "Host Name"
+
+#: ../schema/nis.php:211
+msgid "IP Address"
+msgstr "IP Address"
+
+#: ../schema/nis.php:220
+msgid "Network Hardware Address"
+msgstr "Network Hardware Address"
+
+#: ../schema/nis.php:228 ../schema/nis.php:231
+msgid "Boot Parameters"
+msgstr "Boot Parameters"
+
+#: ../schema/nis.php:230
+msgid "Boot File"
+msgstr "Boot File"
