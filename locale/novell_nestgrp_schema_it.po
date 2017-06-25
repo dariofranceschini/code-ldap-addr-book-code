@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 09:33+0100\n"
-"PO-Revision-Date: 2017-05-08 09:33+0100\n"
+"POT-Creation-Date: 2017-06-25 10:00+0100\n"
+"PO-Revision-Date: 2017-06-25 10:00+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -21,6 +21,22 @@ msgstr ""
 msgid "Group Membership (Nested Groups)"
 msgstr "Appartenenza al Gruppo (Gruppi Nidificati)"
 
-#: ../schema/novell/nestgrp.php:11
+#: ../schema/novell/nestgrp.php:11 ../schema/novell/nestgrp.php:21
 msgid "Nested Group Enforcement"
 msgstr "Effetto del Gruppo Nidificato"
+
+#: ../schema/novell/nestgrp.php:23
+msgid "Enforcement Level"
+msgstr "Livello di Esecuzione"
+
+#: ../schema/novell/nestgrp.php:26
+msgid "Groups Which Are Members (Static Only)"
+msgstr "Gruppi che sono Membri (Solo Statico)"
+
+#: ../schema/novell/nestgrp.php:31
+msgid "Groups Which This is a Member Of (Static Only)"
+msgstr "Gruppi di cui è Membro (Solo Statico)"
+
+#: ../schema/novell/nestgrp.php:36
+msgid "Objects Excluded from Nested Membership"
+msgstr "Oggetti Esclusi dall'Adesione Nidificata"
