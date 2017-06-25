@@ -120,20 +120,20 @@ class microsoft_std_schema extends ldap_schema
 			// LDAP Core Schema for User Applications (RFC 2256)
 			array("name"=>"applicationEntity",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Application Entity")),
 			array("name"=>"applicationProcess",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Application Process")), // not user creatable
-			array("name"=>"country",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country")), // type 88 class
-			array("name"=>"device",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Device")), // type 88 class
+			array("name"=>"country",			"icon"=>"folder.png",		"class_type"=>"type88","is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country")),
+			array("name"=>"device",				"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Device")),
 			array("name"=>"dSA",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent"),"parent_class"=>"applicationEntity"),
-			array("name"=>"groupOfNames",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member"), // type 88 class
+			array("name"=>"groupOfNames",			"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member"),
 			array("name"=>"locality",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality")),
 			array("name"=>"organization",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization")),
-			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"), // type 88 class
+			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
 			array("name"=>"organizationalRole",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Organizational Role")),
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
-			array("name"=>"person",				"icon"=>"user24.png",		"is_folder"=>false,"display_name"=>gettext("Person")), // type 88 class
+			array("name"=>"person",				"icon"=>"user24.png",		"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Person")),
 			array("name"=>"residentialPerson",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
 
 			// LDAP PKI (RFC 4523)
-			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"is_folder"=>false), // type 88 class
+			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"class_type"=>"type88","is_folder"=>false),
 			array("name"=>"cRLDistributionPoint",		"icon"=>"crl-distrib-point.png","is_folder"=>false),
 
 			// Directory Information Models (RFC 4512)
