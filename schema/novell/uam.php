@@ -6,7 +6,9 @@ class novell_uam_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			array("name"=>"uamPosixWorkstationContexts",	"data_type"=>"dn_list",		"display_name"=>gettext("POSIX Workstation Contexts"))
+			array("name"=>"uamPosixWorkstationContexts",	"data_type"=>"dn_list",		"display_name"=>gettext("POSIX Workstation Contexts")),
+			array("name"=>"uamPosixWorkstationList",	"data_type"=>"dn_list",		"display_name"=>gettext("POSIX Workstation List")),
+			array("name"=>"memberUid",			"data_type"=>"text_list",	"display_name"=>gettext("Member User ID"))
 			);
 
 		// Object classes

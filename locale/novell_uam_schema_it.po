@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-25 11:09+0100\n"
-"PO-Revision-Date: 2017-06-25 11:09+0100\n"
+"POT-Creation-Date: 2017-06-25 11:17+0100\n"
+"PO-Revision-Date: 2017-06-25 11:17+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -21,14 +21,22 @@ msgstr ""
 msgid "POSIX Workstation Contexts"
 msgstr "Contesti per Computer POSIX"
 
-#: ../schema/novell/uam.php:14
+#: ../schema/novell/uam.php:10
+msgid "POSIX Workstation List"
+msgstr "Lista di Computer POSIX"
+
+#: ../schema/novell/uam.php:11
+msgid "Member User ID"
+msgstr "ID Utente Membro"
+
+#: ../schema/novell/uam.php:16
 msgid "POSIX Group"
 msgstr "Gruppo POSIX"
 
-#: ../schema/novell/uam.php:21
+#: ../schema/novell/uam.php:23
 msgid "Workstation Contexts for Unix Account Management"
 msgstr "Contesti Workstation per la Gestione Conto UNIX"
 
-#: ../schema/novell/uam.php:29
+#: ../schema/novell/uam.php:31
 msgid "Groups with access to LUM-enabled Services"
 msgstr "gruppi con Accesso a Servizi LUM Abilitati"
