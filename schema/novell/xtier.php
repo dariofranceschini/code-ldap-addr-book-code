@@ -14,7 +14,7 @@ class novell_xtier_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"xTier-StorageLocation",		"icon"=>"novell/xtier-storage-loc.png","is_folder"=>false),
+			array("name"=>"xTier-StorageLocation",		"icon"=>"novell/xtier-storage-loc.png",		"is_folder"=>false),
 			);
 
 		// Display layouts
