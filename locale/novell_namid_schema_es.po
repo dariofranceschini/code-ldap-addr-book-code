@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 09:55+0100\n"
-"PO-Revision-Date: 2017-05-08 09:55+0100\n"
+"POT-Creation-Date: 2017-06-25 10:26+0100\n"
+"PO-Revision-Date: 2017-06-25 10:26+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,10 +17,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/namid.php:9
+#: ../schema/novell/namid.php:9 ../schema/novell/namid.php:38
+msgid "Deleted GID Map"
+msgstr "Mapa de UIDs Eliminados"
+
+#: ../schema/novell/namid.php:10
+msgid "End GID Number"
+msgstr "Número GID Final"
+
+#: ../schema/novell/namid.php:11 ../schema/novell/namid.php:36
+msgid "Last Assigned GID"
+msgstr "Última GID Asignado"
+
+#: ../schema/novell/namid.php:12 ../schema/novell/namid.php:37
+msgid "Reuse GID Numbers"
+msgstr "Reutilizar Número GID"
+
+#: ../schema/novell/namid.php:13
+msgid "Starting GID Number"
+msgstr "Primer Número GID"
+
+#: ../schema/novell/namid.php:15 ../schema/novell/namid.php:50
+msgid "Deleted UID Map"
+msgstr "Mapa de UIDs Eliminados"
+
+#: ../schema/novell/namid.php:16
+msgid "End UID Number"
+msgstr "Número UID Final"
+
+#: ../schema/novell/namid.php:17 ../schema/novell/namid.php:48
+msgid "Last Assigned UID"
+msgstr "Última UID Asignado"
+
+#: ../schema/novell/namid.php:18 ../schema/novell/namid.php:49
 msgid "Reuse UID Numbers"
 msgstr "Reutilizar Número UID"
 
-#: ../schema/novell/namid.php:10
-msgid "Reuse GID Numbers"
-msgstr "Reutilizar Número GID"
+#: ../schema/novell/namid.php:19
+msgid "Starting UID Number"
+msgstr "Primer Número UID"
+
+#: ../schema/novell/namid.php:25
+msgid "Group ID Mapping Information"
+msgstr "Información de Asignación de ID de Grupo"
+
+#: ../schema/novell/namid.php:26
+msgid "User ID Mapping Information"
+msgstr "Información de Asignación de ID de Usuario"
+
+#: ../schema/novell/namid.php:32
+msgid "Group ID Mapping"
+msgstr "Mapeo de ID de Grupo"
+
+#: ../schema/novell/namid.php:34
+msgid "Starting GID"
+msgstr "Comience GID"
+
+#: ../schema/novell/namid.php:35
+msgid "End GID"
+msgstr "GID Fin"
+
+#: ../schema/novell/namid.php:44
+msgid "User ID Mapping"
+msgstr "Mapeo de ID de Usuario"
+
+#: ../schema/novell/namid.php:46
+msgid "Starting UID"
+msgstr "Comience UID"
+
+#: ../schema/novell/namid.php:47
+msgid "End UID"
+msgstr "UID Fin"
