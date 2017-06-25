@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../schema/novell/xtier.php:24
 msgid "xTier Storage Location"
-msgstr "xTier Emplacement de stockage"
+msgstr "Emplacement de stockage pour xTier"
 
 #: ../schema/novell/xtier.php:26
 msgid "Display Name"
