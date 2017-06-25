@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-25 11:03+0100\n"
-"PO-Revision-Date: 2017-06-25 11:03+0100\n"
+"POT-Creation-Date: 2017-06-25 11:09+0100\n"
+"PO-Revision-Date: 2017-06-25 11:09+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../schema/novell/uam.php:9
-msgid "UAM POSIX Workstation Contexts"
-msgstr "Contextes pour les ordinateurs UAM POSIX"
+msgid "POSIX Workstation Contexts"
+msgstr "Contextes pour les ordinateurs POSIX"
 
 #: ../schema/novell/uam.php:14
 msgid "POSIX Group"
