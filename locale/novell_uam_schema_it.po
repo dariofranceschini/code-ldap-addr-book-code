@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../schema/novell/uam.php:9
 msgid "POSIX Workstation Contexts"
-msgstr "Contesti per computer POSIX"
+msgstr "Contesti per Computer POSIX"
 
 #: ../schema/novell/uam.php:14
 msgid "POSIX Group"
