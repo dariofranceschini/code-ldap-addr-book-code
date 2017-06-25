@@ -23,24 +23,6 @@ class novell_uam_schema extends ldap_schema
 					array("uamPosixWorkstationContexts"),
 					)
 				),
-			array("section_name"=>gettext("User ID Mapping"),"new_row"=>true,
-				"attributes"=>array(
-					array("uamPosixUidNumberStart",		gettext("Starting UID"),			"generic24.png"),
-					array("uamPosixUidNumberEnd",		gettext("End UID"),				"generic24.png"),
-					array("uamPosixUidNumberLastAssigned",	gettext("Last Assigned UID"),			"generic24.png"),
-					array("uamPosixUidNumberReuse",		gettext("Reuse UID Numbers"),			"generic24.png"),
-			//		array("uamPosixUidNumberDeletedMap",	gettext("Deleted UID Map"),			"generic24.png"),
-					)
-				),
-			array("section_name"=>gettext("Group ID Mapping"),"width"=>"50%",
-				"attributes"=>array(
-					array("uamPosixGidNumberStart",		gettext("Starting GID"),			"generic24.png"),
-					array("uamPosixGidNumberEnd",		gettext("End GID"),				"generic24.png"),
-					array("uamPosixGidNumberLastAssigned",	gettext("Last Assigned GID"),			"generic24.png"),
-					array("uamPosixGidNumberReuse",		gettext("Reuse GID Numbers"),			"generic24.png"),
-			//		array("uamPosixGidNumberDeletedMap",	gettext("Deleted GID Map"),			"generic24.png"),
-					)
-				),
 			));
 
 		$ldap_server->add_display_layout("uamPosixWorkstation",array(
