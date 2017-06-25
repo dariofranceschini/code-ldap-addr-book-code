@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-25 11:17+0100\n"
-"PO-Revision-Date: 2017-06-25 11:17+0100\n"
+"POT-Creation-Date: 2017-06-25 12:16+0100\n"
+"PO-Revision-Date: 2017-06-25 12:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/novell/uam.php:9
+msgid "Member User ID"
+msgstr "Member User ID"
+
+#: ../schema/novell/uam.php:10
 msgid "POSIX Workstation Contexts"
 msgstr "POSIX Workstation Contexts"
 
-#: ../schema/novell/uam.php:10
+#: ../schema/novell/uam.php:11
 msgid "POSIX Workstation List"
 msgstr "POSIX Workstation List"
-
-#: ../schema/novell/uam.php:11
-msgid "Member User ID"
-msgstr "Member User ID"
 
 #: ../schema/novell/uam.php:16
 msgid "POSIX Group"
@@ -40,3 +40,23 @@ msgstr "Workstation Contexts for Unix Account Management"
 #: ../schema/novell/uam.php:31
 msgid "Groups with access to LUM-enabled Services"
 msgstr "Groups with access to LUM-enabled Services"
+
+#: ../schema/novell/uam.php:41
+msgid "POSIX Group Information"
+msgstr "POSIX Group Information"
+
+#: ../schema/novell/uam.php:43
+msgid "Group Name"
+msgstr "Group Name"
+
+#: ../schema/novell/uam.php:44
+msgid "Description"
+msgstr "Description"
+
+#: ../schema/novell/uam.php:45
+msgid "Group ID Number"
+msgstr "Group ID Number"
+
+#: ../schema/novell/uam.php:48
+msgid "POSIX Group Members"
+msgstr "POSIX Group Members"

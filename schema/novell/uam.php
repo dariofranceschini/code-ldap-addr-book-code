@@ -35,6 +35,23 @@ class novell_uam_schema extends ldap_schema
 				)
 			));
 
+		// Auxiliary class layouts
+
+		$ldap_server->add_display_layout("posixGroup",array(
+			array("section_name"=>gettext("POSIX Group Information"),
+				"attributes"=>array(
+					array("cn",				gettext("Group Name"),			"group24.png"),
+					array("description",			gettext("Description"),			"description.png"),
+					array("gidNumber",			gettext("Group ID Number"),		"id.png")
+					)
+				),
+			array("section_name"=>gettext("POSIX Group Members"),"new_row"=>true,
+				"attributes"=>array(
+					array("memberUid")
+					)
+				),
+			));
+
 		parent::__construct($ldap_server);
 	}
 }
