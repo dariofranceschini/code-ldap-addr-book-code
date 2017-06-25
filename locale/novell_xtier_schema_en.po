@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-15 05:55+0100\n"
-"PO-Revision-Date: 2017-05-15 05:55+0100\n"
+"POT-Creation-Date: 2017-06-25 10:15+0100\n"
+"PO-Revision-Date: 2017-06-25 10:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,14 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/xtier.php:22
+#: ../schema/novell/xtier.php:24
 msgid "xTier Storage Location"
 msgstr "xTier Storage Location"
 
-#: ../schema/novell/xtier.php:24
+#: ../schema/novell/xtier.php:26
 msgid "Display Name"
 msgstr "Display Name"
 
-#: ../schema/novell/xtier.php:25
+#: ../schema/novell/xtier.php:27
 msgid "URL"
 msgstr "URL"
+
+#: ../schema/novell/xtier.php:35
+msgid "xTier Settings"
+msgstr "xTier Settings"
+
+#: ../schema/novell/xtier.php:43
+msgid "xTier Storage Locations"
+msgstr "xTier Storage Locations"
