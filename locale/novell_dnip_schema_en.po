@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 09:13+0100\n"
-"PO-Revision-Date: 2016-08-13 09:13+0100\n"
+"POT-Creation-Date: 2017-06-25 09:51+0100\n"
+"PO-Revision-Date: 2017-06-25 09:51+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,78 +17,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/dnip.php:20
-msgid "DNS/DHCP Group Object Name"
-msgstr "DNS/DHCP Group Object Name"
+#: ../schema/novell/dnip.php:20 ../schema/novell/dnip.php:93
+msgid "Associated NDS Object"
+msgstr "Associated NDS Object"
 
-#: ../schema/novell/dnip.php:21
-msgid "DNS Zone Object Names"
-msgstr "DNS Zone Object Names"
-
-#: ../schema/novell/dnip.php:22
-msgid "DHCP Subnet Attribute Object Names"
-msgstr "DHCP Subnet Attribute Object Names"
-
-#: ../schema/novell/dnip.php:23 ../schema/novell/dnip.php:82
+#: ../schema/novell/dnip.php:21 ../schema/novell/dnip.php:82
 #: ../schema/novell/dnip.php:95 ../schema/novell/dnip.php:137
 msgid "Comments"
 msgstr "Comments"
 
-#: ../schema/novell/dnip.php:24 ../schema/novell/dnip.php:93
-msgid "Associated NDS Object"
-msgstr "Associated NDS Object"
+#: ../schema/novell/dnip.php:22
+msgid "DNS Zone Object Names"
+msgstr "DNS Zone Object Names"
 
-#: ../schema/novell/dnip.php:25 ../schema/novell/dnip.php:128
-msgid "Subnet Pool Reference"
-msgstr "Subnet Pool Reference"
+#: ../schema/novell/dnip.php:23
+msgid "DNS/DHCP Group Object Name"
+msgstr "DNS/DHCP Group Object Name"
 
-#: ../schema/novell/dnip.php:26 ../schema/novell/dnip.php:150
-msgid "Subnet Objects"
-msgstr "Subnet Objects"
-
-#: ../schema/novell/dnip.php:27
+#: ../schema/novell/dnip.php:24
 msgid "DNS/DHCP Locator DN"
 msgstr "DNS/DHCP Locator DN"
 
-#: ../schema/novell/dnip.php:28
+#: ../schema/novell/dnip.php:25
 msgid "DNS Secondary Zone"
 msgstr "DNS Secondary Zone"
 
-#: ../schema/novell/dnip.php:33
-msgid "Locator"
-msgstr "Locator"
+#: ../schema/novell/dnip.php:26
+msgid "DHCP Subnet Attribute Object Names"
+msgstr "DHCP Subnet Attribute Object Names"
 
-#: ../schema/novell/dnip.php:34 ../schema/novell/dnip.php:55
-msgid "DNS Zone"
-msgstr "DNS Zone"
+#: ../schema/novell/dnip.php:27 ../schema/novell/dnip.php:128
+msgid "Subnet Pool Reference"
+msgstr "Subnet Pool Reference"
+
+#: ../schema/novell/dnip.php:32
+msgid "DHCP Server (NetWare)"
+msgstr "DHCP Server (NetWare)"
+
+#: ../schema/novell/dnip.php:33
+msgid "DNS/DHCP Server Versions"
+msgstr "DNS/DHCP Server Versions"
+
+#: ../schema/novell/dnip.php:34
+msgid "DNIP:DNS Key"
+msgstr "DNIP:DNS Key"
 
 #: ../schema/novell/dnip.php:35
 msgid "DNS RRset"
 msgstr "DNS RRset"
 
-#: ../schema/novell/dnip.php:36
-msgid "Subnet"
-msgstr "Subnet"
+#: ../schema/novell/dnip.php:36 ../schema/novell/dnip.php:55
+msgid "DNS Zone"
+msgstr "DNS Zone"
 
 #: ../schema/novell/dnip.php:37
-msgid "Subnet Pool"
-msgstr "Subnet Pool"
-
-#: ../schema/novell/dnip.php:38
-msgid "Subnet Address Range"
-msgstr "Subnet Address Range"
-
-#: ../schema/novell/dnip.php:39
 msgid "IP Address Configuration"
 msgstr "IP Address Configuration"
 
+#: ../schema/novell/dnip.php:38
+msgid "Locator"
+msgstr "Locator"
+
+#: ../schema/novell/dnip.php:39
+msgid "Subnet"
+msgstr "Subnet"
+
 #: ../schema/novell/dnip.php:40
-msgid "DNIP:DNS Key"
-msgstr "DNIP:DNS Key"
+msgid "Subnet Address Range"
+msgstr "Subnet Address Range"
 
 #: ../schema/novell/dnip.php:41
-msgid "DHCP Server (NetWare)"
-msgstr "DHCP Server (NetWare)"
+msgid "Subnet Pool"
+msgstr "Subnet Pool"
 
 #: ../schema/novell/dnip.php:46
 msgid "NetWare DHCP Server Object"
@@ -221,3 +221,19 @@ msgstr "NetWare DNS/DHCP Subnet Pool"
 #: ../schema/novell/dnip.php:147
 msgid "Type"
 msgstr "Type"
+
+#: ../schema/novell/dnip.php:150
+msgid "Subnet Objects"
+msgstr "Subnet Objects"
+
+#: ../schema/novell/dnip.php:160
+msgid "NetWare DNS/DHCP Server Versions"
+msgstr "NetWare DNS/DHCP Server Versions"
+
+#: ../schema/novell/dnip.php:162
+msgid "DNS Server Version"
+msgstr "DNS Server Version"
+
+#: ../schema/novell/dnip.php:163
+msgid "DHCP Server Version"
+msgstr "DHCP Server Version"
