@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-25 12:16+0100\n"
-"PO-Revision-Date: 2017-06-25 12:16+0100\n"
+"POT-Creation-Date: 2017-06-25 12:25+0100\n"
+"PO-Revision-Date: 2017-06-25 12:25+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -25,38 +25,115 @@ msgstr "Identificateur d'Utilisateur du Membre"
 msgid "POSIX Workstation Contexts"
 msgstr "Contextes pour les Ordinateurs POSIX"
 
-#: ../schema/novell/uam.php:11
+#: ../schema/novell/uam.php:11 ../schema/novell/uam.php:91
 msgid "POSIX Workstation List"
 msgstr "Liste d'Ordinateurs POSIX"
 
 #: ../schema/novell/uam.php:16
+msgid "POSIX Account"
+msgstr "Compte POSIX"
+
+#: ../schema/novell/uam.php:17
 msgid "POSIX Group"
 msgstr "Groupe POSIX"
 
-#: ../schema/novell/uam.php:23
+#: ../schema/novell/uam.php:20
+msgid "UAM Workstation List"
+msgstr "Liste d'Ordinateurs UAM"
+
+#: ../schema/novell/uam.php:21
+msgid "UAM Password Salt"
+msgstr "Sel pour le Mot de Passe UAM"
+
+#: ../schema/novell/uam.php:27
 msgid "Workstation Contexts for Unix Account Management"
 msgstr "Contextes Workstation pour la Gestion des Comptes Unix"
 
-#: ../schema/novell/uam.php:31
+#: ../schema/novell/uam.php:35
 msgid "Groups with access to LUM-enabled Services"
 msgstr "Groupes ayant accès aux Services LUM-permis"
 
-#: ../schema/novell/uam.php:41
-msgid "POSIX Group Information"
-msgstr "Informations sur le groupe POSIX"
+#: ../schema/novell/uam.php:45
+msgid "POSIX Account Settings"
+msgstr "Paramètres du Compte POSIX"
 
-#: ../schema/novell/uam.php:43
-msgid "Group Name"
-msgstr "Nom du Groupe"
+#: ../schema/novell/uam.php:47
+msgid "Object Name"
+msgstr "Nom de l'Objet"
 
-#: ../schema/novell/uam.php:44
+#: ../schema/novell/uam.php:48 ../schema/novell/uam.php:77
+msgid "Unique ID"
+msgstr "Identifiant Unique"
+
+#: ../schema/novell/uam.php:49
+msgid "UID Number"
+msgstr "Numéro UID"
+
+#: ../schema/novell/uam.php:50
+msgid "GID Number"
+msgstr "Numéro GID"
+
+#: ../schema/novell/uam.php:51
+msgid "Home Directory"
+msgstr "Répertoire d'Accueil"
+
+#: ../schema/novell/uam.php:52
+msgid "Login Shell"
+msgstr "Shell de Connexion"
+
+#: ../schema/novell/uam.php:53
+msgid "GECOS Field"
+msgstr "Champ de GECOS"
+
+#: ../schema/novell/uam.php:54 ../schema/novell/uam.php:63
+#: ../schema/novell/uam.php:85
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/novell/uam.php:45
+#: ../schema/novell/uam.php:60
+msgid "POSIX Group Information"
+msgstr "Informations sur le groupe POSIX"
+
+#: ../schema/novell/uam.php:62
+msgid "Group Name"
+msgstr "Nom du Groupe"
+
+#: ../schema/novell/uam.php:64
 msgid "Group ID Number"
 msgstr "Numéro d'Identification du Groupe"
 
-#: ../schema/novell/uam.php:48
+#: ../schema/novell/uam.php:67
 msgid "POSIX Group Members"
 msgstr "Membres du Groupe POSIX"
+
+#: ../schema/novell/uam.php:75
+msgid "Shadow Password Settings"
+msgstr "Paramètres pour l'Ombre du Mot de Passe"
+
+#: ../schema/novell/uam.php:78
+msgid "Date of Last Password Change"
+msgstr "Date du Dernier Changement de Mot de Passe"
+
+#: ../schema/novell/uam.php:79
+msgid "Minimum Password Age"
+msgstr "Âge Minimum de Mots de Passe"
+
+#: ../schema/novell/uam.php:80
+msgid "Maximum Password Age"
+msgstr "Âge Maximum de Mot de Passe"
+
+#: ../schema/novell/uam.php:81
+msgid "Warning Period Before Expiration"
+msgstr "Période d'Avertissement avant l'Expiration"
+
+#: ../schema/novell/uam.php:82
+msgid "Time Until Account Inactive"
+msgstr "Heure Jusqu'au Compte Inactif"
+
+#: ../schema/novell/uam.php:83
+msgid "Expiry Date"
+msgstr "Date d'Expiration"
+
+#: ../schema/novell/uam.php:99
+msgid "Password Salt"
+msgstr "Sel pour le Mot de Passe"
