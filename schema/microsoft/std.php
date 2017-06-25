@@ -124,6 +124,7 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"device",				"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Device")),
 			array("name"=>"dSA",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent"),"parent_class"=>"applicationEntity"),
 			array("name"=>"groupOfNames",			"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member"),
+			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
 			array("name"=>"locality",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality")),
 			array("name"=>"organization",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization")),
 			array("name"=>"organizationalPerson",		"icon"=>"user24.png",		"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Organizational Person"),"parent_class"=>"person"),
@@ -131,6 +132,43 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true),
 			array("name"=>"person",				"icon"=>"user24.png",		"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Person")),
 			array("name"=>"residentialPerson",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Residential Person"),"parent_class"=>"person"),
+			// Non-standard implementation: userPassword attribute is optional
+			array("name"=>"simpleSecurityObject",           "icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("User Password")),
+			// Non-standard implementation: additional mandatory attributes instanceType,nTSecurityDescriptor,objectCategory
+			// mandatory attribtutes (including objectClass) are populated automatically by the server, hence not configured here
+			array("name"=>"top",                            "icon"=>"generic24.png",        "class_type"=>"abstract"),
+
+			// COSINE and Internet X.500 Schema
+
+			array("name"=>"document",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Document")),
+			array("name"=>"documentSeries",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Document Series")),
+			array("name"=>"domain",				"icon"=>"generic24.png",	"is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc"),
+			array("name"=>"friendlyCountry",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)"),"parent_class"=>"country"),
+			array("name"=>"rFC822LocalPart",		"icon"=>"folder.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"parent_class"=>"domain"),
+			array("name"=>"room",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Room")),
+
+			// LDAP Network Information Service schema (RFC 2307)
+
+			array("name"=>"bootableDevice",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("Boot Configuration")),
+			array("name"=>"ieee802Device",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("MAC Address")),
+			array("name"=>"ipHost",				"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("IP Host Details"),"required_attribs"=>"cn,ipHostNumber"),
+			array("name"=>"ipNetwork",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("IP Network"),"required_attribs"=>"cn,ipNetworkNumber"),
+			array("name"=>"ipProtocol",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("IP Protocol"),"required_attribs"=>"cn,ipProtocolNumber"),
+			array("name"=>"ipService",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("IP Service"),"required_attribs"=>"ipServicePort,ipServiceProtocol"),
+			array("name"=>"nisMap",				"icon"=>"folder.png",		"is_folder"=>true,"display_name"=>gettext("NIS Map"),"required_attribs"=>"nisMapName"),
+			array("name"=>"nisNetgroup",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Netgroup")),
+			array("name"=>"nisObject",			"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("NIS Map Entry"),"required_attribs"=>"nisMapEntry,nisMapName"),
+			array("name"=>"oncRpc",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("ONC RPC Binding"),"required_attribs"=>"oncRpcNumber"),
+			// Non-standard implementation: cn,uid,uidNumber,gidNumber and homeDirectory attributes are all optional
+			array("name"=>"posixAccount",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("POSIX Account Settings")),
+			// Non-standard implementation: Auxiliary instead of structural class, gidNumber attribute is optional
+			array("name"=>"posixGroup",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("POSIX Group")),
+			// Non-standard implementation: uid attribute is optional
+			array("name"=>"shadowAccount",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("Shadow Password Settings")),
+
+			// Dynamic Directory Services (RFC 2589)
+
+			array("name"=>"dynamicObject",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("Document")),
 
 			// LDAP PKI (RFC 4523)
 			array("name"=>"certificationAuthority",		"icon"=>"cert-authority.png",	"class_type"=>"type88","is_folder"=>false),

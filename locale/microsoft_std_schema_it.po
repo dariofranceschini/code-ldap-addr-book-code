@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-26 15:14+0000\n"
-"PO-Revision-Date: 2016-12-26 15:14+0000\n"
+"POT-Creation-Date: 2017-06-17 11:12+0100\n"
+"PO-Revision-Date: 2017-06-17 11:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -33,7 +33,7 @@ msgstr "Nome Comune/Nome e Cognome"
 msgid "Domain Component Name"
 msgstr "Nome del Componente di Dominio"
 
-#: ../schema/microsoft/std.php:23 ../schema/microsoft/std.php:151
+#: ../schema/microsoft/std.php:23 ../schema/microsoft/std.php:188
 msgid "Description"
 msgstr "Descrizione"
 
@@ -97,7 +97,7 @@ msgstr "Proprietario"
 msgid "Office"
 msgstr "Ufficio"
 
-#: ../schema/microsoft/std.php:39 ../schema/microsoft/std.php:152
+#: ../schema/microsoft/std.php:39 ../schema/microsoft/std.php:189
 msgid "Postal Address"
 msgstr "Indirizzo Postale"
 
@@ -161,7 +161,7 @@ msgstr "Numero di Telex"
 msgid "Job Title"
 msgstr "Titolo di Lavoro"
 
-#: ../schema/microsoft/std.php:59
+#: ../schema/microsoft/std.php:59 ../schema/microsoft/std.php:136
 msgid "User Password"
 msgstr "Password Utente"
 
@@ -269,33 +269,37 @@ msgstr "S/MIME Certificato"
 msgid "Photograph"
 msgstr "Fotografia"
 
-#: ../schema/microsoft/std.php:119
+#: ../schema/microsoft/std.php:118
 msgid "InetOrgPerson"
 msgstr "InetOrgPerson"
 
-#: ../schema/microsoft/std.php:122
+#: ../schema/microsoft/std.php:121
 msgid "Application Entity"
 msgstr "Entità di Applicazione"
 
-#: ../schema/microsoft/std.php:123
+#: ../schema/microsoft/std.php:122
 msgid "Application Process"
 msgstr "Processo di Applicazione"
 
-#: ../schema/microsoft/std.php:124 ../schema/microsoft/std.php:154
+#: ../schema/microsoft/std.php:123 ../schema/microsoft/std.php:191
 msgid "Country"
 msgstr "Nazione"
 
-#: ../schema/microsoft/std.php:125
+#: ../schema/microsoft/std.php:124
 msgid "Device"
 msgstr "Dispositivo"
 
-#: ../schema/microsoft/std.php:126
+#: ../schema/microsoft/std.php:125
 msgid "Directory System Agent"
 msgstr "Agente di Sistema Direttorio"
 
-#: ../schema/microsoft/std.php:127
+#: ../schema/microsoft/std.php:126
 msgid "Group"
 msgstr "Gruppo"
+
+#: ../schema/microsoft/std.php:127
+msgid "Group (Unique Names)"
+msgstr "Gruppo (Nomi Unici)"
 
 #: ../schema/microsoft/std.php:128
 msgid "Locality"
@@ -325,10 +329,86 @@ msgstr "Persona"
 msgid "Residential Person"
 msgstr "Persona Residenziale"
 
-#: ../schema/microsoft/std.php:141
+#: ../schema/microsoft/std.php:143 ../schema/microsoft/std.php:171
+msgid "Document"
+msgstr "Documento"
+
+#: ../schema/microsoft/std.php:144
+msgid "Document Series"
+msgstr "Serie di Documenti"
+
+#: ../schema/microsoft/std.php:145
+msgid "Domain"
+msgstr "Dominio"
+
+#: ../schema/microsoft/std.php:146
+msgid "Country (Friendly Name)"
+msgstr "Paese (Nome Descrittivo)"
+
+#: ../schema/microsoft/std.php:147
+msgid "RFC 822 Local Part"
+msgstr "RFC 822 Parte Locale"
+
+#: ../schema/microsoft/std.php:148
+msgid "Room"
+msgstr "Camera"
+
+#: ../schema/microsoft/std.php:152
+msgid "Boot Configuration"
+msgstr "Configurazione di Avvio"
+
+#: ../schema/microsoft/std.php:153
+msgid "MAC Address"
+msgstr "Indirizzo MAC"
+
+#: ../schema/microsoft/std.php:154
+msgid "IP Host Details"
+msgstr "Dettagli dell'Host IP"
+
+#: ../schema/microsoft/std.php:155
+msgid "IP Network"
+msgstr "Rete IP"
+
+#: ../schema/microsoft/std.php:156
+msgid "IP Protocol"
+msgstr "Protocollo IP"
+
+#: ../schema/microsoft/std.php:157
+msgid "IP Service"
+msgstr "Servizio IP"
+
+#: ../schema/microsoft/std.php:158
+msgid "NIS Map"
+msgstr "Mappa NIS"
+
+#: ../schema/microsoft/std.php:159
+msgid "Netgroup"
+msgstr "Netgroup"
+
+#: ../schema/microsoft/std.php:160
+msgid "NIS Map Entry"
+msgstr "Entrata in Mappa NIS"
+
+#: ../schema/microsoft/std.php:161
+msgid "ONC RPC Binding"
+msgstr "Relazione per ONC RPC"
+
+#: ../schema/microsoft/std.php:163
+msgid "POSIX Account Settings"
+msgstr "Impostazioni Account POSIX"
+
+#: ../schema/microsoft/std.php:165
+msgid "POSIX Group"
+msgstr "Gruppo POSIX"
+
+#: ../schema/microsoft/std.php:167
+msgid "Shadow Password Settings"
+msgstr "Impostazioni per l'Ombra della Password"
+
+#: ../schema/microsoft/std.php:178
 msgid "Schema"
 msgstr "Schema"
 
-#: ../schema/microsoft/std.php:150
+#: ../schema/microsoft/std.php:187
 msgid "OU Name"
 msgstr "Nome OU"
