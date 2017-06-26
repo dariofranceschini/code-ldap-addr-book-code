@@ -21,6 +21,12 @@ class openldap_config_schema extends ldap_schema
 
 			// Attribute used by back_bdb and back_hdb
 			array("name"=>"olcDbConfig",			"data_type"=>"text_list",	"display_name"=>gettext("DB_CONFIG Directives")),
+			array("name"=>"olmBDBDNCache",			"data_type"=>"text",		"display_name"=>gettext("Number of DN Cache Items")),
+			array("name"=>"olmBDBEntryCache",		"data_type"=>"text",		"display_name"=>gettext("Number of Entry Cache Items")),
+			array("name"=>"olmBDBIDLCache",			"data_type"=>"text",		"display_name"=>gettext("Number of IDL Cache Items")),
+
+			// Attribute used by back_bdb, back_hdb, back_mdb
+			array("name"=>"olmDbDirectory",			"data_type"=>"text",		"display_name"=>gettext("Database Directory Path")),
 
 			// Attribute used by back_bdb, back_hdb, back_mdb and back_wt
 			array("name"=>"olcDbIndex",			"data_type"=>"text_list",	"display_name"=>gettext("Database Index")),
@@ -44,10 +50,11 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"can_create"=>true,"create_method"=>"atomic","contained_by"=>"olcGlobal"),
 			array("name"=>"olcOverlayConfig",		"icon"=>"openldap/overlay.png",	"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("OpenLDAP Overlay"),"contained_by"=>"olcDatabaseConfig"),
-			array("name"=>"olcSchemaConfig",		"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("OpenLDAP Schema Configuration"))
-			);
+			array("name"=>"olcSchemaConfig",		"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("OpenLDAP Schema Configuration")),
 
-		// auxiliary class 'olmBDBDatabase' shared by back_bdb, back_hdb
+			// auxiliary class used by back_bdb, back_hdb
+			array("name"=>"olmBDBDatabase",			"icon"=>"generic24.png",	"class_type"=>"auxiliary","display_name"=>gettext("OpenLDAP BDB Monitoring Data"))
+			);
 
 		// Display layouts
 		$ldap_server->add_display_layout("olcGlobal",array(
@@ -153,6 +160,17 @@ class openldap_config_schema extends ldap_schema
 					array("olcDefaultSearchBase",	gettext("Default Search Base"),			"generic24.png"),
 					array("olcPasswordHash",	gettext("Password Hash"),			"generic24.png"),
 					array("olcSortVals",		gettext("Attributes with Sorted Values"),	"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("olmBDBDatabase",array(
+			array("section_name"=>gettext("OpenLDAP Monitored BDB Database"),
+				"attributes"=>array(
+					array("olmBDBEntryCache",	gettext("Number of Entry Cache Items"),		"generic24.png"),
+					array("olmBDBDNCache",		gettext("Number of DN Cache Items"),		"generic24.png"),
+					array("olmBDBIDLCache",		gettext("Number of IDL Cache Items"),		"generic24.png"),
+					array("olmDbDirectory",		gettext("Database Directory Path"),		"folder.png")
 					)
 				)
 			));
