@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 08:55+0000\n"
-"PO-Revision-Date: 2017-02-16 08:55+0000\n"
+"POT-Creation-Date: 2017-06-26 11:46+0100\n"
+"PO-Revision-Date: 2017-06-26 11:46+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -86,36 +86,36 @@ msgid "Rebind as User"
 msgstr "Repetir Enlace como Usuario"
 
 #: ../schema/openldap/config.php:39
-msgid "OpenLDAP Schema Configuration"
-msgstr "Configuración del Esquema de OpenLDAP"
-
-#: ../schema/openldap/config.php:40
 msgid "OpenLDAP Back End Configuration"
 msgstr "Configuración del Posterior de OpenLDAP"
 
-#: ../schema/openldap/config.php:41
-msgid "OpenLDAP Front End"
-msgstr "Interfaz OpenLDAP"
-
-#: ../schema/openldap/config.php:42
-msgid "OpenLDAP Overlay"
-msgstr "Superposición de OpenLDAP"
-
-#: ../schema/openldap/config.php:43
+#: ../schema/openldap/config.php:40
 msgid "OpenLDAP Database"
 msgstr "Base de Datos OpenLDAP"
 
-#: ../schema/openldap/config.php:44 ../schema/openldap/config.php:73
-msgid "OpenLDAP Configuration Include File"
-msgstr "Archivo de Inclusión para la Configuración de OpenLDAP"
+#: ../schema/openldap/config.php:41 ../schema/openldap/config.php:152
+msgid "OpenLDAP Front End Configuration"
+msgstr "Configuración de Interfaz de OpenLDAP"
 
-#: ../schema/openldap/config.php:45
+#: ../schema/openldap/config.php:42
 msgid "OpenLDAP Global Configuration"
 msgstr "Configuración Global de OpenLDAP"
 
-#: ../schema/openldap/config.php:46
+#: ../schema/openldap/config.php:43 ../schema/openldap/config.php:73
+msgid "OpenLDAP Configuration Include File"
+msgstr "Archivo de Inclusión para la Configuración de OpenLDAP"
+
+#: ../schema/openldap/config.php:44
 msgid "OpenLDAP Module"
 msgstr "Módulo OpenLDAP"
+
+#: ../schema/openldap/config.php:45
+msgid "OpenLDAP Overlay"
+msgstr "Superposición de OpenLDAP"
+
+#: ../schema/openldap/config.php:46
+msgid "OpenLDAP Schema Configuration"
+msgstr "Configuración del Esquema de OpenLDAP"
 
 #: ../schema/openldap/config.php:55
 msgid "OpenLDAP Server Global Settings"
@@ -193,30 +193,38 @@ msgstr "Módulos"
 msgid "Path"
 msgstr "Camino"
 
-#: ../schema/openldap/config.php:124 ../schema/openldap/config.php:142
-msgid "Access Controls"
-msgstr "Controles de Acceso"
+#: ../schema/openldap/config.php:124
+msgid "Database Settings"
+msgstr "Configuración de la Base de Datos"
 
-#: ../schema/openldap/config.php:129
-msgid "Overlays"
-msgstr "Superposiciones"
-
-#: ../schema/openldap/config.php:137
-msgid "Front End Settings"
-msgstr "Ajustes Frontales"
-
-#: ../schema/openldap/config.php:139
+#: ../schema/openldap/config.php:126
 msgid "Size Limit"
 msgstr "Límite de Tamaño"
 
-#: ../schema/openldap/config.php:147
-msgid "Global Overlays"
-msgstr "Superposiciones Globales"
+#: ../schema/openldap/config.php:129
+msgid "Access Controls"
+msgstr "Controles de Acceso"
 
-#: ../schema/openldap/config.php:155
+#: ../schema/openldap/config.php:134
+msgid "Overlays"
+msgstr "Superposiciones"
+
+#: ../schema/openldap/config.php:142
 msgid "Back End Configuration"
 msgstr "Configuración del Posterior"
 
-#: ../schema/openldap/config.php:157
+#: ../schema/openldap/config.php:144
 msgid "Back End Module"
 msgstr "Módulo Posterior"
+
+#: ../schema/openldap/config.php:154
+msgid "Default Search Base"
+msgstr "Base de Búsqueda Predeterminada"
+
+#: ../schema/openldap/config.php:155
+msgid "Password Hash"
+msgstr "Hash de la Contraseña"
+
+#: ../schema/openldap/config.php:156
+msgid "Attributes with Sorted Values"
+msgstr "Atributos con Valores Ordenados"

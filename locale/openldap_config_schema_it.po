@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 08:55+0000\n"
-"PO-Revision-Date: 2017-02-16 08:55+0000\n"
+"POT-Creation-Date: 2017-06-26 11:46+0100\n"
+"PO-Revision-Date: 2017-06-26 11:46+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -86,36 +86,36 @@ msgid "Rebind as User"
 msgstr "Ripetere Legano come Utente"
 
 #: ../schema/openldap/config.php:39
-msgid "OpenLDAP Schema Configuration"
-msgstr "Configurazione Schema OpenLDAP"
-
-#: ../schema/openldap/config.php:40
 msgid "OpenLDAP Back End Configuration"
 msgstr "OpenLDAP Indietro Configurazione Finale"
 
-#: ../schema/openldap/config.php:41
-msgid "OpenLDAP Front End"
-msgstr "Fine Frontale OpenLDAP"
-
-#: ../schema/openldap/config.php:42
-msgid "OpenLDAP Overlay"
-msgstr "Copertura per OpenLDAP"
-
-#: ../schema/openldap/config.php:43
+#: ../schema/openldap/config.php:40
 msgid "OpenLDAP Database"
 msgstr "Banca Dati OpenLDAP"
 
-#: ../schema/openldap/config.php:44 ../schema/openldap/config.php:73
-msgid "OpenLDAP Configuration Include File"
-msgstr "Includi File per la Configurazione di OpenLDAP"
+#: ../schema/openldap/config.php:41 ../schema/openldap/config.php:152
+msgid "OpenLDAP Front End Configuration"
+msgstr "Configurazione Frontale di OpenLDAP"
 
-#: ../schema/openldap/config.php:45
+#: ../schema/openldap/config.php:42
 msgid "OpenLDAP Global Configuration"
 msgstr "Configurazione Globale OpenLDAP"
 
-#: ../schema/openldap/config.php:46
+#: ../schema/openldap/config.php:43 ../schema/openldap/config.php:73
+msgid "OpenLDAP Configuration Include File"
+msgstr "Includi File per la Configurazione di OpenLDAP"
+
+#: ../schema/openldap/config.php:44
 msgid "OpenLDAP Module"
 msgstr "Modulo OpenLDAP"
+
+#: ../schema/openldap/config.php:45
+msgid "OpenLDAP Overlay"
+msgstr "Copertura per OpenLDAP"
+
+#: ../schema/openldap/config.php:46
+msgid "OpenLDAP Schema Configuration"
+msgstr "Configurazione Schema OpenLDAP"
 
 #: ../schema/openldap/config.php:55
 msgid "OpenLDAP Server Global Settings"
@@ -193,30 +193,38 @@ msgstr "Moduli"
 msgid "Path"
 msgstr "Percorso"
 
-#: ../schema/openldap/config.php:124 ../schema/openldap/config.php:142
-msgid "Access Controls"
-msgstr "Controlli di Accesso"
+#: ../schema/openldap/config.php:124
+msgid "Database Settings"
+msgstr "Impostazioni Banca Dati"
 
-#: ../schema/openldap/config.php:129
-msgid "Overlays"
-msgstr "Coperture"
-
-#: ../schema/openldap/config.php:137
-msgid "Front End Settings"
-msgstr "Impostazioni per l'Interfaccia di Accesso"
-
-#: ../schema/openldap/config.php:139
+#: ../schema/openldap/config.php:126
 msgid "Size Limit"
 msgstr "Limite Dimensioni"
 
-#: ../schema/openldap/config.php:147
-msgid "Global Overlays"
-msgstr "Coperture Globale"
+#: ../schema/openldap/config.php:129
+msgid "Access Controls"
+msgstr "Controlli di Accesso"
 
-#: ../schema/openldap/config.php:155
+#: ../schema/openldap/config.php:134
+msgid "Overlays"
+msgstr "Coperture"
+
+#: ../schema/openldap/config.php:142
 msgid "Back End Configuration"
 msgstr "Configurazione Fine Indietro"
 
-#: ../schema/openldap/config.php:157
+#: ../schema/openldap/config.php:144
 msgid "Back End Module"
 msgstr "Modulo Fine Indietro"
+
+#: ../schema/openldap/config.php:154
+msgid "Default Search Base"
+msgstr "Base di Ricerca Predefinita"
+
+#: ../schema/openldap/config.php:155
+msgid "Password Hash"
+msgstr "Password Hash"
+
+#: ../schema/openldap/config.php:156
+msgid "Attributes with Sorted Values"
+msgstr "Attributi con Valori Ordinati"

@@ -38,7 +38,7 @@ class openldap_config_schema extends ldap_schema
 		$this->object_schema = array(
 			array("name"=>"olcBackendConfig",		"icon"=>"openldap/backend.png",	"is_folder"=>false,"rdn_attrib"=>"olcBackend","display_name"=>gettext("OpenLDAP Back End Configuration"),"contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
-			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End")),	// aux class
+			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","class_type"=>"auxiliary","rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End Configuration")),
 			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>true,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
 			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"can_create"=>true,"create_method"=>"atomic","contained_by"=>"olcGlobal"),
@@ -121,6 +121,11 @@ class openldap_config_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("olcDatabaseConfig",array(
+			array("section_name"=>gettext("Database Settings"),
+				"attributes"=>array(
+					array("olcSizeLimit",		gettext("Size Limit")),
+					),
+				),
 			array("section_name"=>gettext("Access Controls"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcAccess")
@@ -133,28 +138,22 @@ class openldap_config_schema extends ldap_schema
 				)
 			));
 
-		$ldap_server->add_display_layout("olcFrontendConfig",array(
-			array("section_name"=>gettext("Front End Settings"),
-				"attributes"=>array(
-					array("olcSizeLimit",		gettext("Size Limit")),
-					),
-				),
-			array("section_name"=>gettext("Access Controls"),"new_row"=>true,
-				"attributes"=>array(
-					array("olcAccess")
-					),
-				),
-			array("section_name"=>gettext("Global Overlays"),"new_row"=>true,
-				"attributes"=>array(
-					array("__CHILD_OBJECTS__")
-					)
-				)
-			));
-
 		$ldap_server->add_display_layout("olcBackendConfig",array(
 			array("section_name"=>gettext("Back End Configuration"),
 				"attributes"=>array(
 					array("olcBackend",		gettext("Back End Module"),	"openldap/module.png"),
+					)
+				)
+			));
+
+		// Auxiliary class display layouts
+
+		$ldap_server->add_display_layout("olcFrontendConfig",array(
+			array("section_name"=>gettext("OpenLDAP Front End Configuration"),
+				"attributes"=>array(
+					array("olcDefaultSearchBase",	gettext("Default Search Base"),			"generic24.png"),
+					array("olcPasswordHash",	gettext("Password Hash"),			"generic24.png"),
+					array("olcSortVals",		gettext("Attributes with Sorted Values"),	"generic24.png")
 					)
 				)
 			));
