@@ -37,6 +37,7 @@ class openldap_config_schema extends ldap_schema
 		// Object classes
 		$this->object_schema = array(
 			array("name"=>"olcBackendConfig",		"icon"=>"openldap/backend.png",	"is_folder"=>false,"rdn_attrib"=>"olcBackend","display_name"=>gettext("OpenLDAP Back End Configuration"),"contained_by"=>"olcGlobal","can_create"=>true),
+			array("name"=>"olcConfig",			"icon"=>"generic24.png",	"class_type"=>"abstract","display_name"=>gettext("OpenLDAP Configuration")),
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
 			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","class_type"=>"auxiliary","rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End Configuration")),
 			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>true,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
@@ -45,8 +46,6 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcOverlayConfig",		"icon"=>"openldap/overlay.png",	"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("OpenLDAP Overlay"),"contained_by"=>"olcDatabaseConfig"),
 			array("name"=>"olcSchemaConfig",		"icon"=>"schema.png",		"is_folder"=>false,"display_name"=>gettext("OpenLDAP Schema Configuration"))
 			);
-
-		// abstract class 'olcConfig' is also defined in this schema
 
 		// auxiliary class 'olmBDBDatabase' shared by back_bdb, back_hdb
 
