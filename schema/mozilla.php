@@ -28,8 +28,8 @@ class mozilla_schema extends ldap_schema
 
 			// mozillaOrgPerson attributes (additional to mozillaAbPersonAlpha):
 
-			array("name"=>"mozillaPostalAddress2",		"data_type"=>"text",		"display_name"=>gettext("Street Address 2")),
-			array("name"=>"mozillaHomePostalAddress2",	"data_type"=>"text",		"display_name"=>gettext("Street Address 2")),
+			array("name"=>"mozillaPostalAddress2",		"data_type"=>"text_area",	"display_name"=>gettext("Street Address 2")),
+			array("name"=>"mozillaHomePostalAddress2",	"data_type"=>"text_area",	"display_name"=>gettext("Street Address 2")),
 			array("name"=>"mozillaHomeFriendlyCountryName",	"data_type"=>"text",		"display_name"=>gettext("Country"))
 			);
 
