@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 10:33+0100\n"
-"PO-Revision-Date: 2016-04-27 10:33+0100\n"
+"POT-Creation-Date: 2017-06-27 09:51+0100\n"
+"PO-Revision-Date: 2017-06-27 09:51+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/mozilla.php:11
+#: ../schema/mozilla.php:11 ../schema/mozilla.php:107
 msgid "Custom 1"
 msgstr "Personalizado 1"
 
-#: ../schema/mozilla.php:12
+#: ../schema/mozilla.php:12 ../schema/mozilla.php:108
 msgid "Custom 2"
 msgstr "Personalizado 2"
 
-#: ../schema/mozilla.php:13
+#: ../schema/mozilla.php:13 ../schema/mozilla.php:109
 msgid "Custom 3"
 msgstr "Personalizado 3"
 
-#: ../schema/mozilla.php:14
+#: ../schema/mozilla.php:14 ../schema/mozilla.php:110
 msgid "Custom 4"
 msgstr "Personalizado 4"
 
@@ -42,38 +42,120 @@ msgstr "Dirección 1"
 msgid "Street Address 2"
 msgstr "Dirección 2"
 
-#: ../schema/mozilla.php:17
+#: ../schema/mozilla.php:17 ../schema/mozilla.php:69 ../schema/mozilla.php:91
 msgid "City"
 msgstr "Ciudad"
 
-#: ../schema/mozilla.php:18
+#: ../schema/mozilla.php:18 ../schema/mozilla.php:70 ../schema/mozilla.php:92
 msgid "County"
 msgstr "Condado"
 
-#: ../schema/mozilla.php:19
+#: ../schema/mozilla.php:19 ../schema/mozilla.php:71 ../schema/mozilla.php:93
 msgid "Post Code"
 msgstr "Código Postal"
 
-#: ../schema/mozilla.php:20 ../schema/mozilla.php:33
+#: ../schema/mozilla.php:20 ../schema/mozilla.php:33 ../schema/mozilla.php:72
+#: ../schema/mozilla.php:94
 msgid "Country"
 msgstr "País"
 
-#: ../schema/mozilla.php:21 ../schema/mozilla.php:23
+#: ../schema/mozilla.php:21 ../schema/mozilla.php:23 ../schema/mozilla.php:77
+#: ../schema/mozilla.php:99
 msgid "Web Page"
 msgstr "Página Web"
 
-#: ../schema/mozilla.php:24
+#: ../schema/mozilla.php:24 ../schema/mozilla.php:51
 msgid "Nickname"
 msgstr "Apodo"
 
-#: ../schema/mozilla.php:25
+#: ../schema/mozilla.php:25 ../schema/mozilla.php:53
 msgid "Additional E-Mail"
 msgstr "Adicional Email"
 
-#: ../schema/mozilla.php:26
+#: ../schema/mozilla.php:26 ../schema/mozilla.php:54
 msgid "Preferred Message Format"
 msgstr "Formato de Mensaje Preferido"
 
 #: ../schema/mozilla.php:27
 msgid "Chat Name (AIM)"
 msgstr "Nombre para Chatear (AIM)"
+
+#: ../schema/mozilla.php:45
+msgid "Contact"
+msgstr "Contactar"
+
+#: ../schema/mozilla.php:47
+msgid "First"
+msgstr "Pila"
+
+#: ../schema/mozilla.php:48
+msgid "Last"
+msgstr "Apellido"
+
+#: ../schema/mozilla.php:49
+msgid "Display"
+msgstr "Mostrar"
+
+#: ../schema/mozilla.php:52
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../schema/mozilla.php:57
+msgid "Phone Numbers"
+msgstr "Números de Teléfono"
+
+#: ../schema/mozilla.php:59 ../schema/mozilla.php:85
+msgid "Work"
+msgstr "Trabajo"
+
+#: ../schema/mozilla.php:60
+msgid "Home"
+msgstr "Casa"
+
+#: ../schema/mozilla.php:61
+msgid "Fax"
+msgstr "Fax"
+
+#: ../schema/mozilla.php:62
+msgid "Pager"
+msgstr "Localizador"
+
+#: ../schema/mozilla.php:63
+msgid "Mobile"
+msgstr "Célula"
+
+#: ../schema/mozilla.php:66
+msgid "Private"
+msgstr "Privado"
+
+#: ../schema/mozilla.php:68 ../schema/mozilla.php:90
+msgid "Address"
+msgstr "Dirección"
+
+#: ../schema/mozilla.php:87
+msgid "Title"
+msgstr "Título"
+
+#: ../schema/mozilla.php:88
+msgid "Department"
+msgstr "Departamento"
+
+#: ../schema/mozilla.php:89
+msgid "Organization"
+msgstr "Organización"
+
+#: ../schema/mozilla.php:105
+msgid "Other"
+msgstr "Otro"
+
+#: ../schema/mozilla.php:111
+msgid "Notes"
+msgstr "Notas"
+
+#: ../schema/mozilla.php:114
+msgid "Chat"
+msgstr "Charla"
+
+#: ../schema/mozilla.php:117
+msgid "AIM"
+msgstr "AIM"
