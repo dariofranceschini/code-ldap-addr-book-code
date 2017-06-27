@@ -8,7 +8,7 @@ class novell_nspm_schema extends ldap_schema
 		// Object classes
 		$this->object_schema = array(
 			array("name"=>"nspmPasswordPolicyContainer",	"icon"=>"novell/password-policy-container.png",	"is_folder"=>true),
-			array("name"=>"nspmPasswordPolicy",		"icon"=>"novell/password-policy.png",		"is_folder"=>false),
+			array("name"=>"nspmPasswordPolicy",		"icon"=>"password-policy.png",			"is_folder"=>false),
 			);
 
 		parent::__construct($ldap_server);
