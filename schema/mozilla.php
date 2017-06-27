@@ -35,8 +35,8 @@ class mozilla_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"mozillaAbPersonAlpha",		"icon"=>"contact24.png",	"is_folder"=>false,"can_create"=>true),
-			array("name"=>"mozillaOrgPerson",		"icon"=>"contact24.png",	"is_folder"=>false,"can_create"=>true)
+			array("name"=>"mozillaAbPersonAlpha",		"icon"=>"contact24.png",	"class_type"=>"auxiliary","required_attribs"=>"cn","can_create"=>true),
+			array("name"=>"mozillaOrgPerson",		"icon"=>"contact24.png",	"class_type"=>"auxiliary","can_create"=>true)
 			);
 
 		parent::__construct($ldap_server);
