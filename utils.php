@@ -5537,7 +5537,6 @@ function get_auxiliary_classes($ldap_server,$ldap_entry)
 	Array containing LDAP object for which the
 	display layout is to be extended to include
 	auxiliary class attributes
-
     @param array &$entry_viewer_layout
 	Entry viewer layout to be extended
 */
