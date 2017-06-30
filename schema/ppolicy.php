@@ -21,7 +21,7 @@ class ppolicy_schema extends ldap_schema
 
 			array("name"=>"pwdAllowUserChange",		"data_type"=>"yes_no",		"display_name"=>gettext("Allow Users to Change their Password")),
 			array("name"=>"pwdAttribute",			"data_type"=>"text",		"display_name"=>gettext("Password Attribute Name")),
-			array("name"=>"pwdCheckQuality",		"data_type"=>"text",		"display_name"=>gettext("Password Quality Check Behavior")),
+			array("name"=>"pwdCheckQuality",		"data_type"=>"pwd_qualitycheck","display_name"=>gettext("Password Quality Check Behavior")),
 			array("name"=>"pwdExpireWarning",		"data_type"=>"text",		"display_name"=>gettext("Length of Warning Period Before Password Expiry")),
 			array("name"=>"pwdFailureCountInterval",	"data_type"=>"text",		"display_name"=>gettext("Reset Time for Failed Logins Counter")),
 			array("name"=>"pwdGraceAuthNLimit",		"data_type"=>"text",		"display_name"=>gettext("Number of Grace Logins Allowed for Expired Passwords")),

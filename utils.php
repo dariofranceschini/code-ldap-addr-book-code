@@ -1072,6 +1072,7 @@ class ldap_attribute
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
+			case "pwd_qualitycheck":$this->show_pwd_qualitycheck();	break;
 			case "nested_config":	show_nested_config();		break;
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1202,6 +1203,17 @@ class ldap_attribute
 			array(
 				array("value"=>"tail","display_name"=>gettext("Before Other Overlay Response Callbacks")),
 				array("value"=>"head","display_name"=>gettext("After Other Overlay Response Callbacks"))
+				)
+			);
+	}
+
+	function show_pwd_qualitycheck()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("Disabled")),
+				array("value"=>"1","display_name"=>gettext("Check password quality if possible, otherwise accept")),
+				array("value"=>"2","display_name"=>gettext("New passwords must pass quality check"))
 				)
 			);
 	}
