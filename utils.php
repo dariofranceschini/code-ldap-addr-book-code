@@ -5130,7 +5130,7 @@ class ldap_server
 
 		if(gettype($entry["objectclass"])=="array")
 		{
-			// when called from prepopulate_create_<class> schema function
+			// when called from populate_for_create_<class> schema function
 			unset($entry[$rdn_attrib]);
 			$entry[$rdn_attrib]["count"] = 1;
 			$entry[$rdn_attrib][0] = $rdn_value;
