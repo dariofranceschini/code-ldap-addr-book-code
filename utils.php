@@ -456,7 +456,6 @@ class ldap_entry_viewer
 	function __construct($ldap_server,$ldap_entry)
 	{
 		$this->ldap_server = $ldap_server;
-		$this->ldap_entry = $ldap_entry;
 
 		$entry_viewer_layout = $ldap_server->get_display_layout(
 			$ldap_server->get_object_class($ldap_entry[0]));
@@ -464,13 +463,22 @@ class ldap_entry_viewer
 		// include newly-added auxiliary classes in the display layout
 		// TODO: guard against nasties in add_aux_class
 		if(isset($_GET["add_aux_class"]))
+		{
+			$new_aux_classes = explode(",",$_GET["add_aux_class"]);
+
 			$ldap_entry[0]["objectclass"] = array_merge(
 				$ldap_entry[0]["objectclass"],
-				explode(",",$_GET["add_aux_class"]));
+				$new_aux_classes);
+		}
+		else
+			$new_aux_classes = array();
 
-		add_auxiliary_layouts($ldap_entry[0],$entry_viewer_layout);
+		add_auxiliary_layouts($ldap_entry[0],$entry_viewer_layout,
+			$new_aux_classes);
 
 		$this->required_attribs = get_required_attribs($ldap_entry[0]);
+
+		$this->ldap_entry = $ldap_entry;
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
@@ -5545,15 +5553,19 @@ function get_auxiliary_classes($ldap_server,$ldap_entry)
 
 /** Extend the specified display layout to show/edit auxiliary class attributes
 
-    @param array $ldap_entry
+    @param array &$ldap_entry
 	Array containing LDAP object for which the
 	display layout is to be extended to include
 	auxiliary class attributes
     @param array &$entry_viewer_layout
 	Entry viewer layout to be extended
+    @param array $new_aux_classes
+	List of new auxiliary classes which are in the process of being added
+	to the record. (Their populate_for_create function will be called after
+	adding them to the display layout)
 */
 
-function add_auxiliary_layouts($ldap_entry,&$entry_viewer_layout)
+function add_auxiliary_layouts(&$ldap_entry,&$entry_viewer_layout,$new_aux_classes = array())
 {
 	global $ldap_server,$append_auxiliary_layouts;
 
@@ -5576,6 +5588,10 @@ function add_auxiliary_layouts($ldap_entry,&$entry_viewer_layout)
 			$aux_layout[0]["new_row"]=true;
 			$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
 			$layout_attributes = get_layout_attributes($entry_viewer_layout);
+
+			if(in_array($object_class,$new_aux_classes))
+				$ldap_server->call_schema_function(
+					"populate_for_create_" . $object_class,$ldap_entry);
 		}
 	}
 }
