@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-09 09:46+0100\n"
-"PO-Revision-Date: 2017-05-09 09:46+0100\n"
+"POT-Creation-Date: 2017-07-10 09:12+0100\n"
+"PO-Revision-Date: 2017-07-10 09:12+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/ppolicy.php:22
+#: ../schema/ppolicy.php:22 ../schema/ppolicy.php:92
 msgid "Allow Users to Change their Password"
 msgstr "Consentire Agli Utenti di Modificare la Propria Password"
 
@@ -41,11 +41,11 @@ msgstr "Tempo di Azzeramento per la Riuscita Account di Accesso Contatore"
 msgid "Number of Grace Logins Allowed for Expired Passwords"
 msgstr "Numero di Grazia Accessi Ammessi per le Password Scadute"
 
-#: ../schema/ppolicy.php:28
+#: ../schema/ppolicy.php:28 ../schema/ppolicy.php:95
 msgid "Number of Passwords to Store in History"
 msgstr "Numero di Password da Memorizzare Nella Storia"
 
-#: ../schema/ppolicy.php:29
+#: ../schema/ppolicy.php:29 ../schema/ppolicy.php:100
 msgid "Lock Accounts after Consecutive Login Failures"
 msgstr "Bloccare i Conti dopo Errori di Login Consecutivi"
 
@@ -67,16 +67,16 @@ msgstr ""
 msgid "Minimum Password Age"
 msgstr "Età Minima dei Passwords"
 
-#: ../schema/ppolicy.php:34
+#: ../schema/ppolicy.php:34 ../schema/ppolicy.php:94
 msgid "Minimum Accepted Password Length"
 msgstr "Lunghezza Minima Accettabile di una Password"
 
-#: ../schema/ppolicy.php:35
+#: ../schema/ppolicy.php:35 ../schema/ppolicy.php:91
 msgid "Users Must Change Password at Next Logon After Reset"
 msgstr ""
 "Utenti Devono Cambiare la Password all'Accesso Successivo Dopo il Ripristino"
 
-#: ../schema/ppolicy.php:36
+#: ../schema/ppolicy.php:36 ../schema/ppolicy.php:90
 msgid "Users Must Send Old and New Passwords When Changing"
 msgstr "Utenti Devono Inviare Vecchia e la Nuova Password Quando si Modifica"
 
@@ -143,3 +143,72 @@ msgstr "Tempo di Ultimo Accesso Riuscito"
 #: ../schema/ppolicy.php:67
 msgid "Start of Password Validity Period"
 msgstr "Inizio del Periodo di Validità Password"
+
+#: ../schema/ppolicy.php:73
+msgid "Password Policy"
+msgstr "Politica per le Password"
+
+#: ../schema/ppolicy.php:74
+msgid "Password Policy Checker Module"
+msgstr "Modulo di Controllo dei Criteri di Password"
+
+#: ../schema/ppolicy.php:80
+msgid "Password Expiry Policy"
+msgstr "Politica di Scadenza della Password"
+
+#: ../schema/ppolicy.php:82
+msgid "Maximum Password Age (s)"
+msgstr "Età Massima dei Passwords (s)"
+
+#: ../schema/ppolicy.php:83
+msgid "Length of Warning Period Before Password Expiry (s)"
+msgstr "Durata del Periodo di Avviso Prima che la Password di Scadenza (s)"
+
+#: ../schema/ppolicy.php:84
+msgid "Number of Grace Logins Allowed After Expiry"
+msgstr "Numero di Registri di Grazia Consentiti dopo la Scadenza"
+
+#: ../schema/ppolicy.php:87
+msgid "Password Changing Policy"
+msgstr "Politica per la Modifica delle Password"
+
+#: ../schema/ppolicy.php:89
+msgid "Minimum Password Age (s)"
+msgstr "Età Minima dei Passwords (s)"
+
+#: ../schema/ppolicy.php:93
+msgid "Check Quality of New Passwords"
+msgstr "Controlla Qualità delle Nuove Password"
+
+#: ../schema/ppolicy.php:98
+msgid "Consecutive Login Failures Policy"
+msgstr "Politiche di Fallimento di Accesso Consecutivo"
+
+#: ../schema/ppolicy.php:101
+msgid "Number of Consecutive Login Failures before Policy Applies"
+msgstr ""
+"Numero di Errori di Accesso Consecutivi prima che vengano Applicati i Criteri"
+
+#: ../schema/ppolicy.php:102
+msgid "Account Lock Time after Consecutive Login Failures (s)"
+msgstr "Durata del Blocco Conto Dopo il Login Falliti Consecutivi (s)"
+
+#: ../schema/ppolicy.php:103
+msgid "Reset Time for Failed Logins Counter (s)"
+msgstr "Tempo di Azzeramento per la Riuscita Account di Accesso Contatore (s)"
+
+#: ../schema/ppolicy.php:106
+msgid "Password Storage"
+msgstr "Salvataggio di Password"
+
+#: ../schema/ppolicy.php:108
+msgid "Password Attribute"
+msgstr "Attributo della Password"
+
+#: ../schema/ppolicy.php:114
+msgid "Password Policy Enforcement"
+msgstr "Applicazione della Politica di Password"
+
+#: ../schema/ppolicy.php:116
+msgid "Password Check Module"
+msgstr "Modulo di Controllo Password"

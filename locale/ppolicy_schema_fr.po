@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 08:36+0100\n"
-"PO-Revision-Date: 2016-10-04 08:36+0100\n"
+"POT-Creation-Date: 2017-07-10 09:12+0100\n"
+"PO-Revision-Date: 2017-07-10 09:12+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/ppolicy.php:22
+#: ../schema/ppolicy.php:22 ../schema/ppolicy.php:92
 msgid "Allow Users to Change their Password"
 msgstr "Autoriser les Utilisateurs à Changer leur Mot de Passe"
 
@@ -41,11 +41,11 @@ msgstr "Temps de Réinitialisation pour Échec Login Compteur"
 msgid "Number of Grace Logins Allowed for Expired Passwords"
 msgstr "Nombre de Logins de Grâce Autorisés pour les Mots de Passe Expirés"
 
-#: ../schema/ppolicy.php:28
+#: ../schema/ppolicy.php:28 ../schema/ppolicy.php:95
 msgid "Number of Passwords to Store in History"
 msgstr "Nombre de Mots de Passe pour Stocker dans l'Histoire"
 
-#: ../schema/ppolicy.php:29
+#: ../schema/ppolicy.php:29 ../schema/ppolicy.php:100
 msgid "Lock Accounts after Consecutive Login Failures"
 msgstr "Comptes de Verrouillage après Consécutives Connexion Échecs"
 
@@ -55,7 +55,7 @@ msgstr "Durée de Verrouillage Compte après Consécutifs Échecs de Connexion"
 
 #: ../schema/ppolicy.php:31
 msgid "Maximum Password Age (Expiry Time)"
-msgstr "Âge Maximum de Mot de Passe (Heure d'Expiration)"
+msgstr "Âge Maximum de Mots de Passe (Heure d'Expiration)"
 
 #: ../schema/ppolicy.php:32
 msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
@@ -67,17 +67,17 @@ msgstr ""
 msgid "Minimum Password Age"
 msgstr "Âge Minimum de Mots de Passe"
 
-#: ../schema/ppolicy.php:34
+#: ../schema/ppolicy.php:34 ../schema/ppolicy.php:94
 msgid "Minimum Accepted Password Length"
 msgstr "longueur Minimale Acceptable de Mot de Passe"
 
-#: ../schema/ppolicy.php:35
+#: ../schema/ppolicy.php:35 ../schema/ppolicy.php:91
 msgid "Users Must Change Password at Next Logon After Reset"
 msgstr ""
 "Utilisateurs Doivent Changer Mot de Passe à la Prochaine Ouverture de "
 "Session Après Réinitialisation"
 
-#: ../schema/ppolicy.php:36
+#: ../schema/ppolicy.php:36 ../schema/ppolicy.php:90
 msgid "Users Must Send Old and New Passwords When Changing"
 msgstr ""
 "Utilisateurs Doivent Envoyer Anciens et Nouveaux Mots de Passe lors de la "
@@ -146,3 +146,72 @@ msgstr "Heure de la Dernière Connexion Réussie"
 #: ../schema/ppolicy.php:67
 msgid "Start of Password Validity Period"
 msgstr "Début de la Période de Validité Mot de Passe"
+
+#: ../schema/ppolicy.php:73
+msgid "Password Policy"
+msgstr "Politique de Mot de Passe"
+
+#: ../schema/ppolicy.php:74
+msgid "Password Policy Checker Module"
+msgstr "Module de Vérification des Règles des Mots de Passe"
+
+#: ../schema/ppolicy.php:80
+msgid "Password Expiry Policy"
+msgstr "Politique d'Expiration du Mot de Passe"
+
+#: ../schema/ppolicy.php:82
+msgid "Maximum Password Age (s)"
+msgstr "Âge Maximum de Mots de Passe (s)"
+
+#: ../schema/ppolicy.php:83
+msgid "Length of Warning Period Before Password Expiry (s)"
+msgstr "Longueur d'Avertissement Période Avant Mot de Passe d'Expiration (s)"
+
+#: ../schema/ppolicy.php:84
+msgid "Number of Grace Logins Allowed After Expiry"
+msgstr "Nombre de Logins de Grace Autorisés après l'Expiration"
+
+#: ../schema/ppolicy.php:87
+msgid "Password Changing Policy"
+msgstr "Politique de Changement de Mot de Passe"
+
+#: ../schema/ppolicy.php:89
+msgid "Minimum Password Age (s)"
+msgstr "Âge Minimum de Mots de Passe (s)"
+
+#: ../schema/ppolicy.php:93
+msgid "Check Quality of New Passwords"
+msgstr "Vérifiez la Qualité des Nouveaux Mots de Passe"
+
+#: ../schema/ppolicy.php:98
+msgid "Consecutive Login Failures Policy"
+msgstr "Politique de Défaillance de Connexion Consécutive"
+
+#: ../schema/ppolicy.php:101
+msgid "Number of Consecutive Login Failures before Policy Applies"
+msgstr ""
+"Nombre d'Échecs de Connexion Consécutifs avant que la Politique ne s'Applique"
+
+#: ../schema/ppolicy.php:102
+msgid "Account Lock Time after Consecutive Login Failures (s)"
+msgstr "Durée de Verrouillage Compte après Consécutifs Échecs de Connexion (s)"
+
+#: ../schema/ppolicy.php:103
+msgid "Reset Time for Failed Logins Counter (s)"
+msgstr "Temps de Réinitialisation pour Échec Login Compteur (s)"
+
+#: ../schema/ppolicy.php:106
+msgid "Password Storage"
+msgstr "Stockage de Mot de Passe"
+
+#: ../schema/ppolicy.php:108
+msgid "Password Attribute"
+msgstr "Attribut de Mot de Passe"
+
+#: ../schema/ppolicy.php:114
+msgid "Password Policy Enforcement"
+msgstr "Application de la Politique de Mot de Passe"
+
+#: ../schema/ppolicy.php:116
+msgid "Password Check Module"
+msgstr "Module de Vérification du Mot de Passe"
