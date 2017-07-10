@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 10:54+0100\n"
-"PO-Revision-Date: 2017-06-18 10:54+0100\n"
+"POT-Creation-Date: 2017-07-10 09:24+0100\n"
+"PO-Revision-Date: 2017-07-10 09:24+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -33,13 +33,14 @@ msgstr "Country Code"
 msgid "Common Name/Full Name"
 msgstr "Common Name/Full Name"
 
-#: ../schema/core.php:21 ../schema/core.php:92 ../schema/core.php:328
+#: ../schema/core.php:21 ../schema/core.php:92 ../schema/core.php:355
 msgid "Domain Component Name"
 msgstr "Domain Component Name"
 
 #: ../schema/core.php:22 ../schema/core.php:129 ../schema/core.php:164
 #: ../schema/core.php:184 ../schema/core.php:204 ../schema/core.php:215
 #: ../schema/core.php:250 ../schema/core.php:290 ../schema/core.php:307
+#: ../schema/core.php:322 ../schema/core.php:336
 msgid "Description"
 msgstr "Description"
 
@@ -87,7 +88,7 @@ msgstr "ISDN Number"
 msgid "Locality (e.g. Town/City)"
 msgstr "Locality (e.g. Town/City)"
 
-#: ../schema/core.php:34 ../schema/core.php:344
+#: ../schema/core.php:34 ../schema/core.php:371
 msgid "URI (with Optional Label)"
 msgstr "URI (with Optional Label)"
 
@@ -152,7 +153,8 @@ msgstr "Role Occupant"
 msgid "Search Guide"
 msgstr "Search Guide"
 
-#: ../schema/core.php:50 ../schema/core.php:313
+#: ../schema/core.php:50 ../schema/core.php:313 ../schema/core.php:325
+#: ../schema/core.php:340
 msgid "See Also"
 msgstr "See Also"
 
@@ -188,7 +190,7 @@ msgstr "Telex Number"
 msgid "Job Title"
 msgstr "Job Title"
 
-#: ../schema/core.php:59 ../schema/core.php:336 ../schema/core.php:338
+#: ../schema/core.php:59 ../schema/core.php:363 ../schema/core.php:365
 msgid "User ID"
 msgstr "User ID"
 
@@ -216,11 +218,11 @@ msgstr "Certification Authority Revocation List"
 msgid "Certification Authority Certificate"
 msgstr "Certification Authority Certificate"
 
-#: ../schema/core.php:70 ../schema/core.php:365
+#: ../schema/core.php:70 ../schema/core.php:392
 msgid "Certificate Revocation List"
 msgstr "Certificate Revocation List"
 
-#: ../schema/core.php:71 ../schema/core.php:363
+#: ../schema/core.php:71 ../schema/core.php:390
 msgid "Cross Certificate Pair"
 msgstr "Cross Certificate Pair"
 
@@ -240,7 +242,7 @@ msgstr "Pseudonym"
 msgid "Supported Algorithms"
 msgstr "Supported Algorithms"
 
-#: ../schema/core.php:76 ../schema/core.php:114 ../schema/core.php:371
+#: ../schema/core.php:76 ../schema/core.php:114 ../schema/core.php:398
 msgid "User Certificate"
 msgstr "User Certificate"
 
@@ -252,7 +254,7 @@ msgstr "Directory Management Domain Name"
 msgid "Knowledge Information"
 msgstr "Knowledge Information"
 
-#: ../schema/core.php:82
+#: ../schema/core.php:82 ../schema/core.php:334
 msgid "OSI Presentation Address"
 msgstr "OSI Presentation Address"
 
@@ -260,7 +262,7 @@ msgstr "OSI Presentation Address"
 msgid "Protocol Information"
 msgstr "Protocol Information"
 
-#: ../schema/core.php:84
+#: ../schema/core.php:84 ../schema/core.php:335
 msgid "Supported OSI Application Contexts"
 msgstr "Supported OSI Application Contexts"
 
@@ -268,7 +270,7 @@ msgstr "Supported OSI Application Contexts"
 msgid "Alias"
 msgstr "Alias"
 
-#: ../schema/core.php:90
+#: ../schema/core.php:90 ../schema/core.php:319
 msgid "Application Process"
 msgstr "Application Process"
 
@@ -296,7 +298,7 @@ msgstr "Labeled URI"
 msgid "Locality"
 msgstr "Locality"
 
-#: ../schema/core.php:98 ../schema/core.php:311
+#: ../schema/core.php:98 ../schema/core.php:311 ../schema/core.php:338
 msgid "Organization"
 msgstr "Organization"
 
@@ -336,7 +338,7 @@ msgstr "Certification Authority Details (Legacy v2)"
 msgid "Certificate Revocation List Distribution Point"
 msgstr "Certificate Revocation List Distribution Point"
 
-#: ../schema/core.php:112 ../schema/core.php:352
+#: ../schema/core.php:112 ../schema/core.php:379
 msgid "Delta Certificate Revocation List"
 msgstr "Delta Certificate Revocation List"
 
@@ -348,11 +350,11 @@ msgstr "Certification Authority Details"
 msgid "User Certificate (Legacy)"
 msgstr "User Certificate (Legacy)"
 
-#: ../schema/core.php:116 ../schema/core.php:379
+#: ../schema/core.php:116 ../schema/core.php:406
 msgid "Supported Cryptographic Algorithms"
 msgstr "Supported Cryptographic Algorithms"
 
-#: ../schema/core.php:119
+#: ../schema/core.php:119 ../schema/core.php:331
 msgid "Application Entity"
 msgstr "Application Entity"
 
@@ -404,7 +406,8 @@ msgstr "Organization Details"
 msgid "Role Name"
 msgstr "Role Name"
 
-#: ../schema/core.php:251 ../schema/core.php:310
+#: ../schema/core.php:251 ../schema/core.php:310 ../schema/core.php:323
+#: ../schema/core.php:337
 msgid "Department"
 msgstr "Department"
 
@@ -420,34 +423,44 @@ msgstr "Device Information"
 msgid "Device Name"
 msgstr "Device Name"
 
-#: ../schema/core.php:312
+#: ../schema/core.php:312 ../schema/core.php:324 ../schema/core.php:339
 msgid "Location"
 msgstr "Location"
 
-#: ../schema/core.php:320
+#: ../schema/core.php:321 ../schema/core.php:333
+msgid "Object Name"
+msgstr "Object Name"
+
+#: ../schema/core.php:347
 msgid "Simple Security Object Information"
 msgstr "Simple Security Object Information"
 
-#: ../schema/core.php:322
+#: ../schema/core.php:349
 msgid "Password"
 msgstr "Password"
 
-#: ../schema/core.php:330
+#: ../schema/core.php:357
 msgid "Domain Component"
 msgstr "Domain Component"
 
-#: ../schema/core.php:346
+#: ../schema/core.php:373
 msgid "URI"
 msgstr "URI"
 
-#: ../schema/core.php:360
+#: ../schema/core.php:387
 msgid "Certificate Authority"
 msgstr "Certificate Authority"
 
-#: ../schema/core.php:362
+#: ../schema/core.php:389
 msgid "CA Certificate"
 msgstr "CA Certificate"
 
-#: ../schema/core.php:364
+#: ../schema/core.php:391
 msgid "Authority Revocation List"
 msgstr "Authority Revocation List"
+
+#~ msgid "Presentation Address"
+#~ msgstr "Presentation Address"
+
+#~ msgid "Supported Application Context"
+#~ msgstr "Supported Application Contexts"

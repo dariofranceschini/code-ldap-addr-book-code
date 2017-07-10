@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 10:54+0100\n"
-"PO-Revision-Date: 2017-06-18 10:54+0100\n"
+"POT-Creation-Date: 2017-07-10 09:24+0100\n"
+"PO-Revision-Date: 2017-07-10 09:24+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -33,13 +33,14 @@ msgstr "Prefisso Internazionale"
 msgid "Common Name/Full Name"
 msgstr "Nome Comune/Nome e Cognome"
 
-#: ../schema/core.php:21 ../schema/core.php:92 ../schema/core.php:328
+#: ../schema/core.php:21 ../schema/core.php:92 ../schema/core.php:355
 msgid "Domain Component Name"
 msgstr "Nome del Componente di Dominio"
 
 #: ../schema/core.php:22 ../schema/core.php:129 ../schema/core.php:164
 #: ../schema/core.php:184 ../schema/core.php:204 ../schema/core.php:215
 #: ../schema/core.php:250 ../schema/core.php:290 ../schema/core.php:307
+#: ../schema/core.php:322 ../schema/core.php:336
 msgid "Description"
 msgstr "Descrizione"
 
@@ -87,7 +88,7 @@ msgstr "Numero ISDN"
 msgid "Locality (e.g. Town/City)"
 msgstr "Località (ad esempio Località / Città)"
 
-#: ../schema/core.php:34 ../schema/core.php:344
+#: ../schema/core.php:34 ../schema/core.php:371
 msgid "URI (with Optional Label)"
 msgstr "URI (con Opzionale Cartellino)"
 
@@ -152,7 +153,8 @@ msgstr "Occupante di Ruolo"
 msgid "Search Guide"
 msgstr "Guida Ricerca"
 
-#: ../schema/core.php:50 ../schema/core.php:313
+#: ../schema/core.php:50 ../schema/core.php:313 ../schema/core.php:325
+#: ../schema/core.php:340
 msgid "See Also"
 msgstr "Guarda Anche"
 
@@ -188,7 +190,7 @@ msgstr "Numero di Telex"
 msgid "Job Title"
 msgstr "Titolo di Lavoro"
 
-#: ../schema/core.php:59 ../schema/core.php:336 ../schema/core.php:338
+#: ../schema/core.php:59 ../schema/core.php:363 ../schema/core.php:365
 msgid "User ID"
 msgstr "ID Utente"
 
@@ -216,11 +218,11 @@ msgstr "Elenco delle Autorità Certificato Revocato"
 msgid "Certification Authority Certificate"
 msgstr "Certificato d'Autorità di Certificazione"
 
-#: ../schema/core.php:70 ../schema/core.php:365
+#: ../schema/core.php:70 ../schema/core.php:392
 msgid "Certificate Revocation List"
 msgstr "Elenco dei Certificati Revocati"
 
-#: ../schema/core.php:71 ../schema/core.php:363
+#: ../schema/core.php:71 ../schema/core.php:390
 msgid "Cross Certificate Pair"
 msgstr "Coppia di Certificati Incrociati"
 
@@ -240,7 +242,7 @@ msgstr "Pseudonimo"
 msgid "Supported Algorithms"
 msgstr "Gli Algoritmi che sono Supportati"
 
-#: ../schema/core.php:76 ../schema/core.php:114 ../schema/core.php:371
+#: ../schema/core.php:76 ../schema/core.php:114 ../schema/core.php:398
 msgid "User Certificate"
 msgstr "Certificato per l'Utente"
 
@@ -252,7 +254,7 @@ msgstr "Nome di Amministratore di Direttorio per il Dominio"
 msgid "Knowledge Information"
 msgstr "Informazioni sulla Conoscenza"
 
-#: ../schema/core.php:82
+#: ../schema/core.php:82 ../schema/core.php:334
 msgid "OSI Presentation Address"
 msgstr "OSI Presentazione Indirizzo"
 
@@ -260,7 +262,7 @@ msgstr "OSI Presentazione Indirizzo"
 msgid "Protocol Information"
 msgstr "Informazioni di Protocollo"
 
-#: ../schema/core.php:84
+#: ../schema/core.php:84 ../schema/core.php:335
 msgid "Supported OSI Application Contexts"
 msgstr "OSI Applicazione Contesti che sono Supportati"
 
@@ -268,7 +270,7 @@ msgstr "OSI Applicazione Contesti che sono Supportati"
 msgid "Alias"
 msgstr "Alias"
 
-#: ../schema/core.php:90
+#: ../schema/core.php:90 ../schema/core.php:319
 msgid "Application Process"
 msgstr "Processo di Applicazione"
 
@@ -296,7 +298,7 @@ msgstr "URI Etichettato"
 msgid "Locality"
 msgstr "Località"
 
-#: ../schema/core.php:98 ../schema/core.php:311
+#: ../schema/core.php:98 ../schema/core.php:311 ../schema/core.php:338
 msgid "Organization"
 msgstr "Organizzazione"
 
@@ -338,7 +340,7 @@ msgstr "Dettagli dell'Autorità di Certificazione (Obsoleto v2)"
 msgid "Certificate Revocation List Distribution Point"
 msgstr "Punto di Distribuzione per Elenco di Certificati Revocati"
 
-#: ../schema/core.php:112 ../schema/core.php:352
+#: ../schema/core.php:112 ../schema/core.php:379
 msgid "Delta Certificate Revocation List"
 msgstr "Elenco dei Certificati Revocati Delta"
 
@@ -350,11 +352,11 @@ msgstr "Dettagli dell'Autorità di Certificazione"
 msgid "User Certificate (Legacy)"
 msgstr "Certificato per l'Utente (Obsoleto)"
 
-#: ../schema/core.php:116 ../schema/core.php:379
+#: ../schema/core.php:116 ../schema/core.php:406
 msgid "Supported Cryptographic Algorithms"
 msgstr "Algoritmi Crittografati Supportati"
 
-#: ../schema/core.php:119
+#: ../schema/core.php:119 ../schema/core.php:331
 msgid "Application Entity"
 msgstr "Entità di Applicazione"
 
@@ -406,7 +408,8 @@ msgstr "Dettagli dell'Organizzazione"
 msgid "Role Name"
 msgstr "Nome di Ruolo"
 
-#: ../schema/core.php:251 ../schema/core.php:310
+#: ../schema/core.php:251 ../schema/core.php:310 ../schema/core.php:323
+#: ../schema/core.php:337
 msgid "Department"
 msgstr "Dipartimento"
 
@@ -422,34 +425,46 @@ msgstr "Informazioni sul Dispositivo"
 msgid "Device Name"
 msgstr "Nome del Dispositivo"
 
-#: ../schema/core.php:312
+#: ../schema/core.php:312 ../schema/core.php:324 ../schema/core.php:339
 msgid "Location"
 msgstr "Posizione"
 
-#: ../schema/core.php:320
+#: ../schema/core.php:321 ../schema/core.php:333
+msgid "Object Name"
+msgstr "Nome Oggetto"
+
+#: ../schema/core.php:347
 msgid "Simple Security Object Information"
 msgstr "Informazioni sull'Oggetto di Sicurezza Semplice"
 
-#: ../schema/core.php:322
+#: ../schema/core.php:349
 msgid "Password"
 msgstr "Password"
 
-#: ../schema/core.php:330
+#: ../schema/core.php:357
 msgid "Domain Component"
 msgstr "Componente di Dominio"
 
-#: ../schema/core.php:346
+#: ../schema/core.php:373
 msgid "URI"
 msgstr "URI"
 
-#: ../schema/core.php:360
+#: ../schema/core.php:387
 msgid "Certificate Authority"
 msgstr "Autorità di Certificazione"
 
-#: ../schema/core.php:362
+#: ../schema/core.php:389
 msgid "CA Certificate"
 msgstr "Certificato CA"
 
-#: ../schema/core.php:364
+#: ../schema/core.php:391
 msgid "Authority Revocation List"
 msgstr "Elenco di Revoca dell'Autorità"
+
+#, fuzzy
+#~ msgid "Presentation Address"
+#~ msgstr "OSI Presentazione Indirizzo"
+
+#, fuzzy
+#~ msgid "Supported Application Context"
+#~ msgstr "OSI Applicazione Contesti che sono Supportati"

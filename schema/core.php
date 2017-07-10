@@ -315,6 +315,33 @@ class core_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("applicationProcess",array(
+			array("section_name"=>gettext("Application Process"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),		"id.png"),
+					array("description",			gettext("Description"),		"description.png"),
+					array("ou",				gettext("Department"),		"org.png"),
+					array("l",				gettext("Location"),		"locality.png"),
+					array("seeAlso",			gettext("See Also"),		"alias.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("applicationEntity",array(
+			array("section_name"=>gettext("Application Entity"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),		"id.png"),
+					array("presentationAddress",		gettext("OSI Presentation Address"),"generic24.png"),
+					array("supportedApplicationContext",	gettext("Supported OSI Application Contexts"),"generic24.png"),
+					array("description",			gettext("Description"),		"description.png"),
+					array("ou",				gettext("Department"),		"org.png"),
+					array("o",				gettext("Organization"),	"company.png"),
+					array("l",				gettext("Location"),		"locality.png"),
+					array("seeAlso",			gettext("See Also"),		"alias.png")
+					)
+				)
+			));
+
 		// Auxiliary class display layouts
 		$ldap_server->add_display_layout("simpleSecurityObject",array(
 			array("section_name"=>gettext("Simple Security Object Information"),
