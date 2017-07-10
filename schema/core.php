@@ -116,7 +116,7 @@ class core_schema extends ldap_schema
 			array("name"=>"userSecurityInformation",	"icon"=>"cert-config.png",	"class_type"=>"auxiliary","display_name"=>gettext("Supported Cryptographic Algorithms"),"can_create"=>true),
 
 			// legacy object classes not carried forward from predecessors of RFC 4519
-			array("name"=>"applicationEntity",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Entity")),
+			array("name"=>"applicationEntity",		"icon"=>"app.png",		"is_folder"=>false,"display_name"=>gettext("Application Entity"),"required_attribs"=>"presentationAddress"),
 			array("name"=>"dmd",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Directory Management Domain")),
 			array("name"=>"dSA",				"icon"=>"ldap-server.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent"),"parent_class"=>"applicationEntity"),
 			);
