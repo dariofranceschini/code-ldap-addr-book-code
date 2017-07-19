@@ -105,7 +105,7 @@ class ppolicy_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Password Storage"),"new_row"=>true,
 				"attributes"=>array(
-					array("pwdAttribute",			gettext("Password Attribute"),							"generic24.png")
+					array("pwdAttribute",			gettext("Password Attribute"),							"attribute.png")
 					)
 				)
 			));
