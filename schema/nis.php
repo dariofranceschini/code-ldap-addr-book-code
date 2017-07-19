@@ -192,12 +192,12 @@ class nis_schema extends ldap_schema
 				"attributes"=>array(
 					array("uid",				gettext("User ID"),			"contact24.png"),
 					// array("userPassword",		gettext("Password"),			"generic24.png"),
-					array("shadowLastChange",		gettext("Date of Last Password Change"),"generic24.png"),
+					array("shadowLastChange",		gettext("Date of Last Password Change"),"date.png"),
 					array("shadowMin",			gettext("Minimum Password Age"),	"generic24.png"),
 					array("shadowMax",			gettext("Maximum Password Age"),	"generic24.png"),
 					array("shadowWarning",			gettext("Warning Period Before Expiration"),"generic24.png"),
 					array("shadowInactive",			gettext("Time Until Account Inactive"),"generic24.png"),
-					array("shadowExpire",			gettext("Expiry Date"),			"generic24.png"),
+					array("shadowExpire",			gettext("Expiry Date"),			"date.png"),
 					// array("shadowFlag",			????,					"generic24.png"),	// attribute reserved for future use
 					array("description",			gettext("Description"),			"generic24.png")
 					)
