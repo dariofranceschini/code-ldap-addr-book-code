@@ -354,8 +354,8 @@ class microsoft_schema extends ldap_schema
 					array("msWMI-Name",			gettext("Name"),				"generic24.png"),
 					array("msWMI-ID",			gettext("Instance ID"),				"generic24.png"),
 					array("msWMI-Author",			gettext("Author"),				"generic24.png"),
-					array("msWMI-CreationDate",		gettext("Creation Date"),			"generic24.png"),
-					array("msWMI-ChangeDate",		gettext("Last Modified"),			"generic24.png")
+					array("msWMI-CreationDate",		gettext("Creation Date"),			"date-time.png"),
+					array("msWMI-ChangeDate",		gettext("Last Modified"),			"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Parameters"),"new_row"=>true,
