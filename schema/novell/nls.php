@@ -80,7 +80,7 @@ class novell_nls_schema extends ldap_schema
 					array("nLSCurrentUsed",		gettext("Units In Use"),		"generic24.png"),
 					array("nLSCurrentPeakInstalled",gettext("Units Available"),		"generic24.png"),
 					array("nLSCurrentPeakUsed",	gettext("Highest Units Used"),		"generic24.png"),
-					array("nLSSummaryUpdateTime",	" - " . gettext("As Of"),		"generic24.png"),
+					array("nLSSummaryUpdateTime",	" - " . gettext("As Of"),		"date-time.png"),
 					array("nLSNotificationEnabled",	gettext("Notifications Enabled"),	"generic24.png"),
 					array("nLSSummaryVersion",	gettext("Data Version"),		"generic24.png")
 					)
