@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 09:41+0100\n"
-"PO-Revision-Date: 2017-07-19 09:41+0100\n"
+"POT-Creation-Date: 2017-07-19 09:54+0100\n"
+"PO-Revision-Date: 2017-07-19 09:54+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Access Control"
 msgstr "Controllo di Accesso"
 
-#: ../schema/openldap/config.php:11 ../schema/openldap/config.php:75
+#: ../schema/openldap/config.php:11 ../schema/openldap/config.php:52
 msgid "Command Line Arguments File"
 msgstr "Riga di Comando Argomenti File"
 
@@ -33,7 +33,7 @@ msgstr "Tipi di Attributi"
 msgid "Back End Name"
 msgstr "Nome Fine Indietro"
 
-#: ../schema/openldap/config.php:14 ../schema/openldap/config.php:172
+#: ../schema/openldap/config.php:14 ../schema/openldap/config.php:149
 msgid "Default Search Base"
 msgstr "Base di Ricerca Predefinita"
 
@@ -45,11 +45,11 @@ msgstr "Nome del File di Configurazione Includono"
 msgid "Maintain Last Modification Info"
 msgstr "Mantenere Ultima Modifica Informazioni"
 
-#: ../schema/openldap/config.php:17 ../schema/openldap/config.php:120
+#: ../schema/openldap/config.php:17 ../schema/openldap/config.php:97
 msgid "LDAP Syntaxes"
 msgstr "Sintassi LDAP"
 
-#: ../schema/openldap/config.php:18 ../schema/openldap/config.php:77
+#: ../schema/openldap/config.php:18 ../schema/openldap/config.php:54
 msgid "Log Level"
 msgstr "Livello di Registrazione"
 
@@ -69,11 +69,11 @@ msgstr "Classi di Oggetti"
 msgid "Object Identifier"
 msgstr "Identifier Oggetto"
 
-#: ../schema/openldap/config.php:23 ../schema/openldap/config.php:173
+#: ../schema/openldap/config.php:23 ../schema/openldap/config.php:150
 msgid "Password Hash"
 msgstr "Password Hash"
 
-#: ../schema/openldap/config.php:24 ../schema/openldap/config.php:76
+#: ../schema/openldap/config.php:24 ../schema/openldap/config.php:53
 msgid "Process Identifier (PID) File"
 msgstr "Identificazione di Processo (PID) File"
 
@@ -81,11 +81,11 @@ msgstr "Identificazione di Processo (PID) File"
 msgid "Root User DN"
 msgstr "DN di Utente Root"
 
-#: ../schema/openldap/config.php:26 ../schema/openldap/config.php:144
+#: ../schema/openldap/config.php:26 ../schema/openldap/config.php:121
 msgid "Size Limit"
 msgstr "Limite Dimensioni"
 
-#: ../schema/openldap/config.php:27 ../schema/openldap/config.php:174
+#: ../schema/openldap/config.php:27 ../schema/openldap/config.php:151
 msgid "Attributes with Sorted Values"
 msgstr "Attributi con Valori Ordinati"
 
@@ -93,167 +93,122 @@ msgstr "Attributi con Valori Ordinati"
 msgid "Naming Context"
 msgstr "Contesto dei Nomi"
 
-#: ../schema/openldap/config.php:29 ../schema/openldap/config.php:83
+#: ../schema/openldap/config.php:29 ../schema/openldap/config.php:60
 msgid "CA Certificate File"
 msgstr "CA File Certificato"
 
-#: ../schema/openldap/config.php:30 ../schema/openldap/config.php:84
+#: ../schema/openldap/config.php:30 ../schema/openldap/config.php:61
 msgid "Server Certificate File"
 msgstr "File Certificate Server"
 
-#: ../schema/openldap/config.php:31 ../schema/openldap/config.php:85
+#: ../schema/openldap/config.php:31 ../schema/openldap/config.php:62
 msgid "Server Certificate Key File"
 msgstr "File Server Certificato con Chiave"
 
-#: ../schema/openldap/config.php:32 ../schema/openldap/config.php:78
+#: ../schema/openldap/config.php:32 ../schema/openldap/config.php:55
 msgid "Number of Tool Threads"
 msgstr "Numero di Filo Utensili"
 
-#: ../schema/openldap/config.php:35
-msgid "DB_CONFIG Directives"
-msgstr "Direttive DB_CONFIG"
-
-#: ../schema/openldap/config.php:36 ../schema/openldap/config.php:183
-msgid "Number of DN Cache Items"
-msgstr "Numero di Elementi di Cache DN"
-
-#: ../schema/openldap/config.php:37 ../schema/openldap/config.php:182
-msgid "Number of Entry Cache Items"
-msgstr "Numero di Elementi della Cache di Registrazione"
-
-#: ../schema/openldap/config.php:38 ../schema/openldap/config.php:184
-msgid "Number of IDL Cache Items"
-msgstr "Numero di Elementi di Cache IDL"
-
-#: ../schema/openldap/config.php:41 ../schema/openldap/config.php:47
-#: ../schema/openldap/config.php:185
-msgid "Database Directory Path"
-msgstr "Percorso Direttorio di Banca Dati"
-
-#: ../schema/openldap/config.php:44
-msgid "Database Index"
-msgstr "Indice di Banca Dati"
-
-#: ../schema/openldap/config.php:50
-msgid "Referal Chasing Enabled"
-msgstr "Rincorrere Rinvio è Abilitato"
-
-#: ../schema/openldap/config.php:51
-msgid "Remote Identity Assertion Settings"
-msgstr "Impostazioni Asserzione Identità Remota"
-
-#: ../schema/openldap/config.php:52
-msgid "Rebind as User"
-msgstr "Ripetere Legano come Utente"
-
-#: ../schema/openldap/config.php:57
+#: ../schema/openldap/config.php:37
 msgid "OpenLDAP Back End Configuration"
 msgstr "OpenLDAP Indietro Configurazione Finale"
 
-#: ../schema/openldap/config.php:58
+#: ../schema/openldap/config.php:38
 msgid "OpenLDAP Configuration"
 msgstr "Configurazione OpenLDAP"
 
-#: ../schema/openldap/config.php:59
+#: ../schema/openldap/config.php:39
 msgid "OpenLDAP Database"
 msgstr "Banca Dati OpenLDAP"
 
-#: ../schema/openldap/config.php:60 ../schema/openldap/config.php:170
+#: ../schema/openldap/config.php:40 ../schema/openldap/config.php:147
 msgid "OpenLDAP Front End Configuration"
 msgstr "Configurazione Frontale di OpenLDAP"
 
-#: ../schema/openldap/config.php:61
+#: ../schema/openldap/config.php:41
 msgid "OpenLDAP Global Configuration"
 msgstr "Configurazione Globale OpenLDAP"
 
-#: ../schema/openldap/config.php:62 ../schema/openldap/config.php:91
+#: ../schema/openldap/config.php:42 ../schema/openldap/config.php:68
 msgid "OpenLDAP Configuration Include File"
 msgstr "Includi File per la Configurazione di OpenLDAP"
 
-#: ../schema/openldap/config.php:63
+#: ../schema/openldap/config.php:43
 msgid "OpenLDAP Module"
 msgstr "Modulo OpenLDAP"
 
-#: ../schema/openldap/config.php:64
+#: ../schema/openldap/config.php:44
 msgid "OpenLDAP Overlay"
 msgstr "Copertura per OpenLDAP"
 
-#: ../schema/openldap/config.php:65
+#: ../schema/openldap/config.php:45
 msgid "OpenLDAP Schema Configuration"
 msgstr "Configurazione Schema OpenLDAP"
 
-#: ../schema/openldap/config.php:68
-msgid "OpenLDAP BDB Monitoring Data"
-msgstr "Dati di Monitoraggio OpenLDAP BDB"
-
-#: ../schema/openldap/config.php:73
+#: ../schema/openldap/config.php:50
 msgid "OpenLDAP Server Global Settings"
 msgstr "Impostazioni Globali Server OpenLDAP"
 
-#: ../schema/openldap/config.php:81
+#: ../schema/openldap/config.php:58
 msgid "TLS Settings"
 msgstr "Impostazioni TLS"
 
-#: ../schema/openldap/config.php:93
+#: ../schema/openldap/config.php:70
 msgid "Object Name"
 msgstr "Nome Oggetto"
 
-#: ../schema/openldap/config.php:94
+#: ../schema/openldap/config.php:71
 msgid "File Name"
 msgstr "Nome del File"
 
-#: ../schema/openldap/config.php:100
+#: ../schema/openldap/config.php:77
 msgid "Schema Name"
 msgstr "Nome schema"
 
-#: ../schema/openldap/config.php:105
+#: ../schema/openldap/config.php:82
 msgid "Object Identifier Macro Definitions"
 msgstr "Definizioni di Macro Oggetto di Identificazione"
 
-#: ../schema/openldap/config.php:110
+#: ../schema/openldap/config.php:87
 msgid "Object Class Definitions"
 msgstr "Definizioni di Classi di Oggetti"
 
-#: ../schema/openldap/config.php:115
+#: ../schema/openldap/config.php:92
 msgid "Attribute Type Definitions"
 msgstr "Definizioni di Tipi di Attributi"
 
-#: ../schema/openldap/config.php:125
+#: ../schema/openldap/config.php:102
 msgid "Child Objects"
 msgstr "Oggetti Figli"
 
-#: ../schema/openldap/config.php:133
+#: ../schema/openldap/config.php:110
 msgid "OpenLDAP Module List"
 msgstr "Elenco dei Moduli OpenLDAP"
 
-#: ../schema/openldap/config.php:135
+#: ../schema/openldap/config.php:112
 msgid "Modules"
 msgstr "Moduli"
 
-#: ../schema/openldap/config.php:136
+#: ../schema/openldap/config.php:113
 msgid "Path"
 msgstr "Percorso"
 
-#: ../schema/openldap/config.php:142
+#: ../schema/openldap/config.php:119
 msgid "Database Settings"
 msgstr "Impostazioni Banca Dati"
 
-#: ../schema/openldap/config.php:147
+#: ../schema/openldap/config.php:124
 msgid "Access Controls"
 msgstr "Controlli di Accesso"
 
-#: ../schema/openldap/config.php:152
+#: ../schema/openldap/config.php:129
 msgid "Overlays"
 msgstr "Coperture"
 
-#: ../schema/openldap/config.php:160
+#: ../schema/openldap/config.php:137
 msgid "Back End Configuration"
 msgstr "Configurazione Fine Indietro"
 
-#: ../schema/openldap/config.php:162
+#: ../schema/openldap/config.php:139
 msgid "Back End Module"
 msgstr "Modulo Fine Indietro"
-
-#: ../schema/openldap/config.php:180
-msgid "OpenLDAP Monitored BDB Database"
-msgstr "Banca Dati Monitorato OpenLDAP BDB"

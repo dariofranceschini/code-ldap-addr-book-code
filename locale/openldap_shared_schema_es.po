@@ -1,0 +1,63 @@
+# Spanish translations for LDAP Address Book package.
+# Copyright (C) 2017 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-19 09:54+0100\n"
+"PO-Revision-Date: 2017-07-19 09:54+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/shared.php:12
+msgid "DB_CONFIG Directives"
+msgstr "Directivas DB_CONFIG"
+
+#: ../schema/openldap/shared.php:13 ../schema/openldap/shared.php:45
+msgid "Number of DN Cache Items"
+msgstr "Número de Elementos de Caché de DN"
+
+#: ../schema/openldap/shared.php:14 ../schema/openldap/shared.php:44
+msgid "Number of Entry Cache Items"
+msgstr "Número de Elementos de Caché de Entrada"
+
+#: ../schema/openldap/shared.php:15 ../schema/openldap/shared.php:46
+msgid "Number of IDL Cache Items"
+msgstr "Número de Elementos de Caché de IDL"
+
+#: ../schema/openldap/shared.php:18 ../schema/openldap/shared.php:24
+#: ../schema/openldap/shared.php:47
+msgid "Database Directory Path"
+msgstr "Ruta del Directorio de Base de Datos"
+
+#: ../schema/openldap/shared.php:21
+msgid "Database Index"
+msgstr "Índice de la Base de Datos"
+
+#: ../schema/openldap/shared.php:27
+msgid "Referal Chasing Enabled"
+msgstr "Seguimiento de Referencias está Habilitado"
+
+#: ../schema/openldap/shared.php:28
+msgid "Remote Identity Assertion Settings"
+msgstr "Configuración de Asignación Remota de Identidad"
+
+#: ../schema/openldap/shared.php:29
+msgid "Rebind as User"
+msgstr "Repetir Enlace como Usuario"
+
+#: ../schema/openldap/shared.php:36
+msgid "OpenLDAP BDB Monitoring Data"
+msgstr "Datos de SupervisiónDB para OpenLDAP BDB"
+
+#: ../schema/openldap/shared.php:42
+msgid "OpenLDAP Monitored BDB Database"
+msgstr "Base de Datos BDB Supervisada por OpenLDAP"
