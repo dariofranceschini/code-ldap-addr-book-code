@@ -8,16 +8,28 @@ class openldap_config_schema extends ldap_schema
 		$this->attribute_schema = array(
 			// online config attributes
 			array("name"=>"olcAccess",			"data_type"=>"text_list",	"display_name"=>gettext("Access Control")),
+			array("name"=>"olcArgsFile",			"data_type"=>"text",		"display_name"=>gettext("Command Line Arguments File")),
 			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"olcBackend",			"data_type"=>"openldap_backend","display_name"=>gettext("Back End Name")),
+			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
+			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Log Level")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
+			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
 			array("name"=>"olcObjectClasses",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
 			array("name"=>"olcObjectIdentifier",		"data_type"=>"oid_macro_list",	"display_name"=>gettext("Object Identifier")),
+			array("name"=>"olcPasswordHash",		"data_type"=>"text",		"display_name"=>gettext("Password Hash")),
+			array("name"=>"olcPidFile",			"data_type"=>"text",		"display_name"=>gettext("Process Identifier (PID) File")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
+			array("name"=>"olcSizeLimit",			"data_type"=>"text",		"display_name"=>gettext("Size Limit")),
+			array("name"=>"olcSortVals",			"data_type"=>"text",		"display_name"=>gettext("Attributes with Sorted Values")),
 			array("name"=>"olcSuffix",			"data_type"=>"dn",		"display_name"=>gettext("Naming Context")),
+			array("name"=>"olcTLSCACertificateFile",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate File")),
+			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
+			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
+			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads")),
 
 			// Attribute used by back_bdb and back_hdb
 			array("name"=>"olcDbConfig",			"data_type"=>"text_list",	"display_name"=>gettext("DB_CONFIG Directives")),
