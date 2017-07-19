@@ -118,8 +118,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -140,8 +140,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -161,8 +161,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -189,8 +189,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -213,8 +213,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -236,8 +236,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -264,8 +264,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -285,8 +285,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -318,8 +318,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
@@ -353,8 +353,8 @@ class openldap_accesslog_schema extends ldap_schema
 			array("section_name"=>gettext("Event Details"),"new_row"=>true,"rowspan"=>2,
 				"attributes"=>array(
 					array("reqType",		gettext("Operation Type"),					"generic24.png"),
-					array("reqStart",		gettext("Started"),						"generic24.png"),
-					array("reqEnd",			gettext("Ended"),						"generic24.png")
+					array("reqStart",		gettext("Started"),						"date-time.png"),
+					array("reqEnd",			gettext("Ended"),						"date-time.png")
 					)
 				),
 			array("section_name"=>gettext("Requested By"),"width"=>"50%",
