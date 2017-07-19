@@ -58,7 +58,7 @@ class openldap_back_ldap_schema extends ldap_schema
 					array("olcOverlay",		gettext("Overlay Object Name"),		"openldap/overlay.png"),
 
 					array("olcDbURI",		gettext("Remote LDAP Directory URI"),	"ldap-server.png"),
-					array("olcDbNetworkTimeout",	gettext("Network Timeout"),		"generic24.png"),
+					array("olcDbNetworkTimeout",	gettext("Network Timeout"),		"time.png"),
 					array("olcDbStartTLS",		gettext("StartTLS Behaviour"),		"generic24.png"),
 					array("olcDbQuarantine",	gettext("URI Quarantine Behaviour"),	"generic24.png"),
 					)

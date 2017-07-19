@@ -21,7 +21,7 @@ class novell_snmp_schema extends ldap_schema
 			array("section_name"=>gettext("SNMP Group"),"new_row"=>true,
 				"attributes"=>array(
 					array("snmpServerList",			gettext("SNMP Servers"),			"generic24.png"),
-					array("snmpTrapInterval",		gettext("Default SNMP Time Interval (s)"),	"generic24.png"),
+					array("snmpTrapInterval",		gettext("Default SNMP Time Interval (s)"),	"time.png"),
 					array("snmpTrapDisable",		gettext("Disable all SNMP Traps"),		"generic24.png"),
 
 				/*	TODO: decode SNMP trap configuration data

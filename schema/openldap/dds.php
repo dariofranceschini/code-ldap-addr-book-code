@@ -21,17 +21,17 @@ class openldap_dds_schema extends ldap_schema
 			array("section_name"=>gettext("Dynamic Directory Services Overlay Settings"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcOverlay",			gettext("Overlay Object Name"),				"openldap/overlay.png"),
-					array("olcDDSinterval",			gettext("Expiration Check Interval (s)"),		"generic24.png"),
-					array("olcDDStolerance",		gettext("Expiration Tolerence Time"),			"generic24.png"),
+					array("olcDDSinterval",			gettext("Expiration Check Interval (s)"),		"time.png"),
+					array("olcDDStolerance",		gettext("Expiration Tolerence Time"),			"time.png"),
 					array("olcDDSmaxDynamicObjects",	gettext("Maxiumum Dynamic Objects in Naming Context"),	"generic24.png"),
 					array("olcDDSstate",			gettext("Enable Dynamic Directory Services"),		"generic24.png")
 					)
 				),
 			array("section_name"=>gettext("Object Expiry Times (Time To Live/TTL Values) in Seconds"),"new_row"=>true,
 				"attributes"=>array(
-					array("olcDDSdefaultTtl",		gettext("Default for New Dynamic Objects"),		"generic24.png"),
-					array("olcDDSminTtl",			gettext("Minimum Allowed"),				"generic24.png"),
-					array("olcDDSmaxTtl",			gettext("Maximum Allowed"),				"generic24.png"),
+					array("olcDDSdefaultTtl",		gettext("Default for New Dynamic Objects"),		"time.png"),
+					array("olcDDSminTtl",			gettext("Minimum Allowed"),				"time.png"),
+					array("olcDDSmaxTtl",			gettext("Maximum Allowed"),				"time.png"),
 					)
 				)
 			));

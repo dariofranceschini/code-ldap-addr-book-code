@@ -65,10 +65,10 @@ class dhcp_schema extends ldap_schema
 		$ldap_server->add_display_layout("dhcpFailOverPeer",array(
 			array("section_name"=>gettext("DHCP Failover Peer"),"colspan"=>2,
 				"attributes"=>array(
-					array("dhcpFailOverLoadBalanceTime",	gettext("Load Balance Time (s)"),	"generic24.png"),
+					array("dhcpFailOverLoadBalanceTime",	gettext("Load Balance Time (s)"),	"time.png"),
 					array("dhcpFailOverSplit",		gettext("Split"),			"generic24.png"),
-					array("dhcpMaxClientLeadTime",		gettext("Maximum Client Lead Time (s)"),"generic24.png"),
-					array("dhcpFailOverResponseDelay",	gettext("Response Delay (s)"),		"generic24.png"),
+					array("dhcpMaxClientLeadTime",		gettext("Maximum Client Lead Time (s)"),"time.png"),
+					array("dhcpFailOverResponseDelay",	gettext("Response Delay (s)"),		"time.png"),
 					array("dhcpFailOverUnackedUpdates",	gettext("Unacknowledged Updates"),	"generic24.png")
 					)
 				),

@@ -64,10 +64,10 @@ class novell_dnip_schema extends ldap_schema
 					array("dnipSOAAdminMailbox",		gettext("Admin Mailbox"),			"generic24.png"),
 					array("dnipSOAZoneMaster",		gettext("Zone Master"),				"generic24.png"),
 					array("dnipSOASerial",			gettext("Zone Serial Number"),			"generic24.png"),
-					array("dnipSOARefresh",			gettext("Refresh Interval (s)"),		"generic24.png"),
-					array("dnipSOARetry",			gettext("Refresh Retry Interval (s)"),		"generic24.png"),
-					array("dnipSOAMinimum",			gettext("Minimum Record TTL for Zone (s)"),	"generic24.png"),
-					array("dnipSOAExpire",			gettext("Authority Expiry Time (s)"),		"generic24.png")
+					array("dnipSOARefresh",			gettext("Refresh Interval (s)"),		"time.png"),
+					array("dnipSOARetry",			gettext("Refresh Retry Interval (s)"),		"time.png"),
+					array("dnipSOAMinimum",			gettext("Minimum Record TTL for Zone (s)"),	"time.png"),
+					array("dnipSOAExpire",			gettext("Authority Expiry Time (s)"),		"time.png")
 					)
 				)
 			));
@@ -129,7 +129,7 @@ class novell_dnip_schema extends ldap_schema
 					array("dnipSubnetAddress",		gettext("Subnet Address"),			"generic24.png"),
 					array("dnipSubnetMask",			gettext("Subnet Mask"),				"generic24.png"),
 					array("dnipSubnetType",			gettext("Subnet Type"),				"generic24.png"),
-					array("dnipLeaseTime",			gettext("IP Address Lease Time (s)"),		"generic24.png"),
+					array("dnipLeaseTime",			gettext("IP Address Lease Time (s)"),		"time.png"),
 					array("dnipDomainName",			gettext("Domain Name"),				"generic24.png")
 				//	array("dnipBootParameter",		gettext("Boot Parameters"),			"generic24.png")
 					)

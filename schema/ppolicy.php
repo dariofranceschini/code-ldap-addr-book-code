@@ -79,14 +79,14 @@ class ppolicy_schema extends ldap_schema
 		$ldap_server->add_display_layout("pwdPolicy",array(
 			array("section_name"=>gettext("Password Expiry Policy"),"new_row"=>true,
 				"attributes"=>array(
-					array("pwdMaxAge",			gettext("Maximum Password Age (s)"),						"generic24.png"),
-					array("pwdExpireWarning",		gettext("Length of Warning Period Before Password Expiry (s)"),			"generic24.png"),
+					array("pwdMaxAge",			gettext("Maximum Password Age (s)"),						"time.png"),
+					array("pwdExpireWarning",		gettext("Length of Warning Period Before Password Expiry (s)"),			"time.png"),
 					array("pwdGraceAuthNLimit",		gettext("Number of Grace Logins Allowed After Expiry"),				"generic24.png")
 					)
 				),
 			array("section_name"=>gettext("Password Changing Policy"),"new_row"=>true,
 				"attributes"=>array(
-					array("pwdMinAge",			gettext("Minimum Password Age (s)"),						"generic24.png"),
+					array("pwdMinAge",			gettext("Minimum Password Age (s)"),						"time.png"),
 					array("pwdSafeModify",			gettext("Users Must Send Old and New Passwords When Changing"),			"generic24.png"),
 					array("pwdMustChange",			gettext("Users Must Change Password at Next Logon After Reset"),		"generic24.png"),
 					array("pwdAllowUserChange",		gettext("Allow Users to Change their Password"),				"generic24.png"),
@@ -99,8 +99,8 @@ class ppolicy_schema extends ldap_schema
 				"attributes"=>array(
 					array("pwdLockout",			gettext("Lock Accounts after Consecutive Login Failures"),			"generic24.png"),
 					array("pwdMaxFailure",			gettext("Number of Consecutive Login Failures before Policy Applies"),		"generic24.png"),
-					array("pwdLockoutDuration",		gettext("Account Lock Time after Consecutive Login Failures (s)"),		"generic24.png"),
-					array("pwdFailureCountInterval",	gettext("Reset Time for Failed Logins Counter (s)"),				"generic24.png")
+					array("pwdLockoutDuration",		gettext("Account Lock Time after Consecutive Login Failures (s)"),		"time.png"),
+					array("pwdFailureCountInterval",	gettext("Reset Time for Failed Logins Counter (s)"),				"time.png")
 					)
 				),
 			array("section_name"=>gettext("Password Storage"),"new_row"=>true,

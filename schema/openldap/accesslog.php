@@ -372,7 +372,7 @@ class openldap_accesslog_schema extends ldap_schema
 					array("reqAttrsOnly",		gettext("Return Attribute Type Names Only"),			"generic24.png"),
 					array("reqDerefAliases",	gettext("Alias Dereferencing Behavior"),			"generic24.png"),
 					array("reqSizeLimit",		gettext("Maximum Number of Entries to be Returned"),		"generic24.png"),
-					array("reqTimeLimit",		gettext("Maximum Search Time (s)"),				"generic24.png")
+					array("reqTimeLimit",		gettext("Maximum Search Time (s)"),				"time.png")
 					)
 				),
 			array("section_name"=>gettext("Controls"),"new_row"=>true,"colspan"=>2,

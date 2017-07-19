@@ -42,7 +42,7 @@ class microsoft_system_schema extends ldap_schema
 					array("namingContexts",			gettext("Naming Contexts"),		"alias.png"),
 					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png"),
 					array("isSynchronized",			gettext("Is Synchronized"),		"generic24.png"),
-					array("currentTime",			gettext("Current Time at Server"),	"generic24.png"),
+					array("currentTime",			gettext("Current Time at Server"),	"time.png"),
 					array("highestCommittedUSN",		gettext("Highest Committed USN"),	"generic24.png"),
 					array("domainControllerFunctionality",	gettext("Server Functional Level"),	"generic24.png"),
 					array("domainFunctionality",		gettext("Domain Functional Level"),	"generic24.png"),

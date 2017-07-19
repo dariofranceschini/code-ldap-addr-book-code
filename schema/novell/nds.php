@@ -42,7 +42,7 @@ class novell_nds_schema extends ldap_schema
 					array("ndsPredicate",			gettext("Predicate"),			"generic24.png"),
 					array("ndsPredicateFlush",		gettext("Flush"),			"generic24.png"),
 					array("ndsPredicateState",		gettext("State"),			"generic24.png"),
-					array("ndsPredicateTimeout",		gettext("Timeout"),			"generic24.png"),
+					array("ndsPredicateTimeout",		gettext("Timeout"),			"time.png"),
 					array("ndsPredicateUseValues",		gettext("Use Values"),			"generic24.png"),
 					)
 				),

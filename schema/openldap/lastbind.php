@@ -21,7 +21,7 @@ class openldap_lastbind_schema extends ldap_schema
 			array("section_name"=>gettext("Last Bind Overlay Settings"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcOverlay",			gettext("Overlay Object Name"),				"openldap/overlay.png"),
-					array("olcLastBindPrecision",		gettext("Only Update Timestamps Older Than (seconds)"),	"generic24.png")
+					array("olcLastBindPrecision",		gettext("Only Update Timestamps Older Than (seconds)"),	"time.png")
 					)
 				)
 			));

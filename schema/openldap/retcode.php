@@ -37,7 +37,7 @@ class openldap_retcode_schema extends ldap_schema
 					array("olcOverlay",			gettext("Overlay Object Name"),					"openldap/overlay.png"),
 					array("olcRetcodeParent",		gettext("Parent DN for Dynamically Generated Entries"),		"generic24.png"),
 					array("olcRetcodeInDir",		gettext("Use Error Information from errAbsObject Attributes"),	"generic24.png"),
-					array("olcRetcodeSleep",		gettext("Response Delay (s)"),					"generic24.png"),
+					array("olcRetcodeSleep",		gettext("Response Delay (s)"),					"time.png"),
 					)
 				),
 			array("section_name"=>gettext("Dynamically Generated Entries"),"new_row"=>true,
@@ -60,7 +60,7 @@ class openldap_retcode_schema extends ldap_schema
 					array("errCode",			gettext("LDAP Error Code"),					"openldap/error.png"),
 					array("errOp",				gettext("Operation Type(s) Which Trigger Error"),		"generic24.png"),
 					array("errText",			gettext("Diagnostic Message"),					"generic24.png"),
-					array("errSleepTime",			gettext("Response Delay (s)"),					"generic24.png"),
+					array("errSleepTime",			gettext("Response Delay (s)"),					"time.png"),
 					array("errMatchedDN",			gettext("Value to Return as Matched DN"),			"generic24.png"),
 					array("errUnsolicitedOID",		gettext("OID to Return within Unsolicited Response"),		"generic24.png"),
 					array("errUnsolicitedData",		gettext("Data to Return within Unsolicited Response"),		"generic24.png"),

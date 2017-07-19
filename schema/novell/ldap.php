@@ -75,7 +75,7 @@ class novell_ldap_schema extends ldap_schema
 				"attributes"=>array(
 					array("ldapInterfaces",				gettext("LDAP Interfaces"),				"generic24.png"),
 					array("ldapServerBindLimit",			gettext("Concurrent Bind Limit"),			"generic24.png"),
-					array("ldapServerIdleTimeout",			gettext("Idle Timeout (s)"),				"generic24.png"),
+					array("ldapServerIdleTimeout",			gettext("Idle Timeout (s)"),				"time.png"),
 					array("ldapBindRestrictions",			gettext("Bind Restrictions"),				"generic24.png"),
 					)
 				),

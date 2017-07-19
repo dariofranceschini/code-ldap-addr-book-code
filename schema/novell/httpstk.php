@@ -31,9 +31,9 @@ class novell_httpstk_schema extends ldap_schema
 				"attributes"=>array(
 					array("httpBindRestrictions",		gettext("Bind Restrictions"),			"generic24.png"),
 					array("httpTraceLevel",			gettext("Trace Level"),				"generic24.png"),
-					array("httpSessionTimeout",		gettext("Session Timeout (s)"),			"generic24.png"),
-					array("httpKeepAliveRequestTimeout",	gettext("Keep-Alive Request Timeout (s)"),	"generic24.png"),
-					array("httpRequestTimeout",		gettext("Request Timeout (s)"),			"generic24.png"),
+					array("httpSessionTimeout",		gettext("Session Timeout (s)"),			"time.png"),
+					array("httpKeepAliveRequestTimeout",	gettext("Keep-Alive Request Timeout (s)"),	"time.png"),
+					array("httpRequestTimeout",		gettext("Request Timeout (s)"),			"time.png"),
 					array("httpIOBufferSize",		gettext("I/O Buffer Size"),			"generic24.png"),
 					array("httpThreadsPerCPU",		gettext("Threads per CPU"),			"generic24.png")
 					)
