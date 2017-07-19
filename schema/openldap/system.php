@@ -154,6 +154,8 @@ class openldap_system_schema extends ldap_schema
 		$ldap_server->add_schema("openldap/unique");
 		$ldap_server->add_schema("openldap/valsort");
 
+		$ldap_server->add_schema("openldap/shared");
+
 		parent::__construct($ldap_server);
 	}
 }
