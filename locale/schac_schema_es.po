@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 12:26+0100\n"
-"PO-Revision-Date: 2016-04-27 12:26+0100\n"
+"POT-Creation-Date: 2017-07-24 08:53+0100\n"
+"PO-Revision-Date: 2017-07-24 08:53+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,51 +17,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/schac.php:12
+#: ../schema/schac.php:12 ../schema/schac.php:60
 msgid "Preferred Language"
 msgstr "Idioma Preferido"
 
-#: ../schema/schac.php:13
+#: ../schema/schac.php:13 ../schema/schac.php:56
 msgid "Gender"
 msgstr "Sexo"
 
-#: ../schema/schac.php:14
+#: ../schema/schac.php:14 ../schema/schac.php:57
 msgid "Date of Birth"
 msgstr "Fecha de Cumpleaños"
 
-#: ../schema/schac.php:15
+#: ../schema/schac.php:15 ../schema/schac.php:58
 msgid "Place of Birth"
 msgstr "Lugar de Nacimiento"
 
-#: ../schema/schac.php:16
+#: ../schema/schac.php:16 ../schema/schac.php:59
 msgid "Country of Citizenship"
 msgstr "Pais de Ciudadania"
 
-#: ../schema/schac.php:17
+#: ../schema/schac.php:17 ../schema/schac.php:54
 msgid "First Surname"
 msgstr "Primer Apellido"
 
-#: ../schema/schac.php:18
+#: ../schema/schac.php:18 ../schema/schac.php:55
 msgid "Second Surname"
 msgstr "Segundo apellido"
 
-#: ../schema/schac.php:19
+#: ../schema/schac.php:19 ../schema/schac.php:53
 msgid "Personal Title"
 msgstr "Titulo Personal"
 
-#: ../schema/schac.php:20
+#: ../schema/schac.php:20 ../schema/schac.php:68
 msgid "Home Organization Domain Name"
 msgstr "Inicio Nombre de Dominio Organización"
 
-#: ../schema/schac.php:21
+#: ../schema/schac.php:21 ../schema/schac.php:69
 msgid "Home Organization Type"
 msgstr "Tipo de Organización Inicio"
 
-#: ../schema/schac.php:22
+#: ../schema/schac.php:22 ../schema/schac.php:70
 msgid "Country of Residence"
 msgstr "País de Residencia"
 
-#: ../schema/schac.php:23
+#: ../schema/schac.php:23 ../schema/schac.php:71
 msgid "Presence Service URL"
 msgstr "Presencia Servicio URL"
 
@@ -69,11 +69,11 @@ msgstr "Presencia Servicio URL"
 msgid "Personal Position"
 msgstr "Posición Personal"
 
-#: ../schema/schac.php:25
+#: ../schema/schac.php:25 ../schema/schac.php:87
 msgid "Personal Unique Code"
 msgstr "Personal Código Único"
 
-#: ../schema/schac.php:26
+#: ../schema/schac.php:26 ../schema/schac.php:88
 msgid "Personal Unique ID"
 msgstr "Personal Identidad Único"
 
@@ -81,7 +81,7 @@ msgstr "Personal Identidad Único"
 msgid "Record Expiry Date"
 msgstr "Fecha de Caducidad del Expediente"
 
-#: ../schema/schac.php:28
+#: ../schema/schac.php:28 ../schema/schac.php:102
 msgid "Private Attributes"
 msgstr "Atributos Privados"
 
@@ -97,6 +97,50 @@ msgstr "Membresía Proyecto"
 msgid "Project Specific Role"
 msgstr "Proyecto Rol Específico"
 
-#: ../schema/schac.php:32
+#: ../schema/schac.php:32 ../schema/schac.php:129
 msgid "Year of Birth"
 msgstr "Año de Nacimiento"
+
+#: ../schema/schac.php:37 ../schema/schac.php:66
+msgid "Contact Location"
+msgstr "Contacto Ubicación"
+
+#: ../schema/schac.php:38 ../schema/schac.php:77
+msgid "Position Within Institution"
+msgstr "Posición dentro de la Institución"
+
+#: ../schema/schac.php:39
+msgid "Private Attributes List"
+msgstr "Lista de Atributos Privados"
+
+#: ../schema/schac.php:40 ../schema/schac.php:94
+msgid "Authorization Expiry Date/Time"
+msgstr "Fecha / hora de Caducidad de la Autorización"
+
+#: ../schema/schac.php:41 ../schema/schac.php:127
+msgid "SCHAC Experimental Attributes"
+msgstr "Atributos Experimentales de SCHAC"
+
+#: ../schema/schac.php:42 ../schema/schac.php:118
+msgid "Project Group Membership"
+msgstr "Miembros del Grupo de Proyectos"
+
+#: ../schema/schac.php:43 ../schema/schac.php:85
+msgid "External Identifiers"
+msgstr "Identificadores Externos"
+
+#: ../schema/schac.php:44 ../schema/schac.php:51
+msgid "Personal Characteristics"
+msgstr "Características Personales"
+
+#: ../schema/schac.php:45 ../schema/schac.php:110
+msgid "Authorization for Services"
+msgstr "Autorización de Servicios"
+
+#: ../schema/schac.php:120
+msgid "Project Name"
+msgstr "Nombre del Proyecto"
+
+#: ../schema/schac.php:121
+msgid "Roles Within Project"
+msgstr "Roles dentro del Proyecto"
