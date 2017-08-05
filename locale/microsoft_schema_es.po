@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 22:32+0100\n"
-"PO-Revision-Date: 2017-08-04 22:32+0100\n"
+"POT-Creation-Date: 2017-08-05 09:49+0100\n"
+"PO-Revision-Date: 2017-08-05 09:49+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -93,7 +93,7 @@ msgstr "Servidor de Origen de Replicación"
 msgid "Group Type/Scope"
 msgstr "Tipo y Alcance del Grupo"
 
-#: ../schema/microsoft.php:28
+#: ../schema/microsoft.php:28 ../schema/microsoft.php:416
 msgid "Naming Contexts Served"
 msgstr "Contextos de Nomenclatura Atendidos"
 
@@ -101,7 +101,7 @@ msgstr "Contextos de Nomenclatura Atendidos"
 msgid "General Information"
 msgstr "Información General"
 
-#: ../schema/microsoft.php:30
+#: ../schema/microsoft.php:30 ../schema/microsoft.php:415
 msgid "Invocation ID Data"
 msgstr "Datos de ID de Invocación"
 
@@ -117,11 +117,11 @@ msgstr "Miembro De"
 msgid "Allowed to Delegate To"
 msgstr "Para la Posibilidad de Delegar"
 
-#: ../schema/microsoft.php:34
+#: ../schema/microsoft.php:34 ../schema/microsoft.php:419
 msgid "Domain Naming Contexts"
 msgstr "Contextos de Nomenclatura de Dominio"
 
-#: ../schema/microsoft.php:35
+#: ../schema/microsoft.php:35 ../schema/microsoft.php:423
 msgid "Naming Context Replication Status"
 msgstr "Estado de Replicación de los Contextos de Nomenclatura"
 
@@ -163,7 +163,7 @@ msgstr "Engrapado se Admite"
 
 #: ../schema/microsoft.php:49
 msgid "Query Policy Object DN"
-msgstr "DN del Objeto de Directiva de Consulta"
+msgstr "DN del Objeto de Política de Consulta"
 
 #: ../schema/microsoft.php:50
 msgid "Pre-Windows 2000 Account Name"
@@ -313,7 +313,7 @@ msgstr "Vínculo de Enrutamiento de MSMQ"
 msgid "Connection"
 msgstr "Conexión"
 
-#: ../schema/microsoft.php:127
+#: ../schema/microsoft.php:127 ../schema/microsoft.php:404
 msgid "Domain Controller Settings"
 msgstr "Ajustes del Controlador de Dominio"
 
@@ -400,6 +400,7 @@ msgstr "Nombre del Grupo (anterior a Windows 2000)"
 #: ../schema/microsoft.php:156 ../schema/microsoft.php:190
 #: ../schema/microsoft.php:202 ../schema/microsoft.php:242
 #: ../schema/microsoft.php:272 ../schema/microsoft.php:393
+#: ../schema/microsoft.php:407
 msgid "Description"
 msgstr "Descripción"
 
@@ -445,7 +446,7 @@ msgid "Shared Printer"
 msgstr "Impresora Compartida"
 
 #: ../schema/microsoft.php:198 ../schema/microsoft.php:230
-#: ../schema/microsoft.php:392
+#: ../schema/microsoft.php:392 ../schema/microsoft.php:406
 msgid "Object Name"
 msgstr "Nombre del Objeto"
 
@@ -672,3 +673,27 @@ msgstr "Replicar Desde"
 #: ../schema/microsoft.php:397
 msgid "Available for Use"
 msgstr "Disponible para su Uso"
+
+#: ../schema/microsoft.php:408
+msgid "Query Policy"
+msgstr "Política de Consulta"
+
+#: ../schema/microsoft.php:409
+msgid "Global Catalog"
+msgstr "Catálogo Global"
+
+#: ../schema/microsoft.php:412
+msgid "Directory Database"
+msgstr "Base de Datos de Directorios"
+
+#: ../schema/microsoft.php:414
+msgid "Domain/Forest Behavior Version"
+msgstr "Comportamiento Versión de Dominio / Bosque"
+
+#: ../schema/microsoft.php:420
+msgid "Schema Partition"
+msgstr "Partición para Esquema"
+
+#: ../schema/microsoft.php:428
+msgid "Connections"
+msgstr "Conexiones"

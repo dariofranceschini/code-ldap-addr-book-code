@@ -124,7 +124,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msTPM-InformationObjectsContainer","icon"=>"folder.png",			"is_folder"=>true),
 			array("name"=>"msWMI-Som",			"icon"=>"microsoft/wmi-filter.png",	"is_folder"=>false,"required_attribs"=>"msWMI-ID,msWMI-Name"),
 			array("name"=>"nTDSConnection",			"icon"=>"microsoft/ntds-connection.png","is_folder"=>false,"display_name"=>gettext("Connection"),"parent_class"=>"leaf"),
-			array("name"=>"nTDSDSA",			"icon"=>"microsoft/ntds-settings.png",	"is_folder"=>true,"display_name"=>gettext("Domain Controller Settings"),"parent_class"=>"applicationSettings"),
+			array("name"=>"nTDSDSA",			"icon"=>"microsoft/ntds-settings.png",	"is_folder"=>false,"display_name"=>gettext("Domain Controller Settings"),"parent_class"=>"applicationSettings"),
 			array("name"=>"nTDSService",			"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Active Directory Domain Services")),
 			array("name"=>"nTDSSiteSettings",		"icon"=>"microsoft/ntds-settings.png",	"is_folder"=>false,"display_name"=>gettext("Site Settings"),"parent_class"=>"applicationSiteSettings"),
 			array("name"=>"nTFRSMember",			"icon"=>"microsoft/frs_settings24.png",	"is_folder"=>true,"display_name"=>gettext("FRS Member")),
@@ -396,6 +396,38 @@ class microsoft_schema extends ldap_schema
 					array("fromServer",			gettext("Replicate From"),			"alias.png"),
 					array("enabledConnection",		gettext("Available for Use"),			"generic24.png"),
 					array("options",			gettext("Options"),				"generic24.png")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nTDSDSA",array(
+			array("section_name"=>gettext("Domain Controller Settings"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),				"id.png"),
+					array("description",			gettext("Description"),				"description.png"),
+					array("queryPolicyObject",		gettext("Query Policy"),			"alias.png"),
+					array("options",			gettext("Global Catalog"),			"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Directory Database"),"new_row"=>true,
+				"attributes"=>array(
+					array("msDS-Behavior-Version",		gettext("Domain/Forest Behavior Version"),	"generic24.png"),
+					array("invocationId",			gettext("Invocation ID Data"),			"generic24.png"),
+					array("hasMasterNCs",			gettext("Naming Contexts Served"),		"alias.png"),
+						// replaced by msDS-hasMasterNCs on newer DCs; maintained for backwards compatibility
+
+					array("msDS-HasDomainNCs",		gettext("Domain Naming Contexts"),		"alias.png"),
+					array("dMDLocation",			gettext("Schema Partition"),			"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Naming Context Replication Status"),"new_row"=>true,
+				"attributes"=>array(
+					array("msDS-HasInstantiatedNCs"),
+					)
+				),
+			array("section_name"=>gettext("Connections"),"new_row"=>true,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
 					)
 				)
 			));

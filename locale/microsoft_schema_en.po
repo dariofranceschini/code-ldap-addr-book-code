@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 22:32+0100\n"
-"PO-Revision-Date: 2017-08-04 22:32+0100\n"
+"POT-Creation-Date: 2017-08-05 09:49+0100\n"
+"PO-Revision-Date: 2017-08-05 09:49+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -93,7 +93,7 @@ msgstr "Replication Source Server"
 msgid "Group Type/Scope"
 msgstr "Group Type/Scope"
 
-#: ../schema/microsoft.php:28
+#: ../schema/microsoft.php:28 ../schema/microsoft.php:416
 msgid "Naming Contexts Served"
 msgstr "Naming Contexts Served"
 
@@ -101,7 +101,7 @@ msgstr "Naming Contexts Served"
 msgid "General Information"
 msgstr "General Information"
 
-#: ../schema/microsoft.php:30
+#: ../schema/microsoft.php:30 ../schema/microsoft.php:415
 msgid "Invocation ID Data"
 msgstr "Invocation ID Data"
 
@@ -117,11 +117,11 @@ msgstr "Member Of"
 msgid "Allowed to Delegate To"
 msgstr "Allowed to Delegate To"
 
-#: ../schema/microsoft.php:34
+#: ../schema/microsoft.php:34 ../schema/microsoft.php:419
 msgid "Domain Naming Contexts"
 msgstr "Domain Naming Contexts"
 
-#: ../schema/microsoft.php:35
+#: ../schema/microsoft.php:35 ../schema/microsoft.php:423
 msgid "Naming Context Replication Status"
 msgstr "Naming Context Replication Status"
 
@@ -313,7 +313,7 @@ msgstr "MSMQ Routing Link"
 msgid "Connection"
 msgstr "Connection"
 
-#: ../schema/microsoft.php:127
+#: ../schema/microsoft.php:127 ../schema/microsoft.php:404
 msgid "Domain Controller Settings"
 msgstr "Domain Controller Settings"
 
@@ -400,6 +400,7 @@ msgstr "Group Name (pre-Windows 2000)"
 #: ../schema/microsoft.php:156 ../schema/microsoft.php:190
 #: ../schema/microsoft.php:202 ../schema/microsoft.php:242
 #: ../schema/microsoft.php:272 ../schema/microsoft.php:393
+#: ../schema/microsoft.php:407
 msgid "Description"
 msgstr "Description"
 
@@ -445,7 +446,7 @@ msgid "Shared Printer"
 msgstr "Shared Printer"
 
 #: ../schema/microsoft.php:198 ../schema/microsoft.php:230
-#: ../schema/microsoft.php:392
+#: ../schema/microsoft.php:392 ../schema/microsoft.php:406
 msgid "Object Name"
 msgstr "Object Name"
 
@@ -672,3 +673,27 @@ msgstr "Replicate From"
 #: ../schema/microsoft.php:397
 msgid "Available for Use"
 msgstr "Available for Use"
+
+#: ../schema/microsoft.php:408
+msgid "Query Policy"
+msgstr "Query Policy"
+
+#: ../schema/microsoft.php:409
+msgid "Global Catalog"
+msgstr "Global Catalog"
+
+#: ../schema/microsoft.php:412
+msgid "Directory Database"
+msgstr "Directory Database"
+
+#: ../schema/microsoft.php:414
+msgid "Domain/Forest Behavior Version"
+msgstr "Domain/Forest Behavior Version"
+
+#: ../schema/microsoft.php:420
+msgid "Schema Partition"
+msgstr "Schema Partition"
+
+#: ../schema/microsoft.php:428
+msgid "Connections"
+msgstr "Connections"

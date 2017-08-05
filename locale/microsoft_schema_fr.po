@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 22:32+0100\n"
-"PO-Revision-Date: 2017-08-04 22:32+0100\n"
+"POT-Creation-Date: 2017-08-05 09:49+0100\n"
+"PO-Revision-Date: 2017-08-05 09:49+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -93,7 +93,7 @@ msgstr "Serveur Source de Réplication"
 msgid "Group Type/Scope"
 msgstr "Type et la Portée Groupe"
 
-#: ../schema/microsoft.php:28
+#: ../schema/microsoft.php:28 ../schema/microsoft.php:416
 msgid "Naming Contexts Served"
 msgstr "Nommer les Contextes Desservis"
 
@@ -101,7 +101,7 @@ msgstr "Nommer les Contextes Desservis"
 msgid "General Information"
 msgstr "Informations Générales"
 
-#: ../schema/microsoft.php:30
+#: ../schema/microsoft.php:30 ../schema/microsoft.php:415
 msgid "Invocation ID Data"
 msgstr "Données d'Identification d'Invocation"
 
@@ -117,11 +117,11 @@ msgstr "Membre De"
 msgid "Allowed to Delegate To"
 msgstr "Autorisé à déléguer à"
 
-#: ../schema/microsoft.php:34
+#: ../schema/microsoft.php:34 ../schema/microsoft.php:419
 msgid "Domain Naming Contexts"
 msgstr "Contextes de Nommage de Domaine"
 
-#: ../schema/microsoft.php:35
+#: ../schema/microsoft.php:35 ../schema/microsoft.php:423
 msgid "Naming Context Replication Status"
 msgstr "Statut de Réplication de Contexte de Nommage"
 
@@ -313,7 +313,7 @@ msgstr "Routage Connexion pour MSMQ"
 msgid "Connection"
 msgstr "Connexion"
 
-#: ../schema/microsoft.php:127
+#: ../schema/microsoft.php:127 ../schema/microsoft.php:404
 msgid "Domain Controller Settings"
 msgstr "Paramètres du Contrôleur de Domaine"
 
@@ -400,6 +400,7 @@ msgstr "Nom du groupe (pré-Windows 2000)"
 #: ../schema/microsoft.php:156 ../schema/microsoft.php:190
 #: ../schema/microsoft.php:202 ../schema/microsoft.php:242
 #: ../schema/microsoft.php:272 ../schema/microsoft.php:393
+#: ../schema/microsoft.php:407
 msgid "Description"
 msgstr "Description"
 
@@ -445,7 +446,7 @@ msgid "Shared Printer"
 msgstr "Imprimante Partagée"
 
 #: ../schema/microsoft.php:198 ../schema/microsoft.php:230
-#: ../schema/microsoft.php:392
+#: ../schema/microsoft.php:392 ../schema/microsoft.php:406
 msgid "Object Name"
 msgstr "Nom de l'Objet"
 
@@ -672,3 +673,27 @@ msgstr "Répliquer à Partir de"
 #: ../schema/microsoft.php:397
 msgid "Available for Use"
 msgstr "Disponible pour l'Utilisation"
+
+#: ../schema/microsoft.php:408
+msgid "Query Policy"
+msgstr "Politique de Requête"
+
+#: ../schema/microsoft.php:409
+msgid "Global Catalog"
+msgstr "Catalogue Mondial"
+
+#: ../schema/microsoft.php:412
+msgid "Directory Database"
+msgstr "Base de Données d'Annuaire"
+
+#: ../schema/microsoft.php:414
+msgid "Domain/Forest Behavior Version"
+msgstr "Version Comportementale du Domaine / Forêt"
+
+#: ../schema/microsoft.php:420
+msgid "Schema Partition"
+msgstr "Partition pour le Schéma"
+
+#: ../schema/microsoft.php:428
+msgid "Connections"
+msgstr "Connexions"
