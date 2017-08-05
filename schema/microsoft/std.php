@@ -122,7 +122,9 @@ class microsoft_std_schema extends ldap_schema
 			array("name"=>"applicationProcess",		"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Application Process")), // not user creatable
 			array("name"=>"country",			"icon"=>"folder.png",		"class_type"=>"type88","is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country")),
 			array("name"=>"device",				"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Device")),
+			array("name"=>"domainRelatedObject",		"icon"=>"generic24.png",	"class_type"=>"auxiliary"),
 			array("name"=>"dSA",				"icon"=>"generic24.png",	"is_folder"=>false,"display_name"=>gettext("Directory System Agent"),"parent_class"=>"applicationEntity"),
+			array("name"=>"dynamicObject",			"icon"=>"generic24.png",	"class_type"=>"auxiliary"),
 			array("name"=>"groupOfNames",			"icon"=>"generic24.png",	"class_type"=>"type88","is_folder"=>false,"display_name"=>gettext("Group"),"required_attribs"=>"member"),
 			array("name"=>"groupOfUniqueNames",		"icon"=>"group24.png",		"is_folder"=>false,"display_name"=>gettext("Group (Unique Names)"),"required_attribs"=>"uniqueMember"),
 			array("name"=>"locality",			"icon"=>"folder.png",		"is_folder"=>true,"rdn_attrib"=>"l","display_name"=>gettext("Locality")),
