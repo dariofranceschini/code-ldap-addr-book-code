@@ -135,7 +135,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"pKICertificateTemplate",		"icon"=>"cert-config.png",		"is_folder"=>false,"display_name"=>gettext("Certificate Template")),
 			array("name"=>"printQueue",			"icon"=>"microsoft/printer24.png",	"is_folder"=>false,"display_name"=>gettext("Printer"),"can_create"=>true,"parent_class"=>"connectionPoint"),
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services"),"parent_class"=>"container"),
-			array("name"=>"server",				"icon"=>"server.png",			"is_folder"=>true,"display_name"=>gettext("Server")),
+			array("name"=>"server",				"icon"=>"server.png",			"is_folder"=>false,"display_name"=>gettext("Server")),
 			array("name"=>"serversContainer",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Servers Container")),
 			array("name"=>"site",				"icon"=>"microsoft/site.png",		"is_folder"=>true,"display_name"=>gettext("Site")),
 			array("name"=>"siteLink",			"icon"=>"microsoft/site-link.png",	"is_folder"=>false,"display_name"=>gettext("Site Link")),
@@ -426,6 +426,23 @@ class microsoft_schema extends ldap_schema
 					)
 				),
 			array("section_name"=>gettext("Connections"),"new_row"=>true,
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("server",array(
+			array("section_name"=>gettext("Server Object"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),				"id.png"),
+					array("description",			gettext("Description"),				"description.png"),
+					array("dNSHostName",			gettext("DNS Host Name"),			"generic24.png"),
+					array("serverReference",		gettext("Computer Object"),			"alias.png"),
+					array("bridgeheadTransportList",	gettext("Bridgehead Transports"),		"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Child Objects"),"new_row"=>true,
 				"attributes"=>array(
 					array("__CHILD_OBJECTS__")
 					)

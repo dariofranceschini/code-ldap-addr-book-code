@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 09:49+0100\n"
-"PO-Revision-Date: 2017-08-05 09:49+0100\n"
+"POT-Creation-Date: 2017-08-05 10:22+0100\n"
+"PO-Revision-Date: 2017-08-05 10:22+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -33,7 +33,7 @@ msgstr "Páginas de Propiedades de Administración"
 msgid "Attribute Display Names"
 msgstr "Nombres para Mostrar de los Atributos"
 
-#: ../schema/microsoft.php:13
+#: ../schema/microsoft.php:13 ../schema/microsoft.php:442
 msgid "Bridgehead Transports"
 msgstr "Transportes para la Cabeza de Puente"
 
@@ -400,7 +400,7 @@ msgstr "Nombre del Grupo (anterior a Windows 2000)"
 #: ../schema/microsoft.php:156 ../schema/microsoft.php:190
 #: ../schema/microsoft.php:202 ../schema/microsoft.php:242
 #: ../schema/microsoft.php:272 ../schema/microsoft.php:393
-#: ../schema/microsoft.php:407
+#: ../schema/microsoft.php:407 ../schema/microsoft.php:439
 msgid "Description"
 msgstr "Descripción"
 
@@ -447,6 +447,7 @@ msgstr "Impresora Compartida"
 
 #: ../schema/microsoft.php:198 ../schema/microsoft.php:230
 #: ../schema/microsoft.php:392 ../schema/microsoft.php:406
+#: ../schema/microsoft.php:438
 msgid "Object Name"
 msgstr "Nombre del Objeto"
 
@@ -697,3 +698,19 @@ msgstr "Partición para Esquema"
 #: ../schema/microsoft.php:428
 msgid "Connections"
 msgstr "Conexiones"
+
+#: ../schema/microsoft.php:436
+msgid "Server Object"
+msgstr "Objeto de Servidor"
+
+#: ../schema/microsoft.php:440
+msgid "DNS Host Name"
+msgstr "Nombre de Host DNS"
+
+#: ../schema/microsoft.php:441
+msgid "Computer Object"
+msgstr "Objeto del Ordenador"
+
+#: ../schema/microsoft.php:445
+msgid "Child Objects"
+msgstr "Objetos para Niños"
