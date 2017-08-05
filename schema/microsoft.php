@@ -603,16 +603,14 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
-		// component schema (derived)
+		// component schema
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");
 		$ldap_server->add_schema("microsoft/sms");
+		$ldap_server->add_schema("microsoft/std");
 		$ldap_server->add_schema("microsoft/system");
 
 		parent::__construct($ldap_server);
-
-		// component schema (derived from)
-		$ldap_server->add_schema("microsoft/std");
 	}
 }
 ?>
