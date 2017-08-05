@@ -294,11 +294,11 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"trustedDomain",								"display_name"=>gettext("Trusted Domain"),"parent_class"=>"leaf"),
 			array("name"=>"typeLibrary"),
 			array("name"=>"user",				"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true,"parent_class"=>"organizationalPerson"),
-			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder"),"can_create"=>true,"parent_class"=>"connectionPoint")
+			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder"),"can_create"=>true,"parent_class"=>"connectionPoint"),
 
 			// undefined object classes which have placeholder display specifiers
 			array("name"=>"localPolicy",			"icon"=>"generic24.png",		"display_name"=>gettext("Local Policy")),
-			array("name"=>"nTDSSettings",			"icon"=>"generic24.png",		"display_name"=>gettext("Settings")),
+			array("name"=>"nTDSSettings",			"icon"=>"generic24.png",		"display_name"=>gettext("Settings"))
 			);
 
 		// Display layouts
