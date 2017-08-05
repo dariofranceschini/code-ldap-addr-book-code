@@ -386,6 +386,20 @@ class microsoft_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("nTDSConnection",array(
+			array("section_name"=>gettext("Replication Connection Settings"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),				"id.png"),
+					array("description",			gettext("Description"),				"description.png"),
+					array("transportType",			gettext("Transport"),				"alias.png"),
+					array("schedule",			gettext("Schedule"),				"date.png"),
+					array("fromServer",			gettext("Replicate From"),			"alias.png"),
+					array("enabledConnection",		gettext("Available for Use"),			"generic24.png"),
+					array("options",			gettext("Options"),				"generic24.png")
+					)
+				)
+			));
+
 		// component schema (derived)
 		$ldap_server->add_schema("microsoft/exchange");
 		$ldap_server->add_schema("microsoft/laps");

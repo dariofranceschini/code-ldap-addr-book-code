@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 09:19+0100\n"
-"PO-Revision-Date: 2017-08-03 09:19+0100\n"
+"POT-Creation-Date: 2017-08-04 22:32+0100\n"
+"PO-Revision-Date: 2017-08-04 22:32+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -137,7 +137,7 @@ msgstr "Data di Ultima Modifica di Oggetto WMI"
 msgid "WMI Object Creation Date"
 msgstr "Data di Creazione di Oggetto WMI"
 
-#: ../schema/microsoft.php:42
+#: ../schema/microsoft.php:42 ../schema/microsoft.php:398
 msgid "Options"
 msgstr "Opzioni"
 
@@ -399,7 +399,7 @@ msgstr "Nome del Gruppo (prima di Windows 2000)"
 
 #: ../schema/microsoft.php:156 ../schema/microsoft.php:190
 #: ../schema/microsoft.php:202 ../schema/microsoft.php:242
-#: ../schema/microsoft.php:272
+#: ../schema/microsoft.php:272 ../schema/microsoft.php:393
 msgid "Description"
 msgstr "Descrizione"
 
@@ -445,6 +445,7 @@ msgid "Shared Printer"
 msgstr "Stampante Condivisa"
 
 #: ../schema/microsoft.php:198 ../schema/microsoft.php:230
+#: ../schema/microsoft.php:392
 msgid "Object Name"
 msgstr "Nome Oggetto"
 
@@ -651,3 +652,23 @@ msgstr "Parametro 3"
 #: ../schema/microsoft.php:384
 msgid "Parameter 4"
 msgstr "Parametro 4"
+
+#: ../schema/microsoft.php:390
+msgid "Replication Connection Settings"
+msgstr "Impostazioni di Connessione di Replica"
+
+#: ../schema/microsoft.php:394
+msgid "Transport"
+msgstr "Trasporto"
+
+#: ../schema/microsoft.php:395
+msgid "Schedule"
+msgstr "Programma"
+
+#: ../schema/microsoft.php:396
+msgid "Replicate From"
+msgstr "Replicare Da"
+
+#: ../schema/microsoft.php:397
+msgid "Available for Use"
+msgstr "Disponibile per l'Uso"
