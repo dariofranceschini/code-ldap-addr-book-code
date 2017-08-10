@@ -171,7 +171,9 @@ if(prereq_components_ok())
 					$sort_order = $sort_type;
 
 			$entry_list = new ldap_entry_list($ldap_server,$search_resource,
-				$search_result_columns,$sort_order);
+				$search_result_columns);
+
+			$entry_list->sort($sort_order);
 
 			if(!empty($_GET["filter"]))
 				$entry_list->contains_search_results=true;

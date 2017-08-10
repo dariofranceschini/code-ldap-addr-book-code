@@ -141,8 +141,9 @@ if($ldap_server->log_on())
 				$sort_order=$search_result_default_sort_order;
 
 				$entry_list = new ldap_entry_list($ldap_server,$search_resource,
-					array(array("caption"=>"Objects","attrib"=>"sortableName","link_type"=>"add_dn_value")),
-					$sort_order);
+					array(array("caption"=>"Objects","attrib"=>"sortableName","link_type"=>"add_dn_value")));
+
+				$entry_list->sort($sort_order);
 
 				$parent_dn = get_parent_dn($dn);
 

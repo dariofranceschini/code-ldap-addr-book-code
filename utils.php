@@ -3013,11 +3013,9 @@ class ldap_entry_list
 		are to be displayed
 	    @param array $search_result_columns
 		Search result column layout to use for display
-	    @param string $sort_order
-		LDAP attribute that the list should be sorted by
 	*/
 
-	function __construct($ldap_server,$ldap_entries,$search_result_columns,$sort_order)
+	function __construct($ldap_server,$ldap_entries,$search_result_columns)
 	{
 		$this->ldap_server = $ldap_server;
 		$this->search_result_columns = $search_result_columns;
@@ -3037,8 +3035,16 @@ class ldap_entry_list
 				$this->ldap_entries[$i]["count"]++;
 			}
 		}
+	}
 
-		// apply user's chosen sort order
+	/** Sort the list of LDAP entries
+
+	    @param string $sort_order
+		LDAP attribute that the list should be sorted by
+	*/
+
+	function sort($sort_order)
+	{
 		$this->ldap_entries = ldap_sort_entries(
 			$this->ldap_entries,
 			$sort_order == "sortableName"
