@@ -2995,9 +2995,6 @@ class ldap_entry_list
 	/** Column layout used for displaying search results */
 	var $search_result_columns;
 
-	/** LDAP attribute that the list should be sorted by */
-	var $sort_order;
-
 	/** LDAP server containing the entries to be displayed */
 	var $ldap_server;
 
@@ -3024,7 +3021,6 @@ class ldap_entry_list
 	{
 		$this->ldap_server = $ldap_server;
 		$this->search_result_columns = $search_result_columns;
-		$this->sort_order = $sort_order;
 
 		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$ldap_entries);
 
@@ -3043,12 +3039,11 @@ class ldap_entry_list
 		}
 
 		// apply user's chosen sort order
-
 		$this->ldap_entries = ldap_sort_entries(
 			$this->ldap_entries,
-			$this->sort_order == "sortableName"
+			$sort_order == "sortableName"
 			? array("sn","givenName","ou","cn","reqStart")
-			: array($this->sort_order),
+			: array($sort_order),
 			LDAP_SORT_ASCENDING);
 	}
 
