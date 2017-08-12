@@ -3008,19 +3008,19 @@ class ldap_entry_list
 
 	    @param object $ldap_server
 		LDAP server containing the entries to be displayed
-	    @param resource $ldap_entries
+	    @param resource $search_resource
 		LDAP search resource containing the LDAP object entries which
 		are to be displayed
 	    @param array $search_result_columns
 		Search result column layout to use for display
 	*/
 
-	function __construct($ldap_server,$ldap_entries,$search_result_columns)
+	function __construct($ldap_server,$search_resource,$search_result_columns)
 	{
 		$this->ldap_server = $ldap_server;
 		$this->search_result_columns = $search_result_columns;
 
-		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$ldap_entries);
+		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
 
 		// Reconstruct any missing RDN attributes using object DNs
 		for($i=0;$i< $this->ldap_entries["count"];$i++)
