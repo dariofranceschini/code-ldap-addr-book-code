@@ -3716,6 +3716,9 @@ function show_phone_number_formatted($phone_number)
 
 class ldap_server
 {
+	/* Internal server ID */
+	var $server_id;
+
 	/** Return LDAP server/schema type
 
 	    Supported server/schema types:
@@ -3857,6 +3860,11 @@ class ldap_server
 
 	function __construct($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
 	{
+		global $ldap_server_list;
+
+		$ldap_server_list[] = &$this;
+		$this->server_id = count($ldap_server_list)-1;
+
 		if(is_null($ldap_server_port))
 			$this->connection = ldap_connect($ldap_server_host_or_url);
 		else
