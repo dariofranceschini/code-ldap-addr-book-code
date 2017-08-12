@@ -2990,7 +2990,7 @@ function ldap_sort_entries_getattrib($entry,$attrib)
 class ldap_entry_list
 {
 	/** LDAP object entries which are to be displayed */
-	var $ldap_entries;
+	var $ldap_entries = array("count"=>0);
 
 	/** Column layout used for displaying search results */
 	var $search_result_columns;
@@ -3028,21 +3028,25 @@ class ldap_entry_list
 	{
 		$this->ldap_server = $ldap_server;
 
-		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
+		$ldap_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
 
 		// Reconstruct any missing RDN attributes using object DNs
-		for($i=0;$i< $this->ldap_entries["count"];$i++)
+		for($i=0;$i<$ldap_entries["count"];$i++)
 		{
-			$dn_elements=ldap_explode_dn2($this->ldap_entries[$i]["dn"]);
+			$dn_elements=ldap_explode_dn2($ldap_entries[$i]["dn"]);
 
-			if(!isset($this->ldap_entries[$i][$dn_elements[0]["attrib"]]))
+			if(!isset($ldap_entries[$i][$dn_elements[0]["attrib"]]))
 			{
-				$this->ldap_entries[$i][$this->ldap_entries[$i]["count"]] = $dn_elements[0]["attrib"];
-				$this->ldap_entries[$i][$dn_elements[0]["attrib"]]["count"] = 1;
-				$this->ldap_entries[$i][$dn_elements[0]["attrib"]][0] = $dn_elements[0]["value"];
-				$this->ldap_entries[$i]["count"]++;
+				$ldap_entries[$i][$ldap_entries[$i]["count"]] = $dn_elements[0]["attrib"];
+				$ldap_entries[$i][$dn_elements[0]["attrib"]]["count"] = 1;
+				$ldap_entries[$i][$dn_elements[0]["attrib"]][0] = $dn_elements[0]["value"];
+				$ldap_entries[$i]["count"]++;
 			}
 		}
+
+		$new_count = $this->ldap_entries["count"] + $ldap_entries["count"];
+		$this->ldap_entries = array_merge($this->ldap_entries,$ldap_entries);
+		$this->ldap_entries["count"] = $new_count;
 	}
 
 	/** Sort the list of LDAP entries
