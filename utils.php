@@ -3006,19 +3006,27 @@ class ldap_entry_list
 
 	/** Constructor
 
-	    @param object $ldap_server
-		LDAP server containing the entries to be displayed
-	    @param resource $search_resource
-		LDAP search resource containing the LDAP object entries which
-		are to be displayed
 	    @param array $search_result_columns
 		Search result column layout to use for display
 	*/
 
-	function __construct($ldap_server,$search_resource,$search_result_columns)
+	function __construct($search_result_columns)
+	{
+		$this->search_result_columns = $search_result_columns;
+	}
+
+	/** Add LDAP entries to list
+
+	    @param object $ldap_server
+		LDAP server containing the entries to be added
+	    @param resource $search_resource
+		LDAP search resource containing the LDAP object entries which
+		are to be added to the list
+	*/
+
+	function add_entries($ldap_server,$search_resource)
 	{
 		$this->ldap_server = $ldap_server;
-		$this->search_result_columns = $search_result_columns;
 
 		$this->ldap_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
 
