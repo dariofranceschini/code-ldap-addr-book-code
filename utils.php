@@ -2995,9 +2995,6 @@ class ldap_entry_list
 	/** Column layout used for displaying search results */
 	var $search_result_columns;
 
-	/** LDAP server containing the entries to be displayed */
-	var $ldap_server;
-
 	/** Whether the LDAP entry list contains search results */
 	var $contains_search_results = false;
 
@@ -3026,13 +3023,12 @@ class ldap_entry_list
 
 	function add_entries($ldap_server,$search_resource)
 	{
-		$this->ldap_server = $ldap_server;
+		$ldap_entries = ldap_get_entries($ldap_server->connection,$search_resource);
 
-		$ldap_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
-
-		// Reconstruct any missing RDN attributes using object DNs
 		for($i=0;$i<$ldap_entries["count"];$i++)
 		{
+			// Reconstruct any missing RDN attributes using object DNs
+
 			$dn_elements=ldap_explode_dn2($ldap_entries[$i]["dn"]);
 
 			if(!isset($ldap_entries[$i][$dn_elements[0]["attrib"]]))
@@ -3042,6 +3038,9 @@ class ldap_entry_list
 				$ldap_entries[$i][$dn_elements[0]["attrib"]][0] = $dn_elements[0]["value"];
 				$ldap_entries[$i]["count"]++;
 			}
+
+			// Add server ID associated with each record
+			$ldap_entries[$i]["SERVER"] = &$ldap_server;
 		}
 
 		$new_count = $this->ldap_entries["count"] + $ldap_entries["count"];
@@ -3089,7 +3088,8 @@ class ldap_entry_list
 
 		for($i=0;$i < $this->ldap_entries["count"]; $i++)
 		{
-			$vcard = new vcard($this->ldap_server,$this->ldap_entries[$i]);
+			$vcard = new vcard($this->ldap_entries[$i]["SERVER"],
+				$this->ldap_entries[$i]);
 			echo $vcard->data . "\r\n";
 		}
 	}
@@ -3144,8 +3144,11 @@ class ldap_entry_list
 		$header_shown=false;
 		for($i=0;$i < $this->ldap_entries["count"]; $i++)
 		{
-			$item_object_class = $this->ldap_server->get_object_class($this->ldap_entries[$i]);
-			$item_is_folder = $this->ldap_server->get_object_schema_setting(
+			$item_object_class =
+				$this->ldap_entries[$i]["SERVER"]->get_object_class(
+				$this->ldap_entries[$i]);
+			$item_is_folder =
+				$this->ldap_entries[$i]["SERVER"]->get_object_schema_setting(
 				$item_object_class,"is_folder");
 
 			switch($objects_to_show)
@@ -3217,20 +3220,20 @@ class ldap_entry_list
 
 	function show_ldap_entry($ldap_entry)
 	{
-		global $enable_search_browse_thumbnail,$thumbnail_image_size,$ldap_server;
+		global $enable_search_browse_thumbnail,$thumbnail_image_size;
 		echo "  <tr>\n";
 
 		// Fetch object schema details for this record
 
-		$item_object_class = $ldap_server->get_object_class($ldap_entry);
+		$item_object_class = $ldap_entry["SERVER"]->get_object_class($ldap_entry);
 
 		$dn = $ldap_entry["dn"];
 
-		$icon = $ldap_server->get_icon_for_ldap_entry($ldap_entry);
+		$icon = $ldap_entry["SERVER"]->get_icon_for_ldap_entry($ldap_entry);
 
-		$item_is_folder = $ldap_server->get_object_schema_setting(
+		$item_is_folder = $ldap_entry["SERVER"]->get_object_schema_setting(
 			$item_object_class,"is_folder");
-		$object_rdn_attrib = $ldap_server->get_object_schema_setting(
+		$object_rdn_attrib = $ldap_entry["SERVER"]->get_object_schema_setting(
 			$item_object_class,"rdn_attrib");
 
 		// Item object class is displayed in the tooltip. All
@@ -3346,7 +3349,7 @@ class ldap_entry_list
 	function show_attrib($ldap_entry,$attrib_name,$link_type,
 		$is_folder = false)
 	{
-		global $thumbnail_image_size,$ldap_server;
+		global $thumbnail_image_size;
 
 		if($is_folder)
 			$colspan = " colspan=\""
@@ -3364,11 +3367,15 @@ class ldap_entry_list
 		$attrib = new ldap_attribute($ldap_entry,$attrib_name);
 		$attrib->use_short_format = true;
 
+		$server_id_value=($ldap_entry["SERVER"]->server_id==0 ? ""
+			: "&server_id=" . $ldap_entry["SERVER"]->server_id);
+
 		if($link_type == "object")
 		{
 			// Cell contains a link to the object
 			echo "<a href=\"" . ($is_folder ? "" : "info.php")
-				. "?dn=" . urlencode($ldap_entry["dn"]) . "\">";
+				. "?dn=" . urlencode($ldap_entry["dn"])
+				. $server_id_value . "\">";
 
 			$attrib->show_embedded_links=false;
 			$attrib->show();
