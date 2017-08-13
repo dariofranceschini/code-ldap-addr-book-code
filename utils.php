@@ -155,7 +155,6 @@ function show_search_box($initial_value)
 
 function show_error_message($message)
 {
-	global $ldap_base_dn;
 	show_ldap_path("");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
