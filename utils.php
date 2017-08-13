@@ -546,7 +546,7 @@ class ldap_entry_viewer
 
 	function show()
 	{
-		global $ldap_base_dn,$ldap_server,$thumbnail_image_size,
+		global $ldap_server,$thumbnail_image_size,
 			$enable_ldap_path_thumbnail;
 
 		$dn = $this->ldap_entry[0]["dn"];
