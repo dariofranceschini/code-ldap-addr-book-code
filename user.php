@@ -84,7 +84,6 @@ else
 
 function show_try_again_message($message)
 {
-	global $ldap_base_dn;
 	show_site_header();
 	show_ldap_path("");
 	echo "<p>" . $message . "</p>\n";
