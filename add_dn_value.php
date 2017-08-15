@@ -140,8 +140,10 @@ if($ldap_server->log_on())
 				// TODO: allow user to change sort order
 				$sort_order=$search_result_default_sort_order;
 
-				$entry_list = new ldap_entry_list($ldap_server,$search_resource,
+				$entry_list = new ldap_entry_list(
 					array(array("caption"=>"Objects","attrib"=>"sortableName","link_type"=>"add_dn_value")));
+
+				$entry_list->add_entries($ldap_server,$search_resource);
 
 				$entry_list->sort($sort_order);
 
