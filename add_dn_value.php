@@ -165,7 +165,8 @@ if($ldap_server->log_on())
 					array_unshift($entry_list->ldap_entries,array(
 						"objectclass"=>array(0=>"organizationalUnit"),
 						"ou"=>array(0=>$go_to_parent_message),
-						"dn"=>$parent_dn
+						"dn"=>$parent_dn,
+						"SERVER"=>$ldap_server
 						));
 					$entry_list->ldap_entries["count"]++;
 				}
