@@ -67,7 +67,7 @@ $ldap_server = new ldap_server(
 // Directory location (e.g. OU) of the address book records
 // --------------------------------------------------------------------
 
-$ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
+$ldap_server->base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
 
 // --------------------------------------------------------------------
 // Settings for looking up user login names into LDAP bind DNs
@@ -79,7 +79,7 @@ $ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";
 // Configure this setting to search for login user accounts outside
 // the part of the directory tree containing the Address Book. If this
 // setting is not configured then searches will start from
-// $ldap_base_dn.
+// $ldap_server->base_dn.
 
 // $ldap_server->dn_search_base = "CN=Users,DC=turnersoft,DC=co,DC=uk";
 

@@ -37,8 +37,8 @@ if(prereq_components_ok())
 	else
 		$dn = get_parent_dn($target_dn);
 
-	if(!$ldap_server->compare_dn_to_base($dn,$ldap_base_dn) && !get_user_setting("allow_system_admin"))
-		$dn = $ldap_base_dn;
+	if(!$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn) && !get_user_setting("allow_system_admin"))
+		$dn = $ldap_server->base_dn;
 
 	if(isset($_GET["attrib"]))
 		$attrib = $_GET["attrib"];
@@ -113,7 +113,7 @@ if($ldap_server->log_on())
 			}
 
 			if(isset($_GET["dn"]))
-				if($dn == $ldap_base_dn)
+				if($dn == $ldap_server->base_dn)
 					echo "<p>" . gettext("You are currently viewing the top level of the Address Book") . "</p>";
 				else if($dn == "")
 					echo "<p>" . gettext("You are currently viewing the root of the directory") . "</p>";
@@ -151,11 +151,11 @@ if($ldap_server->log_on())
 
 				if($dn != "" && (get_user_setting("allow_system_admin")
 					|| $ldap_server->compare_dn_to_base($parent_dn,
-					$ldap_base_dn)))
+					$ldap_server->base_dn)))
 				{
 					$parent_dn_exploded = ldap_explode_dn2($parent_dn);
 
-					if($parent_dn == $ldap_base_dn)
+					if($parent_dn == $ldap_server->base_dn)
 						$go_to_parent_message = gettext("Go up a level to the top level of the Address Book");
 					else if($parent_dn == "")
 						$go_to_parent_message = gettext("Go up a level to the root of the directory");

@@ -257,7 +257,7 @@ to tell the application where your Address Book data is stored:
     (optionally) port number of the LDAP directory server (domain controller)
     to connect to.</p>
 
-<li><p><code>$ldap_base_dn</code> - Set to the location in the directory
+<li><p><code>$ldap_server->base_dn</code> - Set to the location in the directory
 (e.g. OU) that should be used as the "root" of the address book information.</p>
 </ul>
 <p>
@@ -429,11 +429,11 @@ The DN of the "Home" organizational unit in the above screenshot is:
 <p>
 If you wanted the LDAP Address Book to show only the contents
 of the "Home" organizational unit, you'd configure the
-<code>$ldap_base_dn</code> setting (in <code>config.php</code>)
+<code>$ldap_server->base_dn</code> setting (in <code>config.php</code>)
 as follows:
 </p>
 <p>
-<code>$ldap_base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";</code>
+<code>$ldap_server->base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";</code>
 </p>
 <p>
 Containers are similar to organizational units, but are named
@@ -618,11 +618,11 @@ will also need to be granted within the back-end directory.
 
 <tr><td><code>allow_system_admin</code></td><td>Allows the user to see
     LDAP server information (root DSE record) and access records other than
-    those under <code>$ldap_base_dn</code>.</td></tr>
+    those under <code>$ldap_server->base_dn</code>.</td></tr>
 
 <tr><td><code>display_all_records_by_default</code></td><td>Displays a
     list of all searchable records by default, rather than the objects
-    located directly under <code>$ldap_base_dn</code>.</td></tr>
+    located directly under <code>$ldap_server->base_dn</code>.</td></tr>
 
 </table>
 <h3>Require users to log in with a user name and password</h3>
@@ -792,7 +792,7 @@ determine a user's DN during the login process.
 <p>
 By default, the Address Book will search for login user accounts
 in the same area of the directory as the address book data
-(i.e. under the location indicated by $ldap_base_dn). If you
+(i.e. under the location indicated by $ldap_server->base_dn). If you
 wish to store the login accounts in a different location outside
 of this area (e.g. for security reasons) then the setting
 <code>$ldap_server-&gt;dn_search_base</code> can be used:
@@ -906,7 +906,7 @@ objects to be displayed:
 <p>
 Searches results are retrieved by carrying out an LDAP
 subtree search from the root of the address book (as
-specified in <code>$ldap_base_dn</code>). The expression to be searched
+specified in <code>$ldap_server->base_dn</code>). The expression to be searched
 for is based on the value of <code>$search_ldap_filter</code>
 in <code>config.php</code>. The default LDAP filter is as
 follows, which limits search results to objects representing
@@ -1850,19 +1850,19 @@ from a record.
     </p>
     </td></tr>
 
-<tr><td><code>$ldap_base_dn</code></td><td>Specifies the search base
+<tr><td><code>$ldap_server->base_dn</code></td><td>Specifies the search base
     within the directory which will be used for displaying the address
     book. Rather than searching the whole directory, you can use this
     option to restrict search results to only a specific part of the
     directory tree which contains the user accounts or contacts.
     <p>
     Examples:<br>
-    <code>$ldap_base_dn = "dc=example,dc=org";</code><br>
-    <code>$ldap_base_dn = "ou=Users,dc=example,dc=org";</code>
+    <code>$ldap_server->base_dn = "dc=example,dc=org";</code><br>
+    <code>$ldap_server->base_dn = "ou=Users,dc=example,dc=org";</code>
     </p>
     <p>
     Syntax where one of the OU names contains a space:<br>
-    <code>$ldap_base_dn = "ou=User Accounts,dc=example,dc=org";</code>
+    <code>$ldap_server->base_dn = "ou=User Accounts,dc=example,dc=org";</code>
     </p>
 </td></tr>
 

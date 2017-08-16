@@ -22,7 +22,7 @@ include "config.php";
 if(isset($enable_search_suggestions) && $enable_search_suggestions
 	&& get_user_setting("allow_search"))
 {
-	$dn = $ldap_base_dn;
+	$dn = $ldap_server->base_dn;
 
 	if(!empty($_GET["filter"]))
 	{

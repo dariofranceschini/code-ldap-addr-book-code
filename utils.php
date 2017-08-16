@@ -182,7 +182,7 @@ function show_error_message($message)
 
 function show_ldap_path($base,$leaf_icon = "")
 {
-	global $site_name,$ldap_server,$ldap_base_dn,$show_ldap_path;
+	global $site_name,$ldap_server,$show_ldap_path;
 
 	if(!isset($site_name))
 		$site_name = gettext("Address Book");
@@ -194,10 +194,10 @@ function show_ldap_path($base,$leaf_icon = "")
 		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if($ldap_base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_base_dn))
+	if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_server->base_dn))
 		$rdn_list = $base;
 	else
-		$rdn_list = substr($base,0,-strlen($ldap_base_dn)-1);
+		$rdn_list = substr($base,0,-strlen($ldap_server->base_dn)-1);
 
 	if($rdn_list != "")
 	{
@@ -212,13 +212,13 @@ function show_ldap_path($base,$leaf_icon = "")
 		{
 			echo "        <li>";
 
-			if($rdn_list[$i-1]["dn"] == $ldap_base_dn)
-				$object_dn = $ldap_base_dn;
-			else if($ldap_base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_base_dn))
+			if($rdn_list[$i-1]["dn"] == $ldap_server->base_dn)
+				$object_dn = $ldap_server->base_dn;
+			else if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_server->base_dn))
 				$object_dn = $rdn_list[$i-1]["dn"];
 			else
 				$object_dn = $rdn_list[$i-1]["dn"]
-					. "," . $ldap_base_dn;
+					. "," . $ldap_server->base_dn;
 
 			// read LDAP entry to get object class/icon information
 
@@ -2109,7 +2109,7 @@ class ldap_attribute
 
 	function show_dn_list($attrib_type = "dn_list")
 	{
-		global $ldap_server,$ldap_base_dn;
+		global $ldap_server;
 
 		$has_values = !empty($this->ldap_entry[strtolower($this->attribute)]);
 
@@ -2177,7 +2177,7 @@ class ldap_attribute
 						. "\" src=\"" . $icon . "\">\n            ";
 
 					if($this->show_embedded_links &&
-						($ldap_server->compare_dn_to_base($value,$ldap_base_dn)
+						($ldap_server->compare_dn_to_base($value,$ldap_server->base_dn)
 						|| get_user_setting("allow_system_admin")))
 					{
 						if($is_folder)
@@ -2219,7 +2219,7 @@ class ldap_attribute
 
 	function show_child_objects()
 	{
-		global $ldap_server,$ldap_base_dn;
+		global $ldap_server;
 
 		$search_resource = @ldap_list($ldap_server->connection,
 			$this->ldap_entry["dn"],"(objectclass=*)");
@@ -2244,7 +2244,7 @@ class ldap_attribute
 						echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
 
 						if($this->show_embedded_links &&
-							($ldap_server->compare_dn_to_base($child_entry["dn"],$ldap_base_dn)
+							($ldap_server->compare_dn_to_base($child_entry["dn"],$ldap_server->base_dn)
 							|| get_user_setting("allow_system_admin")))
 						{
 							if($is_folder)
@@ -3071,9 +3071,9 @@ class ldap_entry_list
 
 	function save_vcard($dn)
 	{
-		global $ldap_base_dn,$site_name;
+		global $ldap_server,$site_name;
 
-		if($dn == $ldap_base_dn)
+		if($dn == $ldap_server->base_dn)
 			$filename = $site_name;
 		else
 		{
@@ -3789,7 +3789,7 @@ class ldap_server
 
 	/** Search base DN used to look up LDAP bind DN corresponding to a user name
 
-	    If set to empty then the value of $ldap_base_dn should be used instead
+	    If set to empty then the value of $this->base_dn should be used instead
 	*/
 	var $dn_search_base = "";
 
@@ -4176,8 +4176,6 @@ class ldap_server
 
 	function log_on()
 	{
-		global $ldap_base_dn;
-
 		ldap_set_option($this->connection,
 			LDAP_OPT_PROTOCOL_VERSION,3);
 
@@ -4248,12 +4246,12 @@ class ldap_server
 
 				if($result)
 				{
-					// Determine the search base - default to $ldap_base_dn
+					// Determine the search base - default to $this->base_dn
 					// unless the user has specified otherwise by assigning
 					// a non-empty value to $this->dn_search_base.
 
 					if(empty($this->dn_search_base))
-						$this->dn_search_base=$ldap_base_dn;
+						$this->dn_search_base=$this->base_dn;
 
 					$search_resource = @ldap_search($this->connection,
 						$this->dn_search_base,$filter);

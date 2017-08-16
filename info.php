@@ -25,12 +25,12 @@ if(empty($_GET["vcard"]))
 if(prereq_components_ok())
 {
 	if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
-	else $dn = $ldap_base_dn;
+	else $dn = $ldap_server->base_dn;
 
 	if($ldap_server->log_on())
 	{
-		// Check whether the end part of the DN matches $ldap_base_dn
-		if($ldap_server->compare_dn_to_base($dn,$ldap_base_dn)
+		// Check whether the end part of the DN matches $ldap_server->base_dn
+		if($ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn)
 			|| get_user_setting("allow_system_admin"))
 		{
 			if(isset($_GET["create"]))
@@ -147,7 +147,7 @@ if(prereq_components_ok())
 				. "which stores the address book. You do not "
 				. "have permission to display it.") . "\n</p>\n"
 				. "<p>\n  " . gettext("The address book is stored at:")
-				. " <code>" . htmlentities($ldap_base_dn,ENT_COMPAT,"UTF-8") . "</code>");
+				. " <code>" . htmlentities($ldap_server->base_dn,ENT_COMPAT,"UTF-8") . "</code>");
 	}
 	else
 		show_ldap_bind_error();

@@ -30,11 +30,11 @@ if(prereq_components_ok())
 		//	stop "nasties" being passed through to the LDAP server
 
 		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH
-				&& ($ldap_server->compare_dn_to_base($_GET["dn"],$ldap_base_dn)
+				&& ($ldap_server->compare_dn_to_base($_GET["dn"],$ldap_server->base_dn)
 				|| get_user_setting("allow_system_admin")))
 			$dn = $_GET["dn"];
 		else
-			$dn = $ldap_base_dn;
+			$dn = $ldap_server->base_dn;
 
 		// Default filter expression to use if none specified in config
 		// file: return only people in search results
@@ -72,7 +72,7 @@ if(prereq_components_ok())
 
 			$search_type= "subtree";
 		}
-		else if(get_user_setting("display_all_records_by_default") && $dn == $ldap_base_dn)
+		else if(get_user_setting("display_all_records_by_default") && $dn == $ldap_server->base_dn)
 		{
 			$filter = str_replace("___search_criteria___",
 				"(objectClass=*)",$search_ldap_filter);
@@ -170,8 +170,8 @@ if(prereq_components_ok())
 				if($column["attrib"] == $sort_type);
 					$sort_order = $sort_type;
 
-			$entry_list = new ldap_entry_list($ldap_server,$search_resource,
-				$search_result_columns);
+			$entry_list = new ldap_entry_list($search_result_columns);
+			$entry_list->add_entries($ldap_server,$search_resource);
 
 			$entry_list->sort($sort_order);
 

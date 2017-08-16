@@ -22,7 +22,7 @@ include "config.php";
 // TODO: sanitise base DN from URL:
 //	stop "nasties" being passed through to the LDAP server
 //	prevent access to directory outside of address book base DN
-if(!empty($_GET["dn"])) $dn = $_GET["dn"]; else $dn = $ldap_base_dn;
+if(!empty($_GET["dn"])) $dn = $_GET["dn"]; else $dn = $ldap_server->base_dn;
 
 // TODO: sanitise attribute name from URL:
 //	stop "nasties" being passed through to the LDAP server
