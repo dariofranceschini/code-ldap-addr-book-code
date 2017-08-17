@@ -21,12 +21,8 @@ $(function() {
 			$.ajax({
 				url: "suggest.php",
 				dataType: "json",
-				data: {
-					'filter': request.term
-				},
-				success: function(data) {
-					response(data[1]);
-				}
+				data: { 'filter': request.term },
+				success: function(data) { response(data[1]); }
 			});
 		}
 	});
