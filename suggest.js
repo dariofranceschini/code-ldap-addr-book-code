@@ -28,6 +28,12 @@ $(function()
 				data: { 'filter': request.term },
 				success: function(data) { response(data[1]); }
 			});
+		},
+
+		select: function(event, ui)
+		{
+			$("#filter").val(ui.item.label);
+			$("#search_form").submit();
 		}
 	});
 });
