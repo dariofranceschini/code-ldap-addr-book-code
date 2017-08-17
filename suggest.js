@@ -15,10 +15,14 @@
 
    ************************************************************************ */
 
-$(function() {
-	$("#filter").autocomplete({
-		source: function(request, response) {
-			$.ajax({
+$(function()
+{
+	$("#filter").autocomplete(
+	{
+		source: function(request, response)
+		{
+			$.ajax(
+			{
 				url: "suggest.php",
 				dataType: "json",
 				data: { 'filter': request.term },
