@@ -620,9 +620,17 @@ will also need to be granted within the back-end directory.
     LDAP server information (root DSE record) and access records other than
     those under <code>$ldap_server->base_dn</code>.</td></tr>
 
-<tr><td><code>display_all_records_by_default</code></td><td>Displays a
-    list of all searchable records by default, rather than the objects
-    located directly under <code>$ldap_server->base_dn</code>.</td></tr>
+<tr><td><code>front_page_search_filter</code></td><td>Specifies an LDAP
+    search filter to use for the Address Book's front page. When this option
+    is set, the Address Book will display the results of this search
+    instead of listing the records located directly under
+    <code>$ldap_server->base_dn</code>. Examples:
+    <br>
+    <code>"front_page_search_filter"=>"objectClass=person"</code> will display
+    a flat list of all people/contacts on the front page.<br>
+    <code>"front_page_search_filter"=>"directReports=*"</code> will display
+    a list of all managers (people with at least one other person reporting
+    to them) in Active Directory.</td></tr>
 
 </table>
 <h3>Require users to log in with a user name and password</h3>
