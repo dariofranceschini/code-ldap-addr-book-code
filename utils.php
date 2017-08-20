@@ -132,7 +132,7 @@ function show_site_footer()
 
 function show_search_box($initial_value)
 {
-	echo "<form action=\"" . current_page_folder_url() . "\" method=\"GET\">\n";
+	echo "<form id=\"search_form\" action=\"" . current_page_folder_url() . "\" method=\"GET\">\n";
 
 	echo "  <table class=\"search\">\n";
 	echo "    <tr>\n";
