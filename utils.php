@@ -3778,6 +3778,9 @@ class ldap_server
 	/** Return connection resource for communicating with the LDAP server */
 	var $connection;
 
+	/** Directory location (e.g. OU) of the address book records */
+	var $base_dn;
+
 	/** Temporary bind DN used to look up LDAP bind DN corresponding to a user name */
 	var $dn_search_user = "";
 
