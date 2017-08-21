@@ -3874,11 +3874,14 @@ class ldap_server
 		$ldap_server_list[] = &$this;
 		$this->server_id = count($ldap_server_list)-1;
 
-		if(is_null($ldap_server_port))
-			$this->connection = ldap_connect($ldap_server_host_or_url);
-		else
-			$this->connection = ldap_connect($ldap_server_host_or_url,
-				$ldap_server_port);
+		// function may be missing if PHP's LDAP module not available - this will be
+		// reported to the user via a subsequent call to prereq_components_ok()
+		if(function_exists("ldap_connect"))
+			if(is_null($ldap_server_port))
+				$this->connection = ldap_connect($ldap_server_host_or_url);
+			else
+				$this->connection = ldap_connect($ldap_server_host_or_url,
+					$ldap_server_port);
 
 		$this->server_type = $ldap_server_type;
 
