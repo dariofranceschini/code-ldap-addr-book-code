@@ -3442,7 +3442,8 @@ function prereq_components_ok()
 	$php_extn_list = array(
 		array("name"=>"gd","desc"=>gettext("GD Support")),
 		array("name"=>"intl","desc"=>gettext("Internationalization Support")),
-		array("name"=>"ldap","desc"=>gettext("LDAP Support"))
+		array("name"=>"ldap","desc"=>gettext("LDAP Support")),
+		array("name"=>"mbstring","desc"=>gettext("Multibyte String Support"))
 		);
 
 	$missing_php_extn_list="";
