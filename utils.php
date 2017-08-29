@@ -1657,9 +1657,27 @@ class ldap_attribute
 
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
-					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")) . "</li>";
+				{
+					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
+
+					if(!$this->edit && get_user_setting("allow_edit") && !$this->create)
+						echo "&nbsp;<a href=\"delete_value.php?dn="
+							. urlencode($this->ldap_entry["dn"])
+							. "&attrib=" . urlencode($this->attribute)
+							. "&value=" . urlencode($value)
+							. "\"><button>" . gettext("Remove") . "</button></a>\n";
+
+					echo "</li>";
+				}
+
+
 			echo "</ul>";
 		}
+
+		if(!$this->edit && !$this->create && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
+			echo "            <a style=\"float:right\" href=\"add_text_value.php?target_dn="
+				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
+				. "\"><button>Add</button></a>\n";
 	}
 
 	/** Show OID macro definition list attribute (data type "oid_macro_list")
