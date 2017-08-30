@@ -407,7 +407,8 @@ function current_page_folder_url()
 
 	$path = substr($_SERVER["REQUEST_URI"],-1) == "/"
 		? $_SERVER["REQUEST_URI"]
-		: dirname($_SERVER["REQUEST_URI"]);
+		: str_replace(DIRECTORY_SEPARATOR,"/",
+		dirname($_SERVER["REQUEST_URI"]));
 
 	// add trailing slash (missing from non-root folders)
 	if(substr($path,-1) != "/") $path .= "/";
