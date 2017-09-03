@@ -43,7 +43,7 @@ if(prereq_components_ok())
 					"count"=>1,
 					array(
 						"objectclass"=>array("count"=>1,$object_class),
-						"dn"=>$dn
+						"dn"=> "null=," . $dn
 						)
 					);
 
@@ -61,6 +61,9 @@ if(prereq_components_ok())
 				$entry[0]["___POPULATE_FOR_CREATE___"]=true;
 				$ldap_server->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
 				unset($entry[0]["___POPULATE_FOR_CREATE___"]);
+
+				// set DN to location of parent object
+				$entry[0]["dn"] = $dn;
 
 				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 

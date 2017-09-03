@@ -5160,24 +5160,10 @@ class ldap_server
 		if(strpos($base_name,"{%d}")===false)
 			$base_name = "{%d}" . $base_name;
 
-		if(gettype($entry["objectclass"])=="array")
-		{
-			// behavior on populate_for_create
-			$object_class = $this->get_object_class($entry);
-			$search_dn = $entry["dn"];
-
-			$rdn_attrib = strtolower($this->get_object_schema_setting(
-				$object_class,"rdn_attrib"));
-		}
-		else
-		{
-			// behavior on before_create
-			$object_class = $entry["objectclass"];
-			$search_dn = get_parent_dn($entry["dn"]);
-
-			$rdn_attrib = $this->get_object_schema_setting(
-				$object_class,"rdn_attrib");
-		}
+		$object_class = $this->get_object_class($entry);
+		$search_dn = get_parent_dn($entry["dn"]);
+		$rdn_attrib = $this->get_object_schema_setting(
+			$object_class,"rdn_attrib");
 
 		$search_resource = ldap_search($this->connection,$search_dn,
 			"(objectClass=" . $class_name . ")",array());
@@ -5187,25 +5173,22 @@ class ldap_server
 
 		$rdn_value = sprintf($base_name,$ordinal+$offset);
 
-		if(gettype($entry["objectclass"])=="array")
+		$entry["dn"] = $rdn_attrib . "=" . $rdn_value;
+		if(!empty($search_dn))
+			$entry["dn"] .= "," . $search_dn;
+
+		// update posted attribute values to reflect new RDN
+		// (use with before_create)
+		$_POST["ldap_attribute_" . $rdn_attrib] = $rdn_value;
+
+		if(isset($entry["___POPULATE_FOR_CREATE___"]))
 		{
-			// when called from populate_for_create_<class> schema function
-			unset($entry[$rdn_attrib]);
+			$rdn_attrib=strtolower($rdn_attrib);
 			$entry[$rdn_attrib]["count"] = 1;
-			$entry[$rdn_attrib][0] = $rdn_value;
 		}
-		else
-		{
-			// when called from before_create_<class> schema function
-			$entry[$rdn_attrib] = $rdn_value;
 
-			$entry["dn"] = $rdn_attrib . "=" . $rdn_value;
-			if(!empty($search_dn))
-				$entry["dn"] .= "," . $search_dn;
-
-			// update posted attribute values to reflect new RDN
-			$_POST["ldap_attribute_" . $rdn_attrib] = $rdn_value;
-		}
+		unset($entry[$rdn_attrib]);
+		$entry[$rdn_attrib][0] = $rdn_value;
 	}
 }
 
