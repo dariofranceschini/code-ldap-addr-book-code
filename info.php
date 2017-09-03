@@ -58,7 +58,9 @@ if(prereq_components_ok())
 						$_GET["add_aux_class"] = $aux_class_list;
 				}
 
+				$entry[0]["___POPULATE_FOR_CREATE___"]=true;
 				$ldap_server->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
+				unset($entry[0]["___POPULATE_FOR_CREATE___"]);
 
 				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
 
