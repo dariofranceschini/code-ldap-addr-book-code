@@ -5180,7 +5180,7 @@ class ldap_server
 		}
 
 		$search_resource = ldap_search($this->connection,$search_dn,
-			"(objectclass=" . $class_name . ")",array());
+			"(objectClass=" . $class_name . ")",array());
 
 		$ordinal = $search_resource ? ldap_count_entries($this->connection,
 			$search_resource) : 0;
