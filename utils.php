@@ -2276,7 +2276,7 @@ class ldap_attribute
 						else
 							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
 
-						// append database URI if set (e.g. for OpenLDAP metadirectory targets)
+			                        // Append OpenLDAP database URI if set
 						if(!empty($child_entry["olcdburi"][0]))
 							echo " - '" . $child_entry["olcdburi"][0] . "'";
 
