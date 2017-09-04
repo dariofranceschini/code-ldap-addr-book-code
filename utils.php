@@ -2278,7 +2278,9 @@ class ldap_attribute
 
 			                        // Append OpenLDAP database URI if set
 						if(!empty($child_entry["olcdburi"][0]))
-			                                echo " " . sprintf(gettext("from '%s'"),$child_entry["olcdburi"][0]);
+			                                echo " " . sprintf(gettext("from '%s'"),
+								htmlentities($child_entry["olcdburi"][0],
+								ENT_COMPAT,"UTF-8"));
 
 						echo "<br>";
 					}
