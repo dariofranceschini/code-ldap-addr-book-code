@@ -55,13 +55,13 @@ class openldap_config_schema extends ldap_schema
 					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png")
 					)
 				),
-                        array("section_name"=>gettext("TLS Settings"),"new_row"=>true,
-                                "attributes"=>array(
-                                        array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
-                                        array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
-                                        array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png")
-                                        )
-                                )
+			array("section_name"=>gettext("TLS Settings"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
+					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
+					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png")
+					)
+				)
 			));
 
 		$ldap_server->add_display_layout("olcIncludeFile",array(
