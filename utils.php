@@ -2276,6 +2276,14 @@ class ldap_attribute
 						else
 							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
 
+						// Append OpenLDAP database naming context if set
+						if(!empty($child_entry["olcsuffix"][0]))
+							echo " " . sprintf(gettext("for '%s'"),
+								"<a href=\"" . current_page_folder_url() . "?dn="
+								. urlencode($child_entry["olcsuffix"][0]) . "\">"
+								. htmlentities($child_entry["olcsuffix"][0],
+								ENT_COMPAT,"UTF-8") . "</a>");
+
 			                        // Append OpenLDAP database URI if set
 						if(!empty($child_entry["olcdburi"][0]))
 			                                echo " " . sprintf(gettext("from '%s'"),
