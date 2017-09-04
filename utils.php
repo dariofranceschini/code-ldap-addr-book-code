@@ -2284,6 +2284,12 @@ class ldap_attribute
 								. htmlentities($child_entry["olcsuffix"][0],
 								ENT_COMPAT,"UTF-8") . "</a>");
 
+						// Append OpenLDAP database directory location if set
+						if(!empty($child_entry["olcdbdirectory"][0]))
+							echo " " . sprintf(gettext("at '%s'"),
+								htmlentities($child_entry["olcdbdirectory"][0],
+								ENT_COMPAT,"UTF-8"));
+
 			                        // Append OpenLDAP database URI if set
 						if(!empty($child_entry["olcdburi"][0]))
 			                                echo " " . sprintf(gettext("from '%s'"),
