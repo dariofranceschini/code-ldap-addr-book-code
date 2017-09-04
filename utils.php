@@ -2238,7 +2238,7 @@ class ldap_attribute
 
 	function show_child_objects()
 	{
-		global $ldap_server;
+		global $ldap_server,$openldap_overlay_module,$openldap_backend_module;
 
 		$search_resource = @ldap_list($ldap_server->connection,
 			$this->ldap_entry["dn"],"(objectclass=*)");
@@ -2295,6 +2295,42 @@ class ldap_attribute
 			                                echo " " . sprintf(gettext("from '%s'"),
 								htmlentities($child_entry["olcdburi"][0],
 								ENT_COMPAT,"UTF-8"));
+
+			                        // Append OpenLDAP module path if set
+						if(!empty($child_entry["olcmodulepath"][0]))
+			                                echo " " . sprintf(gettext("loading from '%s'"),
+								htmlentities($child_entry["olcmodulepath"][0],
+								ENT_COMPAT,"UTF-8"));
+
+						// Append OpenLDAP module names to be loaded if set
+						if(!empty($child_entry["olcmoduleload"][0]))
+						{
+							echo "<table style=\"margin-top:4pt;margin-left:40pt\">";
+							$first_value = true;
+							for($i=0;$i<$child_entry["olcmoduleload"]["count"];$i++)
+							{
+								echo "<tr>";
+								$module_name = explode("}",
+									$child_entry["olcmoduleload"][$i]);
+								$module_name = $module_name[1];
+
+								echo "<td style=\"width:0px;white-space:nowrap\">"
+									. "&bull; " . htmlentities($module_name,
+									ENT_COMPAT,"UTF-8") . "</td>";
+
+								if(isset($openldap_overlay_module[$module_name]))
+									echo "<td>&nbsp;- " . htmlentities(
+										$openldap_overlay_module[$module_name],
+										ENT_COMPAT,"UTF-8") . "</td>";
+								else if(isset($openldap_backend_module[$module_name]))
+									echo "<td>&nbsp;- " . htmlentities(
+										$openldap_backend_module[$module_name],
+										ENT_COMPAT,"UTF-8") . "</td>";
+
+								echo "</tr>";
+							}
+							echo "</table>";
+						}
 
 						echo "<br>";
 					}
