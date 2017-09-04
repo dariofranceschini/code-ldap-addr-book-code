@@ -38,7 +38,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcConfig",			"icon"=>"generic24.png",	"class_type"=>"abstract","display_name"=>gettext("OpenLDAP Configuration")),
 			array("name"=>"olcDatabaseConfig",		"icon"=>"openldap/db.png",	"is_folder"=>false,"rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Database"),"required_attribs"=>"olcSuffix","can_contain"=>"olcOverlayConfig,olcMetaTargetConfig,olcAsyncMetaTargetConfig","contained_by"=>"olcGlobal"),
 			array("name"=>"olcFrontendConfig",		"icon"=>"openldap/frontend.png","class_type"=>"auxiliary","rdn_attrib"=>"olcDatabase","display_name"=>gettext("OpenLDAP Front End Configuration")),
-			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>true,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
+			array("name"=>"olcGlobal",			"icon"=>"config-folder.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Global Configuration"),"can_contain"=>"olcBackendConfig,olcFrontendConfig,olcDatabaseConfig,olcModuleList,olcSchemaConfig,olcIncludeFile"),
 			array("name"=>"olcIncludeFile",			"icon"=>"config-file.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Configuration Include File"),"required_attribs"=>"olcInclude","contained_by"=>"olcGlobal","can_create"=>true),
 			array("name"=>"olcModuleList",			"icon"=>"openldap/module.png",	"is_folder"=>false,"display_name"=>gettext("OpenLDAP Module"),"can_create"=>true,"create_method"=>"atomic","contained_by"=>"olcGlobal"),
 			array("name"=>"olcOverlayConfig",		"icon"=>"openldap/overlay.png",	"is_folder"=>false,"rdn_attrib"=>"olcOverlay","display_name"=>gettext("OpenLDAP Overlay"),"contained_by"=>"olcDatabaseConfig"),
@@ -47,7 +47,12 @@ class openldap_config_schema extends ldap_schema
 
 		// Display layouts
 		$ldap_server->add_display_layout("olcGlobal",array(
-			array("section_name"=>gettext("OpenLDAP Server Global Settings"),
+			array("section_name"=>gettext("OpenLDAP Server Configuration"),
+				"attributes"=>array(
+					array("__CHILD_OBJECTS__")
+					)
+				),
+			array("section_name"=>gettext("Global Settings"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
