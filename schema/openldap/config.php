@@ -15,7 +15,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
-			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Log Level")),
+			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Debug Log Detail Level")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
 			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
 			array("name"=>"olcObjectClasses",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
@@ -51,7 +51,7 @@ class openldap_config_schema extends ldap_schema
 				"attributes"=>array(
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
-					array("olcLogLevel",		gettext("Log Level"),				"generic24.png"),
+					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
 					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png")
 					)
 				),
