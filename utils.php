@@ -2260,10 +2260,12 @@ class ldap_attribute
 						$is_folder = $ldap_server->get_object_schema_setting(
 							$item_object_class,"is_folder");
 
-						echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text . "\" src=\"" . $icon . "\"> ";
+						echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text
+							. "\" src=\"" . $icon . "\"> ";
 
 						if($this->show_embedded_links &&
-							($ldap_server->compare_dn_to_base($child_entry["dn"],$ldap_server->base_dn)
+							($ldap_server->compare_dn_to_base($child_entry["dn"],
+							$ldap_server->base_dn)
 							|| get_user_setting("allow_system_admin")))
 						{
 							if($is_folder)
@@ -2271,7 +2273,8 @@ class ldap_attribute
 							else
 								echo "<a href=\"info.php?dn=";
 							echo urlencode($child_entry["dn"]) . "\">"
-								. htmlentities($value_display_name,ENT_COMPAT,"UTF-8") . "</a>";
+								. htmlentities($value_display_name,ENT_COMPAT,"UTF-8")
+								. "</a>";
 						}
 						else
 							echo htmlentities($value_display_name,ENT_COMPAT,"UTF-8");
