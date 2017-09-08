@@ -21,6 +21,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
 			array("name"=>"olcObjectClasses",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Object Classes")),
 			array("name"=>"olcObjectIdentifier",		"data_type"=>"oid_macro_list",	"display_name"=>gettext("Object Identifier")),
+			array("name"=>"olcOverlay",			"data_type"=>"text",		"display_name"=>gettext("Overlay Object Name")),
 			array("name"=>"olcPasswordHash",		"data_type"=>"text",		"display_name"=>gettext("Password Hash")),
 			array("name"=>"olcPidFile",			"data_type"=>"text",		"display_name"=>gettext("Process Identifier (PID) File")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
