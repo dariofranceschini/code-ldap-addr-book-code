@@ -32,6 +32,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
 			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
+			array("name"=>"olcTLSVerifyClient",		"data_type"=>"openldap_clicrt",	"display_name"=>gettext("Client Certificate Checking Policy")),
 			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads"))
 			);
 
@@ -63,11 +64,14 @@ class openldap_config_schema extends ldap_schema
 					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png")
 					)
 				),
+
+
 			array("section_name"=>gettext("Transport Layer Security (TLS)"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
 					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
-					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png")
+					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png"),
+					array("olcTLSVerifyClient",	gettext("Client Certificate Checking"),		"generic24.png","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("OpenSSL Options"),"new_row"=>true,
