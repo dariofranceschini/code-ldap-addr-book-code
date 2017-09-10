@@ -1077,11 +1077,13 @@ class ldap_attribute
 			case "oid_macro_list":	$this->show_oid_macro_list();	break;
 			case "openldap_module":	$this->show_openldap_module();	break;
 			case "openldap_backend":$this->show_openldap_backend();	break;
+			case "openldap_tlsver":	$this->show_openldap_tlsver();	break;
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
 			case "pwd_qualitycheck":$this->show_pwd_qualitycheck();	break;
 			case "nested_config":	show_nested_config();		break;
+
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
 		}
@@ -1165,6 +1167,28 @@ class ldap_attribute
 			array(
 				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
+				)
+			);
+	}
+
+	/** Show olcTLSProtocolMin attribute (data type "openldap_tlsver")
+
+	    This attribute indicates the minimum supported TLS version that
+	    will be accepted by an OpenLDAP server.
+
+	    The attribute is defined in the "openldap/config" schema.
+	*/
+
+	function show_openldap_tlsver()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0.0","display_name"=>gettext("Any")),
+				array("value"=>"2.0","display_name"=>gettext("SSL 2.0")),
+				array("value"=>"3.0","display_name"=>gettext("SSL 3.0")),
+				array("value"=>"3.1","display_name"=>gettext("TLS 1.0")),
+				array("value"=>"3.2","display_name"=>gettext("TLS 1.1")),
+				array("value"=>"3.2","display_name"=>gettext("TLS 1.2"))
 				)
 			);
 	}

@@ -31,6 +31,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCACertificateFile",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate File")),
 			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
+			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
 			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads"))
 			);
 
@@ -67,6 +68,11 @@ class openldap_config_schema extends ldap_schema
 					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
 					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
 					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("OpenSSL Options"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false)
 					)
 				)
 			));
