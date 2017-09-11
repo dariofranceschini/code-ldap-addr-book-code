@@ -1079,6 +1079,7 @@ class ldap_attribute
 			case "openldap_backend":$this->show_openldap_backend();	break;
 			case "openldap_tlsver":	$this->show_openldap_tlsver();	break;
 			case "openldap_clicrt":	$this->show_openldap_clicrt();	break;
+			case "openldap_authpol":$this->show_openldap_authpol();	break;
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
@@ -1212,6 +1213,29 @@ class ldap_attribute
 				array("value"=>"allow","display_name"=>gettext("Request client certificate, but allow connection if invalid or not provided")),
 				array("value"=>"try","display_name"=>gettext("Reject invalid client certificate, allow connection if not provided")),
 				array("value"=>"demand","display_name"=>gettext("Require valid client certificate")),
+				)
+			);
+	}
+
+	/** Show olcAuthzPolicy attribute (data type "openldap_authpol")
+
+	    This attribute is used to specify the proxy authorization policy of an
+	    OpenLDAP server.
+
+	    The attribute is defined in the "openldap/config" schema.
+
+	    @todo accept "both" as synonyms for "all"
+	*/
+
+	function show_openldap_authpol()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"none","display_name"=>gettext("Disable proxy authorization")),
+				array("value"=>"from","display_name"=>gettext("Local user must match an authorizaton (authzFrom) rule")),
+				array("value"=>"to","display_name"=>gettext("Remote user must match an authorization (authzTo) rule")),
+				array("value"=>"any","display_name"=>gettext("Either the local or remote user must match an authorization rule")),
+				array("value"=>"all","display_name"=>gettext("Both the local and remote user must match authorization rules")),
 				)
 			);
 	}

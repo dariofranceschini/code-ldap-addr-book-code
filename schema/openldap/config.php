@@ -10,6 +10,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcAccess",			"data_type"=>"text_list",	"display_name"=>gettext("Access Control")),
 			array("name"=>"olcArgsFile",			"data_type"=>"text",		"display_name"=>gettext("Command Line Arguments File")),
 			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
+			array("name"=>"olcAuthzPolicy",			"data_type"=>"openldap_authpol","display_name"=>gettext("Proxy Authorization Policy")),
 			array("name"=>"olcBackend",			"data_type"=>"openldap_backend","display_name"=>gettext("Back End Name")),
 			array("name"=>"olcDatabase",			"data_type"=>"text",		"display_name"=>gettext("Database Object Name")),
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
@@ -61,7 +62,8 @@ class openldap_config_schema extends ldap_schema
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
-					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png")
+					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png"),
+					array("olcAuthzPolicy",		gettext("Proxy Authorization Policy"),		"generic24.png")
 					)
 				),
 
