@@ -1078,6 +1078,7 @@ class ldap_attribute
 			case "openldap_module":	$this->show_openldap_module();	break;
 			case "openldap_backend":$this->show_openldap_backend();	break;
 			case "openldap_tlsver":	$this->show_openldap_tlsver();	break;
+			case "openldap_crlchk":	$this->show_openldap_crlchk();	break;
 			case "openldap_clicrt":	$this->show_openldap_clicrt();	break;
 			case "openldap_authpol":$this->show_openldap_authpol();	break;
 			case "ldap_version":	$this->show_ldap_version();	break;
@@ -1191,6 +1192,25 @@ class ldap_attribute
 				array("value"=>"3.1","display_name"=>gettext("TLS 1.0")),
 				array("value"=>"3.2","display_name"=>gettext("TLS 1.1")),
 				array("value"=>"3.2","display_name"=>gettext("TLS 1.2"))
+				)
+			);
+	}
+
+	/** Show olcTLSCRLCheck attribute (data type "openldap_crlchk")
+
+	    This attribute is used to specify the extent to which TLS client certificates are
+	    checked for revocation by an OpenLDAP server before accepting a connection.
+
+	    The attribute is defined in the "openldap/config" schema.
+	*/
+
+	function show_openldap_crlchk()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"none","display_name"=>gettext("None")),
+				array("value"=>"peer","display_name"=>gettext("For peer certificates only")),
+				array("value"=>"all","display_name"=>gettext("For entire certificate chain")),
 				)
 			);
 	}
