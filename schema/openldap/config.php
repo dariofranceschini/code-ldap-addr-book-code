@@ -12,11 +12,13 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"olcAuthzPolicy",			"data_type"=>"openldap_authpol","display_name"=>gettext("Proxy Authorization Policy")),
 			array("name"=>"olcBackend",			"data_type"=>"openldap_backend","display_name"=>gettext("Back End Name")),
+			array("name"=>"olcConcurrency",			"data_type"=>"text",		"display_name"=>gettext("Concurrency Level")),
 			array("name"=>"olcDatabase",			"data_type"=>"text",		"display_name"=>gettext("Database Object Name")),
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
+			array("name"=>"olcListenerThreads",		"data_type"=>"text",		"display_name"=>gettext("Number of Connection Manager Listener Threads")),
 			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Debug Log Detail Level")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
 			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
@@ -29,6 +31,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcSizeLimit",			"data_type"=>"text",		"display_name"=>gettext("Size Limit")),
 			array("name"=>"olcSortVals",			"data_type"=>"text",		"display_name"=>gettext("Attributes with Sorted Values")),
 			array("name"=>"olcSuffix",			"data_type"=>"dn",		"display_name"=>gettext("Naming Context")),
+			array("name"=>"olcThreads",			"data_type"=>"text",		"display_name"=>gettext("Maximum Size of Primary Thread Pool")),
 			array("name"=>"olcTLSCACertificateFile",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate File")),
 			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
@@ -63,7 +66,6 @@ class openldap_config_schema extends ldap_schema
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
-					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png"),
 					array("olcAuthzPolicy",		gettext("Proxy Authorization Policy"),		"generic24.png")
 					)
 				),
@@ -79,6 +81,14 @@ class openldap_config_schema extends ldap_schema
 				"attributes"=>array(
 					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false),
 					array("olcTLSCRLCheck",		gettext("CRL Checking"),			"crl-distrib-point.png")
+					)
+				),
+			array("section_name"=>gettext("Multithreading"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcConcurrency",		gettext("Concurrency Level"),			"generic24.png"),
+					array("olcListenerThreads",	gettext("Number of Connection Manager Listener Threads"),"generic24.png"),
+					array("olcThreads",		gettext("Maximum Size of Primary Thread Pool"),	"generic24.png"),
+					array("olcToolThreads",		gettext("Number of Tool Threads"),		"generic24.png"),
 					)
 				)
 			));
