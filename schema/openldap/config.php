@@ -13,12 +13,16 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcAuthzPolicy",			"data_type"=>"openldap_authpol","display_name"=>gettext("Proxy Authorization Policy")),
 			array("name"=>"olcBackend",			"data_type"=>"openldap_backend","display_name"=>gettext("Back End Name")),
 			array("name"=>"olcConcurrency",			"data_type"=>"text",		"display_name"=>gettext("Concurrency Level")),
+			array("name"=>"olcConnMaxPending",		"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Pending Anonymous Requests")),
+			array("name"=>"olcConnMaxPendingAuth",		"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Pending Authenticated Requests")),
 			array("name"=>"olcDatabase",			"data_type"=>"text",		"display_name"=>gettext("Database Object Name")),
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
+			array("name"=>"olcIdleTimeout",			"data_type"=>"text",		"display_name"=>gettext("Disconnect Idle Connection Time")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
 			array("name"=>"olcListenerThreads",		"data_type"=>"text",		"display_name"=>gettext("Number of Connection Manager Listener Threads")),
+			array("name"=>"olcLocalSSF",			"data_type"=>"text",		"display_name"=>gettext("Security Strength Factor for Local LDAP Sessions")),
 			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Debug Log Detail Level")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
 			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
@@ -29,6 +33,8 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcPidFile",			"data_type"=>"text",		"display_name"=>gettext("Process Identifier (PID) File")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
 			array("name"=>"olcSizeLimit",			"data_type"=>"text",		"display_name"=>gettext("Size Limit")),
+			array("name"=>"olcSockbufMaxIncoming",		"data_type"=>"text",		"display_name"=>gettext("Maximum LDAP PDU Size for Anonymous Sessions")),
+			array("name"=>"olcSockbufMaxIncomingAuth",	"data_type"=>"text",		"display_name"=>gettext("Maximum LDAP PDU Size for Authenticated Sessions")),
 			array("name"=>"olcSortVals",			"data_type"=>"text",		"display_name"=>gettext("Attributes with Sorted Values")),
 			array("name"=>"olcSuffix",			"data_type"=>"dn",		"display_name"=>gettext("Naming Context")),
 			array("name"=>"olcThreads",			"data_type"=>"text",		"display_name"=>gettext("Maximum Size of Primary Thread Pool")),
@@ -38,7 +44,8 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCRLCheck",			"data_type"=>"openldap_crlchk",	"display_name"=>gettext("Check for Client Certificate Revocation")),
 			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
 			array("name"=>"olcTLSVerifyClient",		"data_type"=>"openldap_clicrt",	"display_name"=>gettext("Client Certificate Checking Policy")),
-			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads"))
+			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads")),
+			array("name"=>"olcWriteTimeout",		"data_type"=>"text",		"display_name"=>gettext("Delay Before Closing Sessions with Pending Write Operation"))
 			);
 
 		// Object classes
@@ -81,6 +88,17 @@ class openldap_config_schema extends ldap_schema
 				"attributes"=>array(
 					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false),
 					array("olcTLSCRLCheck",		gettext("CRL Checking"),			"crl-distrib-point.png")
+					)
+				),
+			array("section_name"=>gettext("Connection Handling"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcConnMaxPending",	gettext("Maximum Number of Pending Anonymous Requests"),"generic24.png"),
+					array("olcConnMaxPendingAuth",	gettext("Maximum Number of Pending Authenticated Requests"),"generic24.png"),
+					array("olcSockbufMaxIncoming",	gettext("Maximum LDAP PDU Size for Anonymous Sessions"),"generic24.png"),
+					array("olcSockbufMaxIncomingAuth",gettext("Maximum LDAP PDU Size for Authenticated Sessions"),"generic24.png"),
+					array("olcIdleTimeout",		gettext("Disconnect Idle Connection Time"),	"generic24.png"),
+					array("olcWriteTimeout",	gettext("Delay Before Closing Sessions with Pending Write Operation"),"generic24.png"),
+					array("olcLocalSSF",		gettext("Security Strength Factor for Local LDAP Sessions"),"generic24.png"),
 					)
 				),
 			array("section_name"=>gettext("Multithreading"),"new_row"=>true,
