@@ -19,6 +19,12 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
 			array("name"=>"olcIdleTimeout",			"data_type"=>"text",		"display_name"=>gettext("Disconnect Idle Connection Time")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
+			array("name"=>"olcIndexHash64",			"data_type"=>"yes_no",		"display_name"=>gettext("Use 64-bit Index Hashes")),
+			array("name"=>"olcIndexIntLen",			"data_type"=>"text",		"display_name"=>gettext("Key Length for Ordered Integer Indexes")),
+			array("name"=>"olcIndexSubstrAnyLen",		"data_type"=>"text",		"display_name"=>gettext("Maximum Key Length for Arbitrary Substring Indexes")),
+			array("name"=>"olcIndexSubstrAnyStep",		"data_type"=>"text",		"display_name"=>gettext("Offset Size for Arbitrary Substring Index Segment Lookups")),
+			array("name"=>"olcIndexSubstrIfMaxLen",		"data_type"=>"text",		"display_name"=>gettext("Maximum Key Length for Initial/Final Substring Indexes")),
+			array("name"=>"olcIndexSubstrIfMinLen",		"data_type"=>"text",		"display_name"=>gettext("Minimum Key Length for Initial/Final Substring Indexes")),
 			array("name"=>"olcLastMod",			"data_type"=>"yes_no",		"display_name"=>gettext("Maintain Last Modification Info")),
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
 			array("name"=>"olcListenerThreads",		"data_type"=>"text",		"display_name"=>gettext("Number of Connection Manager Listener Threads")),
@@ -99,6 +105,16 @@ class openldap_config_schema extends ldap_schema
 					array("olcIdleTimeout",		gettext("Disconnect Idle Connection Time"),	"generic24.png"),
 					array("olcWriteTimeout",	gettext("Delay Before Closing Sessions with Pending Write Operation"),"generic24.png"),
 					array("olcLocalSSF",		gettext("Security Strength Factor for Local LDAP Sessions"),"generic24.png"),
+					)
+				),
+			array("section_name"=>gettext("Indexing"),"new_row"=>true,
+				"attributes"=>array(
+					array("olcIndexSubstrIfMinLen",	gettext("Minimum Key Length for Initial/Final Substring Indexes"),"generic24.png"),
+					array("olcIndexSubstrIfMaxLen",	gettext("Maximum Key Length for Initial/Final Substring Indexes"),"generic24.png"),
+					array("olcIndexSubstrAnyLen",	gettext("Maximum Key Length for Arbitrary Substring Indexes"),"generic24.png"),
+					array("olcIndexSubstrAnyStep",	gettext("Offset Size for Arbitrary Substring Index Segment Lookups"),"generic24.png"),
+					array("olcIndexIntLen",		gettext("Key Length for Ordered Integer Indexes"),"generic24.png"),
+				//	array("olcIndexHash64",		gettext("Use 64-bit Index Hashes"),		"generic24.png"),	// (coming in OpenLDAP 2.5)
 					)
 				),
 			array("section_name"=>gettext("Multithreading"),"new_row"=>true,
