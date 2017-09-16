@@ -47,8 +47,12 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCACertificateFile",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate File")),
 			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
+			array("name"=>"olcTLSCipherSuite",		"data_type"=>"text",		"display_name"=>gettext("TLS Cipher Suite")),
 			array("name"=>"olcTLSCRLCheck",			"data_type"=>"openldap_crlchk",	"display_name"=>gettext("Check for Client Certificate Revocation")),
+			array("name"=>"olcTLSDHParamFile",		"data_type"=>"text",		"display_name"=>gettext("Diffie-Hellman Parameter File Name")),
+			array("name"=>"olcTLSECName",			"data_type"=>"text",		"display_name"=>gettext("EHDH Curve Name")),
 			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
+			array("name"=>"olcTLSRandFile",			"data_type"=>"text",		"display_name"=>gettext("Random Number Data Socket")),
 			array("name"=>"olcTLSVerifyClient",		"data_type"=>"openldap_clicrt",	"display_name"=>gettext("Client Certificate Checking Policy")),
 			array("name"=>"olcToolThreads",			"data_type"=>"text",		"display_name"=>gettext("Number of Tool Threads")),
 			array("name"=>"olcWriteTimeout",		"data_type"=>"text",		"display_name"=>gettext("Delay Before Closing Sessions with Pending Write Operation"))
@@ -87,12 +91,16 @@ class openldap_config_schema extends ldap_schema
 					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
 					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
 					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png"),
-					array("olcTLSVerifyClient",	gettext("Client Certificate Checking"),		"generic24.png","allow_edit"=>false)
+					array("olcTLSVerifyClient",	gettext("Client Certificate Checking"),		"generic24.png","allow_edit"=>false),
+					array("olcTLSCipherSuite",	gettext("TLS Cipher Suite"),			"generic24.png")
 					)
 				),
 			array("section_name"=>gettext("OpenSSL Options"),"new_row"=>true,
 				"attributes"=>array(
 					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false),
+					array("olcTLSDHParamFile",	gettext("Diffie-Hellman Parameter File Name"),	"generic24.png"),
+					array("olcTLSECName",		gettext("EHDH Curve Name"),			"generic24.png"),
+					array("olcTLSRandFile",		gettext("Random Number Socket File"),		"generic24.png"),
 					array("olcTLSCRLCheck",		gettext("CRL Checking"),			"crl-distrib-point.png")
 					)
 				),
