@@ -15,6 +15,8 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcConcurrency",			"data_type"=>"text",		"display_name"=>gettext("Concurrency Level")),
 			array("name"=>"olcConnMaxPending",		"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Pending Anonymous Requests")),
 			array("name"=>"olcConnMaxPendingAuth",		"data_type"=>"text",		"display_name"=>gettext("Maximum Number of Pending Authenticated Requests")),
+			array("name"=>"olcConfigDir",			"data_type"=>"text",		"display_name"=>gettext("Configuration Directory Path")),
+			array("name"=>"olcConfigFile",			"data_type"=>"text",		"display_name"=>gettext("Configuration File Name")),
 			array("name"=>"olcDatabase",			"data_type"=>"text",		"display_name"=>gettext("Database Object Name")),
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
 			array("name"=>"olcIdleTimeout",			"data_type"=>"text",		"display_name"=>gettext("Disconnect Idle Connection Time")),
@@ -82,6 +84,8 @@ class openldap_config_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Global Settings"),"new_row"=>true,
 				"attributes"=>array(
+					array("olcConfigFile",		gettext("Configuration File"),			"config-file.png"),
+					array("olcConfigDir",		gettext("Configuration Directory"),		"config-folder.png"),
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
