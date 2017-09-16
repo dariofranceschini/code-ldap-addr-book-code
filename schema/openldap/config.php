@@ -45,6 +45,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcSuffix",			"data_type"=>"dn",		"display_name"=>gettext("Naming Context")),
 			array("name"=>"olcThreads",			"data_type"=>"text",		"display_name"=>gettext("Maximum Size of Primary Thread Pool")),
 			array("name"=>"olcTLSCACertificateFile",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate File")),
+			array("name"=>"olcTLSCACertificatePath",	"data_type"=>"text",		"display_name"=>gettext("CA Certificate Directory Path")),
 			array("name"=>"olcTLSCertificateFile",		"data_type"=>"text",		"display_name"=>gettext("Server Certificate File")),
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
 			array("name"=>"olcTLSCipherSuite",		"data_type"=>"text",		"display_name"=>gettext("TLS Cipher Suite")),
@@ -88,6 +89,7 @@ class openldap_config_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Transport Layer Security (TLS)"),"new_row"=>true,
 				"attributes"=>array(
+					array("olcTLSCACertificatePath",gettext("CA Certificate Directory"),		"generic24.png"),
 					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
 					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
 					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png"),
