@@ -31,6 +31,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcLdapSyntaxes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("LDAP Syntaxes")),
 			array("name"=>"olcListenerThreads",		"data_type"=>"text",		"display_name"=>gettext("Number of Connection Manager Listener Threads")),
 			array("name"=>"olcLocalSSF",			"data_type"=>"text",		"display_name"=>gettext("Security Strength Factor for Local LDAP Sessions")),
+			array("name"=>"olcLogFile",			"data_type"=>"text",		"display_name"=>gettext("Debug Log File Name")),
 			array("name"=>"olcLogLevel",			"data_type"=>"text",		"display_name"=>gettext("Debug Log Detail Level")),
 			array("name"=>"olcModuleLoad",			"data_type"=>"openldap_module",	"display_name"=>gettext("Module Name")),
 			array("name"=>"olcModulePath",			"data_type"=>"text",		"display_name"=>gettext("Module Pathname")),
@@ -88,6 +89,7 @@ class openldap_config_schema extends ldap_schema
 					array("olcConfigDir",		gettext("Configuration Directory"),		"config-folder.png"),
 					array("olcArgsFile",		gettext("Command Line Arguments File"),		"generic24.png"),
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
+					array("olcLogFile",		gettext("Debug Log File"),			"openldap/error.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
 					array("olcAuthzPolicy",		gettext("Proxy Authorization Policy"),		"generic24.png")
 					)
