@@ -21,7 +21,7 @@ class novell_ndspki_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"novell/key-material.png",	"is_folder"=>false,"display_name"=>gettext("Key Material")),
+			array("name"=>"nDSPKIKeyMaterial",		"icon"=>"key-material.png",		"is_folder"=>false,"display_name"=>gettext("Key Material")),
 			array("name"=>"nDSPKISDKeyAccessPartition",	"icon"=>"novell/sd-key-access-partition.png","is_folder"=>true,"display_name"=>gettext("Security Domain Key Access Partition")),
 			array("name"=>"nDSPKISDKeyList",		"icon"=>"novell/sd-key-list.png",	"is_folder"=>true,"display_name"=>gettext("Security Domain Key List")),
 			array("name"=>"nDSPKICertificateAuthority",	"icon"=>"cert-authority.png",		"is_folder"=>false,"display_name"=>gettext("Certificate Authority"))
