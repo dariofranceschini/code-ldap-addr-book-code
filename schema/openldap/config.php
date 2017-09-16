@@ -89,10 +89,10 @@ class openldap_config_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Transport Layer Security (TLS)"),"new_row"=>true,
 				"attributes"=>array(
-					array("olcTLSCACertificatePath",gettext("CA Certificate Directory"),		"generic24.png"),
-					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"generic24.png"),
-					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"generic24.png"),
-					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"generic24.png"),
+					array("olcTLSCACertificatePath",gettext("CA Certificate Directory"),		"folder.png"),
+					array("olcTLSCACertificateFile",gettext("CA Certificate File"),			"cert.png"),
+					array("olcTLSCertificateFile",	gettext("Server Certificate File"),		"cert.png"),
+					array("olcTLSCertificateKeyFile",gettext("Server Certificate Key File"),	"key-material.png"),
 					array("olcTLSVerifyClient",	gettext("Client Certificate Checking"),		"generic24.png","allow_edit"=>false),
 					array("olcTLSCipherSuite",	gettext("TLS Cipher Suite"),			"generic24.png")
 					)
