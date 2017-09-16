@@ -50,6 +50,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCertificateKeyFile",	"data_type"=>"text",		"display_name"=>gettext("Server Certificate Key File")),
 			array("name"=>"olcTLSCipherSuite",		"data_type"=>"text",		"display_name"=>gettext("TLS Cipher Suite")),
 			array("name"=>"olcTLSCRLCheck",			"data_type"=>"openldap_crlchk",	"display_name"=>gettext("Check for Client Certificate Revocation")),
+			array("name"=>"olcTLSCRLFile",			"data_type"=>"text",		"display_name"=>gettext("CRL File Name")),
 			array("name"=>"olcTLSDHParamFile",		"data_type"=>"text",		"display_name"=>gettext("Diffie-Hellman Parameter File Name")),
 			array("name"=>"olcTLSECName",			"data_type"=>"text",		"display_name"=>gettext("EHDH Curve Name")),
 			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
@@ -97,13 +98,18 @@ class openldap_config_schema extends ldap_schema
 					array("olcTLSCipherSuite",	gettext("TLS Cipher Suite"),			"generic24.png")
 					)
 				),
-			array("section_name"=>gettext("OpenSSL Options"),"new_row"=>true,
+			array("section_name"=>gettext("OpenSSL Options"),"new_row"=>true,"width"=>"50%",
 				"attributes"=>array(
 					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false),
 					array("olcTLSDHParamFile",	gettext("Diffie-Hellman Parameter File Name"),	"generic24.png"),
 					array("olcTLSECName",		gettext("EHDH Curve Name"),			"generic24.png"),
 					array("olcTLSRandFile",		gettext("Random Number Socket File"),		"generic24.png"),
 					array("olcTLSCRLCheck",		gettext("CRL Checking"),			"crl-distrib-point.png")
+					)
+				),
+			array("section_name"=>gettext("GnuTLS or Mozilla NSS Options"),
+				"attributes"=>array(
+					array("olcTLSCRLFile",		gettext("CRL File"),				"crl-distrib-point.png"),
 					)
 				),
 			array("section_name"=>gettext("Connection Handling"),"new_row"=>true,
