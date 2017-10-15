@@ -8,7 +8,7 @@ class novell_nfap_schema extends ldap_schema
 		$this->attribute_schema = array(
 			array("name"=>"nfapCIFSDFS",			"data_type"=>"yes_no",		"display_name"=>gettext("DFS")),
 			array("name"=>"nfapCIFSOpLocks",		"data_type"=>"yes_no",		"display_name"=>gettext("OpLocks Support")),
-			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enable")),
+			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enabled")),
 			array("name"=>"nfapCIFSShareVolsByDefault",	"data_type"=>"yes_no",		"display_name"=>gettext("Share Volumes By Default")),
 			array("name"=>"nfapCIFSUnicode",		"data_type"=>"yes_no",		"display_name"=>gettext("Unicode Support"))
 			);

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 12:32+0100\n"
-"PO-Revision-Date: 2017-06-18 12:32+0100\n"
+"POT-Creation-Date: 2017-10-15 10:36+0100\n"
+"PO-Revision-Date: 2017-10-15 10:36+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/nfap.php:9
-msgid "Share Volumes By Default"
-msgstr "Compartir volúmenes por defecto"
-
-#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:31
+#: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:31
 msgid "DFS"
 msgstr "DFS"
 
-#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:33
-msgid "Unicode Support"
-msgstr "Soporte para Unicode"
-
-#: ../schema/novell/nfap.php:12
-msgid "PDC Enable"
-msgstr "Realizar PDC"
-
-#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:34
+#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:34
 msgid "OpLocks Support"
 msgstr "Soporte para OpLocks"
+
+#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:37
+msgid "PDC Enabled"
+msgstr "PDC está Activado"
+
+#: ../schema/novell/nfap.php:12
+msgid "Share Volumes By Default"
+msgstr "Compartir volúmenes por defecto"
+
+#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:33
+msgid "Unicode Support"
+msgstr "Soporte para Unicode"
 
 #: ../schema/novell/nfap.php:18
 msgid "CIFS Server Configuration"
@@ -76,10 +76,6 @@ msgstr "Autenticación"
 #: ../schema/novell/nfap.php:36
 msgid "Signatures"
 msgstr "Firmas"
-
-#: ../schema/novell/nfap.php:37
-msgid "PDC Enabled"
-msgstr "PDC está Activado"
 
 #: ../schema/novell/nfap.php:38
 msgid "PDC Name"
