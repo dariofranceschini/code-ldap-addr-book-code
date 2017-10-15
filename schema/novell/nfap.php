@@ -24,7 +24,7 @@ class novell_nfap_schema extends ldap_schema
 			array("section_name"=>gettext("CIFS Native File Access Package"),
 				"attributes"=>array(
 					array("nfapCIFSServerName",		gettext("CIFS Server Name")),
-					array("nfapCIFSWorkGroup",		gettext("Workgroup")),
+					array("nfapCIFSWorkGroup",		gettext("Domain/Workgroup Name")),
 					array("nfapCIFSComment",		gettext("Comment")),
 					array("nfapCIFSShares",			gettext("Shares")),
 					array("nfapCIFSShareVolsByDefault",	gettext("Share Volumes by Default")),

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-15 10:43+0100\n"
-"PO-Revision-Date: 2017-10-15 10:43+0100\n"
+"POT-Creation-Date: 2017-10-15 12:50+0100\n"
+"PO-Revision-Date: 2017-10-15 12:50+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -50,8 +50,8 @@ msgid "CIFS Server Name"
 msgstr "Nombre del Servidor CIFS"
 
 #: ../schema/novell/nfap.php:27
-msgid "Workgroup"
-msgstr "Grupo de Trabajo"
+msgid "Domain/Workgroup Name"
+msgstr "Nombre del Dominio / Grupo de Trabajo"
 
 #: ../schema/novell/nfap.php:28
 msgid "Comment"
