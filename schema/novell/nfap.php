@@ -32,7 +32,7 @@ class novell_nfap_schema extends ldap_schema
 					array("nfapCIFSDialect",		gettext("SMB/CIFS Dialect")),
 					array("nfapCIFSUnicode",		gettext("Unicode Support")),
 					array("nfapCIFSOpLocks",		gettext("OpLocks Support")),
-					array("nfapCIFSAuthent",		gettext("Authentication")),
+					array("nfapCIFSAuthent",		gettext("Authentication Mode")),
 					array("nfapCIFSSignatures",		gettext("Signatures")),
 					array("nfapCIFSPDCEnable",		gettext("PDC Enabled")),
 					array("nfapCIFSPDCName",		gettext("PDC Name")),
