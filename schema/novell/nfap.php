@@ -6,7 +6,7 @@ class novell_nfap_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			array("name"=>"nfapCIFSDFS",			"data_type"=>"yes_no",		"display_name"=>gettext("DFS")),
+			array("name"=>"nfapCIFSDFS",			"data_type"=>"yes_no",		"display_name"=>gettext("DFS Enabled")),
 			array("name"=>"nfapCIFSOpLocks",		"data_type"=>"yes_no",		"display_name"=>gettext("OpLocks Support")),
 			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enabled")),
 			array("name"=>"nfapCIFSShareVolsByDefault",	"data_type"=>"yes_no",		"display_name"=>gettext("Share Volumes By Default")),
@@ -28,7 +28,7 @@ class novell_nfap_schema extends ldap_schema
                                         array("nfapCIFSComment",                gettext("Comment")),
                                         array("nfapCIFSShares",                 gettext("Shares")),
                                         array("nfapCIFSShareVolsByDefault",     gettext("Share Volumes by Default")),
-                                        array("nfapCIFSDFS",                    gettext("DFS")),
+                                        array("nfapCIFSDFS",                    gettext("DFS Enabled")),
                                         array("nfapCIFSDialect",                gettext("SMB/CIFS Dialect")),
                                         array("nfapCIFSUnicode",                gettext("Unicode Support")),
                                         array("nfapCIFSOpLocks",                gettext("OpLocks Support")),

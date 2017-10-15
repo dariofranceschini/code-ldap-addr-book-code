@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-15 10:36+0100\n"
-"PO-Revision-Date: 2017-10-15 10:36+0100\n"
+"POT-Creation-Date: 2017-10-15 10:43+0100\n"
+"PO-Revision-Date: 2017-10-15 10:43+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:31
-msgid "DFS"
-msgstr "DFS"
+msgid "DFS Enabled"
+msgstr "DFS Enabled"
 
 #: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:34
 msgid "OpLocks Support"
