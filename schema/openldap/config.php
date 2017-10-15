@@ -19,6 +19,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcConfigFile",			"data_type"=>"text",		"display_name"=>gettext("Configuration File Name")),
 			array("name"=>"olcDatabase",			"data_type"=>"text",		"display_name"=>gettext("Database Object Name")),
 			array("name"=>"olcDefaultSearchBase",		"data_type"=>"text",		"display_name"=>gettext("Default Search Base")),
+			array("name"=>"olcGentleHUP",			"data_type"=>"yes_no",		"display_name"=>gettext("Gentle Shutdown on HUP Signal")),
 			array("name"=>"olcIdleTimeout",			"data_type"=>"text",		"display_name"=>gettext("Disconnect Idle Connection Time")),
 			array("name"=>"olcInclude",			"data_type"=>"text",		"display_name"=>gettext("Configuration Include File Name")),
 			array("name"=>"olcIndexHash64",			"data_type"=>"yes_no",		"display_name"=>gettext("Use 64-bit Index Hashes")),
@@ -91,6 +92,7 @@ class openldap_config_schema extends ldap_schema
 					array("olcPidFile",		gettext("Process Identifier (PID) File"),	"generic24.png"),
 					array("olcLogFile",		gettext("Debug Log File"),			"openldap/error.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
+					array("olcGentleHUP",		gettext("Gentle Shutdown on HUP Signal"),	"generic24.png"),
 					array("olcAuthzPolicy",		gettext("Proxy Authorization Policy"),		"generic24.png")
 					)
 				),
