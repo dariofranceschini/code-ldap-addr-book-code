@@ -1085,7 +1085,7 @@ class ldap_attribute
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
 			case "pwd_qualitycheck":$this->show_pwd_qualitycheck();	break;
-			case "nested_config":	show_nested_config();		break;
+			case "nested_config":	$this->show_nested_config();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
