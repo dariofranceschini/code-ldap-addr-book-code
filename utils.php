@@ -1307,6 +1307,8 @@ class ldap_attribute
 			);
 	}
 
+	/** Show pwdCheckQuality attribute (data type "pwd_qualitycheck") */
+
 	function show_pwd_qualitycheck()
 	{
 		$this->show_enum(
