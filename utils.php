@@ -1753,7 +1753,7 @@ class ldap_attribute
 	    @todo
 		Style this better.. should be 100% less a fixed number of pixels?
 	    @todo
-		Support editing
+		Honour read-only setting by not displaying add/remove value buttons
 	*/
 
 	function show_text_list()
