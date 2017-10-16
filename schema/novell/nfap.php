@@ -16,7 +16,7 @@ class novell_nfap_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"nfapCIFSConfigInfo",	"icon"=>"dhcp/generic24.png",			"class_type"=>"auxiliary","display_name"=>gettext("CIFS Server Configuration"))
+			array("name"=>"nfapCIFSConfigInfo",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("CIFS Server Configuration"))
 			);
 
 		// Auxiliary class display layouts
