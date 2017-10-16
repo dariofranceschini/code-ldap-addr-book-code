@@ -8,6 +8,7 @@ class novell_nfap_schema extends ldap_schema
 		$this->attribute_schema = array(
 			array("name"=>"nfapCIFSAuthent",		"data_type"=>"nfap_authent",	"display_name"=>gettext("Authentication Mode")),
 			array("name"=>"nfapCIFSDFS",			"data_type"=>"yes_no",		"display_name"=>gettext("DFS Enabled")),
+			array("name"=>"nfapCIFSDialect",		"data_type"=>"nfap_dialect",	"display_name"=>gettext("SMB/CIFS Dialect")),
 			array("name"=>"nfapCIFSOpLocks",		"data_type"=>"yes_no",		"display_name"=>gettext("OpLocks Support")),
 			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enabled")),
 			array("name"=>"nfapCIFSShareVolsByDefault",	"data_type"=>"yes_no",		"display_name"=>gettext("Share Volumes By Default")),

@@ -1087,6 +1087,7 @@ class ldap_attribute
 			case "pwd_qualitycheck":$this->show_pwd_qualitycheck();	break;
 			case "nested_config":	$this->show_nested_config();	break;
 			case "nfap_authent":	$this->show_nfap_authent();	break;
+			case "nfap_dialect":	$this->show_nfap_dialect();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1328,6 +1329,18 @@ class ldap_attribute
 			array(
 				array("value"=>"1","display_name"=>gettext("Local")),
 				array("value"=>"2","display_name"=>gettext("Domain"))
+				)
+			);
+	}
+
+	/** Show nfapCIFSDialect attribute (data type "nfap_dialect") */
+
+	function show_nfap_dialect()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("PC")),
+				array("value"=>"4","display_name"=>gettext("LM_NT_12"))
 				)
 			);
 	}
