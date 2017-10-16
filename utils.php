@@ -1086,6 +1086,7 @@ class ldap_attribute
 			case "alias_deref":	$this->show_alias_deref();	break;
 			case "pwd_qualitycheck":$this->show_pwd_qualitycheck();	break;
 			case "nested_config":	$this->show_nested_config();	break;
+			case "nfap_authent":	$this->show_nfap_authent();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1313,6 +1314,18 @@ class ldap_attribute
 				array("value"=>"0","display_name"=>gettext("Disabled")),
 				array("value"=>"1","display_name"=>gettext("Check password quality if possible, otherwise accept")),
 				array("value"=>"2","display_name"=>gettext("New passwords must pass quality check"))
+				)
+			);
+	}
+
+	/** Show nfapCIFSAuthent attribute (data type "nfap_authent") */
+
+	function show_nfap_authent()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"1","display_name"=>gettext("Local")),
+				array("value"=>"2","display_name"=>gettext("Domain"))
 				)
 			);
 	}

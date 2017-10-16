@@ -6,6 +6,7 @@ class novell_nfap_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
+			array("name"=>"nfapCIFSAuthent",		"data_type"=>"nfap_authent",	"display_name"=>gettext("Authentication Mode")),
 			array("name"=>"nfapCIFSDFS",			"data_type"=>"yes_no",		"display_name"=>gettext("DFS Enabled")),
 			array("name"=>"nfapCIFSOpLocks",		"data_type"=>"yes_no",		"display_name"=>gettext("OpLocks Support")),
 			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enabled")),
