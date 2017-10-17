@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 10:01+0100\n"
-"PO-Revision-Date: 2017-10-16 10:01+0100\n"
+"POT-Creation-Date: 2017-10-17 08:06+0100\n"
+"PO-Revision-Date: 2017-10-17 08:06+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:37
+#: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:38
 msgid "Authentication Mode"
 msgstr "Authentication Mode"
 
-#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:33
+#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:34
 msgid "DFS Enabled"
 msgstr "DFS Enabled"
 
-#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:34
+#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:35
 msgid "SMB/CIFS Dialect"
 msgstr "SMB/CIFS Dialect"
 
-#: ../schema/novell/nfap.php:12 ../schema/novell/nfap.php:36
+#: ../schema/novell/nfap.php:12 ../schema/novell/nfap.php:37
 msgid "OpLocks Support"
 msgstr "OpLocks Support"
 
-#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:39
+#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:40
 msgid "PDC Enabled"
 msgstr "PDC Enabled"
 
@@ -41,54 +41,54 @@ msgstr "PDC Enabled"
 msgid "Share Volumes By Default"
 msgstr "Share Volumes By Default"
 
-#: ../schema/novell/nfap.php:15 ../schema/novell/nfap.php:35
-msgid "Unicode Support"
-msgstr "Unicode Support"
-
-#: ../schema/novell/nfap.php:20
-msgid "CIFS Server Configuration"
-msgstr "CIFS Server Configuration"
-
-#: ../schema/novell/nfap.php:26
-msgid "CIFS Native File Access Package"
-msgstr "CIFS Native File Access Package"
-
-#: ../schema/novell/nfap.php:28
-msgid "CIFS Server Name"
-msgstr "CIFS Server Name"
-
-#: ../schema/novell/nfap.php:29
-msgid "Domain/Workgroup Name"
-msgstr "Domain/Workgroup Name"
-
-#: ../schema/novell/nfap.php:30
-msgid "Comment"
-msgstr "Comment"
-
-#: ../schema/novell/nfap.php:31
-msgid "Shares"
-msgstr "Shares"
-
-#: ../schema/novell/nfap.php:32
-msgid "Share Volumes by Default"
-msgstr "Share Volumes by Default"
-
-#: ../schema/novell/nfap.php:38
+#: ../schema/novell/nfap.php:15 ../schema/novell/nfap.php:39
 msgid "CIFS Signing"
 msgstr "CIFS Signing"
 
-#: ../schema/novell/nfap.php:40
-msgid "PDC Name"
-msgstr "PDC Name"
+#: ../schema/novell/nfap.php:16 ../schema/novell/nfap.php:36
+msgid "Unicode Support"
+msgstr "Unicode Support"
+
+#: ../schema/novell/nfap.php:21
+msgid "CIFS Server Configuration"
+msgstr "CIFS Server Configuration"
+
+#: ../schema/novell/nfap.php:27
+msgid "CIFS Native File Access Package"
+msgstr "CIFS Native File Access Package"
+
+#: ../schema/novell/nfap.php:29
+msgid "CIFS Server Name"
+msgstr "CIFS Server Name"
+
+#: ../schema/novell/nfap.php:30
+msgid "Domain/Workgroup Name"
+msgstr "Domain/Workgroup Name"
+
+#: ../schema/novell/nfap.php:31
+msgid "Comment"
+msgstr "Comment"
+
+#: ../schema/novell/nfap.php:32
+msgid "Shares"
+msgstr "Shares"
+
+#: ../schema/novell/nfap.php:33
+msgid "Share Volumes by Default"
+msgstr "Share Volumes by Default"
 
 #: ../schema/novell/nfap.php:41
+msgid "PDC NetBIOS Name"
+msgstr "PDC NetBIOS Name"
+
+#: ../schema/novell/nfap.php:42
 msgid "PDC Address"
 msgstr "PDC Address"
 
-#: ../schema/novell/nfap.php:42
+#: ../schema/novell/nfap.php:43
 msgid "User Context"
 msgstr "User Context"
 
-#: ../schema/novell/nfap.php:43
+#: ../schema/novell/nfap.php:44
 msgid "WINS Address"
 msgstr "WINS Address"
