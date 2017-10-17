@@ -12,6 +12,7 @@ class novell_nfap_schema extends ldap_schema
 			array("name"=>"nfapCIFSOpLocks",		"data_type"=>"yes_no",		"display_name"=>gettext("OpLocks Support")),
 			array("name"=>"nfapCIFSPDCEnable",		"data_type"=>"yes_no",		"display_name"=>gettext("PDC Enabled")),
 			array("name"=>"nfapCIFSShareVolsByDefault",	"data_type"=>"yes_no",		"display_name"=>gettext("Share Volumes By Default")),
+			array("name"=>"nfapCIFSSignatures",		"data_type"=>"nfap_signing",	"display_name"=>gettext("CIFS Signing")),
 			array("name"=>"nfapCIFSUnicode",		"data_type"=>"yes_no",		"display_name"=>gettext("Unicode Support"))
 			);
 

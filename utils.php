@@ -1088,6 +1088,7 @@ class ldap_attribute
 			case "nested_config":	$this->show_nested_config();	break;
 			case "nfap_authent":	$this->show_nfap_authent();	break;
 			case "nfap_dialect":	$this->show_nfap_dialect();	break;
+			case "nfap_signing":	$this->show_nfap_signing();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1341,6 +1342,19 @@ class ldap_attribute
 			array(
 				array("value"=>"0","display_name"=>gettext("PC")),
 				array("value"=>"4","display_name"=>gettext("LM_NT_12"))
+				)
+			);
+	}
+
+	/** Show nfapCIFSSignatures attribute (data type "nfap_signing") */
+
+	function show_nfap_signing()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("Disabled")),
+				array("value"=>"1","display_name"=>gettext("Optional")),
+				array("value"=>"2","display_name"=>gettext("Mandatory"))
 				)
 			);
 	}
