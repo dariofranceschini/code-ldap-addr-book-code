@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-17 08:06+0100\n"
-"PO-Revision-Date: 2017-10-17 08:06+0100\n"
+"POT-Creation-Date: 2017-10-17 08:16+0100\n"
+"PO-Revision-Date: 2017-10-17 08:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -82,8 +82,8 @@ msgid "PDC NetBIOS Name"
 msgstr "PDC NetBIOS Name"
 
 #: ../schema/novell/nfap.php:42
-msgid "PDC Address"
-msgstr "PDC Address"
+msgid "PDC IP Address"
+msgstr "PDC IP Address"
 
 #: ../schema/novell/nfap.php:43
 msgid "User Context"
