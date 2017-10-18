@@ -41,7 +41,7 @@ class novell_nfap_schema extends ldap_schema
 					array("nfapCIFSPDCName",		gettext("PDC NetBIOS Name")),
 					array("nfapCIFSPDCAddr",		gettext("PDC IP Address")),
 					array("nfapCIFSUserContext",		gettext("User Lookup Context")),
-					array("nfapCIFSWINSAddr",		gettext("WINS Address")),
+					array("nfapCIFSWINSAddr",		gettext("WINS Server IP Address")),
 					)
 				)
 			));
