@@ -75,7 +75,7 @@ class novell_nfap_schema extends ldap_schema
 					array("nfapCIFSUserContext",		gettext("User Lookup Context")),
 					array("nfapCIFSBeginRID",		gettext("Starting RID")),
 					array("nfapCIFSEndRID",			gettext("End RID")),
-					array("nfapCIFSWINSAddr",		gettext("WINS Server IP Address")),
+					array("nfapCIFSWINSAddr",		gettext("WINS Server IP Address"))
 					)
 				)
 			));
