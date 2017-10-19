@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-18 08:13+0100\n"
-"PO-Revision-Date: 2017-10-18 08:13+0100\n"
+"POT-Creation-Date: 2017-10-19 08:40+0100\n"
+"PO-Revision-Date: 2017-10-19 08:40+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,78 +17,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:38
+#: ../schema/novell/nfap.php:9
+msgid "Asynchronous Reads Enabled"
+msgstr "Lectures Asynchrones Activées"
+
+#: ../schema/novell/nfap.php:10
+msgid "CIFS Server IP Address"
+msgstr "Adresse IP du Serveur CIFS"
+
+#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:63
 msgid "Authentication Mode"
 msgstr "Mode d'Authentification"
 
-#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:34
-msgid "DFS Enabled"
-msgstr "DFS est Activé"
+#: ../schema/novell/nfap.php:12
+msgid "Starting RID"
+msgstr "Première RID"
 
-#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:35
-msgid "SMB/CIFS Dialect"
-msgstr "Dialect de SMB / CIFS"
-
-#: ../schema/novell/nfap.php:12 ../schema/novell/nfap.php:37
-msgid "OpLocks Support"
-msgstr "Soutien à OpLocks"
-
-#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:40
-msgid "PDC Enabled"
-msgstr "PDC est Activé"
-
-#: ../schema/novell/nfap.php:14
-msgid "Share Volumes By Default"
-msgstr "Volumes partagés par défaut"
-
-#: ../schema/novell/nfap.php:15 ../schema/novell/nfap.php:39
-msgid "CIFS Signing"
-msgstr "Signature CIFS"
-
-#: ../schema/novell/nfap.php:16 ../schema/novell/nfap.php:36
-msgid "Unicode Support"
-msgstr "Soutien à Unicode"
-
-#: ../schema/novell/nfap.php:21
-msgid "CIFS Server Configuration"
-msgstr "Configuration du Serveur CIFS"
-
-#: ../schema/novell/nfap.php:27
-msgid "CIFS Native File Access Package"
-msgstr "Package pour Accéder aux Fichiers en Mode Natif par CIFS"
-
-#: ../schema/novell/nfap.php:29
-msgid "CIFS Server Name"
-msgstr "Nom du Serveur CIFS"
-
-#: ../schema/novell/nfap.php:30
-msgid "Domain/Workgroup Name"
-msgstr "Nom du Domaine / Groupe de Gravail"
-
-#: ../schema/novell/nfap.php:31
+#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:56
 msgid "Comment"
 msgstr "Commentaire"
 
-#: ../schema/novell/nfap.php:32
-msgid "Shares"
-msgstr "Dossiers Partagés"
+#: ../schema/novell/nfap.php:14
+msgid "DN of Domain Controller Group Object"
+msgstr "DN de l'Objet de Groupe Contrôleur de Domaine"
 
-#: ../schema/novell/nfap.php:33
-msgid "Share Volumes by Default"
-msgstr "Partager Volumes par Défaut"
+#: ../schema/novell/nfap.php:15
+msgid "Domain Controller DN List"
+msgstr "Liste des DN de Contrôleurs de Domaine"
 
-#: ../schema/novell/nfap.php:41
-msgid "PDC NetBIOS Name"
-msgstr "Nom NetBIOS de PDC"
+#: ../schema/novell/nfap.php:16
+msgid "Debug Log Detail Level"
+msgstr "Niveau de Détail du Journal de Débogage"
 
-#: ../schema/novell/nfap.php:42
+#: ../schema/novell/nfap.php:17 ../schema/novell/nfap.php:59
+msgid "DFS Enabled"
+msgstr "DFS est Activé"
+
+#: ../schema/novell/nfap.php:18 ../schema/novell/nfap.php:60
+msgid "SMB/CIFS Dialect"
+msgstr "Dialect de SMB / CIFS"
+
+#: ../schema/novell/nfap.php:19
+msgid "DN of Domain Object"
+msgstr "DN de l'Objet de Domaine"
+
+#: ../schema/novell/nfap.php:20
+msgid "Domain Epoch Number"
+msgstr "Epoque Nombre de Domaine"
+
+#: ../schema/novell/nfap.php:21
+msgid "Domain Security ID"
+msgstr "ID de Sécurité du Domaine"
+
+#: ../schema/novell/nfap.php:22
+msgid "End RID"
+msgstr "RID Fin"
+
+#: ../schema/novell/nfap.php:23
+msgid "Login Scripts Enabled"
+msgstr "Scripts de Connexion sont Activés"
+
+#: ../schema/novell/nfap.php:24
+msgid "Domain User Import Context"
+msgstr "Contexte pour l'Importation d'Utilisateur de Domaine"
+
+#: ../schema/novell/nfap.php:25
+msgid "Next Available RID"
+msgstr "Prochain RID Disponible"
+
+#: ../schema/novell/nfap.php:26 ../schema/novell/nfap.php:62
+msgid "OpLocks Support"
+msgstr "Soutien à OpLocks"
+
+#: ../schema/novell/nfap.php:27
+msgid "DN of Primary Domain Controller"
+msgstr "DN du Contrôleur Principal du Domaine"
+
+#: ../schema/novell/nfap.php:28 ../schema/novell/nfap.php:67
 msgid "PDC IP Address"
 msgstr "Adresse IP de PDC"
 
-#: ../schema/novell/nfap.php:43
+#: ../schema/novell/nfap.php:29 ../schema/novell/nfap.php:65
+msgid "PDC Enabled"
+msgstr "PDC est Activé"
+
+#: ../schema/novell/nfap.php:30 ../schema/novell/nfap.php:66
+msgid "PDC NetBIOS Name"
+msgstr "Nom NetBIOS de PDC"
+
+#: ../schema/novell/nfap.php:31
+msgid "Relative ID"
+msgstr "ID Relatif"
+
+#: ../schema/novell/nfap.php:32 ../schema/novell/nfap.php:54
+msgid "CIFS Server Name"
+msgstr "Nom du Serveur CIFS"
+
+#: ../schema/novell/nfap.php:33 ../schema/novell/nfap.php:57
+msgid "Shares"
+msgstr "Dossiers Partagés"
+
+#: ../schema/novell/nfap.php:34
+msgid "Share Volumes By Default"
+msgstr "Volumes partagés par défaut"
+
+#: ../schema/novell/nfap.php:35 ../schema/novell/nfap.php:64
+msgid "CIFS Signing"
+msgstr "Signature CIFS"
+
+#: ../schema/novell/nfap.php:36 ../schema/novell/nfap.php:61
+msgid "Unicode Support"
+msgstr "Soutien à Unicode"
+
+#: ../schema/novell/nfap.php:37 ../schema/novell/nfap.php:68
 msgid "User Lookup Context"
 msgstr "Contexte pour la Recherche d'Utilisateur"
 
-#: ../schema/novell/nfap.php:44
+#: ../schema/novell/nfap.php:38
+msgid "Walk Full Pathnames of Files"
+msgstr "Marcher des Chemins Complets de Fichiers"
+
+#: ../schema/novell/nfap.php:39 ../schema/novell/nfap.php:69
 msgid "WINS Server IP Address"
 msgstr "Adresse IP du Serveur WINS"
+
+#: ../schema/novell/nfap.php:40 ../schema/novell/nfap.php:55
+msgid "Domain/Workgroup Name"
+msgstr "Nom du Domaine / Groupe de Gravail"
+
+#: ../schema/novell/nfap.php:41
+msgid "NFAP Login Script"
+msgstr "Script de Connexion pour NFAP"
+
+#: ../schema/novell/nfap.php:46
+msgid "CIFS Server Configuration"
+msgstr "Configuration du Serveur CIFS"
+
+#: ../schema/novell/nfap.php:52
+msgid "CIFS Native File Access Package"
+msgstr "Package pour Accéder aux Fichiers en Mode Natif par CIFS"
+
+#: ../schema/novell/nfap.php:58
+msgid "Share Volumes by Default"
+msgstr "Partager Volumes par Défaut"
