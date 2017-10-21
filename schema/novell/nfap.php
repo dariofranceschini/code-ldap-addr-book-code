@@ -1,5 +1,5 @@
 <?php
-/** Novell Native File Access Package (NFAP) schema (partial) */
+/** Novell Native File Access Package (NFAP) schema */
 
 class novell_nfap_schema extends ldap_schema
 {
@@ -44,6 +44,7 @@ class novell_nfap_schema extends ldap_schema
 		// Object classes
 		$this->object_schema = array(
 			array("name"=>"nfapCIFSConfigInfo",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("CIFS Server Configuration")),
+			array("name"=>"nfapCIFSDomainProperties",	"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("CIFS Domain Settings")),
 			array("name"=>"nfapLoginProperties",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("NFAP Login Settings"))
 			);
 
@@ -86,6 +87,20 @@ class novell_nfap_schema extends ldap_schema
 				"attributes"=>array(
 					array("nfapLoginScript",		gettext("NFAP Login Script")),
 					array("nfapCIFSRID",			gettext("CIFS Relative ID"))
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nfapCIFSDomainProperties",array(
+			array("section_name"=>gettext("CIFS Domain Settings"),
+				"attributes"=>array(
+					array("nfapCIFSComment",		gettext("Comment")),
+					array("nfapCIFSNextRID",		gettext("Next Available RID")),
+					array("nfapCIFSDomainSID",		gettext("Domain Security ID")),
+					array("nfapCIFSPDC",			gettext("Primary Domain Controller")),
+					array("nfapCIFSDCList",			gettext("Domain Controller DN List")),
+					array("nfapCIFSDCGroup",		gettext("Domain Controller Group")),
+					array("nfapCIFSDomainEpoch",		gettext("Domain Epoch Number"))
 					)
 				)
 			));
