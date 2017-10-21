@@ -1081,6 +1081,9 @@ class ldap_attribute
 			case "openldap_crlchk":	$this->show_openldap_crlchk();	break;
 			case "openldap_clicrt":	$this->show_openldap_clicrt();	break;
 			case "openldap_authpol":$this->show_openldap_authpol();	break;
+
+			case "openldap_subord":	$this->show_openldap_subord();	break;
+
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
@@ -1262,6 +1265,26 @@ class ldap_attribute
 				)
 			);
 	}
+
+	/** Show olcSubordinate attribute (data type "openldap_subord")
+
+	    This attribute is used to configure an OpenLDAP database for a
+	    subset another database's directory tree on the same server.
+
+	    The attribute is defined in the "openldap/config" schema.
+	*/
+
+	function show_openldap_subord()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"FALSE","display_name"=>gettext("No")),
+				array("value"=>"TRUE","display_name"=>gettext("Yes (Don't list this database in the Root DSE Object)")),
+				array("value"=>"advertise","display_name"=>gettext("Yes (List this database in the Root DSE Object)"))
+				)
+			);
+	}
+
 
 	/** Show nestedConfig attribute (data type "nested_config")
 
