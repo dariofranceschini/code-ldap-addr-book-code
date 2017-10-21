@@ -43,7 +43,8 @@ class novell_nfap_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"nfapCIFSConfigInfo",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("CIFS Server Configuration"))
+			array("name"=>"nfapCIFSConfigInfo",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("CIFS Server Configuration")),
+			array("name"=>"nfapLoginProperties",		"icon"=>"generic24.png",		"class_type"=>"auxiliary","display_name"=>gettext("NFAP Login Settings"))
 			);
 
 		// Auxiliary class display layouts
@@ -76,6 +77,15 @@ class novell_nfap_schema extends ldap_schema
 					array("nfapCIFSBeginRID",		gettext("Starting RID")),
 					array("nfapCIFSEndRID",			gettext("End RID")),
 					array("nfapCIFSWINSAddr",		gettext("WINS Server IP Address"))
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("nfapLoginProperties",array(
+			array("section_name"=>gettext("NFAP Login Settings"),
+				"attributes"=>array(
+					array("nfapLoginScript",		gettext("NFAP Login Script")),
+					array("nfapCIFSRID",			gettext("CIFS Relative ID"))
 					)
 				)
 			));

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-19 08:40+0100\n"
-"PO-Revision-Date: 2017-10-19 08:40+0100\n"
+"POT-Creation-Date: 2017-10-21 09:33+0100\n"
+"PO-Revision-Date: 2017-10-21 09:33+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/novell/nfap.php:9
+#: ../schema/novell/nfap.php:9 ../schema/novell/nfap.php:66
 msgid "Asynchronous Reads Enabled"
 msgstr "Lecturas Asincrónicas Activadas"
 
-#: ../schema/novell/nfap.php:10
+#: ../schema/novell/nfap.php:10 ../schema/novell/nfap.php:56
 msgid "CIFS Server IP Address"
 msgstr "Dirección IP del Servidor CIFS"
 
-#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:63
+#: ../schema/novell/nfap.php:11 ../schema/novell/nfap.php:69
 msgid "Authentication Mode"
 msgstr "Modo de Autenticación"
 
-#: ../schema/novell/nfap.php:12
+#: ../schema/novell/nfap.php:12 ../schema/novell/nfap.php:77
 msgid "Starting RID"
 msgstr "Comience RID"
 
-#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:56
+#: ../schema/novell/nfap.php:13 ../schema/novell/nfap.php:58
 msgid "Comment"
 msgstr "Comentario"
 
@@ -45,19 +45,19 @@ msgstr "DN del Objeto de Grupo de Controlador de Dominio"
 msgid "Domain Controller DN List"
 msgstr "Lista de DN de los Controladores de Dominio"
 
-#: ../schema/novell/nfap.php:16
+#: ../schema/novell/nfap.php:16 ../schema/novell/nfap.php:68
 msgid "Debug Log Detail Level"
 msgstr "Nivel de Detalle del Registro de Depuración"
 
-#: ../schema/novell/nfap.php:17 ../schema/novell/nfap.php:59
+#: ../schema/novell/nfap.php:17 ../schema/novell/nfap.php:62
 msgid "DFS Enabled"
 msgstr "DFS está Activado"
 
-#: ../schema/novell/nfap.php:18 ../schema/novell/nfap.php:60
+#: ../schema/novell/nfap.php:18 ../schema/novell/nfap.php:63
 msgid "SMB/CIFS Dialect"
 msgstr "Dialecto de SMB / CIFS"
 
-#: ../schema/novell/nfap.php:19
+#: ../schema/novell/nfap.php:19 ../schema/novell/nfap.php:74
 msgid "DN of Domain Object"
 msgstr "DN de Objeto de Dominio"
 
@@ -69,15 +69,15 @@ msgstr "Número de Dominio de Época"
 msgid "Domain Security ID"
 msgstr "ID de Seguridad del Dominio"
 
-#: ../schema/novell/nfap.php:22
+#: ../schema/novell/nfap.php:22 ../schema/novell/nfap.php:78
 msgid "End RID"
 msgstr "RID Fin"
 
-#: ../schema/novell/nfap.php:23
+#: ../schema/novell/nfap.php:23 ../schema/novell/nfap.php:61
 msgid "Login Scripts Enabled"
 msgstr "Scripts de Inicio de Sesión están Habilitados"
 
-#: ../schema/novell/nfap.php:24
+#: ../schema/novell/nfap.php:24 ../schema/novell/nfap.php:75
 msgid "Domain User Import Context"
 msgstr "Contexto para la Importación de Usuarios de Dominio"
 
@@ -85,7 +85,7 @@ msgstr "Contexto para la Importación de Usuarios de Dominio"
 msgid "Next Available RID"
 msgstr "Siguiente Disponible RID"
 
-#: ../schema/novell/nfap.php:26 ../schema/novell/nfap.php:62
+#: ../schema/novell/nfap.php:26 ../schema/novell/nfap.php:65
 msgid "OpLocks Support"
 msgstr "Soporte para OpLocks"
 
@@ -93,15 +93,15 @@ msgstr "Soporte para OpLocks"
 msgid "DN of Primary Domain Controller"
 msgstr "DN del Controlador Principal de Dominio"
 
-#: ../schema/novell/nfap.php:28 ../schema/novell/nfap.php:67
+#: ../schema/novell/nfap.php:28 ../schema/novell/nfap.php:73
 msgid "PDC IP Address"
 msgstr "Dirección IP de PDC"
 
-#: ../schema/novell/nfap.php:29 ../schema/novell/nfap.php:65
+#: ../schema/novell/nfap.php:29 ../schema/novell/nfap.php:71
 msgid "PDC Enabled"
 msgstr "PDC está Activado"
 
-#: ../schema/novell/nfap.php:30 ../schema/novell/nfap.php:66
+#: ../schema/novell/nfap.php:30 ../schema/novell/nfap.php:72
 msgid "PDC NetBIOS Name"
 msgstr "Nombre NetBIOS de PDC"
 
@@ -109,11 +109,11 @@ msgstr "Nombre NetBIOS de PDC"
 msgid "Relative ID"
 msgstr "ID Relativa"
 
-#: ../schema/novell/nfap.php:32 ../schema/novell/nfap.php:54
+#: ../schema/novell/nfap.php:32 ../schema/novell/nfap.php:55
 msgid "CIFS Server Name"
 msgstr "Nombre del Servidor CIFS"
 
-#: ../schema/novell/nfap.php:33 ../schema/novell/nfap.php:57
+#: ../schema/novell/nfap.php:33 ../schema/novell/nfap.php:59
 msgid "Shares"
 msgstr "Comparte"
 
@@ -121,31 +121,31 @@ msgstr "Comparte"
 msgid "Share Volumes By Default"
 msgstr "Compartir volúmenes por defecto"
 
-#: ../schema/novell/nfap.php:35 ../schema/novell/nfap.php:64
+#: ../schema/novell/nfap.php:35 ../schema/novell/nfap.php:70
 msgid "CIFS Signing"
 msgstr "Firma CIFS"
 
-#: ../schema/novell/nfap.php:36 ../schema/novell/nfap.php:61
+#: ../schema/novell/nfap.php:36 ../schema/novell/nfap.php:64
 msgid "Unicode Support"
 msgstr "Soporte para Unicode"
 
-#: ../schema/novell/nfap.php:37 ../schema/novell/nfap.php:68
+#: ../schema/novell/nfap.php:37 ../schema/novell/nfap.php:76
 msgid "User Lookup Context"
 msgstr "Contexto para la Importación de Usuarios de Dominio"
 
-#: ../schema/novell/nfap.php:38
+#: ../schema/novell/nfap.php:38 ../schema/novell/nfap.php:67
 msgid "Walk Full Pathnames of Files"
 msgstr "Camina los Nombres Completos de los Archivos"
 
-#: ../schema/novell/nfap.php:39 ../schema/novell/nfap.php:69
+#: ../schema/novell/nfap.php:39 ../schema/novell/nfap.php:79
 msgid "WINS Server IP Address"
 msgstr "Dirección IP del Servidor WINS"
 
-#: ../schema/novell/nfap.php:40 ../schema/novell/nfap.php:55
+#: ../schema/novell/nfap.php:40 ../schema/novell/nfap.php:57
 msgid "Domain/Workgroup Name"
 msgstr "Nombre del Dominio / Grupo de Trabajo"
 
-#: ../schema/novell/nfap.php:41
+#: ../schema/novell/nfap.php:41 ../schema/novell/nfap.php:87
 msgid "NFAP Login Script"
 msgstr "Script de Inicio de Sesión para NFAP"
 
@@ -153,10 +153,18 @@ msgstr "Script de Inicio de Sesión para NFAP"
 msgid "CIFS Server Configuration"
 msgstr "Configuración del Servidor CIFS"
 
-#: ../schema/novell/nfap.php:52
+#: ../schema/novell/nfap.php:47 ../schema/novell/nfap.php:85
+msgid "NFAP Login Settings"
+msgstr "Configuración de Inicio de Sesión de NFAP"
+
+#: ../schema/novell/nfap.php:53
 msgid "CIFS Native File Access Package"
 msgstr "Paquete de Acceso Nativo a Archivos CIFS"
 
-#: ../schema/novell/nfap.php:58
+#: ../schema/novell/nfap.php:60
 msgid "Share Volumes by Default"
 msgstr "Acciones Volúmenes por Defecto"
+
+#: ../schema/novell/nfap.php:88
+msgid "CIFS Relative ID"
+msgstr "ID Relativa CIFS"
