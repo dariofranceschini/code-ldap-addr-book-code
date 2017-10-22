@@ -56,7 +56,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcTLSCRLCheck",			"data_type"=>"openldap_crlchk",	"display_name"=>gettext("Check for Client Certificate Revocation")),
 			array("name"=>"olcTLSCRLFile",			"data_type"=>"text",		"display_name"=>gettext("CRL File Name")),
 			array("name"=>"olcTLSDHParamFile",		"data_type"=>"text",		"display_name"=>gettext("Diffie-Hellman Parameter File Name")),
-			array("name"=>"olcTLSECName",			"data_type"=>"text",		"display_name"=>gettext("EHDH Curve Name")),
+			array("name"=>"olcTLSECName",			"data_type"=>"text",		"display_name"=>gettext("ECDH Curve Name")),
 			array("name"=>"olcTLSProtocolMin",		"data_type"=>"openldap_tlsver",	"display_name"=>gettext("Minimum TLS Protocol Version")),
 			array("name"=>"olcTLSRandFile",			"data_type"=>"text",		"display_name"=>gettext("Random Number Data Socket")),
 			array("name"=>"olcTLSVerifyClient",		"data_type"=>"openldap_clicrt",	"display_name"=>gettext("Client Certificate Checking Policy")),
@@ -110,7 +110,7 @@ class openldap_config_schema extends ldap_schema
 				"attributes"=>array(
 					array("olcTLSProtocolMin",	gettext("Minimum Protocol Version"),		"generic24.png","allow_edit"=>false),
 					array("olcTLSDHParamFile",	gettext("Diffie-Hellman Parameter File Name"),	"generic24.png"),
-					array("olcTLSECName",		gettext("EHDH Curve Name"),			"generic24.png"),
+					array("olcTLSECName",		gettext("ECDH Curve Name"),			"generic24.png"),
 					array("olcTLSRandFile",		gettext("Random Number Socket File"),		"generic24.png"),
 					array("olcTLSCRLCheck",		gettext("CRL Checking"),			"crl-distrib-point.png")
 					)
