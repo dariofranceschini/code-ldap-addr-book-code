@@ -4090,6 +4090,10 @@ class ldap_server
 	    @param string $ldap_server_type
 		Indicates LDAP server type/schema type to create
 		("ad", "edir" or "openldap")
+
+	    @param string $base_dn
+		Directory location (e.g. OU) of the address book records
+
 	    @param string $ldap_server_host_or_url
 		Host name, IP address or URL of the LDAP server to connect
 		to. OpenLDAP 2.0 or later is required to use URL syntax
@@ -4098,7 +4102,7 @@ class ldap_server
 		Port number on LDAP server to connect to
 	*/
 
-	function __construct($ldap_server_type,$ldap_server_host_or_url,$ldap_server_port = null)
+	function __construct($ldap_server_type,$base_dn,$ldap_server_host_or_url,$ldap_server_port = null)
 	{
 		global $ldap_server_list;
 
@@ -4115,6 +4119,7 @@ class ldap_server
 					$ldap_server_port);
 
 		$this->server_type = $ldap_server_type;
+		$this->base_dn = $base_dn;
 
 		$schema_list = "";
 		foreach($this->server_types as $server_type)

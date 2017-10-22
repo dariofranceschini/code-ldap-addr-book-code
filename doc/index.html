@@ -249,17 +249,28 @@ First, copy (or rename) the sample configuration file supplied with
 LDAP Address Book, <code>config.php.sample</code> to <code>config.php</code>.
 </p>
 <p>
-Open the file in your preferred text editor and change the following settings
-to tell the application where your Address Book data is stored:
+Open the file in your preferred text editor and change the
+<code>$ldap_server</code> setting to tell the application where your
+Address Book data is stored. You'll need to specify:
 </p>
 <ul>
-<li><p><code>$ldap_server</code> - Specify the type, host name and
-    (optionally) port number of the LDAP directory server (domain controller)
-    to connect to.</p>
+<li>The type, host name and (optionally) port number of the LDAP directory
+    server (domain controller) to connect to.
 
-<li><p><code>$ldap_server->base_dn</code> - Set to the location in the directory
-(e.g. OU) that should be used as the "root" of the address book information.</p>
+<li>The location in the directory (e.g. OU) that should be used as the "root"
+    of the address book information.
 </ul>
+<p>
+Below is an example <code>$ldap_server</code> setting:
+</p>
+<pre>
+$ldap_server = new ldap_server(
+        "openldap",                             // LDAP server type
+        "OU=People,DC=example,DC=org",          // DN of address book
+        "ldap.example.org",                     // host name/IP address/URL
+        389                                     // port number
+        );
+</pre>
 <p>
 See the <a href="#config_reference">Configuration Reference</a> section
 below for further information on these and other settings.
@@ -428,12 +439,19 @@ The DN of the "Home" organizational unit in the above screenshot is:
 </p>
 <p>
 If you wanted the LDAP Address Book to show only the contents
-of the "Home" organizational unit, you'd configure the
-<code>$ldap_server->base_dn</code> setting (in <code>config.php</code>)
+of the "Home" organizational unit, you might configure the
+<code>$ldap_server</code> setting (in <code>config.php</code>)
 as follows:
 </p>
 <p>
-<code>$ldap_server->base_dn = "OU=Home,DC=turnersoft,DC=co,DC=uk";</code>
+<pre>
+$ldap_server = new ldap_server(
+        "ad",                                   // LDAP server type
+        "OU=Home,DC=turnersoft,DC=co,DC=uk",    // DN of address book
+        "dc1.turnersoft.co.uk",                 // host name/IP address/URL
+        389                                     // port number
+        );
+</pre>
 </p>
 <p>
 Containers are similar to organizational units, but are named
@@ -618,13 +636,14 @@ will also need to be granted within the back-end directory.
 
 <tr><td><code>allow_system_admin</code></td><td>Allows the user to see
     LDAP server information (root DSE record) and access records other than
-    those under <code>$ldap_server->base_dn</code>.</td></tr>
+    those under the root of the address book
+    (<code>$ldap_server->base_dn</code>).</td></tr>
 
 <tr><td><code>front_page_search_filter</code></td><td>Specifies an LDAP
     search filter to use for the Address Book's front page. When this option
     is set, the Address Book will display the results of this search
-    instead of listing the records located directly under
-    <code>$ldap_server->base_dn</code>. Examples:
+    instead of listing the records located directly under the root of the
+    address book (<code>$ldap_server->base_dn</code>). Examples:
     <br>
     <code>"front_page_search_filter"=>"objectClass=person"</code> will display
     a flat list of all people/contacts on the front page.<br>
@@ -1544,7 +1563,7 @@ to be used (and displayed correctly) in addition to the defaults (<code>core</co
 <code>cosine</code> and <code>inetorgperson</code>):
 </p>
 <pre>
-$ldap_server = new ldap_server("openldap","ldap.example.org");
+$ldap_server = new ldap_server("openldap","dc=example,dc=org","ldap.example.org");
 $ldap_server->add_schema("mozilla");
 </pre>
 <p>
@@ -1820,16 +1839,20 @@ from a record.
         (or Samba 4 Active Directory)<br>
         <code>edir</code> - Novell eDirectory<br>
         <code>openldap</code> - OpenLDAP (core/inetorgperson schema)</p>
+
+    <li><p>Location (base DN) within the LDAP directory where the Address Book
+        records are stored.</p>
     <li><p>Host name, port number or LDAP URL (or several, separated by spaces)</p>
     <li><p>Port number (optional)</p>
     </ul>
     <p>Examples:<br>
-    <code>$ldap_server = new ldap_server("openldap","ldap.example.org");</code><br>
+    <code>$ldap_server = new ldap_server("openldap","ou=User Accounts,dc=example,dc=org","ldap.example.org");</code>
+     - create an address book for records in the "User Accounts" OU.<br>
 
-    <code>$ldap_server = new ldap_server("openldap","ldap.example.org ldap-backup.example.org");</code>
+    <code>$ldap_server = new ldap_server("openldap","dc=example,dc=org","ldap.example.org ldap-backup.example.org");</code>
      - fail over to a backup LDAP server if first is not available<br>
 
-    <code>$ldap_server = new ldap_server("openldap","ldapi://",0);</code>
+    <code>$ldap_server = new ldap_server("openldap","dc=example,dc=org","ldapi://",0);</code>
      - connect to local server via a UNIX domain socket</p>
 
     <p>Active Directory-specific Options:</p><p>
@@ -1846,9 +1869,9 @@ from a record.
     than for the local AD domain.)
     </p>
     <p>
-    <code>$ldap_server = new ldap_server("ad","example.org");</code>
+    <code>$ldap_server = new ldap_server("ad","dc=example,dc=org","example.org");</code>
      - load balances across the DCs as listed in DNS<br>
-    <code>$ldap_server = new ldap_server("ad","dc1.example.org",3268);</code>
+    <code>$ldap_server = new ldap_server("ad","dc=example,dc=org","dc1.example.org",3268);</code>
      - use AD global catalogue port<br>
     </p>
     <p>
@@ -1857,22 +1880,6 @@ from a record.
     http://www.php.net/manual/en/function.ldap-connect.php</a>
     </p>
     </td></tr>
-
-<tr><td><code>$ldap_server->base_dn</code></td><td>Specifies the search base
-    within the directory which will be used for displaying the address
-    book. Rather than searching the whole directory, you can use this
-    option to restrict search results to only a specific part of the
-    directory tree which contains the user accounts or contacts.
-    <p>
-    Examples:<br>
-    <code>$ldap_server->base_dn = "dc=example,dc=org";</code><br>
-    <code>$ldap_server->base_dn = "ou=Users,dc=example,dc=org";</code>
-    </p>
-    <p>
-    Syntax where one of the OU names contains a space:<br>
-    <code>$ldap_server->base_dn = "ou=User Accounts,dc=example,dc=org";</code>
-    </p>
-</td></tr>
 
 <tr><td><code>$ldap_server-&gt;dn_search_base</code></td>
     <td>Specifies the search base within the directory for looking
