@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 09:54+0100\n"
-"PO-Revision-Date: 2017-07-19 09:54+0100\n"
+"POT-Creation-Date: 2017-10-22 12:48+0100\n"
+"PO-Revision-Date: 2017-10-22 12:48+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Access Control"
 msgstr "Controllo di Accesso"
 
-#: ../schema/openldap/config.php:11 ../schema/openldap/config.php:52
+#: ../schema/openldap/config.php:11 ../schema/openldap/config.php:91
 msgid "Command Line Arguments File"
 msgstr "Riga di Comando Argomenti File"
 
@@ -29,186 +29,377 @@ msgstr "Riga di Comando Argomenti File"
 msgid "Attribute Types"
 msgstr "Tipi di Attributi"
 
-#: ../schema/openldap/config.php:13
+#: ../schema/openldap/config.php:13 ../schema/openldap/config.php:96
+msgid "Proxy Authorization Policy"
+msgstr "Politica di Autorizzazione Delega"
+
+#: ../schema/openldap/config.php:14
 msgid "Back End Name"
 msgstr "Nome Fine Indietro"
 
-#: ../schema/openldap/config.php:14 ../schema/openldap/config.php:149
+#: ../schema/openldap/config.php:15 ../schema/openldap/config.php:146
+msgid "Concurrency Level"
+msgstr "Livello di Concorrenza"
+
+#: ../schema/openldap/config.php:16 ../schema/openldap/config.php:125
+msgid "Maximum Number of Pending Anonymous Requests"
+msgstr "Numero Massimo di Richieste Anonime in Attesa"
+
+#: ../schema/openldap/config.php:17 ../schema/openldap/config.php:126
+msgid "Maximum Number of Pending Authenticated Requests"
+msgstr "Numero Massimo di Richieste Autenticate in Attesa"
+
+#: ../schema/openldap/config.php:18
+msgid "Configuration Directory Path"
+msgstr "Percorso della Directory di Configurazione"
+
+#: ../schema/openldap/config.php:19
+msgid "Configuration File Name"
+msgstr "Nome del File di Configurazione"
+
+#: ../schema/openldap/config.php:20
+msgid "Database Object Name"
+msgstr "Nome Oggetto Database"
+
+#: ../schema/openldap/config.php:21 ../schema/openldap/config.php:236
 msgid "Default Search Base"
 msgstr "Base di Ricerca Predefinita"
 
-#: ../schema/openldap/config.php:15
+#: ../schema/openldap/config.php:22 ../schema/openldap/config.php:95
+msgid "Gentle Shutdown on HUP Signal"
+msgstr "Spegnimento Dolce sul Segnale HUP"
+
+#: ../schema/openldap/config.php:23 ../schema/openldap/config.php:129
+msgid "Disconnect Idle Connection Time"
+msgstr "Scollegare il Tempo di Connessione Inattivo"
+
+#: ../schema/openldap/config.php:24
 msgid "Configuration Include File Name"
 msgstr "Nome del File di Configurazione Includono"
 
-#: ../schema/openldap/config.php:16
+#: ../schema/openldap/config.php:25
+msgid "Use 64-bit Index Hashes"
+msgstr "Utilizza Hash di Indice a 64 bit"
+
+#: ../schema/openldap/config.php:26 ../schema/openldap/config.php:140
+msgid "Key Length for Ordered Integer Indexes"
+msgstr "Lunghezza Chiave per gli Indici Integrati Ordinati"
+
+#: ../schema/openldap/config.php:27 ../schema/openldap/config.php:138
+msgid "Maximum Key Length for Arbitrary Substring Indexes"
+msgstr "Lunghezza Massima dei Tasti per gli Indici di Substrati Arbitrari"
+
+#: ../schema/openldap/config.php:28 ../schema/openldap/config.php:139
+msgid "Offset Size for Arbitrary Substring Index Segment Lookups"
+msgstr ""
+"Dimensione Compensare per Indirizzi Arbitrari di Segmento di Sottostringa"
+
+#: ../schema/openldap/config.php:29 ../schema/openldap/config.php:137
+msgid "Maximum Key Length for Initial/Final Substring Indexes"
+msgstr "Lunghezza Massima Chiave per gli Indici Sottostringa Iniziale / Finale"
+
+#: ../schema/openldap/config.php:30 ../schema/openldap/config.php:136
+msgid "Minimum Key Length for Initial/Final Substring Indexes"
+msgstr "Lunghezza Minima Chiave per gli Indici Sottostringa Iniziale / Finale"
+
+#: ../schema/openldap/config.php:31
 msgid "Maintain Last Modification Info"
 msgstr "Mantenere Ultima Modifica Informazioni"
 
-#: ../schema/openldap/config.php:17 ../schema/openldap/config.php:97
+#: ../schema/openldap/config.php:32 ../schema/openldap/config.php:184
 msgid "LDAP Syntaxes"
 msgstr "Sintassi LDAP"
 
-#: ../schema/openldap/config.php:18 ../schema/openldap/config.php:54
-msgid "Log Level"
-msgstr "Livello di Registrazione"
+#: ../schema/openldap/config.php:33 ../schema/openldap/config.php:147
+msgid "Number of Connection Manager Listener Threads"
+msgstr "Numero di Fili di Ascoltatore di Gestione di Connessione"
 
-#: ../schema/openldap/config.php:19
+#: ../schema/openldap/config.php:34 ../schema/openldap/config.php:131
+msgid "Security Strength Factor for Local LDAP Sessions"
+msgstr "Fattore di Sicurezza per le Sessioni LDAP Locali"
+
+#: ../schema/openldap/config.php:35
+msgid "Debug Log File Name"
+msgstr "Nome del File di Registro di Debug"
+
+#: ../schema/openldap/config.php:36 ../schema/openldap/config.php:94
+msgid "Debug Log Detail Level"
+msgstr "Livello Dettagli del Registro di Debug"
+
+#: ../schema/openldap/config.php:37
 msgid "Module Name"
 msgstr "Nome Modulo"
 
-#: ../schema/openldap/config.php:20
+#: ../schema/openldap/config.php:38
 msgid "Module Pathname"
 msgstr "Nome di Percorso per Modulo"
 
-#: ../schema/openldap/config.php:21
+#: ../schema/openldap/config.php:39
 msgid "Object Classes"
 msgstr "Classi di Oggetti"
 
-#: ../schema/openldap/config.php:22
+#: ../schema/openldap/config.php:40
 msgid "Object Identifier"
 msgstr "Identifier Oggetto"
 
-#: ../schema/openldap/config.php:23 ../schema/openldap/config.php:150
+#: ../schema/openldap/config.php:41
+msgid "Overlay Object Name"
+msgstr "Nome dell'Oggetto Copertura"
+
+#: ../schema/openldap/config.php:42 ../schema/openldap/config.php:237
 msgid "Password Hash"
 msgstr "Password Hash"
 
-#: ../schema/openldap/config.php:24 ../schema/openldap/config.php:53
+#: ../schema/openldap/config.php:43 ../schema/openldap/config.php:92
 msgid "Process Identifier (PID) File"
 msgstr "Identificazione di Processo (PID) File"
 
-#: ../schema/openldap/config.php:25
+#: ../schema/openldap/config.php:44
 msgid "Root User DN"
 msgstr "DN di Utente Root"
 
-#: ../schema/openldap/config.php:26 ../schema/openldap/config.php:121
+#: ../schema/openldap/config.php:45 ../schema/openldap/config.php:208
 msgid "Size Limit"
 msgstr "Limite Dimensioni"
 
-#: ../schema/openldap/config.php:27 ../schema/openldap/config.php:151
+#: ../schema/openldap/config.php:46 ../schema/openldap/config.php:127
+msgid "Maximum LDAP PDU Size for Anonymous Sessions"
+msgstr "Dimensione Massima PDU di LDAP per Sessioni Anonime"
+
+#: ../schema/openldap/config.php:47 ../schema/openldap/config.php:128
+msgid "Maximum LDAP PDU Size for Authenticated Sessions"
+msgstr "Dimensione Massima PDU di LDAP per Sessioni Autenticate"
+
+#: ../schema/openldap/config.php:48 ../schema/openldap/config.php:238
 msgid "Attributes with Sorted Values"
 msgstr "Attributi con Valori Ordinati"
 
-#: ../schema/openldap/config.php:28
+#: ../schema/openldap/config.php:49
 msgid "Naming Context"
 msgstr "Contesto dei Nomi"
 
-#: ../schema/openldap/config.php:29 ../schema/openldap/config.php:60
+#: ../schema/openldap/config.php:50 ../schema/openldap/config.php:148
+msgid "Maximum Size of Primary Thread Pool"
+msgstr "Dimensione Massima della Piscina Secondaria del Sottoprocesso"
+
+#: ../schema/openldap/config.php:51 ../schema/openldap/config.php:102
 msgid "CA Certificate File"
 msgstr "CA File Certificato"
 
-#: ../schema/openldap/config.php:30 ../schema/openldap/config.php:61
+#: ../schema/openldap/config.php:52
+msgid "CA Certificate Directory Path"
+msgstr "Percorso della Direttorio Certificati CA"
+
+#: ../schema/openldap/config.php:53 ../schema/openldap/config.php:103
 msgid "Server Certificate File"
 msgstr "File Certificate Server"
 
-#: ../schema/openldap/config.php:31 ../schema/openldap/config.php:62
+#: ../schema/openldap/config.php:54 ../schema/openldap/config.php:104
 msgid "Server Certificate Key File"
 msgstr "File Server Certificato con Chiave"
 
-#: ../schema/openldap/config.php:32 ../schema/openldap/config.php:55
+#: ../schema/openldap/config.php:55 ../schema/openldap/config.php:106
+msgid "TLS Cipher Suite"
+msgstr "Suite TLS Cipher"
+
+#: ../schema/openldap/config.php:56
+msgid "Check for Client Certificate Revocation"
+msgstr "Verificare la Revoca del Certificato Cliente"
+
+#: ../schema/openldap/config.php:57
+msgid "CRL File Name"
+msgstr "Nome File CRL"
+
+#: ../schema/openldap/config.php:58 ../schema/openldap/config.php:112
+msgid "Diffie-Hellman Parameter File Name"
+msgstr "Nome del File di Parametri Diffie-Hellman"
+
+#: ../schema/openldap/config.php:59 ../schema/openldap/config.php:113
+msgid "ECDH Curve Name"
+msgstr "Nome Curva ECDH"
+
+#: ../schema/openldap/config.php:60
+msgid "Minimum TLS Protocol Version"
+msgstr "Versione Minima del Protocollo TLS"
+
+#: ../schema/openldap/config.php:61
+msgid "Random Number Data Socket"
+msgstr "Presa di Dati per Numeri Casuali"
+
+#: ../schema/openldap/config.php:62
+msgid "Client Certificate Checking Policy"
+msgstr "Politica per il Controllo dei Certificati Client"
+
+#: ../schema/openldap/config.php:63 ../schema/openldap/config.php:149
 msgid "Number of Tool Threads"
 msgstr "Numero di Filo Utensili"
 
-#: ../schema/openldap/config.php:37
+#: ../schema/openldap/config.php:64 ../schema/openldap/config.php:130
+msgid "Delay Before Closing Sessions with Pending Write Operation"
+msgstr ""
+"Ritardo prima delle Sessioni di Chiusura con Operazione di Scrittura in "
+"Sospeso"
+
+#: ../schema/openldap/config.php:69
 msgid "OpenLDAP Back End Configuration"
 msgstr "OpenLDAP Indietro Configurazione Finale"
 
-#: ../schema/openldap/config.php:38
+#: ../schema/openldap/config.php:70
 msgid "OpenLDAP Configuration"
 msgstr "Configurazione OpenLDAP"
 
-#: ../schema/openldap/config.php:39
+#: ../schema/openldap/config.php:71
 msgid "OpenLDAP Database"
 msgstr "Banca Dati OpenLDAP"
 
-#: ../schema/openldap/config.php:40 ../schema/openldap/config.php:147
+#: ../schema/openldap/config.php:72 ../schema/openldap/config.php:234
 msgid "OpenLDAP Front End Configuration"
 msgstr "Configurazione Frontale di OpenLDAP"
 
-#: ../schema/openldap/config.php:41
+#: ../schema/openldap/config.php:73
 msgid "OpenLDAP Global Configuration"
 msgstr "Configurazione Globale OpenLDAP"
 
-#: ../schema/openldap/config.php:42 ../schema/openldap/config.php:68
+#: ../schema/openldap/config.php:74 ../schema/openldap/config.php:155
 msgid "OpenLDAP Configuration Include File"
 msgstr "Includi File per la Configurazione di OpenLDAP"
 
-#: ../schema/openldap/config.php:43
+#: ../schema/openldap/config.php:75
 msgid "OpenLDAP Module"
 msgstr "Modulo OpenLDAP"
 
-#: ../schema/openldap/config.php:44
+#: ../schema/openldap/config.php:76
 msgid "OpenLDAP Overlay"
 msgstr "Copertura per OpenLDAP"
 
-#: ../schema/openldap/config.php:45
+#: ../schema/openldap/config.php:77
 msgid "OpenLDAP Schema Configuration"
 msgstr "Configurazione Schema OpenLDAP"
 
-#: ../schema/openldap/config.php:50
-msgid "OpenLDAP Server Global Settings"
-msgstr "Impostazioni Globali Server OpenLDAP"
+#: ../schema/openldap/config.php:82
+msgid "OpenLDAP Server Configuration"
+msgstr "Configurazione del Server OpenLDAP"
 
-#: ../schema/openldap/config.php:58
-msgid "TLS Settings"
-msgstr "Impostazioni TLS"
+#: ../schema/openldap/config.php:87
+msgid "Global Settings"
+msgstr "Impostazioni Globali"
 
-#: ../schema/openldap/config.php:70
+#: ../schema/openldap/config.php:89
+msgid "Configuration File"
+msgstr "File di Configurazione"
+
+#: ../schema/openldap/config.php:90
+msgid "Configuration Directory"
+msgstr "Directory di Configurazione"
+
+#: ../schema/openldap/config.php:93
+msgid "Debug Log File"
+msgstr "Debug File di Log"
+
+#: ../schema/openldap/config.php:99
+msgid "Transport Layer Security (TLS)"
+msgstr "Sicurezza del Livello di Trasporto (TLS)"
+
+#: ../schema/openldap/config.php:101
+msgid "CA Certificate Directory"
+msgstr "Elenco di Certificati CA"
+
+#: ../schema/openldap/config.php:105
+msgid "Client Certificate Checking"
+msgstr "Verifica del Certificato Cliente"
+
+#: ../schema/openldap/config.php:109
+msgid "OpenSSL Options"
+msgstr "Opzioni OpenSSL"
+
+#: ../schema/openldap/config.php:111
+msgid "Minimum Protocol Version"
+msgstr "Versione Protocollo Minimo"
+
+#: ../schema/openldap/config.php:114
+msgid "Random Number Socket File"
+msgstr "File Presa per i Numeri Casuali"
+
+#: ../schema/openldap/config.php:115
+msgid "CRL Checking"
+msgstr "Controllo CRL"
+
+#: ../schema/openldap/config.php:118
+msgid "GnuTLS or Mozilla NSS Options"
+msgstr "Opzioni GnuTLS o Mozilla NSS"
+
+#: ../schema/openldap/config.php:120
+msgid "CRL File"
+msgstr "File CRL"
+
+#: ../schema/openldap/config.php:123
+msgid "Connection Handling"
+msgstr "Gestione delle Connessioni"
+
+#: ../schema/openldap/config.php:134
+msgid "Indexing"
+msgstr "Indicizzazione"
+
+#: ../schema/openldap/config.php:144
+msgid "Multithreading"
+msgstr "Multithreading"
+
+#: ../schema/openldap/config.php:157
 msgid "Object Name"
 msgstr "Nome Oggetto"
 
-#: ../schema/openldap/config.php:71
+#: ../schema/openldap/config.php:158
 msgid "File Name"
 msgstr "Nome del File"
 
-#: ../schema/openldap/config.php:77
+#: ../schema/openldap/config.php:164
 msgid "Schema Name"
 msgstr "Nome schema"
 
-#: ../schema/openldap/config.php:82
+#: ../schema/openldap/config.php:169
 msgid "Object Identifier Macro Definitions"
 msgstr "Definizioni di Macro Oggetto di Identificazione"
 
-#: ../schema/openldap/config.php:87
+#: ../schema/openldap/config.php:174
 msgid "Object Class Definitions"
 msgstr "Definizioni di Classi di Oggetti"
 
-#: ../schema/openldap/config.php:92
+#: ../schema/openldap/config.php:179
 msgid "Attribute Type Definitions"
 msgstr "Definizioni di Tipi di Attributi"
 
-#: ../schema/openldap/config.php:102
+#: ../schema/openldap/config.php:189
 msgid "Child Objects"
 msgstr "Oggetti Figli"
 
-#: ../schema/openldap/config.php:110
+#: ../schema/openldap/config.php:197
 msgid "OpenLDAP Module List"
 msgstr "Elenco dei Moduli OpenLDAP"
 
-#: ../schema/openldap/config.php:112
+#: ../schema/openldap/config.php:199
 msgid "Modules"
 msgstr "Moduli"
 
-#: ../schema/openldap/config.php:113
+#: ../schema/openldap/config.php:200
 msgid "Path"
 msgstr "Percorso"
 
-#: ../schema/openldap/config.php:119
+#: ../schema/openldap/config.php:206
 msgid "Database Settings"
 msgstr "Impostazioni Banca Dati"
 
-#: ../schema/openldap/config.php:124
+#: ../schema/openldap/config.php:211
 msgid "Access Controls"
 msgstr "Controlli di Accesso"
 
-#: ../schema/openldap/config.php:129
+#: ../schema/openldap/config.php:216
 msgid "Overlays"
 msgstr "Coperture"
 
-#: ../schema/openldap/config.php:137
+#: ../schema/openldap/config.php:224
 msgid "Back End Configuration"
 msgstr "Configurazione Fine Indietro"
 
-#: ../schema/openldap/config.php:139
+#: ../schema/openldap/config.php:226
 msgid "Back End Module"
 msgstr "Modulo Fine Indietro"
