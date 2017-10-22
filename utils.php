@@ -4098,7 +4098,7 @@ class ldap_server
 		Host name, IP address or URL of the LDAP server to connect
 		to. OpenLDAP 2.0 or later is required to use URL syntax
 		(e.g. "ldap://server/")
-	    @param int  $ldap_server_port
+	    @param int $ldap_server_port
 		Port number on LDAP server to connect to
 	*/
 
