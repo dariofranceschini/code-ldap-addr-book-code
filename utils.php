@@ -4146,6 +4146,8 @@ class ldap_server
 		Attribute class for which the settings are required
 	    @return
 		Array of schema settings
+	    @todo
+		Support lookup by attribute class alias name
 	*/
 
 	function get_attribute_schema_settings($class)
@@ -4169,6 +4171,8 @@ class ldap_server
 		Value to be returned instead if schema setting not defined
 	    @return
 		Value of the requested setting (otherwise $setting_default)
+	    @todo
+		Support lookup by attribute class alias name
 	*/
 
 	function get_attribute_schema_setting($class,$setting_name,
@@ -4225,6 +4229,8 @@ class ldap_server
 		Object class for which the settings are required
 	    @return
 		Array of schema settings
+	    @todo
+		Support lookup by object class alias name
 	*/
 
 	function get_object_schema_settings($class)
@@ -4248,6 +4254,8 @@ class ldap_server
 		Value to be returned instead if schema setting not defined
 	    @return
 		Value of the requested setting (otherwise $setting_default)
+	    @todo
+		Support lookup by object class alias name
 	*/
 
 	function get_object_schema_setting($class,$setting_name,$setting_default="")
@@ -5224,6 +5232,8 @@ class ldap_server
 		Attribute setting to be modified
 	    @param string $value
 		Value to be assigned to the attribute's setting
+	    @todo
+		Support lookup by attribute class alias name
 	*/
 
 	function modify_attribute_schema($attrib,$setting,$value)
@@ -5241,6 +5251,8 @@ class ldap_server
 		Object class setting to be modified
 	    @param string $value
 		Value to be assigned to the cobject class's setting
+	    @todo
+		Support lookup by object class alias name
 	*/
 
 	function modify_object_schema($object_class,$setting,$value)
