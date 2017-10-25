@@ -39,6 +39,8 @@ if(!isset($site_name)) $site_name = gettext("Address Book");
 // provide ldap_escape function for PHP <5.6
 if(!function_exists("ldap_escape")) include "lib/ldap_escape.php";
 
+$linked_ldap_dn_list=array();
+
 /** Set user interface display language
 
     @param string $language
@@ -5874,5 +5876,56 @@ function get_layout_attributes($layout)
 			$layout_attributes[]=$attribute[0];
 
 	return $layout_attributes;
+}
+
+/* Link an additional server/DN into the object tree
+
+    @param object $source_server
+	Server hosting the location where link is to be made
+    @param string $source_dn
+	DN (on source server) where link is to be made
+    @param object $destination_server
+	Server to be linked to
+    @param string $destination_dn
+	DN (on destination server) to be linked to
+    @param string $link_method
+	Specifies how the destination location is to be linked:
+
+	    - folder
+		Link the destination as a folder (single item)
+		which appears within the source location when
+		when browsing the directory.
+
+	    - contents
+		Merge the contents (child objects) of the
+		destination location together with the contents
+		of the source location, so that they appear as
+		a single list when browsing the directory.
+
+    @param string $display_name
+	Optionally specify a display name to be used for the
+	destination folder, overriding the destination folder's
+	actual name. (Used with link method "folder".)
+    @param string $icon_object_class
+	Optionally specify the structural object class to be
+	used for displaying the destination folder's icon,
+	overriding it's actual object class. (Used with link
+	method "folder".)
+*/
+
+function link_ldap_dn($source_server,$source_dn,$destination_server,
+	$destination_dn,$link_method,$display_name=null,$icon_object_class=null)
+{
+        global $linked_ldap_dn_list;
+
+        $linked_ldap_dn_list[] = array(
+                "source_server"=>$source_server->server_id,
+                "source_dn"=>$source_dn,
+                "link_method"=>$link_method,
+                "destination_server"=>$destination_server->server_id,
+                "destination_dn"=>$destination_dn,
+                "name"=>$display_name,
+                "object_class"=>$icon_object_class
+                );
 }
 ?>
