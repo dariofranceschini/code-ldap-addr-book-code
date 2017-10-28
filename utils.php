@@ -2878,7 +2878,7 @@ function get_user_setting($attrib,$user_name = "")
 				$user_name = "__ANONYMOUS__";
 		}
 
-		$user_info = get_user_info($user_name);
+		$user_info = $ldap_server->get_user_info($user_name);
 
 		if(isset($user_info["ldap_dn"]))
 			$user_info["ldap_dn"]=str_replace("__USERNAME__",
@@ -3020,6 +3020,8 @@ function get_user_setting_merge_method($setting)
 
 function user_setting_exists($attrib,$user_name = "")
 {
+	global $ldap_server;
+
 	if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
 		return true;
 	else
@@ -3038,50 +3040,10 @@ function user_setting_exists($attrib,$user_name = "")
 				$user_name = "__ANONYMOUS__";
 		}
 
-		$user_info = get_user_info($user_name);
+		$user_info = $ldap_server->get_user_info($user_name);
 
 		return isset($user_info[$attrib]);
 	}
-}
-
-/** Retrieve the specified user's info from user_map array
-
-    The settings to be used for anonymous access (when no user has
-    logged in by name) can be retrieved by specifying a user name
-    of "__ANONYMOUS__".
-
-    If a named user is logged in but there is no user_map entry
-    matching their name then the values from the "__DEFAULT__"
-    map entry will be returned instead.
-
-    Settings from the user map can be merged with settings
-    derived from group membership to produce the user's overall
-    effective settings.
-
-    @param string $user_name
-	Name of user whose settings are to be retrieved
-    @return
-	Array of user settings
-*/
-
-function get_user_info($user_name)
-{
-	global $ldap_server;
-
-	$user_info = array();	// returned if no match at all
-	$found=false;
-	if(is_object($ldap_server))
-		foreach($ldap_server->user_map as $map_user)
-			if(!$found && ($map_user["login_name"] == $user_name
-				|| ($map_user["login_name"] == "__DEFAULT__"
-				&& $user_name != "__ANONYMOUS__")))
-			{
-				$user_info = $map_user;
-				if($map_user["login_name"] != "__DEFAULT__")
-					$found = true;
-			}
-
-	return $user_info;
 }
 
 /** Cache the effective value of the specified user setting in the PHP session
@@ -5419,6 +5381,44 @@ class ldap_server
 
 		unset($entry[$rdn_attrib]);
 		$entry[$rdn_attrib][0] = $rdn_value;
+	}
+
+	/** Retrieve the specified user's info from user_map array
+
+	    The settings to be used for anonymous access (when no user has
+	    logged in by name) can be retrieved by specifying a user name
+	    of "__ANONYMOUS__".
+
+	    If a named user is logged in but there is no user_map entry
+	    matching their name then the values from the "__DEFAULT__"
+	    map entry will be returned instead.
+
+	    Settings from the user map can be merged with settings
+	    derived from group membership to produce the user's overall
+	    effective settings.
+
+	    @param string $user_name
+		Name of user whose settings are to be retrieved
+	    @return
+		Array of user settings
+	*/
+
+	function get_user_info($user_name)
+	{
+		$user_info = array();	// returned if no match at all
+		$found=false;
+
+		foreach($this->user_map as $map_user)
+			if(!$found && ($map_user["login_name"] == $user_name
+				|| ($map_user["login_name"] == "__DEFAULT__"
+				&& $user_name != "__ANONYMOUS__")))
+			{
+				$user_info = $map_user;
+				if($map_user["login_name"] != "__DEFAULT__")
+					$found = true;
+			}
+
+		return $user_info;
 	}
 }
 
