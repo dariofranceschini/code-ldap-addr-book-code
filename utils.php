@@ -2961,7 +2961,7 @@ function get_user_setting($attrib,$user_name = "")
 						$search_resource);
 
 					$attrib_value = ($entry["count"]>0);
-					assign_cached_user_setting($attrib,$attrib_value);
+					$ldap_server->assign_cached_user_setting($attrib,$attrib_value);
 				}
 				else
 					// default to setting permission to false
@@ -3004,19 +3004,6 @@ function get_user_setting_merge_method($setting)
 
 		default:			return "boolean";
 	}
-}
-
-/** Cache the effective value of the specified user setting in the PHP session
-
-    @param string $setting
-	Name of setting to be stored
-    @param mixed $value
-	Value to be stored
-*/
-
-function assign_cached_user_setting($setting,$value)
-{
-	$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
 }
 
 /** Sort an array of LDAP entries against one or more attributes.
@@ -4595,11 +4582,11 @@ class ldap_server
 						case "boolean":
 							// Don't override if already explicitly set to false
 							if($previous_value = true || !$this->user_setting_exists($attrib))
-								assign_cached_user_setting($setting,$value);
+								$this->assign_cached_user_setting($setting,$value);
 							break;
 						case "string":
 							if(!$this->user_setting_exists($attrib))
-								assign_cached_user_setting($setting,$value);
+								$this->assign_cached_user_setting($setting,$value);
 							break;
 						default:
 							show_error_message(gettext("Error") . ": "
@@ -5418,6 +5405,19 @@ class ldap_server
 
 			return isset($user_info[$attrib]);
 		}
+	}
+
+	/** Cache the effective value of the specified user setting in the PHP session
+
+	    @param string $setting
+		Name of setting to be stored
+	    @param mixed $value
+		Value to be stored
+	*/
+
+	function assign_cached_user_setting($setting,$value)
+	{
+		$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
 	}
 }
 
