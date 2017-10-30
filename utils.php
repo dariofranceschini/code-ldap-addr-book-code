@@ -3006,46 +3006,6 @@ function get_user_setting_merge_method($setting)
 	}
 }
 
-/** Return whether the specified user setting has been explicitly
-    assigned a value.
-
-    @param string $attrib
-	Attribute to be returned
-    @param string $user_name
-	Name of user whose setting is to be returned. If this is omitted
-	then the current logged in user will be used.
-    @return
-	True if a value is assigned.
-*/
-
-function user_setting_exists($attrib,$user_name = "")
-{
-	global $ldap_server;
-
-	if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
-		return true;
-	else
-	{
-		// use current user name if no user name passed as a parameter
-
-		if(empty($user_name))
-		{
-			// Resume existing session (if any exists) in order to get
-			// currently logged in user
-			if(!isset($_SESSION)) session_start();
-
-			if(isset($_SESSION["LOGIN_USER"]))
-				$user_name = $_SESSION["LOGIN_USER"];
-			else
-				$user_name = "__ANONYMOUS__";
-		}
-
-		$user_info = $ldap_server->get_user_info($user_name);
-
-		return isset($user_info[$attrib]);
-	}
-}
-
 /** Cache the effective value of the specified user setting in the PHP session
 
     @param string $setting
@@ -4634,11 +4594,11 @@ class ldap_server
 					{
 						case "boolean":
 							// Don't override if already explicitly set to false
-							if($previous_value = true || !user_setting_exists($attrib))
+							if($previous_value = true || !$this->user_setting_exists($attrib))
 								assign_cached_user_setting($setting,$value);
 							break;
 						case "string":
-							if(!user_setting_exists($attrib))
+							if(!$this->user_setting_exists($attrib))
 								assign_cached_user_setting($setting,$value);
 							break;
 						default:
@@ -5419,6 +5379,45 @@ class ldap_server
 			}
 
 		return $user_info;
+	}
+
+
+	/** Return whether the specified user setting has been explicitly
+	    assigned a value.
+
+	    @param string $attrib
+		Attribute to be returned
+	    @param string $user_name
+		Name of user whose setting is to be returned. If this is omitted
+		then the current logged in user will be used.
+	    @return
+		True if a value is assigned.
+	*/
+
+	function user_setting_exists($attrib,$user_name = "")
+	{
+		if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+			return true;
+		else
+		{
+			// use current user name if no user name passed as a parameter
+
+			if(empty($user_name))
+			{
+				// Resume existing session (if any exists) in order to get
+				// currently logged in user
+				if(!isset($_SESSION)) session_start();
+
+				if(isset($_SESSION["LOGIN_USER"]))
+					$user_name = $_SESSION["LOGIN_USER"];
+				else
+					$user_name = "__ANONYMOUS__";
+			}
+
+			$user_info = $this->get_user_info($user_name);
+
+			return isset($user_info[$attrib]);
+		}
 	}
 }
 
