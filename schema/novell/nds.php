@@ -51,7 +51,7 @@ class novell_nds_schema extends ldap_schema
 		$ldap_server->add_display_layout("treeRoot",array(
 			array("section_name"=>gettext("eDirectory Tree"),"new_row"=>true,"colspan"=>6,
 				"attributes"=>array(
-					array("directoryTreeName",		null,				"novell/tree-root.png")
+					array("directoryTreeName",		null,					"novell/tree-root.png")
 					)
 				),
 			array("section_name"=>gettext("Server Details"),"new_row"=>true,"colspan"=>6,
