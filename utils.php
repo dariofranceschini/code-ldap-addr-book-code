@@ -845,7 +845,8 @@ class ldap_entry_viewer_attrib
 					if($space_before_attribute) echo " ";
 					$space_before_attribute = true;
 
-					$attrib = new ldap_attribute($this->viewer->ldap_entry[0],$attribute);
+					$attrib = new ldap_attribute($this->viewer->ldap_server,
+						$this->viewer->ldap_entry[0],$attribute);
 
 					$attrib->edit = $edit;
 					$attrib->create = $create;
@@ -902,10 +903,9 @@ class ldap_attribute
 		Name of attribute to be displayed
 	*/
 
-	function __construct($ldap_entry,$attribute)
+	function __construct($ldap_server,$ldap_entry,$attribute)
 	{
-		global $ldap_server;
-
+		$this->ldap_server = $ldap_server;
 		$this->ldap_entry = $ldap_entry;
 		$this->attribute = $ldap_server->get_attribute_primary_class($attribute);
 
@@ -3504,7 +3504,7 @@ class ldap_entry_list
 
 		// Display the attribute's value
 
-		$attrib = new ldap_attribute($ldap_entry,$attrib_name);
+		$attrib = new ldap_attribute($ldap_entry["SERVER"],$ldap_entry,$attrib_name);
 		$attrib->use_short_format = true;
 
 		$server_id_value=($ldap_entry["SERVER"]->server_id==0 ? ""
