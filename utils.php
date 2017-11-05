@@ -458,6 +458,7 @@ class ldap_entry_viewer
 	function __construct($ldap_server,$ldap_entry)
 	{
 		$this->ldap_server = $ldap_server;
+		$this->ldap_entry = $ldap_entry;
 
 		$entry_viewer_layout = $ldap_server->get_display_layout(
 			$ldap_server->get_object_class($ldap_entry[0]));
@@ -479,8 +480,6 @@ class ldap_entry_viewer
 			$new_aux_classes);
 
 		$this->required_attribs = get_required_attribs($ldap_entry[0]);
-
-		$this->ldap_entry = $ldap_entry;
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
