@@ -1080,9 +1080,7 @@ class ldap_attribute
 			case "openldap_crlchk":	$this->show_openldap_crlchk();	break;
 			case "openldap_clicrt":	$this->show_openldap_clicrt();	break;
 			case "openldap_authpol":$this->show_openldap_authpol();	break;
-
 			case "openldap_subord":	$this->show_openldap_subord();	break;
-
 			case "ldap_version":	$this->show_ldap_version();	break;
 			case "search_scope":	$this->show_search_scope();	break;
 			case "alias_deref":	$this->show_alias_deref();	break;
