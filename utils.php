@@ -1032,12 +1032,10 @@ class ldap_attribute
 
 	function show()
 	{
-		global $ldap_server;
-
 		if($this->attribute=="__CHILD_OBJECTS__")
 			$data_type = "child_objects";
 		else
-			$data_type = $ldap_server->get_attribute_schema_setting(
+			$data_type = $this->ldap_server->get_attribute_schema_setting(
 				$this->attribute,"data_type","text");
 
 		// Work around potential Active Directory schema inconsistency:
@@ -1045,7 +1043,7 @@ class ldap_attribute
 		// object, but a DNS host name when used in printQueue objects.
 
 		if($this->attribute=="serverName" && $this->ldap_entry["dn"]==""
-				&& $ldap_server->server_type == "ad")
+				&& $this->ldap_server->server_type == "ad")
 			$data_type = "dn";
 
 		switch($data_type)
