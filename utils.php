@@ -2640,9 +2640,12 @@ class ldap_attribute
 			else
 				$size="";
 
+			$server_id = $this->ldap_server->server_id == 0
+				? "" : "&server_id=" . $this->ldap_server->server_id;
+
 			echo "<img src=\"image.php?dn="
 				. urlencode($this->ldap_entry["dn"])
-				. "&attrib=" . $this->attribute . $size
+				. "&attrib=" . $this->attribute . $size . $server_id
 				. "\" title=\"" . $this->display_name . "\">\n";
 		}
 
@@ -4285,21 +4288,23 @@ class ldap_server
 		{
 			$dn = $entry["dn"];
 
+			$server_id = $this->server_id == 0 ? "" : "&server_id=" . $this->server_id;
+
 			if(!empty($entry["jpegphoto"][0])
 					&& $enable_ldap_path_thumbnail)
 				return "image.php?dn=" . urlencode($dn)
 					. "&attrib=jpegPhoto&size="
-					. $thumbnail_image_size;
+					. $thumbnail_image_size . $server_id;
 			else if(!empty($entry["thumbnailphoto"][0])
 					&& $enable_ldap_path_thumbnail)
 				return "image.php?dn=" . urlencode($dn)
 					. "&attrib=thumbnailPhoto&size="
-					. $thumbnail_image_size;
+					. $thumbnail_image_size . $server_id;
 			else if(!empty($entry["thumbnaillogo"][0])
 					&& $enable_ldap_path_thumbnail)
 				return "image.php?dn=" . urlencode($dn)
 					. "&attrib=thumbnailLogo&size="
-					. $thumbnail_image_size;
+					. $thumbnail_image_size . $server_id;
 			else
 			{
 				$icon = "schema/" . $this->get_object_schema_setting(

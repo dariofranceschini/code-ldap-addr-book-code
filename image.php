@@ -19,10 +19,18 @@
 include "utils.php";
 include "config.php";
 
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
 // TODO: sanitise base DN from URL:
 //	stop "nasties" being passed through to the LDAP server
 //	prevent access to directory outside of address book base DN
-if(!empty($_GET["dn"])) $dn = $_GET["dn"]; else $dn = $ldap_server->base_dn;
+if(!empty($_GET["dn"]))
+	$dn = $_GET["dn"];
+else
+	$dn = $ldap_server_list[$server_id]->base_dn;
 
 // TODO: sanitise attribute name from URL:
 //	stop "nasties" being passed through to the LDAP server
@@ -31,10 +39,14 @@ if(!empty($_GET["attrib"]))
 else
 	$attrib = "jpegPhoto";
 
-if($ldap_server->log_on())
+if($ldap_server_list[$server_id]->log_on())
 {
-	$search_resource = ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
-	$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+	$search_resource = ldap_read(
+		$ldap_server_list[$server_id]->connection,
+		$dn,"(objectclass=*)");
+
+	$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
+		$search_resource);
 
 	$image = imagecreatefromstring($entry[0][strtolower($attrib)][0]);
 
