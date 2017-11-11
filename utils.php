@@ -476,8 +476,8 @@ class ldap_entry_viewer
 		else
 			$new_aux_classes = array();
 
-		add_auxiliary_layouts($ldap_entry[0],$entry_viewer_layout,
-			$new_aux_classes);
+		$this->ldap_server->add_auxiliary_layouts($ldap_entry[0],
+			$entry_viewer_layout,$new_aux_classes);
 
 		$this->required_attribs = get_required_attribs($ldap_entry[0]);
 
@@ -5441,6 +5441,51 @@ class ldap_server
 
 		return $auxiliary_class_list;
 	}
+
+	/** Extend the specified display layout to show/edit auxiliary class attributes
+
+	    @param array &$ldap_entry
+		Array containing LDAP object for which the
+		display layout is to be extended to include
+		auxiliary class attributes
+	    @param array &$entry_viewer_layout
+		Entry viewer layout to be extended
+	    @param array $new_aux_classes
+		List of new auxiliary classes which are in the process of being added
+		to the record. (Their populate_for_create function will be called after
+		adding them to the display layout)
+	*/
+
+	function add_auxiliary_layouts(&$ldap_entry,&$entry_viewer_layout,$new_aux_classes = array())
+	{
+		global $append_auxiliary_layouts;
+
+		$layout_attributes = get_layout_attributes($entry_viewer_layout);
+
+		if(!isset($append_auxiliary_layouts) || $append_auxiliary_layouts)
+		{
+			unset($ldap_entry["objectclass"]["count"]);
+
+			foreach($this->get_auxiliary_classes($ldap_entry) as $object_class)
+			{
+				$aux_layout = $this->get_display_layout($object_class);
+
+				// remove duplicate attributes already present in the display layout
+				foreach($aux_layout as $aux_section_id=>$aux_section)
+					foreach($aux_section["attributes"] as $attribute_id=>$attribute)
+						if(in_array($attribute[0],$layout_attributes))
+							unset($aux_layout[$aux_section_id]["attributes"][$attribute_id]);
+
+				$aux_layout[0]["new_row"]=true;
+				$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
+				$layout_attributes = get_layout_attributes($entry_viewer_layout);
+
+				if(in_array($object_class,$new_aux_classes))
+					$this->call_schema_function(
+						"populate_for_create_" . $object_class,$ldap_entry);
+			}
+		}
+	}
 }
 
 /** Bind to LDAP directory, recording failures to server error log
@@ -5808,51 +5853,6 @@ function get_required_attribs($ldap_entry)
 	$required_attribs = array_unique($required_attribs);
 
 	return $required_attribs;
-}
-
-/** Extend the specified display layout to show/edit auxiliary class attributes
-
-    @param array &$ldap_entry
-	Array containing LDAP object for which the
-	display layout is to be extended to include
-	auxiliary class attributes
-    @param array &$entry_viewer_layout
-	Entry viewer layout to be extended
-    @param array $new_aux_classes
-	List of new auxiliary classes which are in the process of being added
-	to the record. (Their populate_for_create function will be called after
-	adding them to the display layout)
-*/
-
-function add_auxiliary_layouts(&$ldap_entry,&$entry_viewer_layout,$new_aux_classes = array())
-{
-	global $ldap_server,$append_auxiliary_layouts;
-
-	$layout_attributes = get_layout_attributes($entry_viewer_layout);
-
-	if(!isset($append_auxiliary_layouts) || $append_auxiliary_layouts)
-	{
-		unset($ldap_entry["objectclass"]["count"]);
-
-		foreach($ldap_server->get_auxiliary_classes($ldap_entry) as $object_class)
-		{
-			$aux_layout = $ldap_server->get_display_layout($object_class);
-
-			// remove duplicate attributes already present in the display layout
-			foreach($aux_layout as $aux_section_id=>$aux_section)
-				foreach($aux_section["attributes"] as $attribute_id=>$attribute)
-					if(in_array($attribute[0],$layout_attributes))
-						unset($aux_layout[$aux_section_id]["attributes"][$attribute_id]);
-
-			$aux_layout[0]["new_row"]=true;
-			$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
-			$layout_attributes = get_layout_attributes($entry_viewer_layout);
-
-			if(in_array($object_class,$new_aux_classes))
-				$ldap_server->call_schema_function(
-					"populate_for_create_" . $object_class,$ldap_entry);
-		}
-	}
 }
 
 /** Return array of attribute class names used in the specified display layout

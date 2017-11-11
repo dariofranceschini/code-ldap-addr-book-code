@@ -180,7 +180,7 @@ if($ldap_server->log_on())
 
 						// Include attributes from each auxiliary class display layout
 						// TODO: only do it if auto-add aux layout setting is configured
-						add_auxiliary_layouts($entry,$entry_layout);
+						$ldap_server->add_auxiliary_layouts($entry,$entry_layout);
 
 						foreach($entry_layout as $section)
 							foreach($section["attributes"] as $attrib_spec)
@@ -275,7 +275,7 @@ if($ldap_server->log_on())
 
 				// Include attributes from each auxiliary class display layout
 				// TODO: only do it if auto-add aux layout setting is configured
-				add_auxiliary_layouts($entry[0],$entry_layout);
+				$ldap_server->add_auxiliary_layouts($entry[0],$entry_layout);
 
 				foreach($entry_layout as $section)
 					foreach($section["attributes"] as $attrib_spec)
