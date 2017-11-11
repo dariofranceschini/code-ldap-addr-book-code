@@ -5419,6 +5419,28 @@ class ldap_server
 	{
 		$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
 	}
+
+	/** Return list of auxiliary classes for the specified entry
+
+	    @param array $ldap_entry
+		Array containing LDAP object for which the
+		list of auxiliary object classes is to be
+		returned
+	    @return
+		Array of auxiliary object classes
+	*/
+
+	function get_auxiliary_classes($ldap_entry)
+	{
+		unset($ldap_entry["objectclass"]["count"]);
+
+		$auxiliary_class_list = array();
+		foreach($ldap_entry["objectclass"] as $object_class)
+			if($this->get_object_schema_setting($object_class,"class_type") == "auxiliary")
+				$auxiliary_class_list[]=$object_class;
+
+		return $auxiliary_class_list;
+	}
 }
 
 /** Bind to LDAP directory, recording failures to server error log
@@ -5788,32 +5810,6 @@ function get_required_attribs($ldap_entry)
 	return $required_attribs;
 }
 
-/** Return list of auxiliary classes for the specified entry
-
-    @param object $ldap_server
-	LDAP server containing the record
-    @param array $ldap_entry
-	Array containing LDAP object for which the
-	list of auxiliary object classes is to be
-	returned
-    @return
-	Array of auxiliary object classes
-*/
-
-function get_auxiliary_classes($ldap_server,$ldap_entry)
-{
-	global $ldap_server;
-
-	unset($ldap_entry["objectclass"]["count"]);
-
-	$auxiliary_class_list = array();
-	foreach($ldap_entry["objectclass"] as $object_class)
-		if($ldap_server->get_object_schema_setting($object_class,"class_type") == "auxiliary")
-			$auxiliary_class_list[]=$object_class;
-
-	return $auxiliary_class_list;
-}
-
 /** Extend the specified display layout to show/edit auxiliary class attributes
 
     @param array &$ldap_entry
@@ -5838,7 +5834,7 @@ function add_auxiliary_layouts(&$ldap_entry,&$entry_viewer_layout,$new_aux_class
 	{
 		unset($ldap_entry["objectclass"]["count"]);
 
-		foreach(get_auxiliary_classes($ldap_server,$ldap_entry) as $object_class)
+		foreach($ldap_server->get_auxiliary_classes($ldap_entry) as $object_class)
 		{
 			$aux_layout = $ldap_server->get_display_layout($object_class);
 
