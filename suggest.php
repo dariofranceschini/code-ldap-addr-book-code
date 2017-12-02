@@ -58,8 +58,6 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 		if($ldap_server->log_on())
 			// get search results
 			$search_resource = @ldap_search($ldap_server->connection,$dn,$filter);
-		else
-			show_ldap_bind_error();
 
 		// Return search resource info if successfully fetched
 		if(is_resource($search_resource))
