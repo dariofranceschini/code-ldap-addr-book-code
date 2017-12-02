@@ -54,19 +54,7 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 		// Return search resource info if successfully fetched
 		if(is_resource($search_resource))
 		{
-			$sort_type = $search_result_default_sort_order;
-
-			// Only allow sorting on attributes which are actualy used in columns
-			$sort_order=$search_result_default_sort_order;
-			foreach($search_result_columns as $column)
-				if($column["attrib"] == $sort_type);
-					$sort_order = $sort_type;
-
-			$ldap_data = ldap_sort_entries(ldap_get_entries($ldap_server->connection,$search_resource),
-				$sort_order == "sortableName"
-				? array("sn","givenName","ou","cn")
-				: array($sort_order),
-				LDAP_SORT_ASCENDING);
+			$ldap_data = ldap_get_entries($ldap_server->connection,$search_resource);
 
 			// JSON search suggestion response consists of four elements:
 			//	Text for which search term suggestions were requested
@@ -100,6 +88,8 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 						. urlencode($suggestion));
 				}
 			}
+
+			array_multisort($json[1],$json[2],$json[3]);
 
 			header('Content-Type:application/x-suggestions+json');
 
