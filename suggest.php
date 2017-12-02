@@ -83,19 +83,25 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 			{
 				// Search term suggestion
 				if(!empty($ldap_data[$i]["displayname"][0]))
-					array_push($json[1],$ldap_data[$i]["displayname"][0]);
+					$suggestion=$ldap_data[$i]["displayname"][0];
 				else
-					array_push($json[1],$ldap_data[$i]["cn"][0]);
+					$suggestion=$ldap_data[$i]["cn"][0];
 
-				// Description of suggestion (not currently used)
-				array_push($json[2],"");
+				// Add the suggestion only if not already present
+				if(!in_array($suggestion,$json[1]))
+				{
+					array_push($json[1],$suggestion);
 
-				// URL for search result(s) for this suggestion
-				array_push($json[3],current_page_folder_url() . "?filter="
-					. urlencode($_GET["filter"]));
+					// Description of suggestion (not currently used)
+					array_push($json[2],"");
 
-				array_push($json[3],current_page_folder_url() . "info.php?dn="
-					. urlencode($ldap_data[$i]["dn"]));
+					// URL for search result(s) for this suggestion
+					array_push($json[3],current_page_folder_url() . "?filter="
+						. urlencode($_GET["filter"]));
+
+					array_push($json[3],current_page_folder_url() . "info.php?dn="
+						. urlencode($ldap_data[$i]["dn"]));
+				}
 			}
 
 			header('Content-Type:application/x-suggestions+json');
