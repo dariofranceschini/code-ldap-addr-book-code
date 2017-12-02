@@ -97,7 +97,7 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 
 					// URL for search result(s) for this suggestion
 					array_push($json[3],current_page_folder_url() . "?filter="
-						. urlencode($_GET["filter"]));
+						. urlencode($suggestion));
 				}
 			}
 
