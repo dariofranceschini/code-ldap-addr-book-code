@@ -19,6 +19,16 @@
 include "utils.php";
 include "config.php";
 
+// JSON search suggestion response consists of four elements:
+//	Text for which search term suggestions were requested
+//	Array of search term suggestions
+//	Array of descriptions corresponding to each suggestion
+//	Array of URLs corresponding to each suggestion
+
+// Ref: http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.1
+
+$json = array($_GET["filter"],array(),array(),array());
+
 if(isset($enable_search_suggestions) && $enable_search_suggestions
 	&& get_user_setting("allow_search"))
 {
@@ -56,16 +66,6 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 		{
 			$ldap_data = ldap_get_entries($ldap_server->connection,$search_resource);
 
-			// JSON search suggestion response consists of four elements:
-			//	Text for which search term suggestions were requested
-			//	Array of search term suggestions
-			//	Array of descriptions corresponding to each suggestion
-			//	Array of URLs corresponding to each suggestion
-
-			// Ref: http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.1
-
-			$json = array($_GET["filter"],array(),array(),array());
-
 			// Copy in search results to the subsequent outer array elements
 			for($i=0;$i < $ldap_data["count"]; $i++)
 			{
@@ -90,15 +90,15 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 			}
 
 			array_multisort($json[1],$json[2],$json[3]);
-
-			header('Content-Type:application/x-suggestions+json');
-
-			// The following syntax can be used in PHP 5.4 or later:
-			// echo json_encode($json,JSON_UNESCAPED_SLASHES);
-
-			// More backwards compatible equivalent for now:
-			echo str_replace("\/","/",json_encode($json));
 		}
 	}
 }
+
+header('Content-Type:application/x-suggestions+json');
+
+// The following syntax can be used in PHP 5.4 or later:
+// echo json_encode($json,JSON_UNESCAPED_SLASHES);
+
+// More backwards compatible equivalent for now:
+echo str_replace("\/","/",json_encode($json));
 ?>
