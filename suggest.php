@@ -32,60 +32,64 @@ $json = array($_GET["filter"],array(),array(),array());
 if(isset($enable_search_suggestions) && $enable_search_suggestions
 	&& !empty($_GET["filter"]))
 {
-	if($ldap_server->log_on() && get_user_setting("allow_search"))
+	foreach($ldap_server_list as $ldap_server_to_search)
 	{
-		$dn = $ldap_server->base_dn;
-
-		$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
-
-		$search_criteria = "";
-		foreach($search_ldap_attrib as $attrib)
-			$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
-
-		// Default filter expression to use if none specified in config
-		// file: return only people in search results
-		if(empty($search_ldap_filter))
-			$search_ldap_filter
-				= "(&(objectClass=person)___search_criteria___)";
-
-		$filter = str_replace("___search_criteria___",
-			"(|" . $search_criteria . ")",$search_ldap_filter);
-
-		$search_type= "subtree";
-
-		$search_resource = @ldap_search($ldap_server->connection,$dn,$filter);
-
-		// Return search resource info if successfully fetched
-		if(is_resource($search_resource))
+		if($ldap_server_to_search->log_on()
+			&& get_user_setting("allow_search"))
 		{
-			$ldap_data = ldap_get_entries($ldap_server->connection,$search_resource);
+			$dn = $ldap_server_to_search->base_dn;
 
-			// Copy in search results to the subsequent outer array elements
-			for($i=0;$i < $ldap_data["count"]; $i++)
+			$filter = ldap_escape($_GET["filter"],null,LDAP_ESCAPE_FILTER);
+
+			$search_criteria = "";
+			foreach($search_ldap_attrib as $attrib)
+				$search_criteria .= "(" . $attrib . "=" . $filter . "*)";
+
+			// Default filter expression to use if none specified in config
+			// file: return only people in search results
+			if(empty($search_ldap_filter))
+				$search_ldap_filter
+					= "(&(objectClass=person)___search_criteria___)";
+
+			$filter = str_replace("___search_criteria___",
+				"(|" . $search_criteria . ")",$search_ldap_filter);
+
+			$search_type= "subtree";
+
+			$search_resource = @ldap_search($ldap_server_to_search->connection,$dn,$filter);
+
+			// Return search resource info if successfully fetched
+			if(is_resource($search_resource))
 			{
-				// Search term suggestion
-				if(!empty($ldap_data[$i]["displayname"][0]))
-					$suggestion=$ldap_data[$i]["displayname"][0];
-				else
-					$suggestion=$ldap_data[$i]["cn"][0];
+				$ldap_data = ldap_get_entries($ldap_server_to_search->connection,$search_resource);
 
-				// Add the suggestion only if not already present
-				if(!in_array($suggestion,$json[1]))
+				// Copy in search results to the subsequent outer array elements
+				for($i=0;$i < $ldap_data["count"]; $i++)
 				{
-					array_push($json[1],$suggestion);
+					// Search term suggestion
+					if(!empty($ldap_data[$i]["displayname"][0]))
+						$suggestion=$ldap_data[$i]["displayname"][0];
+					else
+						$suggestion=$ldap_data[$i]["cn"][0];
 
-					// Description of suggestion (not currently used)
-					array_push($json[2],"");
+					// Add the suggestion only if not already present
+					if(!in_array($suggestion,$json[1]))
+					{
+						array_push($json[1],$suggestion);
 
-					// URL for search result(s) for this suggestion
-					array_push($json[3],current_page_folder_url() . "?filter="
-						. urlencode($suggestion));
+						// Description of suggestion (not currently used)
+						array_push($json[2],"");
+
+						// URL for search result(s) for this suggestion
+						array_push($json[3],current_page_folder_url() . "?filter="
+							. urlencode($suggestion));
+					}
 				}
 			}
 		}
-
-		array_multisort($json[1],$json[2],$json[3]);
 	}
+
+	array_multisort($json[1],$json[2],$json[3]);
 }
 
 header('Content-Type:application/x-suggestions+json');
