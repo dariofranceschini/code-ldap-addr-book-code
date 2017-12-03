@@ -30,9 +30,9 @@ include "config.php";
 $json = array($_GET["filter"],array(),array(),array());
 
 if(isset($enable_search_suggestions) && $enable_search_suggestions
-	&& !empty($_GET["filter"]) && get_user_setting("allow_search"))
+	&& !empty($_GET["filter"]))
 {
-	if($ldap_server->log_on())
+	if($ldap_server->log_on() && get_user_setting("allow_search"))
 	{
 		$dn = $ldap_server->base_dn;
 
