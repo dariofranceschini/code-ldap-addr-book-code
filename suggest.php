@@ -58,12 +58,11 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 
 			$search_resource = @ldap_search($ldap_server_to_search->connection,$dn,$filter);
 
-			// Return search resource info if successfully fetched
 			if(is_resource($search_resource))
 			{
 				$ldap_data = ldap_get_entries($ldap_server_to_search->connection,$search_resource);
 
-				// Copy in search results to the subsequent outer array elements
+				// Copy search results to the suggestions list
 				for($i=0;$i < $ldap_data["count"]; $i++)
 				{
 					// Search term suggestion
