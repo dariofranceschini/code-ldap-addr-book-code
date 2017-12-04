@@ -24,7 +24,12 @@ show_site_header();
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
-if($ldap_server->log_on())
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
+if($ldap_server_list[$server_id]->log_on())
 {
 	// Update record
 
@@ -45,7 +50,8 @@ if($ldap_server->log_on())
 
 			// Add schema-specified auxiliary classes
 			$auxiliary_classes_from_schema
-				= $ldap_server->get_object_schema_setting($entry["objectclass"][0],"extensions");
+				= $ldap_server_list[$server_id]->get_object_schema_setting(
+				$entry["objectclass"][0],"extensions");
 
 			if(!empty($auxiliary_classes_from_schema))
 				$entry["objectclass"] = array_merge($entry["objectclass"],
@@ -57,11 +63,11 @@ if($ldap_server->log_on())
 				$entry["objectclass"] = array_merge($entry["objectclass"],
 					explode(",",$_POST["add_aux_class"]));
 
-			fix_missing_object_classes($ldap_server,$entry);
+			fix_missing_object_classes($ldap_server_list[$server_id],$entry);
 
 			/** @todo take into account RDN attributes of all object classes
 			    and support entry-specific RDNs that deviate from schema default */
-			$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
+			$rdn_attribs = explode(",",$ldap_server_list[$server_id]->get_object_schema_setting(
 				$entry["objectclass"][0],"rdn_attrib"));
 
 			// Allow for blank RDN attribute - e.g. if populated
@@ -83,9 +89,9 @@ if($ldap_server->log_on())
 
 			if(isset($_POST["add_aux_class"]) && get_user_setting("allow_extend"))
 			{
-				$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+				$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
 
-				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+				$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
 				// TODO: guard against nasties!
 				$add_aux_class = explode(",",$_POST["add_aux_class"]);
@@ -116,7 +122,7 @@ if($ldap_server->log_on())
 					}
 				}
 
-				$result = @ldap_modify($ldap_server->connection,$dn,$updates);
+				$result = @ldap_modify($ldap_server_list[$server_id]->connection,$dn,$updates);
 
 				$aux_class_list = "";
 				$aux_classes_listed = 0;
@@ -150,7 +156,7 @@ if($ldap_server->log_on())
 						. sprintf(ngettext("Unable to add auxiliary class %s:",
 						"Unable to add auxiliary classes %s:",count($add_aux_class)),
 						htmlentities($aux_class_list,ENT_COMPAT,"UTF-8"))
-						. " " . ldap_error($ldap_server->connection) . "</li>\n";
+						. " " . ldap_error($ldap_server_list[$server_id]->connection) . "</li>\n";
 			}
 
 		if(!empty($_POST["create"]))
@@ -158,7 +164,7 @@ if($ldap_server->log_on())
 		        if(!get_user_setting("allow_create"))
                 		show_error_message(gettext("You do not have permission to create new records."));
 
-			$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+			$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
 
 			if($search_resource)
 			{
@@ -169,17 +175,17 @@ if($ldap_server->log_on())
 			{
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
-				if($ldap_server->get_object_schema_setting($entry["objectclass"][0],
+				if($ldap_server_list[$server_id]->get_object_schema_setting($entry["objectclass"][0],
 					"can_create") || get_user_setting("allow_system_admin"))
 				{
-					if($ldap_server->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
+					if($ldap_server_list[$server_id]->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
 					{
 						// Include every attribute which appears in the display layout
 						$required_attribs=array();
-						$entry_layout = $ldap_server->get_display_layout($entry["objectclass"][0]);
+						$entry_layout = $ldap_server_list[$server_id]->get_display_layout($entry["objectclass"][0]);
 
 						// Include attributes from each auxiliary class display layout
-						$ldap_server->add_auxiliary_layouts($entry,$entry_layout);
+						$ldap_server_list[$server_id]->add_auxiliary_layouts($entry,$entry_layout);
 
 						foreach($entry_layout as $section)
 							foreach($section["attributes"] as $attrib_spec)
@@ -211,7 +217,7 @@ if($ldap_server->log_on())
 					// Allow schema function to see/modify the DN to be created
 					$entry["dn"] = $dn;
 
-					$ldap_server->call_schema_function("before_create_" . $entry["objectclass"][0],$entry);
+					$ldap_server_list[$server_id]->call_schema_function("before_create_" . $entry["objectclass"][0],$entry);
 
 					// Update the DN to be created (if modified by the schema function)
 					$dn = $entry["dn"];
@@ -220,7 +226,7 @@ if($ldap_server->log_on())
 					$name_of_object_created = ldap_explode_dn2($dn);
 					$name_of_object_created = $name_of_object_created[0]["value"];
 
-					$result = @ldap_add($ldap_server->connection,$dn,$entry);
+					$result = @ldap_add($ldap_server_list[$server_id]->connection,$dn,$entry);
 
 					if($result)
 					{
@@ -237,7 +243,7 @@ if($ldap_server->log_on())
 					{
 						$create_failed = true;
 						show_error_message(gettext("Unable to create LDAP record: ")
-							. ldap_error($ldap_server->connection));
+							. ldap_error($ldap_server_list[$server_id]->connection));
 					}
 				}
 				else
@@ -250,30 +256,30 @@ if($ldap_server->log_on())
 
 		if($create_failed == false)
 		{
-			$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+			$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
 
 			if($search_resource)
 			{
-				$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+				$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
 				if(!empty($_POST["create"]))
 				{
-					$ldap_server->call_schema_function("after_create_"
-						. $ldap_server->get_object_class($entry[0]),$entry[0]);
+					$ldap_server_list[$server_id]->call_schema_function("after_create_"
+						. $ldap_server_list[$server_id]->get_object_class($entry[0]),$entry[0]);
 				}
 
 				/** @todo enhance to support entries with RDN attributes other than the
 				    Address Book schema default for that class */
 
-				$rdn_attribs = explode(",",$ldap_server->get_object_schema_setting(
+				$rdn_attribs = explode(",",$ldap_server_list[$server_id]->get_object_schema_setting(
 					$entry[0]["objectclass"][0],
 					"rdn_attrib"));
 
-				$entry_layout = $ldap_server->get_display_layout(
-					$ldap_server->get_object_class($entry[0]));
+				$entry_layout = $ldap_server_list[$server_id]->get_display_layout(
+					$ldap_server_list[$server_id]->get_object_class($entry[0]));
 
 				// Include attributes from each auxiliary class display layout
-				$ldap_server->add_auxiliary_layouts($entry[0],$entry_layout);
+				$ldap_server_list[$server_id]->add_auxiliary_layouts($entry[0],$entry_layout);
 
 				foreach($entry_layout as $section)
 					foreach($section["attributes"] as $attrib_spec)
@@ -287,7 +293,7 @@ if($ldap_server->log_on())
 								if(!in_array($attrib,$rdn_attribs))
 								{
 									$change_description
-										= $ldap_server->update_attribute($entry[0],$attrib);
+										= $ldap_server_list[$server_id]->update_attribute($entry[0],$attrib);
 									if(!empty($change_description))
 										$change_list .= "  <li>"
 											. $change_description
@@ -302,7 +308,7 @@ if($ldap_server->log_on())
 					if(isset($_POST["ldap_attribute_" . $rdn_attrib]))
 					{
 						// TODO: guard against nasties in the new RDN value
-						$change_description = $ldap_server->update_attribute($entry[0],
+						$change_description = $ldap_server_list[$server_id]->update_attribute($entry[0],
 							$rdn_attrib,LDAP_ATTRIBUTE_IS_RDN);
 
 						if(!empty($change_description))
@@ -345,7 +351,9 @@ if($ldap_server->log_on())
 						. "<ul>\n" . $change_list . "</ul>\n\n";
 
 				echo "<p><a href=\"info.php?dn="
-					. urlencode($dn) . "\">"
+					. urlencode($dn)
+					. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
+					. "\">"
 					. gettext("Back to record")
 					. "</a></p>\n";
 			}

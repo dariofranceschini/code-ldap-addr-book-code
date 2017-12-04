@@ -573,8 +573,13 @@ class ldap_entry_viewer
 				|| (get_user_setting("allow_edit_self")
 				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
 			{
+				$server_id = $this->ldap_server->server_id == 0
+					? "" : "&server_id=" . $this->ldap_server->server_id;
+
 				echo "<form method=\"POST\" action=\"update.php?dn="
-					. urlencode($dn) . "\" style=\"display:inline\" enctype=\"multipart/form-data\">\n";
+					. urlencode($dn) . $server_id
+					. "\" style=\"display:inline\" enctype=\"multipart/form-data\">\n";
+
 				if(isset($_GET["add_aux_class"]))
 					echo "<input type=\"hidden\" name=\"add_aux_class\" value=\""
 						. htmlentities($_GET["add_aux_class"],
