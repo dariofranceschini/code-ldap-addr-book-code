@@ -83,13 +83,16 @@ function ldap_escape($subject,$ignore=null,$flags=null)
 	// Do the main replacement
 	$result = str_replace($search,$replace,$subject);
 
-	// Encode leading spaces in DN values
-	if($flags==LDAP_ESCAPE_DN && $result[0] == " ")
-		$result = '\\20' . substr($result, 1);
+	if(!empty($result))
+	{
+		// Encode leading spaces in DN values
+		if($flags==LDAP_ESCAPE_DN && $result[0] == " ")
+			$result = '\\20' . substr($result, 1);
 
-	// Encode trailing spaces in DN values
-	if($flags==LDAP_ESCAPE_DN && $result[strlen($result)-1] == " ")
-		$result = substr($result,0,-1) . '\\20';
+		// Encode trailing spaces in DN values
+		if($flags==LDAP_ESCAPE_DN && $result[strlen($result)-1] == " ")
+			$result = substr($result,0,-1) . '\\20';
+	}
 
 	return $result;
 }
