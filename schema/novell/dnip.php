@@ -30,7 +30,7 @@ class novell_dnip_schema extends ldap_schema
 		// Object classes
 		$this->object_schema = array(
 			array("name"=>"dNIPDHCPServer",			"icon"=>"dhcp/dhcp-server.png",			"is_folder"=>false,"display_name"=>gettext("DHCP Server (NetWare)")),
-			array("name"=>"dnipDNSDHCPServerVersion",	"icon"=>"generic24.png",			"class_type"=>"auxiliary","display_name"=>gettext("DNS/DHCP Server Versions"))
+			array("name"=>"dnipDNSDHCPServerVersion",	"icon"=>"generic24.png",			"class_type"=>"auxiliary","display_name"=>gettext("DNS/DHCP Server Versions")),
 			array("name"=>"dNIPDNSKey",			"icon"=>"dhcp/dhcp-dns-key.png",		"is_folder"=>false,"display_name"=>gettext("DNIP:DNS Key")),
 			array("name"=>"dNIPDNSRRset",			"icon"=>"document-series.png",			"is_folder"=>false,"display_name"=>gettext("DNS RRset")),
 			array("name"=>"dNIPDNSZone",			"icon"=>"novell/dnip-dns-zone.png",		"is_folder"=>true,"display_name"=>gettext("DNS Zone")),
