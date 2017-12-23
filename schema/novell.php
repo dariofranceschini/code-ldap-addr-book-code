@@ -6,7 +6,7 @@ class novell_schema extends ldap_schema
 	function __construct(&$ldap_server)
 	{
 		$this->attribute_schema = array(
-			// matches core.schema
+			// Standard user attributes
 			array("name"=>"c",				"data_type"=>"country_code",	"display_name"=>gettext("Country Code")),
 			array("name"=>"cn",				"data_type"=>"text",		"display_name"=>gettext("Common Name/Full Name")),
 			array("name"=>"description",			"data_type"=>"text",		"display_name"=>gettext("Description")),
@@ -27,7 +27,7 @@ class novell_schema extends ldap_schema
 			array("name"=>"telephoneNumber",		"data_type"=>"phone_number",	"display_name"=>gettext("Telephone Number")),
 			array("name"=>"title",				"data_type"=>"text",		"display_name"=>gettext("Job Title")),
 
-			// Novell proprietary classes
+			// Novell proprietary attributes
 			array("name"=>"groupMembership",		"data_type"=>"dn_list",		"display_name"=>gettext("Group Membership")),
 			array("name"=>"hostServer",			"data_type"=>"dn",		"display_name"=>gettext("Host Server")),
 			array("name"=>"loginScript",			"data_type"=>"text_area",	"display_name"=>gettext("Login Script")),
@@ -36,7 +36,7 @@ class novell_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			// matches core.schema
+			// Standard object classes
 			// (Class names for organization, country, locality are capitalised in their Novell versions)
 			array("name"=>"Country",			"icon"=>"country.png",			"is_folder"=>true,"rdn_attrib"=>"c","display_name"=>gettext("Country"),"can_create"=>true),
 			array("name"=>"groupOfNames",			"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("Group"),"can_create"=>true,"parent_class"=>"ndsLoginProperties"),
