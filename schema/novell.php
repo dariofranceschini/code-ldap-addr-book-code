@@ -44,16 +44,11 @@ class novell_schema extends ldap_schema
 			array("name"=>"Organization",			"icon"=>"org.png",			"is_folder"=>true,"rdn_attrib"=>"o","display_name"=>gettext("Organization"),"can_create"=>true,"parent_class"=>"ndsLoginProperties,ndsContainerLoginProperties"),
 			array("name"=>"organizationalRole",		"icon"=>"org-role.png",			"is_folder"=>false,"display_name"=>gettext("Organizational Role"),"can_create"=>true),
 			array("name"=>"organizationalUnit",		"icon"=>"folder.png",			"is_folder"=>true,"rdn_attrib"=>"ou","display_name"=>gettext("Organizational Unit"),"can_create"=>true,"parent_class"=>"ndsLoginProperties,ndsContainerLoginProperties"),
+			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"ndsLoginProperties"),
 
 			// matches inetorgperson.schema other than addition of display_name "User"
 			// (inetOrgPerson LDAP class maps to eDirectory User class)
 			array("name"=>"inetOrgPerson",			"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"organizationalPerson,ndsLoginProperties"),
-
-			// base schema - equivalents to core.schema classes
-			//
-			// (Person should be listed after inetOrgPerson but before externalEntity
-			// for correct inheritence behavior)
-			array("name"=>"Person",				"icon"=>"contact24.png",		"is_folder"=>false,"display_name"=>gettext("Person"),"required_attribs"=>"sn","can_create"=>true,"parent_class"=>"ndsLoginProperties"),
 
 			// Novell proprietary classes
 			array("name"=>"aliasObject",			"icon"=>"alias.png",			"is_folder"=>false,"display_name"=>gettext("Alias"),"required_attribs"=>"aliasedObjectName"),
