@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 10:33+0100\n"
-"PO-Revision-Date: 2016-04-27 10:33+0100\n"
+"POT-Creation-Date: 2017-12-24 17:04+0000\n"
+"PO-Revision-Date: 2017-12-24 17:04+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -52,3 +52,79 @@ msgstr "PKCS #12 PFX Data"
 #: ../schema/inetorgperson.php:25
 msgid "S/MIME Certificate"
 msgstr "S/MIME Certificate"
+
+#: ../schema/inetorgperson.php:35
+msgid "Personal"
+msgstr "Personal"
+
+#: ../schema/inetorgperson.php:37
+msgid "Given Name"
+msgstr "Given Name"
+
+#: ../schema/inetorgperson.php:39
+msgid "Surname"
+msgstr "Surname"
+
+#: ../schema/inetorgperson.php:40
+msgid "Full Name"
+msgstr "Full Name"
+
+#: ../schema/inetorgperson.php:41
+msgid "Preferred Name"
+msgstr "Preferred Name"
+
+#: ../schema/inetorgperson.php:42
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../schema/inetorgperson.php:43
+msgid "Home Phone"
+msgstr "Home Phone"
+
+#: ../schema/inetorgperson.php:45
+msgid "Mobile Phone"
+msgstr "Mobile Phone"
+
+#: ../schema/inetorgperson.php:56
+msgid "Postal Address"
+msgstr "Postal Address"
+
+#: ../schema/inetorgperson.php:67
+msgid "Photo"
+msgstr "Photo"
+
+#: ../schema/inetorgperson.php:70
+msgid "Business/Work"
+msgstr "Business/Work"
+
+#: ../schema/inetorgperson.php:72
+msgid "Company"
+msgstr "Company"
+
+#: ../schema/inetorgperson.php:74
+msgid "Web Page"
+msgstr "Web Page"
+
+#: ../schema/inetorgperson.php:75
+msgid "Office Phone"
+msgstr "Office Phone"
+
+#: ../schema/inetorgperson.php:76
+msgid "Office Fax"
+msgstr "Office Fax"
+
+#: ../schema/inetorgperson.php:78
+msgid "Job Title"
+msgstr "Job Title"
+
+#: ../schema/inetorgperson.php:84
+msgid "Department"
+msgstr "Department"
+
+#: ../schema/inetorgperson.php:96
+msgid "Office"
+msgstr "Office"
+
+#: ../schema/inetorgperson.php:136
+msgid "Additional Notes"
+msgstr "Additional Notes"

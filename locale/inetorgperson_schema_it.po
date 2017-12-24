@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 11:14+0100\n"
-"PO-Revision-Date: 2016-10-03 11:14+0100\n"
+"POT-Creation-Date: 2017-12-24 17:04+0000\n"
+"PO-Revision-Date: 2017-12-24 17:04+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -52,3 +52,79 @@ msgstr "PKCS #12 PFX Dati"
 #: ../schema/inetorgperson.php:25
 msgid "S/MIME Certificate"
 msgstr "S/MIME Certificato"
+
+#: ../schema/inetorgperson.php:35
+msgid "Personal"
+msgstr "Personale"
+
+#: ../schema/inetorgperson.php:37
+msgid "Given Name"
+msgstr "Nome di Battesimo"
+
+#: ../schema/inetorgperson.php:39
+msgid "Surname"
+msgstr "Cognome"
+
+#: ../schema/inetorgperson.php:40
+msgid "Full Name"
+msgstr "Nome Completo"
+
+#: ../schema/inetorgperson.php:41
+msgid "Preferred Name"
+msgstr "Nome Preferito"
+
+#: ../schema/inetorgperson.php:42
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../schema/inetorgperson.php:43
+msgid "Home Phone"
+msgstr "Telefono di Casa"
+
+#: ../schema/inetorgperson.php:45
+msgid "Mobile Phone"
+msgstr "Cellulare"
+
+#: ../schema/inetorgperson.php:56
+msgid "Postal Address"
+msgstr "Indirizzo Postale"
+
+#: ../schema/inetorgperson.php:67
+msgid "Photo"
+msgstr "Foto"
+
+#: ../schema/inetorgperson.php:70
+msgid "Business/Work"
+msgstr "Affari / Lavoro"
+
+#: ../schema/inetorgperson.php:72
+msgid "Company"
+msgstr "Azienda"
+
+#: ../schema/inetorgperson.php:74
+msgid "Web Page"
+msgstr "Pagina Web"
+
+#: ../schema/inetorgperson.php:75
+msgid "Office Phone"
+msgstr "Telefono dell'Ufficio"
+
+#: ../schema/inetorgperson.php:76
+msgid "Office Fax"
+msgstr "Fax dell'Ufficio"
+
+#: ../schema/inetorgperson.php:78
+msgid "Job Title"
+msgstr "Titolo di Lavoro"
+
+#: ../schema/inetorgperson.php:84
+msgid "Department"
+msgstr "Dipartimento"
+
+#: ../schema/inetorgperson.php:96
+msgid "Office"
+msgstr "Ufficio"
+
+#: ../schema/inetorgperson.php:136
+msgid "Additional Notes"
+msgstr "Note Aggiuntive"
