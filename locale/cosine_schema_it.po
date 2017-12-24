@@ -83,7 +83,7 @@ msgstr "Manager"
 
 #: ../schema/cosine.php:41
 msgid "Mobile/Cell Telephone Number"
-msgstr "Mumero di Cellulare"
+msgstr "Numero di Cellulare"
 
 #: ../schema/cosine.php:42
 msgid "Organizational Status"
