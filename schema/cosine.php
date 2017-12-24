@@ -92,7 +92,7 @@ class cosine_schema extends ldap_schema
 			array("name"=>"domain",				"icon"=>"domain24.png",		"is_folder"=>true,"display_name"=>gettext("Domain"),"rdn_attrib"=>"dc","can_create"=>true),
 			array("name"=>"domainRelatedObject",		"icon"=>"domain24.png",		"class_type"=>"auxiliary","display_name"=>gettext("Associated DNS Domain"),"required_attribs"=>"associatedDomain","can_create"=>true),
 			array("name"=>"friendlyCountry",		"icon"=>"country.png",		"is_folder"=>false,"display_name"=>gettext("Country (Friendly Name)"),"parent_class"=>"country"),
-			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>true,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc","parent_class"=>"domain"),
+			array("name"=>"rFC822LocalPart",		"icon"=>"mail.png",		"is_folder"=>false,"display_name"=>gettext("RFC 822 Local Part"),"rdn_attrib"=>"dc","parent_class"=>"domain"),
 			array("name"=>"room",				"icon"=>"room.png",		"is_folder"=>false,"display_name"=>gettext("Room")),
 
 			// Legacy object classes not carried forward from predecessors of RFC 4524
