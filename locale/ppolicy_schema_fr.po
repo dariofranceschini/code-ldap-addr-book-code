@@ -69,7 +69,7 @@ msgstr "Âge Minimum de Mots de Passe"
 
 #: ../schema/ppolicy.php:34 ../schema/ppolicy.php:94
 msgid "Minimum Accepted Password Length"
-msgstr "longueur Minimale Acceptable de Mot de Passe"
+msgstr "Longueur Minimale Acceptable de Mot de Passe"
 
 #: ../schema/ppolicy.php:35 ../schema/ppolicy.php:91
 msgid "Users Must Change Password at Next Logon After Reset"
