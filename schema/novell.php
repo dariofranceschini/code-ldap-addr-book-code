@@ -280,6 +280,86 @@ class novell_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("inetOrgPerson",array(
+			array("section_name"=>gettext("Personal"),
+				"attributes"=>array(
+					array("cn",				gettext("Object Name"),			"contact24.png","allow_view"=>false),
+					array("givenName",			gettext("First Name"),			"contact24.png","allow_view"=>false),
+					array("initials",			gettext("Initials"),			"contact24.png","allow_view"=>false),
+					array("sn",				gettext("Last Name"),			"contact24.png","allow_view"=>false),
+					array("generationQualifier",		gettext("Generation Qualifier"),	"contact24.png","allow_view"=>false),
+					array("fullName",			gettext("Full Name"),			"contact24.png","allow_view"=>false),
+					array("displayName",			gettext("Preferred Name"),		"contact24.png"),
+					array("mail",				gettext("E-mail"),			"mail.png"),
+					array("homePhone",			gettext("Home Phone"),			"landline-phone.png"),
+			//		array("pager",				gettext("Pager"),			"generic24.png"),
+					array("mobile",				gettext("Mobile Phone"),		"cell-phone.png"),
+			//		array("language",			gettext("Preferred Language"),		"chat.png"),
+					array("street:physicalDeliveryOfficeName:st:postalCode",gettext("Postal Address"),"address.png"),
+			//		array("jpegPhoto",			gettext("Photo"),			"photo24.png")
+					)
+				),
+			array("section_name"=>gettext("Business/Work"),"width"=>"50%",
+				"attributes"=>array(
+					array("company",			gettext("Company"),			"company.png"),
+					array("telephoneNumber",		gettext("Office Phone"),		"landline-phone.png"),
+					array("facsimileTelephoneNumber",	gettext("Office Fax"),			"fax.png"),
+					array("title",				gettext("Job Title"),			"org-role.png"),
+					array("ou",				gettext("Department"),			"org.png"),
+					array("l",				gettext("Office Location"),		"office.png")
+					)
+				),
+
+			// Uncomment this section in order to display login details
+
+			/*
+			array("section_name"=>gettext("Login Details"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("uid",				gettext("User ID"),			"id.png"),
+					array("messageServer",			gettext("Default Server"),		"alias.png"),
+					array("ndsHomeDirectory",		gettext("Home Directory"),		"folder.png"),
+					array("loginScript",			gettext("Login Script"),		"generic24.png")
+					)
+				),
+			*/
+
+			// Uncomment this section in order to display password restriction options
+
+			/*
+			array("section_name"=>gettext("Password Restrictions"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("passwordAllowChange",		gettext("Allow User to Change Password"),"generic24.png"),
+					array("passwordRequired",		gettext("Require a Password"),		"password-policy.png"),
+					array("passwordMinimumLength",		gettext("Minimum Password Length"),	"password-checker.png"),
+					array("passwordExpirationInterval",	gettext("Password Expiration Interval (s)"),"time.png"),
+					array("passwordExpirationTime",		gettext("Password Expiry Date"),	"date-time.png"),
+					array("passwordUniqueRequired",		gettext("Require Unique Passwords"),	"generic24.png"),
+					array("loginGraceLimit",		gettext("Grace Logins Allowed"),	"generic24.png"),
+					array("loginGraceRemaining",		gettext("Remaining Grace Logins"),	"generic24.png")
+					)
+				),
+			*/
+
+			array("section_name"=>gettext("Group Membership"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("groupMembership")
+					)
+				),
+			array("section_name"=>gettext("Additional Notes"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("description")
+					)
+				),
+
+			/*
+			array("section_name"=>gettext("See Also"),"new_row"=>true,"colspan"=>2,
+				"attributes"=>array(
+					array("seeAlso")
+					)
+				)
+			*/
+			));
+
 		$ldap_server->add_display_layout("subschema",array(
 			array("section_name"=>gettext("Object Class Definitions"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(

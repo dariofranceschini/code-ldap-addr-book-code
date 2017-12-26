@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-26 10:46+0000\n"
-"PO-Revision-Date: 2017-12-26 10:46+0000\n"
+"POT-Creation-Date: 2017-12-26 11:17+0000\n"
+"PO-Revision-Date: 2017-12-26 11:17+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -39,11 +39,11 @@ msgstr "Numero di Fax"
 msgid "Given Name"
 msgstr "Nome di Battesimo"
 
-#: ../schema/novell.php:15
+#: ../schema/novell.php:15 ../schema/novell.php:290
 msgid "Generation Qualifier"
 msgstr "Qualificativo di Generazione"
 
-#: ../schema/novell.php:16
+#: ../schema/novell.php:16 ../schema/novell.php:288
 msgid "Initials"
 msgstr "Iniziali"
 
@@ -104,7 +104,7 @@ msgstr "Indirizzo"
 msgid "Telephone Number"
 msgstr "Numero di Telefono"
 
-#: ../schema/novell.php:31
+#: ../schema/novell.php:31 ../schema/novell.php:307
 msgid "Job Title"
 msgstr "Job Title"
 
@@ -112,11 +112,11 @@ msgstr "Job Title"
 msgid "User ID"
 msgstr "ID Utente"
 
-#: ../schema/novell.php:35
+#: ../schema/novell.php:35 ../schema/novell.php:291
 msgid "Full Name"
 msgstr "Nome Completo"
 
-#: ../schema/novell.php:36
+#: ../schema/novell.php:36 ../schema/novell.php:343
 msgid "Group Membership"
 msgstr "Appartenenza al Gruppo"
 
@@ -335,7 +335,7 @@ msgid "Location"
 msgstr "Posizione"
 
 #: ../schema/novell.php:118 ../schema/novell.php:181 ../schema/novell.php:247
-#: ../schema/novell.php:260
+#: ../schema/novell.php:260 ../schema/novell.php:308
 msgid "Department"
 msgstr "Dipartimento"
 
@@ -347,7 +347,7 @@ msgstr "Nome del Gruppo"
 msgid "Group Members"
 msgstr "Membri del Gruppo"
 
-#: ../schema/novell.php:137
+#: ../schema/novell.php:137 ../schema/novell.php:348
 msgid "Additional Notes"
 msgstr "Note Aggiuntive"
 
@@ -359,7 +359,7 @@ msgstr "Dettagli Cartella"
 msgid "OU Name"
 msgstr "Nome OU"
 
-#: ../schema/novell.php:158 ../schema/novell.php:266
+#: ../schema/novell.php:158 ../schema/novell.php:266 ../schema/novell.php:298
 msgid "Postal Address"
 msgstr "Indirizzo Postale"
 
@@ -476,13 +476,65 @@ msgid "Role Occupants"
 msgstr "Gli Occupanti di Ruolo"
 
 #: ../schema/novell.php:284
+msgid "Personal"
+msgstr "Personale"
+
+#: ../schema/novell.php:286
+msgid "Object Name"
+msgstr "Nome Oggetto"
+
+#: ../schema/novell.php:287
+msgid "First Name"
+msgstr "Nome di Battesimo"
+
+#: ../schema/novell.php:289
+msgid "Last Name"
+msgstr "Cognome"
+
+#: ../schema/novell.php:292
+msgid "Preferred Name"
+msgstr "Nome Preferito"
+
+#: ../schema/novell.php:293
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../schema/novell.php:294
+msgid "Home Phone"
+msgstr "Telefono di Casa"
+
+#: ../schema/novell.php:296
+msgid "Mobile Phone"
+msgstr "Cellulare"
+
+#: ../schema/novell.php:302
+msgid "Business/Work"
+msgstr "Affari / Lavoro"
+
+#: ../schema/novell.php:304
+msgid "Company"
+msgstr "Azienda"
+
+#: ../schema/novell.php:305
+msgid "Office Phone"
+msgstr "Telefono dell'Ufficio"
+
+#: ../schema/novell.php:306
+msgid "Office Fax"
+msgstr "Fax dell'Ufficio"
+
+#: ../schema/novell.php:309
+msgid "Office Location"
+msgstr "Posizione dell'Ufficio"
+
+#: ../schema/novell.php:364
 msgid "Object Class Definitions"
 msgstr "Definizioni di Classi di Oggetti"
 
-#: ../schema/novell.php:289
+#: ../schema/novell.php:369
 msgid "Attribute Type Definitions"
 msgstr "Definizioni di Tipi di Attributi"
 
-#: ../schema/novell.php:294
+#: ../schema/novell.php:374
 msgid "LDAP Syntax Definitions"
 msgstr "Definizioni di LDAP Sintassi"
