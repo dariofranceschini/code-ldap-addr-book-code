@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 12:10+0100\n"
-"PO-Revision-Date: 2017-08-05 12:10+0100\n"
+"POT-Creation-Date: 2017-12-26 10:07+0000\n"
+"PO-Revision-Date: 2017-12-26 10:07+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -45,7 +45,7 @@ msgstr "Relations de Mise à Niveau de Package"
 msgid "Category GUIDs"
 msgstr "GUID des Catégories"
 
-#: ../schema/microsoft.php:16
+#: ../schema/microsoft.php:16 ../schema/microsoft.php:645
 msgid "Company"
 msgstr "Société"
 
@@ -57,7 +57,7 @@ msgstr "Entrées du Menu Contextuel"
 msgid "Object Creation Wizard Extensions"
 msgstr "Extensions pour l'Assistant de Création d'Objets"
 
-#: ../schema/microsoft.php:19
+#: ../schema/microsoft.php:19 ../schema/microsoft.php:658
 msgid "Department"
 msgstr "Département"
 
@@ -444,7 +444,7 @@ msgstr "Nom du groupe (pré-Windows 2000)"
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/microsoft.php:311
+#: ../schema/microsoft.php:311 ../schema/microsoft.php:614
 msgid "E-mail"
 msgstr "Email"
 
@@ -460,7 +460,7 @@ msgstr "Membres du Groupe"
 msgid "Group is a Member Of"
 msgstr "Groupe est Membre De"
 
-#: ../schema/microsoft.php:325
+#: ../schema/microsoft.php:325 ../schema/microsoft.php:700
 msgid "Additional Notes"
 msgstr "Notes Complémentaires"
 
@@ -576,6 +576,7 @@ msgid "OS Service Pack"
 msgstr "Service Pack d'OS"
 
 #: ../schema/microsoft.php:405 ../schema/microsoft.php:429
+#: ../schema/microsoft.php:682
 msgid "Group Membership"
 msgstr "Membres du Groupe"
 
@@ -750,3 +751,83 @@ msgstr "Objet pour Ordinateur"
 #: ../schema/microsoft.php:599
 msgid "Child Objects"
 msgstr "Objets Enfants"
+
+#: ../schema/microsoft.php:607
+msgid "Personal"
+msgstr "Personnel"
+
+#: ../schema/microsoft.php:609
+msgid "Given Name"
+msgstr "Prénom"
+
+#: ../schema/microsoft.php:611
+msgid "Surname"
+msgstr "Nom de Famille"
+
+#: ../schema/microsoft.php:612
+msgid "Full Name"
+msgstr "Nom Complet"
+
+#: ../schema/microsoft.php:613
+msgid "Preferred Name"
+msgstr "Nom Préféré"
+
+#: ../schema/microsoft.php:615
+msgid "Home Phone"
+msgstr "Téléphone Résidentiel"
+
+#: ../schema/microsoft.php:617
+msgid "Mobile Phone"
+msgstr "Téléphone Portable"
+
+#: ../schema/microsoft.php:620 ../schema/microsoft.php:647
+msgid "Web Page"
+msgstr "Page Web"
+
+#: ../schema/microsoft.php:629
+msgid "Postal Address"
+msgstr "Adresse Postale"
+
+#: ../schema/microsoft.php:638
+msgid "Country"
+msgstr "Pays"
+
+#: ../schema/microsoft.php:640
+msgid "Photo"
+msgstr "Photo"
+
+#: ../schema/microsoft.php:643
+msgid "Business/Work"
+msgstr "Affaires / Travail"
+
+#: ../schema/microsoft.php:648
+msgid "Logo"
+msgstr "Logo"
+
+#: ../schema/microsoft.php:649
+msgid "Office Phone"
+msgstr "Téléphone de Bureau"
+
+#: ../schema/microsoft.php:650
+msgid "Office Fax"
+msgstr "Fax du Bureau"
+
+#: ../schema/microsoft.php:652
+msgid "Job Title"
+msgstr "Profession"
+
+#: ../schema/microsoft.php:670
+msgid "Office"
+msgstr "Bureau"
+
+#: ../schema/microsoft.php:674
+msgid "Login Details"
+msgstr "Détails de Connexion"
+
+#: ../schema/microsoft.php:676
+msgid "User ID"
+msgstr "Identificateur d'Utilisateur"
+
+#: ../schema/microsoft.php:678
+msgid "User Principal Name"
+msgstr "Nom Principal de l'Utilisateur"
