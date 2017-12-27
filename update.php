@@ -35,7 +35,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 	if(get_user_setting("allow_edit")
 		|| (get_user_setting("allow_edit_self")
-		&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn)))
+		&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$server_id],$dn)))
 	{
 		$create_failed = false;
 

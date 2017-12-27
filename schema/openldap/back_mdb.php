@@ -68,7 +68,7 @@ class openldap_back_mdb_schema extends ldap_schema
 
 		$this->add_attrib_single_value($ldap_server,$entry,"olcAccess",array(
 			"{0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth manage by * break",
-			"{1}to * by dn.base=\"" . $_SESSION["LOGIN_BIND_DN"] . "\" manage",
+			"{1}to * by dn.base=\"" . $_SESSION["LOGIN_BIND_DN"][$ldap_server->server_id] . "\" manage",
 			"{2}to attrs=userPassword by self write by anonymous auth by * none",
 			"{3}to attrs=shadowLastChange by self write by * read",
 			"{4}to * by * read")

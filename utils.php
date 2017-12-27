@@ -571,7 +571,7 @@ class ldap_entry_viewer
 		{
 			if($this->edit && (get_user_setting("allow_edit")
 				|| (get_user_setting("allow_edit_self")
-				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn))))
+				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$this->ldap_server->server_id],$dn))))
 			{
 				$server_id = $this->ldap_server->server_id == 0
 					? "" : "&server_id=" . $this->ldap_server->server_id;
@@ -614,7 +614,7 @@ class ldap_entry_viewer
 
 			if(get_user_setting("allow_edit")
 					|| (get_user_setting("allow_edit_self")
-					&& !strcasecmp($_SESSION["LOGIN_BIND_DN"],$dn)))
+					&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$this->ldap_server->server_id],$dn)))
 				if($this->edit)
 				{
 					if($this->create)
@@ -2923,7 +2923,7 @@ function get_user_setting($attrib,$user_name = "")
 		// If value contains a DN instead of true/false then look up
 		// based on group membership instead.
 		if(!is_bool($attrib_value)
-			&& isset($_SESSION["LOGIN_BIND_DN"])
+			&& isset($_SESSION["LOGIN_BIND_DN"][$ldap_server->server_id])
 			&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
 		{
 			// re-use previously cached permission setting
@@ -2948,7 +2948,7 @@ function get_user_setting($attrib,$user_name = "")
 					}
 					else
 						$query .= "(" . $attrib . "="
-							. ldap_escape($_SESSION["LOGIN_BIND_DN"],
+							. ldap_escape($_SESSION["LOGIN_BIND_DN"][$ldap_server->server_id],
 							null,LDAP_ESCAPE_FILTER) . ")";
 				}
 
@@ -4359,13 +4359,13 @@ class ldap_server
 
 		// Determine the LDAP DN corresponding to $login_name.
 
-		if(isset($_SESSION["LOGIN_BIND_DN"]))
+		if(isset($_SESSION["LOGIN_BIND_DN"][$this->server_id]))
 		{
 			// Reuse a previously stored bind DN if available. (This
 			// value gets cleared when the user logs off or the
 			// PHP session times out.)
 
-			$user_bind_dn = $_SESSION["LOGIN_BIND_DN"];
+			$user_bind_dn = $_SESSION["LOGIN_BIND_DN"][$this->server_id];
 		}
 		else
 		{
@@ -4452,7 +4452,7 @@ class ldap_server
 			}
 
 			if(!empty($user_bind_dn) && $user_bind_dn != "__SEARCH__")
-				$_SESSION["LOGIN_BIND_DN"] = $user_bind_dn;
+				$_SESSION["LOGIN_BIND_DN"][$this->server_id] = $user_bind_dn;
 		}
 
 		// Bind as the actual user
@@ -4508,7 +4508,7 @@ class ldap_server
 			}
 
 			// Assign any further permissions based on group memberships
-			if(!empty($_SESSION["LOGIN_BIND_DN"]))
+			if(!empty($_SESSION["LOGIN_BIND_DN"][$this->server_id]))
 				foreach($this->group_map as $group_map_entry)
 					$this->assign_group_permissions($group_map_entry);
 		}
@@ -4542,7 +4542,7 @@ class ldap_server
 			}
 			else
 				$query .= "(" . $attrib . "="
-					. ldap_escape($_SESSION["LOGIN_BIND_DN"],
+					. ldap_escape($_SESSION["LOGIN_BIND_DN"][$this->server_id],
 					null,LDAP_ESCAPE_FILTER) . ")";
 		}
 
@@ -4564,7 +4564,7 @@ class ldap_server
 					if(strtolower($attribute) == "memberuid")
 						$test_value = $_SESSION["LOGIN_UID"];
 					else
-						$test_value = $_SESSION["LOGIN_BIND_DN"];
+						$test_value = $_SESSION["LOGIN_BIND_DN"][$this->server_id];
 
 					foreach($entry[0][strtolower($attribute)] as $index=>$member)
 						if(!($index === "count") && !strcasecmp($member,$test_value))
