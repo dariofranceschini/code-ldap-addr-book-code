@@ -138,4 +138,101 @@ $ldap_result_code = array(
 	16672=>gettext("TXN specify okay (X)"),				// draft-zeilenga-ldap-txn-15
 	16673=>gettext("TXN ID is invalid (X)")				// draft-zeilenga-ldap-txn-15
 	);
+
+define("LDAP_SUCCESS",				0);	// RFC 4511
+define("LDAP_OPERATIONS_ERROR",			1);	// RFC 4511
+define("LDAP_PROTOCOL_ERROR",			2);	// RFC 4511
+define("LDAP_TIMELIMIT_EXCEEDED",		3);	// RFC 4511
+define("LDAP_SIZELIMIT_EXCEEDED",		4);	// RFC 4511
+define("LDAP_COMPARE_FALSE",			5);	// RFC 4511
+define("LDAP_COMPARE_TRUE",			6);	// RFC 4511
+define("LDAP_AUTH_METHOD_NOT_SUPPORTED",	7);	// RFC 4511
+define("LDAP_STRONG_AUTH_REQUIRED",		8);	// RFC 4511
+define("LDAP_PARTIAL_RESULTS",			9);	// Referrals Within the LDAPv2 Protocol
+define("LDAP_REFERRAL",				10);	// RFC 4511
+define("LDAP_ADMINLIMIT_EXCEEDED",		11);	// RFC 4511
+define("LDAP_UNAVAILABLE_CRITICAL_EXTENSION",	12);	// RFC 4511
+define("LDAP_CONFIDENTIALITY_REQUIRED",		13);	// RFC 4511
+define("LDAP_SASL_BIND_INPROGRESS",		14);	// RFC 4511
+// 15 - not used (or not known)
+define("LDAP_NO_SUCH_ATTRIBUTE",		16);	// RFC 4511
+define("LDAP_UNDEFINED_TYPE",			17);	// RFC 4511
+define("LDAP_INAPPROPRIATE_MATCHING",		18);	// RFC 4511
+define("LDAP_CONSTRAINT_VIOLATION",		19);	// RFC 4511
+define("LDAP_TYPE_OR_VALUE_EXISTS",		20);	// RFC 4511
+define("LDAP_INVALID_SYNTAX",			21);	// RFC 4511
+// 22-31 - not used (or not known)
+define("LDAP_NO_SUCH_OBJECT",			32);	// RFC 4511
+define("LDAP_ALIAS_PROBLEM",			33);	// RFC 4511
+define("LDAP_INVALID_DN_SYNTAX",		34);	// RFC 4511
+define("LDAP_IS_LEAF",				35);	// RFC 1777
+define("LDAP_ALIAS_DEREF_PROBLEM",		36);	// RFC 4511
+// 37-46 - not used (or not known)
+define("LDAP_X_PROXY_AUTHZ_FAILURE",		47);	// draft-weltman-ldapv3-proxy-13
+define("LDAP_INAPPROPRIATE_AUTH",		48);	// RFC 4511
+define("LDAP_INVALID_CREDENTIALS",		49);	// RFC 4511
+define("LDAP_INSUFFICIENT_ACCESS",		50);	// RFC 4511
+define("LDAP_BUSY",				51);	// RFC 4511
+define("LDAP_UNAVAILABLE",			52);	// RFC 4511
+define("LDAP_UNWILLING_TO_PERFORM",		53);	// RFC 4511
+define("LDAP_LOOP_DETECT",			54);	// RFC 4511
+// 55-59 - not used (or not known)
+define("LDAP_SORT_CONTROL_MISSING",		60);	// draft-smith-ldap-c-api-ext-vlv-00
+define("LDAP_INDEX_RANGE_ERROR",		61);	// draft-smith-ldap-c-api-ext-vlv-00
+// 62-63 - not used (or not known)
+define("LDAP_NAMING_VIOLATION",			64);	// RFC 4511
+define("LDAP_OBJECT_CLASS_VIOLATION",		65);	// RFC 4511
+define("LDAP_NOT_ALLOWED_ON_NONLEAF",		66);	// RFC 4511
+define("LDAP_NOT_ALLOWED_ON_RDN",		67);	// RFC 4511
+define("LDAP_ALREADY_EXISTS",			68);	// RFC 4511
+define("LDAP_NO_OBJECT_CLASS_MODS",		69);	// RFC 4511
+define("LDAP_RESULTS_TOO_LARGE",		70);	// RFC 1798
+define("LDAP_AFFECTS_MULTIPLE_DSAS",		71);	// RFC 4511
+// 72-75 - not used (or not known)
+define("LDAP_VLV_ERROR",			76);	// draft-ietf-ldapext-ldapv3-vlv-09
+// 77-79 - not used (or not known)
+define("LDAP_OTHER",				80);	// RFC 4511
+define("LDAP_SERVER_DOWN",			81);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_LOCAL_ERROR",			82);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_ENCODING_ERROR",			83);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_DECODING_ERROR",			84);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_TIMEOUT",				85);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_AUTH_UNKNOWN",			86);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_FILTER_ERROR",			87);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_USER_CANCELLED",			88);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_PARAM_ERROR",			89);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_NO_MEMORY",			90);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_CONNECT_ERROR",			91);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_NOT_SUPPORTED",			92);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_CONTROL_NOT_FOUND",		93);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_NO_RESULTS_RETURNED",		94);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_MORE_RESULTS_TO_RETURN",		95);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_CLIENT_LOOP",			96);	// draft-ietf-ldapext-ldap-c-api-05
+define("LDAP_REFERRAL_LIMIT_EXCEEDED",		97);	// draft-ietf-ldapext-ldap-c-api-05
+// 98-112 - not used (or not known)
+define("LDAP_CUP_RESOURCES_EXHAUSTED",		113);	// RFC 3928
+define("LDAP_CUP_SECURITY_VIOLATION",		114);	// RFC 3928
+define("LDAP_CUP_INVALID_DATA",			115);	// RFC 3928
+define("LDAP_CUP_UNSUPPORTED_SCHEME",		116);	// RFC 3928
+define("LDAP_CUP_RELOAD_REQUIRED",		117);	// RFC 3928
+define("LDAP_CANCELLED",			118);	// RFC 3909
+define("LDAP_NO_SUCH_OPERATION",		119);	// RFC 3909
+define("LDAP_TOO_LATE",				120);	// RFC 3909
+define("LDAP_CANNOT_CANCEL",			121);	// RFC 3909
+define("LDAP_ASSERTION_FAILED",			122);	// RFC 4528
+define("LDAP_PROXIED_AUTHORIZATION_DENIED",	123);	// RFC 4370
+// 124-4095 - not used (or not known)
+
+// 4096-16383 (0x1000-0x3FFF) - experimental use range
+define("LDAP_SYNC_REFRESH_REQUIRED",		4096);	// RFC 4533
+
+// 16384-65535 (0x4000-0xFFFF) - private use range
+define("LDAP_X_SYNC_REFRESH_REQUIRED",		16640);	// draft-zeilenga-ldup-sync-06
+define("LDAP_X_NO_OPERATION",			16654);	// draft-zeilenga-ldap-noop-12
+define("LDAP_X_ASSERTION_FAILED",		16655);	// draft-zeilenga-ldap-assert-05
+define("LDAP_X_NO_REFERRALS_FOUND",		16656);	// draft-sermersheim-ldap-chaining-03
+define("LDAP_X_CANNOT_CHAIN",			16657);	// draft-sermersheim-ldap-chaining-03
+define("LDAP_X_INVALIDREFERENCE",		16658);	// draft-sermersheim-ldap-distproc-02
+define("LDAP_X_TXN_SPECIFY_OKAY",		16672);	// draft-zeilenga-ldap-txn-15
+define("LDAP_X_TXN_ID_INVALID",			16673);	// draft-zeilenga-ldap-txn-15
 ?>
