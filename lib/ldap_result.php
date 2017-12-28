@@ -29,6 +29,7 @@
 	https://www.ietf.org/rfc/rfc4533.txt
 	https://tools.ietf.org/html/draft-ietf-ldapext-ldap-c-api-05
 	https://tools.ietf.org/html/draft-ietf-ldapext-ldapv3-vlv-09
+	https://tools.ietf.org/html/draft-smith-ldap-c-api-ext-vlv-00
 	https://tools.ietf.org/html/draft-weltman-ldapv3-proxy-13
 	https://tools.ietf.org/html/draft-zeilenga-ldap-assert-05
 	https://tools.ietf.org/html/draft-zeilenga-ldap-noop-12
@@ -75,7 +76,10 @@ $ldap_result_code = array(
 	52=>gettext("Server is unavailable"),				// RFC 4511
 	53=>gettext("Server is unwilling to perform"),			// RFC 4511
 	54=>gettext("Loop detected"),					// RFC 4511
-	// 55-63 - not used (or not known)
+	// 55-59 - not used (or not known)
+	60=>gettext("Sort control is required with VLV"),		//draft-smith-ldap-c-api-ext-vlv-00
+	61=>gettext("VLV index range error"),				//draft-smith-ldap-c-api-ext-vlv-00
+	// 62-63 - not used (or not known)
 	64=>gettext("Naming violation"),				// RFC 4511
 	65=>gettext("Object class violation"),				// RFC 4511
 	66=>gettext("Operation not allowed on non-leaf"),		// RFC 4511
