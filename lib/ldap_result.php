@@ -30,6 +30,7 @@
 	https://tools.ietf.org/html/draft-ietf-ldapext-ldap-c-api-05
 	https://tools.ietf.org/html/draft-ietf-ldapext-ldapv3-vlv-09
 	https://tools.ietf.org/html/draft-sermersheim-ldap-chaining-03
+	https://tools.ietf.org/html/draft-sermersheim-ldap-distproc-02
 	https://tools.ietf.org/html/draft-smith-ldap-c-api-ext-vlv-00
 	https://tools.ietf.org/html/draft-weltman-ldapv3-proxy-13
 	https://tools.ietf.org/html/draft-zeilenga-ldap-assert-05
@@ -131,6 +132,7 @@ $ldap_result_code = array(
 	16655=>gettext("Assertion Failed (X)"),				// draft-zeilenga-ldap-assert-05
 	16656=>gettext("Could not produce a referral (X)"),		// draft-sermersheim-ldap-chaining-03
 	16657=>gettext("Unable to chain the request (X)"),		// draft-sermersheim-ldap-chaining-03
+	16658=>gettext("Invalid Reference (X)"),			// draft-sermersheim-ldap-distproc-02
 	16672=>gettext("TXN specify okay"),				// draft-zeilenga-ldap-txn-15
 	16673=>gettext("TXN ID is invalid")				// draft-zeilenga-ldap-txn-15
 	);
