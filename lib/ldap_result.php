@@ -135,7 +135,7 @@ $ldap_result_code = array(
 	16656=>gettext("Could not produce a referral (X)"),		// draft-sermersheim-ldap-chaining-03
 	16657=>gettext("Unable to chain the request (X)"),		// draft-sermersheim-ldap-chaining-03
 	16658=>gettext("Invalid Reference (X)"),			// draft-sermersheim-ldap-distproc-02
-	16672=>gettext("TXN specify okay"),				// draft-zeilenga-ldap-txn-15
-	16673=>gettext("TXN ID is invalid")				// draft-zeilenga-ldap-txn-15
+	16672=>gettext("TXN specify okay (X)"),				// draft-zeilenga-ldap-txn-15
+	16673=>gettext("TXN ID is invalid (X)")				// draft-zeilenga-ldap-txn-15
 	);
 ?>
