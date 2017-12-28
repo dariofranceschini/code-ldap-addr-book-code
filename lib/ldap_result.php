@@ -124,6 +124,8 @@ $ldap_result_code = array(
 	122=>gettext("Assertion Failed"),				// RFC 4528
 	123=>gettext("Proxied Authorization Denied"),			// RFC 4370
 	// 124-4095 - not used (or not known)
+
+	// 4096-16383 (0x1000-0x3FFF) - experimental use range
 	4096=>gettext("Content Sync Refresh Required"),			// RFC 4533
 
 	// 16384-65535 (0x4000-0xFFFF) - private use range
