@@ -114,6 +114,7 @@ class openldap_system_schema extends ldap_schema
 		// OpenLDAP module schemas
 
 		$ldap_server->add_schema("openldap/accesslog");
+		$ldap_server->add_schema("openldap/autoca");
 		$ldap_server->add_schema("openldap/autogroup");
 		$ldap_server->add_schema("openldap/auditlog");
 		$ldap_server->add_schema("openldap/back_asyncmeta");
