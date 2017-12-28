@@ -1819,7 +1819,7 @@ class ldap_attribute
 				{
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
 
-					if(!$this->edit && get_user_setting("allow_edit") && !$this->create)
+					if(!$this->create && !$this->edit && get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
