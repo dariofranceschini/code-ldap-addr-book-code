@@ -4289,7 +4289,7 @@ class ldap_server
 		if(!isset($_SESSION)) session_start();
 
 		if(get_user_setting("allow_browse") || get_user_setting("allow_search")
-			|| $get_user_setting("allow_view"))
+			|| get_user_setting("allow_view"))
 		{
 			$dn = $entry["dn"];
 
