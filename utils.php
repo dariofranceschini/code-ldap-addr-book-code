@@ -639,7 +639,7 @@ class ldap_entry_viewer
 						. "  <input type=\"submit\" value=\"" . gettext("Edit") . "\">\n</form>\n";
 				}
 
-			if(get_user_setting("allow_move") && !$this->edit && 0)
+			if(get_user_setting("allow_move") && !$this->edit)
 				echo "<a href=\"move.php?dn="
 					. urlencode($dn)
 					. "\"><button>" . gettext("Move") . "</button></a>\n";
