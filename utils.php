@@ -548,17 +548,16 @@ class ldap_entry_viewer
 
 	function show()
 	{
-		global $ldap_server,$thumbnail_image_size,
-			$enable_ldap_path_thumbnail;
+		global $thumbnail_image_size,$enable_ldap_path_thumbnail;
 
 		$dn = $this->ldap_entry[0]["dn"];
 
 		if($this->create)
 			show_ldap_path("CN=" . sprintf(gettext("New %s"),
-				$ldap_server->get_object_schema_setting(
-				$ldap_server->get_object_class($this->ldap_entry[0]),
+				$this->ldap_server->get_object_schema_setting(
+				$this->ldap_server->get_object_class($this->ldap_entry[0]),
 				"display_name")) . (empty($dn) ? "" : "," . $dn),
-				$ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
+				$this->ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
 			show_ldap_path($dn);
 
@@ -599,8 +598,8 @@ class ldap_entry_viewer
 			// close last section in layout
 			echo "  </tr>\n</table>\n\n";
 
-			if($ldap_server->get_object_schema_setting(
-				$ldap_server->get_object_class($this->ldap_entry[0]),
+			if($this->ldap_server->get_object_schema_setting(
+				$this->ldap_server->get_object_class($this->ldap_entry[0]),
 				"is_folder") && get_user_setting("allow_browse") && !$this->edit)
 			{
 				echo "<p>"
