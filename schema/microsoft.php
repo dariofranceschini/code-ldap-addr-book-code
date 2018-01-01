@@ -626,7 +626,7 @@ class microsoft_schema extends ldap_schema
 					// service which shows the organizational unit's location.
 
 					// Component-based address representation:
-					array("street:l:st:postalCode",		gettext("Postal Address"),			"address.png"),
+					array("streetAddress:l:st:postalCode",	gettext("Postal Address"),			"address.png"),
 
 					// Component-based address representation including a field for PO Box
 					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),		"address.png"),
@@ -734,7 +734,7 @@ class microsoft_schema extends ldap_schema
 					// service which shows the organizational unit's location.
 
 					// Component-based address representation:
-					array("street:l:st:postalCode",		gettext("Postal Address"),			"address.png"),
+					array("streetAddress:l:st:postalCode",	gettext("Postal Address"),			"address.png"),
 
 					// Component-based address representation including a field for PO Box
 					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),		"address.png"),
