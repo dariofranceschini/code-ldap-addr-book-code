@@ -1064,6 +1064,7 @@ class ldap_attribute
 			case "image":		$this->show_image();		break;
 			case "yes_no":		$this->show_boolean_yes_no();	break;
 			case "use_html_mail":	$this->show_use_html_mail();	break;
+			case "delivery_method":	$this->show_delivery_method();	break;
 			case "text":		$this->show_text();		break;
 			case "oid_list":	$this->show_oid_list();		break;
 			case "mail_preference":	$this->show_mail_preference();	break;
@@ -1158,6 +1159,38 @@ class ldap_attribute
 		if($this->value & 0x04) echo "<li>" . gettext("Domain local scope") . "</li>";
 		if($this->value & 0x08) echo "<li>" . gettext("Universal scope") . "</li>";
 		echo "</ul>";
+	}
+
+	/** Show delivery methods attribute (data type "delivery_method")
+
+	    This attribute lists the methods by which an entity is willing/capable of
+	    receiving messages. Listed in preference order, separated by $.
+
+	    For the time being this is implemented as a simple (single valued) enumeration
+
+	    @see
+		https://tools.ietf.org/html/rfc4517#section-3.3.5
+
+	    @todo
+		Support specifying more than one delivery method
+	*/
+
+	function show_delivery_method()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"any","display_name"=>gettext("Any")),
+				array("value"=>"mhs","display_name"=>gettext("Message Handling System (e.g. E-mail)")),
+				array("value"=>"physical","display_name"=>gettext("Physical")),
+				array("value"=>"telex","display_name"=>gettext("Telex")),
+				array("value"=>"teletex","display_name"=>gettext("Teletex")),
+				array("value"=>"g3fax","display_name"=>gettext("G3 Fax")),
+				array("value"=>"g4fax","display_name"=>gettext("G4 Fax")),
+				array("value"=>"ia5","display_name"=>gettext("IA5")),
+				array("value"=>"videotex","display_name"=>gettext("Videotex")),
+				array("value"=>"telephone","display_name"=>gettext("Telephone"))
+				)
+			);
 	}
 
 	/** Show mozillaUseHtmlMail attribute (data type "use_html_mail")

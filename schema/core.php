@@ -43,7 +43,7 @@ class core_schema extends ldap_schema
 			array("name"=>"postalAddress",			"data_type"=>"text_area",	"display_name"=>gettext("Postal Address")),
 			array("name"=>"postalCode",			"data_type"=>"postcode",	"display_name"=>gettext("Postal Code")),
 			array("name"=>"postOfficeBox",			"data_type"=>"text",		"display_name"=>gettext("Post Office Box")),
-			array("name"=>"preferredDeliveryMethod",	"data_type"=>"text",		"display_name"=>gettext("Preferred Delivery Method")),
+			array("name"=>"preferredDeliveryMethod",	"data_type"=>"delivery_method",	"display_name"=>gettext("Preferred Delivery Method")),
 			array("name"=>"registeredAddress",		"data_type"=>"text_area",	"display_name"=>gettext("Registered Address")),
 			array("name"=>"roleOccupant",			"data_type"=>"dn_list",		"display_name"=>gettext("Role Occupant")),
 			array("name"=>"searchGuide",			"data_type"=>"text_list",	"display_name"=>gettext("Search Guide")),
