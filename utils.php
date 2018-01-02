@@ -2399,7 +2399,7 @@ class ldap_attribute
 					else
 						echo $value_display_name;
 
-					if(!$this->edit && get_user_setting("allow_edit") && !$this->create)
+					if(!$this->edit && !$this->create && get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
