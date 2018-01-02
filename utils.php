@@ -2971,9 +2971,9 @@ function get_user_setting($attrib,$user_name = "")
 				{
 					if(strtolower($attrib) == "memberuid")
 					{
-						if(isset($_SESSION["LOGIN_UID"]))
+						if(isset($_SESSION["LOGIN_UID"][$ldap_server->server_id]))
 							$query .= "(" . $attrib . "="
-								. ldap_escape($_SESSION["LOGIN_UID"],
+								. ldap_escape($_SESSION["LOGIN_UID"][$ldap_server->server_id],
 								null,LDAP_ESCAPE_FILTER) . ")";
 					}
 					else
@@ -4532,9 +4532,9 @@ class ldap_server
 			{
 				$entry = ldap_get_entries($this->connection,$search_resource);
 				if(isset($entry[0]["uid"][0]))
-					$_SESSION["LOGIN_UID"] = $entry[0]["uid"][0];
+					$_SESSION["LOGIN_UID"][$this->server_id] = $entry[0]["uid"][0];
 				if(isset($entry[0]["userid"][0]))
-					$_SESSION["LOGIN_UID"] = $entry[0]["userid"][0];
+					$_SESSION["LOGIN_UID"][$this->server_id] = $entry[0]["userid"][0];
 			}
 
 			// Assign any further permissions based on group memberships
@@ -4565,9 +4565,9 @@ class ldap_server
 		{
 			if(strtolower($attrib) == "memberuid")
 			{
-				if(isset($_SESSION["LOGIN_UID"]))
+				if(isset($_SESSION["LOGIN_UID"][$this->server_id]))
 					$query .= "(" . $attrib . "="
-						. ldap_escape($_SESSION["LOGIN_UID"],
+						. ldap_escape($_SESSION["LOGIN_UID"][$this->server_id],
 						null,LDAP_ESCAPE_FILTER) . ")";
 			}
 			else
@@ -4592,7 +4592,7 @@ class ldap_server
 				if(isset($entry[0][strtolower($attribute)]))
 				{
 					if(strtolower($attribute) == "memberuid")
-						$test_value = $_SESSION["LOGIN_UID"];
+						$test_value = $_SESSION["LOGIN_UID"][$this->server_id];
 					else
 						$test_value = $_SESSION["LOGIN_BIND_DN"][$this->server_id];
 
