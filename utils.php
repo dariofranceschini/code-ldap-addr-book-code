@@ -5513,9 +5513,18 @@ class ldap_server
 						if(in_array($attribute[0],$layout_attributes))
 							unset($aux_layout[$aux_section_id]["attributes"][$attribute_id]);
 
-				$aux_layout[0]["new_row"]=true;
-				$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
-				$layout_attributes = get_layout_attributes($entry_viewer_layout);
+				// remove entirely empty sections
+				foreach($aux_layout as $aux_section_id=>$aux_section)
+					if(count($aux_section["attributes"])==0)
+						unset($aux_layout[$aux_section_id]);
+
+				// Add remaining sections/attributes to the entry layout (if any)
+				if(!empty($aux_layout))
+				{
+					$aux_layout[0]["new_row"]=true;
+					$entry_viewer_layout = array_merge($entry_viewer_layout,$aux_layout);
+					$layout_attributes = get_layout_attributes($entry_viewer_layout);
+				}
 
 				if(in_array($object_class,$new_aux_classes))
 					$this->call_schema_function(
