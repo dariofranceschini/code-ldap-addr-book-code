@@ -2318,8 +2318,6 @@ class ldap_attribute
 
 	function show_dn_list($attrib_type = "dn_list")
 	{
-		global $ldap_server;
-
 		$has_values = !empty($this->ldap_entry[strtolower($this->attribute)]);
 
 		if($attrib_type == "dn")
@@ -2336,11 +2334,11 @@ class ldap_attribute
 					if(!$first_item) echo "\n            <br>\n            ";
 					$first_item = false;
 					// retrieve object class icon
-					$search_resource = @ldap_read($ldap_server->connection,$value,"(objectclass=*)");
+					$search_resource = @ldap_read($this->ldap_server->connection,$value,"(objectclass=*)");
 
 					if($search_resource)
 					{
-						$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+						$entry = ldap_get_entries($this->ldap_server->connection,$search_resource);
 
 						if($entry["count"]==0)
 						{
@@ -2353,15 +2351,15 @@ class ldap_attribute
 						{
 							// assign an object class for eDirectory tree root (not defined
 							// by default)
-							if($ldap_server->server_type=="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
+							if($this->ldap_server->server_type=="edir" && $entry[0]["dn"] == "" && !isset($entry[0]["objectclass"]))
 							{
 								$entry[0][$entry[0]["count"]] = "objectclass";
 								$entry[0]["objectclass"][0] = "treeRoot";
 								$entry[0]["count"]++;
 							}
-							$icon = $ldap_server->get_icon_for_ldap_entry($entry[0]);
-							$item_object_class = $ldap_server->get_object_class($entry[0]);
-							$is_folder = $ldap_server->get_object_schema_setting(
+							$icon = $this->ldap_server->get_icon_for_ldap_entry($entry[0]);
+							$item_object_class = $this->ldap_server->get_object_class($entry[0]);
+							$is_folder = $this->ldap_server->get_object_schema_setting(
 								$item_object_class,"is_folder");
 
 							$alt_text = $item_object_class;
@@ -2386,7 +2384,7 @@ class ldap_attribute
 						. "\" src=\"" . $icon . "\">\n            ";
 
 					if($this->show_embedded_links &&
-						($ldap_server->compare_dn_to_base($value,$ldap_server->base_dn)
+						($this->ldap_server->compare_dn_to_base($value,$this->ldap_server->base_dn)
 						|| get_user_setting("allow_system_admin")))
 					{
 						if($is_folder)
