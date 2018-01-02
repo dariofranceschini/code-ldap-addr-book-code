@@ -2964,7 +2964,6 @@ function get_user_setting($attrib,$user_name = "")
 			{
 				if(!isset($group_member_attributes))
 					$group_member_attributes = array("member","roleOccupant","memberUid");
-
 				$query = "";
 
 				foreach($group_member_attributes as $attrib)
@@ -3986,6 +3985,9 @@ class ldap_server
 	/** Display layouts */
 	var $display_layouts = array();
 
+	/** Host name or URL (typically for identifying the server in error messages */
+	var $host_or_url;
+
 	/** Supported server types */
 	var $server_types = array(
 		array("name"=>"ad",
@@ -4064,6 +4066,7 @@ class ldap_server
 
 		$this->server_type = $ldap_server_type;
 		$this->base_dn = $base_dn;
+		$this->host_or_url = $ldap_server_host_or_url;
 
 		$schema_list = "";
 		foreach($this->server_types as $server_type)
