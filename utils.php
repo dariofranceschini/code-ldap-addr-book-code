@@ -2426,34 +2426,34 @@ class ldap_attribute
 
 	function show_child_objects()
 	{
-		global $ldap_server,$openldap_overlay_module,$openldap_backend_module;
+		global $openldap_overlay_module,$openldap_backend_module;
 
-		$search_resource = @ldap_list($ldap_server->connection,
+		$search_resource = @ldap_list($this->ldap_server->connection,
 			$this->ldap_entry["dn"],"(objectclass=*)");
 
 		if($search_resource && !$this->create)
 		{
-			$child_entries = ldap_get_entries($ldap_server->connection,$search_resource);
+			$child_entries = ldap_get_entries($this->ldap_server->connection,$search_resource);
 			if($child_entries["count"]>0)
 				foreach($child_entries as $child_entry)
 				{
 					if(is_array($child_entry))
 					{
-						$icon = $ldap_server->get_icon_for_ldap_entry($child_entry);
-						$item_object_class = $ldap_server->get_object_class($child_entry);
+						$icon = $this->ldap_server->get_icon_for_ldap_entry($child_entry);
+						$item_object_class = $this->ldap_server->get_object_class($child_entry);
 						$rdn_list = ldap_explode_dn2($child_entry["dn"]);
 						$value_display_name = $rdn_list["0"]["value"];
 						$alt_text = $item_object_class;
 
-						$is_folder = $ldap_server->get_object_schema_setting(
+						$is_folder = $this->ldap_server->get_object_schema_setting(
 							$item_object_class,"is_folder");
 
 						echo "<img alt=\"" . $alt_text . "\" title=\"" . $alt_text
 							. "\" src=\"" . $icon . "\"> ";
 
 						if($this->show_embedded_links &&
-							($ldap_server->compare_dn_to_base($child_entry["dn"],
-							$ldap_server->base_dn)
+							($this->ldap_server->compare_dn_to_base($child_entry["dn"],
+							$this->ldap_server->base_dn)
 							|| get_user_setting("allow_system_admin")))
 						{
 							if($is_folder)
