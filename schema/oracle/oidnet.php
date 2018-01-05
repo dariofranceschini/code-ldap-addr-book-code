@@ -42,7 +42,7 @@ class oracle_oidnet_schema extends ldap_schema
 
 		// Display layouts
 		$ldap_server->add_display_layout("orclNetService",array(
-			array(
+			array("section_name"=>gettext("Oracle NetService"),
 				"attributes"=>array(
 					array("cn",			gettext("NetService Name"),			"oracle/oracle-netservice.png"),
 					)
