@@ -641,6 +641,7 @@ class ldap_entry_viewer
 			if(get_user_setting("allow_move") && !$this->edit)
 				echo "<a href=\"move.php?dn="
 					. urlencode($dn)
+					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Move") . "</button></a>\n";
 
 			if(get_user_setting("allow_delete") && !$this->edit)
