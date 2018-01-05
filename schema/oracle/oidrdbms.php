@@ -29,7 +29,7 @@ class oracle_oidrdbms_schema extends ldap_schema
 
                 // Display layouts
                 $ldap_server->add_display_layout("orclDBServer",array(
-                        array(
+                        array("section_name"=>gettext("Oracle Database"),
                                 "attributes"=>array(
                                         array("cn",                     gettext("Database Name"),		"oracle/oracle-dbserver.png"),
 					array("orclSystemName",		gettext("Server Host Name"),		"generic24.png"),
