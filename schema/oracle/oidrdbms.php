@@ -20,7 +20,7 @@ class oracle_oidrdbms_schema extends ldap_schema
 
                 // Object classes
                 $this->object_schema = array(
-			array("name"=>"orclDBServer",			"icon"=>"oracle/oracle-dbserver.png",		"is_folder"=>true,"display_name"=>gettext("Oracle Database"),"can_create"=>true),
+			array("name"=>"orclDBServer",			"icon"=>"oracle/oracle-dbserver.png",		"is_folder"=>false,"display_name"=>gettext("Oracle Database"),"can_create"=>true),
 			array("name"=>"orclDBEnterpriseDomain",		"icon"=>"oracle/oracle-enterprise-domain.png",	"is_folder"=>true,"display_name"=>gettext("Oracle Database Enterprise Domain"),"can_create"=>true),
 			array("name"=>"orclDBEnterpriseRole",		"icon"=>"oracle/oracle-enterprise-role.png",	"is_folder"=>false,"display_name"=>gettext("Oracle Database Enterprise Role"),"can_create"=>true),
 			array("name"=>"orclDBEntryLevelMapping",	"icon"=>"generic24.png",			"is_folder"=>false,"display_name"=>gettext("Oracle Database Entry Level Mapping")),
@@ -42,6 +42,11 @@ class oracle_oidrdbms_schema extends ldap_schema
                         array("section_name"=>gettext("Connect Descriptor"),"new_row"=>true,
                                 "attributes"=>array(
                                         array("orclNetDescString")
+                                        )
+                                ),
+                        array("section_name"=>gettext("Child Objects"),"new_row"=>true,
+                                "attributes"=>array(
+                                        array("__CHILD_OBJECTS__")
                                         )
                                 )
                         ));
