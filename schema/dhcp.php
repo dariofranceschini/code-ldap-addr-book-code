@@ -107,8 +107,8 @@ class dhcp_schema extends ldap_schema
 		$ldap_server->add_display_layout("dhcpLocator",array(
 			array("section_name"=>gettext("DHCP Object Locations"),
 				"attributes"=>array(
-					array("dhcpServerDN",			gettext("Server Objects"),		"generic24.png"),
-					array("dhcpServiceDN",			gettext("Service Objects"),		"generic24.png")
+					array("dhcpServerDN",			gettext("Server Objects"),		"server-alias.png"),
+					array("dhcpServiceDN",			gettext("Service Objects"),		"alias.png")
 					)
 				),
 			));
