@@ -2405,7 +2405,7 @@ class ldap_attribute
 					else
 						echo $value_display_name;
 
-					if(!$this->edit && !$this->create && get_user_setting("allow_edit"))
+					if(!$this->edit && !$this->read_only && !$this->create && get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
@@ -2416,7 +2416,8 @@ class ldap_attribute
 		else
 			echo "<span style=\"line-height:24px\">(" . gettext("none") . ")</span>\n";
 
-		if(!$this->edit && !$this->create && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
+		if(!$this->edit && !$this->read_only && !$this->create && get_user_setting("allow_edit")
+				&& get_user_setting("allow_browse"))
 			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
 				. "\"><button>" . $button_caption . "</button></a>\n";
