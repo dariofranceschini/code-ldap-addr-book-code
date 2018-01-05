@@ -1859,7 +1859,7 @@ class ldap_attribute
 				{
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
 
-					if(!$this->create && !$this->edit && get_user_setting("allow_edit"))
+					if(!$this->create && !$this->edit && !$this->read_only && get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
@@ -1873,7 +1873,7 @@ class ldap_attribute
 			echo "</ul>";
 		}
 
-		if(!$this->edit && !$this->create && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
+		if(!$this->edit && !$this->create && !$this->read_only && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
 			echo "            <a style=\"float:right\" href=\"add_text_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
 				. "\"><button>Add</button></a>\n";
