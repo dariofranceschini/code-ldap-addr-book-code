@@ -36,7 +36,7 @@ class oracle_oidrdbms_schema extends ldap_schema
 					array("orclOracleHome",		gettext("Oracle Home"),			"generic24.png"),
 					array("orclSid",		gettext("SID"),				"generic24.png"),
 					array("orclDBGlobalName",	gettext("Global Name"),			"generic24.png"),
-					array("orclNetDescName",	gettext("Net Service Name"),		"generic24.png"),
+					array("orclNetDescName",	gettext("Net Service Name"),		"generic24.png")
                                         )
                                 ),
                         array("section_name"=>gettext("Connect Descriptor"),"new_row"=>true,
