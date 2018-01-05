@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 08:40+0100\n"
-"PO-Revision-Date: 2017-05-22 08:40+0100\n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../schema/oracle/oidrdbms.php:23
+#: ../schema/oracle/oidrdbms.php:23 ../schema/oracle/oidrdbms.php:32
 msgid "Oracle Database"
 msgstr "Oracle Database"
 
@@ -64,3 +64,7 @@ msgstr "Nom du Service Net"
 #: ../schema/oracle/oidrdbms.php:42
 msgid "Connect Descriptor"
 msgstr "Descripteur pour Connection"
+
+#: ../schema/oracle/oidrdbms.php:47
+msgid "Child Objects"
+msgstr "Objets Enfants"
