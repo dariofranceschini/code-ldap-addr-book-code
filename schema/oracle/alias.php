@@ -16,7 +16,7 @@ class oracle_alias_schema extends ldap_schema
 
 		// Display layouts
 		$ldap_server->add_display_layout("orclNetServiceAlias",array(
-			array(
+			array("section_name"=>gettext("Oracle NetService Alias"),
 				"attributes"=>array(
 					array("cn",			gettext("Alias Name"),					"generic24.png"),
 					array("aliasedObjectName",	gettext("Aliased Net Service Object"),			"generic24.png"),

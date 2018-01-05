@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:42+0100\n"
-"PO-Revision-Date: 2016-10-16 12:42+0100\n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/oracle/alias.php:19
+msgid "Oracle NetService Alias"
+msgstr "Alias di Oracle NetService"
 
 #: ../schema/oracle/alias.php:21
 msgid "Alias Name"
