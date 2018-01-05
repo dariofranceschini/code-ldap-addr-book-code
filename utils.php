@@ -852,6 +852,7 @@ class ldap_entry_viewer_attrib
 						$this->viewer->ldap_entry[0],$attribute);
 
 					$attrib->edit = $edit;
+					$attrib->read_only = !$this->allow_edit;	// TODO: not needed in longer term?
 					$attrib->create = $create;
 					$attrib->required = in_array($attribute,$this->viewer->required_attribs);
 
@@ -890,6 +891,13 @@ class ldap_attribute
 
 	/** Whether the attribute should be rendered with editing enabled */
 	var $edit = false;
+
+	/** Whether the attribute should be rendered with buttons to add values, etc
+
+	    (In the longer term this should not need to exist as a distinct setting
+	    to $edit.)
+	*/
+	var $read_only = false;
 
 	/** Whether to show attributes such as dates in "short" format */
 	var $use_short_format = false;
@@ -3538,6 +3546,7 @@ class ldap_entry_list
 
 		$attrib = new ldap_attribute($ldap_entry["SERVER"],$ldap_entry,$attrib_name);
 		$attrib->use_short_format = true;
+		$attrib->read_only = true;		// TODO: should not be necessary in longer term?
 
 		$server_id_value=($ldap_entry["SERVER"]->server_id==0 ? ""
 			: "&server_id=" . $ldap_entry["SERVER"]->server_id);
