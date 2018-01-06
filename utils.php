@@ -2418,10 +2418,14 @@ class ldap_attribute
 			echo "<span style=\"line-height:24px\">(" . gettext("none") . ")</span>\n";
 
 		if(!$this->edit && !$this->read_only && !$this->create && get_user_setting("allow_edit")
-				&& get_user_setting("allow_browse"))
+			&& get_user_setting("allow_browse"))
+		{
 			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="
-				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
-				. "\"><button>" . $button_caption . "</button></a>\n";
+				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute);
+			if($this->ldap_server->server_id !=0)
+				echo "&server_id=" . $this->ldap_server->server_id;
+			echo "\"><button>" . $button_caption . "</button></a>\n";
+		}
 	}
 
 	/** Show child objects (data type "child_objects")
@@ -3589,6 +3593,7 @@ class ldap_entry_list
 					. "?dn=" . urlencode($ldap_entry["dn"])
 					. "&attrib=" . urlencode($attrib_name)
 					. "&target_dn=" . urlencode($target_dn)
+					. $server_id_value
 					. "\">";
 
 			else
@@ -3596,6 +3601,7 @@ class ldap_entry_list
 					. "?dn=" . urlencode($ldap_entry["dn"])
 					. "&attrib=" . urlencode($attrib_name)
 					. "&target_dn=" . urlencode($target_dn)
+					. $server_id_value
 					. "&confirm=yes"
 					. "\">";
 

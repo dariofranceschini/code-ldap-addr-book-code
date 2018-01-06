@@ -21,6 +21,11 @@ include "config.php";
 
 if(prereq_components_ok())
 {
+	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	        $server_id = $_GET["server_id"];
+	else
+	        $server_id=0;
+
 	// DN of object that will be written to
 	if(isset($_GET["target_dn"]) && strlen($_GET["target_dn"])<=MAX_DN_LENGTH)
 		$target_dn = $_GET["target_dn"];
@@ -37,8 +42,10 @@ if(prereq_components_ok())
 	else
 		$dn = get_parent_dn($target_dn);
 
-	if(!$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn) && !get_user_setting("allow_system_admin"))
-		$dn = $ldap_server->base_dn;
+	if(!$ldap_server_list[$server_id]->compare_dn_to_base($dn,
+			$ldap_server_list[$server_id]->base_dn)
+			&& !get_user_setting("allow_system_admin"))
+		$dn = $ldap_server_list[$server_id]->base_dn;
 
 	if(isset($_GET["attrib"]))
 		$attrib = $_GET["attrib"];
@@ -50,7 +57,7 @@ if(prereq_components_ok())
 	}
 }
 
-if($ldap_server->log_on())
+if($ldap_server_list[$server_id]->log_on())
 {
 	if(get_user_setting("allow_browse"))
 	{
@@ -62,18 +69,18 @@ if($ldap_server->log_on())
 			{
 				$new_value[$attrib] = $dn;
 
-				$result = @ldap_mod_add($ldap_server->connection,
+				$result = @ldap_mod_add($ldap_server_list[$server_id]->connection,
 					$target_dn,$new_value);
-				$error = ldap_error($ldap_server->connection);
+				$error = ldap_error($ldap_server_list[$server_id]->connection);
 				if($result)
 				{
-					$search_resource = @ldap_read($ldap_server->connection,
+					$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
 						$target_dn,$browse_ldap_filter,array("*","+"));
 					if($search_resource)
 					{
-						$entry = ldap_get_entries($ldap_server->connection,
+						$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
 							$search_resource);
-						$ldap_server->call_schema_function("after_add_"
+						$ldap_server_list[$server_id]->call_schema_function("after_add_"
 							. $ldap_server->get_object_class($entry[0])
 							. "_" . $attrib,$entry[0]);
 
@@ -113,7 +120,7 @@ if($ldap_server->log_on())
 			}
 
 			if(isset($_GET["dn"]))
-				if($dn == $ldap_server->base_dn)
+				if($dn == $ldap_server_list[$server_id]->base_dn)
 					echo "<p>" . gettext("You are currently viewing the top level of the Address Book") . "</p>";
 				else if($dn == "")
 					echo "<p>" . gettext("You are currently viewing the root of the directory") . "</p>";
@@ -132,7 +139,7 @@ if($ldap_server->log_on())
                 	$filter = empty($browse_ldap_filter)
 				?"objectClass=*":$browse_ldap_filter;
 
-			$search_resource = @ldap_list($ldap_server->connection,
+			$search_resource = @ldap_list($ldap_server_list[$server_id]->connection,
 				$dn,$filter);
 
 			if(is_resource($search_resource))
@@ -143,19 +150,19 @@ if($ldap_server->log_on())
 				$entry_list = new ldap_entry_list(
 					array(array("caption"=>"Objects","attrib"=>"sortableName","link_type"=>"add_dn_value")));
 
-				$entry_list->add_entries($ldap_server,$search_resource);
+				$entry_list->add_entries($ldap_server_list[$server_id],$search_resource);
 
 				$entry_list->sort($sort_order);
 
 				$parent_dn = get_parent_dn($dn);
 
 				if($dn != "" && (get_user_setting("allow_system_admin")
-					|| $ldap_server->compare_dn_to_base($parent_dn,
-					$ldap_server->base_dn)))
+					|| $ldap_server_list[$server_id]->compare_dn_to_base($parent_dn,
+					$ldap_server_list[$server_id]->base_dn)))
 				{
 					$parent_dn_exploded = ldap_explode_dn2($parent_dn);
 
-					if($parent_dn == $ldap_server->base_dn)
+					if($parent_dn == $ldap_server_list[$server_id]->base_dn)
 						$go_to_parent_message = gettext("Go up a level to the top level of the Address Book");
 					else if($parent_dn == "")
 						$go_to_parent_message = gettext("Go up a level to the root of the directory");
@@ -166,7 +173,7 @@ if($ldap_server->log_on())
 						"objectclass"=>array(0=>"organizationalUnit"),
 						"ou"=>array(0=>$go_to_parent_message),
 						"dn"=>$parent_dn,
-						"SERVER"=>$ldap_server
+						"SERVER"=>$ldap_server_list[$server_id]
 						));
 					$entry_list->ldap_entries["count"]++;
 				}
