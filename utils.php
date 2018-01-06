@@ -1867,6 +1867,8 @@ class ldap_attribute
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
 							. "&value=" . urlencode($value)
+							. ($this->ldap_server->server_id == 0 ? ""
+							: ("&server_id=" . $this->ldap_server->server_id))
 							. "\"><button>" . gettext("Remove") . "</button></a>\n";
 
 					echo "</li>";
@@ -2415,6 +2417,8 @@ class ldap_attribute
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
 							. "&value=" . urlencode($value)
+							. ($this->ldap_server->server_id == 0 ? ""
+							: ("&server_id=" . $this->ldap_server->server_id))
 							. "\"><button>" . gettext("Remove") . "</button></a>\n";
 				}
 		}

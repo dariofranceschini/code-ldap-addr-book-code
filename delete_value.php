@@ -21,7 +21,12 @@ include "config.php";
 
 if(prereq_components_ok())
 {
-	if($ldap_server->log_on())
+	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+		$server_id = $_GET["server_id"];
+	else
+		$server_id=0;
+
+	if($ldap_server_list[$server_id]->log_on())
 	{
 		if(get_user_setting("allow_edit"))
 		{
@@ -52,26 +57,26 @@ if(prereq_components_ok())
 					. gettext("The attribute value was not specified."));
 
 			$search_resource
-				= @ldap_read($ldap_server->connection,
+				= @ldap_read($ldap_server_list[$server_id]->connection,
 				$dn,$browse_ldap_filter,array("*","+"));
 
 			if($search_resource)
 			{
 				$entry = ldap_get_entries(
-					$ldap_server->connection,
+					$ldap_server_list[$server_id]->connection,
 					$search_resource);
-				$ldap_server->call_schema_function(
+				$ldap_server_list[$server_id]->call_schema_function(
 					"before_delete_"
-					. $ldap_server->get_object_class(
+					. $ldap_server_list[$server_id]->get_object_class(
 					$entry[0])
 					. "_" . $attrib,$entry[0]);
 
 				$removed_value[$attrib] = $value;
 
 				$result = @ldap_mod_del(
-					$ldap_server->connection,
+					$ldap_server_list[$server_id]->connection,
 					$dn,$removed_value);
-				$error = ldap_error($ldap_server->connection);
+				$error = ldap_error($ldap_server_list[$server_id]->connection);
 
 				if($result)
 					header("Location: info.php?dn="
