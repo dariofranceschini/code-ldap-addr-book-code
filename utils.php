@@ -647,6 +647,7 @@ class ldap_entry_viewer
 			if(get_user_setting("allow_delete") && !$this->edit)
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
+					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Delete") . "</button></a>\n";
 
 			if(get_user_setting("allow_extend") && get_user_setting("allow_edit") && !$this->edit)
@@ -3496,7 +3497,8 @@ class ldap_entry_list
 
 		if(!$this->object_dn_select_mode && get_user_setting("allow_delete"))
 			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
-				. urlencode($dn)
+				. urlencode($dn) . ($ldap_entry["SERVER"]->server_id==0 ? ""
+				: ("&server_id=" . $ldap_entry["SERVER"]->server_id))
 				. "\"><button>" . gettext("Delete") . "</button></a>\n    </td>\n";
 
 		echo "  </tr>\n";

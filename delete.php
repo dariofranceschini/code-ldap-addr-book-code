@@ -22,6 +22,13 @@ include "config.php";
 // TODO: guard against nasties in the DN
 $dn = $_GET["dn"];
 
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
+$server_id_str = $server_id == 0 ? "" : ("&server_id=" . $server_id);
+
 // if successful delete then should take the user back to displaying parent
 // container object afterwards.
 $rdn_list = ldap_explode_dn2($dn);
@@ -39,10 +46,10 @@ else
 	else
 		$return_page_if_not_deleted = "index.php";
 
-if($ldap_server->log_on())
+if($ldap_server_list[$server_id]->log_on())
 {
 	// check record exists before offering to delete it
-	$search_resource = @ldap_read($ldap_server->connection,$dn,"(objectclass=*)");
+	$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
 
 	if($search_resource)
 	{
@@ -55,19 +62,19 @@ if($ldap_server->log_on())
 
 				echo "<p>" . gettext("Are you sure you want to delete this record?") . "</p>\n";
 
-				echo "<a href=\"delete.php?dn=" . urlencode($dn)
-					. "&confirm=yes\"><button>" . gettext("Yes") . "</button></a>\n";
+				echo "<a href=\"delete.php?dn=" . urlencode($dn) . $server_id_str;
+				echo "&confirm=yes\"><button>" . gettext("Yes") . "</button></a>\n";
 
 				echo "<a href=\"" . $return_page_if_not_deleted
 					. "\"><button>" . gettext("No") . "</button></a>\n";
 			}
 			else
 			{
-				if(@ldap_delete($ldap_server->connection,$dn))
+				if(@ldap_delete($ldap_server_list[$server_id]->connection,$dn))
 					header("Location: " . $return_page_if_deleted);
 				else
 				{
-					$error=ldap_error($ldap_server->connection);
+					$error=ldap_error($ldap_server_list[$server_id]->connection);
 
 					show_site_header();
 					show_ldap_path($dn);
