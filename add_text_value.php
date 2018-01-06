@@ -41,7 +41,12 @@ if(prereq_components_ok())
 	}
 }
 
-if($ldap_server->log_on())
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
+if($ldap_server_list[$server_id]->log_on())
 {
 	if(get_user_setting("allow_browse"))
 	{
@@ -51,19 +56,19 @@ if($ldap_server->log_on())
 			{
 				$new_value[$attrib] = $_POST["value"];
 
-				$result = @ldap_mod_add($ldap_server->connection,
+				$result = @ldap_mod_add($ldap_server_list[$server_id]->connection,
 					$target_dn,$new_value);
-				$error = ldap_error($ldap_server->connection);
+				$error = ldap_error($ldap_server_list[$server_id]->connection);
 				if($result)
 				{
-					$search_resource = @ldap_read($ldap_server->connection,
+					$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
 						$target_dn,$browse_ldap_filter,array("*","+"));
 					if($search_resource)
 					{
-						$entry = ldap_get_entries($ldap_server->connection,
+						$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
 							$search_resource);
-						$ldap_server->call_schema_function("after_add_"
-							. $ldap_server->get_object_class($entry[0])
+						$ldap_server_list[$server_id]->call_schema_function("after_add_"
+							. $ldap_server_list[$server_id]->get_object_class($entry[0])
 							. "_" . $attrib,$entry[0]);
 
 						header("Location: info.php?dn="
@@ -107,7 +112,8 @@ if($ldap_server->log_on())
 				$attrib,$entry_name) . "</p>\n<hr>\n";
 
 			echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
-				. urlencode($target_dn) . "&attrib=" . urlencode($attrib) . "\">\n"
+				. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
+				. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "\">\n"
 				. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
 
 			echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
