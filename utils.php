@@ -652,6 +652,7 @@ class ldap_entry_viewer
 			if(get_user_setting("allow_extend") && get_user_setting("allow_edit") && !$this->edit)
 				echo "<a href=\"extend.php?dn="
 					. urlencode($dn)
+					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Extend Record") . "</button></a>\n";
 
 			if(get_user_setting("allow_export") && !$this->edit)

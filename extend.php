@@ -19,7 +19,12 @@
 include "utils.php";
 include "config.php";
 
-if($ldap_server->log_on())
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
+if($ldap_server_list[$server_id]->log_on())
 {
         if(!get_user_setting("allow_extend"))
 	{
@@ -37,12 +42,14 @@ if($ldap_server->log_on())
 	{
 		show_site_header();
 
-		$search_resource = @ldap_read($ldap_server->connection,$dn,$browse_ldap_filter,array("objectclass"));
+		$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
+			$dn,$browse_ldap_filter,array("objectclass"));
 
 		show_ldap_path($dn);
 
 		// TODO: guard against nasties in the DN
-		echo "<form method=\"POST\" action=\"extend.php?dn=" . $_GET["dn"] . "\">\n";
+		echo "<form method=\"POST\" action=\"extend.php?dn=" . $_GET["dn"]
+			. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) ."\">\n";
 
 		echo "  <p>" . gettext("You can extend this record to hold additional information.") . "</p>";
 		echo "  <p>" . gettext("What type of information would you like to add?") . "</p>";
@@ -57,11 +64,11 @@ if($ldap_server->log_on())
 		$add_any_auxiliary_class = isset($_GET["show_all"]);
 
 		$auxiliary_class_list = array();
-		foreach($ldap_server->object_schema as $object_class)
+		foreach($ldap_server_list[$server_id]->object_schema as $object_class)
 		{
 			if(isset($object_class["class_type"]) && $object_class["class_type"] == "auxiliary")
 			{
-				if($add_any_auxiliary_class || $ldap_server->get_object_schema_setting($object_class["name"],"can_create"))
+				if($add_any_auxiliary_class || $ldap_server_list[$server_id]->get_object_schema_setting($object_class["name"],"can_create"))
 				$auxiliary_class_list[] = $object_class["name"];
 			}
 		}
@@ -70,9 +77,9 @@ if($ldap_server->log_on())
 
 		foreach($auxiliary_class_list as $object_class)
 		{
-			$display_name = $ldap_server->get_object_schema_setting($object_class,
+			$display_name = $ldap_server_list[$server_id]->get_object_schema_setting($object_class,
 				"display_name");
-			$icon = $ldap_server->get_object_schema_setting($object_class,
+			$icon = $ldap_server_list[$server_id]->get_object_schema_setting($object_class,
 				"icon");
 
 			echo "    <option value=\"" . $object_class . "\" icon=\"schema/" . $icon . "\"";
