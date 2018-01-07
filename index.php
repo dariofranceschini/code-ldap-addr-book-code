@@ -211,7 +211,7 @@ if(prereq_components_ok())
 
 			if(get_user_setting("allow_create"))
 				$buttons .= "<a href=\"create.php?dn="
-					. urlencode($dn)
+					. urlencode($dn) . $server_id_str
 					. "\"><button>" . gettext("New Record") . "</button></a>\n";
 
 			if(get_user_setting("allow_export_bulk") && empty($_GET["filter"]))

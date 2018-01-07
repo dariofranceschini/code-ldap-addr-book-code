@@ -2572,6 +2572,7 @@ class ldap_attribute
 		if(!$this->edit && get_user_setting("allow_create") && !$this->create)
 			echo "<br><a href=\"create.php?dn="
 				. urlencode($this->ldap_entry["dn"])
+				. ($this->ldap_server->server_id == 0 ? "" : ("&server_id=" . $this->ldap_server->server_id))
 				. "\"><button>" . gettext("Add") . "</button></a>\n";
 	}
 

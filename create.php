@@ -24,7 +24,7 @@ if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
 else
 	$server_id=0;
 
-if($ldap_server->log_on())
+if($ldap_server_list[$server_id]->log_on())
 {
 	show_site_header();
 
@@ -34,20 +34,22 @@ if($ldap_server->log_on())
 	// TODO: guard against nasties in the DN
 	$dn = $_GET["dn"];
 
-	$search_resource = @ldap_read($ldap_server->connection,$dn,$browse_ldap_filter,array("objectclass"));
+	$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
+		$dn,$browse_ldap_filter,array("objectclass"));
 
 	if($search_resource)
 	{
-		$container_entry = ldap_get_entries($ldap_server->connection,$search_resource);
+		$container_entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
+			$search_resource);
 
-		fix_missing_object_classes($ldap_server,$container_entry[0]);
+		fix_missing_object_classes($ldap_server_list[$server_id],$container_entry[0]);
 
 		$contain_list = array("*");
 		foreach($container_entry[0]["objectclass"] as $class_index=>$container_class)
 		{
 			if(!($class_index === "count"))
 			{
-				$contain_list_for_class = explode(",",$ldap_server->get_object_schema_setting(
+				$contain_list_for_class = explode(",",$ldap_server_list[$server_id]->get_object_schema_setting(
 					$container_class,"can_contain"));
 
 				if($contain_list_for_class[0] != "*")
@@ -82,12 +84,12 @@ if($ldap_server->log_on())
 	echo "  <select name=\"create\" style=\"width:300px\" id=\"object_class_selector\">\n";
 
 	$create_list = array();
-	foreach($ldap_server->object_schema as $object_class)
-		if(in_array($ldap_server->get_object_schema_setting($object_class["name"],"class_type"),array("structural","type88")))
+	foreach($ldap_server_list[$server_id]->object_schema as $object_class)
+		if(in_array($ldap_server_list[$server_id]->get_object_schema_setting($object_class["name"],"class_type"),array("structural","type88")))
 			if($show_all_object_classes ||
 					(
 						// object must be marked as creatable (in general)
-						$ldap_server->get_object_schema_setting($object_class["name"],"can_create")
+						$ldap_server_list[$server_id]->get_object_schema_setting($object_class["name"],"can_create")
 						// ...and the container/folder is "willing" to contain it
 						&& can_create_in_container($object_class,$contain_list)
 						// ...and the object is "willing" to be contained here
@@ -100,14 +102,14 @@ if($ldap_server->log_on())
 
 	foreach($create_list as $object_class)
 	{
-		$display_name = $ldap_server->get_object_schema_setting($object_class,
+		$display_name = $ldap_server_list[$server_id]->get_object_schema_setting($object_class,
 			"display_name");
-		$icon = $ldap_server->get_object_schema_setting($object_class,
+		$icon = $ldap_server_list[$server_id]->get_object_schema_setting($object_class,
 			"icon");
 
 		echo "    <option value=\"" . $object_class . "\" icon=\"schema/" . $icon . "\"";
 
-		if($object_class == $ldap_server->default_create_class) echo " selected";
+		if($object_class == $ldap_server_list[$server_id]->default_create_class) echo " selected";
 		echo ">" . $display_name . "</option>\n";
 	}
 
@@ -118,7 +120,8 @@ if($ldap_server->log_on())
 	else
 		echo "  <p>"
 			. gettext("This list contains only those object classes that end users are allowed to create.")
-			. "</p>\n  <p><a href=\"create.php?dn=" . urlencode($dn) . "&show_all=yes\">"
+			. "</p>\n  <p><a href=\"create.php?dn=" . urlencode($dn) . "&show_all=yes"
+			. ($server_id==0 ? "" : ("&server_id=" . $server_id)) . "\">"
 			. gettext("Choose from all recognised object classes") . "</a></p>";
 
 	echo "  <p>\n    <input type=\"submit\" value=\"" . gettext("Next") . "&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
