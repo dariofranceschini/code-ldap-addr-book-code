@@ -607,7 +607,9 @@ class ldap_entry_viewer
 					. "</p>";
 
 				echo "<a href=\"" . current_page_folder_url()
-					. "?dn=" . urlencode ($dn). "\"><button>"
+					. "?dn=" . urlencode ($dn)
+					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
+					. "\"><button>"
 					. gettext("Show Contents") . "</button></a>";
 			}
 
@@ -2410,14 +2412,12 @@ class ldap_attribute
 						|| get_user_setting("allow_system_admin")))
 					{
 						if($is_folder)
-							echo "<a href=\"" . current_page_folder_url() . "?dn="
-								. urlencode($value);
+							echo "<a href=\"" . current_page_folder_url() . "?dn=";
 						else
-						{
-							echo "<a href=\"info.php?dn=" . urlencode($value);
-							if($this->ldap_server->server_id != 0)
-								echo "&server_id=" . $this->ldap_server->server_id;
-						}
+							echo "<a href=\"info.php?dn=";
+						echo urlencode($value);
+						if($this->ldap_server->server_id != 0)
+							echo "&server_id=" . $this->ldap_server->server_id;
 
 						echo "\">" . htmlentities($value_display_name,ENT_COMPAT,"UTF-8") . "</a>";
 					}
@@ -2491,14 +2491,14 @@ class ldap_attribute
 							|| get_user_setting("allow_system_admin")))
 						{
 							if($is_folder)
-								echo "<a href=\"" . current_page_folder_url() . "?dn="
-									. urlencode($child_entry["dn"]);
+								echo "<a href=\"" . current_page_folder_url() . "?dn=";
 							else
-								echo "<a href=\"info.php?dn=" . urlencode($child_entry["dn"])
-									. ($this->ldap_server->server_id == 0 ? ""
-									: ("&server_id=" . $this->ldap_server->server_id));
-
-							echo "\">" . htmlentities($value_display_name,ENT_COMPAT,"UTF-8")
+								echo "<a href=\"info.php?dn=";
+							echo urlencode($child_entry["dn"])
+								. ($this->ldap_server->server_id == 0 ? ""
+								: ("&server_id=" . $this->ldap_server->server_id))
+								. "\">"
+								. htmlentities($value_display_name,ENT_COMPAT,"UTF-8")
 								. "</a>";
 						}
 						else

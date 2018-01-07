@@ -33,7 +33,7 @@ $server_id_str = $server_id == 0 ? "" : ("&server_id=" . $server_id);
 // container object afterwards.
 $rdn_list = ldap_explode_dn2($dn);
 if(isset($rdn_list[1]["dn"]))
-	$return_page_if_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+	$return_page_if_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]) . $server_id_str;
 else
 	$return_page_if_deleted = "index.php";
 
@@ -42,7 +42,7 @@ if(isset($_GET["page"]) && $_GET["page"] == "info")
 	$return_page_if_not_deleted = "info.php?dn=" . urlencode($dn) . $server_id_str;
 else
 	if(isset($rdn_list[1]["dn"]))
-		$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
+		$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]) . $server_id_str;
 	else
 		$return_page_if_not_deleted = "index.php";
 

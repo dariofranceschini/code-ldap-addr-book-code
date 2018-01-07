@@ -29,17 +29,18 @@ if(prereq_components_ok())
 	else
 		$server_id=0;
 
-	if($ldap_server->log_on())
+	if($ldap_server_list[$server_id]->log_on())
 	{
 		// TODO: sanitise base DN from URL:
 		//	stop "nasties" being passed through to the LDAP server
 
 		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH
-				&& ($ldap_server->compare_dn_to_base($_GET["dn"],$ldap_server->base_dn)
+				&& ($ldap_server_list[$server_id]->compare_dn_to_base($_GET["dn"],
+				$ldap_server_list[$server_id]->base_dn)
 				|| get_user_setting("allow_system_admin")))
 			$dn = $_GET["dn"];
 		else
-			$dn = $ldap_server->base_dn;
+			$dn = $ldap_server_list[$server_id]->base_dn;
 
 		// Default filter expression to use if none specified in config
 		// file: return only people in search results
@@ -77,7 +78,7 @@ if(prereq_components_ok())
 
 			$search_type= "subtree";
 		}
-		else if(get_user_setting("front_page_search_filter") && $dn == $ldap_server->base_dn)
+		else if(get_user_setting("front_page_search_filter") && $dn == $ldap_server_list[$server_id]->base_dn)
 		{
 			$filter = str_replace("___search_criteria___",
 				"(objectClass=*)",get_user_setting("front_page_search_filter"));
@@ -120,14 +121,14 @@ if(prereq_components_ok())
 		if($search_type == "subtree")
 			// get search results
 			if(get_user_setting("allow_search"))
-				$search_resource = @ldap_search($ldap_server->connection,
-					$ldap_server->base_dn,$filter);
+				$search_resource = @ldap_search($ldap_server_list[$server_id]->connection,
+					$ldap_server_list[$server_id]->base_dn,$filter);
 			else
 				echo "<p>" . gettext("You do not have permission to search the directory") . "</p>\n";
 		else
 			// browse OU contents
 			if(get_user_setting("allow_browse"))
-				$search_resource = @ldap_list($ldap_server->connection,
+				$search_resource = @ldap_list($ldap_server_list[$server_id]->connection,
 					$dn,$filter);
 			else
 			{
@@ -143,7 +144,7 @@ if(prereq_components_ok())
 					}
 					else
 					{
-						if($ldap_server->per_user_login_enabled())
+						if($ldap_server_list[$server_id]->per_user_login_enabled())
 							echo "<p><a href=\"user.php\">"
 								. gettext("Please log in to use the address book.") . "</a></p>\n";
 						else
@@ -154,7 +155,7 @@ if(prereq_components_ok())
 					echo "<p>" . gettext("You do not have permission to browse the directory") . "</p>\n";
 			}
 
-		if($ldap_server->server_type == "openldap" && strcasecmp($dn,"cn=config")==0)
+		if($ldap_server_list[$server_id]->server_type == "openldap" && strcasecmp($dn,"cn=config")==0)
 		{
 			$search_result_columns = array(
 				array("caption"=>gettext("OpenLDAP Server Configuration"),
@@ -176,7 +177,7 @@ if(prereq_components_ok())
 					$sort_order = $sort_type;
 
 			$entry_list = new ldap_entry_list($search_result_columns);
-			$entry_list->add_entries($ldap_server,$search_resource);
+			$entry_list->add_entries($ldap_server_list[$server_id],$search_resource);
 
 			$entry_list->sort($sort_order);
 
@@ -216,7 +217,7 @@ if(prereq_components_ok())
 
 			if(get_user_setting("allow_export_bulk") && empty($_GET["filter"]))
 				$buttons .= "<a href=\"index.php?vcard=1&dn="
-					. urlencode($dn)
+					. urlencode($dn) . $server_id_str
 					. "\"><button>" . gettext("Export Records") . "</button></a>\n";
 
 			if(!empty($buttons))
