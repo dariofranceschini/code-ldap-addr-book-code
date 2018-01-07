@@ -179,6 +179,23 @@ if(prereq_components_ok())
 			$entry_list = new ldap_entry_list($search_result_columns);
 			$entry_list->add_entries($ldap_server_list[$server_id],$search_resource);
 
+			if(!empty($_GET["filter"]))
+			{
+				foreach($ldap_server_list as $ldap_server_to_search)
+				{
+					if($ldap_server_to_search->server_id != $server_id)
+					{
+						if($ldap_server_to_search->log_on() && get_user_setting("allow_search"))
+						{
+							$link_search_resource = @ldap_search($ldap_server_to_search->connection,
+								$ldap_server_to_search->base_dn,$filter);
+
+							$entry_list->add_entries($ldap_server_to_search,$link_search_resource);
+						}
+					}
+				}
+			}
+
 			$entry_list->sort($sort_order);
 
 			if(!empty($_GET["filter"]))
