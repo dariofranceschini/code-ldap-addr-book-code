@@ -33,28 +33,28 @@ class microsoft_system_schema extends ldap_schema
 		$ldap_server->add_display_layout("rootDSE",array(
 			array("section_name"=>gettext("Active Directory Domain Controller"),"width"=>"50%",
 				"attributes"=>array(
-					array("serverName",			gettext("Server Name"),			"alias.png"),
-					array("vendorName",			gettext("Vendor Name"),			"generic24.png"),
-					array("dnsHostName",			gettext("DNS Host Name"),		"generic24.png"),
-					array("dSServiceName",			gettext("Directory Service"),		"alias.png"),
-					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png"),
-					array("ldapServiceName",		gettext("LDAP Service Name"),		"generic24.png"),
-					array("namingContexts",			gettext("Naming Contexts"),		"alias.png"),
-					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png"),
-					array("isSynchronized",			gettext("Is Synchronized"),		"generic24.png"),
-					array("currentTime",			gettext("Current Time at Server"),	"time.png"),
-					array("highestCommittedUSN",		gettext("Highest Committed USN"),	"generic24.png"),
-					array("domainControllerFunctionality",	gettext("Server Functional Level"),	"generic24.png"),
-					array("domainFunctionality",		gettext("Domain Functional Level"),	"generic24.png"),
-					array("forestFunctionality",		gettext("Forest Functional Level"),	"generic24.png")
+					array("serverName",			gettext("Server Name"),			"alias.png","allow_edit"=>false),
+					array("vendorName",			gettext("Vendor Name"),			"generic24.png","allow_edit"=>false),
+					array("dnsHostName",			gettext("DNS Host Name"),		"generic24.png","allow_edit"=>false),
+					array("dSServiceName",			gettext("Directory Service"),		"alias.png","allow_edit"=>false),
+					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png","allow_edit"=>false),
+					array("ldapServiceName",		gettext("LDAP Service Name"),		"generic24.png","allow_edit"=>false),
+					array("namingContexts",			gettext("Naming Contexts"),		"alias.png","allow_edit"=>false),
+					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png","allow_edit"=>false),
+					array("isSynchronized",			gettext("Is Synchronized"),		"generic24.png","allow_edit"=>false),
+					array("currentTime",			gettext("Current Time at Server"),	"time.png","allow_edit"=>false),
+					array("highestCommittedUSN",		gettext("Highest Committed USN"),	"generic24.png","allow_edit"=>false),
+					array("domainControllerFunctionality",	gettext("Server Functional Level"),	"generic24.png","allow_edit"=>false),
+					array("domainFunctionality",		gettext("Domain Functional Level"),	"generic24.png","allow_edit"=>false),
+					array("forestFunctionality",		gettext("Forest Functional Level"),	"generic24.png","allow_edit"=>false)
 					),
 				),
 			array("section_name"=>gettext("Well-Known Naming Contexts"),
 				"attributes"=>array(
-					array("defaultNamingContext",		gettext("Default (Domain)"),		"alias.png"),
-					array("configurationNamingContext",	gettext("Configuration"),		"alias.png"),
-					array("rootDomainNamingContext",	gettext("Forest Root Domain"),		"alias.png"),
-					array("schemaNamingContext",		gettext("Schema"),			"alias.png")
+					array("defaultNamingContext",		gettext("Default (Domain)"),		"alias.png","allow_edit"=>false),
+					array("configurationNamingContext",	gettext("Configuration"),		"alias.png","allow_edit"=>false),
+					array("rootDomainNamingContext",	gettext("Forest Root Domain"),		"alias.png","allow_edit"=>false),
+					array("schemaNamingContext",		gettext("Schema"),			"alias.png","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Supported Controls"),"new_row"=>true,"colspan"=>2,
@@ -69,7 +69,7 @@ class microsoft_system_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Supported SASL Mechanisms"),"new_row"=>true,"colspan"=>2,
 				"attributes"=>array(
-					array("supportedSASLMechanisms")
+					array("supportedSASLMechanisms","allow_edit"=>false)
 					)
 				)
 			));

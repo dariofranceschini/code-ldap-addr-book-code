@@ -45,10 +45,10 @@ class openldap_system_schema extends ldap_schema
 			array("section_name"=>gettext("OpenLDAP Server"),"new_row"=>true,
 				"attributes"=>array(
 					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png"),
-					array("namingContexts",			gettext("Naming Contexts"),		"alias.png"),
-					array("configContext",			gettext("Configuration Context"),	"alias.png"),
-					array("monitorContext",			gettext("Monitoring Context"),		"alias.png"),
-					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png")
+					array("namingContexts",			gettext("Naming Contexts"),		"alias.png","allow_edit"=>false),
+					array("configContext",			gettext("Configuration Context"),	"alias.png","allow_edit"=>false),
+					array("monitorContext",			gettext("Monitoring Context"),		"alias.png","allow_edit"=>false),
+					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Supported Controls"),"new_row"=>true,
@@ -63,7 +63,7 @@ class openldap_system_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Supported SASL Mechanisms"),"new_row"=>true,
 				"attributes"=>array(
-					array("supportedSASLMechanisms")
+					array("supportedSASLMechanisms","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Supported Extended Operations"),"new_row"=>true,

@@ -51,65 +51,65 @@ class novell_nds_schema extends ldap_schema
 		$ldap_server->add_display_layout("treeRoot",array(
 			array("section_name"=>gettext("eDirectory Tree"),"new_row"=>true,"colspan"=>6,
 				"attributes"=>array(
-					array("directoryTreeName",		null,					"novell/tree-root.png")
+					array("directoryTreeName",		null,					"novell/tree-root.png","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Server Details"),"new_row"=>true,"colspan"=>6,
 				"attributes"=>array(
-					array("dSAName",			gettext("LDAP Server"),			"ldap-server.png"),
-					array("vendorVersion",			gettext("Product Version"),		"generic24.png"),
-					array("vendorName",			gettext("Vendor"),			"generic24.png"),
+					array("dSAName",			gettext("LDAP Server"),			"ldap-server.png","allow_edit"=>false),
+					array("vendorVersion",			gettext("Product Version"),		"generic24.png","allow_edit"=>false),
+					array("vendorName",			gettext("Vendor"),			"generic24.png","allow_edit"=>false),
 					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png"),
-					array("namingContexts",			gettext("Naming Contexts"),		"alias.png"),
-					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png"),
+					array("namingContexts",			gettext("Naming Contexts"),		"alias.png","allow_edit"=>false),
+					array("subschemaSubentry",		gettext("Subschema Subentry"),		"alias.png","allow_edit"=>false),
 					)
 				),
 			array("section_name"=>gettext("Replication"),"new_row"=>true,
 				"attributes"=>array(
-					array("repUpdatesOut",			gettext("Updates Out")),
-					array("repUpdatesIn",			gettext("Updates In")),
+					array("repUpdatesOut",			gettext("Updates Out"),"allow_edit"=>false),
+					array("repUpdatesIn",			gettext("Updates In"),"allow_edit"=>false),
 					)
 				),
 			array("section_name"=>gettext("LDAP Binds"),
 				"attributes"=>array(
-					array("strongAuthBinds",		gettext("Strong Auth")),
-					array("simpleAuthBinds",		gettext("Simple Auth")),
-					array("unauthBinds",			gettext("Anonymous")),
-					array("bindSecurityErrors",		gettext("Security Errors")),
+					array("strongAuthBinds",		gettext("Strong Auth"),"allow_edit"=>false),
+					array("simpleAuthBinds",		gettext("Simple Auth"),"allow_edit"=>false),
+					array("unauthBinds",			gettext("Anonymous"),"allow_edit"=>false),
+					array("bindSecurityErrors",		gettext("Security Errors"),"allow_edit"=>false),
 					)
 				),
 			array("section_name"=>gettext("Data Transfer"),
 				"attributes"=>array(
-					array("outBytes",			gettext("Bytes Out")),
-					array("inBytes",			gettext("Bytes In"))
+					array("outBytes",			gettext("Bytes Out"),"allow_edit"=>false),
+					array("inBytes",			gettext("Bytes In"),"allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Ops Processed"),
 				"attributes"=>array(
-					array("extendedOps",			gettext("Extended")),
-					array("abandonOps",			gettext("Abandoned")),
-					array("wholeSubtreeSearchOps",		gettext("Subtree Search")),
-					array("oneLevelSearchOps",		gettext("Single Level Search")),
-					array("searchOps",			gettext("Search")),
-					array("listOps",			gettext("List")),
-					array("modifyRDNOps",			gettext("Modify RDN")),
-					array("removeEntryOps",			gettext("Remove Entry")),
-					array("addEntryOps",			gettext("Add Entry")),
-					array("compareOps",			gettext("Compare")),
-					array("readOps",			gettext("Read")),
-					array("inOps",				gettext("Total In"))
+					array("extendedOps",			gettext("Extended"),"allow_edit"=>false),
+					array("abandonOps",			gettext("Abandoned"),"allow_edit"=>false),
+					array("wholeSubtreeSearchOps",		gettext("Subtree Search"),"allow_edit"=>false),
+					array("oneLevelSearchOps",		gettext("Single Level Search"),"allow_edit"=>false),
+					array("searchOps",			gettext("Search"),"allow_edit"=>false),
+					array("listOps",			gettext("List"),"allow_edit"=>false),
+					array("modifyRDNOps",			gettext("Modify RDN"),"allow_edit"=>false),
+					array("removeEntryOps",			gettext("Remove Entry"),"allow_edit"=>false),
+					array("addEntryOps",			gettext("Add Entry"),"allow_edit"=>false),
+					array("compareOps",			gettext("Compare"),"allow_edit"=>false),
+					array("readOps",			gettext("Read"),"allow_edit"=>false),
+					array("inOps",				gettext("Total In"),"allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("LDAP Referral Processed"),
 				"attributes"=>array(
-					array("chainings",			gettext("Outbound Referrals Sent")),
-					array("referralsReturned",		gettext("Inbound Referrals Returned")),
+					array("chainings",			gettext("Outbound Referrals Sent"),"allow_edit"=>false),
+					array("referralsReturned",		gettext("Inbound Referrals Returned"),"allow_edit"=>false),
 					)
 				),
 			array("section_name"=>gettext("Miscellaneous"),
 				"attributes"=>array(
-					array("errors",				gettext("Errors")),
-					array("securityErrors",			gettext("Security Errors")),
+					array("errors",				gettext("Errors"),"allow_edit"=>false),
+					array("securityErrors",			gettext("Security Errors"),"allow_edit"=>false),
 					)
 				),
 			array("section_name"=>gettext("Supported Grouping Types"),"new_row"=>true,"colspan"=>6,
@@ -129,7 +129,7 @@ class novell_nds_schema extends ldap_schema
 				),
 			array("section_name"=>gettext("Supported SASL Mechanisms"),"new_row"=>true,"colspan"=>6,
 				"attributes"=>array(
-					array("supportedSASLMechanisms")
+					array("supportedSASLMechanisms","allow_edit"=>false)
 					)
 				),
 			array("section_name"=>gettext("Supported Extended Operations"),"new_row"=>true,"colspan"=>6,
