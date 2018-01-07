@@ -28,7 +28,7 @@ if(prereq_components_ok())
 
 	if($ldap_server_list[$server_id]->log_on())
 	{
-		if(get_user_setting("allow_edit"))
+		if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 		{
 			$error_message_prefix
 				= gettext("Unable to delete an attribute value from this record")

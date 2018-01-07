@@ -48,11 +48,11 @@ else
 
 if($ldap_server_list[$server_id]->log_on())
 {
-	if(get_user_setting("allow_browse"))
+	if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 	{
 		if(isset($_POST["value"]))
 		{
-			if(get_user_setting("allow_edit"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 			{
 				$new_value[$attrib] = $_POST["value"];
 
@@ -99,7 +99,6 @@ if($ldap_server_list[$server_id]->log_on())
 		{
 			show_site_header();
 			show_ldap_path($target_dn);
-
 
                         if(empty($target_dn))
                                 $entry_name = "rootDSE";

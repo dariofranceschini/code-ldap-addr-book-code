@@ -28,7 +28,7 @@ if($ldap_server_list[$server_id]->log_on())
 {
 	show_site_header();
 
-	if(!get_user_setting("allow_create"))
+	if(!$ldap_server_list[$server_id]->get_user_setting("allow_create"))
 		show_error_message(gettext("You do not have permission to create new records."));
 
 	// TODO: guard against nasties in the DN
@@ -66,7 +66,7 @@ if($ldap_server_list[$server_id]->log_on())
 		$contain_list = array("*");
 	}
 
-	$show_all_object_classes = isset($_GET["show_all"]) && get_user_setting("allow_system_admin");
+	$show_all_object_classes = isset($_GET["show_all"]) && $ldap_server_list[$server_id]->get_user_setting("allow_system_admin");
 
 	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
 

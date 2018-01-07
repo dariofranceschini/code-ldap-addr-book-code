@@ -26,7 +26,7 @@ else
 
 if($ldap_server_list[$server_id]->log_on())
 {
-        if(!get_user_setting("allow_extend"))
+        if(!$ldap_server_list[$server_id]->get_user_setting("allow_extend"))
 	{
 		show_site_header();
                 show_error_message(gettext("You do not have permission to add auxiliary classes to records."));

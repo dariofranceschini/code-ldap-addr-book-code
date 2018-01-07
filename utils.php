@@ -205,7 +205,7 @@ function show_ldap_path($base,$leaf_icon = "")
 	{
 		$rdn_list = ldap_explode_dn2($rdn_list);
 
-		if(get_user_setting("allow_ldap_path"))
+		if($ldap_server->get_user_setting("allow_ldap_path"))
 			$starting_entry = $rdn_list["count"];
 		else
 			$starting_entry = 1;
@@ -255,7 +255,7 @@ function show_ldap_path($base,$leaf_icon = "")
 				$alt_text = $object_class;
 
 			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
-				&& get_user_setting("allow_browse"))
+				&& $ldap_server->get_user_setting("allow_browse"))
 			{
 				if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
 					echo "<a href=\"" . current_page_folder_url()
@@ -271,7 +271,7 @@ function show_ldap_path($base,$leaf_icon = "")
 				. $rdn_list[$i-1]["value"];
 
 			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
-					&& get_user_setting("allow_browse"))
+					&& $ldap_server->get_user_setting("allow_browse"))
 				echo "</a>";
 
 			echo "</li>";
@@ -284,12 +284,12 @@ function show_ldap_path($base,$leaf_icon = "")
 	echo "    </td>\n";
 
 	echo "    <td class=\"server_info\">";
-	if(get_user_setting("allow_system_admin"))
+	if($ldap_server->get_user_setting("allow_system_admin"))
 		echo "<a href=\"info.php?dn=\">" . gettext("Server Info") . "</a>";
 	else
 		echo "<!-- server info not enabled -->";
 
-	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled() && get_user_setting("allow_system_admin"))
+	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled() && $ldap_server->get_user_setting("allow_system_admin"))
 		echo " | ";
 	echo "</td>\n";
 
@@ -561,15 +561,15 @@ class ldap_entry_viewer
 		else
 			show_ldap_path($dn);
 
-		if(get_user_setting("allow_search"))
+		if($this->ldap_server->get_user_setting("allow_search"))
 			show_search_box("");
 		else
 			echo "<br>";
 
-		if(get_user_setting("allow_view"))
+		if($this->ldap_server->get_user_setting("allow_view"))
 		{
-			if($this->edit && (get_user_setting("allow_edit")
-				|| (get_user_setting("allow_edit_self")
+			if($this->edit && ($this->ldap_server->get_user_setting("allow_edit")
+				|| ($this->ldap_server->get_user_setting("allow_edit_self")
 				&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$this->ldap_server->server_id],$dn))))
 			{
 				$server_id = $this->ldap_server->server_id == 0
@@ -600,7 +600,7 @@ class ldap_entry_viewer
 
 			if($this->ldap_server->get_object_schema_setting(
 				$this->ldap_server->get_object_class($this->ldap_entry[0]),
-				"is_folder") && get_user_setting("allow_browse") && !$this->edit)
+				"is_folder") && $this->ldap_server->get_user_setting("allow_browse") && !$this->edit)
 			{
 				echo "<p>"
 					. gettext("This record is a folder that can contain other objects.")
@@ -613,8 +613,8 @@ class ldap_entry_viewer
 					. gettext("Show Contents") . "</button></a>";
 			}
 
-			if(get_user_setting("allow_edit")
-					|| (get_user_setting("allow_edit_self")
+			if($this->ldap_server->get_user_setting("allow_edit")
+					|| ($this->ldap_server->get_user_setting("allow_edit_self")
 					&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$this->ldap_server->server_id],$dn)))
 				if($this->edit)
 				{
@@ -646,25 +646,25 @@ class ldap_entry_viewer
 					echo "  <input type=\"submit\" value=\"" . gettext("Edit") . "\">\n</form>\n";
 				}
 
-			if(get_user_setting("allow_move") && !$this->edit)
+			if($this->ldap_server->get_user_setting("allow_move") && !$this->edit)
 				echo "<a href=\"move.php?dn="
 					. urlencode($dn)
 					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Move") . "</button></a>\n";
 
-			if(get_user_setting("allow_delete") && !$this->edit)
+			if($this->ldap_server->get_user_setting("allow_delete") && !$this->edit)
 				echo "<a href=\"delete.php?page=info&dn="
 					. urlencode($dn)
 					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Delete") . "</button></a>\n";
 
-			if(get_user_setting("allow_extend") && get_user_setting("allow_edit") && !$this->edit)
+			if($this->ldap_server->get_user_setting("allow_extend") && $this->ldap_server->get_user_setting("allow_edit") && !$this->edit)
 				echo "<a href=\"extend.php?dn="
 					. urlencode($dn)
 					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
 					. "\"><button>" . gettext("Extend Record") . "</button></a>\n";
 
-			if(get_user_setting("allow_export") && !$this->edit)
+			if($this->ldap_server->get_user_setting("allow_export") && !$this->edit)
 				echo "<a href=\"info.php?vcard=1&dn="
 					. urlencode($dn)
 					. ($this->ldap_server->server_id == 0 ? "" : "&server_id=" . $this->ldap_server->server_id)
@@ -1871,7 +1871,7 @@ class ldap_attribute
 				{
 					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
 
-					if(!$this->create && !$this->edit && !$this->read_only && get_user_setting("allow_edit"))
+					if(!$this->create && !$this->edit && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
@@ -1887,7 +1887,7 @@ class ldap_attribute
 			echo "</ul>";
 		}
 
-		if(!$this->edit && !$this->create && !$this->read_only && get_user_setting("allow_edit") && get_user_setting("allow_browse"))
+		if(!$this->edit && !$this->create && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit") && $this->ldap_server->get_user_setting("allow_browse"))
 			echo "            <a style=\"float:right\" href=\"add_text_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
 				. ($this->ldap_server->server_id == 0 ? ""
@@ -2409,7 +2409,7 @@ class ldap_attribute
 
 					if($this->show_embedded_links &&
 						($this->ldap_server->compare_dn_to_base($value,$this->ldap_server->base_dn)
-						|| get_user_setting("allow_system_admin")))
+						|| $this->ldap_server->get_user_setting("allow_system_admin")))
 					{
 						if($is_folder)
 							echo "<a href=\"" . current_page_folder_url() . "?dn=";
@@ -2424,7 +2424,7 @@ class ldap_attribute
 					else
 						echo $value_display_name;
 
-					if(!$this->edit && !$this->read_only && !$this->create && get_user_setting("allow_edit"))
+					if(!$this->edit && !$this->read_only && !$this->create && $this->ldap_server->get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
 							. urlencode($this->ldap_entry["dn"])
 							. "&attrib=" . urlencode($this->attribute)
@@ -2437,8 +2437,8 @@ class ldap_attribute
 		else
 			echo "<span style=\"line-height:24px\">(" . gettext("none") . ")</span>\n";
 
-		if(!$this->edit && !$this->read_only && !$this->create && get_user_setting("allow_edit")
-			&& get_user_setting("allow_browse"))
+		if(!$this->edit && !$this->read_only && !$this->create && $this->ldap_server->get_user_setting("allow_edit")
+			&& $this->ldap_server->get_user_setting("allow_browse"))
 		{
 			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute);
@@ -2488,7 +2488,7 @@ class ldap_attribute
 						if($this->show_embedded_links &&
 							($this->ldap_server->compare_dn_to_base($child_entry["dn"],
 							$this->ldap_server->base_dn)
-							|| get_user_setting("allow_system_admin")))
+							|| $this->ldap_server->get_user_setting("allow_system_admin")))
 						{
 							if($is_folder)
 								echo "<a href=\"" . current_page_folder_url() . "?dn=";
@@ -2569,7 +2569,7 @@ class ldap_attribute
 		else
 			echo "(" . gettext("none") . ")";
 
-		if(!$this->edit && get_user_setting("allow_create") && !$this->create)
+		if(!$this->edit && $this->ldap_server->get_user_setting("allow_create") && !$this->create)
 			echo "<br><a href=\"create.php?dn="
 				. urlencode($this->ldap_entry["dn"])
 				. ($this->ldap_server->server_id == 0 ? "" : ("&server_id=" . $this->ldap_server->server_id))
@@ -2854,7 +2854,7 @@ function show_ldap_bind_error()
 
 		// don't show this line if the user has already configured
 		// a non-blank default user
-		if(get_user_setting("ldap_dn","__ANONYMOUS__")=="")
+		if($ldap_server->get_user_setting("ldap_dn","__ANONYMOUS__")=="")
 			echo "<p>" . sprintf(gettext("If you have not already done so, please
 				%sread the manual%s for
 				instructions on how to configure directory
@@ -2898,150 +2898,15 @@ function get_ldap_bind_password()
 
 function ldap_referral_rebind($ldap_link,$referral_uri)
 {
-	$user = get_user_setting("ldap_dn");
+	global $ldap_server;
 
-	if(get_user_setting("allow_login"))
+	$user = $ldap_server->get_user_setting("ldap_dn");
+
+	if($ldap_server->get_user_setting("allow_login"))
 		return 1;
 	else
 		return @ldap_bind_log($ldap_link,$user,
 			get_ldap_bind_password()) ? 1 : 0;
-}
-
-/** Return value of a user setting
-
-    @param string $attrib
-	Attribute to be returned
-    @param string $user_name
-	Name of user whose setting is to be returned. If this is omitted
-	then the current logged in user will be used.
-    @return
-	Value of requested user setting
-*/
-
-function get_user_setting($attrib,$user_name = "")
-{
-	global $ldap_server,$group_member_attributes;
-
-	if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
-		$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$attrib];
-	else
-	{
-		// list of ordinarily boolean attributes which if found to
-		// contain a DN of an LDAP group will be evaluated based on
-		// the user's group membership
-		$boolean_attribs_with_ldap_lookup = array("allow_browse",
-			"allow_search","allow_view","allow_create","allow_edit",
-			"allow_edit_self","allow_move","allow_delete","allow_export",
-			"allow_export_bulk","allow_login","allow_folder_info",
-			"allow_ldap_path");
-
-		// use current user name if no user name passed as a parameter
-
-		if(empty($user_name))
-		{
-			// Resume existing session (if any exists) in order to get
-			// currently logged in user
-			if(!isset($_SESSION)) session_start();
-
-			if(isset($_SESSION["LOGIN_USER"]))
-				$user_name = $_SESSION["LOGIN_USER"];
-			else
-				$user_name = "__ANONYMOUS__";
-		}
-
-		$user_info = $ldap_server->get_user_info($user_name);
-
-		if(isset($user_info["ldap_dn"]))
-			$user_info["ldap_dn"]=str_replace("__USERNAME__",
-				$user_name,$user_info["ldap_dn"]);
-
-		// return the value of the requested attribute
-
-		if(isset($user_info[$attrib]))
-			$attrib_value = $user_info[$attrib];
-		else
-		{
-			// default values to return if setting is undefined
-			// for the specified user
-			switch($attrib)
-			{
-				case "login_name";
-					$attrib_value = "__ANONYMOUS__"; break;
-				case "ldap_dn":
-					$attrib_value = "__SEARCH__"; break;
-				case "allow_browse":
-				case "allow_search":
-				case "allow_view":
-				case "allow_create":
-				case "allow_edit":
-				case "allow_edit_self":
-				case "allow_move":
-				case "allow_delete":
-				case "allow_export":
-				case "allow_export_bulk":
-				case "allow_login":
-				case "allow_ldap_path":
-				case "allow_folder_info":
-					$attrib_value = false; break;
-				default:
-					$attrib_value = null;
-			}
-		}
-
-		// If value contains a DN instead of true/false then look up
-		// based on group membership instead.
-		if(!is_bool($attrib_value)
-			&& isset($_SESSION["LOGIN_BIND_DN"][$ldap_server->server_id])
-			&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
-		{
-			// re-use previously cached permission setting
-			if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
-				$attrib_value
-					= $_SESSION["CACHED_PERMISSIONS"][$attrib];
-			else
-			{
-				if(!isset($group_member_attributes))
-					$group_member_attributes = array("member","roleOccupant","memberUid");
-				$query = "";
-
-				foreach($group_member_attributes as $attrib)
-				{
-					if(strtolower($attrib) == "memberuid")
-					{
-						if(isset($_SESSION["LOGIN_UID"][$ldap_server->server_id]))
-							$query .= "(" . $attrib . "="
-								. ldap_escape($_SESSION["LOGIN_UID"][$ldap_server->server_id],
-								null,LDAP_ESCAPE_FILTER) . ")";
-					}
-					else
-						$query .= "(" . $attrib . "="
-							. ldap_escape($_SESSION["LOGIN_BIND_DN"][$ldap_server->server_id],
-							null,LDAP_ESCAPE_FILTER) . ")";
-				}
-
-				$search_resource
-					= @ldap_read($ldap_server->connection,
-					$attrib_value,"(|" . $query . ")",
-					$group_member_attributes);
-
-				if(is_resource($search_resource))
-				{
-					$entry = ldap_get_entries(
-						$ldap_server->connection,
-						$search_resource);
-
-					$attrib_value = ($entry["count"]>0);
-					$ldap_server->assign_cached_user_setting($attrib,$attrib_value);
-				}
-				else
-					// default to setting permission to false
-					// if LDAP lookup failed
-					$attrib_value=false;
-			}
-		}
-	}
-
-	return $attrib_value;
 }
 
 /** Return the method to be used for merging group and user settings together.
@@ -3511,7 +3376,7 @@ class ldap_entry_list
 				// Don't make the cell a link to the object
 				// if the user doesn't have view permissions
 				if($column["link_type"] == "object"
-						&& !get_user_setting("allow_view"))
+						&& !$ldap_entry["SERVER"]->get_user_setting("allow_view"))
 					$column["link_type"] = "none";
 
 				$this->show_attrib($ldap_entry,
@@ -3520,7 +3385,7 @@ class ldap_entry_list
 			}
 		}
 
-		if(!$this->object_dn_select_mode && get_user_setting("allow_delete"))
+		if(!$this->object_dn_select_mode && $ldap_entry["SERVER"]->get_user_setting("allow_delete"))
 			echo "    <td style=\"width:1px;background-color:transparent\">\n      <a href=\"delete.php?dn="
 				. urlencode($dn) . ($ldap_entry["SERVER"]->server_id==0 ? ""
 				: ("&server_id=" . $ldap_entry["SERVER"]->server_id))
@@ -4368,8 +4233,8 @@ class ldap_server
 		// currently logged in user
 		if(!isset($_SESSION)) session_start();
 
-		if(get_user_setting("allow_browse") || get_user_setting("allow_search")
-			|| get_user_setting("allow_view"))
+		if($this->get_user_setting("allow_browse") || $this->get_user_setting("allow_search")
+			|| $this->get_user_setting("allow_view"))
 		{
 			$dn = $entry["dn"];
 
@@ -4428,7 +4293,7 @@ class ldap_server
 		ldap_set_option($this->connection,
 			LDAP_OPT_REFERRALS,$this->follow_referrals);
 
-		$login_name = get_user_setting("login_name");
+		$login_name = $this->get_user_setting("login_name");
 
 		// If the __DEFAULT__ user settings are being used then replace
 		// $login_name with the use name typed into the login box
@@ -4457,7 +4322,7 @@ class ldap_server
 			// indicating that the directory must be searched to
 			// convert $login_name into the user's actual DN.
 
-			$user_bind_dn = get_user_setting("ldap_dn");
+			$user_bind_dn = $this->get_user_setting("ldap_dn");
 
 			// use anonymous bind when user is __ANONYMOUS__ and
 			// no ldap_dn is specified
@@ -4567,7 +4432,7 @@ class ldap_server
 			// conditional on group membership. If the user doesn't have
 			// sufficient access to the directory to enumerate the group's
 			// membership then allow_login will evaluate to false.
-			$result = get_user_setting("allow_login");
+			$result = $this->get_user_setting("allow_login");
 
 			// Look up the user ID, which is needed to evaluate permissions
 			// based on membership of posixGroup objects. The attributes
@@ -4660,7 +4525,7 @@ class ldap_server
 			{
 				if($setting != "group_name")
 				{
-					$previous_value = get_user_setting($setting);
+					$previous_value = $this->get_user_setting($setting);
 					$merge_method = get_user_setting_merge_method($setting);
 					switch($merge_method)
 					{
@@ -5413,6 +5278,143 @@ class ldap_server
 
 		unset($entry[$rdn_attrib]);
 		$entry[$rdn_attrib][0] = $rdn_value;
+	}
+
+	/** Return value of a user setting
+
+	    @param string $attrib
+		Attribute to be returned
+	    @param string $user_name
+		Name of user whose setting is to be returned. If this is omitted
+		then the current logged in user will be used.
+	    @return
+		Value of requested user setting
+	*/
+
+	function get_user_setting($attrib,$user_name = "")
+	{
+		global $group_member_attributes;
+
+		if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+			$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$attrib];
+		else
+		{
+			// list of ordinarily boolean attributes which if found to
+			// contain a DN of an LDAP group will be evaluated based on
+			// the user's group membership
+			$boolean_attribs_with_ldap_lookup = array("allow_browse",
+				"allow_search","allow_view","allow_create","allow_edit",
+				"allow_edit_self","allow_move","allow_delete","allow_export",
+				"allow_export_bulk","allow_login","allow_folder_info",
+				"allow_ldap_path");
+
+			// use current user name if no user name passed as a parameter
+
+			if(empty($user_name))
+			{
+				// Resume existing session (if any exists) in order to get
+				// currently logged in user
+				if(!isset($_SESSION)) session_start();
+
+				if(isset($_SESSION["LOGIN_USER"]))
+					$user_name = $_SESSION["LOGIN_USER"];
+				else
+					$user_name = "__ANONYMOUS__";
+			}
+
+			$user_info = $this->get_user_info($user_name);
+
+			if(isset($user_info["ldap_dn"]))
+				$user_info["ldap_dn"]=str_replace("__USERNAME__",
+					$user_name,$user_info["ldap_dn"]);
+
+			// return the value of the requested attribute
+
+			if(isset($user_info[$attrib]))
+				$attrib_value = $user_info[$attrib];
+			else
+			{
+				// default values to return if setting is undefined
+				// for the specified user
+				switch($attrib)
+				{
+					case "login_name";
+						$attrib_value = "__ANONYMOUS__"; break;
+					case "ldap_dn":
+						$attrib_value = "__SEARCH__"; break;
+					case "allow_browse":
+					case "allow_search":
+					case "allow_view":
+					case "allow_create":
+					case "allow_edit":
+					case "allow_edit_self":
+					case "allow_move":
+					case "allow_delete":
+					case "allow_export":
+					case "allow_export_bulk":
+					case "allow_login":
+					case "allow_ldap_path":
+					case "allow_folder_info":
+						$attrib_value = false; break;
+					default:
+						$attrib_value = null;
+				}
+			}
+
+			// If value contains a DN instead of true/false then look up
+			// based on group membership instead.
+			if(!is_bool($attrib_value)
+				&& isset($_SESSION["LOGIN_BIND_DN"][$this->server_id])
+				&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
+			{
+				// re-use previously cached permission setting
+				if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+					$attrib_value
+						= $_SESSION["CACHED_PERMISSIONS"][$attrib];
+				else
+				{
+					if(!isset($group_member_attributes))
+						$group_member_attributes = array("member","roleOccupant","memberUid");
+					$query = "";
+
+					foreach($group_member_attributes as $attrib)
+					{
+						if(strtolower($attrib) == "memberuid")
+						{
+							if(isset($_SESSION["LOGIN_UID"][$this->server_id]))
+								$query .= "(" . $attrib . "="
+									. ldap_escape($_SESSION["LOGIN_UID"][$this->server_id],
+									null,LDAP_ESCAPE_FILTER) . ")";
+						}
+						else
+							$query .= "(" . $attrib . "="
+								. ldap_escape($_SESSION["LOGIN_BIND_DN"][$this->server_id],
+								null,LDAP_ESCAPE_FILTER) . ")";
+					}
+
+					$search_resource
+						= @ldap_read($this->connection,
+						$attrib_value,"(|" . $query . ")",
+						$group_member_attributes);
+
+					if(is_resource($search_resource))
+					{
+						$entry = ldap_get_entries(
+							$this->connection,
+							$search_resource);
+
+						$attrib_value = ($entry["count"]>0);
+						$this->assign_cached_user_setting($attrib,$attrib_value);
+					}
+					else
+						// default to setting permission to false
+						// if LDAP lookup failed
+						$attrib_value=false;
+				}
+			}
+		}
+
+		return $attrib_value;
 	}
 
 	/** Retrieve the specified user's info from user_map array

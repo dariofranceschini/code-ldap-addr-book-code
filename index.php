@@ -37,7 +37,7 @@ if(prereq_components_ok())
 		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH
 				&& ($ldap_server_list[$server_id]->compare_dn_to_base($_GET["dn"],
 				$ldap_server_list[$server_id]->base_dn)
-				|| get_user_setting("allow_system_admin")))
+				|| $ldap_server_list[$server_id]->get_user_setting("allow_system_admin")))
 			$dn = $_GET["dn"];
 		else
 			$dn = $ldap_server_list[$server_id]->base_dn;
@@ -78,10 +78,10 @@ if(prereq_components_ok())
 
 			$search_type= "subtree";
 		}
-		else if(get_user_setting("front_page_search_filter") && $dn == $ldap_server_list[$server_id]->base_dn)
+		else if($ldap_server_list[$server_id]->get_user_setting("front_page_search_filter") && $dn == $ldap_server_list[$server_id]->base_dn)
 		{
 			$filter = str_replace("___search_criteria___",
-				"(objectClass=*)",get_user_setting("front_page_search_filter"));
+				"(objectClass=*)",$ldap_server_list[$server_id]->get_user_setting("front_page_search_filter"));
 			$search_type= "subtree";
 		}
 		else
@@ -111,7 +111,7 @@ if(prereq_components_ok())
 		{
 			show_ldap_path($dn);
 
-			if(get_user_setting("allow_search") && get_user_setting("allow_login"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_search") && $ldap_server_list[$server_id]->get_user_setting("allow_login"))
 				if(!empty($_GET["filter"]))
 					show_search_box($_GET["filter"]);
 				else
@@ -120,14 +120,14 @@ if(prereq_components_ok())
 
 		if($search_type == "subtree")
 			// get search results
-			if(get_user_setting("allow_search"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_search"))
 				$search_resource = @ldap_search($ldap_server_list[$server_id]->connection,
 					$ldap_server_list[$server_id]->base_dn,$filter);
 			else
 				echo "<p>" . gettext("You do not have permission to search the directory") . "</p>\n";
 		else
 			// browse OU contents
-			if(get_user_setting("allow_browse"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 				$search_resource = @ldap_list($ldap_server_list[$server_id]->connection,
 					$dn,$filter);
 			else
@@ -135,7 +135,7 @@ if(prereq_components_ok())
 				// only show error if explicit base DN browse attempt
 				if(empty($_GET["dn"]))
 				{
-					if(get_user_setting("allow_search"))
+					if($ldap_server_list[$server_id]->get_user_setting("allow_search"))
 					{
 						echo "<p>" . gettext("Please enter the text you want to look up in the Address Book.") . "</p>";
 						echo "<p>" . gettext("You can search for text in any of the following fields:") . "</p>";
@@ -185,7 +185,8 @@ if(prereq_components_ok())
 				{
 					if($ldap_server_to_search->server_id != $server_id)
 					{
-						if($ldap_server_to_search->log_on() && get_user_setting("allow_search"))
+						if($ldap_server_to_search->log_on()
+							&& $ldap_server_to_search->get_user_setting("allow_search"))
 						{
 							$link_search_resource = @ldap_search($ldap_server_to_search->connection,
 								$ldap_server_to_search->base_dn,$filter);
@@ -202,8 +203,8 @@ if(prereq_components_ok())
 				{
 					if($linked_ldap_dn["source_server"]==$server_id && !strcasecmp($dn,$linked_ldap_dn["source_dn"]))
 					{
-						// only show records if user has allow_browse permission
-						if(get_user_setting("allow_browse"))
+						// only show records if user has allow_browse permission for the destination
+						if($ldap_server_list[$linked_ldap_dn["destination_server"]]->get_user_setting("allow_browse"))
 						{
 							if($ldap_server_list[$linked_ldap_dn["destination_server"]]->log_on())
 							{
@@ -326,7 +327,7 @@ if(prereq_components_ok())
 			if(empty($_GET["vcard"]))
 			{
 				// extra space between LDAP path and results if no search box
-				if(!get_user_setting("allow_search"))
+				if(!$ldap_server_list[$server_id]->get_user_setting("allow_search"))
 					echo "<br>";
 
 				$entry_list->show();
@@ -343,18 +344,18 @@ if(prereq_components_ok())
 
 			$server_id_str = $server_id==0 ? "" : ("&server_id=" . $server_id);
 
-			if(empty($_GET["filter"]) && get_user_setting("allow_folder_info")
-					&& get_user_setting("allow_browse") && get_user_setting("allow_view"))
+			if(empty($_GET["filter"]) && $ldap_server_list[$server_id]->get_user_setting("allow_folder_info")
+					&& $ldap_server_list[$server_id]->get_user_setting("allow_browse") && $ldap_server_list[$server_id]->get_user_setting("allow_view"))
 				$buttons .= "<a href=\"info.php?dn="
 					. urlencode($dn) . $server_id_str
 						. "\"><button>" . gettext("Folder Details") . "</button></a>\n";
 
-			if(get_user_setting("allow_create"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_create"))
 				$buttons .= "<a href=\"create.php?dn="
 					. urlencode($dn) . $server_id_str
 					. "\"><button>" . gettext("New Record") . "</button></a>\n";
 
-			if(get_user_setting("allow_export_bulk") && empty($_GET["filter"]))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_export_bulk") && empty($_GET["filter"]))
 				$buttons .= "<a href=\"index.php?vcard=1&dn="
 					. urlencode($dn) . $server_id_str
 					. "\"><button>" . gettext("Export Records") . "</button></a>\n";

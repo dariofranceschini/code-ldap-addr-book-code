@@ -33,8 +33,8 @@ if($ldap_server_list[$server_id]->log_on())
 {
 	// Update record
 
-	if(get_user_setting("allow_edit")
-		|| (get_user_setting("allow_edit_self")
+	if($ldap_server_list[$server_id]->get_user_setting("allow_edit")
+		|| ($ldap_server_list[$server_id]->get_user_setting("allow_edit_self")
 		&& !strcasecmp($_SESSION["LOGIN_BIND_DN"][$server_id],$dn)))
 	{
 		$create_failed = false;
@@ -59,7 +59,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 			// Add user-specified auxiliary classes
 			// TODO: guard against nasties in the object class list
-			if(isset($_POST["add_aux_class"]) && get_user_setting("allow_extend"))
+			if(isset($_POST["add_aux_class"]) && $ldap_server_list[$server_id]->get_user_setting("allow_extend"))
 				$entry["objectclass"] = array_merge($entry["objectclass"],
 					explode(",",$_POST["add_aux_class"]));
 
@@ -87,7 +87,7 @@ if($ldap_server_list[$server_id]->log_on())
 		else
 			// Add auxiliary classes to existing object
 
-			if(isset($_POST["add_aux_class"]) && get_user_setting("allow_extend"))
+			if(isset($_POST["add_aux_class"]) && $ldap_server_list[$server_id]->get_user_setting("allow_extend"))
 			{
 				$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
 
@@ -161,7 +161,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 		if(!empty($_POST["create"]))
 		{
-		        if(!get_user_setting("allow_create"))
+		        if(!$ldap_server_list[$server_id]->get_user_setting("allow_create"))
                 		show_error_message(gettext("You do not have permission to create new records."));
 
 			$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");
@@ -176,7 +176,7 @@ if($ldap_server_list[$server_id]->log_on())
 				// check request is for a valid creatable object class before
 				// attempting ldap_add()
 				if($ldap_server_list[$server_id]->get_object_schema_setting($entry["objectclass"][0],
-					"can_create") || get_user_setting("allow_system_admin"))
+					"can_create") || $ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
 				{
 					if($ldap_server_list[$server_id]->get_object_schema_setting($entry["objectclass"][0],"create_method","normal")=="atomic")
 					{
@@ -341,7 +341,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 				show_ldap_path($dn);
 
-				if(get_user_setting("allow_search") && get_user_setting("allow_login"))
+				if($ldap_server_list[$server_id]->get_user_setting("allow_search") && $ldap_server_list[$server_id]->get_user_setting("allow_login"))
 					show_search_box("");
 
 				if($change_list == "")

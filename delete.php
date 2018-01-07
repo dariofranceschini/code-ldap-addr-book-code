@@ -53,7 +53,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 	if($search_resource)
 	{
-		if(get_user_setting("allow_delete"))
+		if($ldap_server_list[$server_id]->get_user_setting("allow_delete"))
 		{
 			if(empty($_GET["confirm"]))
 			{

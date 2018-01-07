@@ -35,7 +35,7 @@ if(isset($enable_search_suggestions) && $enable_search_suggestions
 	foreach($ldap_server_list as $ldap_server_to_search)
 	{
 		if($ldap_server_to_search->log_on()
-			&& get_user_setting("allow_search"))
+			&& $ldap_server_to_search->get_user_setting("allow_search"))
 		{
 			$dn = $ldap_server_to_search->base_dn;
 

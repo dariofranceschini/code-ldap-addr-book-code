@@ -33,7 +33,7 @@ if(prereq_components_ok())
 
         if($ldap_server_list[$server_id]->log_on())
         {
-		if(!get_user_setting("allow_move"))
+		if(!$ldap_server_list[$server_id]->get_user_setting("allow_move"))
 			show_error_message(gettext("You do not have permission to move this record"));
 
 		$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,"(objectclass=*)");

@@ -44,7 +44,7 @@ if(prereq_components_ok())
 
 	if(!$ldap_server_list[$server_id]->compare_dn_to_base($dn,
 			$ldap_server_list[$server_id]->base_dn)
-			&& !get_user_setting("allow_system_admin"))
+			&& !$ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
 		$dn = $ldap_server_list[$server_id]->base_dn;
 
 	if(isset($_GET["attrib"]))
@@ -59,13 +59,13 @@ if(prereq_components_ok())
 
 if($ldap_server_list[$server_id]->log_on())
 {
-	if(get_user_setting("allow_browse"))
+	if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 	{
 		$confirm= isset($_GET["confirm"]) && $_GET["confirm"]=="yes";
 
 		if($confirm)
 		{
-			if(get_user_setting("allow_edit"))
+			if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 			{
 				$new_value[$attrib] = $dn;
 
@@ -158,7 +158,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 				$parent_dn = get_parent_dn($dn);
 
-				if($dn != "" && (get_user_setting("allow_system_admin")
+				if($dn != "" && ($ldap_server_list[$server_id]->get_user_setting("allow_system_admin")
 					|| $ldap_server_list[$server_id]->compare_dn_to_base($parent_dn,
 					$ldap_server_list[$server_id]->base_dn)))
 				{

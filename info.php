@@ -36,7 +36,7 @@ if(prereq_components_ok())
 	{
 		// Check whether the end part of the DN matches $ldap_server_list[$server_id]->base_dn
 		if($ldap_server_list[$server_id]->compare_dn_to_base($dn,$ldap_server_list[$server_id]->base_dn)
-			|| get_user_setting("allow_system_admin"))
+			|| $ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
 		{
 			if(isset($_GET["create"]))
 			{
@@ -56,7 +56,7 @@ if(prereq_components_ok())
 
 				if(!empty($aux_class_list))
 				{
-					if(get_user_setting("allow_extend") && !empty($_GET["add_aux_class"]))
+					if($ldap_server_list[$server_id]->get_user_setting("allow_extend") && !empty($_GET["add_aux_class"]))
 						$_GET["add_aux_class"] = array_values(array_unique(array_merge($_GET["add_aux_class"],
 							explode(",",$aux_class_list))));
 					else
