@@ -195,6 +195,128 @@ if(prereq_components_ok())
 					}
 				}
 			}
+			else
+			{
+				// add any linked servers/DNs (browsing)
+				foreach($linked_ldap_dn_list as $linked_ldap_dn)
+				{
+					if($linked_ldap_dn["source_server"]==$server_id && !strcasecmp($dn,$linked_ldap_dn["source_dn"]))
+					{
+						// only show records if user has allow_browse permission
+						if(get_user_setting("allow_browse"))
+						{
+							if($ldap_server_list[$linked_ldap_dn["destination_server"]]->log_on())
+							{
+								switch($linked_ldap_dn["link_method"])
+								{
+									case "folder":
+										$link_search_resource = @ldap_read(
+											$ldap_server_list[$linked_ldap_dn["destination_server"]]->connection,
+											$linked_ldap_dn["destination_dn"],$filter);
+
+										if(ldap_errno($ldap_server_list[$linked_ldap_dn["destination_server"]]->connection)==LDAP_SUCCESS)
+										{
+											$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+												$link_search_resource);
+
+											if(!is_null($linked_ldap_dn["object_class"]))
+											{
+												$ndx = $entry_list->ldap_entries["count"];
+												$entry_list->ldap_entries[($entry_list->ldap_entries["count"])-1]["objectclass"]
+													=array($linked_ldap_dn["object_class"]);
+
+												fix_missing_object_classes($ldap_server_list[$linked_ldap_dn["destination_server"]],
+													$entry_list->ldap_entries[($entry_list->ldap_entries["count"])-1]);
+											}
+
+											if(!is_null($linked_ldap_dn["name"]))
+											{
+												$ndx = $entry_list->ldap_entries["count"];
+
+												$link_object_class = $ldap_server_list[$linked_ldap_dn["destination_server"]]->get_object_class(
+													$entry_list->ldap_entries[($entry_list->ldap_entries["count"])-1]);
+
+												$link_object_rdn_attrib = explode(",",
+													$ldap_server_list[$linked_ldap_dn["destination_server"]]->get_object_schema_setting(
+													$link_object_class,"rdn_attrib"));
+
+												foreach($link_object_rdn_attrib as $link_object_rdn)
+													$entry_list->ldap_entries[($entry_list->ldap_entries["count"])-1][$link_object_rdn][0]
+														=$linked_ldap_dn["name"];
+											}
+										}
+										else
+										{
+											$error_ldap_entry = array(array(
+												"dn"=>$linked_ldap_dn["destination_dn"],
+												"objectclass"=>array(0=>"___ldap_error___"),
+												"displayname"=>array(0=>"Linked DN: "
+												. ldap_error($ldap_server_list[$linked_ldap_dn["destination_server"]]->connection)),
+												"count"=>3
+												),"count"=>1);
+
+											$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+												$error_ldap_entry);
+										}
+
+										break;
+									case "contents":
+									default:
+										$link_search_resource = @ldap_list(
+											$ldap_server_list[$linked_ldap_dn["destination_server"]]->connection,
+											$linked_ldap_dn["destination_dn"],$filter);
+
+										if(ldap_errno($ldap_server_list[$linked_ldap_dn["destination_server"]]->connection)==LDAP_SUCCESS)
+										{
+											$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+												$link_search_resource);
+										}
+										else
+										{
+											$error_ldap_entry = array(array(
+												"dn"=>$linked_ldap_dn["destination_dn"],
+												"objectclass"=>array(0=>"___ldap_error___"),
+												"displayname"=>array(0=>"Linked DN: "
+												. ldap_error($ldap_server_list[$linked_ldap_dn["destination_server"]]->connection)),
+												"count"=>3
+												),"count"=>1);
+
+											$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+												$error_ldap_entry);
+										}
+								}
+							}
+							else
+							{
+								$error_ldap_entry = array(array(
+									"dn"=>"cn=___error___",
+									"objectclass"=>array(0=>"___ldap_error___"),
+									"displayname"=>array(0=>"Linked DN: "
+									. ldap_error($ldap_server_list[$linked_ldap_dn["destination_server"]]->connection)),
+									"count"=>3
+									),"count"=>1);
+
+								$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+									$error_ldap_entry);
+							}
+						}
+						else
+						{
+							// show dummy record - item not accessible
+							$error_ldap_entry = array(array(
+								"dn"=>"cn=___error___",
+								"objectclass"=>array(0=>"___ldap_error___"),
+								"displayname"=>array(0=>"Linked DN: "
+								. "No read access to " . $ldap_server_list[$linked_ldap_dn["destination_server"]]->host_or_url),
+								"count"=>3
+								),"count"=>1);
+
+							$entry_list->add_entries($ldap_server_list[$linked_ldap_dn["destination_server"]],
+								$error_ldap_entry);
+						}
+					}
+				}
+			}
 
 			$entry_list->sort($sort_order);
 
