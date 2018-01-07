@@ -35,7 +35,7 @@ class microsoft_system_schema extends ldap_schema
 				"attributes"=>array(
 					array("serverName",			gettext("Server Name"),			"alias.png","allow_edit"=>false),
 					array("vendorName",			gettext("Vendor Name"),			"generic24.png","allow_edit"=>false),
-					array("dnsHostName",			gettext("DNS Host Name"),		"generic24.png","allow_edit"=>false),
+					array("dNSHostName",			gettext("DNS Host Name"),		"generic24.png","allow_edit"=>false),
 					array("dSServiceName",			gettext("Directory Service"),		"alias.png","allow_edit"=>false),
 					array("supportedLDAPVersion",		gettext("Supported LDAP Versions"),	"generic24.png","allow_edit"=>false),
 					array("ldapServiceName",		gettext("LDAP Service Name"),		"generic24.png","allow_edit"=>false),
