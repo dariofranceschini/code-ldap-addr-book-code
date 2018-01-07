@@ -121,7 +121,7 @@ if(prereq_components_ok())
 			// get search results
 			if(get_user_setting("allow_search"))
 				$search_resource = @ldap_search($ldap_server->connection,
-					$dn,$filter);
+					$ldap_server->base_dn,$filter);
 			else
 				echo "<p>" . gettext("You do not have permission to search the directory") . "</p>\n";
 		else
