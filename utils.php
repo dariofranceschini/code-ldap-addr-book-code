@@ -3233,7 +3233,7 @@ class ldap_entry_list
 
 	function add_entries($ldap_server,$ldap_entries)
 	{
-		if(!is_array($search_resource))
+		if(!is_array($ldap_entries))
 			$ldap_entries = ldap_get_entries($ldap_server->connection,$ldap_entries);
 
 		for($i=0;$i<$ldap_entries["count"];$i++)
