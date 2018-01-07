@@ -3226,14 +3226,15 @@ class ldap_entry_list
 
 	    @param object $ldap_server
 		LDAP server containing the entries to be added
-	    @param resource $search_resource
-		LDAP search resource containing the LDAP object entries which
-		are to be added to the list
+	    @param mixed $ldap_entries
+		LDAP entries to be added to the list, either as a search resource
+		or as an array of fetched LDAP entries
 	*/
 
-	function add_entries($ldap_server,$search_resource)
+	function add_entries($ldap_server,$ldap_entries)
 	{
-		$ldap_entries = ldap_get_entries($ldap_server->connection,$search_resource);
+		if(!is_array($search_resource))
+			$ldap_entries = ldap_get_entries($ldap_server->connection,$ldap_entries);
 
 		for($i=0;$i<$ldap_entries["count"];$i++)
 		{
