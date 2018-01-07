@@ -26,7 +26,7 @@ class microsoft_system_schema extends ldap_schema
 
 		// Object classes
 		$this->object_schema = array(
-			array("name"=>"rootDSE",			"icon"=>"generic24.png",	"is_folder"=>true,"display_name"=>gettext("Root DSE")),
+			array("name"=>"rootDSE",			"icon"=>"ldap-server.png",	"is_folder"=>true,"display_name"=>gettext("Root DSE")),
 			);
 
 		// Display layouts
