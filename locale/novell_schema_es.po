@@ -323,7 +323,7 @@ msgstr "Objetivo de Mapa de Directorio"
 
 #: ../schema/novell.php:112
 msgid "Volume and Path"
-msgstr "Volumen y Ruta"
+msgstr "Tomo y Ruta"
 
 #: ../schema/novell.php:115 ../schema/novell.php:178
 msgid "Other Information"
@@ -449,7 +449,7 @@ msgstr "Objeto con Alias"
 
 #: ../schema/novell.php:241
 msgid "NCP Volume"
-msgstr "Volumen de NCP"
+msgstr "Tomo de NCP"
 
 #: ../schema/novell.php:244
 msgid "Resource Name"

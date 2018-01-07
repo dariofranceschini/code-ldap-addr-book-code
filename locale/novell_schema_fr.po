@@ -315,7 +315,7 @@ msgstr "Queue"
 
 #: ../schema/novell.php:101
 msgid "Volume"
-msgstr "Volume"
+msgstr "Tome"
 
 #: ../schema/novell.php:109
 msgid "Directory Map Target"
@@ -323,7 +323,7 @@ msgstr "Cible d'Cnnuaire Carte"
 
 #: ../schema/novell.php:112
 msgid "Volume and Path"
-msgstr "Volume et Chemin"
+msgstr "Tome et Chemin"
 
 #: ../schema/novell.php:115 ../schema/novell.php:178
 msgid "Other Information"
