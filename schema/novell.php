@@ -240,18 +240,18 @@ class novell_schema extends ldap_schema
 		$ldap_server->add_display_layout("Volume",array(
 			array("section_name"=>gettext("NCP Volume"),"new_row"=>true,
 				"attributes"=>array(
-					array("hostServer",			gettext("Host Server"),			"generic24.png"),
-					array("hostResourceName",		gettext("Resource Name"),		"generic24.png"),
-					array("linuxNCPMountPoint",		gettext("Linux Mount Point"),		"generic24.png")
+					array("hostServer",			gettext("Host Server"),			"server-alias.png"),
+					array("hostResourceName",		gettext("Resource Name"),		"novell/volume.png"),
+					array("linuxNCPMountPoint",		gettext("Linux Mount Point"),		"folder.png")
 					/* TODO: revision number */
 					)
 				),
 			array("section_name"=>gettext("Additional Information"),"new_row"=>true,
 				"attributes"=>array(
-					array("l",				gettext("Location"),			"generic24.png"),
-					array("ou",				gettext("Department"),			"generic24.png"),
-					array("o",				gettext("Organization"),		"generic24.png"),
-					array("description",			gettext("Description"),			"generic24.png")
+					array("l",				gettext("Location"),			"locality.png"),
+					array("ou",				gettext("Department"),			"org.png"),
+					array("o",				gettext("Organization"),		"company.png"),
+					array("description",			gettext("Description"),			"description.png")
 					)
 				)
 			));
