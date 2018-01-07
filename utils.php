@@ -3250,6 +3250,10 @@ class ldap_entry_list
 				$ldap_entries[$i]["count"]++;
 			}
 
+			// fixup missing object class on eDirectory rootDSE
+			if($ldap_entries[$i]["dn"]== "" && $ldap_server->server_type=="edir")
+				$ldap_entries[$i]["objectclass"]=array("treeRoot","top");
+
 			// Add server ID associated with each record
 			$ldap_entries[$i]["SERVER"] = &$ldap_server;
 		}
