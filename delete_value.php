@@ -80,7 +80,8 @@ if(prereq_components_ok())
 
 				if($result)
 					header("Location: info.php?dn="
-						. urlencode($dn));
+						. urlencode($dn)
+						. ($server_id == 0 ? "" : ("&server_id=" . $server_id)));
 				else
 				{
 					show_site_header();
@@ -91,7 +92,9 @@ if(prereq_components_ok())
 						$attrib,$error) . "</p>";
 
 					echo  "<p>\n  <a href=\"info.php?dn="
-						. urlencode($dn) . "\">"
+						. urlencode($dn)
+						. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
+						. "\">"
 						. gettext("Return to the Address Book")
 						. "</a>\n</p>";
 				}

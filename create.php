@@ -19,6 +19,11 @@
 include "utils.php";
 include "config.php";
 
+if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+	$server_id = $_GET["server_id"];
+else
+	$server_id=0;
+
 if($ldap_server->log_on())
 {
 	show_site_header();
@@ -64,6 +69,10 @@ if($ldap_server->log_on())
 	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
 
 	echo "<form method=\"GET\" action=\"info.php\">\n";
+
+	if($server_id!=0)
+		echo "  <input type=\"hidden\" name=\"server_id\" value=\""
+			. htmlentities($server_id,ENT_COMPAT,"UTF-8") . "\">\n";
 
 	echo "  <p>\n    " . gettext("What type of record would you like to create?") . "\n  </p>\n";
 

@@ -24,6 +24,11 @@ if(empty($_GET["vcard"]))
 
 if(prereq_components_ok())
 {
+	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+		$server_id = $_GET["server_id"];
+	else
+		$server_id=0;
+
 	if($ldap_server->log_on())
 	{
 		// TODO: sanitise base DN from URL:
@@ -196,10 +201,12 @@ if(prereq_components_ok())
 		{
 			$buttons = "";
 
+			$server_id_str = $server_id==0 ? "" : ("&server_id=" . $server_id);
+
 			if(empty($_GET["filter"]) && get_user_setting("allow_folder_info")
 					&& get_user_setting("allow_browse") && get_user_setting("allow_view"))
 				$buttons .= "<a href=\"info.php?dn="
-					. urlencode($dn)
+					. urlencode($dn) . $server_id_str
 						. "\"><button>" . gettext("Folder Details") . "</button></a>\n";
 
 			if(get_user_setting("allow_create"))

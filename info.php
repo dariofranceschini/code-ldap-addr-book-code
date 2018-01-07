@@ -24,13 +24,18 @@ if(empty($_GET["vcard"]))
 
 if(prereq_components_ok())
 {
-	if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
-	else $dn = $ldap_server->base_dn;
+	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+		$server_id = $_GET["server_id"];
+	else
+		$server_id=0;
 
-	if($ldap_server->log_on())
+	if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH) $dn = $_GET["dn"];
+	else $dn = $ldap_server_list[$server_id]->base_dn;
+
+	if($ldap_server_list[$server_id]->log_on())
 	{
-		// Check whether the end part of the DN matches $ldap_server->base_dn
-		if($ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn)
+		// Check whether the end part of the DN matches $ldap_server_list[$server_id]->base_dn
+		if($ldap_server_list[$server_id]->compare_dn_to_base($dn,$ldap_server_list[$server_id]->base_dn)
 			|| get_user_setting("allow_system_admin"))
 		{
 			if(isset($_GET["create"]))
@@ -47,7 +52,7 @@ if(prereq_components_ok())
 						)
 					);
 
-				$aux_class_list = $ldap_server->get_object_schema_setting($object_class,"extensions");
+				$aux_class_list = $ldap_server_list[$server_id]->get_object_schema_setting($object_class,"extensions");
 
 				if(!empty($aux_class_list))
 				{
@@ -59,13 +64,13 @@ if(prereq_components_ok())
 				}
 
 				$entry[0]["___POPULATE_FOR_CREATE___"]=true;
-				$ldap_server->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
+				$ldap_server_list[$server_id]->call_schema_function("populate_for_create_" . $object_class,$entry[0]);
 				unset($entry[0]["___POPULATE_FOR_CREATE___"]);
 
 				// set DN to location of parent object
 				$entry[0]["dn"] = $dn;
 
-				$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
+				$entry_viewer = new ldap_entry_viewer($ldap_server_list[$server_id],$entry);
 
 				$entry_viewer->create = $entry_viewer->edit = true;
 
@@ -73,11 +78,11 @@ if(prereq_components_ok())
 			}
 			else
 			{
-				$search_resource = @ldap_read($ldap_server->connection,$dn,$browse_ldap_filter,array("*","+"));
+				$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,$browse_ldap_filter,array("*","+"));
 
 				if($search_resource)
 				{
-					$entry = ldap_get_entries($ldap_server->connection,$search_resource);
+					$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
 					if($entry["count"]>0)
 					{
@@ -86,7 +91,7 @@ if(prereq_components_ok())
 
 						if($dn == "" && !isset($entry[0]["objectclass"]))
 						{
-							switch($ldap_server->server_type)
+							switch($ldap_server_list[$server_id]->server_type)
 							{
 								case "ad":
 									// made up rootDSE class
@@ -106,27 +111,26 @@ if(prereq_components_ok())
 							}
 						}
 
-						$object_class = $ldap_server->get_object_class($entry[0]);
+						$object_class = $ldap_server_list[$server_id]->get_object_class($entry[0]);
 
 						// Attribute values for Active Directory subSchema objects are only
 						// returned if requested individually by name (non-standard behaviour)
-						if($ldap_server->server_type == "ad"
+						if($ldap_server_list[$server_id]->server_type == "ad"
 							&& $object_class=="subSchema")
 						{
-							$search_resource = @ldap_read($ldap_server->connection,$dn,
+							$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,$dn,
 								$browse_ldap_filter,array("objectClass","extendedClassInfo",
 									"extendedAttributeInfo","dITContentRules",
 									"attributeTypes","objectClasses","modifyTimeStamp"));
 
 							// This assumes the entry can be retrieved (unsafe?)
-							$entry = ldap_get_entries($ldap_server->connection,
+							$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
 								$search_resource);
 						}
 
-						$ldap_server->call_schema_function("before_show_"
+						$ldap_server_list[$server_id]->call_schema_function("before_show_"
 							. $object_class,$entry[0]);
-
-						$entry_viewer = new ldap_entry_viewer($ldap_server,$entry);
+						$entry_viewer = new ldap_entry_viewer($ldap_server_list[$server_id],$entry);
 
 						if(!empty($_GET["vcard"]))
 							$entry_viewer->save_vcard();
@@ -134,7 +138,6 @@ if(prereq_components_ok())
 						{
 							if(!empty($_GET["edit"]))
 								$entry_viewer->edit = true;
-
 							$entry_viewer->show();
 						}
 					}
@@ -152,7 +155,7 @@ if(prereq_components_ok())
 				. "which stores the address book. You do not "
 				. "have permission to display it.") . "\n</p>\n"
 				. "<p>\n  " . gettext("The address book is stored at:")
-				. " <code>" . htmlentities($ldap_server->base_dn,ENT_COMPAT,"UTF-8") . "</code>");
+				. " <code>" . htmlentities($ldap_server_list[$server_id]->base_dn,ENT_COMPAT,"UTF-8") . "</code>");
 	}
 	else
 		show_ldap_bind_error();

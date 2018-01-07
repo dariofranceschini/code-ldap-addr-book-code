@@ -37,7 +37,8 @@ if($ldap_server_list[$server_id]->log_on())
 
 	if(isset($_POST["auxiliary_class"]))
 		header("Location: info.php?edit=1&dn=" . $_GET["dn"]
-			. "&add_aux_class=" . $_POST["auxiliary_class"]);
+			. "&add_aux_class=" . $_POST["auxiliary_class"]
+			. ($server_id == 0 ? "" : ("&server_id=" . $server_id)));
 	else
 	{
 		show_site_header();

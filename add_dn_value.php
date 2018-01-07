@@ -85,7 +85,8 @@ if($ldap_server_list[$server_id]->log_on())
 							. "_" . $attrib,$entry[0]);
 
 						header("Location: info.php?dn="
-							. urlencode($target_dn));
+							. urlencode($target_dn)
+							. ($server_id == 0 ? "" : ("&server_id=" . $server_id)));
 					}
 					else
 						show_error_message(gettext("Unable to access LDAP object."));
@@ -99,6 +100,7 @@ if($ldap_server_list[$server_id]->log_on())
                 	                                . $attrib . "': " . $error . "</p>";
 
 				        echo  "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
+						. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
 				                . "\">" . gettext("Return to the Address Book")
 						. "</a>\n</p>";
 				}
@@ -183,6 +185,7 @@ if($ldap_server_list[$server_id]->log_on())
 			}
 
 			echo "<hr><a href=\"info.php?dn=" . urlencode($target_dn)
+				. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
 				. "\"><button>" . gettext("Cancel") . "</button></a>";
 
 			show_site_footer();

@@ -39,7 +39,7 @@ else
 
 // Determine where to return to if delete was cancelled or failed
 if(isset($_GET["page"]) && $_GET["page"] == "info")
-	$return_page_if_not_deleted = "info.php?dn=" . urlencode($dn);
+	$return_page_if_not_deleted = "info.php?dn=" . urlencode($dn) . $server_id_str;
 else
 	if(isset($rdn_list[1]["dn"]))
 		$return_page_if_not_deleted = "index.php?dn=" . urlencode($rdn_list[1]["dn"]);
