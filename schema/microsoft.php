@@ -19,6 +19,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"department",			"data_type"=>"text",		"display_name"=>gettext("Department")),
 			array("name"=>"displayName",			"data_type"=>"text",		"display_name"=>gettext("Display/Preferred Name")),
 			array("name"=>"dMDLocation",			"data_type"=>"dn",		"display_name"=>gettext("Schema Partition DN")),
+			array("name"=>"fSMORoleOwner",			"data_type"=>"dn",		"display_name"=>gettext("FSMO Role Owner")),
 			array("name"=>"enabledConnection",		"data_type"=>"yes_no",		"display_name"=>gettext("Connection Is Enabled")),
 			array("name"=>"extendedAttributeInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Attribute Information")),
 			array("name"=>"extendedClassInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Class Information")),
@@ -113,7 +114,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"group",				"icon"=>"group24.png",			"is_folder"=>false,"display_name"=>gettext("Group"),"can_create"=>true),
 			array("name"=>"groupPolicyContainer",		"icon"=>"microsoft/policy.png",		"is_folder"=>true,"parent_class"=>"container"),
 			array("name"=>"indexServerCatalog",							"parent_class"=>"connectionPoint"),
-			array("name"=>"infrastructureUpdate"),
+			array("name"=>"infrastructureUpdate",		"icon"=>"server-alias.png",		"is_folder"=>false),
 			array("name"=>"intellimirrorGroup",							"display_name"=>gettext("IntelliMirror Group")),
 			array("name"=>"intellimirrorSCP",							"display_name"=>gettext("IntelliMirror Service"),"parent_class"=>"serviceAdministrationPoint"),
 			array("name"=>"interSiteTransport",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transport")),
@@ -809,6 +810,14 @@ class microsoft_schema extends ldap_schema
 					)
 				)
 			*/
+			));
+
+		$ldap_server->add_display_layout("infrastructureUpdate",array(
+			array("section_name"=>gettext("Infrastructure Operations Master Role Holder"),
+				"attributes"=>array(
+					array("fSMORoleOwner",				gettext("Operations Master DSA for this Domain"),				"alias.png","allow_edit"=>false),
+					)
+				)
 			));
 
 		// component schema
