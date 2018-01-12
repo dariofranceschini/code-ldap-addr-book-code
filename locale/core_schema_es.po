@@ -460,11 +460,3 @@ msgstr "Certificado CA"
 #: ../schema/core.php:391
 msgid "Authority Revocation List"
 msgstr "Lista de Revocación de la Autoridad"
-
-#, fuzzy
-#~ msgid "Presentation Address"
-#~ msgstr "OSI Dirección de Presentación"
-
-#, fuzzy
-#~ msgid "Supported Application Context"
-#~ msgstr "Contextos de Aplicación OSI que son Compatibles"

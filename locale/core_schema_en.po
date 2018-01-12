@@ -458,9 +458,3 @@ msgstr "CA Certificate"
 #: ../schema/core.php:391
 msgid "Authority Revocation List"
 msgstr "Authority Revocation List"
-
-#~ msgid "Presentation Address"
-#~ msgstr "Presentation Address"
-
-#~ msgid "Supported Application Context"
-#~ msgstr "Supported Application Contexts"
