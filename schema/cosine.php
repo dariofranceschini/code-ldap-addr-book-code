@@ -159,6 +159,49 @@ class cosine_schema extends ldap_schema
 				)
 			));
 
+		$ldap_server->add_display_layout("rFC822LocalPart",array(
+			array("colspan"=>2,"new_row"=>true,
+				"attributes"=>array(
+					array("dc",				gettext("Local Part of E-Mail Address"),"mail.png"),
+
+					array("description",			gettext("Description"),			"description.png"),
+
+					array("cn",                             gettext("Full Name of User/Owner"),            "contact24.png"),
+					array("sn",                             gettext("Surname"),             "contact24.png","allow_view"=>false),
+
+					// array("o",				gettext("Organization"),		"company.png"),
+					// array("businessCategory",		gettext("Business Category"),		"company.png"),
+					// array("physicalDeliveryOfficeName",	gettext("Office Name"),			"office.png"),
+
+					// Address of Organizational Unit
+					// Several potential address layouts are possible, depending on country-specific
+					// convention and individual preference.
+					// If used, the postalCode attribute can control a link to a web-based map
+					// service which shows the organizational unit's location.
+
+					// Component-based address representation:
+					array("street:l:st:postalCode",		gettext("Postal Address"),		"address.png"),
+
+					// Component-based address representation including a field for PO Box:
+					// array("postOfficeBox:street:l:st:postalCode",gettext("Postal Address"),"address.png"),
+
+					// Addresses combined into a single attribute:
+					// array("postalAddress",		gettext("Postal Address"),		"address.png"),
+					// array("registeredAddress",		gettext("Registered Address"),		"address.png"),
+
+					array("telephoneNumber",		gettext("Phone"),			"landline-phone.png"),
+					array("facsimileTelephoneNumber",	gettext("Fax"),				"fax.png")
+					// array("internationaliSDNNumber",	gettext("ISDN"),			"landline-phone.png"),
+					// array("seeAlso",			gettext("See Also"),			"alias.png"),
+					)
+				),
+			array("section_name"=>gettext("Associated Names"),"new_row"=>true,"width"=>"50%",
+				"attributes"=>array(
+					array("associatedName")
+					)
+				)
+			));
+
 		// Auxiliary class display layouts
 
 		$ldap_server->add_display_layout("domainRelatedObject",array(

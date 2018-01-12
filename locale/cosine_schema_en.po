@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 11:27+0100\n"
-"PO-Revision-Date: 2017-06-18 11:27+0100\n"
+"POT-Creation-Date: 2017-12-23 13:57+0000\n"
+"PO-Revision-Date: 2017-12-23 13:57+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -209,7 +209,7 @@ msgstr "Document Series"
 msgid "Domain"
 msgstr "Domain"
 
-#: ../schema/cosine.php:93 ../schema/cosine.php:165
+#: ../schema/cosine.php:93 ../schema/cosine.php:208
 msgid "Associated DNS Domain"
 msgstr "Associated DNS Domain"
 
@@ -253,23 +253,23 @@ msgstr "Data Quality Label"
 msgid "Domain Name Component"
 msgstr "Domain Name Component"
 
-#: ../schema/cosine.php:116 ../schema/cosine.php:155
+#: ../schema/cosine.php:116 ../schema/cosine.php:155 ../schema/cosine.php:167
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/cosine.php:128
+#: ../schema/cosine.php:128 ../schema/cosine.php:183
 msgid "Postal Address"
 msgstr "Postal Address"
 
-#: ../schema/cosine.php:137
+#: ../schema/cosine.php:137 ../schema/cosine.php:192
 msgid "Phone"
 msgstr "Phone"
 
-#: ../schema/cosine.php:138
+#: ../schema/cosine.php:138 ../schema/cosine.php:193
 msgid "Fax"
 msgstr "Fax"
 
-#: ../schema/cosine.php:143
+#: ../schema/cosine.php:143 ../schema/cosine.php:198
 msgid "Associated Names"
 msgstr "Associated Names"
 
@@ -285,6 +285,18 @@ msgstr "Telephone Number"
 msgid "See Also"
 msgstr "See Also"
 
-#: ../schema/cosine.php:167
+#: ../schema/cosine.php:165
+msgid "Local Part of E-Mail Address"
+msgstr "Local Part of E-Mail Address"
+
+#: ../schema/cosine.php:169
+msgid "Full Name of User/Owner"
+msgstr "Full Name of User/Owner"
+
+#: ../schema/cosine.php:170
+msgid "Surname"
+msgstr "Surname"
+
+#: ../schema/cosine.php:210
 msgid "DNS Domain Name"
 msgstr "DNS Domain Name"
