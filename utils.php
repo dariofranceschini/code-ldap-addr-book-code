@@ -172,7 +172,7 @@ function show_error_message($message)
     Also shows "login" button to right (if per-user logins
     are enabled)
 
-    @param string $base
+    @param string $dn
 	The DN for which the breadcrumb navigation is to be
 	displayed
     @param string $leaf_icon
@@ -182,7 +182,7 @@ function show_error_message($message)
 	written to the directory.
 */
 
-function show_ldap_path($base,$leaf_icon = "")
+function show_ldap_path($dn,$leaf_icon = "")
 {
 	global $site_name,$ldap_server,$show_ldap_path;
 
@@ -196,10 +196,10 @@ function show_ldap_path($base,$leaf_icon = "")
 		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_server->base_dn))
-		$rdn_list = $base;
+	if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
+		$rdn_list = $dn;
 	else
-		$rdn_list = substr($base,0,-strlen($ldap_server->base_dn)-1);
+		$rdn_list = substr($dn,0,-strlen($ldap_server->base_dn)-1);
 
 	if($rdn_list != "")
 	{
@@ -216,7 +216,7 @@ function show_ldap_path($base,$leaf_icon = "")
 
 			if($rdn_list[$i-1]["dn"] == $ldap_server->base_dn)
 				$object_dn = $ldap_server->base_dn;
-			else if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($base,$ldap_server->base_dn))
+			else if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
 				$object_dn = $rdn_list[$i-1]["dn"];
 			else
 				$object_dn = $rdn_list[$i-1]["dn"]
