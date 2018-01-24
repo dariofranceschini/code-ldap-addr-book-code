@@ -173,8 +173,8 @@ function show_error_message($message)
     are enabled)
 
     @param string $dn
-	The DN for which the breadcrumb navigation is to be
-	displayed
+	DN of the record for which the breadcrumb navigation is
+	to be displayed.
     @param string $leaf_icon
 	Placeholder image to use for the last item in the path
 	if the actual icon isn't available. Typically used when
