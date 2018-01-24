@@ -169,7 +169,8 @@ function show_error_message($message)
 
 /** Show "breadcrumb navigation" version of specified LDAP path
 
-    Also shows "login" button to right (if per-user logins
+    Also shows "server info" link (if the current user has system
+    admin permissions) and "login" link (if per-user logins
     are enabled)
 
     @param string $dn
