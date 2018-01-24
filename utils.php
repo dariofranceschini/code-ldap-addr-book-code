@@ -260,10 +260,14 @@ function show_ldap_path($dn,$leaf_icon = "")
 			{
 				if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
 					echo "<a href=\"" . current_page_folder_url()
-						. "?dn=" . urlencode($object_dn) . "\">";
+						. "?dn=";
 				else
 					echo "<a href=\"" . current_page_folder_url()
-						. "info.php?dn=" . urlencode($object_dn) . "\">";
+						. "info.php?dn=";
+
+				echo urlencode($object_dn);
+
+				echo "\">";
 			}
 
 			echo "<img alt=\""
