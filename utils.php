@@ -197,7 +197,7 @@ function show_ldap_path($dn,$leaf_icon = "")
 		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
+	if(!is_object($ldap_server) || $ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
 		$rdn_list = $dn;
 	else
 		$rdn_list = substr($dn,0,-strlen($ldap_server->base_dn)-1);
@@ -289,7 +289,7 @@ function show_ldap_path($dn,$leaf_icon = "")
 	echo "    </td>\n";
 
 	echo "    <td class=\"server_info\">";
-	if($ldap_server->get_user_setting("allow_system_admin"))
+	if(is_object($ldap_server) && $ldap_server->get_user_setting("allow_system_admin"))
 		echo "<a href=\"info.php?dn=\">" . gettext("Server Info") . "</a>";
 	else
 		echo "<!-- server info not enabled -->";
