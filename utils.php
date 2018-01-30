@@ -293,7 +293,9 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 
 	echo "    <td class=\"server_info\">";
 	if(is_object($ldap_server) && $ldap_server->get_user_setting("allow_system_admin"))
-		echo "<a href=\"info.php?dn=\">" . gettext("Server Info") . "</a>";
+		echo "<a href=\"info.php?dn="
+			. ($ldap_server->server_id==0 ? "" : "&server_id=" . ($ldap_server->server_id))
+			. "\">" . gettext("Server Info") . "</a>";
 	else
 		echo "<!-- server info not enabled -->";
 
