@@ -5279,8 +5279,8 @@ class ldap_server
 	{
 		global $group_member_attributes;
 
-		if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
-			$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$attrib];
+		if(empty($user_name) && isset($_SESSION["CACHED_PERMISSIONS"][$this->server_id][$attrib]))
+			$attrib_value = $_SESSION["CACHED_PERMISSIONS"][$this->server_id][$attrib];
 		else
 		{
 			// list of ordinarily boolean attributes which if found to
@@ -5352,9 +5352,9 @@ class ldap_server
 				&& in_array($attrib,$boolean_attribs_with_ldap_lookup))
 			{
 				// re-use previously cached permission setting
-				if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+				if(isset($_SESSION["CACHED_PERMISSIONS"][$this->server_id][$attrib]))
 					$attrib_value
-						= $_SESSION["CACHED_PERMISSIONS"][$attrib];
+						= $_SESSION["CACHED_PERMISSIONS"][$this->server_id][$attrib];
 				else
 				{
 					if(!isset($group_member_attributes))
@@ -5454,7 +5454,7 @@ class ldap_server
 
 	function user_setting_exists($attrib,$user_name = "")
 	{
-		if(isset($_SESSION["CACHED_PERMISSIONS"][$attrib]))
+		if(isset($_SESSION["CACHED_PERMISSIONS"][$this->server_id][$attrib]))
 			return true;
 		else
 		{
@@ -5488,7 +5488,7 @@ class ldap_server
 
 	function assign_cached_user_setting($setting,$value)
 	{
-		$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
+		$_SESSION["CACHED_PERMISSIONS"][$this->server_id][$setting] = $value;
 	}
 
 	/** Get LDAP bind password of current user
