@@ -94,7 +94,7 @@ if($ldap_server_list[$server_id]->log_on())
 				else
 				{
 					show_site_header();
-					show_ldap_path($target_dn);
+					show_ldap_path($ldap_server_list[$server_id],$target_dn);
 
 					echo "<p>" . gettext("Error whilst setting attribute") . " '"
                 	                                . $attrib . "': " . $error . "</p>";
@@ -111,7 +111,7 @@ if($ldap_server_list[$server_id]->log_on())
 		else
 		{
 			show_site_header();
-			show_ldap_path($target_dn);
+			show_ldap_path($ldap_server_list[$server_id],$target_dn);
 
 			if(empty($target_dn))
 				$entry_name = "rootDSE";

@@ -85,7 +85,7 @@ if(prereq_components_ok())
 				else
 				{
 					show_site_header();
-					show_ldap_path($dn);
+					show_ldap_path($ldap_server_list[$server_id],$dn);
 
 					echo "<p>" . sprintf(gettext(
 						"Error whilst deleting value from attribute '%s':  %s"),

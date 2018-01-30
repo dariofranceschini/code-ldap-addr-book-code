@@ -65,7 +65,7 @@ if(prereq_components_ok())
 			{
 				$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
-        	                show_ldap_path($dn);
+        	                show_ldap_path($ldap_server_list[$server_id],$dn);
 
 				echo "<p>Where do you want to move this record to?</p>";
 
@@ -101,7 +101,7 @@ if(prereq_components_ok())
 		else
 		{
 			show_site_header();
-			show_ldap_path($dn);
+			show_ldap_path($ldap_server_list[$server_id],$dn);
 			echo "<p>" . gettext("Unable to locate LDAP record") . "</p>"
 				. "<p><a href=\"" . current_page_folder_url() . "\">"
 				. gettext("Return to the Address Book") . "</a></p>";

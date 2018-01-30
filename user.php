@@ -85,7 +85,7 @@ else
 function show_try_again_message($message)
 {
 	show_site_header();
-	show_ldap_path("");
+	show_ldap_path(null,"");
 	echo "<p>" . $message . "</p>\n";
 	echo "<a href=\"user.php\">" . gettext("Try again") . "</a>\n";
 	show_site_footer();

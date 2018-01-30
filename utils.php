@@ -157,7 +157,7 @@ function show_search_box($initial_value)
 
 function show_error_message($message)
 {
-	show_ldap_path("");
+	show_ldap_path(null,"");
 	show_search_box("");
 	echo "<p>  \n" . $message . "\n</p>"
 		. "<p>\n  <a href=\"" . current_page_folder_url()
@@ -173,6 +173,9 @@ function show_error_message($message)
     admin permissions) and "login" link (if per-user logins
     are enabled)
 
+    @param object $ldap_server
+	Server containing the record for which the breadcrumb
+	navigation is to be displayed.
     @param string $dn
 	DN of the record for which the breadcrumb navigation is
 	to be displayed.
@@ -183,9 +186,9 @@ function show_error_message($message)
 	written to the directory.
 */
 
-function show_ldap_path($dn,$leaf_icon = "")
+function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 {
-	global $site_name,$ldap_server,$show_ldap_path;
+	global $site_name,$show_ldap_path;
 
 	if(!isset($site_name))
 		$site_name = gettext("Address Book");
@@ -558,13 +561,13 @@ class ldap_entry_viewer
 		$dn = $this->ldap_entry[0]["dn"];
 
 		if($this->create)
-			show_ldap_path("CN=" . sprintf(gettext("New %s"),
+			show_ldap_path($this->ldap_server,"CN=" . sprintf(gettext("New %s"),
 				$this->ldap_server->get_object_schema_setting(
 				$this->ldap_server->get_object_class($this->ldap_entry[0]),
 				"display_name")) . (empty($dn) ? "" : "," . $dn),
 				$this->ldap_server->get_icon_for_ldap_entry($this->ldap_entry[0]));
 		else
-			show_ldap_path($dn);
+			show_ldap_path($this->ldap_server,$dn);
 
 		if($this->ldap_server->get_user_setting("allow_search"))
 			show_search_box("");
@@ -2839,7 +2842,7 @@ function show_ldap_bind_error()
 {
 	global $ldap_server;
 
-	show_ldap_path("");
+	show_ldap_path(null,"");
 	if($ldap_server->per_user_login_enabled())
 	{
 		if(isset($_SESSION["LOGIN_USER"]))
@@ -3544,7 +3547,7 @@ function prereq_components_ok()
 
 	if(!empty($missing_php_extn_list))
 	{
-		show_ldap_path("");
+		show_ldap_path(null,"");
 
 		echo "<p>" . gettext("The following PHP extension modules must be "
 			. "installed and enabled in order to use the "
@@ -4385,7 +4388,7 @@ class ldap_server
 				else
 				{
 					show_site_header();
-					show_ldap_path("");
+					show_ldap_path(null,"");
 
 					echo "<p>\n  "
 						. gettext("Unable connect to the directory to look up the user name.")
@@ -5765,7 +5768,7 @@ function show_searchable_attributes()
 function missing_config_error()
 {
 	show_site_header();
-	show_ldap_path("");
+	show_ldap_path(null,"");
 
 	echo "<p>\n  "
 		. sprintf(gettext("The Address Book's configuration file (%sconfig.php%s) is missing."),

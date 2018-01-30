@@ -58,7 +58,7 @@ if($ldap_server_list[$server_id]->log_on())
 			if(empty($_GET["confirm"]))
 			{
 				show_site_header();
-				show_ldap_path($dn);
+				show_ldap_path($ldap_server_list[$server_id],$dn);
 
 				echo "<p>" . gettext("Are you sure you want to delete this record?") . "</p>\n";
 
@@ -77,7 +77,7 @@ if($ldap_server_list[$server_id]->log_on())
 					$error=ldap_error($ldap_server_list[$server_id]->connection);
 
 					show_site_header();
-					show_ldap_path($dn);
+					show_ldap_path($ldap_server_list[$server_id],$dn);
 
 					echo "<p>" . gettext("Unable to delete record") . ": " . $error . "</p>";
 
@@ -89,7 +89,7 @@ if($ldap_server_list[$server_id]->log_on())
 		else
 		{
 			show_site_header();
-			show_ldap_path($dn);
+			show_ldap_path($ldap_server_list[$server_id],$dn);
 			echo "<p>" . gettext("You do not have permission to delete this record") . "</p>"
 				. "<p><a href=\"" . $return_page_if_not_deleted
 				. "\">" . gettext("Return to the Address Book") . "</a></p>";
@@ -98,7 +98,7 @@ if($ldap_server_list[$server_id]->log_on())
 	else
 	{
 		show_site_header();
-		show_ldap_path($dn);
+		show_ldap_path($ldap_server_list[$server_id],$dn);
 		echo "<p>" . gettext("Unable to locate LDAP record") . "</p>"
 			. "<p><a href=\"" . $return_page_if_not_deleted
 			. "\">" . gettext("Return to the Address Book") . "</a></p>";

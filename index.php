@@ -109,7 +109,7 @@ if(prereq_components_ok())
 
 		if(empty($_GET["vcard"]))
 		{
-			show_ldap_path($dn);
+			show_ldap_path($ldap_server_list[$server_id],$dn);
 
 			if($ldap_server_list[$server_id]->get_user_setting("allow_search") && $ldap_server_list[$server_id]->get_user_setting("allow_login"))
 				if(!empty($_GET["filter"]))

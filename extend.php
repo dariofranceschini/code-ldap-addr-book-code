@@ -46,7 +46,7 @@ if($ldap_server_list[$server_id]->log_on())
 		$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
 			$dn,$browse_ldap_filter,array("objectclass"));
 
-		show_ldap_path($dn);
+		show_ldap_path($ldap_server_list[$server_id],$dn);
 
 		// TODO: guard against nasties in the DN
 		echo "<form method=\"POST\" action=\"extend.php?dn=" . $_GET["dn"]

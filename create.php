@@ -68,7 +68,7 @@ if($ldap_server_list[$server_id]->log_on())
 
 	$show_all_object_classes = isset($_GET["show_all"]) && $ldap_server_list[$server_id]->get_user_setting("allow_system_admin");
 
-	show_ldap_path("cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
+	show_ldap_path($ldap_server_list[$server_id],"cn=" . gettext("New Record") . (empty($dn) ? "" : "," . $dn),"schema/generic24.png");
 
 	echo "<form method=\"GET\" action=\"info.php\">\n";
 

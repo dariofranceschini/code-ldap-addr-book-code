@@ -339,7 +339,7 @@ if($ldap_server_list[$server_id]->log_on())
 					}
 				}
 
-				show_ldap_path($dn);
+				show_ldap_path($ldap_server_list[$server_id],$dn);
 
 				if($ldap_server_list[$server_id]->get_user_setting("allow_search") && $ldap_server_list[$server_id]->get_user_setting("allow_login"))
 					show_search_box("");
