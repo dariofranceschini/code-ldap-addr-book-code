@@ -2870,30 +2870,6 @@ function show_ldap_bind_error()
 	}
 }
 
-/** Get LDAP bind password of current user
-
-    The password for user "__ANONYMOUS__" is stored in its "ldap_password"
-    setting. For all other users the password typed into the login
-    dialogue is retrieved from the "LOGIN_PASSWORD" session variable.
-
-    @return
-	LDAP bind password of current user
-*/
-
-function get_ldap_bind_password()
-{
-	if(get_user_setting("login_name") == "__ANONYMOUS__")
-		return get_user_setting("ldap_password","__ANONYMOUS__");
-	else
-	{
-		// Resume existing session (if any exists) in order to get
-		// currently logged in user
-		if(!isset($_SESSION)) session_start();
-
-		return base64_decode($_SESSION["LOGIN_PASSWORD"]);
-	}
-}
-
 /** Callback function to reauthenticate following LDAP referral
 
     @param resource $ldap_link
@@ -2914,7 +2890,7 @@ function ldap_referral_rebind($ldap_link,$referral_uri)
 		return 1;
 	else
 		return @ldap_bind_log($ldap_link,$user,
-			get_ldap_bind_password()) ? 1 : 0;
+			$ldap_server->get_ldap_bind_password()) ? 1 : 0;
 }
 
 /** Return the method to be used for merging group and user settings together.
@@ -4420,7 +4396,7 @@ class ldap_server
 		}
 		else
 			$result=@ldap_bind_log($this->connection,$user_bind_dn,
-				get_ldap_bind_password());
+				$this->get_ldap_bind_password());
 
 		if($result)
 		{
@@ -5513,6 +5489,30 @@ class ldap_server
 	function assign_cached_user_setting($setting,$value)
 	{
 		$_SESSION["CACHED_PERMISSIONS"][$setting] = $value;
+	}
+
+	/** Get LDAP bind password of current user
+
+	    Returns the user's "ldap_password" setting (if set), otherwise the
+	    password typed into the login dialogue is retrieved from the
+	    "LOGIN_PASSWORD" session variable.
+
+	    @return
+		LDAP bind password of current user
+	*/
+
+	function get_ldap_bind_password()
+	{
+		if($this->user_setting_exists("ldap_password"))
+			return $this->get_user_setting("ldap_password");
+		else
+		{
+			// Resume existing session (if any exists) in order to get
+			// currently logged in user
+			if(!isset($_SESSION)) session_start();
+
+			return base64_decode($_SESSION["LOGIN_PASSWORD"]);
+		}
 	}
 
 	/** Return list of auxiliary classes for the specified entry
