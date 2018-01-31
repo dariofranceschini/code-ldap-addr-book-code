@@ -167,6 +167,24 @@ function show_error_message($message)
 	exit(0);
 }
 
+/** Return whether the currently logged in user has permission to access the specified LDAP server/DN
+
+    @param object $ldap_server
+	Server to be accessed
+    @param string $dn
+	DN to be accessed
+    @return
+	Whether the user has permission to access the specfied LDAP server/DN
+    @todo
+	Support multiple allowed base DNs per server (e.g. where links are used)
+*/
+
+function dn_user_access_allowed($ldap_server,$dn)
+{
+	return $ldap_server->get_user_setting("allow_system_admin")
+		|| $ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn);
+}
+
 /** Show "breadcrumb navigation" version of specified LDAP path
 
     Also shows "server info" link (if the current user has system
