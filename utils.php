@@ -206,7 +206,7 @@ function dn_user_access_allowed($ldap_server,$dn)
 
 function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 {
-	global $site_name,$show_ldap_path;
+	global $site_name,$ldap_server_list,$linked_ldap_dn_list,$show_ldap_path;
 
 	if(!isset($site_name))
 		$site_name = gettext("Address Book");
@@ -218,86 +218,193 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 		. "\" title=\"" . gettext("Address Book") . "\" src=\"addressbook24.png\"> "
 		. $site_name . "</a></li>\n";
 
-	if(!is_object($ldap_server) || $ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
-		$rdn_list = $dn;
-	else
-		$rdn_list = substr($dn,0,-strlen($ldap_server->base_dn)-1);
+	$server_id = is_object($ldap_server) ? $ldap_server->server_id : 0;
 
-	if($rdn_list != "")
+	// Visibility of path information is based on allow_ldap_path for the page/entry being displayed
+	if(is_object($ldap_server) && $ldap_server_list[$server_id]->get_user_setting("allow_ldap_path"))
 	{
-		$rdn_list = ldap_explode_dn2($rdn_list);
+		// TODO: test permission to access specific DNs - use dn_user_access_allowed($ldap_server,$dn)
 
-		if($ldap_server->get_user_setting("allow_ldap_path"))
-			$starting_entry = $rdn_list["count"];
-		else
-			$starting_entry = 1;
+		$rdn_list = ldap_explode_dn2($dn);
 
-		for($i=$starting_entry;$i>0;$i--)
+		$path_entry=array();
+
+		$rdn_list_position=0;
+		$list_end=false;
+		$path_entry_number=0;
+
+		// get LDAP path for the specified location
+
+		while(!$list_end)
 		{
-			echo "        <li>";
-
-			if($rdn_list[$i-1]["dn"] == $ldap_server->base_dn)
-				$object_dn = $ldap_server->base_dn;
-			else if($ldap_server->base_dn == "" || !$ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn))
-				$object_dn = $rdn_list[$i-1]["dn"];
-			else
-				$object_dn = $rdn_list[$i-1]["dn"]
-					. "," . $ldap_server->base_dn;
-
-			// read LDAP entry to get object class/icon information
-
-			$search_resource = @ldap_read($ldap_server->connection,
-				$object_dn,"(objectclass=*)",array("objectclass",
-				"jpegphoto","thumbnailphoto","thumbnaillogo"));
-
-			if($search_resource)
-			{
-				$ldap_entry = ldap_get_entries($ldap_server->connection,$search_resource);
-				$icon = $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
-				$object_class = $ldap_server->get_object_class($ldap_entry[0]);
-			}
+			if($server_id==0 && strcasecmp($rdn_list[$rdn_list_position]["dn"],
+					$ldap_server_list[0]->base_dn)==0)
+				// stop if we reach the Address Book's overall base DN
+				$list_end=true;
 			else
 			{
-				// Use a generic icon if object's actual icon couldn't be retrieved
+				// add the item
 
-				if($i==1)
+				$linked_dn_found=false;
+				$link_method="folder";
+				foreach($linked_ldap_dn_list as $linked_ldap_dn)
 				{
-					$icon = empty($leaf_icon) ? "schema/generic24.png" : $leaf_icon;
-					$object_class=gettext("Address Book Entry");
+					if(strcasecmp($linked_ldap_dn["destination_dn"],$rdn_list[$rdn_list_position]["dn"])==0
+						&& $linked_ldap_dn["destination_server"] == $server_id)
+					{
+						// force display name/object class
+
+						if($linked_ldap_dn["link_method"]=="folder")
+						{
+							if(isset($linked_ldap_dn["name"]))
+								$rdn_list[$rdn_list_position]["display_name"]
+									=$linked_ldap_dn["name"];
+							if(isset($linked_ldap_dn["object_class"]))
+								$rdn_list[$rdn_list_position]["object_class"]
+									=$linked_ldap_dn["object_class"];
+						}
+
+						$source_server = $linked_ldap_dn["source_server"];
+						$source_dn = $linked_ldap_dn["source_dn"];
+						$link_method = $linked_ldap_dn["link_method"];
+
+						$linked_dn_found = true;
+					}
+				}
+
+				// TODO: handle entries with multi-valued RDNs correctly
+				if(!isset($rdn_list[$rdn_list_position]["display_name"]))
+					$rdn_list[$rdn_list_position]["display_name"]=$rdn_list[$rdn_list_position]["value"];
+
+				$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
+					$rdn_list[$rdn_list_position]["dn"],"(objectclass=*)",array("objectclass",
+					"jpegphoto","thumbnailphoto","thumbnaillogo"));
+
+				if($search_resource)
+				{
+					$ldap_entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
+
+					if($ldap_entry[0]["dn"]== "")
+					{
+						// fixup missing rootDSE object class
+						switch($ldap_server_list[$server_id]->server_type)
+						{
+							case "edir":
+								if(!isset($ldap_entry[0]["objectclass"]))
+									$ldap_entry[0]["objectclass"]=array("treeRoot","top");
+								break;
+							case "ad":
+							case "default":
+								if(!isset($ldap_entry[0]["objectclass"]))
+									$ldap_entry[0]["objectclass"]=array("rootDSE","top");
+								break;
+						}
+
+						// fixup missing rootDSE object name
+						switch($ldap_server_list[$server_id]->server_type)
+						{
+							case "edir";
+								// do nothing
+								break;
+							default:
+								$rdn_list[$rdn_list_position]["display_name"]="Server: "
+									. $ldap_server_list[$server_id]->host_or_url;
+						}
+					}
+				}
+				else
+					$ldap_entry = array(array("objectclass"=>array("__UNREADABLE__"),
+						"dn"=>$rdn_list[$rdn_list_position]["dn"]));
+
+				if(isset($rdn_list[$rdn_list_position]["object_class"]))
+					$ldap_entry[0]["objectclass"]=array($rdn_list[$rdn_list_position]["object_class"]);
+				else
+					$rdn_list[$rdn_list_position]["object_class"]
+						= $ldap_server->get_object_class($ldap_entry[0]);
+
+				if($search_resource)
+				{
+					$rdn_list[$rdn_list_position]["icon"]
+						= $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
+					$rdn_list[$rdn_list_position]["alt_text"]
+						= $rdn_list[$rdn_list_position]["object_class"];
+					$rdn_list[$rdn_list_position]["show_as_link"]
+						= $path_entry_number>0 && dn_user_access_allowed($ldap_server,$dn);
 				}
 				else
 				{
-					$icon="schema/folder-unreadable.png";
-					$object_class="__UNREADABLE_FOLDER__";
+					$rdn_list[$rdn_list_position]["object_class"]=gettext("__UNREADABLE__");
+					$rdn_list[$rdn_list_position]["show_as_link"]=false;
+					if($path_entry_number==0)
+					{
+						$rdn_list[$rdn_list_position]["icon"]
+							= empty($leaf_icon) ? "schema/generic24.png" : $leaf_icon;
+						$rdn_list[$rdn_list_position]["alt_text"]=gettext("Address Book Entry");
+					}
+					else
+					{
+						$rdn_list[$rdn_list_position]["icon"]="schema/folder-unreadable.png";
+						$rdn_list[$rdn_list_position]["alt_text"]=gettext("Unreadable Folder");
+					}
 				}
-			}
-			if($object_class == "__UNREADABLE_FOLDER__")
-				$alt_text = gettext("Unreadable Folder");
-			else
-				$alt_text = $object_class;
 
-			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
-				&& $ldap_server->get_user_setting("allow_browse"))
+				if($link_method == "folder")
+					$path_entry[]=array_merge($rdn_list[$rdn_list_position],array(
+						"server_id"=>$server_id
+						));
+
+				// Move to next RDN
+				if($linked_dn_found)
+				{
+					// follow link to new server/RDN, then parse that
+					$server_id = $source_server;
+					$rdn_list = ldap_explode_dn2($source_dn);
+					$rdn_list_position=0;
+				}
+				else if($rdn_list_position<$rdn_list["count"]-1)
+				{
+					// continue to next item in current RDN list
+					$rdn_list_position++;
+				}
+				else
+					// reached end of RDN list
+					$list_end=true;
+			}
+
+			$path_entry_number++;
+		}
+
+		// display LDAP path for the specified location
+
+		for($i=count($path_entry)-1;$i>=0;$i--)
+		{
+			echo "<li>";
+
+			if($path_entry[$i]["show_as_link"] && $ldap_server->get_user_setting("allow_browse"))
 			{
-				if($ldap_server->get_object_schema_setting($object_class,"is_folder"))
+				if($ldap_server_list[$path_entry[$i]["server_id"]]->get_object_schema_setting(
+						$path_entry[$i]["object_class"],"is_folder"))
 					echo "<a href=\"" . current_page_folder_url()
 						. "?dn=";
 				else
 					echo "<a href=\"" . current_page_folder_url()
 						. "info.php?dn=";
 
-				echo urlencode($object_dn);
+				echo urlencode($path_entry[$i]["dn"]);
+
+				if($path_entry[$i]["server_id"]>0)
+					echo "&server_id=" . $path_entry[$i]["server_id"];
 
 				echo "\">";
 			}
 
 			echo "<img alt=\""
-				. $alt_text . "\" title=\"" . $alt_text . "\" src=\""
-				. $icon . "\"> "
-				. $rdn_list[$i-1]["value"];
+				. $path_entry[$i]["alt_text"] . "\" title=\"" . $path_entry[$i]["alt_text"] . "\" src=\""
+				. $path_entry[$i]["icon"] . "\"> ";
 
-			if($i>1 && $object_class != "__UNREADABLE_FOLDER__"
-					&& $ldap_server->get_user_setting("allow_browse"))
+			echo htmlentities($path_entry[$i]["display_name"],ENT_COMPAT,"UTF-8");
+
+			if(htmlentities($path_entry[$i]["show_as_link"]) && $ldap_server->get_user_setting("allow_browse"))
 				echo "</a>";
 
 			echo "</li>";
