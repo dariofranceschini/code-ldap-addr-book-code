@@ -102,7 +102,7 @@ if($ldap_server_list[$server_id]->log_on())
 				$updates["objectclass"] = array_values(array_unique(array_merge(
 					$entry[0]["objectclass"],$add_aux_class)));
 
-				$required_attribs = get_required_attribs($updates);
+				$required_attribs = $ldap_server_list[$server_id]->get_required_attribs($updates);
 
 				// TODO: guard against nasties in each attribute values
 				// TODO: canonicalise attrib names to handle aliases (e.g. uid vs. userid)
@@ -195,7 +195,7 @@ if($ldap_server_list[$server_id]->log_on())
 											$required_attribs[] = $attrib;
 					}
 					else
-						$required_attribs = get_required_attribs($entry);
+						$required_attribs = $ldap_server_list[$server_id]->get_required_attribs($entry);
 
 					$create_attrib_change_list = "";
 					// TODO: guard against nasties in attribute value

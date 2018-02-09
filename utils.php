@@ -614,7 +614,8 @@ class ldap_entry_viewer
 		$this->ldap_server->add_auxiliary_layouts($ldap_entry[0],
 			$entry_viewer_layout,$new_aux_classes);
 
-		$this->required_attribs = get_required_attribs($ldap_entry[0]);
+		$this->required_attribs
+			= $this->ldap_server->get_required_attribs($ldap_entry[0]);
 
 		$first_section = true;
 		foreach($entry_viewer_layout as $section)
@@ -5766,6 +5767,56 @@ class ldap_server
 			"object_class"=>$icon_object_class
 			);
 	}
+
+	/** Get a list of required attributes for the specified LDAP entry
+
+	    Returns an array of all attributes listed in the required_attribs
+	    and (for structural classes) rdn_attrib schema settings of all the
+	    object classes used in the entry.
+
+	    Missing parent objectClass entries which should have been present
+	    according to the schema will not be taken into account. If this
+	    is required, call fix_missing_object_classes() first to add any
+	    missing objectClass entries.
+
+	    @param array $ldap_entry
+		Array containing LDAP object for which the
+		list of required attributes is to be returned
+	    @return
+		Array of required attribute names
+	*/
+
+	function get_required_attribs($ldap_entry)
+	{
+		if(isset($ldap_entry["objectclass"]["count"]))
+			unset($ldap_entry["objectclass"]["count"]);
+
+		$required_attribs = array();
+		foreach($ldap_entry["objectclass"] as $object_class)
+		{
+			$required_attribs_for_class = explode(",",
+				$this->get_object_schema_setting($object_class,"required_attribs"));
+
+			if($required_attribs_for_class[0] != "")
+				$required_attribs = array_merge($required_attribs_for_class,
+					$required_attribs);
+
+			if(in_array($this->get_object_schema_setting($object_class,"class_type"),
+				array("structural","type88")))
+			{
+				$rdn_attribs_for_class = explode(",",
+					$this->get_object_schema_setting($object_class,"rdn_attrib"));
+
+				if($rdn_attribs_for_class[0] != "")
+					$required_attribs = array_merge($rdn_attribs_for_class,
+						$required_attribs);
+			}
+		}
+
+		$required_attribs = array_unique($required_attribs);
+
+		return $required_attribs;
+	}
 }
 
 /** Bind to LDAP directory, recording failures to server error log
@@ -6081,58 +6132,6 @@ function reset_login_session()
 	unset($_SESSION["LOGIN_BIND_DN"]);
 	unset($_SESSION["LOGIN_UID"]);
 	unset($_SESSION["CACHED_PERMISSIONS"]);
-}
-
-/** Get a list of required attributes for the specified LDAP entry
-
-    Returns an array of all attributes listed in the required_attribs
-    and (for structural classes) rdn_attrib schema settings of all the
-    object classes used in the entry.
-
-    Missing parent objectClass entries which should have been present
-    according to the schema will not be taken into account. If this
-    is required, call fix_missing_object_classes() first to add any
-    missing objectClass entries.
-
-    @param array $ldap_entry
-	Array containing LDAP object for which the
-	list of required attributes is to be returned
-    @return
-	Array of required attribute names
-*/
-
-function get_required_attribs($ldap_entry)
-{
-	global $ldap_server;
-
-	if(isset($ldap_entry["objectclass"]["count"]))
-		unset($ldap_entry["objectclass"]["count"]);
-
-	$required_attribs = array();
-	foreach($ldap_entry["objectclass"] as $object_class)
-	{
-		$required_attribs_for_class = explode(",",
-			$ldap_server->get_object_schema_setting($object_class,"required_attribs"));
-
-		if($required_attribs_for_class[0] != "")
-			$required_attribs = array_merge($required_attribs_for_class,
-				$required_attribs);
-
-		if(in_array($ldap_server->get_object_schema_setting($object_class,"class_type"),
-			array("structural","type88")))
-		{
-			$rdn_attribs_for_class = explode(",",
-				$ldap_server->get_object_schema_setting($object_class,"rdn_attrib"));
-
-			if($rdn_attribs_for_class[0] != "")
-				$required_attribs = array_merge($rdn_attribs_for_class,
-					$required_attribs);
-		}
-	}
-
-	$required_attribs = array_unique($required_attribs);
-
-	return $required_attribs;
 }
 
 /** Return array of attribute class names used in the specified display layout
