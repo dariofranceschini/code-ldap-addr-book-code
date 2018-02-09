@@ -1251,6 +1251,7 @@ class ldap_attribute
 			case "nfap_dialect":	$this->show_nfap_dialect();	break;
 			case "nfap_signing":	$this->show_nfap_signing();	break;
 			case "ad_trust_attribs":$this->show_ad_trust_attribs();	break;
+			case "ad_trust_dir":	$this->show_ad_trust_dir();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1398,6 +1399,26 @@ class ldap_attribute
 			array(
 				array("value"=>"FALSE","display_name"=>gettext("Plain Text")),
 				array("value"=>"TRUE","display_name"=>gettext("HTML"))
+				)
+			);
+	}
+
+	/** Show trustDirection attribute (data type "ad_trust_dir")
+
+	    This attribute indicates the directionality of a trust relationship
+	    between Active Directory domains.
+
+	    The attribute is defined in the "microsoft" schema.
+	*/
+
+	function show_ad_trust_dir()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"0","display_name"=>gettext("Disabled")),
+				array("value"=>"1","display_name"=>gettext("One-Way: Incoming")),
+				array("value"=>"2","display_name"=>gettext("One-Way: Outgoing")),
+				array("value"=>"3","display_name"=>gettext("Two-Way"))
 				)
 			);
 	}
