@@ -1252,6 +1252,7 @@ class ldap_attribute
 			case "nfap_signing":	$this->show_nfap_signing();	break;
 			case "ad_trust_attribs":$this->show_ad_trust_attribs();	break;
 			case "ad_trust_dir":	$this->show_ad_trust_dir();	break;
+			case "ad_trust_type":	$this->show_ad_trust_type();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1419,6 +1420,26 @@ class ldap_attribute
 				array("value"=>"1","display_name"=>gettext("One-Way: Incoming")),
 				array("value"=>"2","display_name"=>gettext("One-Way: Outgoing")),
 				array("value"=>"3","display_name"=>gettext("Two-Way"))
+				)
+			);
+	}
+
+	/** Show trustType attribute (data type "ad_trust_type")
+
+	    This attribute indicates the type of trust relationship
+	    with an Active Directory domains.
+
+	    The attribute is defined in the "microsoft" schema.
+	*/
+
+	function show_ad_trust_type()
+	{
+		$this->show_enum(
+			array(
+				array("value"=>"1","display_name"=>gettext("Windows NT Domain")),
+				array("value"=>"2","display_name"=>gettext("Active Directory Domain")),
+				array("value"=>"3","display_name"=>gettext("MIT Kerberos Realm")),
+				array("value"=>"4","display_name"=>gettext("DCE Realm"))
 				)
 			);
 	}
