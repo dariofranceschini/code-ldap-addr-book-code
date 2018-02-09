@@ -1250,6 +1250,7 @@ class ldap_attribute
 			case "nfap_authent":	$this->show_nfap_authent();	break;
 			case "nfap_dialect":	$this->show_nfap_dialect();	break;
 			case "nfap_signing":	$this->show_nfap_signing();	break;
+			case "ad_trust_attribs":$this->show_ad_trust_attribs();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1314,6 +1315,37 @@ class ldap_attribute
 		if($this->value & 0x02) echo "<li>" . gettext("Global scope") . "</li>";
 		if($this->value & 0x04) echo "<li>" . gettext("Domain local scope") . "</li>";
 		if($this->value & 0x08) echo "<li>" . gettext("Universal scope") . "</li>";
+		echo "</ul>";
+	}
+
+	/** Show Active Directory trustAttributes attribute (data type "ad_trust_attribs")
+
+	    This attribute contains a bit pattern which describes the
+	    characteristics of a trust relationship between
+	    Active Directory domains.
+
+	    The attribute is defined in the "microsoft" schema.
+
+	    @todo
+		Editing support for this data type
+	*/
+
+	function show_ad_trust_attribs()
+	{
+		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+		if($this->value & 0x0001) echo "<li>" . gettext("Non-transitive"); else echo "<li>" . gettext("Transitive");
+		echo "</li>";
+
+		if($this->value & 0x0002) echo "<li>" . gettext("Clients must be Windows 2000 or later") . "</li>";
+		if($this->value & 0x0004) echo "<li>" . gettext("Quarantined domain") . "</li>";
+		if($this->value & 0x0008) echo "<li>" . gettext("Cross-forest") . "</li>";
+		if($this->value & 0x0010) echo "<li>" . gettext("Cross-organization") . "</li>";
+		if($this->value & 0x0020) echo "<li>" . gettext("Within same forest") . "</li>";
+		if($this->value & 0x0040) echo "<li>" . gettext("Treat as external trust for SID filtering") . "</li>";
+		if($this->value & 0x0080) echo "<li>" . gettext("MIT Kerberos with RC4 encryption") . "</li>";
+		if($this->value & 0x0200) echo "<li>" . gettext("Kerberos tickets not trusted for delegation") . "</li>";
+		if($this->value & 0x0400) echo "<li>" . gettext("Treat as Privileged Identity Management trust for SID filtering") . "</li>";
+
 		echo "</ul>";
 	}
 
