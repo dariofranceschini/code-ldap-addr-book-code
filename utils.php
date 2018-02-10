@@ -1253,6 +1253,7 @@ class ldap_attribute
 			case "ad_trust_attribs":$this->show_ad_trust_attribs();	break;
 			case "ad_trust_dir":	$this->show_ad_trust_dir();	break;
 			case "ad_trust_type":	$this->show_ad_trust_type();	break;
+			case "ad_encrypt_type":	$this->show_ad_encrypt_type();	break;
 
 			default:
 				echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
@@ -1317,6 +1318,37 @@ class ldap_attribute
 		if($this->value & 0x02) echo "<li>" . gettext("Global scope") . "</li>";
 		if($this->value & 0x04) echo "<li>" . gettext("Domain local scope") . "</li>";
 		if($this->value & 0x08) echo "<li>" . gettext("Universal scope") . "</li>";
+		echo "</ul>";
+	}
+
+	/** Show Active Directory msDS-SupportedEncryptionTypes attribute (data type "ad_encrypt_type")
+
+	    This attribute contains a bit pattern which describes which
+	    encryption algorithms are supported by a user, computer or
+	    trust.
+
+	    The attribute is defined in the "microsoft" schema.
+
+	    @todo
+		Editing support for this data type
+	*/
+
+	function show_ad_encrypt_type()
+	{
+		echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+
+		if(empty($this->value)) echo "<li>(" . gettext("not specified") . ")</li>";
+		if($this->value & 0x0001) echo "<li>" . gettext("DES-CBC-CRC") . "</li>";
+		if($this->value & 0x0002) echo "<li>" . gettext("DES-CBC-MD5") . "</li>";
+		if($this->value & 0x0004) echo "<li>" . gettext("RC4-HMAC") . "</li>";
+		if($this->value & 0x0008) echo "<li>" . gettext("AES128-CTS-HMAC-SHA1-96") . "</li>";
+		if($this->value & 0x0010) echo "<li>" . gettext("AES256-CTS-HMAC-SHA1-96") . "</li>";
+
+		if($this->value & 0x010000) echo "<li>" . gettext("Kerberos Flexible Authentication Secure Tunneling (FAST)") . "</li>";
+		if($this->value & 0x020000) echo "<li>" . gettext("Compound Identity") . "</li>";
+		if($this->value & 0x020000) echo "<li>" . gettext("Claims") . "</li>";
+		if($this->value & 0x020000) echo "<li>" . gettext("Resource SID Compression Disabled") . "</li>";
+
 		echo "</ul>";
 	}
 
