@@ -3547,6 +3547,8 @@ class ldap_entry_list
 				$dn_elements=ldap_explode_dn2($ldap_entry["dn"]);
 				echo "<td colspan=\"" . count($this->search_result_columns)
 					. "\"><a href=\"?dn=" . urlencode($ldap_entry["dn"])
+					. ($ldap_entry["SERVER"]->server_id==0 ? ""
+					: ("&server_id=" . $ldap_entry["SERVER"]->server_id))
 					. "\">" . htmlentities($dn_elements[0]["value"],ENT_COMPAT,"UTF-8") . "</a></td>";
 			}
 		}
