@@ -23,6 +23,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"extendedAttributeInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Attribute Information")),
 			array("name"=>"extendedClassInfo",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Extended Class Information")),
 			array("name"=>"extraColumns",			"data_type"=>"text_list",	"display_name"=>gettext("Extra Columns")),
+			array("name"=>"flatName",			"data_type"=>"text",		"display_name"=>gettext("Flat (NetBIOS) Domain Name")),
 			array("name"=>"fromServer",			"data_type"=>"dn",		"display_name"=>gettext("Replication Source Server")),
 			array("name"=>"fSMORoleOwner",			"data_type"=>"dn",		"display_name"=>gettext("FSMO Role Owner")),
 			array("name"=>"groupType",			"data_type"=>"ad_group_type",	"display_name"=>gettext("Group Type/Scope")),
@@ -34,6 +35,8 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To")),
 			array("name"=>"msDS-HasDomainNCs",		"data_type"=>"dn_list",		"display_name"=>gettext("Domain Naming Contexts")),
 			array("name"=>"msDS-HasInstantiatedNCs",	"data_type"=>"text_list",	"display_name"=>gettext("Naming Context Replication Status")),
+			array("name"=>"msDS-SupportedEncryptionTypes",	"data_type"=>"ad_encrypt_type",	"display_name"=>gettext("Supported Encryption/Authentication Types")),
+			array("name"=>"msDS-TrustForestTrustInfo",	"data_type"=>"download",	"display_name"=>gettext("Forest Trust Data")),
 			array("name"=>"msiFileList",			"data_type"=>"text_list",	"display_name"=>gettext("Package Deployment Source List")),
 			array("name"=>"msWMI-ChangeDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Last Modification Date")),
 			array("name"=>"msWMI-CreationDate",		"data_type"=>"date_time",	"display_name"=>gettext("WMI Object Creation Date")),
@@ -64,6 +67,9 @@ class microsoft_schema extends ldap_schema
 
 			array("name"=>"transportType",			"data_type"=>"dn",		"display_name"=>gettext("Replication Transport")),
 			array("name"=>"treatAsLeaf",			"data_type"=>"yes_no",		"display_name"=>gettext("Treat as Leaf Object")),
+			array("name"=>"trustAttributes",		"data_type"=>"ad_trust_attribs","display_name"=>gettext("Trust Attributes")),
+			array("name"=>"trustDirection",			"data_type"=>"ad_trust_dir",	"display_name"=>gettext("Direction of Trust")),
+			array("name"=>"trustType",			"data_type"=>"ad_trust_type",	"display_name"=>gettext("Trust Type")),
 			array("name"=>"url",				"data_type"=>"text",		"display_name"=>gettext("URL (e.g. web page)")),
 			array("name"=>"whenCreated",			"data_type"=>"date_time",	"display_name"=>gettext("Creation Date")),
 			array("name"=>"whenChanged",			"data_type"=>"date_time",	"display_name"=>gettext("Last Modification Date")),
@@ -816,6 +822,29 @@ class microsoft_schema extends ldap_schema
 			array("section_name"=>gettext("Infrastructure Operations Master Role Holder"),
 				"attributes"=>array(
 					array("fSMORoleOwner",				gettext("Operations Master DSA for this Domain"),				"alias.png","allow_edit"=>false),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("trustedDomain",array(
+			array("section_name"=>gettext("Trusted Domain"),
+				"attributes"=>array(
+					array("trustPartner",			gettext("DNS Name"),				"generic24.png"),
+					array("flatName",			gettext("Flat (NetBIOS) Name"),			"generic24.png"),
+					array("trustPosixOffset",		gettext("POSIX UID/GID Offset"),		"id.png")
+					)
+				),
+			array("section_name"=>gettext("Trust Settings"),"new_row"=>true,
+				"attributes"=>array(
+					array("trustType",			gettext("Trust Type"),				"generic24.png"),
+					array("trustDirection",			gettext("Direction"),				"generic24.png"),
+					array("trustAttributes",		gettext("Attributes"),				"generic24.png"),
+					array("msDS-TrustForestTrustInfo",	gettext("Forest Trust Data"),			"generic24.png")
+					)
+				),
+			array("section_name"=>gettext("Supported Encryption/Authentication Types"),"new_row"=>true,
+				"attributes"=>array(
+					array("msDs-supportedEncryptionTypes")
 					)
 				)
 			));
