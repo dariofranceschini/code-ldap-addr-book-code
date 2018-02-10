@@ -292,7 +292,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"storage",								"parent_class"=>"connectionPoint"),
 			array("name"=>"subnet",				"icon"=>"microsoft/subnet.png",		"is_folder"=>false,"display_name"=>gettext("Subnet")),
 			array("name"=>"subnetContainer",		"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Subnets Container")),
-			array("name"=>"trustedDomain",								"display_name"=>gettext("Trusted Domain"),"parent_class"=>"leaf"),
+			array("name"=>"trustedDomain",			"icon"=>"domain24.png",			"display_name"=>gettext("Trusted Domain"),"parent_class"=>"leaf"),
 			array("name"=>"typeLibrary"),
 			array("name"=>"user",				"icon"=>"user24.png",			"is_folder"=>false,"display_name"=>gettext("User"),"can_create"=>true,"parent_class"=>"organizationalPerson"),
 			array("name"=>"volume",				"icon"=>"microsoft/fileshare24.png",	"is_folder"=>false,"display_name"=>gettext("Shared Folder"),"can_create"=>true,"parent_class"=>"connectionPoint"),
