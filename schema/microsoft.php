@@ -32,6 +32,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"invocationId",			"data_type"=>"download",	"display_name"=>gettext("Invocation ID Data")),
 			array("name"=>"managedBy",			"data_type"=>"dn",		"display_name"=>gettext("Managed By")),
 			array("name"=>"memberOf",			"data_type"=>"dn_list",		"display_name"=>gettext("Member Of")),
+			array("name"=>"mS-DS-ReplicatesNCReason",	"data_type"=>"text_list",	"display_name"=>gettext("Usefulness to Replication Topology")),
 			array("name"=>"msDS-AllowedToDelegateTo",	"data_type"=>"text_list",	"display_name"=>gettext("Allowed to Delegate To")),
 			array("name"=>"msDS-HasDomainNCs",		"data_type"=>"dn_list",		"display_name"=>gettext("Domain Naming Contexts")),
 			array("name"=>"msDS-HasInstantiatedNCs",	"data_type"=>"text_list",	"display_name"=>gettext("Naming Context Replication Status")),
@@ -556,7 +557,8 @@ class microsoft_schema extends ldap_schema
 					array("schedule",			gettext("Schedule"),				"date.png"),
 					array("fromServer",			gettext("Replicate From"),			"alias.png"),
 					array("enabledConnection",		gettext("Available for Use"),			"generic24.png"),
-					array("options",			gettext("Options"),				"generic24.png")
+					array("options",			gettext("Options"),				"generic24.png"),
+					array("mS-DS-ReplicatesNCReason",	gettext("Usefulness to Replication Topology"),	"generic24.png")
 					)
 				)
 			));
