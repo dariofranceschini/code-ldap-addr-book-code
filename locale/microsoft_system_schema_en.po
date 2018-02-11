@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-11 11:01+0000\n"
-"PO-Revision-Date: 2018-02-11 11:01+0000\n"
+"POT-Creation-Date: 2018-02-11 11:07+0000\n"
+"PO-Revision-Date: 2018-02-11 11:07+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -33,11 +33,11 @@ msgstr "Current Time"
 msgid "Default Naming Context"
 msgstr "Default Naming Context"
 
-#: ../schema/microsoft/system.php:13 ../schema/microsoft/system.php:49
+#: ../schema/microsoft/system.php:13 ../schema/microsoft/system.php:50
 msgid "Server Functional Level"
 msgstr "Server Functional Level"
 
-#: ../schema/microsoft/system.php:14 ../schema/microsoft/system.php:50
+#: ../schema/microsoft/system.php:14 ../schema/microsoft/system.php:51
 msgid "Domain Functional Level"
 msgstr "Domain Functional Level"
 
@@ -45,19 +45,19 @@ msgstr "Domain Functional Level"
 msgid "Directory Service Name"
 msgstr "Directory Service Name"
 
-#: ../schema/microsoft/system.php:16 ../schema/microsoft/system.php:51
+#: ../schema/microsoft/system.php:16 ../schema/microsoft/system.php:52
 msgid "Forest Functional Level"
 msgstr "Forest Functional Level"
 
-#: ../schema/microsoft/system.php:17 ../schema/microsoft/system.php:46
+#: ../schema/microsoft/system.php:17 ../schema/microsoft/system.php:47
 msgid "Is Global Catalog Ready"
 msgstr "Is Global Catalog Ready"
 
-#: ../schema/microsoft/system.php:18 ../schema/microsoft/system.php:45
+#: ../schema/microsoft/system.php:18 ../schema/microsoft/system.php:46
 msgid "Is Synchronized"
 msgstr "Is Synchronized"
 
-#: ../schema/microsoft/system.php:19 ../schema/microsoft/system.php:43
+#: ../schema/microsoft/system.php:19 ../schema/microsoft/system.php:44
 msgid "Naming Contexts"
 msgstr "Naming Contexts"
 
@@ -69,98 +69,102 @@ msgstr "Root Domain Naming Context"
 msgid "Schema Naming Context"
 msgstr "Schema Naming Context"
 
-#: ../schema/microsoft/system.php:22 ../schema/microsoft/system.php:67
+#: ../schema/microsoft/system.php:22 ../schema/microsoft/system.php:68
 msgid "Supported Capabilities"
 msgstr "Supported Capabilities"
 
-#: ../schema/microsoft/system.php:23 ../schema/microsoft/system.php:62
+#: ../schema/microsoft/system.php:23 ../schema/microsoft/system.php:63
 msgid "Supported Controls"
 msgstr "Supported Controls"
 
-#: ../schema/microsoft/system.php:24 ../schema/microsoft/system.php:41
+#: ../schema/microsoft/system.php:24 ../schema/microsoft/system.php:78
+msgid "Supported LDAP Policies"
+msgstr "Supported LDAP Policies"
+
+#: ../schema/microsoft/system.php:25 ../schema/microsoft/system.php:42
 msgid "Supported LDAP Versions"
 msgstr "Supported LDAP Versions"
 
-#: ../schema/microsoft/system.php:25 ../schema/microsoft/system.php:72
+#: ../schema/microsoft/system.php:26 ../schema/microsoft/system.php:73
 msgid "Supported SASL Mechanisms"
 msgstr "Supported SASL Mechanisms"
 
-#: ../schema/microsoft/system.php:30
+#: ../schema/microsoft/system.php:31
 msgid "Root DSE"
 msgstr "Root DSE"
 
-#: ../schema/microsoft/system.php:35
+#: ../schema/microsoft/system.php:36
 msgid "Active Directory Domain Controller"
 msgstr "Active Directory Domain Controller"
 
-#: ../schema/microsoft/system.php:37
+#: ../schema/microsoft/system.php:38
 msgid "Server Name"
 msgstr "Server Name"
 
-#: ../schema/microsoft/system.php:38
+#: ../schema/microsoft/system.php:39
 msgid "Vendor Name"
 msgstr "Vendor Name"
 
-#: ../schema/microsoft/system.php:39
+#: ../schema/microsoft/system.php:40
 msgid "DNS Host Name"
 msgstr "DNS Host Name"
 
-#: ../schema/microsoft/system.php:40
+#: ../schema/microsoft/system.php:41
 msgid "Directory Service"
 msgstr "Directory Service"
 
-#: ../schema/microsoft/system.php:42
+#: ../schema/microsoft/system.php:43
 msgid "LDAP Service Name"
 msgstr "LDAP Service Name"
 
-#: ../schema/microsoft/system.php:44
+#: ../schema/microsoft/system.php:45
 msgid "Subschema Subentry"
 msgstr "Subschema Subentry"
 
-#: ../schema/microsoft/system.php:47
+#: ../schema/microsoft/system.php:48
 msgid "Current Time at Server"
 msgstr "Current Time at Server"
 
-#: ../schema/microsoft/system.php:48
+#: ../schema/microsoft/system.php:49
 msgid "Highest Committed USN"
 msgstr "Highest Committed USN"
 
-#: ../schema/microsoft/system.php:54
+#: ../schema/microsoft/system.php:55
 msgid "Well-Known Naming Contexts"
 msgstr "Well-Known Naming Contexts"
 
-#: ../schema/microsoft/system.php:56
+#: ../schema/microsoft/system.php:57
 msgid "Default (Domain)"
 msgstr "Default (Domain)"
 
-#: ../schema/microsoft/system.php:57
+#: ../schema/microsoft/system.php:58
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../schema/microsoft/system.php:58
+#: ../schema/microsoft/system.php:59
 msgid "Forest Root Domain"
 msgstr "Forest Root Domain"
 
-#: ../schema/microsoft/system.php:59
+#: ../schema/microsoft/system.php:60
 msgid "Schema"
 msgstr "Schema"
 
-#: ../schema/microsoft/system.php:80
+#: ../schema/microsoft/system.php:86
 msgid "Object Class Definitions"
 msgstr "Object Class Definitions"
 
-#: ../schema/microsoft/system.php:85
+#: ../schema/microsoft/system.php:91
 msgid "Attribute Type Definitions"
 msgstr "Attribute Type Definitions"
 
-#: ../schema/microsoft/system.php:90
+#: ../schema/microsoft/system.php:96
 msgid "Extended Class Information"
 msgstr "Extended Class Information"
 
-#: ../schema/microsoft/system.php:95
+#: ../schema/microsoft/system.php:101
 msgid "Extended Attribute Information"
 msgstr "Extended Attribute Information"
 
-#: ../schema/microsoft/system.php:100
+#: ../schema/microsoft/system.php:106
 msgid "DIT Content Rules"
 msgstr "DIT Content Rules"
