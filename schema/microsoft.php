@@ -115,6 +115,8 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"dMD",				"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Directory Management Domain")),
 			array("name"=>"dnsNode",			"icon"=>"generic24.png",		"is_folder"=>false,"rdn_attrib"=>"dc"),
 			array("name"=>"dnsZone",			"icon"=>"microsoft/dns-zone.png",	"is_folder"=>true,"rdn_attrib"=>"dc"),
+			array("name"=>"dnsZoneScope"),
+			array("name"=>"dnsZoneScopeContainer"),
 			array("name"=>"domain",				"icon"=>"generic24.png",		"class_type"=>"abstract"),
 			array("name"=>"domainDNS",			"icon"=>"domain24.png",			"is_folder"=>true,"display_name"=>gettext("Domain"),"parent_class"=>"domain"),
 			array("name"=>"domainPolicy",			"icon"=>"microsoft/domain_policy24.png","is_folder"=>true,"display_name"=>gettext("Domain Policy"),"parent_class"=>"leaf"),
