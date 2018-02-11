@@ -865,5 +865,14 @@ class microsoft_schema extends ldap_schema
 
 		parent::__construct($ldap_server);
 	}
+
+	/** Assign default values for new printQueue objects */
+
+        function populate_for_create_printQueue(&$ldap_server,&$entry)
+        {
+                $this->add_attrib_value($ldap_server,$entry,"printColor","FALSE");
+                $this->add_attrib_value($ldap_server,$entry,"printDuplexSupported","FALSE");
+                $this->add_attrib_value($ldap_server,$entry,"printStaplingSupported","FALSE");
+        }
 }
 ?>
