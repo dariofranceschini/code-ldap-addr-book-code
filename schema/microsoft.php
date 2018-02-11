@@ -128,7 +128,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"interSiteTransportContainer",	"icon"=>"folder.png",			"is_folder"=>true,"display_name"=>gettext("Inter-Site Transports Container")),
 			array("name"=>"ipsecBase",			"icon"=>"generic24.png",		"class_type"=>"abstract"),
 			array("name"=>"ipsecFilter",								"parent_class"=>"ipsecBase"),
-			array("name"=>"ipsecIKSAKMPPolicy",							"parent_class"=>"ipsecBase"),
+			array("name"=>"ipsecISAKMPPolicy",							"parent_class"=>"ipsecBase"),
 			array("name"=>"ipsecNegotiationPolicy",							"parent_class"=>"ipsecBase"),
 			array("name"=>"ipsecNFA",								"parent_class"=>"ipsecBase"),
 			array("name"=>"ipsecPolicy",								"parent_class"=>"ipsecBase"),
