@@ -210,7 +210,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msImaging-PostScanProcess"),
 			array("name"=>"msImaging-PSPs",			"icon"=>"folder.png",			"is_folder"=>true,"parent_class"=>"container"),
 			array("name"=>"msKds-ProvRootKey"),
-			array("name"=>"msKds-ProvServerConfigration"),
+			array("name"=>"msKds-ProvServerConfiguration"),
 			array("name"=>"msMQ-Custom-Recipient",		"icon"=>"microsoft/msmq-queue-alias.png","is_folder"=>false,"display_name"=>gettext("MSMQ Queue Alias"),"can_create"=>true),
 			array("name"=>"msMQ-Group",			"icon"=>"generic24.png",		"is_folder"=>false,"display_name"=>gettext("MSMQ Group")),
 			array("name"=>"mSMQConfiguration",		"icon"=>"microsoft/msmq-settings.png",	"is_folder"=>false,"display_name"=>gettext("MSMQ Configuration")),
