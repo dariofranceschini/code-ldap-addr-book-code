@@ -201,6 +201,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msDS-DeviceRegistrationService"),
 			array("name"=>"msDS-DeviceRegistrationServiceContainer"),
 			array("name"=>"msDS-GroupManagedServiceAccount","icon"=>"microsoft/service.png",	"is_folder"=>false,"display_name"=>gettext("Group Managed Service Account"),"parent_class"=>"computer"),
+			array("name"=>"msDS-KeyCredential"),
 			array("name"=>"msDS-ManagedServiceAccount",	"icon"=>"microsoft/service.png",	"is_folder"=>false,"display_name"=>gettext("Managed Service Account"),"parent_class"=>"computer"),
 			array("name"=>"msDS-OptionalFeature"),
 			array("name"=>"msDS-PasswordSettings"),
