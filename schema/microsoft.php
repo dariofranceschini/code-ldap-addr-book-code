@@ -211,6 +211,8 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"msDS-ResourceProperties"),
 			array("name"=>"msDS-ResourceProperty",							"parent_class"=>"msDS-ClaimTypePropertyBase"),
 			array("name"=>"msDS-ResourcePropertyList"),
+			array("name"=>"msDS-ShadowPrincipal"),
+			array("name"=>"msDS-ShadowPrincipalContainer",						"parent_class"=>"cointainer"),
 			array("name"=>"msDS-ValueType"),
 			array("name"=>"msExchConfigurationContainer",						"parent_class"=>"cointainer"),	// note not in Exch schema!
 			array("name"=>"msFVE-RecoveryInformation"),
