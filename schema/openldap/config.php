@@ -8,6 +8,8 @@ class openldap_config_schema extends ldap_schema
 		$this->attribute_schema = array(
 			// online config attributes
 			array("name"=>"olcAccess",			"data_type"=>"text_list",	"display_name"=>gettext("Access Control")),
+			array("name"=>"olcAllows",			"data_type"=>"text",		"display_name"=>gettext("Allowed Deprecated Features")),
+			array("name"=>"olcAttributeOptions",		"data_type"=>"text",		"display_name"=>gettext("Attribute Options")),
 			array("name"=>"olcArgsFile",			"data_type"=>"text",		"display_name"=>gettext("Command Line Arguments File")),
 			array("name"=>"olcAttributeTypes",		"data_type"=>"ldap_schema",	"display_name"=>gettext("Attribute Types")),
 			array("name"=>"olcAuthzPolicy",			"data_type"=>"openldap_authpol","display_name"=>gettext("Proxy Authorization Policy")),
@@ -41,7 +43,10 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcOverlay",			"data_type"=>"text",		"display_name"=>gettext("Overlay Object Name")),
 			array("name"=>"olcPasswordHash",		"data_type"=>"text",		"display_name"=>gettext("Password Hash")),
 			array("name"=>"olcPidFile",			"data_type"=>"text",		"display_name"=>gettext("Process Identifier (PID) File")),
+			array("name"=>"olcReadOnly",			"data_type"=>"yes_no",		"display_name"=>gettext("Read Only")),
+			array("name"=>"olcReverseLookup",		"data_type"=>"yes_no",		"display_name"=>gettext("Enable Reverse DNS Lookup of Client Names")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
+			array("name"=>"olcSaslSecProps",		"data_type"=>"text",		"display_name"=>gettext("SASL Security Properties")),
 			array("name"=>"olcSizeLimit",			"data_type"=>"text",		"display_name"=>gettext("Size Limit")),
 			array("name"=>"olcSockbufMaxIncoming",		"data_type"=>"text",		"display_name"=>gettext("Maximum LDAP PDU Size for Anonymous Sessions")),
 			array("name"=>"olcSockbufMaxIncomingAuth",	"data_type"=>"text",		"display_name"=>gettext("Maximum LDAP PDU Size for Authenticated Sessions")),
@@ -93,6 +98,11 @@ class openldap_config_schema extends ldap_schema
 					array("olcLogFile",		gettext("Debug Log File"),			"openldap/error.png"),
 					array("olcLogLevel",		gettext("Debug Log Detail Level"),		"generic24.png"),
 					array("olcGentleHUP",		gettext("Gentle Shutdown on HUP Signal"),	"generic24.png"),
+					array("olcAllows",		gettext("Allowed Deprecated Features"),		"generic24.png"),
+					array("olcAttributeOptions",	gettext("Attribute Options"),			"generic24.png"),
+					array("olcReadOnly",		gettext("Read Only"),				"generic24.png"),
+					array("olcReverseLookup",	gettext("Enable Reverse DNS Lookup of Client Names"),"generic24.png"),
+					array("olcSaslSecProps",	gettext("SASL Security Properties"),		"generic24.png"),
 					array("olcAuthzPolicy",		gettext("Proxy Authorization Policy"),		"generic24.png")
 					)
 				),
