@@ -198,7 +198,7 @@ class core_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("locality",array(
-			array("colspan"=>2,"new_row"=>true,
+			array("section_name"=>gettext("Locality"),
 				"attributes"=>array(
 					array("l",				gettext("Locality Name"),	"locality.png"),
 					array("description",			gettext("Description"),		"description.png"),
@@ -284,7 +284,7 @@ class core_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("country",array(
-			array("colspan"=>2,"new_row"=>true,
+			array("section_name"=>gettext("Country"),"colspan"=>2,"new_row"=>true,
 				"attributes"=>array(
 					array("c",				gettext("Country Code"),	"country.png"),
 					array("description",			gettext("Description"),		"description.png"),
