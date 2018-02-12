@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-22 12:48+0100\n"
-"PO-Revision-Date: 2017-10-22 12:48+0100\n"
+"POT-Creation-Date: 2018-02-12 08:56+0000\n"
+"PO-Revision-Date: 2018-02-12 08:56+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -277,8 +277,8 @@ msgid "OpenLDAP Schema Configuration"
 msgstr "Configurazione Schema OpenLDAP"
 
 #: ../schema/openldap/config.php:82
-msgid "OpenLDAP Server Configuration"
-msgstr "Configurazione del Server OpenLDAP"
+msgid "OpenLDAP Server Configuration Objects"
+msgstr "Oggetti di Configurazione del Server OpenLDAP"
 
 #: ../schema/openldap/config.php:87
 msgid "Global Settings"

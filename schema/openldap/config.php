@@ -79,7 +79,7 @@ class openldap_config_schema extends ldap_schema
 
 		// Display layouts
 		$ldap_server->add_display_layout("olcGlobal",array(
-			array("section_name"=>gettext("OpenLDAP Server Configuration"),
+			array("section_name"=>gettext("OpenLDAP Server Configuration Objects"),
 				"attributes"=>array(
 					array("__CHILD_OBJECTS__")
 					)
