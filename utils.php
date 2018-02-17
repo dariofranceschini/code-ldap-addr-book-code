@@ -5264,7 +5264,39 @@ class ldap_server
 	function add_display_layout($object_classes,$layout)
 	{
 		$object_class_list = explode(",",$object_classes);
+
+		// remove any existing display layouts for the same object class(es)
+		foreach($object_class_list as $object_class)
+			$this->delete_display_layout($object_class);
+
 		$this->display_layouts[] = array("object_classes"=>$object_class_list,"layout"=>$layout);
+	}
+
+	/** Delete the display layout for the specified object class
+
+	    @param string $object_class
+		Object class for which which the display layout should be removed
+	*/
+
+	function delete_display_layout($object_class)
+	{
+		// Remove display layouts whose only associated object class is the one to be deleted
+		$this->display_layouts = array_filter($this->display_layouts,
+			function($layout) use ($object_class)
+			{
+				return !(count($layout["object_classes"])==1
+                                        && strtolower($object_class)==strtolower($layout["object_classes"][0]));
+			});
+
+		// Remove this object class from display layouts that are shared by several classes
+                foreach($this->display_layouts as $i=>$layout)
+                {
+                        $object_class_index = array_search(strtolower($object_class),
+                                array_map("strtolower",$layout["object_classes"]));
+
+                        if($object_class_index != false)
+                                unset($this->display_layouts[$i]["object_classes"][$object_class_index]);
+                }
 	}
 
 	/** Return the display layout to be used for the specified object class
