@@ -5285,18 +5285,18 @@ class ldap_server
 			function($layout) use ($object_class)
 			{
 				return !(count($layout["object_classes"])==1
-                                        && strtolower($object_class)==strtolower($layout["object_classes"][0]));
+					&& strtolower($object_class)==strtolower($layout["object_classes"][0]));
 			});
 
 		// Remove this object class from display layouts that are shared by several classes
-                foreach($this->display_layouts as $i=>$layout)
-                {
-                        $object_class_index = array_search(strtolower($object_class),
-                                array_map("strtolower",$layout["object_classes"]));
+		foreach($this->display_layouts as $i=>$layout)
+		{
+			$object_class_index = array_search(strtolower($object_class),
+				array_map("strtolower",$layout["object_classes"]));
 
-                        if($object_class_index != false)
-                                unset($this->display_layouts[$i]["object_classes"][$object_class_index]);
-                }
+			if($object_class_index != false)
+				unset($this->display_layouts[$i]["object_classes"][$object_class_index]);
+		}
 	}
 
 	/** Return the display layout to be used for the specified object class
