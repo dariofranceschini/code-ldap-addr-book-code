@@ -300,16 +300,10 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 								break;
 						}
 
-						// fixup missing rootDSE object name
-						switch($ldap_server_list[$server_id]->server_type)
-						{
-							case "edir";
-								// do nothing
-								break;
-							default:
-								$rdn_list[$rdn_list_position]["display_name"]="Server: "
-									. $ldap_server_list[$server_id]->host_or_url;
-						}
+						// add rootDSE display name
+						if($ldap_server_list[$server_id]->server_type != "edir")
+							$rdn_list[$rdn_list_position]["display_name"]="Server: "
+								. $ldap_server_list[$server_id]->host_or_url;
 					}
 				}
 				else
