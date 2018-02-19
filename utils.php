@@ -313,6 +313,7 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 					}
 				}
 				else
+					// insert placeholder record if the search failed
 					$ldap_entry = array(array("objectclass"=>array("__UNREADABLE__"),
 						"dn"=>$rdn_list[$rdn_list_position]["dn"]));
 
