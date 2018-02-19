@@ -284,26 +284,27 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 				{
 					$ldap_entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
-					if($ldap_entry[0]["dn"]== "")
+					if(empty($ldap_entry[0]["objectclass"]))
 					{
-						// fixup missing rootDSE object class
-						switch($ldap_server_list[$server_id]->server_type)
+						if($ldap_entry[0]["dn"]== "")
 						{
-							case "edir":
-								if(!isset($ldap_entry[0]["objectclass"]))
+							// fixup missing rootDSE object class
+							switch($ldap_server_list[$server_id]->server_type)
+							{
+								case "edir":
 									$ldap_entry[0]["objectclass"]=array("treeRoot","top");
-								break;
-							case "ad":
-							case "default":
-								if(!isset($ldap_entry[0]["objectclass"]))
+									break;
+								case "ad":
+								case "default":
 									$ldap_entry[0]["objectclass"]=array("rootDSE","top");
-								break;
-						}
+									break;
+							}
 
-						// add rootDSE display name
-						if($ldap_server_list[$server_id]->server_type != "edir")
-							$rdn_list[$rdn_list_position]["display_name"]="Server: "
-								. $ldap_server_list[$server_id]->host_or_url;
+							// add rootDSE display name
+							if($ldap_server_list[$server_id]->server_type != "edir")
+								$rdn_list[$rdn_list_position]["display_name"]="Server: "
+									. $ldap_server_list[$server_id]->host_or_url;
+						}
 					}
 				}
 				else
