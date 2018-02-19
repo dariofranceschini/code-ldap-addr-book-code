@@ -44,6 +44,7 @@ class openldap_config_schema extends ldap_schema
 			array("name"=>"olcPasswordHash",		"data_type"=>"text",		"display_name"=>gettext("Password Hash")),
 			array("name"=>"olcPidFile",			"data_type"=>"text",		"display_name"=>gettext("Process Identifier (PID) File")),
 			array("name"=>"olcReadOnly",			"data_type"=>"yes_no",		"display_name"=>gettext("Read Only")),
+			array("name"=>"olcReplicationInterval",		"data_type"=>"text",		"display_name"=>gettext("Replication Interval")),			// obsolete
 			array("name"=>"olcReverseLookup",		"data_type"=>"yes_no",		"display_name"=>gettext("Enable Reverse DNS Lookup of Client Names")),
 			array("name"=>"olcRootDN",			"data_type"=>"dn",		"display_name"=>gettext("Root User DN")),
 			array("name"=>"olcSaslSecProps",		"data_type"=>"text",		"display_name"=>gettext("SASL Security Properties")),
