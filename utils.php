@@ -329,16 +329,7 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 					$rdn_list[$rdn_list_position]["object_class"]
 						= $ldap_server->get_object_class($ldap_entry[0]);
 
-				if($search_resource)
-				{
-					$rdn_list[$rdn_list_position]["icon"]
-						= $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
-					$rdn_list[$rdn_list_position]["alt_text"]
-						= $rdn_list[$rdn_list_position]["object_class"];
-					$rdn_list[$rdn_list_position]["show_as_link"]
-						= $path_entry_number>0 && dn_user_access_allowed($ldap_server,$dn);
-				}
-				else
+				if($rdn_list[$rdn_list_position]["object_class"] == "__UNREADABLE__")
 				{
 					$rdn_list[$rdn_list_position]["show_as_link"]=false;
 					if($path_entry_number==0)
@@ -352,6 +343,15 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 						$rdn_list[$rdn_list_position]["icon"]="schema/folder-unreadable.png";
 						$rdn_list[$rdn_list_position]["alt_text"]=gettext("Unreadable Folder");
 					}
+				}
+				else
+				{
+					$rdn_list[$rdn_list_position]["icon"]
+						= $ldap_server->get_icon_for_ldap_entry($ldap_entry[0]);
+					$rdn_list[$rdn_list_position]["alt_text"]
+						= $rdn_list[$rdn_list_position]["object_class"];
+					$rdn_list[$rdn_list_position]["show_as_link"]
+						= $path_entry_number>0 && dn_user_access_allowed($ldap_server,$dn);
 				}
 
 				if($link_method == "folder")
