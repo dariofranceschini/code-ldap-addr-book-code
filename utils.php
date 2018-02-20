@@ -340,7 +340,6 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 				}
 				else
 				{
-					$rdn_list[$rdn_list_position]["object_class"]=gettext("__UNREADABLE__");
 					$rdn_list[$rdn_list_position]["show_as_link"]=false;
 					if($path_entry_number==0)
 					{
