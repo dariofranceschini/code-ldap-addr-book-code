@@ -314,6 +314,8 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 								$rdn_list[$rdn_list_position]["display_name"]="Server: "
 									. $ldap_server_list[$server_id]->host_or_url;
 						}
+						else
+							$ldap_entry[0]["objectclass"]=array("__UNREADABLE__");
 					}
 				}
 				else
