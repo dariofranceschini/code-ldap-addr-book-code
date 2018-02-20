@@ -284,6 +284,15 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 				{
 					$ldap_entry = ldap_get_entries($ldap_server_list[$server_id]->connection,$search_resource);
 
+					// insert placeholder record if the LDAP entry was unreadable
+					if($ldap_entry["count"]==0)
+					{
+						$ldap_entry["count"]=1;
+						$ldap_entry[0]=array(
+							"dn"=>$rdn_list[$rdn_list_position]["dn"]
+							);
+					}
+
 					if(empty($ldap_entry[0]["objectclass"]))
 					{
 						if($ldap_entry[0]["dn"]== "")
