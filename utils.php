@@ -323,8 +323,8 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 					$ldap_entry = array(array("objectclass"=>array("__UNREADABLE__"),
 						"dn"=>$rdn_list[$rdn_list_position]["dn"]));
 
-				if(isset($rdn_list[$rdn_list_position]["object_class"]))
-					$ldap_entry[0]["objectclass"]=array($rdn_list[$rdn_list_position]["object_class"]);
+				if($ldap_entry[0]["objectclass"][0]=="__UNREADABLE__")
+					$rdn_list[$rdn_list_position]["object_class"]="__UNREADABLE__";
 				else
 					$rdn_list[$rdn_list_position]["object_class"]
 						= $ldap_server->get_object_class($ldap_entry[0]);
