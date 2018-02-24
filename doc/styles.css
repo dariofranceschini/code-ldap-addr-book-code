@@ -9,16 +9,25 @@ a
 	text-decoration:none
 }
 
+table
+{
+	border-collapse: collapse;
+}
+
 table th
 {
 	background-color:#e0e0e0;
 	color:black;
+	border: 1px solid black;
+	padding:4pt;
 }
 
 table td
 {
 	background-color:#f0f0f0;
 	color:black;
+	border: 1px solid black;
+	padding:4pt;
 }
 
 code,pre
