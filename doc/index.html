@@ -31,7 +31,10 @@
 <li><a href="#installation">Installation and Basic Setup</a>
   <ol>
   <li>Upgrading from Previous Versions
-  <li>Installation on Linux: Apache HTTP Server on Debian/Ubuntu
+  <li>Installation on Linux
+    <ol>
+    <li>Apache HTTP Server on Ubuntu 12.04 and similar Debian derivitives
+    </ol>
   <li>Installation on Windows: Apache HTTP Server or Microsoft IIS
   <li>Set up access to the directory service
   <li>What is an LDAP distinguished name (DN)?
@@ -162,15 +165,28 @@ https://sourceforge.net/p/ldap-addr-book/wiki/Home/</a>
 <p>
 This information is available for version 0.10 onwards.
 </p>
-<h3>Installation on Linux: Apache HTTP Server on Debian/Ubuntu</h3>
+<h3>Installation on Linux</h3>
 <p>
-Install Apache HTTP Server, together with PHP and PHP/LDAP integration:
+LDAP Address Book requires a number of packages to be installed in order
+to run - primary a web server, PHP and a number of PHP add-on modules.
+The following table shows the commands to install these prerequisites for
+a number of common web servers and Linux distributions.
 </p>
-<pre>
-apt-get install apache2 php5 libapache2-mod-php5 php5-intl php5-ldap
-</pre>
+<table border=1>
+<tr><th>Platform</th><th>Install Commands</th></tr>
+<tr><td>Apache HTTP Server on Ubuntu 12.04</td><td><code>sudo apt-get update<br>
+sudo apt-get install apache2 libapache2-mod-php5 php5 php5-gd php5-intl php5-ldap</code></td></tr>
+<tr><td>Apache HTTP Server on Ubuntu 16.04</td><td><code>sudo apt update<br>
+sudo apt install apache2 libapache2-mod-php php php-gd php-intl php-ldap php-mbstring</code></tr>
+<tr><td>Nginx on CentOS 6</td><td><code>sudo yum install epel-release<br>
+sudo yum install nginx php-fpm php-gd php-intl php-ldap php-mbstring<br>
+&nbsp;<br>
+# PHP session directory is not created by default<br>
+sudo mkdir /var/lib/php/session/</code></td></tr>
+
+</table>
 <p>
-Decide where you want to store the address book web site's files
+Next, decide where you want to store the address book web site's files
 and unpack the address book tar.gz file to the web site directory.
 For the purposes of this guide, this location is assumed to be
 <code>/srv/www/addressbook.example.org</code> and the URL of the
@@ -182,6 +198,23 @@ mkdir -p /srv/www/addressbook.example.org
 cd /srv/www/addressbook.example.org
 tar xvzf ~/ldap-addr-book-0.02.tar.gz
 </pre>
+<p>
+You'll probably need to create a DNS record for the address book web
+site, for example:
+</p>
+<pre>addressbook.example.org.	IN	CNAME	myserver</pre>
+<p>
+The procedure for setting up the web site varies according to the
+Linux distribution and web server software being used. Once your web
+server has been configured, opening the Address Book's URL should
+display the following message:
+</p>
+<p>
+<img alt="The Address Book's configuration file (config.php) is missing." src="missing_config.png">
+</p>
+<p>
+</p>
+<h4>Apache HTTP Server on Ubuntu 12.04 and similar Debian derivitives</h4>
 <p>
 Create the file
 <code>/etc/apache2/sites-available/addressbook.example.org</code>
@@ -215,12 +248,6 @@ configuration and make the new web site live:
 <code>apache2ctl graceful</code>
 </p>
 
-<p>
-Finally create a DNS record for the address book web site, e.g.:
-</p>
-<pre>addressbook.example.org.	IN	CNAME	myserver
-</pre>
-
 <h3>Installation on Windows: Apache HTTP Server or Microsoft IIS</h3>
 
 <p>
@@ -243,6 +270,13 @@ under Windows is as follows:
 <li>If necessary, create a DNS record for the address book web site.
 </ul>
 
+<p>
+Once your web server has been configured, opening the Address Book's URL
+should display the following message:
+</p>
+<p>
+<img alt="The Address Book's configuration file (config.php) is missing." src="missing_config.png">
+</p>
 <h3>Set up access to the directory service</h3>
 <p>
 First, copy (or rename) the sample configuration file supplied with
