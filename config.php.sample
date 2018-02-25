@@ -253,6 +253,8 @@ $lc_collate = "en_US";
 //	Icon to display next to attribute
 //	Whether to hide attribute when not editing
 
+$ad = $ldap_server->server_type="ad";
+
 $ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
 	array("section_name"=>"Personal",
 		"attributes"=>array(
@@ -273,20 +275,20 @@ $ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
 
 	array("section_name"=>"Business/Work","width"=>"50%",
 		"attributes"=>array(
-			array("company",			"Company",		"company.png"),
-			array("url",				"Web Page",		"internet.png"),
+			array($ad ? "company" : "o",		"Company",		"company.png"),
+			array($ad ? "url" : "labeledURI",	"Web Page",		"internet.png"),
 	//		array("thumbnailLogo",			"Logo",			"logo24.png"),
 			array("telephoneNumber",		"Office Phone",		"landline-phone.png"),
 			array("facsimileTelephoneNumber",	"Office Fax",		"fax.png"),
 			array("title",				"Job Title",		"org-role.png"),
-			array("department",			"Department",		"org.png"),
+			array($ad ? "department" : "ou",	"Department",		"org.png"),
 			array("physicalDeliveryOfficeName",	"Office",		"office.png")
 			)
 		),
 
 	array("section_name"=>"Additional Notes","new_row"=>true,"colspan"=>2,
 		"attributes"=>array(
-			array("info")
+			array($ad ? "info" : "description")
 			)
 		)
 	));
