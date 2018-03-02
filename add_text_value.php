@@ -39,101 +39,101 @@ if(prereq_components_ok())
 		show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
 			gettext("No attribute specified")));
 	}
-}
 
-if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
-	$server_id = $_GET["server_id"];
-else
-	$server_id=0;
+	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
+		$server_id = $_GET["server_id"];
+	else
+		$server_id=0;
 
-if($ldap_server_list[$server_id]->log_on())
-{
-	if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
+	if($ldap_server_list[$server_id]->log_on())
 	{
-		if(isset($_POST["value"]))
+		if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 		{
-			if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
+			if(isset($_POST["value"]))
 			{
-				$new_value[$attrib] = $_POST["value"];
-
-				$result = @ldap_mod_add($ldap_server_list[$server_id]->connection,
-					$target_dn,$new_value);
-				$error = ldap_error($ldap_server_list[$server_id]->connection);
-				if($result)
+				if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 				{
-					$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
-						$target_dn,$browse_ldap_filter,array("*","+"));
-					if($search_resource)
-					{
-						$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
-							$search_resource);
-						$ldap_server_list[$server_id]->call_schema_function("after_add_"
-							. $ldap_server_list[$server_id]->get_object_class($entry[0])
-							. "_" . $attrib,$entry[0]);
+					$new_value[$attrib] = $_POST["value"];
 
-						header("Location: info.php?dn="
-							. urlencode($target_dn)
-							. ($server_id == 0 ? "" : ("&server_id=" . $server_id)));
+					$result = @ldap_mod_add($ldap_server_list[$server_id]->connection,
+						$target_dn,$new_value);
+					$error = ldap_error($ldap_server_list[$server_id]->connection);
+					if($result)
+					{
+						$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
+							$target_dn,$browse_ldap_filter,array("*","+"));
+						if($search_resource)
+						{
+							$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
+								$search_resource);
+							$ldap_server_list[$server_id]->call_schema_function("after_add_"
+								. $ldap_server_list[$server_id]->get_object_class($entry[0])
+								. "_" . $attrib,$entry[0]);
+
+							header("Location: info.php?dn="
+								. urlencode($target_dn)
+								. ($server_id == 0 ? "" : ("&server_id=" . $server_id)));
+						}
+						else
+							show_error_message(gettext("Unable to access LDAP object."));
 					}
 					else
-						show_error_message(gettext("Unable to access LDAP object."));
+					{
+						show_site_header();
+						show_ldap_path($ldap_server_list[$server_id],$target_dn);
+
+						echo "<p>" . gettext("Error whilst setting attribute") . " '"
+        	        	                                . $attrib . "': " . $error . "</p>";
+
+					        echo  "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
+							. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
+					                . "\">" . gettext("Return to the Address Book")
+							. "</a>\n</p>";
+					}
 				}
 				else
-				{
-					show_site_header();
-					show_ldap_path($ldap_server_list[$server_id],$target_dn);
-
-					echo "<p>" . gettext("Error whilst setting attribute") . " '"
-                	                                . $attrib . "': " . $error . "</p>";
-
-				        echo  "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
-						. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
-				                . "\">" . gettext("Return to the Address Book")
-						. "</a>\n</p>";
-				}
+					show_error_message(gettext("You do not have permission to change this record"));
 			}
 			else
-				show_error_message(gettext("You do not have permission to change this record"));
+			{
+				show_site_header();
+				show_ldap_path($ldap_server_list[$server_id],$target_dn);
+
+	                        if(empty($target_dn))
+        	                        $entry_name = "rootDSE";
+                	        else
+                        	{
+                                	$target_dn_array = ldap_explode_dn2($target_dn);
+                                	$entry_name = $target_dn_array[0]["value"];
+	                        }
+
+				echo "<p style=\"font-weight:bold\">"
+					. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
+					$attrib,$entry_name) . "</p>\n<hr>\n";
+
+				echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
+					. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
+					. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "\">\n"
+					. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
+
+				echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
+					. gettext("Add value") . "\">\n";
+
+				echo "      <a href=\"info.php?dn="
+					. urlencode($target_dn)
+					. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
+					. "\"><button>" . gettext("Cancel") . "</button></a>\n    </td>\n  </tr>\n";
+
+				echo "  </table>\n";
+				echo "</form>\n";
+
+				show_site_footer();
+			}
 		}
 		else
-		{
-			show_site_header();
-			show_ldap_path($ldap_server_list[$server_id],$target_dn);
-
-                        if(empty($target_dn))
-                                $entry_name = "rootDSE";
-                        else
-                        {
-                                $target_dn_array = ldap_explode_dn2($target_dn);
-                                $entry_name = $target_dn_array[0]["value"];
-                        }
-
-			echo "<p style=\"font-weight:bold\">"
-				. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
-				$attrib,$entry_name) . "</p>\n<hr>\n";
-
-			echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
-				. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
-				. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "\">\n"
-				. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
-
-			echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
-				. gettext("Add value") . "\">\n";
-
-			echo "      <a href=\"info.php?dn="
-				. urlencode($target_dn)
-				. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
-				. "\"><button>" . gettext("Cancel") . "</button></a>\n    </td>\n  </tr>\n";
-
-			echo "  </table>\n";
-			echo "</form>\n";
-
-			show_site_footer();
-		}
+			show_error_message(gettext("You do not have permission to browse the directory to select an object"));
 	}
 	else
-		show_error_message(gettext("You do not have permission to browse the directory to select an object"));
+		 show_ldap_bind_error();
 }
-else
-	 show_ldap_bind_error();
 ?>
