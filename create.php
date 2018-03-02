@@ -118,11 +118,12 @@ if($ldap_server_list[$server_id]->log_on())
 	if($show_all_object_classes)
 		echo "  <p>" . gettext("This list contains all object classes that are recognised by the Address Book.") . "</p>";
 	else
-		echo "  <p>"
-			. gettext("This list contains only those object classes that end users are allowed to create.")
-			. "</p>\n  <p><a href=\"create.php?dn=" . urlencode($dn) . "&show_all=yes"
-			. ($server_id==0 ? "" : ("&server_id=" . $server_id)) . "\">"
-			. gettext("Choose from all recognised object classes") . "</a></p>";
+		if($ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
+			echo "  <p>"
+				. gettext("This list contains only those object classes that end users are allowed to create.")
+				. "</p>\n  <p><a href=\"create.php?dn=" . urlencode($dn) . "&show_all=yes"
+				. ($server_id==0 ? "" : ("&server_id=" . $server_id)) . "\">"
+				. gettext("Choose from all recognised object classes") . "</a></p>";
 
 	echo "  <p>\n    <input type=\"submit\" value=\"" . gettext("Next") . "&nbsp;&nbsp;&nbsp;&#x25B6;\">\n  </p>\n";
 	echo "</form>\n";
