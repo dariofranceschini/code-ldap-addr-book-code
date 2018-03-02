@@ -83,11 +83,11 @@ if(prereq_components_ok())
 						show_ldap_path($ldap_server_list[$server_id],$target_dn);
 
 						echo "<p>" . gettext("Error whilst setting attribute") . " '"
-        	        	                                . $attrib . "': " . $error . "</p>";
+							. $attrib . "': " . $error . "</p>";
 
-					        echo  "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
+						echo "<p>\n  <a href=\"info.php?dn=" . urlencode($target_dn)
 							. ($server_id == 0 ? "" : ("&server_id=" . $server_id))
-					                . "\">" . gettext("Return to the Address Book")
+							. "\">" . gettext("Return to the Address Book")
 							. "</a>\n</p>";
 					}
 				}
@@ -99,13 +99,13 @@ if(prereq_components_ok())
 				show_site_header();
 				show_ldap_path($ldap_server_list[$server_id],$target_dn);
 
-	                        if(empty($target_dn))
-        	                        $entry_name = "rootDSE";
-                	        else
-                        	{
-                                	$target_dn_array = ldap_explode_dn2($target_dn);
-                                	$entry_name = $target_dn_array[0]["value"];
-	                        }
+				if(empty($target_dn))
+					$entry_name = "rootDSE";
+				else
+				{
+					$target_dn_array = ldap_explode_dn2($target_dn);
+					$entry_name = $target_dn_array[0]["value"];
+				}
 
 				echo "<p style=\"font-weight:bold\">"
 					. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
