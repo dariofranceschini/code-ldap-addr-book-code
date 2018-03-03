@@ -31,15 +31,6 @@ if(prereq_components_ok())
 			gettext("Target object DN is missing")));
 	}
 
-	if(isset($_GET["attrib"]))
-		$attrib = $_GET["attrib"];
-	else
-	{
-		show_site_header();
-		show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
-			gettext("No attribute specified")));
-	}
-
 	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
 		$server_id = $_GET["server_id"];
 	else
@@ -47,6 +38,15 @@ if(prereq_components_ok())
 
 	if($ldap_server_list[$server_id]->log_on())
 	{
+		if(isset($_GET["attrib"]))
+			$attrib = $_GET["attrib"];
+		else
+		{
+			show_site_header();
+			show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
+				gettext("No attribute specified")));
+		}
+
 		if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 		{
 			if(isset($_POST["value"]))
