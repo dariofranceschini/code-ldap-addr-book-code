@@ -21,16 +21,6 @@ include "config.php";
 
 if(prereq_components_ok())
 {
-	// DN of object that will be written to
-	if(isset($_GET["target_dn"]) && strlen($_GET["target_dn"])<=MAX_DN_LENGTH)
-		$target_dn = $_GET["target_dn"];
-	else
-	{
-		show_site_header();
-		show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
-			gettext("Target object DN is missing")));
-	}
-
 	if(!empty($_GET["server_id"]) && is_numeric($_GET["server_id"]))
 		$server_id = $_GET["server_id"];
 	else
@@ -45,6 +35,16 @@ if(prereq_components_ok())
 			show_site_header();
 			show_error_message(sprintf(gettext("Unable to add value to attribute: %s"),
 				gettext("No attribute specified")));
+		}
+
+		// DN of object that will be written to
+		if(isset($_GET["target_dn"]) && strlen($_GET["target_dn"])<=MAX_DN_LENGTH)
+			$target_dn = $_GET["target_dn"];
+		else
+		{
+			show_site_header();
+			show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
+				gettext("Target object DN is missing")));
 		}
 
 		if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
