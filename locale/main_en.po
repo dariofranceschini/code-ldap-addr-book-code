@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 09:57+0000\n"
-"PO-Revision-Date: 2018-02-23 09:57+0000\n"
+"POT-Creation-Date: 2018-03-03 11:07+0000\n"
+"PO-Revision-Date: 2018-03-03 11:07+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -26,25 +26,25 @@ msgstr "Unable to add DN value to attribute: %s"
 msgid "Target object DN is missing"
 msgstr "Target object DN is missing"
 
-#: ../add_dn_value.php:57 ../add_text_value.php:40
+#: ../add_dn_value.php:57 ../add_text_value.php:47
 msgid "No attribute specified"
 msgstr "No attribute specified"
 
-#: ../add_dn_value.php:93 ../add_text_value.php:79 ../delete_value.php:104
+#: ../add_dn_value.php:93 ../add_text_value.php:78 ../delete_value.php:104
 msgid "Unable to access LDAP object."
 msgstr "Unable to access LDAP object."
 
-#: ../add_dn_value.php:100 ../add_text_value.php:86 ../utils.php:4960
+#: ../add_dn_value.php:100 ../add_text_value.php:85 ../utils.php:4960
 msgid "Error whilst setting attribute"
 msgstr "Error whilst setting attribute"
 
-#: ../add_dn_value.php:105 ../add_text_value.php:91 ../delete.php:87
+#: ../add_dn_value.php:105 ../add_text_value.php:90 ../delete.php:87
 #: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:107
 #: ../utils.php:164
 msgid "Return to the Address Book"
 msgstr "Return to the Address Book"
 
-#: ../add_dn_value.php:110 ../add_text_value.php:96 ../delete_value.php:108
+#: ../add_dn_value.php:110 ../add_text_value.php:95 ../delete_value.php:108
 #: ../update.php:365
 msgid "You do not have permission to change this record"
 msgstr "You do not have permission to change this record"
@@ -80,26 +80,31 @@ msgstr "Go up a level to the root of the directory"
 msgid "Go up a level to the '%s' folder"
 msgstr "Go up a level to the '%s' folder"
 
-#: ../add_dn_value.php:190 ../add_text_value.php:126 ../move.php:95
+#: ../add_dn_value.php:190 ../add_text_value.php:125 ../move.php:95
 #: ../utils.php:777
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../add_dn_value.php:196 ../add_text_value.php:135
+#: ../add_dn_value.php:196 ../add_text_value.php:134
 msgid "You do not have permission to browse the directory to select an object"
 msgstr "You do not have permission to browse the directory to select an object"
 
-#: ../add_text_value.php:30 ../add_text_value.php:39
+#: ../add_text_value.php:30
 #, php-format
 msgid "Unable to add text value to attribute: %s"
 msgstr "Unable to add text value to attribute: %s"
 
-#: ../add_text_value.php:112
+#: ../add_text_value.php:46
+#, php-format
+msgid "Unable to add value to attribute: %s"
+msgstr "Unable to add value to attribute: %s"
+
+#: ../add_text_value.php:111
 #, php-format
 msgid "Enter a new value to add to the '%s' attribute of '%s':"
 msgstr "Enter a new value to add to the '%s' attribute of '%s':"
 
-#: ../add_text_value.php:121
+#: ../add_text_value.php:120
 msgid "Add value"
 msgstr "Add value"
 
@@ -136,7 +141,7 @@ msgstr ""
 "This list contains all object classes that are recognised by the Address "
 "Book."
 
-#: ../create.php:122
+#: ../create.php:123
 msgid ""
 "This list contains only those object classes that end users are allowed to "
 "create."
@@ -144,11 +149,11 @@ msgstr ""
 "This list contains only those object classes that end users are allowed to "
 "create."
 
-#: ../create.php:125
+#: ../create.php:126
 msgid "Choose from all recognised object classes"
 msgstr "Choose from all recognised object classes"
 
-#: ../create.php:127 ../extend.php:150
+#: ../create.php:128 ../extend.php:150
 msgid "Next"
 msgstr "Next"
 

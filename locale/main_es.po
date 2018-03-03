@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 09:57+0000\n"
-"PO-Revision-Date: 2018-02-23 09:57+0000\n"
+"POT-Creation-Date: 2018-03-03 11:07+0000\n"
+"PO-Revision-Date: 2018-03-03 11:07+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -26,25 +26,25 @@ msgstr "No se puede añadir valor a atribuir DN: %s"
 msgid "Target object DN is missing"
 msgstr "DN del objeto de destino no se encuentra"
 
-#: ../add_dn_value.php:57 ../add_text_value.php:40
+#: ../add_dn_value.php:57 ../add_text_value.php:47
 msgid "No attribute specified"
 msgstr "Sin atributo especificado"
 
-#: ../add_dn_value.php:93 ../add_text_value.php:79 ../delete_value.php:104
+#: ../add_dn_value.php:93 ../add_text_value.php:78 ../delete_value.php:104
 msgid "Unable to access LDAP object."
 msgstr "No se puede acceder objeto LDAP."
 
-#: ../add_dn_value.php:100 ../add_text_value.php:86 ../utils.php:4960
+#: ../add_dn_value.php:100 ../add_text_value.php:85 ../utils.php:4960
 msgid "Error whilst setting attribute"
 msgstr "Error mientras atributo estableciendo"
 
-#: ../add_dn_value.php:105 ../add_text_value.php:91 ../delete.php:87
+#: ../add_dn_value.php:105 ../add_text_value.php:90 ../delete.php:87
 #: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:107
 #: ../utils.php:164
 msgid "Return to the Address Book"
 msgstr "Volver a la libreta de Direcciones"
 
-#: ../add_dn_value.php:110 ../add_text_value.php:96 ../delete_value.php:108
+#: ../add_dn_value.php:110 ../add_text_value.php:95 ../delete_value.php:108
 #: ../update.php:365
 msgid "You do not have permission to change this record"
 msgstr "Usted no tiene permiso para cambiar este registro"
@@ -81,28 +81,33 @@ msgstr "Subir un nivel a la raíz del directorio"
 msgid "Go up a level to the '%s' folder"
 msgstr "Subir un nivel a la carpeta '%s'"
 
-#: ../add_dn_value.php:190 ../add_text_value.php:126 ../move.php:95
+#: ../add_dn_value.php:190 ../add_text_value.php:125 ../move.php:95
 #: ../utils.php:777
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../add_dn_value.php:196 ../add_text_value.php:135
+#: ../add_dn_value.php:196 ../add_text_value.php:134
 msgid "You do not have permission to browse the directory to select an object"
 msgstr ""
 "Usted no tiene permiso para navegar por el directorio para seleccionar un "
 "objeto"
 
-#: ../add_text_value.php:30 ../add_text_value.php:39
+#: ../add_text_value.php:30
 #, php-format
 msgid "Unable to add text value to attribute: %s"
 msgstr "No se puede agregar el valor del texto al atributo: %s"
 
-#: ../add_text_value.php:112
+#: ../add_text_value.php:46
+#, php-format
+msgid "Unable to add value to attribute: %s"
+msgstr "No se puede agregar valor al atributo: %s"
+
+#: ../add_text_value.php:111
 #, php-format
 msgid "Enter a new value to add to the '%s' attribute of '%s':"
 msgstr "Ingrese un nuevo valor para agregar al atributo '%s' de '%s':"
 
-#: ../add_text_value.php:121
+#: ../add_text_value.php:120
 msgid "Add value"
 msgstr "Añadir valor"
 
@@ -139,7 +144,7 @@ msgstr ""
 "Esta lista contiene todas las clases de objetos que son reconocidos por la "
 "Libreta de Direcciones."
 
-#: ../create.php:122
+#: ../create.php:123
 msgid ""
 "This list contains only those object classes that end users are allowed to "
 "create."
@@ -147,11 +152,11 @@ msgstr ""
 "Esta lista contiene sólo aquellos clases de objetos que los usuarios finales "
 "pueden crear."
 
-#: ../create.php:125
+#: ../create.php:126
 msgid "Choose from all recognised object classes"
 msgstr "Elija entre todas las clases de objetos reconocidos"
 
-#: ../create.php:127 ../extend.php:150
+#: ../create.php:128 ../extend.php:150
 msgid "Next"
 msgstr "Continuar"
 

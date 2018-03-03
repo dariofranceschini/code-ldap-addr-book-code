@@ -43,7 +43,7 @@ if(prereq_components_ok())
 		else
 		{
 			show_site_header();
-			show_error_message(sprintf(gettext("Unable to add text value to attribute: %s"),
+			show_error_message(sprintf(gettext("Unable to add value to attribute: %s"),
 				gettext("No attribute specified")));
 		}
 
