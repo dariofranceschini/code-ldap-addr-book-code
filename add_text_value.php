@@ -49,7 +49,7 @@ if(prereq_components_ok())
 
 		if($ldap_server_list[$server_id]->get_user_setting("allow_browse"))
 		{
-			if(isset($_POST["value"]))
+			if(isset($_GET["confirm"]) && $_GET["confirm"]=="yes")
 			{
 				if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 				{
@@ -113,7 +113,7 @@ if(prereq_components_ok())
 
 				echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
 					. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
-					. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "\">\n"
+					. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "&confirm=yes\">\n"
 					. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
 
 				echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
