@@ -2136,7 +2136,7 @@ class ldap_attribute
 		}
 
 		if(!$this->edit && !$this->create && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit") && $this->ldap_server->get_user_setting("allow_browse"))
-			echo "            <a style=\"float:right\" href=\"add_text_value.php?target_dn="
+			echo "            <a style=\"float:right\" href=\"add_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
 				. ($this->ldap_server->server_id == 0 ? ""
 				: ("&server_id=" . $this->ldap_server->server_id))

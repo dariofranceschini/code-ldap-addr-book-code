@@ -122,7 +122,7 @@ if(prereq_components_ok())
 						. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
 						$attrib,$entry_name) . "</p>\n<hr>\n";
 
-					echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
+					echo "<form method=\"POST\" action=\"add_value.php?target_dn="
 						. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
 						. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "&confirm=yes\">\n"
 						. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
