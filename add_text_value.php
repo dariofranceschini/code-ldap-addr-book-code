@@ -49,6 +49,8 @@ if(prereq_components_ok())
 
 		if(isset($_GET["confirm"]) && $_GET["confirm"]=="yes")
 		{
+			// add the new value to the attribute
+
 			if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 			{
 				$new_value[$attrib] = $_POST["value"];
@@ -97,6 +99,8 @@ if(prereq_components_ok())
 		}
 		else
 		{
+			// prompt the user to enter a value to be added to the attribute
+
 			show_site_header();
 			show_ldap_path($ldap_server_list[$server_id],$target_dn);
 
