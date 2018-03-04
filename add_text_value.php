@@ -37,6 +37,9 @@ if(prereq_components_ok())
 				gettext("No attribute specified")));
 		}
 
+		$data_type = $ldap_server_list[$server_id]->get_attribute_schema_setting($attrib,
+			"data_type","text");
+
 		// DN of object that will be written to
 		if(isset($_GET["target_dn"]) && strlen($_GET["target_dn"])<=MAX_DN_LENGTH)
 			$target_dn = $_GET["target_dn"];
@@ -112,17 +115,25 @@ if(prereq_components_ok())
 				$entry_name = $target_dn_array[0]["value"];
 			}
 
-			echo "<p style=\"font-weight:bold\">"
-				. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
-				$attrib,$entry_name) . "</p>\n<hr>\n";
+			switch($data_type)
+			{
+				case "text_list":
+					echo "<p style=\"font-weight:bold\">"
+						. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),
+						$attrib,$entry_name) . "</p>\n<hr>\n";
 
-			echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
-				. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
-				. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "&confirm=yes\">\n"
-				. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
+					echo "<form method=\"POST\" action=\"add_text_value.php?target_dn="
+						. urlencode($target_dn) . "&attrib=" . urlencode($attrib)
+						. ($server_id == 0 ? "" : ("&server_id=" . $server_id)) . "&confirm=yes\">\n"
+						. "  <table>\n  <tr>\n    <td>New value</td>\n    <td><input name=\"value\" type=\"text\"></td>\n  </tr>\n";
 
-			echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
-				. gettext("Add value") . "\">\n";
+					echo "  <tr>\n    <td></td>\n    <td>\n      <input type=\"submit\" value=\""
+						. gettext("Add value") . "\">\n";
+
+					break;
+				default:
+					echo "** " . gettext("Unsupported data type:") . " <code>" . $data_type . "</code> **";
+			}
 
 			echo "      <a href=\"info.php?dn="
 				. urlencode($target_dn)
