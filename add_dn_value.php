@@ -81,7 +81,7 @@ if($ldap_server_list[$server_id]->log_on())
 						$entry = ldap_get_entries($ldap_server_list[$server_id]->connection,
 							$search_resource);
 						$ldap_server_list[$server_id]->call_schema_function("after_add_"
-							. $ldap_server->get_object_class($entry[0])
+							. $ldap_server_list[$server_id]->get_object_class($entry[0])
 							. "_" . $attrib,$entry[0]);
 
 						header("Location: info.php?dn="
