@@ -90,7 +90,10 @@ if(prereq_components_ok())
 				}
 			}
 			else
+			{
+				show_site_header();
 				show_error_message(gettext("You do not have permission to change this record"));
+			}
 		}
 		else
 		{
