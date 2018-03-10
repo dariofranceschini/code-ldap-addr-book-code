@@ -50,13 +50,32 @@ if(prereq_components_ok())
 				gettext("Target object DN is missing")));
 		}
 
+		if($data_type == "dn_list" && !$ldap_server_list[$server_id]->get_user_setting("allow_browse"))
+		{
+			show_site_header();
+			show_error_message(gettext("You do not have permission to browse the directory to select an object"));
+		}
+
+		// DN being displayed (used when adding DN values only)
+		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH)
+			$dn = $_GET["dn"];
+		else
+			$dn = get_parent_dn($target_dn);
+		if(!$ldap_server_list[$server_id]->compare_dn_to_base($dn,
+				$ldap_server_list[$server_id]->base_dn)
+				&& !$ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
+			$dn = $ldap_server_list[$server_id]->base_dn;
+
 		if(isset($_GET["confirm"]) && $_GET["confirm"]=="yes")
 		{
 			// add the new value to the attribute
 
 			if($ldap_server_list[$server_id]->get_user_setting("allow_edit"))
 			{
-				$new_value[$attrib] = $_POST["value"];
+				if($data_type=="dn_list")
+					$new_value[$attrib] = $dn;
+				else
+					$new_value[$attrib] = $_POST["value"];
 
 				$result = @ldap_mod_add($ldap_server_list[$server_id]->connection,
 					$target_dn,$new_value);
@@ -117,6 +136,73 @@ if(prereq_components_ok())
 
 			switch($data_type)
 			{
+				case "dn_list";
+					if(isset($_GET["dn"]))
+						if($dn == $ldap_server_list[$server_id]->base_dn)
+							echo "<p>" . gettext("You are currently viewing the top level of the Address Book") . "</p>";
+						else if($dn == "")
+							echo "<p>" . gettext("You are currently viewing the root of the directory") . "</p>";
+						else
+						{
+							$dn_exploded = ldap_explode_dn2($dn);
+							echo "<p>" . sprintf(gettext("You are currently viewing the folder '%s'"),$dn_exploded[0]["value"]) . "</p>";
+						}
+
+					echo "<p style=\"font-weight:bold\">"
+						. sprintf(gettext("Select an object to assign to the '%s' attribute of '%s':"),
+						$attrib,$entry_name) . "</p><hr>";
+
+					// Default filter expression to use if none specified in config
+					// file: display objects of all classes when browsing the directory
+					$filter = empty($browse_ldap_filter)
+						?"objectClass=*":$browse_ldap_filter;
+
+					$search_resource = @ldap_list($ldap_server_list[$server_id]->connection,
+						$dn,$filter);
+
+					if(is_resource($search_resource))
+					{
+						// TODO: allow user to change sort order
+						$sort_order=$search_result_default_sort_order;
+
+						$entry_list = new ldap_entry_list(
+							array(array("caption"=>"Objects","attrib"=>"sortableName","link_type"=>"add_dn_value")));
+
+						$entry_list->add_entries($ldap_server_list[$server_id],$search_resource);
+
+						$entry_list->sort($sort_order);
+
+						$parent_dn = get_parent_dn($dn);
+
+						if($dn != "" && ($ldap_server_list[$server_id]->get_user_setting("allow_system_admin")
+							|| $ldap_server_list[$server_id]->compare_dn_to_base($parent_dn,
+							$ldap_server_list[$server_id]->base_dn)))
+						{
+							$parent_dn_exploded = ldap_explode_dn2($parent_dn);
+
+							if($parent_dn == $ldap_server_list[$server_id]->base_dn)
+								$go_to_parent_message = gettext("Go up a level to the top level of the Address Book");
+							else if($parent_dn == "")
+								$go_to_parent_message = gettext("Go up a level to the root of the directory");
+							else
+								$go_to_parent_message = sprintf(gettext("Go up a level to the '%s' folder"),$parent_dn_exploded[0]["value"]);
+
+							array_unshift($entry_list->ldap_entries,array(
+								"objectclass"=>array(0=>"organizationalUnit"),
+								"ou"=>array(0=>$go_to_parent_message),
+								"dn"=>$parent_dn,
+								"SERVER"=>$ldap_server_list[$server_id]
+								));
+							$entry_list->ldap_entries["count"]++;
+						}
+
+						$entry_list->object_dn_select_mode = true;
+						$entry_list->show();
+
+						echo "<hr>";
+					}
+
+					break;
 				case "text_list":
 					echo "<p style=\"font-weight:bold\">"
 						. sprintf(gettext("Enter a new value to add to the '%s' attribute of '%s':"),

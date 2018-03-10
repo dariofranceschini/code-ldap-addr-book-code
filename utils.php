@@ -2688,7 +2688,7 @@ class ldap_attribute
 		if(!$this->edit && !$this->read_only && !$this->create && $this->ldap_server->get_user_setting("allow_edit")
 			&& $this->ldap_server->get_user_setting("allow_browse"))
 		{
-			echo "            <a style=\"float:right\" href=\"add_dn_value.php?target_dn="
+			echo "            <a style=\"float:right\" href=\"add_value.php?target_dn="
 				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute);
 			if($this->ldap_server->server_id !=0)
 				echo "&server_id=" . $this->ldap_server->server_id;
@@ -3710,7 +3710,7 @@ class ldap_entry_list
 
 			// Cell contains a link to the object
 			if($is_folder)
-				echo "<a href=\"add_dn_value.php"
+				echo "<a href=\"add_value.php"
 					. "?dn=" . urlencode($ldap_entry["dn"])
 					. "&attrib=" . urlencode($attrib_name)
 					. "&target_dn=" . urlencode($target_dn)
@@ -3718,7 +3718,7 @@ class ldap_entry_list
 					. "\">";
 
 			else
-				echo "<a href=\"add_dn_value.php"
+				echo "<a href=\"add_value.php"
 					. "?dn=" . urlencode($ldap_entry["dn"])
 					. "&attrib=" . urlencode($attrib_name)
 					. "&target_dn=" . urlencode($target_dn)
