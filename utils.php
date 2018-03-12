@@ -1236,6 +1236,7 @@ class ldap_attribute
 			case "text_list":	$this->show_text_list();	break;
 			case "ldap_schema":	$this->show_ldap_schema();	break;
 			case "text_area":	$this->show_text_area();	break;
+			case "text_area_list":	$this->show_text_area_list();	break;
 			case "phone_number":	$this->show_phone_number();	break;
 			case "olc_dangling":	$this->show_olc_dangling();	break;
 			case "olc_pcachepos":	$this->show_olc_pcachepos();	break;
@@ -2129,6 +2130,56 @@ class ldap_attribute
 							. "\"><button>" . gettext("Remove") . "</button></a>\n";
 
 					echo "</li>";
+				}
+
+
+			echo "</ul>";
+		}
+
+		if(!$this->edit && !$this->create && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit") && $this->ldap_server->get_user_setting("allow_browse"))
+			echo "            <a style=\"float:right\" href=\"add_value.php?target_dn="
+				. urlencode($this->ldap_entry["dn"]) . "&attrib=" . urlencode($this->attribute)
+				. ($this->ldap_server->server_id == 0 ? ""
+				: ("&server_id=" . $this->ldap_server->server_id))
+				. "\"><button>Add</button></a>\n";
+	}
+
+	/** Show multi-value, multi-line textual attribute (data type "text_area_list")
+
+	    @todo
+		Escape "nasty values" in $attrib_value, e.g. "
+	    @todo
+		Style this better.. should be 100% less a fixed number of pixels?
+	    @todo
+		Honour read-only setting by not displaying add/remove value buttons
+	*/
+
+	function show_text_area_list()
+	{
+		if(!empty($this->ldap_entry[strtolower($this->attribute)]))
+		{
+			echo "<ul style=\"margin:0px;list-style-type:none;padding:0px\">";
+
+			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
+				if(empty($key) || $key != "count")
+				{
+					echo "<li>";
+
+					if($this->show_embedded_links)
+						echo nl2br(urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8")),false);
+					else
+						echo nl2br(htmlentities($value,ENT_COMPAT,"UTF-8"),false);
+
+					if(!$this->create && !$this->edit && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit"))
+						echo "&nbsp;<a href=\"delete_value.php?dn="
+							. urlencode($this->ldap_entry["dn"])
+							. "&attrib=" . urlencode($this->attribute)
+							. "&value=" . urlencode($value)
+							. ($this->ldap_server->server_id == 0 ? ""
+							: ("&server_id=" . $this->ldap_server->server_id))
+							. "\"><button>" . gettext("Remove") . "</button></a>\n";
+
+					echo "<hr style=\"color:white\"></li>";
 				}
 
 
