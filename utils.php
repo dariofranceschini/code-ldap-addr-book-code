@@ -2118,7 +2118,12 @@ class ldap_attribute
 			foreach($this->ldap_entry[strtolower($this->attribute)] as $key=>$value)
 				if(empty($key) || $key != "count")
 				{
-					echo "<li>" . urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
+					echo "<li>";
+
+					if($this->show_embedded_links)
+						echo urls_to_links(htmlentities($value,ENT_COMPAT,"UTF-8"));
+					else
+						echo htmlentities($value,ENT_COMPAT,"UTF-8");
 
 					if(!$this->create && !$this->edit && !$this->read_only && $this->ldap_server->get_user_setting("allow_edit"))
 						echo "&nbsp;<a href=\"delete_value.php?dn="
