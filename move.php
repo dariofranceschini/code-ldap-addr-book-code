@@ -67,7 +67,7 @@ if(prereq_components_ok())
 
         	                show_ldap_path($ldap_server_list[$server_id],$dn);
 
-				echo "<p>Where do you want to move this record to?</p>";
+				echo "<p>" . gettext("Where do you want to move this record to?") . "</p>";
 
 				// TODO: Show list of target OUs for user to select
 				//	- starting location should be parent of the OU containing the object
@@ -82,7 +82,8 @@ if(prereq_components_ok())
 				echo "<input type=\"hidden\" name=\"server_id\" value=\"" . htmlentities($server_id,
 					ENT_COMPAT,"UTF-8") . "\">\n";
 
-				echo "<table width=\"100%\"><tr><td style=\"width:1px;white-space:nowrap\">New Location</td><td>";
+				echo "<table width=\"100%\"><tr><td style=\"width:1px;white-space:nowrap\">"
+					. gettext("New Location") . "</td><td>";
 
 				echo "<input type=\"text\" name=\"new_parent_dn\"";
         	       		echo " value=\"" . htmlentities(get_parent_dn($dn),ENT_COMPAT,"UTF-8") . "\"";

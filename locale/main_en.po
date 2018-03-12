@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 11:07+0000\n"
-"PO-Revision-Date: 2018-03-03 11:07+0000\n"
+"POT-Creation-Date: 2018-03-11 11:04+0000\n"
+"PO-Revision-Date: 2018-03-11 11:04+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -39,7 +39,7 @@ msgid "Error whilst setting attribute"
 msgstr "Error whilst setting attribute"
 
 #: ../add_dn_value.php:105 ../add_text_value.php:90 ../delete.php:87
-#: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:107
+#: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:108
 #: ../utils.php:164
 msgid "Return to the Address Book"
 msgstr "Return to the Address Book"
@@ -177,7 +177,7 @@ msgstr "Unable to delete record"
 msgid "You do not have permission to delete this record"
 msgstr "You do not have permission to delete this record"
 
-#: ../delete.php:104 ../move.php:105
+#: ../delete.php:104 ../move.php:106
 msgid "Unable to locate LDAP record"
 msgstr "Unable to locate LDAP record"
 
@@ -634,7 +634,15 @@ msgstr "You do not have permission to move this record"
 msgid "Unable to move record"
 msgstr "Unable to move record"
 
-#: ../move.php:91
+#: ../move.php:70
+msgid "Where do you want to move this record to?"
+msgstr "Where do you want to move this record to?"
+
+#: ../move.php:86
+msgid "New Location"
+msgstr "New Location"
+
+#: ../move.php:92
 msgid "Move Record"
 msgstr "Move Record"
 

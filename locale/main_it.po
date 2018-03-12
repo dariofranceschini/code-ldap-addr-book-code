@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 11:07+0000\n"
-"PO-Revision-Date: 2018-03-03 11:07+0000\n"
+"POT-Creation-Date: 2018-03-11 11:04+0000\n"
+"PO-Revision-Date: 2018-03-11 11:04+0000\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -39,7 +39,7 @@ msgid "Error whilst setting attribute"
 msgstr "Errore mentre l'attributo impostando"
 
 #: ../add_dn_value.php:105 ../add_text_value.php:90 ../delete.php:87
-#: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:107
+#: ../delete.php:97 ../delete.php:106 ../delete_value.php:98 ../move.php:108
 #: ../utils.php:164
 msgid "Return to the Address Book"
 msgstr "Ritorna alla Rubrica"
@@ -179,7 +179,7 @@ msgstr "Impossibile eliminare il record"
 msgid "You do not have permission to delete this record"
 msgstr "Non si dispone dell'autorizzazione per eliminare questo record"
 
-#: ../delete.php:104 ../move.php:105
+#: ../delete.php:104 ../move.php:106
 msgid "Unable to locate LDAP record"
 msgstr "Impossibile individuare record di LDAP"
 
@@ -636,7 +636,15 @@ msgstr "Non hai il permesso di spostare questo record"
 msgid "Unable to move record"
 msgstr "Impossibile spostare la registrazione"
 
-#: ../move.php:91
+#: ../move.php:70
+msgid "Where do you want to move this record to?"
+msgstr "Dove vuoi spostare questo registrazione?"
+
+#: ../move.php:86
+msgid "New Location"
+msgstr "Nuova Sede"
+
+#: ../move.php:92
 msgid "Move Record"
 msgstr "Spostare il Registrare"
 
