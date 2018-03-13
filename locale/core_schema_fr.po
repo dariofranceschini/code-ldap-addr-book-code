@@ -23,7 +23,7 @@ msgstr "Objet Alias"
 
 #: ../schema/core.php:18
 msgid "Business Category"
-msgstr "Catégorie Business"
+msgstr "Catégorie d'Entreprise"
 
 #: ../schema/core.php:19 ../schema/core.php:289
 msgid "Country Code"
