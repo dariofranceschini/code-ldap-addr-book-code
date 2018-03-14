@@ -945,7 +945,7 @@ msgstr "Physical"
 
 #: ../utils.php:1415
 msgid "Telex"
-msgstr "Physical"
+msgstr "Telex"
 
 #: ../utils.php:1416
 msgid "Teletex"
@@ -1029,7 +1029,7 @@ msgstr "TLS 1.1"
 
 #: ../utils.php:1504
 msgid "TLS 1.2"
-msgstr "LS 1.2"
+msgstr "TLS 1.2"
 
 #: ../utils.php:1521
 msgid "None"
