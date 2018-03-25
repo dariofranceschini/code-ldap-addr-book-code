@@ -167,24 +167,6 @@ function show_error_message($message)
 	exit(0);
 }
 
-/** Return whether the currently logged in user has permission to access the specified LDAP server/DN
-
-    @param object $ldap_server
-	Server to be accessed
-    @param string $dn
-	DN to be accessed
-    @return
-	Whether the user has permission to access the specfied LDAP server/DN
-    @todo
-	Support multiple allowed base DNs per server (e.g. where links are used)
-*/
-
-function dn_user_access_allowed($ldap_server,$dn)
-{
-	return $ldap_server->get_user_setting("allow_system_admin")
-		|| $ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn);
-}
-
 /** Show "breadcrumb navigation" version of specified LDAP path
 
     Also shows "server info" link (if the current user has system
@@ -223,7 +205,7 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 	// Visibility of path information is based on allow_ldap_path for the page/entry being displayed
 	if(is_object($ldap_server) && $ldap_server_list[$server_id]->get_user_setting("allow_ldap_path"))
 	{
-		// TODO: test permission to access specific DNs - use dn_user_access_allowed($ldap_server,$dn)
+		// TODO: test permission to access specific DNs - use $ldap_server->dn_user_access_allowed($dn)
 
 		$rdn_list = ldap_explode_dn2($dn);
 
@@ -351,7 +333,7 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 					$rdn_list[$rdn_list_position]["alt_text"]
 						= $rdn_list[$rdn_list_position]["object_class"];
 					$rdn_list[$rdn_list_position]["show_as_link"]
-						= $path_entry_number>0 && dn_user_access_allowed($ldap_server,$dn);
+						= $path_entry_number>0 && $ldap_server->dn_user_access_allowed($dn);
 				}
 
 				if($link_method == "folder")
@@ -5968,6 +5950,22 @@ class ldap_server
 			"name"=>$display_name,
 			"object_class"=>$icon_object_class
 			);
+	}
+
+	/** Return whether the currently logged in user has permission to access the specified LDAP server/DN
+
+	    @param string $dn
+		DN to be accessed
+	    @return
+		Whether the user has permission to access the specfied LDAP server/DN
+	    @todo
+		Support multiple allowed base DNs per server (e.g. where links are used)
+	*/
+
+	function dn_user_access_allowed($dn)
+	{
+		return $ldap_server->get_user_setting("allow_system_admin")
+			|| $ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn);
 	}
 
 	/** Get a list of required attributes for the specified LDAP entry
