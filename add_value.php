@@ -61,9 +61,8 @@ if(prereq_components_ok())
 			$dn = $_GET["dn"];
 		else
 			$dn = get_parent_dn($target_dn);
-		if(!$ldap_server_list[$server_id]->compare_dn_to_base($dn,
-				$ldap_server_list[$server_id]->base_dn)
-				&& !$ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
+
+		if(!$ldap_server_list[$server_id]->dn_user_access_allowed($dn))
 			$dn = $ldap_server_list[$server_id]->base_dn;
 
 		if(isset($_GET["confirm"]) && $_GET["confirm"]=="yes")

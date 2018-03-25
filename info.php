@@ -34,9 +34,7 @@ if(prereq_components_ok())
 
 	if($ldap_server_list[$server_id]->log_on())
 	{
-		// Check whether the end part of the DN matches $ldap_server_list[$server_id]->base_dn
-		if($ldap_server_list[$server_id]->compare_dn_to_base($dn,$ldap_server_list[$server_id]->base_dn)
-			|| $ldap_server_list[$server_id]->get_user_setting("allow_system_admin"))
+		if($ldap_server_list[$server_id]->dn_user_access_allowed($dn))
 		{
 			if(isset($_GET["create"]))
 			{

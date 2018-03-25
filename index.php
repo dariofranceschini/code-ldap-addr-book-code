@@ -35,9 +35,7 @@ if(prereq_components_ok())
 		//	stop "nasties" being passed through to the LDAP server
 
 		if(isset($_GET["dn"]) && strlen($_GET["dn"])<=MAX_DN_LENGTH
-				&& ($ldap_server_list[$server_id]->compare_dn_to_base($_GET["dn"],
-				$ldap_server_list[$server_id]->base_dn)
-				|| $ldap_server_list[$server_id]->get_user_setting("allow_system_admin")))
+				&& $ldap_server_list[$server_id]->dn_user_access_allowed($_GET["dn"]))
 			$dn = $_GET["dn"];
 		else
 			$dn = $ldap_server_list[$server_id]->base_dn;
