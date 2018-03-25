@@ -71,6 +71,19 @@
   <li>Extending and modifying the schema
   <li>Using auxiliary object classes
   </ol>
+
+<li><a href="#linking_external_records">Linking External Records to the Address Book</a>
+  <ol>
+  <li>Linking to additional records within a single LDAP server
+  <li>Creating a multi-directory Address Book
+    <ol>
+    <li>Connecting to additional servers
+    <li>Defining users and permissions for each server
+    <li>Configuring the address book structure
+    </ol>
+  <li>Troubleshooting
+  </ol>
+
 <li><a href="#config_reference">Configuration Reference</a>
 </ol>
 <hr>
@@ -1841,6 +1854,533 @@ auxiliary classes to records.
 Current versions of the LDAP Address Book cannot remove auxiliary classes
 from a record.
 </p>
+<hr>
+<a name="linking_external_records"></a>
+<h2>Linking External Records to the Address Book</h2>
+<p>
+The configuration function <code>link_ldap_dn()</code> can be used
+to add Address Book records from another directory location (DN),
+outside of the main "tree" of records that make up the address book:
+</p>
+<pre>
+$ldap_server->link_ldap_dn(&lt;link-location-dn&gt;,
+        &lt;link-destination-server&gt;,&lt;link-destination-dn&gt;,
+	&lt;link-method&gt;,&lt;link-name&gt;,&lt;link-object-class&gt;);
+</pre>
+<p>
+This function can be used in place of LDAP server facilities such as
+aliases, referrals or proxies.
+</p>
+<p>
+The parameters passed to <code>link_ldap_dn()</code> are used as follows:
+</p>
+
+<ul>
+<li><p><code>&lt;link-location-dn&gt;</code> indicate the location in the
+  Address Book where the additional records should be added.</p>
+
+<li><p><code>&lt;link-destination-server&gt;</code> and
+  <code>&lt;link-destination-dn&gt;</code> indicate the location of the
+  records which should be added.
+
+  <ul>
+  <li>The destination server should be set to <code>$ldap_server</code>
+      when the records are located on the Address Book's main (root)
+      LDAP server.
+  <li>The additional steps involved in creating a multi-server Address Book
+      are described later in this document.
+  </ul></p>
+
+<li><p><code>&lt;link-method&gt;</code> indicates how the record or records
+  at <code>&lt;link-destination-dn&gt;</code> should appear in the
+  Address Book. It can be set to either "folder" or "contents".
+  <ul>
+
+  <li>"folder" - adds <code>&lt;link-destination-dn&gt;</code> to the
+       Address Book. It appears as a folder which users can browse into
+       to view the records inside.
+
+  <li>"contents" - adds the <em>contents</em> of
+      <code>&lt;link-destination-dn&gt;</code> to the Address Book, merging
+      them with any existing records so that they appear as a single list.
+  </ul></p>
+
+<li><p><code>&lt;link-name&gt;</code> and
+  <code>&lt;link-object-class&gt;</code> are used when
+  <code>&lt;link-method&gt;</code> is set to "folder", in order to
+  customise the record's appearance:</p>
+  <ul>
+  <li><code>&lt;link-name&gt;</code> changes the name of the record,
+  replacing the actual name of <code>&lt;link-destination-dn&gt;</code>.
+
+  <li><code>&lt;link-object-class&gt;</code> changes the object class (and
+  icon) of the record, replacing the actual object class of
+  <code>&lt;link-destination-dn&gt;</code>.
+  </ul>
+</ul>
+<p>
+<code>&lt;link-name&gt;</code> or <code>&lt;link-object-class&gt;</code>
+can be omitted if the name and object class don't need to be changed. To
+change the object class without affecting the name, use <code>null</code>
+in place of <code>&lt;link-name&gt;</code>.
+</p>
+
+<h3>Linking to additional records within a single LDAP server</h3>
+
+<p>
+Many Microsoft Active Directory installations have OU structures that were
+designed to meet systems administration requirements, but which are less
+suitable for browsing by end users. The screenshot below illustrates a
+common layout approach:
+<p>
+<img alt="Original OU Structure" src="department_ou_structure_original.png">
+</p>
+<p>
+In this design, each department's directory records are stored in a separate
+set of OUs. Each department's OU is further divided in order to keep user
+accounts, groups and computer objects separate from each other.
+</p>
+<p>
+The following configuration fragment shows how to create a more
+streightforward Address Book layout for users to browse, using records
+from the "Users" OUs inside each department:
+</p>
+<pre>
+$ldap_server = new ldap_server(
+        "ad",
+        "ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        "ldap.example.org",
+        389
+        );
+
+$ldap_server->link_ldap_dn("ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Management,ou=Corporate HQ,dc=example,dc=org",
+        "folder","Management Staff");
+
+$ldap_server->link_ldap_dn("ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Marketing,ou=Corporate HQ,dc=example,dc=org",
+        "folder","Marketing Staff");
+
+$ldap_server->link_ldap_dn("ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Human Resources,ou=Corporate HQ,dc=example,dc=org",
+        "folder","Human Resources Staff");
+
+$ldap_server->link_ldap_dn("ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Finance,ou=Corporate HQ,dc=example,dc=org",
+        "folder","Finance Staff");
+</pre>
+<p>
+An empty OU called "Address Book" should be created under "Corporate HQ".
+</p>
+<p>
+End result:
+</p>
+<p>
+<img alt="Linked OU structure" src="department_ou_structure_combined.png">
+</p>
+<p>
+The "contents" link method can be used to merge together the "users" OUs
+from more than one department. The following configuration fragment shows how
+to create a combined folder for "Management and Finance Staff":
+</p>
+<pre>
+$ldap_server->link_ldap_dn("ou=Management and Finance Staff,ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Management,ou=Corporate HQ,dc=example,dc=org",
+        "contents");
+
+$ldap_server->link_ldap_dn("ou=Management and Finance Staff,ou=Address Book,ou=Corporate HQ,dc=example,dc=org",
+        $ldap_server,"ou=Users,ou=Finance,ou=Corporate HQ,dc=example,dc=org",
+        "contents");
+</pre>
+<p>
+An empty OU called "Management and Finance Staff" should be created
+under "Address Book".
+</p>
+
+<p>
+End result:
+</p>
+<p>
+<img alt="Merged OU contents" src="department_ou_structure_merged.png">
+</p>
+
+<h3>Creating a multi-directory address book</h3>
+<p>
+The <code>link_ldap_dn()</code> function can be used to include address
+book records from other LDAP servers, allowing you to create
+multi-directory address book.
+</p>
+<p>
+This example shows how to create an address book that spans several LDAP
+directories, such as might exist in a large multinational organisation.
+</p>
+<ul>
+<li>ldap.example.org - OpenLDAP server which will store the top-level
+    address book structure, plus records for external suppliers and
+    other contacts
+<li>edir.example.org - eDirectory server containing user accounts for
+    staff in the main organization
+<li>ad.eu.example.org - Active Directory server containing user accounts
+    for staff in the European subsiduary
+</ul>
+
+<h4>Connecting to additional servers</h4>
+<p>
+First, define connections to the three directories which contain the
+Address Book records:
+</p>
+<pre>
+$ldap_server = new ldap_server(
+        "openldap",                     // LDAP server type
+        "ou=Address Book,dc=nodomain",  // base DN
+        "ldap.example.org",             // host name/IP address/URL
+        389                             // port number
+        );
+
+$ldap_server_corporate = new ldap_server(
+        "edir",                         // LDAP server type
+        "o=example",                    // base DN
+        "edir.example.org",             // host name/IP address/URL
+        389                             // port number
+        );
+
+$ldap_server_eu = new ldap_server(
+        "ad",                            // LDAP server type
+        "dc=ad,dc=eu,dc=example,dc=org", // base DN
+        "ad.eu.example.org",             // host name/IP address/URL
+        389                              // port number
+        );
+</pre>
+<p>
+The LDAP server which hosts the top-level of the Address Book should
+be defined first, and should be stored in the variable $ldap_server.
+</p>
+<p>
+Any customised record display layouts, schema definitions and other
+configuration changes will need to be applied for each individual server.
+</p>
+<h4>Defining users and permissions for each server</h4>
+<p>
+Each LDAP server has a user account called <code>ldap-addr-book-browse</code>
+(in an appropriate OU) which has been granted read-only access to the directory.
+These user accounts should be used to provide read-only access to the Address
+Book without having to log on:
+</p>
+<pre>
+$ldap_server->add_user("__ANONYMOUS__",
+        array(
+                "ldap_dn"=>"cn=ldap-addr-book-browse,ou=Users,dc=nodomain",
+                "ldap_password"=>"XXXX",
+
+                // Permissions granted to anonymous users:
+
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true
+
+        ));
+
+$ldap_server_corporate->add_user("__ANONYMOUS__",
+        array(
+                "ldap_dn"=>"cn=ldap-addr-book-browse,o=example",
+                "ldap_password"=>"YYYY",
+
+                // Permissions granted to anonymous users:
+
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true
+        ));
+
+$ldap_server_eu->add_user("__ANONYMOUS__",
+        array(
+                "ldap_dn"=>"cn=ldap-addr-book-browse,cn=Users,dc=ad,dc=eu,dc=example,dc=org",
+                "ldap_password"=>"ZZZZ",
+
+                // Permissions granted to anonymous users:
+
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true
+        ));
+</pre>
+<p>
+Users will also be able to log in to the Address Book by name, allowing
+them to access additional functionality (such as editing). During the
+login process, each server's <code>ldap-addr-book-browse</code> account
+will be used to look up the user's group membership so that group-based
+Address Book permissions can be assigned:
+</p>
+<pre>
+$ldap_server->dn_search_base = "dc=nodomain";
+$ldap_server->dn_search_user = "cn=ldap-addr-book-browse,ou=Users,dc=nodomain";
+$ldap_server->dn_search_password = "XXXX";
+
+$ldap_server_corporate->dn_search_user = "cn=ldap-addr-book-browse,o=example";
+$ldap_server_corporate->dn_search_password = "YYYY";
+
+$ldap_server_eu->dn_search_user = "cn=ldap-addr-book-browse,cn=Users,dc=ad,dc=eu,dc=example,dc=org";
+$ldap_server_eu->dn_search_password = "ZZZZ";
+</pre>
+<p>
+The <code>dn_search_base</code> setting specifies where to search
+for user accounts, and is needed if the user accounts are stored in a
+separate area of the directory to the the Address Book itself.
+</p>
+<p>
+Logging into the Address Book as <code>admin</code> should grant additional
+permissions to <code>$ldap_server</code> and to <code>$ldap_server_eu</code>.
+</p>
+<p>
+An <code>admin</code> user account should be created on
+<code>$ldap_server</code> and granted the necessary permissions, e.g.
+as per the following LDIF data:
+<pre>
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=extern
+ al,cn=auth manage by * break
+olcAccess: {1}to * by dn.exact=cn=admin,dc=nodomain manage
+olcAccess: {2}to * by * read
+</pre>
+<p>
+Many Linux distributions will configure an <code>admin</code> or
+<code>manager</code> user automatically when OpenLDAP is installed.
+(Once the <code>admin</code> user has the necessary read/write access
+to object(s) in the <code>cn=config</code> container they will be able
+to manage directory permissions using the Address Book's web interface.
+Access to <code>cn=config</code> is not usually enabled by default.)
+</p>
+<p>
+<img alt="OpenLDAP Configuration" src="openldap_config.png">
+</p>
+<p>
+The following configuration statement will the corresponding admin
+access to the Address Book:
+</p>
+<pre>
+$ldap_server->add_user("admin",
+        array(
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true,
+                "allow_create"=>true,
+                "allow_edit"=>true,
+                "allow_move"=>true,
+                "allow_delete"=>true,
+                "allow_export"=>true,
+                "allow_export_bulk"=>true,
+                "allow_system_admin"=>true
+        ));
+</pre>
+<p>
+In this example, the Address Book's <code>admin</code> user will not have
+read/write access to the directory on <code>$ldap_server_corporate</code>,
+however they will be allowed to export its Address Book records (into
+vCard files). Access will use the same <code>ldap-addr-book-browse</code>
+user account and stored password as anonymous users.
+</p>
+<pre>
+$ldap_server_corporate->add_user("admin",
+        array(
+                "ldap_dn"=>"cn=ldap-addr-book-browse,o=example",
+                "ldap_password"=>"YYYY",
+
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true,
+                "allow_export"=>true,
+                "allow_export_bulk"=>true
+        ));
+</pre>
+<p>
+The <code>admin</code> user will receive full read/write access to
+the directory on <code>$ldap_server_eu</code>. They will log on to
+it as <code>ldap-addr-book-admin</code>, which must have the same
+password as the <code>admin</code> user itself.
+</p>
+<pre>
+$ldap_server_eu->add_user("admin",
+        array(
+                "ldap_dn"=>"cn=ldap-addr-book-admin,cn=Users,dc=ad,dc=eu,dc=example,dc=org",
+
+                "allow_browse"=>true,
+                "allow_search"=>true,
+                "allow_view"=>true,
+                "allow_folder_info"=>true,
+                "allow_create"=>true,
+                "allow_edit"=>true,
+                "allow_move"=>true,
+                "allow_delete"=>true
+                "allow_export"=>true,
+                "allow_export_bulk"=>true,
+                "allow_system_admin"=>true
+        ));
+</pre>
+
+<p>
+If you grant Address Book permissions based on group memberships,
+the groups must be located on the same server as the user.
+</p>
+
+<h4>Configuring the address book structure</h4>
+<p>
+In this example:
+</p>
+
+<ul>
+<li>The user accounts within <code>$ldap_server_eu</code> are organised into
+OUs for each country that contains a branch office. These should appear
+in the Address Book as countries.
+<li>User accounts within <code>$ldap_server_corporate</code> are organised
+into separate OUs for each department. These should appear in the
+Address Book under the country "United States".
+<li>External contact details (e.g. for suppliers/partner organisations)
+should be displayed in a separate top-level OU.
+<li>A record for the IT helpdesk (which is used by staff in all countries)
+will be stored at the top-level.
+</ul>
+<p>
+First, log in to the Address Book as <code>admin</code> and create the
+top-level records and other containers which will be stored directly
+in <code>$ldap_server</code>: "United States", "External Contacts" and
+"Global IT Helpdesk".
+</p>
+<p>
+<img alt="Top level Address Book objects" src="top_level_objects.png">
+</p>
+
+<p>
+Finally, configure the links to <code>$ldap_server_eu</code> and
+<code>$ldap_server_corporate</code>.
+</p>
+<pre>
+$ldap_server->link_ldap_dn("ou=Address Book,dc=nodomain",
+        $ldap_server_eu,"ou=Users,ou=London,dc=ad,dc=eu,dc=example,dc=org",
+        "folder","GB","country");
+
+$ldap_server->link_ldap_dn("ou=Address Book,dc=nodomain",
+        $ldap_server_eu,"ou=Users,ou=Paris,dc=ad,dc=eu,dc=example,dc=org",
+        "folder","FR","country");
+
+$ldap_server->link_ldap_dn("ou=Address Book,dc=nodomain",
+        $ldap_server_eu,"ou=Users,ou=Berlin,dc=ad,dc=eu,dc=example,dc=org",
+        "folder","DE","country");
+
+$ldap_server->link_ldap_dn("ou=Address Book,dc=nodomain",
+        $ldap_server_eu,"ou=Users,ou=Rome,dc=ad,dc=eu,dc=example,dc=org",
+        "folder","IT","country");
+
+$ldap_server->link_ldap_dn("c=US,ou=Address Book,dc=nodomain",
+        $ldap_server_corporate,"ou=Management,o=example",
+        "folder","Management");
+
+$ldap_server->link_ldap_dn("c=US,ou=Address Book,dc=nodomain",
+        $ldap_server_corporate,"ou=Marketing,o=example",
+        "folder","Marketing");
+
+$ldap_server->link_ldap_dn("c=US,ou=Address Book,dc=nodomain",
+        $ldap_server_corporate,"ou=Human Resources,o=example",
+        "folder","Human Resources");
+
+$ldap_server->link_ldap_dn("c=US,ou=Address Book,dc=nodomain",
+        $ldap_server_corporate,"ou=Finance,o=example",
+        "folder","Finance");
+</pre>
+<p>
+Organizational units from <code>$ldap_server_eu</code> are shown as countries
+at the top-level of the Address Book. (The country codes are automatically
+replaced with the corresponding country names.)
+</p>
+<p>
+<img alt="Links within top level of Address Book" src="linked_server_objects1.png">
+</p>
+<p>
+Organizational units from <code>$ldap_server_corporate</code> are shown as
+folders within "US"/"United States":
+</p>
+<p>
+<img alt="Links within US subfolder" src="linked_server_objects2.png">
+</p>
+
+<h3>Troubleshooting</h3>
+
+<table border=1>
+<tr><th>Symptoms</th><th>Suggestion</th></tr>
+
+<tr>
+<td>
+  Message "Linked DN: Can't contact LDAP server" is displayed instead of
+  records from the linked server.
+</td>
+<td>
+  Check that the Address Book has been configured to connect to the
+  correct host and port number, the LDAP server software is installed
+  and running and the connection is not being blocked by a host-based
+  firewall. For reference, commonly used TCP port numbers for LDAP
+  servers are:
+  <ul>
+  <li>389 - Standard well-known port for unencrypted LDAP service
+  <li>636 - Standard well-known port for TLS (encrypted) LDAP service
+  <li>3268 - Well-known port for Active Directory "Global Catalogue"
+      unencrypted LDAP service
+  <li>3268 - Well-known port for Active Directory "Global Catalogue"
+      TLS (encrypted) LDAP service
+  </ul>
+</td></tr>
+
+<tr>
+<td>
+  Message "Linked DN: Invalid credentials" is displayed instead of
+  records from the linked server.
+</td>
+<td>
+  The current user needs to exist on the linked server and must have
+  the same password. If this is not possible, the
+  <code>$target_ldap_server-&gt;add_user()</code> configuration command
+  can be used to specify that:
+  <ul>
+  <li>the current user should log onto the target server with a
+      different user name (using the <code>ldap_dn</code> setting).
+  <li>a different password should be used for accessing the linked
+      server (using the <code>ldap_password</code> setting).
+  </ul>
+  The <code>ldap_dn</code> and <code>ldap_password</code> options can
+  be used to configure a shared/common user account for accessing the
+  linked server. The shared account is often limited to read-only access.
+</td></tr>
+
+<tr>
+<td>
+  Message "Linked DN: No read access to &lt;server-name&gt;" is displayed
+  instead of records from the linked server.
+</td>
+<td>
+  The current user needs to be granted <code>allow_browse</code>
+  permission to the linked server. If you want the records to be visible
+  when nobody is logged in to the Address Book (i.e. anonymous access)
+  then you need to grant <code>allow_browse</code> to the linked server's
+  <code>__ANONYMOUS__</code> user.
+</td></tr>
+
+<tr>
+<td>
+  Message "Linked DN: No such object" is displayed instead of records
+  from the linked location.
+</td>
+<td>
+  Either the linked location doesn't exist or the current user needs to
+  be granted read access to it on the LDAP server. (This message appears
+  when the current user <em>does</em> have <code>allow_browse</code>
+  permission within the Address Book.)
+</td></tr>
+</table>
 <hr>
 <a name="config_reference"></a>
 <h2>Configuration Reference</h2>
