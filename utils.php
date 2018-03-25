@@ -4131,6 +4131,9 @@ class ldap_server
 	/** Directory location (e.g. OU) of the address book records */
 	var $base_dn;
 
+	/** Array of user-accessible DNs */
+	var $allowed_dn = array();
+
 	/** Temporary bind DN used to look up LDAP bind DN corresponding to a user name */
 	var $dn_search_user = "";
 
@@ -4243,6 +4246,7 @@ class ldap_server
 		$this->server_type = $ldap_server_type;
 		$this->base_dn = $base_dn;
 		$this->host_or_url = $ldap_server_host_or_url;
+		$this->add_allowed_dn($base_dn);
 
 		$schema_list = "";
 		foreach($this->server_types as $server_type)
@@ -5950,6 +5954,33 @@ class ldap_server
 			"name"=>$display_name,
 			"object_class"=>$icon_object_class
 			);
+
+		$destination_server->add_allowed_dn($destination_dn);
+	}
+
+	/** Make the specified DN user-acessible
+
+	    Users with allow_system_admin permission may access any DN,
+	    irrespective of the allowed DN list.
+
+	    @param string $dn
+		DN to be added to the allow list
+	*/
+
+	function add_allowed_dn($dn)
+	{
+		$to_be_added = true;
+
+		foreach($this->allowed_dn as $allowed_dn)
+			if($this->compare_dn_to_base($dn,$allowed_dn))
+				$to_be_added=false;
+
+		if($to_be_added)
+		{
+			/** TODO: remove subordinate DNs to the one being added */
+
+			$this->allowed_dn[] = $dn;
+		}
 	}
 
 	/** Return whether the currently logged in user has permission to access the specified LDAP server/DN
@@ -5958,14 +5989,20 @@ class ldap_server
 		DN to be accessed
 	    @return
 		Whether the user has permission to access the specfied LDAP server/DN
-	    @todo
-		Support multiple allowed base DNs per server (e.g. where links are used)
 	*/
 
 	function dn_user_access_allowed($dn)
 	{
-		return $ldap_server->get_user_setting("allow_system_admin")
-			|| $ldap_server->compare_dn_to_base($dn,$ldap_server->base_dn);
+		$allowed=false;
+
+		if($this->get_user_setting("allow_system_admin"))
+			$allowed=true;
+		else
+			foreach($this->allowed_dn as $allowed_dn)
+				if($this->compare_dn_to_base($dn,$allowed_dn))
+					$allowed=true;
+
+		return $allowed;
 	}
 
 	/** Get a list of required attributes for the specified LDAP entry
