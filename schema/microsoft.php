@@ -292,7 +292,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"rRASAdministrationDictionary"),
 			array("name"=>"samDomain",								"class_type"=>"auxiliary"),
 			array("name"=>"samDomainBase",								"class_type"=>"auxiliary"),
-			array("name"=>"samServer",								"parent_class"=>"securityObject"),
+			array("name"=>"samServer",			"icon"=>"microsoft/sam-server.png",	"parent_class"=>"securityObject"),
 			array("name"=>"secret",				"icon"=>"password.png",			"parent_class"=>"leaf"),
 			array("name"=>"securityObject",			"icon"=>"generic24.png",		"class_type"=>"abstract"),
 			array("name"=>"securityPrincipal",							"class_type"=>"auxiliary"),
