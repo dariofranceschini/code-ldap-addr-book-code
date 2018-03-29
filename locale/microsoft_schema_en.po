@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-29 17:53+0100\n"
-"PO-Revision-Date: 2018-03-29 17:53+0100\n"
+"POT-Creation-Date: 2018-03-29 18:02+0100\n"
+"PO-Revision-Date: 2018-03-29 18:02+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -17,49 +17,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../schema/microsoft.php:9 ../schema/microsoft.php:484
+#: ../schema/microsoft.php:9 ../schema/microsoft.php:485
 msgid "Admin Context Menu Entries"
 msgstr "Admin Context Menu Entries"
 
-#: ../schema/microsoft.php:10 ../schema/microsoft.php:482
+#: ../schema/microsoft.php:10 ../schema/microsoft.php:483
 msgid "Admin Multi Select Property Pages"
 msgstr "Admin Multi Select Property Pages"
 
-#: ../schema/microsoft.php:11 ../schema/microsoft.php:481
+#: ../schema/microsoft.php:11 ../schema/microsoft.php:482
 msgid "Admin Property Pages"
 msgstr "Admin Property Pages"
 
-#: ../schema/microsoft.php:12 ../schema/microsoft.php:489
+#: ../schema/microsoft.php:12 ../schema/microsoft.php:490
 msgid "Attribute Display Names"
 msgstr "Attribute Display Names"
 
-#: ../schema/microsoft.php:13 ../schema/microsoft.php:615
+#: ../schema/microsoft.php:13 ../schema/microsoft.php:616
 msgid "Bridgehead Transports"
 msgstr "Bridgehead Transports"
 
-#: ../schema/microsoft.php:14 ../schema/microsoft.php:523
+#: ../schema/microsoft.php:14 ../schema/microsoft.php:524
 msgid "Package Upgrade Relationships"
 msgstr "Package Upgrade Relationships"
 
-#: ../schema/microsoft.php:15 ../schema/microsoft.php:528
+#: ../schema/microsoft.php:15 ../schema/microsoft.php:529
 msgid "Category GUIDs"
 msgstr "Category GUIDs"
 
-#: ../schema/microsoft.php:16 ../schema/microsoft.php:664
-#: ../schema/microsoft.php:771
+#: ../schema/microsoft.php:16 ../schema/microsoft.php:665
+#: ../schema/microsoft.php:772
 msgid "Company"
 msgstr "Company"
 
-#: ../schema/microsoft.php:17 ../schema/microsoft.php:485
+#: ../schema/microsoft.php:17 ../schema/microsoft.php:486
 msgid "Context Menu Entries"
 msgstr "Context Menu Entries"
 
-#: ../schema/microsoft.php:18 ../schema/microsoft.php:486
+#: ../schema/microsoft.php:18 ../schema/microsoft.php:487
 msgid "Object Creation Wizard Extensions"
 msgstr "Object Creation Wizard Extensions"
 
-#: ../schema/microsoft.php:19 ../schema/microsoft.php:677
-#: ../schema/microsoft.php:780
+#: ../schema/microsoft.php:19 ../schema/microsoft.php:678
+#: ../schema/microsoft.php:781
 msgid "Department"
 msgstr "Department"
 
@@ -87,7 +87,7 @@ msgstr "Extended Attribute Information"
 msgid "Extended Class Information"
 msgstr "Extended Class Information"
 
-#: ../schema/microsoft.php:26 ../schema/microsoft.php:494
+#: ../schema/microsoft.php:26 ../schema/microsoft.php:495
 msgid "Extra Columns"
 msgstr "Extra Columns"
 
@@ -107,7 +107,7 @@ msgstr "FSMO Role Owner"
 msgid "Group Type/Scope"
 msgstr "Group Type/Scope"
 
-#: ../schema/microsoft.php:31 ../schema/microsoft.php:589
+#: ../schema/microsoft.php:31 ../schema/microsoft.php:590
 msgid "Naming Contexts Served"
 msgstr "Naming Contexts Served"
 
@@ -115,16 +115,16 @@ msgstr "Naming Contexts Served"
 msgid "General Information"
 msgstr "General Information"
 
-#: ../schema/microsoft.php:33 ../schema/microsoft.php:588
+#: ../schema/microsoft.php:33 ../schema/microsoft.php:589
 msgid "Invocation ID Data"
 msgstr "Invocation ID Data"
 
-#: ../schema/microsoft.php:34 ../schema/microsoft.php:373
-#: ../schema/microsoft.php:416
+#: ../schema/microsoft.php:34 ../schema/microsoft.php:374
+#: ../schema/microsoft.php:417
 msgid "Location"
 msgstr "Location"
 
-#: ../schema/microsoft.php:35 ../schema/microsoft.php:415
+#: ../schema/microsoft.php:35 ../schema/microsoft.php:416
 msgid "Managed By"
 msgstr "Managed By"
 
@@ -132,7 +132,7 @@ msgstr "Managed By"
 msgid "Member Of"
 msgstr "Member Of"
 
-#: ../schema/microsoft.php:37 ../schema/microsoft.php:571
+#: ../schema/microsoft.php:37 ../schema/microsoft.php:572
 msgid "Usefulness to Replication Topology"
 msgstr "Usefulness to Replication Topology"
 
@@ -140,19 +140,19 @@ msgstr "Usefulness to Replication Topology"
 msgid "Allowed to Delegate To"
 msgstr "Allowed to Delegate To"
 
-#: ../schema/microsoft.php:39 ../schema/microsoft.php:592
+#: ../schema/microsoft.php:39 ../schema/microsoft.php:593
 msgid "Domain Naming Contexts"
 msgstr "Domain Naming Contexts"
 
-#: ../schema/microsoft.php:40 ../schema/microsoft.php:596
+#: ../schema/microsoft.php:40 ../schema/microsoft.php:597
 msgid "Naming Context Replication Status"
 msgstr "Naming Context Replication Status"
 
-#: ../schema/microsoft.php:41 ../schema/microsoft.php:857
+#: ../schema/microsoft.php:41 ../schema/microsoft.php:858
 msgid "Supported Encryption/Authentication Types"
 msgstr "Supported Encryption/Authentication Types"
 
-#: ../schema/microsoft.php:42 ../schema/microsoft.php:854
+#: ../schema/microsoft.php:42 ../schema/microsoft.php:855
 msgid "Forest Trust Data"
 msgstr "Forest Trust Data"
 
@@ -168,7 +168,7 @@ msgstr "WMI Object Last Modification Date"
 msgid "WMI Object Creation Date"
 msgstr "WMI Object Creation Date"
 
-#: ../schema/microsoft.php:49 ../schema/microsoft.php:570
+#: ../schema/microsoft.php:49 ../schema/microsoft.php:571
 msgid "Options"
 msgstr "Options"
 
@@ -188,7 +188,7 @@ msgstr "Double-Sided Printing Supported"
 msgid "Maximum Supported Resolution"
 msgstr "Maximum Supported Resolution"
 
-#: ../schema/microsoft.php:55 ../schema/microsoft.php:392
+#: ../schema/microsoft.php:55 ../schema/microsoft.php:393
 msgid "Paper Available"
 msgstr "Paper Available"
 
@@ -205,711 +205,715 @@ msgid "Query Policy Object DN"
 msgstr "Query Policy Object DN"
 
 #: ../schema/microsoft.php:59
+msgid "Available RID Pool"
+msgstr "Available RID Pool"
+
+#: ../schema/microsoft.php:60
 msgid "Pre-Windows 2000 Account Name"
 msgstr "Pre-Windows 2000 Account Name"
 
-#: ../schema/microsoft.php:60
+#: ../schema/microsoft.php:61
 msgid "Replication Schedule"
 msgstr "Replication Schedule"
 
-#: ../schema/microsoft.php:65
+#: ../schema/microsoft.php:66
 msgid "Server Name"
 msgstr "Server Name"
 
-#: ../schema/microsoft.php:67
+#: ../schema/microsoft.php:68
 msgid "Server's Computer Object DN"
 msgstr "Server's Computer Object DN"
 
-#: ../schema/microsoft.php:68 ../schema/microsoft.php:428
+#: ../schema/microsoft.php:69 ../schema/microsoft.php:429
 msgid "Service Principal Names"
 msgstr "Service Principal Names"
 
-#: ../schema/microsoft.php:69 ../schema/microsoft.php:483
+#: ../schema/microsoft.php:70 ../schema/microsoft.php:484
 msgid "Shell Property Pages"
 msgstr "Shell Property Pages"
 
-#: ../schema/microsoft.php:71
+#: ../schema/microsoft.php:72
 msgid "Street Address"
 msgstr "Street Address"
 
-#: ../schema/microsoft.php:73
+#: ../schema/microsoft.php:74
 msgid "Replication Transport"
 msgstr "Replication Transport"
 
-#: ../schema/microsoft.php:74 ../schema/microsoft.php:474
+#: ../schema/microsoft.php:75 ../schema/microsoft.php:475
 msgid "Treat as Leaf Object"
 msgstr "Treat as Leaf Object"
 
-#: ../schema/microsoft.php:75
+#: ../schema/microsoft.php:76
 msgid "Trust Attributes"
 msgstr "Trust Attributes"
 
-#: ../schema/microsoft.php:76
+#: ../schema/microsoft.php:77
 msgid "Direction of Trust"
 msgstr "Direction of Trust"
 
-#: ../schema/microsoft.php:77 ../schema/microsoft.php:851
+#: ../schema/microsoft.php:78 ../schema/microsoft.php:852
 msgid "Trust Type"
 msgstr "Trust Type"
 
-#: ../schema/microsoft.php:78
+#: ../schema/microsoft.php:79
 msgid "UNC Path Name"
 msgstr "UNC Path Name"
 
-#: ../schema/microsoft.php:79
+#: ../schema/microsoft.php:80
 msgid "URL (e.g. web page)"
 msgstr "URL (e.g. web page)"
 
-#: ../schema/microsoft.php:80 ../schema/microsoft.php:547
+#: ../schema/microsoft.php:81 ../schema/microsoft.php:548
 msgid "Creation Date"
 msgstr "Creation Date"
 
-#: ../schema/microsoft.php:81
+#: ../schema/microsoft.php:82
 msgid "Last Modification Date"
 msgstr "Last Modification Date"
 
-#: ../schema/microsoft.php:82
+#: ../schema/microsoft.php:83
 msgid "WWW Home Page"
 msgstr "WWW Home Page"
 
-#: ../schema/microsoft.php:91
+#: ../schema/microsoft.php:92
 msgid "Address List"
 msgstr "Address List"
 
-#: ../schema/microsoft.php:103
+#: ../schema/microsoft.php:104
 msgid "Computer"
 msgstr "Computer"
 
-#: ../schema/microsoft.php:104
+#: ../schema/microsoft.php:105
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../schema/microsoft.php:106
+#: ../schema/microsoft.php:107
 msgid "Contact"
 msgstr "Contact"
 
-#: ../schema/microsoft.php:107
+#: ../schema/microsoft.php:108
 msgid "Container"
 msgstr "Container"
 
-#: ../schema/microsoft.php:115
+#: ../schema/microsoft.php:116
 msgid "Directory Management Domain"
 msgstr "Directory Management Domain"
 
-#: ../schema/microsoft.php:121
+#: ../schema/microsoft.php:122
 msgid "Domain"
 msgstr "Domain"
 
-#: ../schema/microsoft.php:122
+#: ../schema/microsoft.php:123
 msgid "Domain Policy"
 msgstr "Domain Policy"
 
-#: ../schema/microsoft.php:126
+#: ../schema/microsoft.php:127
 msgid "Foreign Security Principal"
 msgstr "Foreign Security Principal"
 
-#: ../schema/microsoft.php:128
+#: ../schema/microsoft.php:129
 msgid "Group"
 msgstr "Group"
 
-#: ../schema/microsoft.php:132
+#: ../schema/microsoft.php:133
 msgid "IntelliMirror Group"
 msgstr "IntelliMirror Group"
 
-#: ../schema/microsoft.php:133
+#: ../schema/microsoft.php:134
 msgid "IntelliMirror Service"
 msgstr "IntelliMirror Service"
 
-#: ../schema/microsoft.php:134
+#: ../schema/microsoft.php:135
 msgid "Inter-Site Transport"
 msgstr "Inter-Site Transport"
 
-#: ../schema/microsoft.php:135
+#: ../schema/microsoft.php:136
 msgid "Inter-Site Transports Container"
 msgstr "Inter-Site Transports Container"
 
-#: ../schema/microsoft.php:143
+#: ../schema/microsoft.php:144
 msgid "Licensing Site Settings"
 msgstr "Licensing Site Settings"
 
-#: ../schema/microsoft.php:203
+#: ../schema/microsoft.php:204
 msgid "Group Managed Service Account"
 msgstr "Group Managed Service Account"
 
-#: ../schema/microsoft.php:205
+#: ../schema/microsoft.php:206
 msgid "Managed Service Account"
 msgstr "Managed Service Account"
 
-#: ../schema/microsoft.php:224 ../schema/microsoft.php:455
+#: ../schema/microsoft.php:225 ../schema/microsoft.php:456
 msgid "MSMQ Queue Alias"
 msgstr "MSMQ Queue Alias"
 
-#: ../schema/microsoft.php:225
+#: ../schema/microsoft.php:226
 msgid "MSMQ Group"
 msgstr "MSMQ Group"
 
-#: ../schema/microsoft.php:226
+#: ../schema/microsoft.php:227
 msgid "MSMQ Configuration"
 msgstr "MSMQ Configuration"
 
-#: ../schema/microsoft.php:227
+#: ../schema/microsoft.php:228
 msgid "MSMQ Enterprise"
 msgstr "MSMQ Enterprise"
 
-#: ../schema/microsoft.php:228
+#: ../schema/microsoft.php:229
 msgid "MSMQ Upgraded User"
 msgstr "MSMQ Upgraded User"
 
-#: ../schema/microsoft.php:229
+#: ../schema/microsoft.php:230
 msgid "MSMQ Queue"
 msgstr "MSMQ Queue"
 
-#: ../schema/microsoft.php:230
+#: ../schema/microsoft.php:231
 msgid "MSMQ Settings"
 msgstr "MSMQ Settings"
 
-#: ../schema/microsoft.php:231
+#: ../schema/microsoft.php:232
 msgid "MSMQ Routing Link"
 msgstr "MSMQ Routing Link"
 
-#: ../schema/microsoft.php:264
+#: ../schema/microsoft.php:265
 msgid "Connection"
 msgstr "Connection"
 
-#: ../schema/microsoft.php:265 ../schema/microsoft.php:577
+#: ../schema/microsoft.php:266 ../schema/microsoft.php:578
 msgid "Domain Controller Settings"
 msgstr "Domain Controller Settings"
 
-#: ../schema/microsoft.php:267
+#: ../schema/microsoft.php:268
 msgid "Active Directory Domain Services"
 msgstr "Active Directory Domain Services"
 
-#: ../schema/microsoft.php:268
+#: ../schema/microsoft.php:269
 msgid "Site Settings"
 msgstr "Site Settings"
 
-#: ../schema/microsoft.php:269
+#: ../schema/microsoft.php:270
 msgid "FRS Member"
 msgstr "FRS Member"
 
-#: ../schema/microsoft.php:270
+#: ../schema/microsoft.php:271
 msgid "FRS Replica Set"
 msgstr "FRS Replica Set"
 
-#: ../schema/microsoft.php:271
+#: ../schema/microsoft.php:272
 msgid "FRS Settings"
 msgstr "FRS Settings"
 
-#: ../schema/microsoft.php:272
+#: ../schema/microsoft.php:273
 msgid "FRS Subscriber"
 msgstr "FRS Subscriber"
 
-#: ../schema/microsoft.php:273
+#: ../schema/microsoft.php:274
 msgid "FRS Subscriptions"
 msgstr "FRS Subscriptions"
 
-#: ../schema/microsoft.php:276
+#: ../schema/microsoft.php:277
 msgid "Certificate Template"
 msgstr "Certificate Template"
 
-#: ../schema/microsoft.php:278
+#: ../schema/microsoft.php:279
 msgid "Printer"
 msgstr "Printer"
 
-#: ../schema/microsoft.php:279 ../schema/microsoft.php:581
+#: ../schema/microsoft.php:280 ../schema/microsoft.php:582
 msgid "Query Policy"
 msgstr "Query Policy"
 
-#: ../schema/microsoft.php:281
+#: ../schema/microsoft.php:282
 msgid "Remote Storage Service"
 msgstr "Remote Storage Service"
 
-#: ../schema/microsoft.php:284
+#: ../schema/microsoft.php:285
 msgid "RPC Services"
 msgstr "RPC Services"
 
-#: ../schema/microsoft.php:299
+#: ../schema/microsoft.php:300
 msgid "Server"
 msgstr "Server"
 
-#: ../schema/microsoft.php:300
+#: ../schema/microsoft.php:301
 msgid "Servers Container"
 msgstr "Servers Container"
 
-#: ../schema/microsoft.php:301
+#: ../schema/microsoft.php:302
 msgid "Service"
 msgstr "Service"
 
-#: ../schema/microsoft.php:305
+#: ../schema/microsoft.php:306
 msgid "Site"
 msgstr "Site"
 
-#: ../schema/microsoft.php:306
+#: ../schema/microsoft.php:307
 msgid "Site Link"
 msgstr "Site Link"
 
-#: ../schema/microsoft.php:307
+#: ../schema/microsoft.php:308
 msgid "Site Link Bridge"
 msgstr "Site Link Bridge"
 
-#: ../schema/microsoft.php:308
+#: ../schema/microsoft.php:309
 msgid "Sites Container"
 msgstr "Sites Container"
 
-#: ../schema/microsoft.php:310
+#: ../schema/microsoft.php:311
 msgid "Subnet"
 msgstr "Subnet"
 
-#: ../schema/microsoft.php:311
+#: ../schema/microsoft.php:312
 msgid "Subnets Container"
 msgstr "Subnets Container"
 
-#: ../schema/microsoft.php:312 ../schema/microsoft.php:842
+#: ../schema/microsoft.php:313 ../schema/microsoft.php:843
 msgid "Trusted Domain"
 msgstr "Trusted Domain"
 
-#: ../schema/microsoft.php:314
+#: ../schema/microsoft.php:315
 msgid "User"
 msgstr "User"
 
-#: ../schema/microsoft.php:315 ../schema/microsoft.php:400
+#: ../schema/microsoft.php:316 ../schema/microsoft.php:401
 msgid "Shared Folder"
 msgstr "Shared Folder"
 
-#: ../schema/microsoft.php:318
+#: ../schema/microsoft.php:319
 msgid "Local Policy"
 msgstr "Local Policy"
 
-#: ../schema/microsoft.php:319
+#: ../schema/microsoft.php:320
 msgid "Settings"
 msgstr "Settings"
 
-#: ../schema/microsoft.php:326
+#: ../schema/microsoft.php:327
 msgid "Group Name (Active Directory)"
 msgstr "Group Name (Active Directory)"
 
-#: ../schema/microsoft.php:327
+#: ../schema/microsoft.php:328
 msgid "Group Name (pre-Windows 2000)"
 msgstr "Group Name (pre-Windows 2000)"
 
-#: ../schema/microsoft.php:328 ../schema/microsoft.php:362
-#: ../schema/microsoft.php:374 ../schema/microsoft.php:414
-#: ../schema/microsoft.php:444 ../schema/microsoft.php:565
-#: ../schema/microsoft.php:580 ../schema/microsoft.php:612
+#: ../schema/microsoft.php:329 ../schema/microsoft.php:363
+#: ../schema/microsoft.php:375 ../schema/microsoft.php:415
+#: ../schema/microsoft.php:445 ../schema/microsoft.php:566
+#: ../schema/microsoft.php:581 ../schema/microsoft.php:613
 msgid "Description"
 msgstr "Description"
 
-#: ../schema/microsoft.php:329 ../schema/microsoft.php:633
-#: ../schema/microsoft.php:742
+#: ../schema/microsoft.php:330 ../schema/microsoft.php:634
+#: ../schema/microsoft.php:743
 msgid "E-mail"
 msgstr "E-mail"
 
-#: ../schema/microsoft.php:330
+#: ../schema/microsoft.php:331
 msgid "Type/Scope"
 msgstr "Type/Scope"
 
-#: ../schema/microsoft.php:333
+#: ../schema/microsoft.php:334
 msgid "Group Members"
 msgstr "Group Members"
 
-#: ../schema/microsoft.php:338
+#: ../schema/microsoft.php:339
 msgid "Group is a Member Of"
 msgstr "Group is a Member Of"
 
-#: ../schema/microsoft.php:343 ../schema/microsoft.php:719
-#: ../schema/microsoft.php:818
+#: ../schema/microsoft.php:344 ../schema/microsoft.php:720
+#: ../schema/microsoft.php:819
 msgid "Additional Notes"
 msgstr "Additional Notes"
 
-#: ../schema/microsoft.php:351
+#: ../schema/microsoft.php:352
 msgid "Active Directory Domain"
 msgstr "Active Directory Domain"
 
-#: ../schema/microsoft.php:353
+#: ../schema/microsoft.php:354
 msgid "Domain Name"
 msgstr "Domain Name"
 
-#: ../schema/microsoft.php:359
+#: ../schema/microsoft.php:360
 msgid "Folder Details"
 msgstr "Folder Details"
 
-#: ../schema/microsoft.php:361 ../schema/microsoft.php:443
-#: ../schema/microsoft.php:504 ../schema/microsoft.php:544
+#: ../schema/microsoft.php:362 ../schema/microsoft.php:444
+#: ../schema/microsoft.php:505 ../schema/microsoft.php:545
 msgid "Name"
 msgstr "Name"
 
-#: ../schema/microsoft.php:368
+#: ../schema/microsoft.php:369
 msgid "Shared Printer"
 msgstr "Shared Printer"
 
-#: ../schema/microsoft.php:370 ../schema/microsoft.php:402
-#: ../schema/microsoft.php:564 ../schema/microsoft.php:579
-#: ../schema/microsoft.php:611
+#: ../schema/microsoft.php:371 ../schema/microsoft.php:403
+#: ../schema/microsoft.php:565 ../schema/microsoft.php:580
+#: ../schema/microsoft.php:612
 msgid "Object Name"
 msgstr "Object Name"
 
-#: ../schema/microsoft.php:371
+#: ../schema/microsoft.php:372
 msgid "Printer Name"
 msgstr "Printer Name"
 
-#: ../schema/microsoft.php:372
+#: ../schema/microsoft.php:373
 msgid "Driver"
 msgstr "Driver"
 
-#: ../schema/microsoft.php:377
+#: ../schema/microsoft.php:378
 msgid "Capabilities"
 msgstr "Capabilities"
 
-#: ../schema/microsoft.php:379
+#: ../schema/microsoft.php:380
 msgid "Color Printing"
 msgstr "Color Printing"
 
-#: ../schema/microsoft.php:380
+#: ../schema/microsoft.php:381
 msgid "Stapling"
 msgstr "Stapling"
 
-#: ../schema/microsoft.php:381
+#: ../schema/microsoft.php:382
 msgid "Double-Sided Printing"
 msgstr "Double-Sided Printing"
 
-#: ../schema/microsoft.php:382
+#: ../schema/microsoft.php:383
 msgid "Printing Speed (PPM)"
 msgstr "Printing Speed (PPM)"
 
-#: ../schema/microsoft.php:383
+#: ../schema/microsoft.php:384
 msgid "Max. Resolution (DPI)"
 msgstr "Max. Resolution (DPI)"
 
-#: ../schema/microsoft.php:386
+#: ../schema/microsoft.php:387
 msgid "Print Server"
 msgstr "Print Server"
 
-#: ../schema/microsoft.php:388
+#: ../schema/microsoft.php:389
 msgid "Host Name"
 msgstr "Host Name"
 
-#: ../schema/microsoft.php:389
+#: ../schema/microsoft.php:390
 msgid "Printer UNC Path"
 msgstr "Printer UNC Path"
 
-#: ../schema/microsoft.php:403
+#: ../schema/microsoft.php:404
 msgid "UNC Path"
 msgstr "UNC Path"
 
-#: ../schema/microsoft.php:409
+#: ../schema/microsoft.php:410
 msgid "Computer Information"
 msgstr "Computer Information"
 
-#: ../schema/microsoft.php:411
+#: ../schema/microsoft.php:412
 msgid "Computer Name (Active Directory)"
 msgstr "Computer Name (Active Directory)"
 
-#: ../schema/microsoft.php:412
+#: ../schema/microsoft.php:413
 msgid "Computer Name (pre-Windows 2000)"
 msgstr "Computer Name (pre-Windows 2000)"
 
-#: ../schema/microsoft.php:413 ../schema/microsoft.php:844
+#: ../schema/microsoft.php:414 ../schema/microsoft.php:845
 msgid "DNS Name"
 msgstr "DNS Name"
 
-#: ../schema/microsoft.php:417
+#: ../schema/microsoft.php:418
 msgid "Delegation Service List"
 msgstr "Delegation Service List"
 
-#: ../schema/microsoft.php:418
+#: ../schema/microsoft.php:419
 msgid "Operating System"
 msgstr "Operating System"
 
-#: ../schema/microsoft.php:419
+#: ../schema/microsoft.php:420
 msgid "OS Version"
 msgstr "OS Version"
 
-#: ../schema/microsoft.php:420
+#: ../schema/microsoft.php:421
 msgid "OS Service Pack"
 msgstr "OS Service Pack"
 
-#: ../schema/microsoft.php:423 ../schema/microsoft.php:447
-#: ../schema/microsoft.php:701
+#: ../schema/microsoft.php:424 ../schema/microsoft.php:448
+#: ../schema/microsoft.php:702
 msgid "Group Membership"
 msgstr "Group Membership"
 
-#: ../schema/microsoft.php:433
+#: ../schema/microsoft.php:434
 msgid "Contained Records"
 msgstr "Contained Records"
 
-#: ../schema/microsoft.php:457
+#: ../schema/microsoft.php:458
 msgid "Queue Alias Name"
 msgstr "Queue Alias Name"
 
-#: ../schema/microsoft.php:458
+#: ../schema/microsoft.php:459
 msgid "Format Name of Recipient"
 msgstr "Format Name of Recipient"
 
-#: ../schema/microsoft.php:464
+#: ../schema/microsoft.php:465
 msgid "Class Display Name"
 msgstr "Class Display Name"
 
-#: ../schema/microsoft.php:469
+#: ../schema/microsoft.php:470
 msgid "Icon Path"
 msgstr "Icon Path"
 
-#: ../schema/microsoft.php:479
+#: ../schema/microsoft.php:480
 msgid "User Interface Extensions"
 msgstr "User Interface Extensions"
 
-#: ../schema/microsoft.php:502
+#: ../schema/microsoft.php:503
 msgid "Product Information"
 msgstr "Product Information"
 
-#: ../schema/microsoft.php:505
+#: ../schema/microsoft.php:506
 msgid "Major Version Number"
 msgstr "Major Version Number"
 
-#: ../schema/microsoft.php:506
+#: ../schema/microsoft.php:507
 msgid "Minor Version Number"
 msgstr "Minor Version Number"
 
-#: ../schema/microsoft.php:507
+#: ../schema/microsoft.php:508
 msgid "Language"
 msgstr "Language"
 
-#: ../schema/microsoft.php:508
+#: ../schema/microsoft.php:509
 msgid "Platform"
 msgstr "Platform"
 
-#: ../schema/microsoft.php:509
+#: ../schema/microsoft.php:510
 msgid "Support URL"
 msgstr "Support URL"
 
-#: ../schema/microsoft.php:512
+#: ../schema/microsoft.php:513
 msgid "Deployment Information"
 msgstr "Deployment Information"
 
-#: ../schema/microsoft.php:514
+#: ../schema/microsoft.php:515
 msgid "Deployment Source"
 msgstr "Deployment Source"
 
-#: ../schema/microsoft.php:517
+#: ../schema/microsoft.php:518
 msgid "Diagnostic Information"
 msgstr "Diagnostic Information"
 
-#: ../schema/microsoft.php:519
+#: ../schema/microsoft.php:520
 msgid "Product Code"
 msgstr "Product Code"
 
-#: ../schema/microsoft.php:520
+#: ../schema/microsoft.php:521
 msgid "Script Name"
 msgstr "Script Name"
 
-#: ../schema/microsoft.php:533
+#: ../schema/microsoft.php:534
 msgid "Other"
 msgstr "Other"
 
-#: ../schema/microsoft.php:535
+#: ../schema/microsoft.php:536
 msgid "Package Flags"
 msgstr "Package Flags"
 
-#: ../schema/microsoft.php:536
+#: ../schema/microsoft.php:537
 msgid "Package Type"
 msgstr "Package Type"
 
-#: ../schema/microsoft.php:542
+#: ../schema/microsoft.php:543
 msgid "WMI Filter Information"
 msgstr "WMI Filter Information"
 
-#: ../schema/microsoft.php:545
+#: ../schema/microsoft.php:546
 msgid "Instance ID"
 msgstr "Instance ID"
 
-#: ../schema/microsoft.php:546
+#: ../schema/microsoft.php:547
 msgid "Author"
 msgstr "Author"
 
-#: ../schema/microsoft.php:548
+#: ../schema/microsoft.php:549
 msgid "Last Modified"
 msgstr "Last Modified"
 
-#: ../schema/microsoft.php:551
+#: ../schema/microsoft.php:552
 msgid "Parameters"
 msgstr "Parameters"
 
-#: ../schema/microsoft.php:553
+#: ../schema/microsoft.php:554
 msgid "Parameter 1"
 msgstr "Parameter 1"
 
-#: ../schema/microsoft.php:554
+#: ../schema/microsoft.php:555
 msgid "Parameter 2"
 msgstr "Parameter 2"
 
-#: ../schema/microsoft.php:555
+#: ../schema/microsoft.php:556
 msgid "Parameter 3"
 msgstr "Parameter 3"
 
-#: ../schema/microsoft.php:556
+#: ../schema/microsoft.php:557
 msgid "Parameter 4"
 msgstr "Parameter 4"
 
-#: ../schema/microsoft.php:562
+#: ../schema/microsoft.php:563
 msgid "Replication Connection Settings"
 msgstr "Replication Connection Settings"
 
-#: ../schema/microsoft.php:566
+#: ../schema/microsoft.php:567
 msgid "Transport"
 msgstr "Transport"
 
-#: ../schema/microsoft.php:567
+#: ../schema/microsoft.php:568
 msgid "Schedule"
 msgstr "Schedule"
 
-#: ../schema/microsoft.php:568
+#: ../schema/microsoft.php:569
 msgid "Replicate From"
 msgstr "Replicate From"
 
-#: ../schema/microsoft.php:569
+#: ../schema/microsoft.php:570
 msgid "Available for Use"
 msgstr "Available for Use"
 
-#: ../schema/microsoft.php:582
+#: ../schema/microsoft.php:583
 msgid "Global Catalog"
 msgstr "Global Catalog"
 
-#: ../schema/microsoft.php:585
+#: ../schema/microsoft.php:586
 msgid "Directory Database"
 msgstr "Directory Database"
 
-#: ../schema/microsoft.php:587
+#: ../schema/microsoft.php:588
 msgid "Domain/Forest Behavior Version"
 msgstr "Domain/Forest Behavior Version"
 
-#: ../schema/microsoft.php:593
+#: ../schema/microsoft.php:594
 msgid "Schema Partition"
 msgstr "Schema Partition"
 
-#: ../schema/microsoft.php:601
+#: ../schema/microsoft.php:602
 msgid "Connections"
 msgstr "Connections"
 
-#: ../schema/microsoft.php:609
+#: ../schema/microsoft.php:610
 msgid "Server Object"
 msgstr "Server Object"
 
-#: ../schema/microsoft.php:613
+#: ../schema/microsoft.php:614
 msgid "DNS Host Name"
 msgstr "DNS Host Name"
 
-#: ../schema/microsoft.php:614
+#: ../schema/microsoft.php:615
 msgid "Computer Object"
 msgstr "Computer Object"
 
-#: ../schema/microsoft.php:618
+#: ../schema/microsoft.php:619
 msgid "Child Objects"
 msgstr "Child Objects"
 
-#: ../schema/microsoft.php:626 ../schema/microsoft.php:735
+#: ../schema/microsoft.php:627 ../schema/microsoft.php:736
 msgid "Personal"
 msgstr "Personal"
 
-#: ../schema/microsoft.php:628 ../schema/microsoft.php:737
+#: ../schema/microsoft.php:629 ../schema/microsoft.php:738
 msgid "Given Name"
 msgstr "Given Name"
 
-#: ../schema/microsoft.php:630 ../schema/microsoft.php:739
+#: ../schema/microsoft.php:631 ../schema/microsoft.php:740
 msgid "Surname"
 msgstr "Surname"
 
-#: ../schema/microsoft.php:631 ../schema/microsoft.php:740
+#: ../schema/microsoft.php:632 ../schema/microsoft.php:741
 msgid "Full Name"
 msgstr "Full Name"
 
-#: ../schema/microsoft.php:632 ../schema/microsoft.php:741
+#: ../schema/microsoft.php:633 ../schema/microsoft.php:742
 msgid "Preferred Name"
 msgstr "Preferred Name"
 
-#: ../schema/microsoft.php:634 ../schema/microsoft.php:743
+#: ../schema/microsoft.php:635 ../schema/microsoft.php:744
 msgid "Home Phone"
 msgstr "Home Phone"
 
-#: ../schema/microsoft.php:636 ../schema/microsoft.php:745
+#: ../schema/microsoft.php:637 ../schema/microsoft.php:746
 msgid "Mobile Phone"
 msgstr "Mobile Phone"
 
-#: ../schema/microsoft.php:639 ../schema/microsoft.php:666
-#: ../schema/microsoft.php:747 ../schema/microsoft.php:772
+#: ../schema/microsoft.php:640 ../schema/microsoft.php:667
+#: ../schema/microsoft.php:748 ../schema/microsoft.php:773
 msgid "Web Page"
 msgstr "Web Page"
 
-#: ../schema/microsoft.php:648 ../schema/microsoft.php:756
+#: ../schema/microsoft.php:649 ../schema/microsoft.php:757
 msgid "Postal Address"
 msgstr "Postal Address"
 
-#: ../schema/microsoft.php:657 ../schema/microsoft.php:765
+#: ../schema/microsoft.php:658 ../schema/microsoft.php:766
 msgid "Country"
 msgstr "Country"
 
-#: ../schema/microsoft.php:659 ../schema/microsoft.php:766
+#: ../schema/microsoft.php:660 ../schema/microsoft.php:767
 msgid "Photo"
 msgstr "Photo"
 
-#: ../schema/microsoft.php:662 ../schema/microsoft.php:769
+#: ../schema/microsoft.php:663 ../schema/microsoft.php:770
 msgid "Business/Work"
 msgstr "Business/Work"
 
-#: ../schema/microsoft.php:667 ../schema/microsoft.php:773
+#: ../schema/microsoft.php:668 ../schema/microsoft.php:774
 msgid "Logo"
 msgstr "Logo"
 
-#: ../schema/microsoft.php:668 ../schema/microsoft.php:774
+#: ../schema/microsoft.php:669 ../schema/microsoft.php:775
 msgid "Office Phone"
 msgstr "Office Phone"
 
-#: ../schema/microsoft.php:669 ../schema/microsoft.php:775
+#: ../schema/microsoft.php:670 ../schema/microsoft.php:776
 msgid "Office Fax"
 msgstr "Office Fax"
 
-#: ../schema/microsoft.php:671 ../schema/microsoft.php:777
+#: ../schema/microsoft.php:672 ../schema/microsoft.php:778
 msgid "Job Title"
 msgstr "Job Title"
 
-#: ../schema/microsoft.php:689 ../schema/microsoft.php:791
+#: ../schema/microsoft.php:690 ../schema/microsoft.php:792
 msgid "Office"
 msgstr "Office"
 
-#: ../schema/microsoft.php:693
+#: ../schema/microsoft.php:694
 msgid "Login Details"
 msgstr "Login Details"
 
-#: ../schema/microsoft.php:695
+#: ../schema/microsoft.php:696
 msgid "User ID"
 msgstr "User ID"
 
-#: ../schema/microsoft.php:697
+#: ../schema/microsoft.php:698
 msgid "User Principal Name"
 msgstr "User Principal Names"
 
-#: ../schema/microsoft.php:834
+#: ../schema/microsoft.php:835
 msgid "Infrastructure Operations Master Role Holder"
 msgstr "Infrastructure Operations Master Role Holder"
 
-#: ../schema/microsoft.php:836
+#: ../schema/microsoft.php:837
 msgid "Operations Master DSA for this Domain"
 msgstr "Operations Master DSA for this Domain"
 
-#: ../schema/microsoft.php:845
+#: ../schema/microsoft.php:846
 msgid "Flat (NetBIOS) Name"
 msgstr "Flat (NetBIOS) Name"
 
-#: ../schema/microsoft.php:846
+#: ../schema/microsoft.php:847
 msgid "POSIX UID/GID Offset"
 msgstr "POSIX UID/GID Offset"
 
-#: ../schema/microsoft.php:849
+#: ../schema/microsoft.php:850
 msgid "Trust Settings"
 msgstr "Trust Settings"
 
-#: ../schema/microsoft.php:852
+#: ../schema/microsoft.php:853
 msgid "Direction"
 msgstr "Direction"
 
-#: ../schema/microsoft.php:853
+#: ../schema/microsoft.php:854
 msgid "Attributes"
 msgstr "Attributes"
