@@ -280,7 +280,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"queryPolicy",								"display_name"=>gettext("Query Policy")),
 			array("name"=>"remoteMailRecipient"),
 			array("name"=>"remoteStorageServicePoint",						"display_name"=>gettext("Remote Storage Service"),"parent_class"=>"serviceAdministrationPoint"),
-			array("name"=>"rIDManager"),
+			array("name"=>"rIDManager",			"icon"=>"server-alias.png",		"is_folder"=>false),
 			array("name"=>"rIDSet"),
 			array("name"=>"rpcContainer",			"icon"=>"microsoft/rpc_services24.png",	"is_folder"=>true,"display_name"=>gettext("RPC Services"),"parent_class"=>"container"),
 			array("name"=>"rpcEntry",			"icon"=>"generic24.png",		"class_type"=>"abstract","parent_class"=>"connectionPoint"),
@@ -835,6 +835,19 @@ class microsoft_schema extends ldap_schema
 			array("section_name"=>gettext("Infrastructure Operations Master Role Holder"),
 				"attributes"=>array(
 					array("fSMORoleOwner",				gettext("Operations Master DSA for this Domain"),				"alias.png","allow_edit"=>false),
+					)
+				)
+			));
+
+		$ldap_server->add_display_layout("rIDManager",array(
+			array("section_name"=>gettext("RID Operations Master Role Holder"),
+				"attributes"=>array(
+					array("fSMORoleOwner",				gettext("Operations Master DSA for this Domain"),				"alias.png","allow_edit"=>false)
+					)
+				),
+			array("section_name"=>gettext("Available RID Pool"),"new_row"=>true,
+				"attributes"=>array(
+					array("rIDAvailablePool")
 					)
 				)
 			));

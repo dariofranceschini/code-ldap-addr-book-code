@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-29 18:02+0100\n"
-"PO-Revision-Date: 2018-03-29 18:02+0100\n"
+"POT-Creation-Date: 2018-03-29 18:12+0100\n"
+"PO-Revision-Date: 2018-03-29 18:12+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -148,11 +148,11 @@ msgstr "Contextos de Nomenclatura de Dominio"
 msgid "Naming Context Replication Status"
 msgstr "Estado de Replicación de los Contextos de Nomenclatura"
 
-#: ../schema/microsoft.php:41 ../schema/microsoft.php:858
+#: ../schema/microsoft.php:41 ../schema/microsoft.php:871
 msgid "Supported Encryption/Authentication Types"
 msgstr "Tipos de Cifrado y Autenticación Admitidos"
 
-#: ../schema/microsoft.php:42 ../schema/microsoft.php:855
+#: ../schema/microsoft.php:42 ../schema/microsoft.php:868
 msgid "Forest Trust Data"
 msgstr "Datos sobre la Confianza entre los Bosques"
 
@@ -204,7 +204,7 @@ msgstr "Engrapado se Admite"
 msgid "Query Policy Object DN"
 msgstr "DN del Objeto de Política de Consulta"
 
-#: ../schema/microsoft.php:59
+#: ../schema/microsoft.php:59 ../schema/microsoft.php:848
 msgid "Available RID Pool"
 msgstr "Grupo de RID Disponibles"
 
@@ -252,7 +252,7 @@ msgstr "Atributos de Confianza"
 msgid "Direction of Trust"
 msgstr "Dirección de Confianza"
 
-#: ../schema/microsoft.php:78 ../schema/microsoft.php:852
+#: ../schema/microsoft.php:78 ../schema/microsoft.php:865
 msgid "Trust Type"
 msgstr "Tipo de Confianza"
 
@@ -468,7 +468,7 @@ msgstr "Subred"
 msgid "Subnets Container"
 msgstr "Recipiente para Subredes"
 
-#: ../schema/microsoft.php:313 ../schema/microsoft.php:843
+#: ../schema/microsoft.php:313 ../schema/microsoft.php:856
 msgid "Trusted Domain"
 msgstr "Dominio de Confianza"
 
@@ -612,7 +612,7 @@ msgstr "Nombre de la computadora (Active Directory)"
 msgid "Computer Name (pre-Windows 2000)"
 msgstr "Nombre de la Computadora (anterior a Windows 2000)"
 
-#: ../schema/microsoft.php:414 ../schema/microsoft.php:845
+#: ../schema/microsoft.php:414 ../schema/microsoft.php:858
 msgid "DNS Name"
 msgstr "Nombre DNS"
 
@@ -894,26 +894,30 @@ msgstr "Nombre Principal del Usuario"
 msgid "Infrastructure Operations Master Role Holder"
 msgstr "Titular de la Función de Maestro de Operaciones de Infraestructura"
 
-#: ../schema/microsoft.php:837
+#: ../schema/microsoft.php:837 ../schema/microsoft.php:845
 msgid "Operations Master DSA for this Domain"
 msgstr "DSA Maestro de Operaciones para este Dominio"
 
-#: ../schema/microsoft.php:846
+#: ../schema/microsoft.php:843
+msgid "RID Operations Master Role Holder"
+msgstr "Titular de la Función de Maestro de Operaciones de RID"
+
+#: ../schema/microsoft.php:859
 msgid "Flat (NetBIOS) Name"
 msgstr "Nombre Plano (NetBIOS)"
 
-#: ../schema/microsoft.php:847
+#: ../schema/microsoft.php:860
 msgid "POSIX UID/GID Offset"
 msgstr "Desplazamiento de UID / GID POSIX"
 
-#: ../schema/microsoft.php:850
+#: ../schema/microsoft.php:863
 msgid "Trust Settings"
 msgstr "Configuración de Confianza"
 
-#: ../schema/microsoft.php:853
+#: ../schema/microsoft.php:866
 msgid "Direction"
 msgstr "Dirección"
 
-#: ../schema/microsoft.php:854
+#: ../schema/microsoft.php:867
 msgid "Attributes"
 msgstr "Atributos"
