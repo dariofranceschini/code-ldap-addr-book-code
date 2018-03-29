@@ -57,6 +57,7 @@ class microsoft_schema extends ldap_schema
 			array("name"=>"printStaplingSupported",		"data_type"=>"yes_no",		"display_name"=>gettext("Stapling Supported")),
 			array("name"=>"queryPolicyObject",		"data_type"=>"dn",		"display_name"=>gettext("Query Policy Object DN")),
 			array("name"=>"rIDAvailablePool",		"data_type"=>"download",	"display_name"=>gettext("Available RID Pool")),
+			array("name"=>"rIDManagerReference",		"data_type"=>"dn",		"display_name"=>gettext("RID Manager Object DN")),
 			array("name"=>"sAMAccountName",			"data_type"=>"text",		"display_name"=>gettext("Pre-Windows 2000 Account Name")),
 			array("name"=>"schedule",			"data_type"=>"download",	"display_name"=>gettext("Replication Schedule")),
 
