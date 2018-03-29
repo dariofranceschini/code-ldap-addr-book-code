@@ -348,7 +348,7 @@ class microsoft_schema extends ldap_schema
 			));
 
 		$ldap_server->add_display_layout("domainDNS",array(
-			array("section_name"=>gettext("Active Directory Domain Details"),
+			array("section_name"=>gettext("Active Directory Domain"),
 				"attributes"=>array(
 					array("distinguishedName",		gettext("Domain Name"),				"domain24.png")
 					)
