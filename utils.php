@@ -412,12 +412,12 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 	else
 		echo "<!-- server info not enabled -->";
 
-	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled() && $ldap_server->get_user_setting("allow_system_admin"))
+	if(is_object($ldap_server) && per_user_login_enabled() && $ldap_server->get_user_setting("allow_system_admin"))
 		echo " | ";
 	echo "</td>\n";
 
 	echo "    <td class=\"login_info\">";
-	if(is_object($ldap_server) && $ldap_server->per_user_login_enabled())
+	if(is_object($ldap_server) && per_user_login_enabled())
 	{
 		// Resume existing session (if any exists) in order to get
 		// currently logged in user
@@ -6396,5 +6396,23 @@ function get_layout_attributes($layout)
 			$layout_attributes[]=$attribute[0];
 
 	return $layout_attributes;
+}
+
+/** Return whether per-user logins are enabled for any server
+
+    @return
+	Whether per-user logins are enabled for any server
+*/
+
+function per_user_login_enabled()
+{
+	global $ldap_server_list;
+
+	$enabled=false;
+	foreach($ldap_server_list as $ldap_server_to_check)
+		if($ldap_server_to_check->per_user_login_enabled())
+			$enabled=true;
+
+	return $enabled;
 }
 ?>
