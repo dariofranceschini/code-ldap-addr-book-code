@@ -5044,14 +5044,15 @@ class ldap_server
 			$settings);
 	}
 
-	/** Return whether per-user logins are enabled
+	/** Return whether per-user logins are enabled for this server
 
 	    Indicated by either > 1 entry in user map
 	    or a single entry which is not for __ANONYMOUS__
 
 	    @return
-		Whether per-user logins are enabled
+		Whether per-user logins are enabled for this server
 	*/
+
 	function per_user_login_enabled()
 	{
 		if(count($this->user_map) == 1
