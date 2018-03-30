@@ -352,7 +352,15 @@ class microsoft_schema extends ldap_schema
 		$ldap_server->add_display_layout("domainDNS",array(
 			array("section_name"=>gettext("Active Directory Domain"),
 				"attributes"=>array(
-					array("distinguishedName",		gettext("Domain Name"),				"domain24.png")
+					array("distinguishedName",		gettext("Domain Name"),				"domain24.png"),
+					array("description",			gettext("Description"),				"description.png"),
+					array("managedBy",			gettext("Managed By"),				"alias.png"),
+					array("rIDManagerReference",		gettext("RID Manager Object"),			"alias.png")
+					)
+				),
+			array("section_name"=>gettext("PDC Emulator Operations Master Role Holder"),"new_row"=>true,
+				"attributes"=>array(
+					array("fSMORoleOwner",			gettext("Operations Master DSA for this Domain"),	"alias.png","allow_edit"=>false)
 					)
 				)
 			));
