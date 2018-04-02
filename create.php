@@ -93,7 +93,7 @@ if($ldap_server_list[$server_id]->log_on())
 						// ...and the container/folder is "willing" to contain it
 						&& can_create_in_container($object_class,$contain_list)
 						// ...and the object is "willing" to be contained here
-						&& can_be_contained_by($object_class,$container_object)
+						&& $ldap_server_list[$server_id]->can_be_contained_by($object_class,$container_object)
 					)
 				)
 				$create_list[] = $object_class["name"];
