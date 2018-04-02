@@ -6269,10 +6269,10 @@ function can_create_in_container($object_class,$contain_list)
     containers/folders. This function is used to remove the object from "Create Object"
     menu for containers/folders where it can't be created.
 
-    @param string $object_class
-	Structural object class to be created
-    @param string $contain_list
-	List of object classes of container object
+    @param array $object_class
+	Schema data for the structural object class to be created.
+    @param array $container_object
+	LDAP entry of container where the object is to be created.
     @return
 	True if the object can be created within the specified
 	container.
