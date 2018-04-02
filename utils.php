@@ -6294,9 +6294,9 @@ function get_parent_dn($dn)
     of object to be created inside them. This function is used to limit the classes
     listed in the "Create Object" menu to only those which are allowed.
 
-    @param string $object_class
-	Structural object class to be created
-    @param string $contain_list
+    @param array $object_class
+	Schema data for the structural object class to be created.
+    @param array $contain_list
 	List of object classes of container object
     @return
 	True if the object can be created within the specified
