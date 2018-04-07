@@ -1,4 +1,4 @@
-<?
+<?php
 /** OpenLDAP Configuration (OLC) Schema for Automated Certificate Authority Overlay */
 
 class openldap_autoca_schema extends ldap_schema
