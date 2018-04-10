@@ -266,7 +266,7 @@ $ldap_server->add_display_layout("inetOrgPerson,user,contact",array(
 			array("homePhone",			"Home Phone",		"landline-phone.png"),
 	//		array("pager",				"Pager",		""),
 			array("mobile",				"Mobile Phone",		"cell-phone.png"),
-			array("wWWHomePage",			"Web Page",		"internet.png"),
+	//		array("wWWHomePage",			"Web Page",		"internet.png"),
 			array("streetAddress:l:st:postalCode",	"Postal Address",	"address.png"),
 	//		array("c",				"Country",		"country.png")
 	//		array("jpegPhoto",			"Photo",		"photo24.png")
