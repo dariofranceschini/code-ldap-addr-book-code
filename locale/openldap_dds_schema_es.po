@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LDAP Address Book\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-21 09:57+0100\n"
-"PO-Revision-Date: 2018-04-21 09:57+0100\n"
+"PO-Revision-Date: 2018-04-21 10:05+0100\n"
 "Last-Translator: James Turner <james@turnersoft.co.uk>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -51,7 +51,9 @@ msgstr "Objetos Dinámicos Máximos en el Contexto de Nomenclatura"
 
 #: ../schema/openldap/dds.php:30
 msgid "Object Expiry Times (Time To Live/TTL Values) in Seconds"
-msgstr "Tiempos de Expiración de Objetos (Valores de Tiempo de Vida / TTL) en Segundos"
+msgstr ""
+"Tiempos de Expiración de Objetos (Valores de Tiempo de Vida / TTL) en "
+"Segundos"
 
 #: ../schema/openldap/dds.php:32
 msgid "Default for New Dynamic Objects"
