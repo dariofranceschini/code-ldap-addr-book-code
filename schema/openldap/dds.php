@@ -22,7 +22,7 @@ class openldap_dds_schema extends ldap_schema
 				"attributes"=>array(
 					array("olcOverlay",			gettext("Overlay Object Name"),				"openldap/overlay.png"),
 					array("olcDDSinterval",			gettext("Expiration Check Interval (s)"),		"time.png"),
-					array("olcDDStolerance",		gettext("Expiration Tolerence Time"),			"time.png"),
+					array("olcDDStolerance",		gettext("Expiration Tolerance Time"),			"time.png"),
 					array("olcDDSmaxDynamicObjects",	gettext("Maxiumum Dynamic Objects in Naming Context"),	"generic24.png"),
 					array("olcDDSstate",			gettext("Enable Dynamic Directory Services"),		"generic24.png")
 					)
