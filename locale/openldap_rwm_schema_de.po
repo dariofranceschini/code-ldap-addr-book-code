@@ -1,0 +1,54 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/rwm.php:9 ../schema/openldap/rwm.php:28
+msgid "Drop Attributes Not Explicitly Requested"
+msgstr "Attribute nicht explizit angefordert verwerfen"
+
+#: ../schema/openldap/rwm.php:10 ../schema/openldap/rwm.php:31
+msgid "Attribute/Object Class Mapping Rules"
+msgstr "Attributzuordnungskonventionen für Objektklassen"
+
+#: ../schema/openldap/rwm.php:11 ../schema/openldap/rwm.php:27
+msgid "Normalise Mapped Attribute/Object Classes"
+msgstr "Normalisierte zugeordnete Attribute / Objektklassen"
+
+#: ../schema/openldap/rwm.php:12
+msgid "String Rewriting Rule"
+msgstr "Regel für das Umschreiben von Zeichenfolgen"
+
+#: ../schema/openldap/rwm.php:13 ../schema/openldap/rwm.php:26
+msgid "True/False Filter Support"
+msgstr "Wahr / Falsch-Filterunterstützung"
+
+#: ../schema/openldap/rwm.php:18
+msgid "Rewrite/Remap Overlay"
+msgstr "Neu schreiben / neu zuordnen Überlagerung"
+
+#: ../schema/openldap/rwm.php:23
+msgid "Rewrite/Remap Overlay Settings"
+msgstr "Neu schreiben / neu zuordnen Überlagerung-Einstellungen"
+
+#: ../schema/openldap/rwm.php:25
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/rwm.php:36
+msgid "String Rewriting Rules"
+msgstr "Regeln für das Umschreiben von Zeichenfolgen"

@@ -1,0 +1,84 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 07:21+0100\n"
+"PO-Revision-Date: 2018-04-17 07:21+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/pcache.php:9 ../schema/openldap/pcache.php:34
+msgid "Cache Parameters"
+msgstr "Zwischenspeicher-Parameter"
+
+#: ../schema/openldap/pcache.php:10
+msgid "Cached Attribute Set"
+msgstr "Zwischengespeicherte Attributmenge"
+
+#: ../schema/openldap/pcache.php:11
+msgid "Caching Template for Bind Credentials"
+msgstr "Zwischenspeichern-Vorlage für Bindungsanmeldeinformationen"
+
+#: ../schema/openldap/pcache.php:12 ../schema/openldap/pcache.php:35
+msgid "Maximum Number of Cached Queries"
+msgstr "Maximale Anzahl der zwischengespeicherten Abfragen"
+
+#: ../schema/openldap/pcache.php:13 ../schema/openldap/pcache.php:36
+msgid "Offline Mode"
+msgstr "Offline-Modus"
+
+#: ../schema/openldap/pcache.php:14 ../schema/openldap/pcache.php:37
+msgid "Keep Cached Queries When Proxy Restarts"
+msgstr "Zwischengespeicherten-Abfragen behalten, wenn Proxy neu gestartet wird"
+
+#: ../schema/openldap/pcache.php:15 ../schema/openldap/pcache.php:39
+msgid "Proxy Cache Access Priority"
+msgstr "Proxy-Zwischenspeicher-Zugriffspriorität"
+
+#: ../schema/openldap/pcache.php:16
+msgid "Caching Template for Queries"
+msgstr "Zwischenspeichern-Vorlage für Abfragen"
+
+#: ../schema/openldap/pcache.php:17 ../schema/openldap/pcache.php:38
+msgid "Validate Entries Against Proxy DSA's Schema Before Caching"
+msgstr ""
+"Validieren Sie Einträge vor dem Zwischenspeichern gegen das Schema des Proxy-"
+"DSA"
+
+#: ../schema/openldap/pcache.php:19
+msgid "Cached Query URI"
+msgstr "URI für zwischengespeicherte Abfrage"
+
+#: ../schema/openldap/pcache.php:24
+msgid "Proxy Cache Engine Overlay"
+msgstr "Vertretung Zwischenspeicher Maschine Überlagerung"
+
+#: ../schema/openldap/pcache.php:31
+msgid "Proxy Cache Engine Overlay Settings"
+msgstr "Vertretung Zwischenspeicher Maschine Überlagerung Einstellungen"
+
+#: ../schema/openldap/pcache.php:33
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/pcache.php:42
+msgid "Cached Attribute Sets"
+msgstr "Gespeicherte Attributsätze"
+
+#: ../schema/openldap/pcache.php:47
+msgid "Caching Templates for Queries"
+msgstr "Zwischenspeichern-Vorlagen für Abfragen"
+
+#: ../schema/openldap/pcache.php:52
+msgid "Caching Templates for Bind Credentials"
+msgstr "Zwischenspeichern-Vorlagen für Bindungsanmeldeinformationen"

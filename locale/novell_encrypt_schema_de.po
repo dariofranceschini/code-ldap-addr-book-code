@@ -1,0 +1,42 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-21 08:25+0000\n"
+"PO-Revision-Date: 2018-02-21 08:25+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/encrypt.php:9
+msgid "Encryption Policy DN"
+msgstr "DN der Verschlüsselungsrichtlinie"
+
+#: ../schema/novell/encrypt.php:10 ../schema/novell/encrypt.php:23
+msgid "Encrypted Attributes"
+msgstr "Verschlüsselte Attribute"
+
+#: ../schema/novell/encrypt.php:11
+msgid "Require Secure Channel to Access Attribute"
+msgstr "Erfordert einen sicheren Kanal für den Zugriff auf das Attribut"
+
+#: ../schema/novell/encrypt.php:17
+msgid "Encrypted Attributes Policy"
+msgstr "Richtlinie zu verschlüsselten Attributen"
+
+#: ../schema/novell/encrypt.php:28
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../schema/novell/encrypt.php:30
+msgid "Always require secure channel for client access"
+msgstr "Immer benötigen Sie einen sicheren Kanal für den Clientzugriff"

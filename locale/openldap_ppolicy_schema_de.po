@@ -1,0 +1,50 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-21 09:41+0100\n"
+"PO-Revision-Date: 2018-04-21 09:41+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/ppolicy.php:17
+msgid "Default Policy Object DN"
+msgstr "Standardrichtlinienobjekt-DN"
+
+#: ../schema/openldap/ppolicy.php:18 ../schema/openldap/ppolicy.php:35
+msgid "Forward Proxy State Updates to Master"
+msgstr "Aktualisierungen des Proxy-Status an den Master weiterleiten"
+
+#: ../schema/openldap/ppolicy.php:19 ../schema/openldap/ppolicy.php:34
+msgid "Hash Passwords on Add/Modify"
+msgstr "Hash-Passwörter beim Hinzufügen / Ändern"
+
+#: ../schema/openldap/ppolicy.php:20 ../schema/openldap/ppolicy.php:36
+msgid "Inform Clients when Account Locked Out"
+msgstr "Informiere Kunden, wenn das Konto gesperrt ist"
+
+#: ../schema/openldap/ppolicy.php:25
+msgid "Password Policies Overlay"
+msgstr "Passwortrichtlinienüberlagerung"
+
+#: ../schema/openldap/ppolicy.php:30
+msgid "Password Policies Overlay Settings"
+msgstr "Passwortrichtlinienüberlagerung-Einstellungen"
+
+#: ../schema/openldap/ppolicy.php:32
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/ppolicy.php:33
+msgid "Default Policy Object"
+msgstr "Standardrichtlinienobjekt"

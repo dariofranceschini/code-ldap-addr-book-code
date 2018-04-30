@@ -1,0 +1,55 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-15 10:49+0100\n"
+"PO-Revision-Date: 2018-04-15 10:49+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/syncprov.php:9
+msgid "Checkpoint Intervals"
+msgstr "Prüfpunktintervalle"
+
+#: ../schema/openldap/syncprov.php:10
+msgid "In-memory Session Log Size"
+msgstr "Größe des speicherinternen Sitzungsprotokolls"
+
+#: ../schema/openldap/syncprov.php:11 ../schema/openldap/syncprov.php:27
+msgid "Skip 'Present' Phase of Sync Refresh"
+msgstr ""
+"Überspringen Sie die 'Aktuelle' Phase der Synchronisationsaktualisierung"
+
+#: ../schema/openldap/syncprov.php:12 ../schema/openldap/syncprov.php:28
+msgid "Observe Reload Hint in Request Control"
+msgstr "Beachten Sie den Neuladen-Hinweis in der Anforderungssteuerung"
+
+#: ../schema/openldap/syncprov.php:17
+msgid "Sync Provider Overlay"
+msgstr "Synchronisierungsanbieter-Überlagerung"
+
+#: ../schema/openldap/syncprov.php:22
+msgid "Sync Provider Overlay Settings"
+msgstr "Synchronisierungsanbieter-Überlagerung-Einstellungen"
+
+#: ../schema/openldap/syncprov.php:24
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/syncprov.php:25
+msgid "Checkpoint Interval (Operations, Minutes)"
+msgstr "Prüfpunkt-Intervall (Operationen, Minuten)"
+
+#: ../schema/openldap/syncprov.php:26
+msgid "In-Memory Session Log Size (Operations)"
+msgstr "Größe des speicherinternen Sitzungsprotokolls (Operationen)"

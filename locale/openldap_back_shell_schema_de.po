@@ -1,0 +1,114 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/back_shell.php:9
+msgid "LDAP Add Command and Arguments"
+msgstr "LDAP Hinzufügen von Befehlen und Argumenten"
+
+#: ../schema/openldap/back_shell.php:10
+msgid "LDAP Bind Command and Arguments"
+msgstr "LDAP Bind-Befehl und Argumente"
+
+#: ../schema/openldap/back_shell.php:11
+msgid "LDAP Compare Command and Arguments"
+msgstr "LDAP Vergleiche Befehl und Argumente"
+
+#: ../schema/openldap/back_shell.php:12
+msgid "LDAP Delete Command and Arguments"
+msgstr "LDAP Lösche Befehl und Argumente"
+
+#: ../schema/openldap/back_shell.php:13
+msgid "LDAP Modify Command and Arguments"
+msgstr "LDAP Ändern von Befehlen und Argumenten"
+
+#: ../schema/openldap/back_shell.php:14
+msgid "LDAP Modify RDN Command and Arguments"
+msgstr "LDAP Ändern von RDN-Befehlen und -Argumenten"
+
+#: ../schema/openldap/back_shell.php:15
+msgid "LDAP Search Command and Arguments"
+msgstr "LDAP-Suchbefehl und -argumente"
+
+#: ../schema/openldap/back_shell.php:16
+msgid "LDAP Unbind Command and Arguments"
+msgstr "LDAP Unbind-Befehl und Argumente"
+
+#: ../schema/openldap/back_shell.php:21
+msgid "Shell Database"
+msgstr "Shell-Datenbank"
+
+#: ../schema/openldap/back_shell.php:26
+msgid "Shell Database Settings"
+msgstr "Shell-Datenbankeinstellungen"
+
+#: ../schema/openldap/back_shell.php:28
+msgid "Naming Context"
+msgstr "Namenskontext"
+
+#: ../schema/openldap/back_shell.php:29
+msgid "Maintain Last Modification Info"
+msgstr "Pflegen Sie die letzte Änderungsinformation"
+
+#: ../schema/openldap/back_shell.php:30
+msgid "Root User"
+msgstr "Root-Benutzer"
+
+#: ../schema/openldap/back_shell.php:35
+msgid "Shell Commands to Run for each LDAP Operation"
+msgstr "Shell-Befehle, die für jeden LDAP-Vorgang ausgeführt werden sollen"
+
+#: ../schema/openldap/back_shell.php:37
+msgid "Bind (Log On)"
+msgstr "Bind (Anmelden)"
+
+#: ../schema/openldap/back_shell.php:38
+msgid "Unbind (Log Off)"
+msgstr "Entbinden (Abmelden)"
+
+#: ../schema/openldap/back_shell.php:39
+msgid "Search Records"
+msgstr "Datensätze suchen"
+
+#: ../schema/openldap/back_shell.php:40
+msgid "Compare Records"
+msgstr "Vergleichen Sie Datensätze"
+
+#: ../schema/openldap/back_shell.php:41
+msgid "Add Record"
+msgstr "Eintrag hinzufügen"
+
+#: ../schema/openldap/back_shell.php:42
+msgid "Modify Attributes"
+msgstr "Attribute ändern"
+
+#: ../schema/openldap/back_shell.php:43
+msgid "Modify RDN (Move/Rename)"
+msgstr "Ändern von RDN (Verschieben / Umbenennen)"
+
+#: ../schema/openldap/back_shell.php:44
+msgid "Delete Record"
+msgstr "Aufzeichnung löschen"
+
+#: ../schema/openldap/back_shell.php:48
+msgid "Access Controls"
+msgstr "Zugriffskontrollen"
+
+#: ../schema/openldap/back_shell.php:53
+msgid "Overlays"
+msgstr "Überlagerungen"

@@ -1,0 +1,161 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/mozilla.php:11 ../schema/mozilla.php:107
+msgid "Custom 1"
+msgstr "Maßgeschneidert 1"
+
+#: ../schema/mozilla.php:12 ../schema/mozilla.php:108
+msgid "Custom 2"
+msgstr "Maßgeschneidert 2"
+
+#: ../schema/mozilla.php:13 ../schema/mozilla.php:109
+msgid "Custom 3"
+msgstr "Maßgeschneidert 3"
+
+#: ../schema/mozilla.php:14 ../schema/mozilla.php:110
+msgid "Custom 4"
+msgstr "Maßgeschneidert 4"
+
+#: ../schema/mozilla.php:15
+msgid "Street Address 1"
+msgstr "Adresse 1"
+
+#: ../schema/mozilla.php:16 ../schema/mozilla.php:22 ../schema/mozilla.php:31
+#: ../schema/mozilla.php:32
+msgid "Street Address 2"
+msgstr "Adresse 2"
+
+#: ../schema/mozilla.php:17 ../schema/mozilla.php:69 ../schema/mozilla.php:91
+msgid "City"
+msgstr "Stadt"
+
+#: ../schema/mozilla.php:18 ../schema/mozilla.php:70 ../schema/mozilla.php:92
+msgid "County"
+msgstr "Bezirk"
+
+#: ../schema/mozilla.php:19 ../schema/mozilla.php:71 ../schema/mozilla.php:93
+msgid "Post Code"
+msgstr "Postleitzahl"
+
+#: ../schema/mozilla.php:20 ../schema/mozilla.php:33 ../schema/mozilla.php:72
+#: ../schema/mozilla.php:94
+msgid "Country"
+msgstr "Land"
+
+#: ../schema/mozilla.php:21 ../schema/mozilla.php:23 ../schema/mozilla.php:77
+#: ../schema/mozilla.php:99
+msgid "Web Page"
+msgstr "Website"
+
+#: ../schema/mozilla.php:24 ../schema/mozilla.php:51
+msgid "Nickname"
+msgstr "Spitzname"
+
+#: ../schema/mozilla.php:25 ../schema/mozilla.php:53
+msgid "Additional E-Mail"
+msgstr "Zusätzliche E-Mail"
+
+#: ../schema/mozilla.php:26 ../schema/mozilla.php:54
+msgid "Preferred Message Format"
+msgstr "Bevorzugtes Nachrichtenformat"
+
+#: ../schema/mozilla.php:27
+msgid "Chat Name (AIM)"
+msgstr "Plaudern Name (AIM)"
+
+#: ../schema/mozilla.php:45
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../schema/mozilla.php:47
+msgid "First"
+msgstr "Zuerst"
+
+#: ../schema/mozilla.php:48
+msgid "Last"
+msgstr "Letzte"
+
+#: ../schema/mozilla.php:49
+msgid "Display"
+msgstr "Anzeige"
+
+#: ../schema/mozilla.php:52
+msgid "E-Mail"
+msgstr "Email"
+
+#: ../schema/mozilla.php:57
+msgid "Phone Numbers"
+msgstr "Telefonnummern"
+
+#: ../schema/mozilla.php:59 ../schema/mozilla.php:85
+msgid "Work"
+msgstr "Arbeit"
+
+#: ../schema/mozilla.php:60
+msgid "Home"
+msgstr "Zuhause"
+
+#: ../schema/mozilla.php:61
+msgid "Fax"
+msgstr "Fax"
+
+#: ../schema/mozilla.php:62
+msgid "Pager"
+msgstr "Funkrufempfänger"
+
+#: ../schema/mozilla.php:63
+msgid "Mobile"
+msgstr "Mobiltelefon"
+
+#: ../schema/mozilla.php:66
+msgid "Private"
+msgstr "Privat"
+
+#: ../schema/mozilla.php:68 ../schema/mozilla.php:90
+msgid "Address"
+msgstr "Adresse"
+
+#: ../schema/mozilla.php:87
+msgid "Title"
+msgstr "Titel"
+
+#: ../schema/mozilla.php:88
+msgid "Department"
+msgstr "Abteilung"
+
+#: ../schema/mozilla.php:89
+msgid "Organization"
+msgstr "Organisation"
+
+#: ../schema/mozilla.php:105
+msgid "Other"
+msgstr "Andere"
+
+#: ../schema/mozilla.php:111
+msgid "Notes"
+msgstr "Anmerkungen"
+
+#: ../schema/mozilla.php:114
+msgid "Chat"
+msgstr "Plaudern"
+
+#: ../schema/mozilla.php:117
+msgid "AIM"
+msgstr "AIM"

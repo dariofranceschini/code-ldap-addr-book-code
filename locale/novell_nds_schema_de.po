@@ -1,0 +1,250 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-07 22:55+0000\n"
+"PO-Revision-Date: 2018-01-07 22:55+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/nds.php:10
+msgid "Domain Component Name"
+msgstr "Name der Domänenkomponente"
+
+#: ../schema/novell/nds.php:13
+msgid "NDS Predicate Stats DN"
+msgstr "NDS-Prädikatstatistik DN"
+
+#: ../schema/novell/nds.php:14
+msgid "NDS Predicate Flush"
+msgstr "NDS Prädikatspülen"
+
+#: ../schema/novell/nds.php:15
+msgid "NDS Predicate State"
+msgstr "NDS-Prädikat Zustand"
+
+#: ../schema/novell/nds.php:16
+msgid "NDS Predicate Use Values"
+msgstr "NDS Prädikat Verwenden Sie Werte"
+
+#: ../schema/novell/nds.php:18
+msgid "Cached Attributes On External References"
+msgstr "Cache gespeicherte Attribute für externe Referenzen"
+
+#: ../schema/novell/nds.php:19
+msgid "Excluded Member"
+msgstr "Ausgeschlossenes Mitglied"
+
+#: ../schema/novell/nds.php:20
+msgid "Index Definition List"
+msgstr "Indexdefinitionsliste"
+
+#: ../schema/novell/nds.php:26
+msgid "Domain"
+msgstr "Domäne"
+
+#: ../schema/novell/nds.php:32
+msgid "Tree Root"
+msgstr "Baumwurzel"
+
+#: ../schema/novell/nds.php:40
+msgid "NDS Predicate Statistics"
+msgstr "NDS-Prädikatstatistik"
+
+#: ../schema/novell/nds.php:42
+msgid "Predicate"
+msgstr "Prädikat"
+
+#: ../schema/novell/nds.php:43
+msgid "Flush"
+msgstr "Spülen"
+
+#: ../schema/novell/nds.php:44
+msgid "State"
+msgstr "Zustand"
+
+#: ../schema/novell/nds.php:45
+msgid "Timeout"
+msgstr "Auszeit"
+
+#: ../schema/novell/nds.php:46
+msgid "Use Values"
+msgstr "Verwenden Sie Werte"
+
+#: ../schema/novell/nds.php:52
+msgid "eDirectory Tree"
+msgstr "eDirectory-Baum"
+
+#: ../schema/novell/nds.php:57
+msgid "Server Details"
+msgstr "Serverdetails"
+
+#: ../schema/novell/nds.php:59
+msgid "LDAP Server"
+msgstr "LDAP-Server"
+
+#: ../schema/novell/nds.php:60
+msgid "Product Version"
+msgstr "Produktversion"
+
+#: ../schema/novell/nds.php:61
+msgid "Vendor"
+msgstr "Verkäufer"
+
+#: ../schema/novell/nds.php:62
+msgid "Supported LDAP Versions"
+msgstr "Unterstützte LDAP-Versionen"
+
+#: ../schema/novell/nds.php:63
+msgid "Naming Contexts"
+msgstr "Benennungskontexte"
+
+#: ../schema/novell/nds.php:64
+msgid "Subschema Subentry"
+msgstr "Teilschema-Untereintrag"
+
+#: ../schema/novell/nds.php:67
+msgid "Replication"
+msgstr "Replikation"
+
+#: ../schema/novell/nds.php:69
+msgid "Updates Out"
+msgstr "Updates aus"
+
+#: ../schema/novell/nds.php:70
+msgid "Updates In"
+msgstr "Aktualisierungen"
+
+#: ../schema/novell/nds.php:73
+msgid "LDAP Binds"
+msgstr "LDAP-Bindungen"
+
+#: ../schema/novell/nds.php:75
+msgid "Strong Auth"
+msgstr "Starke Auth"
+
+#: ../schema/novell/nds.php:76
+msgid "Simple Auth"
+msgstr "Einfache Auth"
+
+#: ../schema/novell/nds.php:77
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: ../schema/novell/nds.php:78 ../schema/novell/nds.php:112
+msgid "Security Errors"
+msgstr "Sicherheitsfehler"
+
+#: ../schema/novell/nds.php:81
+msgid "Data Transfer"
+msgstr "Datentransfer"
+
+#: ../schema/novell/nds.php:83
+msgid "Bytes Out"
+msgstr "Bytes aus"
+
+#: ../schema/novell/nds.php:84
+msgid "Bytes In"
+msgstr "Bytes Innen"
+
+#: ../schema/novell/nds.php:87
+msgid "Ops Processed"
+msgstr "Vorgänge bearbeitet"
+
+#: ../schema/novell/nds.php:89
+msgid "Extended"
+msgstr "Verlängert"
+
+#: ../schema/novell/nds.php:90
+msgid "Abandoned"
+msgstr "Verlassen"
+
+#: ../schema/novell/nds.php:91
+msgid "Subtree Search"
+msgstr "Teilbaumsuche"
+
+#: ../schema/novell/nds.php:92
+msgid "Single Level Search"
+msgstr "Einstufige Suche"
+
+#: ../schema/novell/nds.php:93
+msgid "Search"
+msgstr "Suche"
+
+#: ../schema/novell/nds.php:94
+msgid "List"
+msgstr "Aufzählen"
+
+#: ../schema/novell/nds.php:95
+msgid "Modify RDN"
+msgstr "Ändern Sie RDN"
+
+#: ../schema/novell/nds.php:96
+msgid "Remove Entry"
+msgstr "Eintrag entfernen"
+
+#: ../schema/novell/nds.php:97
+msgid "Add Entry"
+msgstr "Eintrag hinzufügen"
+
+#: ../schema/novell/nds.php:98
+msgid "Compare"
+msgstr "Vergleichen"
+
+#: ../schema/novell/nds.php:99
+msgid "Read"
+msgstr "Lesen"
+
+#: ../schema/novell/nds.php:100
+msgid "Total In"
+msgstr "Gesamtbetrag"
+
+#: ../schema/novell/nds.php:103
+msgid "LDAP Referral Processed"
+msgstr "LDAP-Empfehlung verarbeitet"
+
+#: ../schema/novell/nds.php:105
+msgid "Outbound Referrals Sent"
+msgstr "Ausgehende Verweise gesendet"
+
+#: ../schema/novell/nds.php:106
+msgid "Inbound Referrals Returned"
+msgstr "Eingehende Empfehlungen zurückgegeben"
+
+#: ../schema/novell/nds.php:109
+msgid "Miscellaneous"
+msgstr "Sonstiges"
+
+#: ../schema/novell/nds.php:111
+msgid "Errors"
+msgstr "Fehler"
+
+#: ../schema/novell/nds.php:115
+msgid "Supported Grouping Types"
+msgstr "Unterstützte Gruppierungstypen"
+
+#: ../schema/novell/nds.php:120
+msgid "Supported Controls"
+msgstr "Unterstützte Steuerelemente"
+
+#: ../schema/novell/nds.php:125
+msgid "Supported Features"
+msgstr "Unterstützte Funktionen"
+
+#: ../schema/novell/nds.php:130
+msgid "Supported SASL Mechanisms"
+msgstr "Unterstützte SASL-Mechanismen"
+
+#: ../schema/novell/nds.php:135
+msgid "Supported Extended Operations"
+msgstr "Unterstützte erweiterte Operationen"

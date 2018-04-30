@@ -1,0 +1,170 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-11 11:07+0000\n"
+"PO-Revision-Date: 2018-02-11 11:07+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/microsoft/system.php:9
+msgid "Configuration Context"
+msgstr "Konfigurationskontext"
+
+#: ../schema/microsoft/system.php:10
+msgid "Configuration Naming Context"
+msgstr "Konfigurationsbenennungskontext"
+
+#: ../schema/microsoft/system.php:11
+msgid "Current Time"
+msgstr "Aktuelle Uhrzeit"
+
+#: ../schema/microsoft/system.php:12
+msgid "Default Naming Context"
+msgstr "Standard-Namenskontext"
+
+#: ../schema/microsoft/system.php:13 ../schema/microsoft/system.php:50
+msgid "Server Functional Level"
+msgstr "Server-Funktionsebene"
+
+#: ../schema/microsoft/system.php:14 ../schema/microsoft/system.php:51
+msgid "Domain Functional Level"
+msgstr "Domänenfunktionsebene"
+
+#: ../schema/microsoft/system.php:15
+msgid "Directory Service Name"
+msgstr "Verzeichnisdienstname"
+
+#: ../schema/microsoft/system.php:16 ../schema/microsoft/system.php:52
+msgid "Forest Functional Level"
+msgstr "Wald Funktionsebene"
+
+#: ../schema/microsoft/system.php:17 ../schema/microsoft/system.php:47
+msgid "Is Global Catalog Ready"
+msgstr "Ist der globale Katalog bereit"
+
+#: ../schema/microsoft/system.php:18 ../schema/microsoft/system.php:46
+msgid "Is Synchronized"
+msgstr "Ist synchronisiert"
+
+#: ../schema/microsoft/system.php:19 ../schema/microsoft/system.php:44
+msgid "Naming Contexts"
+msgstr "Benennungskontexte"
+
+#: ../schema/microsoft/system.php:20
+msgid "Root Domain Naming Context"
+msgstr "Stammdomänenbenennungskontext"
+
+#: ../schema/microsoft/system.php:21
+msgid "Schema Naming Context"
+msgstr "Schema Benennungskontext"
+
+#: ../schema/microsoft/system.php:22 ../schema/microsoft/system.php:68
+msgid "Supported Capabilities"
+msgstr "Unterstützte Funktionen"
+
+#: ../schema/microsoft/system.php:23 ../schema/microsoft/system.php:63
+msgid "Supported Controls"
+msgstr "Unterstützte Steuerelemente"
+
+#: ../schema/microsoft/system.php:24 ../schema/microsoft/system.php:78
+msgid "Supported LDAP Policies"
+msgstr "Unterstützte LDAP-Richtlinien"
+
+#: ../schema/microsoft/system.php:25 ../schema/microsoft/system.php:42
+msgid "Supported LDAP Versions"
+msgstr "Unterstützte LDAP-Versionen"
+
+#: ../schema/microsoft/system.php:26 ../schema/microsoft/system.php:73
+msgid "Supported SASL Mechanisms"
+msgstr "Unterstützte SASL-Mechanismen"
+
+#: ../schema/microsoft/system.php:31
+msgid "Root DSE"
+msgstr "Wurzel DSE"
+
+#: ../schema/microsoft/system.php:36
+msgid "Active Directory Domain Controller"
+msgstr "Active Directory-Domänencontroller"
+
+#: ../schema/microsoft/system.php:38
+msgid "Server Name"
+msgstr "Servername"
+
+#: ../schema/microsoft/system.php:39
+msgid "Vendor Name"
+msgstr "Herstellername"
+
+#: ../schema/microsoft/system.php:40
+msgid "DNS Host Name"
+msgstr "DNS-Hostname"
+
+#: ../schema/microsoft/system.php:41
+msgid "Directory Service"
+msgstr "Verzeichnisdienst"
+
+#: ../schema/microsoft/system.php:43
+msgid "LDAP Service Name"
+msgstr "LDAP-Dienstname"
+
+#: ../schema/microsoft/system.php:45
+msgid "Subschema Subentry"
+msgstr "Teilschema-Untereintrag"
+
+#: ../schema/microsoft/system.php:48
+msgid "Current Time at Server"
+msgstr "Aktuelle Uhrzeit am Server"
+
+#: ../schema/microsoft/system.php:49
+msgid "Highest Committed USN"
+msgstr "Höchste Verpflichtung USN"
+
+#: ../schema/microsoft/system.php:55
+msgid "Well-Known Naming Contexts"
+msgstr "Bekannte Benennungskontexte"
+
+#: ../schema/microsoft/system.php:57
+msgid "Default (Domain)"
+msgstr "Standard (Domäne)"
+
+#: ../schema/microsoft/system.php:58
+msgid "Configuration"
+msgstr "Aufbau"
+
+#: ../schema/microsoft/system.php:59
+msgid "Forest Root Domain"
+msgstr "Waldwurzeldomäne"
+
+#: ../schema/microsoft/system.php:60
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/microsoft/system.php:86
+msgid "Object Class Definitions"
+msgstr "Objektklassendefinitionen"
+
+#: ../schema/microsoft/system.php:91
+msgid "Attribute Type Definitions"
+msgstr "Attributtypdefinitionen"
+
+#: ../schema/microsoft/system.php:96
+msgid "Extended Class Information"
+msgstr "Erweiterte Klasseninformationen"
+
+#: ../schema/microsoft/system.php:101
+msgid "Extended Attribute Information"
+msgstr "Erweiterte Attributinformationen"
+
+#: ../schema/microsoft/system.php:106
+msgid "DIT Content Rules"
+msgstr "DIT-Inhaltsregeln"

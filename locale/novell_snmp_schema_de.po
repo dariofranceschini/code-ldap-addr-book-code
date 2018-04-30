@@ -1,0 +1,50 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/snmp.php:9
+msgid "SNMP Server List"
+msgstr "SNMP-Serverliste"
+
+#: ../schema/novell/snmp.php:10
+msgid "SNMP Traps Disabled"
+msgstr "SNMP-Traps deaktiviert"
+
+#: ../schema/novell/snmp.php:11
+msgid "SNMP Group DN"
+msgstr "DN der SNMP-Gruppe"
+
+#: ../schema/novell/snmp.php:21
+msgid "SNMP Group"
+msgstr "SNMP-Gruppe"
+
+#: ../schema/novell/snmp.php:23
+msgid "SNMP Servers"
+msgstr "SNMP-Server"
+
+#: ../schema/novell/snmp.php:24
+msgid "Default SNMP Time Interval (s)"
+msgstr "Standard-SNMP-Zeitintervall (s)"
+
+#: ../schema/novell/snmp.php:25
+msgid "Disable all SNMP Traps"
+msgstr "Deaktivieren Sie alle SNMP-Traps"
+
+#: ../schema/novell/snmp.php:31
+msgid "Version"
+msgstr "Version"

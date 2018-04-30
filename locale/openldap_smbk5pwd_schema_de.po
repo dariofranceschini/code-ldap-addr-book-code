@@ -1,0 +1,42 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/smbk5pwd.php:9 ../schema/openldap/smbk5pwd.php:28
+msgid "Enabled Password Modifier Modules"
+msgstr "Aktivierte Passwort Modifier Module"
+
+#: ../schema/openldap/smbk5pwd.php:10 ../schema/openldap/smbk5pwd.php:24
+msgid "Maximum Password Age (Seconds)"
+msgstr "Maximales Passwort-Alter (Sekunden)"
+
+#: ../schema/openldap/smbk5pwd.php:11 ../schema/openldap/smbk5pwd.php:25
+msgid "Minimum Password Age (seconds)"
+msgstr "Mindestalter für das Passwort (Sekunden)"
+
+#: ../schema/openldap/smbk5pwd.php:16
+msgid "Samba/Kerberos Password Management Overlay"
+msgstr "Samba / Kerberos 5 Passwortverwaltung Überlagerung"
+
+#: ../schema/openldap/smbk5pwd.php:21
+msgid "Samba/Kerberos 5 Password Management Overlay Settings"
+msgstr "Samba / Kerberos 5 Passwortverwaltung Überlagerung-Einstellungen"
+
+#: ../schema/openldap/smbk5pwd.php:23
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"

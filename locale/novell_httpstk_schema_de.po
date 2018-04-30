@@ -1,0 +1,86 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-21 08:25+0000\n"
+"PO-Revision-Date: 2018-02-21 08:25+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/httpstk.php:9
+msgid "HTTP Server Host"
+msgstr "HTTP-Server-Host"
+
+#: ../schema/novell/httpstk.php:10
+msgid "HTTP Server TLS Certificate"
+msgstr "TLS-Zertifikat für HTTP-Server"
+
+#: ../schema/novell/httpstk.php:11
+msgid "HTTP Server (iMonitor) DN"
+msgstr "DN des HTTP-Server (iMonitor)"
+
+#: ../schema/novell/httpstk.php:21
+msgid "HTTP Server (iMonitor)"
+msgstr "HTTP-Server (iMonitor)"
+
+#: ../schema/novell/httpstk.php:23
+msgid "Host Server"
+msgstr "Host-Server"
+
+#: ../schema/novell/httpstk.php:24
+msgid "Default Port - HTTP"
+msgstr "Standardport - HTTP"
+
+#: ../schema/novell/httpstk.php:25
+msgid "Default Port - HTTPS"
+msgstr "Standardport - HTTPS"
+
+#: ../schema/novell/httpstk.php:26
+msgid "TLS Required for Authentication"
+msgstr "TLS für die Authentifizierung erforderlich"
+
+#: ../schema/novell/httpstk.php:27
+msgid "Certificate"
+msgstr "Zertifikat"
+
+#: ../schema/novell/httpstk.php:30
+msgid "Server Configuration"
+msgstr "Serverkonfiguration"
+
+#: ../schema/novell/httpstk.php:32
+msgid "Bind Restrictions"
+msgstr "Bindebeschränkungen"
+
+#: ../schema/novell/httpstk.php:33
+msgid "Trace Level"
+msgstr "Ablaufverfolgungsebene"
+
+#: ../schema/novell/httpstk.php:34
+msgid "Session Timeout (s)"
+msgstr "Zeitüberschreitung der Sitzung (s)"
+
+#: ../schema/novell/httpstk.php:35
+msgid "Keep-Alive Request Timeout (s)"
+msgstr "Zeitüberschreitung der Keep-Alive-Anfragen (s)"
+
+#: ../schema/novell/httpstk.php:36
+msgid "Request Timeout (s)"
+msgstr "Zeitüberschreitung der Anforderung"
+
+#: ../schema/novell/httpstk.php:37
+msgid "I/O Buffer Size"
+msgstr "E / A-Puffergröße"
+
+#: ../schema/novell/httpstk.php:38
+msgid "Threads per CPU"
+msgstr "Threads pro CPU"

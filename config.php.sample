@@ -18,6 +18,7 @@
 // set_language("fr_FR.UTF-8");	// Français (France)	    French
 // set_language("es_ES.UTF-8");	// Español (España)	    Spanish
 // set_language("it_IT.UTF-8"); // Italiano (Italia)	    Italian
+// set_language("de_DE.UTF-8");	// Deutsche (Deutschland)   German
 
 // --------------------------------------------------------------------
 // Address book name (for page title and browser search plugin)

@@ -1,0 +1,54 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/nis.php:17
+msgid "IP Network"
+msgstr "IP-Netzwerk"
+
+#: ../schema/novell/nis.php:18
+msgid "IP Protocol"
+msgstr "IP-Protokoll"
+
+#: ../schema/novell/nis.php:19
+msgid "IP Service"
+msgstr "IP-Dienst"
+
+#: ../schema/novell/nis.php:20
+msgid "NIS Map"
+msgstr "NIS Karte"
+
+#: ../schema/novell/nis.php:21
+msgid "Netgroup"
+msgstr "Netzgruppe"
+
+#: ../schema/novell/nis.php:22
+msgid "NIS Map Entry"
+msgstr "NIS-Karteneintrag"
+
+#: ../schema/novell/nis.php:23
+msgid "ONC RPC Binding"
+msgstr "ONC RPC-Bindung"
+
+#: ../schema/novell/nis.php:39
+msgid "NIS Server"
+msgstr "NIS-Server"
+
+#: ../schema/novell/nis.php:41
+msgid "IP Address"
+msgstr "IP Adresse"

@@ -1,0 +1,217 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-26 11:24+0100\n"
+"PO-Revision-Date: 2018-03-26 11:24+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/ppolicy.php:22 ../schema/ppolicy.php:92
+msgid "Allow Users to Change their Password"
+msgstr "Benutzern erlauben, ihr Passwort zu ändern"
+
+#: ../schema/ppolicy.php:23
+msgid "Password Attribute Name"
+msgstr "Kennwortattributname"
+
+#: ../schema/ppolicy.php:24
+msgid "Password Quality Check Behavior"
+msgstr "Verhalten der Passwortqualitätsprüfung"
+
+#: ../schema/ppolicy.php:25
+msgid "Length of Warning Period Before Password Expiry"
+msgstr "Länge des Warnzeitraums vor Ablauf des Kennworts"
+
+#: ../schema/ppolicy.php:26
+msgid "Reset Time for Failed Logins Counter"
+msgstr "Zeit für Zähler für fehlgeschlagene Anmeldungen zurücksetzen"
+
+#: ../schema/ppolicy.php:27
+msgid "Number of Grace Logins Allowed for Expired Passwords"
+msgstr "Anzahl der zulässigen Anmeldungen für abgelaufene Passwörter"
+
+#: ../schema/ppolicy.php:28 ../schema/ppolicy.php:95
+msgid "Number of Passwords to Store in History"
+msgstr "Anzahl der Kennwörter, die in der Historie gespeichert werden sollen"
+
+#: ../schema/ppolicy.php:29 ../schema/ppolicy.php:100
+msgid "Lock Accounts after Consecutive Login Failures"
+msgstr "Konten nach fortlaufenden Anmeldefehlern sperren"
+
+#: ../schema/ppolicy.php:30
+msgid "Account Lock Time after Consecutive Login Failures"
+msgstr "Kontosperrzeit nach aufeinanderfolgenden Anmeldefehlern"
+
+#: ../schema/ppolicy.php:31
+msgid "Maximum Password Age (Expiry Time)"
+msgstr "Maximales Passwort-Alter (Ablaufzeit)"
+
+#: ../schema/ppolicy.php:32
+msgid "Number of Consecutive Login Failures before Lock-Out Policy Applies"
+msgstr ""
+"Anzahl der aufeinander folgenden Anmeldefehler vor Anwendung der "
+"Sperrrichtlinie"
+
+#: ../schema/ppolicy.php:33
+msgid "Minimum Password Age"
+msgstr "Mindestalter für das Passwort"
+
+#: ../schema/ppolicy.php:34 ../schema/ppolicy.php:94
+msgid "Minimum Accepted Password Length"
+msgstr "Mindestlänge des akzeptierten Passworts"
+
+#: ../schema/ppolicy.php:35 ../schema/ppolicy.php:91
+msgid "Users Must Change Password at Next Logon After Reset"
+msgstr ""
+"Benutzer müssen das Kennwort bei der nächsten Anmeldung nach dem "
+"Zurücksetzen ändern"
+
+#: ../schema/ppolicy.php:36 ../schema/ppolicy.php:90
+msgid "Users Must Send Old and New Passwords When Changing"
+msgstr "Benutzer müssen beim Ändern alte und neue Kennwörter senden"
+
+#: ../schema/ppolicy.php:39
+msgid "Password Quality Check Module Name"
+msgstr "Kennwortqualitätsüberprüfung Modulname"
+
+#: ../schema/ppolicy.php:45
+msgid "Grace Login Validity Period"
+msgstr "Anmut Anmeldung Gültigkeitsdauer"
+
+#: ../schema/ppolicy.php:46
+msgid "Maximum Delay Introduced when Responding to Login Failure"
+msgstr "Maximale Verzögerung bei der Reaktion auf einen Anmeldefehler"
+
+#: ../schema/ppolicy.php:47
+msgid "Time after which Unused Accounts are Locked Out"
+msgstr "Zeit, nach der nicht verwendete Konten gesperrt werden"
+
+#: ../schema/ppolicy.php:48
+msgid "Maximum Accepted Password Length"
+msgstr "Maximale Länge des akzeptierten Passworts"
+
+#: ../schema/ppolicy.php:49
+msgid "Initial Delay Introduced when Responding to Login Failure"
+msgstr ""
+"Anfangsverzögerung, die bei der Reaktion auf einen Anmeldefehler eingeführt "
+"wird"
+
+#: ../schema/ppolicy.php:53
+msgid "Time When Account Locked"
+msgstr "Zeit, als das Konto gesperrt wurde"
+
+#: ../schema/ppolicy.php:54
+msgid "Time When Password Last Changed"
+msgstr "Uhrzeit, zu der das Passwort zuletzt geändert wurde"
+
+#: ../schema/ppolicy.php:55
+msgid "Times of Last Consecutive Login Failures"
+msgstr "Zeiten der letzten aufeinander folgenden Anmeldefehler"
+
+#: ../schema/ppolicy.php:56
+msgid "Times of Grace Logins after Password Expiry"
+msgstr "Grace-Anmeldungen nach Ablauf des Passworts"
+
+#: ../schema/ppolicy.php:57
+msgid "Password History"
+msgstr "Passwortverlauf"
+
+#: ../schema/ppolicy.php:58
+msgid "Policy Object DN"
+msgstr "Richtlinienobjekt-DN"
+
+#: ../schema/ppolicy.php:59
+msgid "Password Has Been Reset"
+msgstr "Das Passwort wurde zurückgesetzt"
+
+#: ../schema/ppolicy.php:65
+msgid "End of Password Validity Period"
+msgstr "Ende der Passwortgültigkeitsdauer"
+
+#: ../schema/ppolicy.php:66
+msgid "Time of Last Successful Login"
+msgstr "Zeitpunkt der letzten erfolgreichen Anmeldung"
+
+#: ../schema/ppolicy.php:67
+msgid "Start of Password Validity Period"
+msgstr "Beginn der Passwortgültigkeitsdauer"
+
+#: ../schema/ppolicy.php:73
+msgid "Password Policy"
+msgstr "Kennwortrichtlinie"
+
+#: ../schema/ppolicy.php:74
+msgid "Password Policy Checker Module"
+msgstr "Passwort-Richtlinien-Checker-Modul"
+
+#: ../schema/ppolicy.php:80
+msgid "Password Expiry Policy"
+msgstr "Ablaufrichtlinie für Kennwörter"
+
+#: ../schema/ppolicy.php:82
+msgid "Maximum Password Age (s)"
+msgstr "Maximales Passwort Alter (s)"
+
+#: ../schema/ppolicy.php:83
+msgid "Length of Warning Period Before Password Expiry (s)"
+msgstr "Länge des Warnzeitraums vor Ablauf des Kennworts (s)"
+
+#: ../schema/ppolicy.php:84
+msgid "Number of Grace Logins Allowed After Expiry"
+msgstr "Anzahl der Anmut Anmeldung nach Ablauf zulässig"
+
+#: ../schema/ppolicy.php:87
+msgid "Password Changing Policy"
+msgstr "Passwort ändernde Richtlinien"
+
+#: ../schema/ppolicy.php:89
+msgid "Minimum Password Age (s)"
+msgstr "Minimales Passwort Alter (s)"
+
+#: ../schema/ppolicy.php:93
+msgid "Check Quality of New Passwords"
+msgstr "Überprüfen Sie die Qualität neuer Passwörter"
+
+#: ../schema/ppolicy.php:98
+msgid "Consecutive Login Failures Policy"
+msgstr "Richtlinie für fortlaufende Anmeldefehler"
+
+#: ../schema/ppolicy.php:101
+msgid "Number of Consecutive Login Failures before Policy Applies"
+msgstr ""
+"Anzahl der aufeinander folgenden Anmeldefehler vor Anwendung der Richtlinie"
+
+#: ../schema/ppolicy.php:102
+msgid "Account Lock Time after Consecutive Login Failures (s)"
+msgstr "Kontosperrzeit nach aufeinanderfolgenden Anmeldefehlern (s)"
+
+#: ../schema/ppolicy.php:103
+msgid "Reset Time for Failed Logins Counter (s)"
+msgstr "Zeit für Zähler für fehlgeschlagene Anmeldungen zurücksetzen (s)"
+
+#: ../schema/ppolicy.php:106
+msgid "Password Storage"
+msgstr "Passwortspeicherung"
+
+#: ../schema/ppolicy.php:108
+msgid "Password Attribute"
+msgstr "Passwort-Attribut"
+
+#: ../schema/ppolicy.php:114
+msgid "Password Policy Enforcement"
+msgstr "Durchsetzung von Passwortrichtlinien"
+
+#: ../schema/ppolicy.php:116
+msgid "Password Check Module"
+msgstr "Kennwortüberprüfungsmodul"

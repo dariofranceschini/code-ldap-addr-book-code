@@ -1,0 +1,46 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/nmas.php:9
+msgid "SAS Login Sequence"
+msgstr "SAS-Anmeldefolge"
+
+#: ../schema/novell/nmas.php:14 ../schema/novell/nmas.php:19
+msgid "Login Policy"
+msgstr "Anmeldungsrichtlinien"
+
+#: ../schema/novell/nmas.php:21
+msgid "Enable Auditing"
+msgstr "Aktivieren Sie die Überwachung"
+
+#: ../schema/novell/nmas.php:23
+msgid "NMAS Login Sequences"
+msgstr "NMAS-Login-Sequenzen"
+
+#: ../schema/novell/nmas.php:24
+msgid "Default Login Sequence"
+msgstr "Standard-Login-Sequenz"
+
+#: ../schema/novell/nmas.php:33
+msgid "Policy Update"
+msgstr "Richtlinienaktualisierung"
+
+#: ../schema/novell/nmas.php:34
+msgid "Policy Object Version"
+msgstr "Richtlinienobjektversion"

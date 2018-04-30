@@ -1,0 +1,70 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/oracle/oidrdbms.php:23 ../schema/oracle/oidrdbms.php:32
+msgid "Oracle Database"
+msgstr "Oracle Database"
+
+#: ../schema/oracle/oidrdbms.php:24
+msgid "Oracle Database Enterprise Domain"
+msgstr "Oracle Database Unternehmensdomäne"
+
+#: ../schema/oracle/oidrdbms.php:25
+msgid "Oracle Database Enterprise Role"
+msgstr "Oracle Database Unternehmensrolle"
+
+#: ../schema/oracle/oidrdbms.php:26
+msgid "Oracle Database Entry Level Mapping"
+msgstr "Oracle Database Einstiegslevel-Kartierung"
+
+#: ../schema/oracle/oidrdbms.php:27
+msgid "Oracle Database Subtree Level Mapping"
+msgstr "Oracle Database Teilbaumlevel-Kartierung"
+
+#: ../schema/oracle/oidrdbms.php:34
+msgid "Database Name"
+msgstr "Name der Datenbank"
+
+#: ../schema/oracle/oidrdbms.php:35
+msgid "Server Host Name"
+msgstr "Server-Hostname"
+
+#: ../schema/oracle/oidrdbms.php:36
+msgid "Oracle Home"
+msgstr "Oracle-Startseite"
+
+#: ../schema/oracle/oidrdbms.php:37
+msgid "SID"
+msgstr "SID"
+
+#: ../schema/oracle/oidrdbms.php:38
+msgid "Global Name"
+msgstr "Globaler Name"
+
+#: ../schema/oracle/oidrdbms.php:39
+msgid "Net Service Name"
+msgstr "NetService-Name"
+
+#: ../schema/oracle/oidrdbms.php:42
+msgid "Connect Descriptor"
+msgstr "Deskriptor verbinden"
+
+#: ../schema/oracle/oidrdbms.php:47
+msgid "Child Objects"
+msgstr "Kinderobjekte"

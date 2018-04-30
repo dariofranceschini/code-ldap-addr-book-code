@@ -1,0 +1,294 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/nis.php:32
+msgid "Boot Image File Name"
+msgstr "Dateiname des Boot-Images"
+
+#: ../schema/nis.php:33
+msgid "Boot Parameter"
+msgstr "Bootparameter"
+
+#: ../schema/nis.php:34 ../schema/nis.php:184
+msgid "GECOS Field"
+msgstr "GECOS Feld"
+
+#: ../schema/nis.php:35 ../schema/nis.php:159 ../schema/nis.php:180
+msgid "Group ID Number"
+msgstr "Gruppen-ID-Nummer"
+
+#: ../schema/nis.php:36
+msgid "Home Directory Path"
+msgstr "Startseite Verzeichnispfad"
+
+#: ../schema/nis.php:37
+msgid "IPv4 Address"
+msgstr "IPv4-Adresse"
+
+#: ../schema/nis.php:38
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4-Subnetzmaske"
+
+#: ../schema/nis.php:39
+msgid "IPv4 Network Address"
+msgstr "IPv4-Netzwerkadresse"
+
+#: ../schema/nis.php:40
+msgid "IP Protocol Number"
+msgstr "IP-Protokollnummer"
+
+#: ../schema/nis.php:41 ../schema/nis.php:107
+msgid "Port Number"
+msgstr "Port-Nummer"
+
+#: ../schema/nis.php:42
+msgid "IP Protocol Name"
+msgstr "IP-Protokollname"
+
+#: ../schema/nis.php:43
+msgid "Login Shell Path"
+msgstr "Anmelde-Shell-Pfad"
+
+#: ../schema/nis.php:44 ../schema/nis.php:64 ../schema/nis.php:222
+msgid "MAC Address"
+msgstr "MAC-Adresse"
+
+#: ../schema/nis.php:45
+msgid "Member Netgroup"
+msgstr "Mitglied Netzgruppe"
+
+#: ../schema/nis.php:46
+msgid "Member User ID"
+msgstr "Mitgliedsbenutzer-ID"
+
+#: ../schema/nis.php:47 ../schema/nis.php:71 ../schema/nis.php:135
+#: ../schema/nis.php:138
+msgid "NIS Map Entry"
+msgstr "NIS-Karteneintrag"
+
+#: ../schema/nis.php:48 ../schema/nis.php:117 ../schema/nis.php:139
+msgid "NIS Map Name"
+msgstr "NIS-Kartenname"
+
+#: ../schema/nis.php:49
+msgid "Host/User/Domain Triple"
+msgstr "Host / Benutzer / Domäne Verdreifachen"
+
+#: ../schema/nis.php:50 ../schema/nis.php:149
+msgid "ONC RPC Number"
+msgstr "ONC-RPC-Nummer"
+
+#: ../schema/nis.php:51 ../schema/nis.php:200
+msgid "Expiry Date"
+msgstr "Verfallsdatum"
+
+#: ../schema/nis.php:53
+msgid "Time Until Account Inactive (Days)"
+msgstr "Zeit bis Konto Inaktiv (Tage)"
+
+#: ../schema/nis.php:54 ../schema/nis.php:195
+msgid "Date of Last Password Change"
+msgstr "Datum der letzten Passwortänderung"
+
+#: ../schema/nis.php:55
+msgid "Maximum Password Age (Days)"
+msgstr "Maximales Passwort-Alter (Tage)"
+
+#: ../schema/nis.php:56
+msgid "Minimum Password Age (Days)"
+msgstr "Minimales Passwort Alter (Tage)"
+
+#: ../schema/nis.php:57
+msgid "Warning Period Before Expiration (Days)"
+msgstr "Warnzeitraum vor Ablauf (Tage)"
+
+#: ../schema/nis.php:58 ../schema/nis.php:179
+msgid "User ID Number"
+msgstr "Benutzer-ID-Nummer"
+
+#: ../schema/nis.php:63
+msgid "Boot Configuration"
+msgstr "Boot-Konfiguration"
+
+#: ../schema/nis.php:65
+msgid "IP Host Details"
+msgstr "IP-Hostdetails"
+
+#: ../schema/nis.php:66
+msgid "IP Network"
+msgstr "IP-Netzwerk"
+
+#: ../schema/nis.php:67 ../schema/nis.php:94
+msgid "IP Protocol"
+msgstr "IP-Protokoll"
+
+#: ../schema/nis.php:68 ../schema/nis.php:104
+msgid "IP Service"
+msgstr "IP-Dienst"
+
+#: ../schema/nis.php:69 ../schema/nis.php:115
+msgid "NIS Map"
+msgstr "NIS Karte"
+
+#: ../schema/nis.php:70 ../schema/nis.php:124
+msgid "Netgroup"
+msgstr "Netzgruppe"
+
+#: ../schema/nis.php:72 ../schema/nis.php:146
+msgid "ONC RPC Binding"
+msgstr "ONC RPC-Bindung"
+
+#: ../schema/nis.php:73 ../schema/nis.php:175
+msgid "POSIX Account Settings"
+msgstr "POSIX Kontoeinstellungen"
+
+#: ../schema/nis.php:74
+msgid "POSIX Group"
+msgstr "POSIX-Gruppe"
+
+#: ../schema/nis.php:75 ../schema/nis.php:191
+msgid "Shadow Password Settings"
+msgstr "Schatten Passwort Einstellungen"
+
+#: ../schema/nis.php:83
+msgid "Network Name"
+msgstr "Netzwerkname"
+
+#: ../schema/nis.php:84
+msgid "Network IP Address"
+msgstr "Netzwerk-IP-Adresse"
+
+#: ../schema/nis.php:85
+msgid "Subnet Mask"
+msgstr "Teilnetzmaske"
+
+#: ../schema/nis.php:86 ../schema/nis.php:98 ../schema/nis.php:109
+#: ../schema/nis.php:118 ../schema/nis.php:129 ../schema/nis.php:140
+#: ../schema/nis.php:150 ../schema/nis.php:160 ../schema/nis.php:185
+#: ../schema/nis.php:202 ../schema/nis.php:212
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ../schema/nis.php:87 ../schema/nis.php:213
+msgid "Managed By"
+msgstr "Verwaltet von"
+
+#: ../schema/nis.php:88 ../schema/nis.php:214
+msgid "Location"
+msgstr "Ort"
+
+#: ../schema/nis.php:96
+msgid "Protocol Name"
+msgstr "Protokollname"
+
+#: ../schema/nis.php:97
+msgid "Protocol Number"
+msgstr "Protokollnummer"
+
+#: ../schema/nis.php:106
+msgid "Service Name"
+msgstr "Dienstname"
+
+#: ../schema/nis.php:108
+msgid "Protocol"
+msgstr "Protokoll"
+
+#: ../schema/nis.php:126
+msgid "Netgroup Name"
+msgstr "Name der Netzgruppe"
+
+#: ../schema/nis.php:127
+msgid "Members"
+msgstr "Mitglieder"
+
+#: ../schema/nis.php:128
+msgid "Member Netgroups"
+msgstr "Mitgliedsnetzgruppen"
+
+#: ../schema/nis.php:137
+msgid "Entry Name"
+msgstr "Eintragsname"
+
+#: ../schema/nis.php:148
+msgid "ONC RPC Binding Name"
+msgstr "ONC RPC-Bindungsname"
+
+#: ../schema/nis.php:158
+msgid "Group Name"
+msgstr "Gruppenname"
+
+#: ../schema/nis.php:165
+msgid "Group Members"
+msgstr "Gruppenmitglieder"
+
+#: ../schema/nis.php:177
+msgid "Object Name"
+msgstr "Objektname"
+
+#: ../schema/nis.php:178 ../schema/nis.php:193
+msgid "User ID"
+msgstr "Benutzeridentifikation"
+
+#: ../schema/nis.php:181
+msgid "Home Directory"
+msgstr "Heimverzeichnis"
+
+#: ../schema/nis.php:183
+msgid "Login Shell"
+msgstr "Anmeldeshell"
+
+#: ../schema/nis.php:196
+msgid "Minimum Password Age"
+msgstr "Mindestalter für das Passwort"
+
+#: ../schema/nis.php:197
+msgid "Maximum Password Age"
+msgstr "Maximales Passwort-Alter"
+
+#: ../schema/nis.php:198
+msgid "Warning Period Before Expiration"
+msgstr "Warnzeitraum vor Ablauf"
+
+#: ../schema/nis.php:199
+msgid "Time Until Account Inactive"
+msgstr "Zeit bis Konto inaktiv"
+
+#: ../schema/nis.php:208
+msgid "IP Address Information"
+msgstr "IP-Adressinformationen"
+
+#: ../schema/nis.php:210
+msgid "Host Name"
+msgstr "Hostname"
+
+#: ../schema/nis.php:211
+msgid "IP Address"
+msgstr "IP Adresse"
+
+#: ../schema/nis.php:220
+msgid "Network Hardware Address"
+msgstr "Netzwerk-Hardwareadresse"
+
+#: ../schema/nis.php:228 ../schema/nis.php:231
+msgid "Boot Parameters"
+msgstr "Startparameter"
+
+#: ../schema/nis.php:230
+msgid "Boot File"
+msgstr "Bootdatei"

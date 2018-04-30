@@ -1,0 +1,134 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-07 22:55+0000\n"
+"PO-Revision-Date: 2018-01-07 22:55+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/system.php:10
+msgid "Alternative Servers"
+msgstr "Alternative Server"
+
+#: ../schema/openldap/system.php:11 ../schema/openldap/system.php:49
+msgid "Configuration Context"
+msgstr "Konfigurationskontext"
+
+#: ../schema/openldap/system.php:12 ../schema/openldap/system.php:50
+msgid "Monitoring Context"
+msgstr "Überwachungskontext"
+
+#: ../schema/openldap/system.php:13 ../schema/openldap/system.php:48
+msgid "Naming Contexts"
+msgstr "Benennungskontexte"
+
+#: ../schema/openldap/system.php:14 ../schema/openldap/system.php:51
+msgid "Subschema Subentry"
+msgstr "Teilschema-Untereintrag"
+
+#: ../schema/openldap/system.php:15 ../schema/openldap/system.php:54
+msgid "Supported Controls"
+msgstr "Unterstützte Steuerelemente"
+
+#: ../schema/openldap/system.php:16 ../schema/openldap/system.php:69
+msgid "Supported Extended Operations"
+msgstr "Unterstützte erweiterte Operationen"
+
+#: ../schema/openldap/system.php:17 ../schema/openldap/system.php:59
+msgid "Supported Features"
+msgstr "Unterstützte Funktionen"
+
+#: ../schema/openldap/system.php:18 ../schema/openldap/system.php:47
+msgid "Supported LDAP Versions"
+msgstr "Unterstützte LDAP-Versionen"
+
+#: ../schema/openldap/system.php:19 ../schema/openldap/system.php:64
+msgid "Supported SASL Mechanisms"
+msgstr "Unterstützte SASL-Mechanismen"
+
+#: ../schema/openldap/system.php:22
+msgid "Attribute Types"
+msgstr "Attributtypen"
+
+#: ../schema/openldap/system.php:23
+msgid "DIT Content Rules"
+msgstr "DIT-Inhaltsregeln"
+
+#: ../schema/openldap/system.php:24
+msgid "LDAP Syntaxes"
+msgstr "LDAP-Syntax"
+
+#: ../schema/openldap/system.php:25 ../schema/openldap/system.php:102
+msgid "Matching Rules"
+msgstr "Übereinstimmungsregeln"
+
+#: ../schema/openldap/system.php:26 ../schema/openldap/system.php:107
+msgid "Matching Rule Use"
+msgstr "Passende Regel verwenden"
+
+#: ../schema/openldap/system.php:27
+msgid "Object Classes"
+msgstr "Objektklassen"
+
+#: ../schema/openldap/system.php:30
+msgid "Created"
+msgstr "Erstellt"
+
+#: ../schema/openldap/system.php:31
+msgid "Created By"
+msgstr "Erstellt von"
+
+#: ../schema/openldap/system.php:32
+msgid "Last Modified By"
+msgstr "Zuletzt geändert durch"
+
+#: ../schema/openldap/system.php:33
+msgid "Last Modified"
+msgstr "Zuletzt bearbeitet"
+
+#: ../schema/openldap/system.php:38
+msgid "OpenLDAP Root DSE"
+msgstr "OpenLDAP-Root-DSE"
+
+#: ../schema/openldap/system.php:39 ../schema/openldap/system.php:77
+msgid "Subentry"
+msgstr "Untereintrag"
+
+#: ../schema/openldap/system.php:40
+msgid "Schema"
+msgstr "Schema"
+
+#: ../schema/openldap/system.php:45
+msgid "OpenLDAP Server"
+msgstr "OpenLDAP Server"
+
+#: ../schema/openldap/system.php:79
+msgid "Object Name"
+msgstr "Objektname"
+
+#: ../schema/openldap/system.php:80
+msgid "Subtree Specification"
+msgstr "Teilbaum Spezifikation"
+
+#: ../schema/openldap/system.php:87
+msgid "Object Class Definitions"
+msgstr "Objektklassendefinitionen"
+
+#: ../schema/openldap/system.php:92
+msgid "Attribute Type Definitions"
+msgstr "Attributtypdefinitionen"
+
+#: ../schema/openldap/system.php:97
+msgid "LDAP Syntax Definitions"
+msgstr "LDAP-Syntaxdefinitionen"

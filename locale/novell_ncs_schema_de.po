@@ -1,0 +1,38 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-21 08:25+0000\n"
+"PO-Revision-Date: 2018-02-21 08:25+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/ncs.php:10
+msgid "NCS:NetWare Cluster"
+msgstr "NCS:NetWare-Cluster"
+
+#: ../schema/novell/ncs.php:11
+msgid "NCS:Cluster Resource"
+msgstr "NCS:Cluster-Ressource"
+
+#: ../schema/novell/ncs.php:12
+msgid "NCS:Resource Template"
+msgstr "NCS:Ressourcenvorlage"
+
+#: ../schema/novell/ncs.php:13
+msgid "NCS:Volume Resource"
+msgstr "NCS:Volumenressource"
+
+#: ../schema/novell/ncs.php:14
+msgid "NCS:NCP Server"
+msgstr "NCS:NCP-Server"

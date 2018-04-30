@@ -1,0 +1,50 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-21 09:41+0100\n"
+"PO-Revision-Date: 2018-04-21 09:41+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/refint.php:9
+msgid "Attributes with Referential Integrity"
+msgstr "Attribute mit referenzieller Integrität"
+
+#: ../schema/openldap/refint.php:10 ../schema/openldap/refint.php:25
+msgid "Placeholder Value for Empty Mandatory Attributes"
+msgstr "Platzhalterwert für leere Pflichtattribute"
+
+#: ../schema/openldap/refint.php:11
+msgid "Modifier's DN"
+msgstr "Modifikations-DN"
+
+#: ../schema/openldap/refint.php:16
+msgid "Referential Integrity Overlay"
+msgstr "Referenzielle Integrität-Überlagerung"
+
+#: ../schema/openldap/refint.php:21
+msgid "Referential Integrity Overlay Settings"
+msgstr "Referenzielle Integrität-Überlagerung-Einstellungen"
+
+#: ../schema/openldap/refint.php:23
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/refint.php:24
+msgid "Maintain Referential Integrity for These Attributes"
+msgstr "Pflegen Sie referenzielle Integrität für diese Attribute"
+
+#: ../schema/openldap/refint.php:26
+msgid "Modifier's Name to be Used"
+msgstr "Name des zu verwendenden Modifikators"

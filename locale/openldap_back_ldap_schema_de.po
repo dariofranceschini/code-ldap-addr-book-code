@@ -1,0 +1,102 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-27 10:11+0000\n"
+"PO-Revision-Date: 2018-02-27 10:11+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/back_ldap.php:10
+msgid "Remote LDAP Directory URI List"
+msgstr "Liste der URIs des Remote-LDAP-Verzeichnissen"
+
+#: ../schema/openldap/back_ldap.php:15
+msgid "LDAP Proxy Database"
+msgstr "LDAP-Proxy-Datenbank"
+
+#: ../schema/openldap/back_ldap.php:16
+msgid "Chain Overlay"
+msgstr "Kettenüberlagerung"
+
+#: ../schema/openldap/back_ldap.php:17
+msgid "Distributed Procedure Overlay"
+msgstr "Verteilte Prozedurüberlagerung"
+
+#: ../schema/openldap/back_ldap.php:18
+msgid "LDAP Proxy Bind Overlay"
+msgstr "LDAP Proxy Bind Overlay"
+
+#: ../schema/openldap/back_ldap.php:19
+msgid "Monitored LDAP Proxy Connection"
+msgstr "Überwachte LDAP-Proxyverbindung"
+
+#: ../schema/openldap/back_ldap.php:26
+msgid "LDAP Proxy Database Settings"
+msgstr "LDAP-Proxy-Datenbankeinstellungen"
+
+#: ../schema/openldap/back_ldap.php:28 ../schema/openldap/back_ldap.php:60
+msgid "Remote LDAP Directory URI"
+msgstr "URI des Remote-LDAP-Verzeichnis"
+
+#: ../schema/openldap/back_ldap.php:29
+msgid "Naming Context"
+msgstr "Namenskontext"
+
+#: ../schema/openldap/back_ldap.php:30
+msgid "Chase Referrals"
+msgstr "Verweise verfolgen"
+
+#: ../schema/openldap/back_ldap.php:31
+msgid "Rebind as User"
+msgstr "Rebind als Benutzer"
+
+#: ../schema/openldap/back_ldap.php:35
+msgid "Remote Identity Assertion"
+msgstr "Fern-Identitätsbestätigung"
+
+#: ../schema/openldap/back_ldap.php:37
+msgid "Authorise From"
+msgstr "Autorisieren von"
+
+#: ../schema/openldap/back_ldap.php:40
+msgid "Bind Configuration"
+msgstr "Bindungskonfiguration"
+
+#: ../schema/openldap/back_ldap.php:43
+msgid "Access Controls"
+msgstr "Zugriffskontrollen"
+
+#: ../schema/openldap/back_ldap.php:48
+msgid "Overlays"
+msgstr "Überlagerungen"
+
+#: ../schema/openldap/back_ldap.php:56
+msgid "LDAP Bind Proxy Settings"
+msgstr "LDAP-Bindungs-Proxy-Einstellungen"
+
+#: ../schema/openldap/back_ldap.php:58
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/back_ldap.php:61
+msgid "Network Timeout"
+msgstr "Netzwerk-Zeitlimit"
+
+#: ../schema/openldap/back_ldap.php:62
+msgid "StartTLS Behaviour"
+msgstr "StartTLS Verhalten"
+
+#: ../schema/openldap/back_ldap.php:63
+msgid "URI Quarantine Behaviour"
+msgstr "URI Quarantäneverhalten"

@@ -1,0 +1,63 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/shared.php:12
+msgid "DB_CONFIG Directives"
+msgstr "DB_CONFIG Direktiven"
+
+#: ../schema/openldap/shared.php:13 ../schema/openldap/shared.php:45
+msgid "Number of DN Cache Items"
+msgstr "Anzahl der DN-Cache-Elemente"
+
+#: ../schema/openldap/shared.php:14 ../schema/openldap/shared.php:44
+msgid "Number of Entry Cache Items"
+msgstr "Anzahl der Eintrags-Cache-Einträge"
+
+#: ../schema/openldap/shared.php:15 ../schema/openldap/shared.php:46
+msgid "Number of IDL Cache Items"
+msgstr "Anzahl der IDL-Cache-Elemente"
+
+#: ../schema/openldap/shared.php:18 ../schema/openldap/shared.php:24
+#: ../schema/openldap/shared.php:47
+msgid "Database Directory Path"
+msgstr "Datenbankverzeichnispfad"
+
+#: ../schema/openldap/shared.php:21
+msgid "Database Index"
+msgstr "Datenbankindex"
+
+#: ../schema/openldap/shared.php:27
+msgid "Referal Chasing Enabled"
+msgstr "Verweisverfolgung Aktiviert"
+
+#: ../schema/openldap/shared.php:28
+msgid "Remote Identity Assertion Settings"
+msgstr "Remote-Identitätszusicherungseinstellungen"
+
+#: ../schema/openldap/shared.php:29
+msgid "Rebind as User"
+msgstr "Wiederholen Sie die Bindung als Benutzer"
+
+#: ../schema/openldap/shared.php:36
+msgid "OpenLDAP BDB Monitoring Data"
+msgstr "OpenLDAP BDB-Überwachungsdaten"
+
+#: ../schema/openldap/shared.php:42
+msgid "OpenLDAP Monitored BDB Database"
+msgstr "OpenLDAP Überwachte BDB-Datenbank"

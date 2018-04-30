@@ -1,0 +1,1711 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 12:06+0100\n"
+"PO-Revision-Date: 2018-04-23 12:06+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../add_value.php:36 ../add_value.php:49
+#, php-format
+msgid "Unable to add value to attribute: %s"
+msgstr "Der Wert kann dem Attribut nicht hinzugefügt werden: %s"
+
+#: ../add_value.php:37
+msgid "No attribute specified"
+msgstr "Kein Attribut angegeben"
+
+#: ../add_value.php:50 ../move.php:62
+msgid "Target object DN is missing"
+msgstr "DN des Zielobjekts fehlt"
+
+#: ../add_value.php:56
+msgid "You do not have permission to browse the directory to select an object"
+msgstr ""
+"Sie sind nicht berechtigt, das Verzeichnis zu durchsuchen, um ein Objekt "
+"auszuwählen"
+
+#: ../add_value.php:99 ../delete_value.php:104
+msgid "Unable to access LDAP object."
+msgstr "Kann nicht auf LDAP-Objekt zugreifen."
+
+#: ../add_value.php:106 ../utils.php:5006
+msgid "Error whilst setting attribute"
+msgstr "Fehler beim Setzen des Attributs"
+
+#: ../add_value.php:111 ../delete.php:87 ../delete.php:97 ../delete.php:106
+#: ../delete_value.php:98 ../move.php:108 ../utils.php:164
+msgid "Return to the Address Book"
+msgstr "Kehren Sie zum Adressbuch zurück"
+
+#: ../add_value.php:118 ../delete_value.php:108 ../update.php:365
+msgid "You do not have permission to change this record"
+msgstr "Sie sind nicht berechtigt, diesen Datensatz zu ändern"
+
+#: ../add_value.php:141
+msgid "You are currently viewing the top level of the Address Book"
+msgstr "Sie sehen sich gerade die oberste Ebene des Adressbuchs an"
+
+#: ../add_value.php:143
+msgid "You are currently viewing the root of the directory"
+msgstr "Sie sehen sich gerade den Stamm des Verzeichnisses an"
+
+#: ../add_value.php:147
+#, php-format
+msgid "You are currently viewing the folder '%s'"
+msgstr "Sie sehen gerade den Ordner '%s'"
+
+#: ../add_value.php:151
+#, php-format
+msgid "Select an object to assign to the '%s' attribute of '%s':"
+msgstr ""
+"Wählen Sie ein Objekt aus, das dem Attribut '%s' von '%s' zugewiesen werden "
+"soll:"
+
+#: ../add_value.php:183
+msgid "Go up a level to the top level of the Address Book"
+msgstr "Gehen Sie eine Ebene auf die oberste Ebene des Adressbuchs"
+
+#: ../add_value.php:185
+msgid "Go up a level to the root of the directory"
+msgstr "Gehen Sie eine Ebene zum Stammverzeichnis des Verzeichnisses hoch"
+
+#: ../add_value.php:187
+#, php-format
+msgid "Go up a level to the '%s' folder"
+msgstr "Gehen Sie eine Stufe in den Ordner '%s'"
+
+#: ../add_value.php:208
+#, php-format
+msgid "Enter a new value to add to the '%s' attribute of '%s':"
+msgstr ""
+"Geben Sie einen neuen Wert ein, der dem '%s' Attribut von '%s' hinzugefügt "
+"werden soll:"
+
+#: ../add_value.php:225
+msgid "Add value"
+msgstr "Mehrwert"
+
+#: ../add_value.php:229 ../utils.php:1248
+msgid "Unsupported data type:"
+msgstr "Nicht unterstützter Datentyp:"
+
+#: ../add_value.php:235 ../move.php:96 ../utils.php:757
+msgid "Cancel"
+msgstr "Stornieren"
+
+#: ../config.php:26 ../utils.php:37 ../utils.php:194 ../utils.php:199
+#: ../utils.php:200
+msgid "Address Book"
+msgstr "Adressbuch"
+
+#: ../config.php:42
+msgid "User Guide"
+msgstr "Benutzerhandbuch"
+
+#: ../config.php:44
+msgid "Get Source Code"
+msgstr "Holen Sie sich den Quellcode"
+
+#: ../create.php:32 ../update.php:165
+msgid "You do not have permission to create new records."
+msgstr "Sie sind nicht berechtigt, neue Datensätze zu erstellen."
+
+#: ../create.php:71 ../index.php:354
+msgid "New Record"
+msgstr "Neuer Eintrag"
+
+#: ../create.php:79
+msgid "What type of record would you like to create?"
+msgstr "Welchen Datensatz möchten Sie erstellen?"
+
+#: ../create.php:119
+msgid ""
+"This list contains all object classes that are recognised by the Address "
+"Book."
+msgstr ""
+"Diese Liste enthält alle Objektklassen, die vom Adressbuch erkannt werden."
+
+#: ../create.php:123
+msgid ""
+"This list contains only those object classes that end users are allowed to "
+"create."
+msgstr ""
+"Diese Liste enthält nur die Objektklassen, die Endbenutzer erstellen dürfen."
+
+#: ../create.php:126
+msgid "Choose from all recognised object classes"
+msgstr "Wählen Sie aus allen erkannten Objektklassen"
+
+#: ../create.php:128 ../extend.php:150
+msgid "Next"
+msgstr "Nächster"
+
+#: ../delete.php:65
+msgid "Are you sure you want to delete this record?"
+msgstr "Möchten Sie diesen Datensatz wirklich löschen?"
+
+#: ../delete.php:68 ../utils.php:1856
+msgid "Yes"
+msgstr "Ja"
+
+#: ../delete.php:71 ../utils.php:1566 ../utils.php:1857
+msgid "No"
+msgstr "Nein"
+
+#: ../delete.php:84
+msgid "Unable to delete record"
+msgstr "Der Datensatz konnte nicht gelöscht werden"
+
+#: ../delete.php:95
+msgid "You do not have permission to delete this record"
+msgstr "Sie sind nicht berechtigt, diesen Datensatz zu löschen"
+
+#: ../delete.php:104 ../move.php:106
+msgid "Unable to locate LDAP record"
+msgstr "LDAP-Datensatz konnte nicht gefunden werden"
+
+#: ../delete_value.php:34
+msgid "Unable to delete an attribute value from this record"
+msgstr "Es konnte kein Attributwert aus diesem Datensatz gelöscht werden"
+
+#: ../delete_value.php:42
+msgid "The object to delete from is not valid"
+msgstr "Das Objekt, von dem gelöscht werden soll, ist nicht gültig"
+
+#: ../delete_value.php:45
+msgid "The record name was not specified"
+msgstr "Der Datensatzname wurde nicht angegeben"
+
+#: ../delete_value.php:51
+msgid "The attribute name was not specified."
+msgstr "Der Attributname wurde nicht angegeben."
+
+#: ../delete_value.php:57
+msgid "The attribute value was not specified."
+msgstr "Der Attributwert wurde nicht angegeben."
+
+#: ../delete_value.php:91
+#, php-format
+msgid "Error whilst deleting value from attribute '%s':  %s"
+msgstr "Fehler beim Löschen des Attributs '%s': %s"
+
+#: ../extend.php:32
+msgid "You do not have permission to add auxiliary classes to records."
+msgstr "Sie sind nicht berechtigt, Hilfsklassen zu Datensätzen hinzuzufügen."
+
+#: ../extend.php:90
+msgid "You can extend this record to hold additional information."
+msgstr ""
+"Sie können diesen Datensatz erweitern, um zusätzliche Informationen zu "
+"speichern."
+
+#: ../extend.php:91
+msgid "What type of information would you like to add?"
+msgstr "Welche Art von Informationen möchten Sie hinzufügen?"
+
+#: ../extend.php:143
+msgid ""
+"This list contains all auxiliary classes that are recognised by the Address "
+"Book."
+msgstr ""
+"Diese Liste enthält alle Hilfsklassen, die vom Adressbuch erkannt werden."
+
+#: ../extend.php:146
+msgid ""
+"This list contains only those auxiliary classes that end users are allowed "
+"to add."
+msgstr ""
+"Diese Liste enthält nur die zusätzlichen Klassen, die Endbenutzer hinzufügen "
+"dürfen."
+
+#: ../extend.php:148
+msgid "Choose from all recognised auxiliary classes"
+msgstr "Wählen Sie aus allen anerkannten Hilfsklassen"
+
+#: ../index.php:125
+msgid "You do not have permission to search the directory"
+msgstr "Sie sind nicht berechtigt, das Verzeichnis zu durchsuchen"
+
+#: ../index.php:138
+msgid "Please enter the text you want to look up in the Address Book."
+msgstr "Bitte geben Sie den Text ein, den Sie im Adressbuch suchen möchten."
+
+#: ../index.php:139 ../utils.php:3470
+msgid "You can search for text in any of the following fields:"
+msgstr "Sie können nach Text in einem der folgenden Felder suchen:"
+
+#: ../index.php:147 ../utils.php:3136
+msgid "Please log in to use the address book."
+msgstr "Bitte loggen Sie sich ein, um das Adressbuch zu verwenden."
+
+#: ../index.php:149
+msgid "You do not have permission to access the directory"
+msgstr "Sie sind nicht berechtigt, auf das Verzeichnis zuzugreifen"
+
+#: ../index.php:153
+msgid "You do not have permission to browse the directory"
+msgstr "Sie sind nicht berechtigt, das Verzeichnis zu durchsuchen"
+
+#: ../index.php:159
+msgid "OpenLDAP Server Configuration"
+msgstr "OpenLDAP Server Konfiguration"
+
+#: ../index.php:349
+msgid "Folder Details"
+msgstr "Ordnerdetails"
+
+#: ../index.php:359
+msgid "Export Records"
+msgstr "Datensätze Exportieren"
+
+#: ../info.php:143 ../info.php:146 ../update.php:361
+msgid "Unable to locate LDAP record."
+msgstr "LDAP-Datensatz konnte nicht gefunden werden."
+
+#: ../info.php:150
+msgid "Record being accessed:"
+msgstr "Datensatz, auf den zugegriffen wird:"
+
+#: ../info.php:152
+msgid ""
+"This record is outside the part of the directory which stores the address "
+"book. You do not have permission to display it."
+msgstr ""
+"Dieser Datensatz befindet sich außerhalb des Teils des Verzeichnisses, in "
+"dem das Adressbuch gespeichert ist. Sie sind nicht berechtigt, es anzuzeigen."
+
+#: ../info.php:155
+msgid "The address book is stored at:"
+msgstr "Das Adressbuch wird gespeichert unter:"
+
+#: ../lib/ldap_result.php:44
+msgid "Success"
+msgstr "Gelingen"
+
+#: ../lib/ldap_result.php:45
+msgid "Operations error"
+msgstr "Operationsfehler"
+
+#: ../lib/ldap_result.php:46
+msgid "Protocol error"
+msgstr "Protokollfehler"
+
+#: ../lib/ldap_result.php:47
+msgid "Time limit exceeded"
+msgstr "Zeitlimit überschritten"
+
+#: ../lib/ldap_result.php:48
+msgid "Size limit exceeded"
+msgstr "Größenlimit überschritten"
+
+#: ../lib/ldap_result.php:49
+msgid "Compare False"
+msgstr "Vergleiche Falsch"
+
+#: ../lib/ldap_result.php:50
+msgid "Compare True"
+msgstr "Vergleichen Wahr"
+
+#: ../lib/ldap_result.php:51
+msgid "Authentication method not supported"
+msgstr "Authentifizierungsmethode wird nicht unterstützt"
+
+#: ../lib/ldap_result.php:52
+msgid "Strong(er) authentication required"
+msgstr "Starke (oder stärkere) Authentifizierung erforderlich"
+
+#: ../lib/ldap_result.php:53
+msgid "Partial results and referral received"
+msgstr "Teilergebnisse und Überweisung erhalten"
+
+#: ../lib/ldap_result.php:54
+msgid "Referral"
+msgstr "Überweisung"
+
+#: ../lib/ldap_result.php:55
+msgid "Administrative limit exceeded"
+msgstr "Verwaltungsgrenze überschritten"
+
+#: ../lib/ldap_result.php:56
+msgid "Critical extension is unavailable"
+msgstr "Kritische Erweiterung ist nicht verfügbar"
+
+#: ../lib/ldap_result.php:57
+msgid "Confidentiality required"
+msgstr "Vertraulichkeit erforderlich"
+
+#: ../lib/ldap_result.php:58
+msgid "SASL bind in progress"
+msgstr "SASL-Bindung wird ausgeführt"
+
+#: ../lib/ldap_result.php:60
+msgid "No such attribute"
+msgstr "Kein solches Attribut"
+
+#: ../lib/ldap_result.php:61
+msgid "Undefined attribute type"
+msgstr "Nicht definierter Attributtyp"
+
+#: ../lib/ldap_result.php:62
+msgid "Inappropriate matching"
+msgstr "Unpassender Abgleich"
+
+#: ../lib/ldap_result.php:63
+msgid "Constraint violation"
+msgstr "Constraint-Verletzung"
+
+#: ../lib/ldap_result.php:64
+msgid "Type or value exists"
+msgstr "Typ oder Wert existiert"
+
+#: ../lib/ldap_result.php:65
+msgid "Invalid syntax"
+msgstr "Ungültiger Satzbau"
+
+#: ../lib/ldap_result.php:67
+msgid "No such object"
+msgstr "Kein solches Objekt"
+
+#: ../lib/ldap_result.php:68
+msgid "Alias problem"
+msgstr "Alias-Problem"
+
+#: ../lib/ldap_result.php:69
+msgid "Invalid DN syntax"
+msgstr "Ungültige DN-Satzbau"
+
+#: ../lib/ldap_result.php:70
+msgid "Entry is a leaf"
+msgstr "Eintrag ist ein Blatt"
+
+#: ../lib/ldap_result.php:71
+msgid "Alias dereferencing problem"
+msgstr "Alias-Dereferenzierungsproblem"
+
+#: ../lib/ldap_result.php:73
+msgid "Proxy Authorization Failure (X)"
+msgstr "Proxy-Autorisierungsfehler (X)"
+
+#: ../lib/ldap_result.php:74
+msgid "Inappropriate authentication"
+msgstr "Unangemessene Authentifizierung"
+
+#: ../lib/ldap_result.php:75
+msgid "Invalid credentials"
+msgstr "Ungültige Anmeldeinformationen"
+
+#: ../lib/ldap_result.php:76
+msgid "Insufficient access"
+msgstr "Unzureichender Zugang"
+
+#: ../lib/ldap_result.php:77
+msgid "Server is busy"
+msgstr "Server ist beschäftigt"
+
+#: ../lib/ldap_result.php:78
+msgid "Server is unavailable"
+msgstr "Server ist nicht verfügbar"
+
+#: ../lib/ldap_result.php:79
+msgid "Server is unwilling to perform"
+msgstr "Server ist nicht bereit zu arbeiten"
+
+#: ../lib/ldap_result.php:80
+msgid "Loop detected"
+msgstr "Schleife erkannt"
+
+#: ../lib/ldap_result.php:82
+msgid "Sort control is required with VLV"
+msgstr "Sortierkontrolle wird mit VLV benötigt"
+
+#: ../lib/ldap_result.php:83
+msgid "VLV index range error"
+msgstr "VLV-Indexbereichsfehler"
+
+#: ../lib/ldap_result.php:85
+msgid "Naming violation"
+msgstr "Namensverletzung"
+
+#: ../lib/ldap_result.php:86
+msgid "Object class violation"
+msgstr "Objektklassenverletzung"
+
+#: ../lib/ldap_result.php:87
+msgid "Operation not allowed on non-leaf"
+msgstr "Anwendung nicht erlaubt auf Nicht-Blatt"
+
+#: ../lib/ldap_result.php:88
+msgid "Operation not allowed on RDN"
+msgstr "Anwendung nicht erlaubt auf RDN"
+
+#: ../lib/ldap_result.php:89
+msgid "Already exists"
+msgstr "Ist bereits vorhanden"
+
+#: ../lib/ldap_result.php:90
+msgid "Cannot modify object class"
+msgstr "Objektklasse kann nicht geändert werden"
+
+#: ../lib/ldap_result.php:91
+msgid "Results too large"
+msgstr "Ergebnisse zu groß"
+
+#: ../lib/ldap_result.php:92
+msgid "Operation affects multiple DSAs"
+msgstr "Anwendung betrifft mehrere DSAs"
+
+#: ../lib/ldap_result.php:94
+msgid "Virtual List View error"
+msgstr "Fehler bei der virtuellen Listenansicht"
+
+#: ../lib/ldap_result.php:96
+msgid "Other (e.g., implementation specific) error"
+msgstr "Anderer (z. B. implementierungsspezifischer) Fehler"
+
+#: ../lib/ldap_result.php:97
+msgid "Can't contact LDAP server"
+msgstr "LDAP-Server kann nicht kontaktiert werden"
+
+#: ../lib/ldap_result.php:98
+msgid "Local error"
+msgstr "Lokaler Fehler"
+
+#: ../lib/ldap_result.php:99
+msgid "Encoding error"
+msgstr "Codierungsfehler"
+
+#: ../lib/ldap_result.php:100
+msgid "Decoding error"
+msgstr "Decodierungsfehler"
+
+#: ../lib/ldap_result.php:101
+msgid "Timed out"
+msgstr "Zeitüberschreitung"
+
+#: ../lib/ldap_result.php:102
+msgid "Unknown authentication method"
+msgstr "Unbekannte Authentifizierungsmethode"
+
+#: ../lib/ldap_result.php:103
+msgid "Bad search filter"
+msgstr "Schlechter Suchfilter"
+
+#: ../lib/ldap_result.php:104
+msgid "User cancelled operation"
+msgstr "Benutzer hat den Vorgang abgebrochen"
+
+#: ../lib/ldap_result.php:105
+msgid "Bad parameter to an LDAP routine"
+msgstr "Schlechter Parameter für eine LDAP-Routine"
+
+#: ../lib/ldap_result.php:106
+msgid "Out of memory"
+msgstr "Nicht genügend Speicher"
+
+#: ../lib/ldap_result.php:107
+msgid "Connect error"
+msgstr "Verbindungsfehler"
+
+#: ../lib/ldap_result.php:108
+msgid "Not Supported"
+msgstr "Nicht unterstützt"
+
+#: ../lib/ldap_result.php:109
+msgid "Control not found"
+msgstr "Kontrolle nicht gefunden"
+
+#: ../lib/ldap_result.php:110
+msgid "No results returned"
+msgstr "Keine Ergebnisse zurückgegeben"
+
+#: ../lib/ldap_result.php:111
+msgid "More results to return"
+msgstr "Weitere Ergebnisse, die zurückgegeben werden sollen"
+
+#: ../lib/ldap_result.php:112
+msgid "Client Loop"
+msgstr "Klient-Schleife"
+
+#: ../lib/ldap_result.php:113
+msgid "Referral Limit Exceeded"
+msgstr "Überweisungsgrenze überschritten"
+
+#: ../lib/ldap_result.php:115
+msgid "LCUP Resources Exhausted"
+msgstr "LCUP Ressourcen Erschöpft"
+
+#: ../lib/ldap_result.php:116
+msgid "LCUP Security Violation"
+msgstr "LCUP Sicherheitsverletzung"
+
+#: ../lib/ldap_result.php:117
+msgid "LCUP Invalid Data"
+msgstr "LCUP ungültige Daten"
+
+#: ../lib/ldap_result.php:118
+msgid "LCUP Unsupported Scheme"
+msgstr "LCUP Nicht unterstütztes Schema"
+
+#: ../lib/ldap_result.php:119
+msgid "LCUP Reload Required"
+msgstr "LCUP Neuladen erforderlich"
+
+#: ../lib/ldap_result.php:120
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+#: ../lib/ldap_result.php:121
+msgid "No Operation to Cancel"
+msgstr "Keine Operation zum Abbrechen"
+
+#: ../lib/ldap_result.php:122
+msgid "Too Late to Cancel"
+msgstr "Zu spät zum Abbrechen"
+
+#: ../lib/ldap_result.php:123
+msgid "Cannot Cancel"
+msgstr "Kann nicht abgebrochen werden"
+
+#: ../lib/ldap_result.php:124
+msgid "Assertion Failed"
+msgstr "Assertion fehlgeschlagen"
+
+#: ../lib/ldap_result.php:125
+msgid "Proxied Authorization Denied"
+msgstr "Vertretung-Autorisierung verweigert"
+
+#: ../lib/ldap_result.php:129
+msgid "Content Sync Refresh Required"
+msgstr "Aktualisierung der Inhaltssynchronisierung erforderlich"
+
+#: ../lib/ldap_result.php:132
+msgid "Content Sync Refresh Required (X)"
+msgstr "Aktualisierung der Inhaltssynchronisierung erforderlich (X)"
+
+#: ../lib/ldap_result.php:133
+msgid "No Operation (X)"
+msgstr "Keine Operation (X)"
+
+#: ../lib/ldap_result.php:134
+msgid "Assertion Failed (X)"
+msgstr "Assertion fehlgeschlagen (X)"
+
+#: ../lib/ldap_result.php:135
+msgid "Could not produce a referral (X)"
+msgstr "Konnte keine Empfehlung erstellen (X)"
+
+#: ../lib/ldap_result.php:136
+msgid "Unable to chain the request (X)"
+msgstr "Die Anforderung konnte nicht verkettet werden (X)"
+
+#: ../lib/ldap_result.php:137
+msgid "Invalid Reference (X)"
+msgstr "Ungültige Referenz (X)"
+
+#: ../lib/ldap_result.php:138
+msgid "TXN specify okay (X)"
+msgstr "TXN spezifiziert OK (X)"
+
+#: ../lib/ldap_result.php:139
+msgid "TXN ID is invalid (X)"
+msgstr "TXN-ID ist ungültig (X)"
+
+#: ../move.php:37
+msgid "You do not have permission to move this record"
+msgstr "Sie sind nicht berechtigt, diesen Datensatz zu verschieben"
+
+#: ../move.php:57 ../move.php:61
+msgid "Unable to move record"
+msgstr "Datensatz konnte nicht verschoben werden"
+
+#: ../move.php:70
+msgid "Where do you want to move this record to?"
+msgstr "Wohin möchtest du diesen Datensatz verschieben?"
+
+#: ../move.php:86
+msgid "New Location"
+msgstr "Neuen Ort"
+
+#: ../move.php:92
+msgid "Move Record"
+msgstr "Datensatz verschieben"
+
+#: ../update.php:119 ../update.php:211
+#, php-format
+msgid "Set attribute '%s' to '%s' %s(required attribute)%s"
+msgstr "Setzen Sie das Attribut '%s' auf '%s' %s(erforderliches Attribut)%s"
+
+#: ../update.php:135
+msgid "and"
+msgstr "und"
+
+#: ../update.php:147
+#, php-format
+msgid "Added auxiliary class %s to the record"
+msgid_plural "Added auxiliary classes %s to the record"
+msgstr[0] "Hilfsklasse %s zum Datensatz hinzugefügt"
+msgstr[1] "Hilfsklassen %s zum Datensatz hinzugefügt"
+
+#: ../update.php:156
+#, php-format
+msgid "Unable to add auxiliary class %s:"
+msgid_plural "Unable to add auxiliary classes %s:"
+msgstr[0] "Kann Hilfsklasse %s nicht hinzufügen:"
+msgstr[1] "Hinzufügen von Zusatzklassen %s nicht möglich:"
+
+#: ../update.php:171
+msgid "Unable to create - A record already exists with this name."
+msgstr ""
+"Erstellen nicht möglich - Ein Datensatz existiert bereits mit diesem Namen."
+
+#: ../update.php:234
+#, php-format
+msgid "New '%s' record created: '%s'"
+msgstr "Neuer '%s'-Datensatz erstellt: '%s'"
+
+#: ../update.php:245
+msgid "Unable to create LDAP record: "
+msgstr "LDAP-Datensatz konnte nicht erstellt werden: "
+
+#: ../update.php:252
+msgid "Unable to create this type of object."
+msgstr "Dieser Objekttyp kann nicht erstellt werden."
+
+#: ../update.php:348
+msgid "No changes were made to this record"
+msgstr "An dieser Aufzeichnung wurden keine Änderungen vorgenommen"
+
+#: ../update.php:350
+msgid "Changes made to this record:"
+msgstr "Änderungen an diesem Datensatz:"
+
+#: ../update.php:357
+msgid "Back to record"
+msgstr "Zurück zur Aufzeichnung"
+
+#: ../user.php:35
+msgid "You must enter a valid login and password"
+msgstr ""
+"Sie müssen einen gültigen Benutzernamen und ein gültiges Passwort eingeben"
+
+#: ../user.php:63
+msgid "The user name/password you entered is not valid"
+msgstr ""
+"Der eingegebene Benutzername / das eingegebene Passwort ist nicht gültig"
+
+#: ../user.php:67
+msgid "You must enter a user name/password to log in"
+msgstr ""
+"Sie müssen einen Benutzernamen / ein Passwort eingeben, um sich einzuloggen"
+
+#: ../user.php:90
+msgid "Try again"
+msgstr "Versuch es noch einmal"
+
+#: ../utils.php:110
+#, php-format
+msgid ""
+"This Address Book uses Free and Open Source Software, licensed under the "
+"terms of the %sGNU Affero GPL version 3%s"
+msgstr ""
+"Dieses Adressbuch verwendet freie und Open-Source-Software, lizenziert unter "
+"den Bedingungen der %sGNU Affero GPL version 3%s"
+
+#: ../utils.php:141
+msgid "Search for:"
+msgstr "Suchen nach:"
+
+#: ../utils.php:146
+msgid "Search"
+msgstr "Suchen"
+
+#: ../utils.php:321
+msgid "Address Book Entry"
+msgstr "Adressbucheintrag"
+
+#: ../utils.php:326
+msgid "Unreadable Folder"
+msgstr "Unlesbarer Ordner"
+
+#: ../utils.php:411
+msgid "Server Info"
+msgstr "Serverinformation"
+
+#: ../utils.php:430
+msgid "Log out"
+msgstr "Ausloggen"
+
+#: ../utils.php:432
+msgid "Log in"
+msgstr "Einloggen"
+
+#: ../utils.php:680
+#, php-format
+msgid "New %s"
+msgstr "Neue %s"
+
+#: ../utils.php:730
+msgid "This record is a folder that can contain other objects."
+msgstr "Dieser Datensatz ist ein Ordner, der andere Objekte enthalten kann."
+
+#: ../utils.php:737
+msgid "Show Contents"
+msgstr "Inhalt Anzeigen"
+
+#: ../utils.php:748
+msgid "Create record"
+msgstr "Datensatz erstellen"
+
+#: ../utils.php:751
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: ../utils.php:770
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ../utils.php:777
+msgid "Move"
+msgstr "Bewegen"
+
+#: ../utils.php:783 ../utils.php:3676
+msgid "Delete"
+msgstr "Löschen"
+
+#: ../utils.php:789
+msgid "Extend Record"
+msgstr "Eintrag Erweitern"
+
+#: ../utils.php:795
+msgid "Save as vCard"
+msgstr "Als vCard Speichern"
+
+#: ../utils.php:798
+msgid "You do not have permission to view this record"
+msgstr "Sie sind nicht berechtigt, diesen Datensatz anzuzeigen"
+
+#: ../utils.php:1129 ../utils.php:2797
+#, php-format
+msgid "for '%s'"
+msgstr "für '%s'"
+
+#: ../utils.php:1133 ../utils.php:2805
+#, php-format
+msgid "at '%s'"
+msgstr "bei '%s'"
+
+#: ../utils.php:1137 ../utils.php:2811
+#, php-format
+msgid "from '%s'"
+msgstr "von '%s'"
+
+#: ../utils.php:1301
+msgid "Security group"
+msgstr "Sicherheitsgruppe"
+
+#: ../utils.php:1301
+msgid "Distribution group"
+msgstr "Verteilergruppe"
+
+#: ../utils.php:1302
+msgid "System generated"
+msgstr "System generiert"
+
+#: ../utils.php:1305
+msgid "Windows Authorization Manager APP_BASIC group"
+msgstr "Gruppe für Windows Authorization Manager APP_BASIC"
+
+#: ../utils.php:1306
+msgid "Windows Authorization Manager APP_QUERY group"
+msgstr "Gruppe für Windows Authorization Manager APP_QUERY"
+
+#: ../utils.php:1307
+msgid "Global scope"
+msgstr "Globaler Umfang"
+
+#: ../utils.php:1308
+msgid "Domain local scope"
+msgstr "Domäne Lokale Umfang"
+
+#: ../utils.php:1309
+msgid "Universal scope"
+msgstr "Allumfassend Umfang"
+
+#: ../utils.php:1329
+msgid "not specified"
+msgstr "Keine Angabe"
+
+#: ../utils.php:1330
+msgid "DES-CBC-CRC"
+msgstr "DES-CBC-CRC"
+
+#: ../utils.php:1331
+msgid "DES-CBC-MD5"
+msgstr "DES-CBC-MD5"
+
+#: ../utils.php:1332
+msgid "RC4-HMAC"
+msgstr "RC4-HMAC"
+
+#: ../utils.php:1333
+msgid "AES128-CTS-HMAC-SHA1-96"
+msgstr "AES128-CTS-HMAC-SHA1-96"
+
+#: ../utils.php:1334
+msgid "AES256-CTS-HMAC-SHA1-96"
+msgstr "AES256-CTS-HMAC-SHA1-96"
+
+#: ../utils.php:1336
+msgid "Kerberos Flexible Authentication Secure Tunneling (FAST)"
+msgstr "Kerberos Flexibel Authentifizierung Sicheres Tunnelbau (FAST)"
+
+#: ../utils.php:1337
+msgid "Compound Identity"
+msgstr "Zusammengesetzte Identität"
+
+#: ../utils.php:1338
+msgid "Claims"
+msgstr "Ansprüche"
+
+#: ../utils.php:1339
+msgid "Resource SID Compression Disabled"
+msgstr "Komprimierung der Ressourcen-SID ist Deaktiviert"
+
+#: ../utils.php:1359
+msgid "Non-transitive"
+msgstr "Nicht-transitiv"
+
+#: ../utils.php:1359
+msgid "Transitive"
+msgstr "Transitiv"
+
+#: ../utils.php:1362
+msgid "Clients must be Windows 2000 or later"
+msgstr "Clients müssen Windows 2000 oder höher sein"
+
+#: ../utils.php:1363
+msgid "Quarantined domain"
+msgstr "Isolierte Domäne"
+
+#: ../utils.php:1364
+msgid "Cross-forest"
+msgstr "Waldübergreifend"
+
+#: ../utils.php:1365
+msgid "Cross-organization"
+msgstr "Unternehmen übergreifend"
+
+#: ../utils.php:1366
+msgid "Within same forest"
+msgstr "In demselben Wald"
+
+#: ../utils.php:1367
+msgid "Treat as external trust for SID filtering"
+msgstr "Behandle als externe Vertrauensstellung für die SID-Filterung"
+
+#: ../utils.php:1368
+msgid "MIT Kerberos with RC4 encryption"
+msgstr "MIT Kerberos mit RC4-Verschlüsselung"
+
+#: ../utils.php:1369
+msgid "Kerberos tickets not trusted for delegation"
+msgstr "Kerberos-Tickets sind für die Delegierung nicht vertrauenswürdig"
+
+#: ../utils.php:1370
+msgid "Treat as Privileged Identity Management trust for SID filtering"
+msgstr ""
+"Behandeln Sie als Privileged Identity Management-Vertrauensstellung für die "
+"SID-Filterung"
+
+#: ../utils.php:1393 ../utils.php:1480
+msgid "Any"
+msgstr "Ein"
+
+#: ../utils.php:1394
+msgid "Message Handling System (e.g. E-mail)"
+msgstr "Nachrichtenverarbeitungssystem (z.B. E-Mail)"
+
+#: ../utils.php:1395
+msgid "Physical"
+msgstr "Physisch"
+
+#: ../utils.php:1396
+msgid "Telex"
+msgstr "Telex"
+
+#: ../utils.php:1397
+msgid "Teletex"
+msgstr "Teletex"
+
+#: ../utils.php:1398
+msgid "G3 Fax"
+msgstr "G3 Fax"
+
+#: ../utils.php:1399
+msgid "G4 Fax"
+msgstr "G4 Fax"
+
+#: ../utils.php:1400
+msgid "IA5"
+msgstr "IA5"
+
+#: ../utils.php:1401
+msgid "Videotex"
+msgstr "Videotext"
+
+#: ../utils.php:1402
+msgid "Telephone"
+msgstr "Telefon"
+
+#: ../utils.php:1422
+msgid "Plain Text"
+msgstr "Einfacher Text"
+
+#: ../utils.php:1423
+msgid "HTML"
+msgstr "HTML"
+
+#: ../utils.php:1440 ../utils.php:1626 ../utils.php:1663
+msgid "Disabled"
+msgstr "Behindert"
+
+#: ../utils.php:1441
+msgid "One-Way: Incoming"
+msgstr "Einweg: Ankommend"
+
+#: ../utils.php:1442
+msgid "One-Way: Outgoing"
+msgstr "Einweg: Ausgang"
+
+#: ../utils.php:1443
+msgid "Two-Way"
+msgstr "Zwei-Wege"
+
+#: ../utils.php:1460
+msgid "Windows NT Domain"
+msgstr "Windows NT-Domäne"
+
+#: ../utils.php:1461
+msgid "Active Directory Domain"
+msgstr "Active Directory-Domäne"
+
+#: ../utils.php:1462
+msgid "MIT Kerberos Realm"
+msgstr "MIT Kerberos-Reich"
+
+#: ../utils.php:1463
+msgid "DCE Realm"
+msgstr "DCE-Bereich"
+
+#: ../utils.php:1481
+msgid "SSL 2.0"
+msgstr "SSL 2.0"
+
+#: ../utils.php:1482
+msgid "SSL 3.0"
+msgstr "SSL 3.0"
+
+#: ../utils.php:1483
+msgid "TLS 1.0"
+msgstr "TLS 1.0"
+
+#: ../utils.php:1484
+msgid "TLS 1.1"
+msgstr "TLS 1.1"
+
+#: ../utils.php:1485
+msgid "TLS 1.2"
+msgstr "TLS 1.2"
+
+#: ../utils.php:1502
+msgid "None"
+msgstr "Keiner"
+
+#: ../utils.php:1503
+msgid "For peer certificates only"
+msgstr "Nur für Peer-Zertifikate"
+
+#: ../utils.php:1504
+msgid "For entire certificate chain"
+msgstr "Für die gesamte Zertifikatskette"
+
+#: ../utils.php:1523
+msgid "Don't request client certificate"
+msgstr "Client-Zertifikat nicht anfordern"
+
+#: ../utils.php:1524
+msgid ""
+"Request client certificate, but allow connection if invalid or not provided"
+msgstr ""
+"Fordern Sie das Client-Zertifikat an, lassen Sie die Verbindung jedoch zu, "
+"wenn sie ungültig oder nicht angegeben ist"
+
+#: ../utils.php:1525
+msgid "Reject invalid client certificate, allow connection if not provided"
+msgstr ""
+"Ungültiges Client-Zertifikat ablehnen, Verbindung zulassen, falls nicht "
+"angegeben"
+
+#: ../utils.php:1526
+msgid "Require valid client certificate"
+msgstr "Erfordert ein gültiges Client-Zertifikat"
+
+#: ../utils.php:1545
+msgid "Disable proxy authorization"
+msgstr "Deaktivieren Sie die Proxy-Autorisierung"
+
+#: ../utils.php:1546
+msgid "Local user must match an authorizaton (authzFrom) rule"
+msgstr ""
+"Lokale Benutzer muss mit einer Autorisierungsregel (authzFrom) übereinstimmen"
+
+#: ../utils.php:1547
+msgid "Remote user must match an authorization (authzTo) rule"
+msgstr ""
+"Entfernter Benutzer muss mit einer Autorisierungsregel (authzTo) "
+"übereinstimmen"
+
+#: ../utils.php:1548
+msgid "Either the local or remote user must match an authorization rule"
+msgstr ""
+"Entweder der lokale oder der ferne Benutzer muss mit einer "
+"Autorisierungsregel übereinstimmen"
+
+#: ../utils.php:1549
+msgid "Both the local and remote user must match authorization rules"
+msgstr ""
+"Sowohl der lokale Benutzer als auch der Remotebenutzer müssen den "
+"Autorisierungsregeln entsprechen"
+
+#: ../utils.php:1567
+msgid "Yes (Don't list this database in the Root DSE Object)"
+msgstr "Ja (Listen Sie diese Datenbank nicht im Root-DSE-Objekt auf)"
+
+#: ../utils.php:1568
+msgid "Yes (List this database in the Root DSE Object)"
+msgstr "Ja (Listen Sie diese Datenbank im Root-DSE-Objekt auf)"
+
+#: ../utils.php:1589
+msgid "Local Server Nesting"
+msgstr "Lokale Serververschachtelung"
+
+#: ../utils.php:1590
+msgid "No Nesting"
+msgstr "Keine Verschachtelung"
+
+#: ../utils.php:1601
+msgid "Leave the dangling reference in place (ignore)"
+msgstr "Lassen Sie die hängende Referenz an Ort und Stelle (ignorieren)"
+
+#: ../utils.php:1602
+msgid "Remove the dangling reference (drop)"
+msgstr "Entfernen Sie die freie Referenz (verwerfen)"
+
+#: ../utils.php:1603
+msgid "Generate an LDAP error"
+msgstr "Generiere einen LDAP Fehler"
+
+#: ../utils.php:1614
+msgid "Before Other Overlay Response Callbacks"
+msgstr "Vor anderen Überlagerung-Antwort-Zurückrufen"
+
+#: ../utils.php:1615
+msgid "After Other Overlay Response Callbacks"
+msgstr "Nach anderen Überlagerung-Antwort-Zurückrufen"
+
+#: ../utils.php:1627
+msgid "Check password quality if possible, otherwise accept"
+msgstr ""
+"Überprüfen Sie die Passwortqualität wenn möglich, ansonsten akzeptieren Sie"
+
+#: ../utils.php:1628
+msgid "New passwords must pass quality check"
+msgstr "Neue Passwörter müssen die Qualitätsprüfung bestehen"
+
+#: ../utils.php:1639
+msgid "Local"
+msgstr "Lokal"
+
+#: ../utils.php:1640
+msgid "Domain"
+msgstr "Domäne"
+
+#: ../utils.php:1651
+msgid "PC"
+msgstr "PC"
+
+#: ../utils.php:1652
+msgid "LM_NT_12"
+msgstr "LM_NT_12"
+
+#: ../utils.php:1664
+msgid "Optional"
+msgstr "Wahlweise"
+
+#: ../utils.php:1665
+msgid "Mandatory"
+msgstr "Verpflichtend"
+
+#: ../utils.php:1745 ../utils.php:1953 ../utils.php:2193 ../utils.php:2229
+#: ../utils.php:2528 ../utils.php:2726 ../utils.php:2855 ../utils.php:2858
+msgid "none"
+msgstr "keiner"
+
+#: ../utils.php:1781
+msgid "LDAP v1"
+msgstr "LDAP v1"
+
+#: ../utils.php:1782
+msgid "LDAP v2"
+msgstr "LDAP v2"
+
+#: ../utils.php:1783
+msgid "LDAP v3"
+msgstr "LDAP v3"
+
+#: ../utils.php:1784 ../utils.php:1952
+msgid "Unrecognised value:"
+msgstr "Unbekannter Wert:"
+
+#: ../utils.php:1802
+msgid "Base Object Only"
+msgstr "Nur Basisobjekt"
+
+#: ../utils.php:1803
+msgid "Single Level"
+msgstr "Einstufig"
+
+#: ../utils.php:1804
+msgid "Whole Subtree"
+msgstr "Ganzer Teilbaum"
+
+#: ../utils.php:1805
+msgid "Subordinate Subtree"
+msgstr "Untergeordnete Unterstruktur"
+
+#: ../utils.php:1816
+msgid "Never dereference aliases"
+msgstr "Aliase niemals dereferenzieren"
+
+#: ../utils.php:1817
+msgid "Dereference aliases when searching"
+msgstr "Dereferenzierung von Aliasen bei der Suche"
+
+#: ../utils.php:1818
+msgid "Dereference aliases to find the base object for the search"
+msgstr "Aliase ableiten, um das Basisobjekt für die Suche zu finden"
+
+#: ../utils.php:1819
+msgid "Always dereference aliases"
+msgstr "Aliasnamen immer dereferenzieren"
+
+#: ../utils.php:1842 ../utils.php:1897
+msgid "Not known"
+msgstr "Nicht bekannt"
+
+#: ../utils.php:1843
+msgid "Don't include in mailing lists"
+msgstr "Nicht in Mailinglisten aufnehmen"
+
+#: ../utils.php:1844
+msgid "Include in any mailing lists"
+msgstr "In jede Mailingliste aufnehmen"
+
+#: ../utils.php:1845
+msgid "Include in professional mailing lists only"
+msgstr "Nur in professionelle Mailinglisten aufnehmen"
+
+#: ../utils.php:1873
+msgid "Windows 2000"
+msgstr "Windows 2000"
+
+#: ../utils.php:1874
+msgid "Windows Server 2003 Interrim"
+msgstr "Windows Server 2003 Interrim"
+
+#: ../utils.php:1875
+msgid "Windows Server 2003"
+msgstr "Windows Server 2003"
+
+#: ../utils.php:1876
+msgid "Windows Server 2008"
+msgstr "Windows Server 2008"
+
+#: ../utils.php:1877
+msgid "Windows Server 2008 R2"
+msgstr "Windows Server 2008 R2"
+
+#: ../utils.php:1878
+msgid "Windows Server 2012"
+msgstr "Windows Server 2012"
+
+#: ../utils.php:1879
+msgid "Windows Server 2012 R2"
+msgstr "Windows Server 2012 R2"
+
+#: ../utils.php:1880
+msgid "Windows Server 2016"
+msgstr "Windows Server 2016"
+
+#: ../utils.php:1898
+msgid "Male"
+msgstr "Männlich"
+
+#: ../utils.php:1899
+msgid "Female"
+msgstr "Weiblich"
+
+#: ../utils.php:1900
+msgid "Not specified"
+msgstr "Keine Angabe"
+
+#: ../utils.php:1932
+msgid "blank"
+msgstr "leer"
+
+#: ../utils.php:2117 ../utils.php:2167 ../utils.php:2722
+msgid "Remove"
+msgstr "Löschen"
+
+#: ../utils.php:2198
+msgid "Macro Name"
+msgstr "Name des Makros"
+
+#: ../utils.php:2200
+msgid "Definition"
+msgstr "Definition"
+
+#: ../utils.php:2268
+msgid "Object Definition"
+msgstr "Objektdefinition"
+
+#: ../utils.php:2273
+msgid "Attribute Definition"
+msgstr "Attributdefinition"
+
+#: ../utils.php:2278
+msgid "Schema Definition"
+msgstr "Definition des Schemas"
+
+#: ../utils.php:2290
+msgid "abstract class"
+msgstr "abstrakte Klasse"
+
+#: ../utils.php:2293
+msgid "auxiliary class"
+msgstr "Hilfsklasse"
+
+#: ../utils.php:2296
+msgid "single valued attribute"
+msgstr "einwertiges Attribut"
+
+#: ../utils.php:2301
+msgid "no user modification"
+msgstr "keine Benutzeränderung"
+
+#: ../utils.php:2307
+msgid "obsolete definition"
+msgstr "veraltete Definition"
+
+#: ../utils.php:2313
+msgid "system only"
+msgstr "nur System"
+
+#: ../utils.php:2319
+msgid "indexed"
+msgstr "indexiert"
+
+#: ../utils.php:2325
+msgid "also named"
+msgstr "auch benannt"
+
+#: ../utils.php:2341
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ../utils.php:2343
+msgid "Subclass Of"
+msgstr "Unterklasse von"
+
+#: ../utils.php:2345
+msgid "OID"
+msgstr "OID"
+
+#: ../utils.php:2349
+msgid "Required Attributes"
+msgstr "Erforderliche Attribute"
+
+#: ../utils.php:2351
+msgid "Optional Attributes"
+msgstr "Optionale Attribute"
+
+#: ../utils.php:2358
+msgid "Disallowed Attributes"
+msgstr "Nicht erlaubte Attribute"
+
+#: ../utils.php:2360
+msgid "Permitted Auxiliary Classes"
+msgstr "Erlaubte Hilfsklassen"
+
+#: ../utils.php:2364
+msgid "Syntax"
+msgstr "Syntax"
+
+#: ../utils.php:2366
+msgid "Equality Matching"
+msgstr "Gleichheitsabgleich"
+
+#: ../utils.php:2368
+msgid "Substring Matching"
+msgstr "Passende Teilstrings"
+
+#: ../utils.php:2370
+msgid "Usage"
+msgstr "Verwendung"
+
+#: ../utils.php:2373
+msgid "Applies To"
+msgstr "Gilt für"
+
+#: ../utils.php:2386
+msgid "Ordering Rule"
+msgstr "Bestellregel"
+
+#: ../utils.php:2388
+msgid "Not Human Readable"
+msgstr "Nicht vom Menschen Lesbar"
+
+#: ../utils.php:2390
+msgid "Binary Transfer Required"
+msgstr "Binärübertragung Erforderlich"
+
+#: ../utils.php:2407
+msgid "Legacy NDS Name"
+msgstr "Alter Name für NDS"
+
+#: ../utils.php:2410 ../utils.php:2412
+msgid "Non-Removable"
+msgstr "Nicht entfernbar"
+
+#: ../utils.php:2415
+msgid "ACL Templates"
+msgstr "ACL-Vorlagen"
+
+#: ../utils.php:2417 ../utils.php:2492
+msgid "Naming Attributes"
+msgstr "Namensattribute"
+
+#: ../utils.php:2419
+msgid "Can be Contained In"
+msgstr "Kann enthalten sein in"
+
+#: ../utils.php:2421
+msgid "Not a Container"
+msgstr "Kein Container"
+
+#: ../utils.php:2423 ../utils.php:2458
+msgid "Lower Bound"
+msgstr "Untergrenze"
+
+#: ../utils.php:2425 ../utils.php:2460
+msgid "Upper Bound"
+msgstr "Obere Grenze"
+
+#: ../utils.php:2427
+msgid "Readable by Public"
+msgstr "Von Volk Lesbar"
+
+#: ../utils.php:2429
+msgid "Readable by Server Objects"
+msgstr "Von Serverobjekten Lesbar"
+
+#: ../utils.php:2431
+msgid "Name Value Access (Write Managed)"
+msgstr "Name Wert Zugriff (Schreiben Sie verwaltet)"
+
+#: ../utils.php:2433
+msgid "Name Value Access (Both Managed)"
+msgstr "Name Wert Zugriff (Beide verwaltet)"
+
+#: ../utils.php:2435
+msgid "Never Synchronise to Replicas"
+msgstr "Synchronisieren Sie niemals mit Replikaten"
+
+#: ../utils.php:2437
+msgid "Don't Schedule Synchronisation when Updated"
+msgstr "Planen Sie keine Synchronisierung bei Aktualisierung"
+
+#: ../utils.php:2439
+msgid "Don't Immediately Synchronise to Replicas"
+msgstr "Synchronisieren Sie nicht sofort mit Replikaten"
+
+#: ../utils.php:2441
+msgid "Encrypt when Synchronising to Replicas"
+msgstr "Verschlüsseln beim Synchronisieren mit Replikaten"
+
+#: ../utils.php:2443
+msgid "Required on Filtered Replicas"
+msgstr "Erforderlich für gefilterte Replikate"
+
+#: ../utils.php:2445
+msgid "Required for External References on Filtered Replicas"
+msgstr "Erforderlich für externe Referenzen für gefilterte Replikate"
+
+#: ../utils.php:2447
+msgid "Hidden from User Operations"
+msgstr "Aus Benutzeroperationen ausgeblendet"
+
+#: ../utils.php:2449
+msgid "Legacy NDS Syntax"
+msgstr "Alte Syntax für NDS"
+
+#: ../utils.php:2451
+msgid "Read Filtered"
+msgstr "Gelesen lesen"
+
+#: ../utils.php:2456
+msgid "Object Class GUID"
+msgstr "Objektklassen-GUID"
+
+#: ../utils.php:2462
+msgid "Attribute Class GUID"
+msgstr "Attributklassen-GUID"
+
+#: ../utils.php:2464
+msgid "Property Set GUID"
+msgstr "Eigenschaftensatz-GUID"
+
+#: ../utils.php:2480
+msgid "Address Book schema settings:"
+msgstr "Adressbuchschemaeinstellungen:"
+
+#: ../utils.php:2483
+msgid "Localised Display Name"
+msgstr "Lokalisierter Anzeigename"
+
+#: ../utils.php:2485
+msgid "Class Aliases"
+msgstr "Klasse Aliase"
+
+#: ../utils.php:2488
+msgid "Display as a Folder"
+msgstr "Anzeige als Ordner"
+
+#: ../utils.php:2497
+msgid "Users Can Create"
+msgstr "Benutzer Können Erstellen"
+
+#: ../utils.php:2499
+msgid "Create Method"
+msgstr "Methode Erstellen"
+
+#: ../utils.php:2501
+msgid "Other Required Attributes"
+msgstr "Andere Erforderliche Attribute"
+
+#: ../utils.php:2503
+msgid "Can Create Within"
+msgstr "Kann Innerhalb Erstellen"
+
+#: ../utils.php:2505
+msgid "Can Contain"
+msgstr "Kann Enthalten"
+
+#: ../utils.php:2507
+msgid "Parent Class"
+msgstr "Elternklasse"
+
+#: ../utils.php:2509
+msgid "Child Classes"
+msgstr "Kind Klassen"
+
+#: ../utils.php:2511
+msgid "Icon"
+msgstr "Ikon"
+
+#: ../utils.php:2515
+msgid "Data Type Handler"
+msgstr "Datentypmanager"
+
+#: ../utils.php:2636
+msgid "Change"
+msgstr "Veränderung"
+
+#: ../utils.php:2636 ../utils.php:2638 ../utils.php:2864
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: ../utils.php:2817
+#, php-format
+msgid "loading from '%s'"
+msgstr "laden von '%s'"
+
+#: ../utils.php:2986
+msgid "View map"
+msgstr "Ansichts Karte"
+
+#: ../utils.php:3021
+msgid "Clear Image"
+msgstr "Klares Bild"
+
+#: ../utils.php:3055 ../utils.php:3070
+msgid "Download"
+msgstr "Herunterladen"
+
+#: ../utils.php:3057
+#, php-format
+msgid "Download Item %s"
+msgstr "Herunterladen Stück 5"
+
+#: ../utils.php:3130
+msgid "You do not have permission to log in to the address book directory."
+msgstr "Sie sind nicht berechtigt, sich im Adressbuchverzeichnis anzumelden."
+
+#: ../utils.php:3133
+msgid "Log in as a different user"
+msgstr "Melden Sie sich als anderer Benutzer an"
+
+#: ../utils.php:3141
+msgid "Unable to connect to address book directory. (LDAP bind failed)"
+msgstr ""
+"Verbindung zum Adressbuchverzeichnis konnte nicht hergestellt werden. (LDAP-"
+"Bindung fehlgeschlagen)"
+
+#: ../utils.php:3147
+#, php-format
+msgid ""
+"If you have not already done so, please\n"
+"\t\t\t\t%sread the manual%s for\n"
+"\t\t\t\tinstructions on how to configure directory\n"
+"\t\t\t\taccess."
+msgstr ""
+"Wenn Sie dies noch nicht getan haben, %slesen Sie bitte das Handbuch%s zur "
+"Anleitung zum Konfigurieren des Verzeichniszugriffs."
+
+#: ../utils.php:3464
+msgid "Your search did not match any records in the Address Book."
+msgstr "Ihre Suche entspricht keinem Datensatz im Adressbuch."
+
+#: ../utils.php:3465
+msgid "Suggestions:"
+msgstr "Vorschläge:"
+
+#: ../utils.php:3467
+msgid "Make sure that all words are spelled correctly"
+msgstr "Stellen Sie sicher, dass alle Wörter richtig geschrieben sind"
+
+#: ../utils.php:3468
+msgid "Search for different or more general keywords"
+msgstr "Suchen Sie nach anderen oder allgemeineren Stichworter"
+
+#: ../utils.php:3475
+msgid "This is an empty folder"
+msgstr "Dies ist ein leerer Ordner"
+
+#: ../utils.php:3519
+msgid "Folders"
+msgstr "Mappe"
+
+#: ../utils.php:3589 ../utils.php:4452
+msgid "unrecognised"
+msgstr "unerkannt"
+
+#: ../utils.php:3812
+msgid "GD Support"
+msgstr "GD Unterstützung"
+
+#: ../utils.php:3813
+msgid "Internationalization Support"
+msgstr "Internationalisierungsunterstützung"
+
+#: ../utils.php:3814
+msgid "LDAP Support"
+msgstr "LDAP-Unterstützung"
+
+#: ../utils.php:3815
+msgid "Multibyte String Support"
+msgstr "Multi-Byte-Zeichenfolgenunterstützung"
+
+#: ../utils.php:3828
+msgid ""
+"The following PHP extension modules must be installed and enabled in order "
+"to use the address book:"
+msgstr ""
+"Die folgenden PHP-Erweiterungsmodule müssen installiert und aktiviert sein, "
+"um das Adressbuch zu verwenden:"
+
+#: ../utils.php:3834
+msgid ""
+"Please see <em>Installation and Basic Setup</em> in the User Guide for more "
+"information."
+msgstr ""
+"Weitere Informationen finden Sie im Benutzerhandbuch unter <em>Installation "
+"und grundlegende Einrichtung</em>."
+
+#: ../utils.php:4679
+msgid "Unable connect to the directory to look up the user name."
+msgstr ""
+"Verbindung zum Verzeichnis nicht möglich, um den Benutzernamen zu suchen."
+
+#: ../utils.php:4681
+#, php-format
+msgid "Please check the %s and %s settings in the Address Book configuration."
+msgstr ""
+"Überprüfen Sie die Einstellungen für %s und %s in der "
+"Adressbuchkonfiguration."
+
+#: ../utils.php:4839
+msgid "Error"
+msgstr "Fehler"
+
+#: ../utils.php:4840
+#, php-format
+msgid "Unsupported setting merge method: %s"
+msgstr "Nicht unterstützte Methode zum Zusammenführen von Einstellungen: %s"
+
+#: ../utils.php:4997
+#, php-format
+msgid "Clear attribute '%s'"
+msgstr "Attribut '%s' löschen"
+
+#: ../utils.php:4999
+#, php-format
+msgid "Set attribute '%s' to the contents of '%s'"
+msgstr "Setze das Attribut '%s' auf den Inhalt von '%s'"
+
+#: ../utils.php:5002
+#, php-format
+msgid "Set attribute '%s' to '%s'"
+msgstr "Setzen Sie das Attribut '%s' auf '%s'"
+
+#: ../utils.php:5412
+#, php-format
+msgid "The Address Book is not able to display '%s' records"
+msgstr "Das Adressbuch kann keine '%s' Datensätze anzeigen"
+
+#: ../utils.php:6282
+#, php-format
+msgid "The Address Book's configuration file (%sconfig.php%s) is missing."
+msgstr "Die Konfigurationsdatei des Adressbuchs (%sconfig.php%s) fehlt."
+
+#: ../utils.php:6284
+#, php-format
+msgid ""
+"Please read %sInstallation and Basic Setup%s in the User Guide for "
+"instructions on how to configure a new Address Book installation."
+msgstr ""
+"Bitte lesen Sie %sInstallation und grundlegende Einrichtung%s im "
+"Benutzerhandbuch für Anweisungen zum Konfigurieren einer neuen Adressbuch-"
+"Installation."

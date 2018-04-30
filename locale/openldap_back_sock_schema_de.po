@@ -1,0 +1,90 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/back_sock.php:9
+msgid "Socket Pathname"
+msgstr "Socket-Pfadname"
+
+#: ../schema/openldap/back_sock.php:10
+msgid "Socket Extension Attributes"
+msgstr "Socket-Erweiterungsattribute"
+
+#: ../schema/openldap/back_sock.php:11
+msgid "Socket Operation Types"
+msgstr "Socket-Operationstypen"
+
+#: ../schema/openldap/back_sock.php:12
+msgid "Socket Response Types"
+msgstr "Socket-Antworttypen"
+
+#: ../schema/openldap/back_sock.php:17
+msgid "Socket Database"
+msgstr "Socket-Datenbank"
+
+#: ../schema/openldap/back_sock.php:18
+msgid "Socket Overlay"
+msgstr "Socketüberlagerung"
+
+#: ../schema/openldap/back_sock.php:23
+msgid "Socket Database Settings"
+msgstr "Socket-Datenbankeinstellungen"
+
+#: ../schema/openldap/back_sock.php:25
+msgid "Naming Context"
+msgstr "Namenskontext"
+
+#: ../schema/openldap/back_sock.php:26 ../schema/openldap/back_sock.php:49
+msgid "UNIX Domain Socket"
+msgstr "UNIX-Domänensockel"
+
+#: ../schema/openldap/back_sock.php:27 ../schema/openldap/back_sock.php:50
+msgid "Additional Meta-Attributes Sent to Socket"
+msgstr "Zusätzliche Meta-Attribute an Socket gesendet"
+
+#: ../schema/openldap/back_sock.php:28
+msgid "Maintain Last Modification Info"
+msgstr "Pflegen Sie die letzte Änderungsinformation"
+
+#: ../schema/openldap/back_sock.php:29
+msgid "Root User"
+msgstr "Root-Benutzer"
+
+#: ../schema/openldap/back_sock.php:33
+msgid "Access Controls"
+msgstr "Zugriffskontrollen"
+
+#: ../schema/openldap/back_sock.php:38
+msgid "Overlays"
+msgstr "Überlagerungen"
+
+#: ../schema/openldap/back_sock.php:46
+msgid "Socket Overlay Settings"
+msgstr "Socket-Überlagerungseinstellungen"
+
+#: ../schema/openldap/back_sock.php:48
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/back_sock.php:51
+msgid "Operation Types Sent to Socket"
+msgstr "Operationstypen an Socket gesendet"
+
+#: ../schema/openldap/back_sock.php:52
+msgid "Response Tyes Sent to Socket"
+msgstr "Antwort-Dateien, die an den Socket gesendet wurden"

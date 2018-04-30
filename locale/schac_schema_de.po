@@ -1,0 +1,146 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 16:36+0000\n"
+"PO-Revision-Date: 2018-01-05 16:36+0000\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/schac.php:12 ../schema/schac.php:60
+msgid "Preferred Language"
+msgstr "Bevorzugte Sprache"
+
+#: ../schema/schac.php:13 ../schema/schac.php:56
+msgid "Gender"
+msgstr "Geschlecht"
+
+#: ../schema/schac.php:14 ../schema/schac.php:57
+msgid "Date of Birth"
+msgstr "Geburtsdatum"
+
+#: ../schema/schac.php:15 ../schema/schac.php:58
+msgid "Place of Birth"
+msgstr "Geburtsort"
+
+#: ../schema/schac.php:16 ../schema/schac.php:59
+msgid "Country of Citizenship"
+msgstr "Staatsbürgerschaftsland"
+
+#: ../schema/schac.php:17 ../schema/schac.php:54
+msgid "First Surname"
+msgstr "Erster Vorname"
+
+#: ../schema/schac.php:18 ../schema/schac.php:55
+msgid "Second Surname"
+msgstr "Zweiter Nachname"
+
+#: ../schema/schac.php:19 ../schema/schac.php:53
+msgid "Personal Title"
+msgstr "Persönlicher Titel"
+
+#: ../schema/schac.php:20 ../schema/schac.php:68
+msgid "Home Organization Domain Name"
+msgstr "Hausorganisation Domänenname"
+
+#: ../schema/schac.php:21 ../schema/schac.php:69
+msgid "Home Organization Type"
+msgstr "Hausorganisationstyp"
+
+#: ../schema/schac.php:22 ../schema/schac.php:70
+msgid "Country of Residence"
+msgstr "Land des Wohnsitzes"
+
+#: ../schema/schac.php:23 ../schema/schac.php:71
+msgid "Presence Service URL"
+msgstr "Anwesenheitsdienst-URL"
+
+#: ../schema/schac.php:24
+msgid "Personal Position"
+msgstr "Persönliche Position"
+
+#: ../schema/schac.php:25 ../schema/schac.php:87
+msgid "Personal Unique Code"
+msgstr "Persönlicher eindeutiger Code"
+
+#: ../schema/schac.php:26 ../schema/schac.php:88
+msgid "Personal Unique ID"
+msgstr "Persönliche eindeutige ID"
+
+#: ../schema/schac.php:27
+msgid "Record Expiry Date"
+msgstr "Verfalldatum aufzeichnen"
+
+#: ../schema/schac.php:28 ../schema/schac.php:102
+msgid "Private Attributes"
+msgstr "Private Attribute"
+
+#: ../schema/schac.php:29
+msgid "User Status"
+msgstr "Benutzerstatus"
+
+#: ../schema/schac.php:30
+msgid "Project Membership"
+msgstr "Projektmitgliedschaft"
+
+#: ../schema/schac.php:31
+msgid "Project Specific Role"
+msgstr "Projektspezifische Rolle"
+
+#: ../schema/schac.php:32 ../schema/schac.php:129
+msgid "Year of Birth"
+msgstr "Geburtsjahr"
+
+#: ../schema/schac.php:37 ../schema/schac.php:66
+msgid "Contact Location"
+msgstr "Kontakt Standort"
+
+#: ../schema/schac.php:38 ../schema/schac.php:77
+msgid "Position Within Institution"
+msgstr "Position innerhalb der Institution"
+
+#: ../schema/schac.php:39
+msgid "Private Attributes List"
+msgstr "Private Attributliste"
+
+#: ../schema/schac.php:40 ../schema/schac.php:94
+msgid "Authorization Expiry Date/Time"
+msgstr "Autorisierungsablaufdatum / -zeit"
+
+#: ../schema/schac.php:41 ../schema/schac.php:127
+msgid "SCHAC Experimental Attributes"
+msgstr "SCHAC Experimentelle Attribute"
+
+#: ../schema/schac.php:42 ../schema/schac.php:118
+msgid "Project Group Membership"
+msgstr "Mitgliedschaft in Projektgruppen"
+
+#: ../schema/schac.php:43 ../schema/schac.php:85
+msgid "External Identifiers"
+msgstr "Externe Identifikatoren"
+
+#: ../schema/schac.php:44 ../schema/schac.php:51
+msgid "Personal Characteristics"
+msgstr "Persönliche Eigenschaften"
+
+#: ../schema/schac.php:45 ../schema/schac.php:110
+msgid "Authorization for Services"
+msgstr "Autorisierung für Dienste"
+
+#: ../schema/schac.php:120
+msgid "Project Name"
+msgstr "Projektname"
+
+#: ../schema/schac.php:121
+msgid "Roles Within Project"
+msgstr "Rollen innerhalb des Projekts"

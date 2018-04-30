@@ -1,0 +1,150 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/microsoft/exchange.php:10
+msgid "Query-based Distribution Group"
+msgstr "Abfragebasierte Verteilergruppe"
+
+#: ../schema/microsoft/exchange.php:11
+msgid "Exchange Organization"
+msgstr "Exchange-Organisation"
+
+#: ../schema/microsoft/exchange.php:12
+msgid "Offline Address List"
+msgstr "Offline-Adressliste"
+
+#: ../schema/microsoft/exchange.php:41
+msgid "Public Folder"
+msgstr "Öffentlicher Ordner"
+
+#: ../schema/microsoft/exchange.php:42
+msgid "Address Type"
+msgstr "Adresstyp"
+
+#: ../schema/microsoft/exchange.php:43
+msgid "Administrative Group"
+msgstr "Verwaltungsgruppe"
+
+#: ../schema/microsoft/exchange.php:44
+msgid "Routing Group"
+msgstr "Routinggruppe"
+
+#: ../schema/microsoft/exchange.php:45
+msgid "SMTP Connector"
+msgstr "SMTP-Anschluss"
+
+#: ../schema/microsoft/exchange.php:46
+msgid "Internet Message Formats"
+msgstr "Internet-Nachrichtenformate"
+
+#: ../schema/microsoft/exchange.php:47
+msgid "Wireless Carriers"
+msgstr "Drahtlose Träger"
+
+#: ../schema/microsoft/exchange.php:48
+msgid "Message Delivery Configuration"
+msgstr "Nachrichtenübermittlungskonfiguration"
+
+#: ../schema/microsoft/exchange.php:49
+msgid "Instant Messaging Global Settings"
+msgstr "Globale Instant Messaging-Einstellungen"
+
+#: ../schema/microsoft/exchange.php:50
+msgid "Advanced Security"
+msgstr "Erweiterte Sicherheit"
+
+#: ../schema/microsoft/exchange.php:52
+msgid "Exchange Server"
+msgstr "Exchange Server"
+
+#: ../schema/microsoft/exchange.php:53
+msgid "Recipient Policy"
+msgstr "Recipient Policy"
+
+#: ../schema/microsoft/exchange.php:54
+msgid "System Policy"
+msgstr "Systemrichtlinie"
+
+#: ../schema/microsoft/exchange.php:55
+msgid "Address Template"
+msgstr "Adressvorlage"
+
+#: ../schema/microsoft/exchange.php:56
+msgid "Display Template"
+msgstr "Vorlage Anzeigen"
+
+#: ../schema/microsoft/exchange.php:57
+msgid "Message Transfer Agent"
+msgstr "Nachrichtenübertragungsagent"
+
+#: ../schema/microsoft/exchange.php:58
+msgid "System Attendant"
+msgstr "Systemaufsicht"
+
+#: ../schema/microsoft/exchange.php:59
+msgid "Site Addressing"
+msgstr "Standortadressierung"
+
+#: ../schema/microsoft/exchange.php:60
+msgid "Public Folder Top Level Hierarchy"
+msgstr "Hierarchie auf oberster Ebene von Öffentlichen Ordnern"
+
+#: ../schema/microsoft/exchange.php:61
+msgid "IMAP Virtual Server"
+msgstr "Virtueller IMAP-Server"
+
+#: ../schema/microsoft/exchange.php:62
+msgid "POP Virtual Server"
+msgstr "Virtueller POP-Server"
+
+#: ../schema/microsoft/exchange.php:63
+msgid "SMTP Virtual Server"
+msgstr "Virtueller SMTP-Server"
+
+#: ../schema/microsoft/exchange.php:64
+msgid "SMTP Domains"
+msgstr "SMTP-Domänen"
+
+#: ../schema/microsoft/exchange.php:65
+msgid "SMTP Routing Sources"
+msgstr "SMTP-Routingquellen"
+
+#: ../schema/microsoft/exchange.php:66
+msgid "SMTP Sessions"
+msgstr "SMTP-Sitzungen"
+
+#: ../schema/microsoft/exchange.php:67
+msgid "Encryption Configuration"
+msgstr "Verschlüsselungskonfiguration"
+
+#: ../schema/microsoft/exchange.php:68
+msgid "Information Store"
+msgstr "Informationsspeicher"
+
+#: ../schema/microsoft/exchange.php:69
+msgid "Private Information Store"
+msgstr "Privater Informationsspeicher"
+
+#: ../schema/microsoft/exchange.php:70
+msgid "Public Information Store"
+msgstr "Öffentlicher Informationsspeicher"
+
+#: ../schema/microsoft/exchange.php:71
+msgid "Storage Group"
+msgstr "Speichergruppe"

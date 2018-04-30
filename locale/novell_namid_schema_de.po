@@ -1,0 +1,90 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/namid.php:9 ../schema/novell/namid.php:38
+msgid "Deleted GID Map"
+msgstr "Gelöschte GID-Karte"
+
+#: ../schema/novell/namid.php:10
+msgid "End GID Number"
+msgstr "Letzte GID-Nummer"
+
+#: ../schema/novell/namid.php:11 ../schema/novell/namid.php:36
+msgid "Last Assigned GID"
+msgstr "Zuletzt zugewiesene GID-Nummer"
+
+#: ../schema/novell/namid.php:12 ../schema/novell/namid.php:37
+msgid "Reuse GID Numbers"
+msgstr "Verwenden Sie GID-Nummern erneut"
+
+#: ../schema/novell/namid.php:13
+msgid "Starting GID Number"
+msgstr "Beginn der GID-Nummern"
+
+#: ../schema/novell/namid.php:15 ../schema/novell/namid.php:50
+msgid "Deleted UID Map"
+msgstr "Gelöschte UID-Karte"
+
+#: ../schema/novell/namid.php:16
+msgid "End UID Number"
+msgstr "Letzte UID-Nummer"
+
+#: ../schema/novell/namid.php:17 ../schema/novell/namid.php:48
+msgid "Last Assigned UID"
+msgstr "Zuletzt zugewiesene UID-Nummer"
+
+#: ../schema/novell/namid.php:18 ../schema/novell/namid.php:49
+msgid "Reuse UID Numbers"
+msgstr "Verwenden Sie UID-Nummern erneut"
+
+#: ../schema/novell/namid.php:19
+msgid "Starting UID Number"
+msgstr "Beginn der UID-Nummern"
+
+#: ../schema/novell/namid.php:25
+msgid "Group ID Mapping Information"
+msgstr "Informationen zur Gruppen-ID-Zuordnung"
+
+#: ../schema/novell/namid.php:26
+msgid "User ID Mapping Information"
+msgstr "Benutzer-ID-Zuordnungsinformationen"
+
+#: ../schema/novell/namid.php:32
+msgid "Group ID Mapping"
+msgstr "Gruppen-ID-Zuordnung"
+
+#: ../schema/novell/namid.php:34
+msgid "Starting GID"
+msgstr "Starten der GID"
+
+#: ../schema/novell/namid.php:35
+msgid "End GID"
+msgstr "Ende-GID"
+
+#: ../schema/novell/namid.php:44
+msgid "User ID Mapping"
+msgstr "Benutzer-ID-Zuordnung"
+
+#: ../schema/novell/namid.php:46
+msgid "Starting UID"
+msgstr "Starten der UID"
+
+#: ../schema/novell/namid.php:47
+msgid "End UID"
+msgstr "Ende-UID"

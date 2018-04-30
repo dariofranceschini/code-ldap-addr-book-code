@@ -1,0 +1,58 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/sshd.php:9
+msgid "SSHD Configuration Info"
+msgstr "SSHD Konfigurationsinfo"
+
+#: ../schema/novell/sshd.php:21
+msgid "SSH Server"
+msgstr "SSH Server"
+
+#: ../schema/novell/sshd.php:23
+msgid "Object Name"
+msgstr "Objektname"
+
+#: ../schema/novell/sshd.php:24
+msgid "Server Name"
+msgstr "Servername"
+
+#: ../schema/novell/sshd.php:25
+msgid "Server Status"
+msgstr "Server Status"
+
+#: ../schema/novell/sshd.php:26
+msgid "Server Startup"
+msgstr "Serverstart"
+
+#: ../schema/novell/sshd.php:29
+msgid "Configuration Settings"
+msgstr "Konfigurationseinstellungen"
+
+#: ../schema/novell/sshd.php:34
+msgid "Configuration Info"
+msgstr "Konfigurationsinformationen"
+
+#: ../schema/novell/sshd.php:36
+msgid "Last Modified"
+msgstr "Zuletzt bearbeitet"
+
+#: ../schema/novell/sshd.php:37
+msgid "Type Name"
+msgstr "Modellname"

@@ -1,0 +1,76 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-23 11:10+0100\n"
+"PO-Revision-Date: 2018-04-23 11:10+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/novell/apache.php:9
+msgid "Apache HTTP Server Configuration Info"
+msgstr "Apache HTTP Server Konfigurationsinformationen"
+
+#: ../schema/novell/apache.php:24
+msgid "Apache HTTP Server Configuration Block"
+msgstr "Apache HTTP Server Konfigurationsblock"
+
+#: ../schema/novell/apache.php:26 ../schema/novell/apache.php:46
+msgid "Object Name"
+msgstr "Objektname"
+
+#: ../schema/novell/apache.php:27
+msgid "Scope"
+msgstr "Umfang"
+
+#: ../schema/novell/apache.php:28
+msgid "Block Type"
+msgstr "Blocktyp"
+
+#: ../schema/novell/apache.php:31 ../schema/novell/apache.php:53
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../schema/novell/apache.php:36 ../schema/novell/apache.php:58
+#: ../schema/novell/apache.php:71
+msgid "Configuration Info"
+msgstr "Konfigurationsinformationen"
+
+#: ../schema/novell/apache.php:38 ../schema/novell/apache.php:60
+#: ../schema/novell/apache.php:73
+msgid "Type Name"
+msgstr "Modellname"
+
+#: ../schema/novell/apache.php:44
+msgid "Apache HTTP Server Module"
+msgstr "Apache HTTP-Servermodul"
+
+#: ../schema/novell/apache.php:47
+msgid "Disabled"
+msgstr "Behindert"
+
+#: ../schema/novell/apache.php:48
+msgid "File Name"
+msgstr "Dateiname"
+
+#: ../schema/novell/apache.php:49
+msgid "Object File"
+msgstr "Objektdatei"
+
+#: ../schema/novell/apache.php:50
+msgid "Symbol Name"
+msgstr "Symbol Name"
+
+#: ../schema/novell/apache.php:66
+msgid "Apache HTTP Server Configuration"
+msgstr "Apache HTTP Server Konfiguration"

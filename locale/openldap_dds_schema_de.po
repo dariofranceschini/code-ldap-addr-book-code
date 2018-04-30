@@ -1,0 +1,66 @@
+# German translations for LDAP Address Book package.
+# Copyright (C) 2018 James Turner and other contributors
+# This file is distributed under the same license as the LDAP Address Book package.
+# James Turner <james@turnersoft.co.uk>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LDAP Address Book\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-21 09:57+0100\n"
+"PO-Revision-Date: 2018-04-21 09:57+0100\n"
+"Last-Translator: James Turner <james@turnersoft.co.uk>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../schema/openldap/dds.php:9 ../schema/openldap/dds.php:27
+msgid "Enable Dynamic Directory Services"
+msgstr "Aktivieren Sie dynamische Verzeichnisdienste"
+
+#: ../schema/openldap/dds.php:11
+msgid "Entry Expiry Time"
+msgstr "Ablaufzeit des Eintrags"
+
+#: ../schema/openldap/dds.php:16
+msgid "Dynamic Directory Services Overlay"
+msgstr "Dynamische Verzeichnisdienstüberlagerung"
+
+#: ../schema/openldap/dds.php:21
+msgid "Dynamic Directory Services Overlay Settings"
+msgstr "Überlagerungseinstellungen für dynamische Verzeichnisdienste"
+
+#: ../schema/openldap/dds.php:23
+msgid "Overlay Object Name"
+msgstr "Überlagerung-Objektname"
+
+#: ../schema/openldap/dds.php:24
+msgid "Expiration Check Interval (s)"
+msgstr "Ablaufprüfungsintervall"
+
+#: ../schema/openldap/dds.php:25
+msgid "Expiration Tolerance Time"
+msgstr "Ablauf-Toleranz-Zeit"
+
+#: ../schema/openldap/dds.php:26
+msgid "Maxiumum Dynamic Objects in Naming Context"
+msgstr "Maximale dynamische Objekte im Namenskontext"
+
+#: ../schema/openldap/dds.php:30
+msgid "Object Expiry Times (Time To Live/TTL Values) in Seconds"
+msgstr "Objektauslaufzeit (Zeit zu leben / TTL-Werte) in Sekunden"
+
+#: ../schema/openldap/dds.php:32
+msgid "Default for New Dynamic Objects"
+msgstr "Standard für neue dynamische Objekte"
+
+#: ../schema/openldap/dds.php:33
+msgid "Minimum Allowed"
+msgstr "Minimum erlaubt"
+
+#: ../schema/openldap/dds.php:34
+msgid "Maximum Allowed"
+msgstr "Maximal erlaubt"
