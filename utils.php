@@ -4533,7 +4533,7 @@ class ldap_server
 				switch($this->server_type)
 				{
 					case "ad":
-						// Microsoft AD - show disabled user icon
+						// Microsoft AD - show disabled version of user/computer icon
 
 						if(isset($entry["useraccountcontrol"])
 							&& ($entry["useraccountcontrol"][0] & 2))
@@ -4543,6 +4543,9 @@ class ldap_server
 							{
 								case "user":
 									$icon = "schema/user-disabled24.png";
+									break;
+								case "computer":
+									$icon = "schema/microsoft/computer-disabled24.png";
 									break;
 								default:
 									// no change to icon for other object classes
