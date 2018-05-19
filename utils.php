@@ -4552,6 +4552,8 @@ class ldap_server
 							}
 						}
 						break;
+					default:
+						// no change to icon for other server types
 				}
 				return $icon;
 			}
