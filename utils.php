@@ -4534,10 +4534,20 @@ class ldap_server
 				{
 					case "ad":
 						// Microsoft AD - show disabled user icon
-						$object_class = $this->get_object_class($entry);
-						if($object_class == "user" && isset($entry["useraccountcontrol"]) &&
-							($entry["useraccountcontrol"][0] & 2))
-						$icon = "schema/user-disabled24.png";
+
+						if(isset($entry["useraccountcontrol"])
+							&& ($entry["useraccountcontrol"][0] & 2))
+						{
+							$object_class = $this->get_object_class($entry);
+							switch($object_class)
+							{
+								case "user":
+									$icon = "schema/user-disabled24.png";
+									break;
+								default:
+									// no change to icon for other object classes
+							}
+						}
 						break;
 				}
 				return $icon;
