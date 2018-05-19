@@ -258,6 +258,9 @@ function show_ldap_path($ldap_server,$dn,$leaf_icon = "")
 				if(!isset($rdn_list[$rdn_list_position]["display_name"]))
 					$rdn_list[$rdn_list_position]["display_name"]=$rdn_list[$rdn_list_position]["value"];
 
+				if(!$ldap_server_list[$server_id]->logged_on)
+					$ldap_server_list[$server_id]->log_on();
+
 				$search_resource = @ldap_read($ldap_server_list[$server_id]->connection,
 					$rdn_list[$rdn_list_position]["dn"],"(objectclass=*)",array("objectclass",
 					"jpegphoto","thumbnailphoto","thumbnaillogo"));
